@@ -1,0 +1,367 @@
+2021-12-09T01:24:49+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17669
+2021-12-09T01:26:28+00:00 NOTICE order_sumbit :: #17669 has a financial status of pending and was skipped.
+2021-12-09T01:36:40+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17669
+2021-12-09T01:36:42+00:00 NOTICE debug :: Order ID 17669 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+        )
+
+)
+
+2021-12-09T01:38:19+00:00 NOTICE order.member.updated :: Updated torresam.ar@gmail.com subscriber status to archived and language to 
+2021-12-09T01:38:19+00:00 NOTICE order_submit.success :: addStoreOrder :: #17669 :: email: torresam.ar@gmail.com :: landing site https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+2021-12-09T02:32:00+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id f5f745f6367eb0a5880a42e7962d6fc0
+2021-12-09T02:32:28+00:00 NOTICE abandoned_cart.success :: email: andreitamedina75@yahoo.es :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=f5f745f6367eb0a5880a42e7962d6fc0
+2021-12-09T02:32:28+00:00 NOTICE cart.member.updated :: Updated andreitamedina75@yahoo.es subscriber status to transactional and language to es
+2021-12-09T02:34:00+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17670
+2021-12-09T02:37:33+00:00 NOTICE debug :: Order ID 17670 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-admin/admin-ajax.php
+        )
+
+)
+
+2021-12-09T02:39:23+00:00 NOTICE order.member.updated :: Updated andreitamedina75@yahoo.es subscriber status to subscribed and language to es
+2021-12-09T02:39:23+00:00 NOTICE order_submit.success :: addStoreOrder :: #17670 :: email: andreitamedina75@yahoo.es :: landing site https://naturalconexion.com/wp-admin/admin-ajax.php :: abandoned cart deleted [f5f745f6367eb0a5880a42e7962d6fc0]
+2021-12-09T13:05:03+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 0b11330f66132cf01d30731cf2aa01e5
+2021-12-09T13:05:14+00:00 NOTICE abandoned_cart.success :: email: kelinv324@hotmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=0b11330f66132cf01d30731cf2aa01e5
+2021-12-09T13:05:15+00:00 NOTICE cart.member.updated :: Updated kelinv324@hotmail.com subscriber status to subscribed and language to es
+2021-12-09T13:05:34+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 0b11330f66132cf01d30731cf2aa01e5
+2021-12-09T13:05:44+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17671
+2021-12-09T13:06:34+00:00 NOTICE abandoned_cart.success :: email: kelinv324@hotmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=0b11330f66132cf01d30731cf2aa01e5
+2021-12-09T13:07:19+00:00 NOTICE order_sumbit :: #17671 has a financial status of pending and was skipped.
+2021-12-09T13:08:05+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17671
+2021-12-09T13:08:07+00:00 NOTICE debug :: Order ID 17671 was pending and is now failed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T13:10:01+00:00 NOTICE system.debug :: order 17671 is in failed status, and is being skipped for now.
+2021-12-09T13:46:29+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17672
+2021-12-09T13:48:29+00:00 NOTICE debug :: Order ID 17672 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+        )
+
+)
+
+2021-12-09T13:50:18+00:00 NOTICE order.member.updated :: Updated johagonza1995@gmail.com subscriber status to archived and language to es
+2021-12-09T13:50:18+00:00 NOTICE order_submit.success :: addStoreOrder :: #17672 :: email: johagonza1995@gmail.com :: landing site https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+2021-12-09T14:03:36+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id de98d28f3978fc90fdeae818578cb488
+2021-12-09T14:04:14+00:00 NOTICE abandoned_cart.success :: email: mariasanzgo@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=de98d28f3978fc90fdeae818578cb488
+2021-12-09T14:04:14+00:00 NOTICE cart.member.updated :: Updated mariasanzgo@gmail.com subscriber status to transactional and language to es
+2021-12-09T14:30:35+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17655
+2021-12-09T14:30:37+00:00 NOTICE debug :: Order ID 17655 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:37+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17657
+2021-12-09T14:30:39+00:00 NOTICE debug :: Order ID 17657 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:39+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17658
+2021-12-09T14:30:40+00:00 NOTICE debug :: Order ID 17658 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:40+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17659
+2021-12-09T14:30:41+00:00 NOTICE debug :: Order ID 17659 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:41+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17660
+2021-12-09T14:30:42+00:00 NOTICE debug :: Order ID 17660 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:42+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17662
+2021-12-09T14:30:43+00:00 NOTICE debug :: Order ID 17662 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:43+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17663
+2021-12-09T14:30:45+00:00 NOTICE debug :: Order ID 17663 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:45+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17665
+2021-12-09T14:30:46+00:00 NOTICE debug :: Order ID 17665 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:46+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17666
+2021-12-09T14:30:47+00:00 NOTICE debug :: Order ID 17666 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:47+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17667
+2021-12-09T14:30:48+00:00 NOTICE debug :: Order ID 17667 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:48+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17668
+2021-12-09T14:30:49+00:00 NOTICE debug :: Order ID 17668 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:49+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17669
+2021-12-09T14:30:50+00:00 NOTICE debug :: Order ID 17669 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:30:50+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17670
+2021-12-09T14:30:52+00:00 NOTICE debug :: Order ID 17670 was processing and is now completed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T14:32:15+00:00 NOTICE order.member.updated :: Updated CLAUDIA.HP@GMAIL.COM subscriber status to transactional and language to 
+2021-12-09T14:32:15+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17655 :: email: CLAUDIA.HP@GMAIL.COM
+2021-12-09T14:32:16+00:00 NOTICE order.member.updated :: Updated tarrieta28@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:16+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17657 :: email: tarrieta28@hotmail.com
+2021-12-09T14:32:18+00:00 NOTICE order.member.updated :: Updated angela.cortesc@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:18+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17658 :: email: angela.cortesc@gmail.com
+2021-12-09T14:32:19+00:00 NOTICE order.member.updated :: Updated Uribemazomelissa15@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:19+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17659 :: email: Uribemazomelissa15@gmail.com
+2021-12-09T14:32:21+00:00 NOTICE order.member.updated :: Updated daniela_5226@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:21+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17660 :: email: daniela_5226@hotmail.com
+2021-12-09T14:32:22+00:00 NOTICE order.member.updated :: Updated yarimean@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:22+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17662 :: email: yarimean@hotmail.com
+2021-12-09T14:32:24+00:00 NOTICE order.member.updated :: Updated amaveju18@gmail.com subscriber status to transactional and language to 
+2021-12-09T14:32:24+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17663 :: email: amaveju18@gmail.com
+2021-12-09T14:32:25+00:00 NOTICE order.member.updated :: Updated marbero03@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:25+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17665 :: email: marbero03@hotmail.com
+2021-12-09T14:32:26+00:00 NOTICE order.member.updated :: Updated juan.agudelo317@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:26+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17666 :: email: juan.agudelo317@gmail.com
+2021-12-09T14:32:28+00:00 NOTICE order.member.updated :: Updated fraloja16@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:28+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17667 :: email: fraloja16@gmail.com
+2021-12-09T14:32:29+00:00 NOTICE order.member.updated :: Updated marticaibm8@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:32:29+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17668 :: email: marticaibm8@gmail.com
+2021-12-09T14:32:31+00:00 NOTICE order.member.updated :: Updated torresam.ar@gmail.com subscriber status to archived and language to 
+2021-12-09T14:32:31+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17669 :: email: torresam.ar@gmail.com
+2021-12-09T14:32:32+00:00 NOTICE order.member.updated :: Updated andreitamedina75@yahoo.es subscriber status to subscribed and language to 
+2021-12-09T14:32:32+00:00 NOTICE order_submit.success :: updateStoreOrder :: #17670 :: email: andreitamedina75@yahoo.es
+2021-12-09T14:34:53+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Product starts in 5 seconds :: obj_id 7618
+2021-12-09T14:35:06+00:00 NOTICE product_submit.success :: updateStoreProduct :: #7618
+2021-12-09T14:36:49+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 52d76cb96c87c18119e672ca35f7601d
+2021-12-09T14:37:09+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17673
+2021-12-09T14:37:16+00:00 NOTICE abandoned_cart.success :: email: luismiguelmolinaruiz@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=52d76cb96c87c18119e672ca35f7601d
+2021-12-09T14:37:16+00:00 NOTICE cart.member.updated :: Updated luismiguelmolinaruiz@gmail.com subscriber status to transactional and language to es
+2021-12-09T14:38:51+00:00 NOTICE order_sumbit :: #17673 has a financial status of pending and was skipped.
+2021-12-09T14:39:30+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17673
+2021-12-09T14:39:32+00:00 NOTICE debug :: Order ID 17673 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-admin/admin-ajax.php
+        )
+
+)
+
+2021-12-09T14:42:17+00:00 NOTICE order.member.updated :: Updated luismiguelmolinaruiz@gmail.com subscriber status to subscribed and language to 
+2021-12-09T14:42:17+00:00 NOTICE order_submit.success :: addStoreOrder :: #17673 :: email: luismiguelmolinaruiz@gmail.com :: landing site https://naturalconexion.com/wp-admin/admin-ajax.php :: abandoned cart deleted [52d76cb96c87c18119e672ca35f7601d]
+2021-12-09T14:55:44+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Product starts in 5 seconds :: obj_id 7429
+2021-12-09T14:56:15+00:00 NOTICE product_submit.success :: updateStoreProduct :: #7429
+2021-12-09T15:09:46+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 97a6adf309e3def4cc089f8430eefabe
+2021-12-09T15:09:50+00:00 NOTICE abandoned_cart.success :: email: yliza118@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=97a6adf309e3def4cc089f8430eefabe
+2021-12-09T15:09:51+00:00 NOTICE cart.member.updated :: Updated yliza118@gmail.com subscriber status to transactional and language to es
+2021-12-09T15:11:11+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17674
+2021-12-09T15:13:16+00:00 NOTICE order_sumbit :: #17674 has a financial status of pending and was skipped.
+2021-12-09T15:18:12+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17674
+2021-12-09T15:18:15+00:00 NOTICE debug :: Order ID 17674 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+        )
+
+)
+
+2021-12-09T15:20:31+00:00 NOTICE order.member.updated :: Updated yliza118@gmail.com subscriber status to subscribed and language to 
+2021-12-09T15:20:31+00:00 NOTICE order_submit.success :: addStoreOrder :: #17674 :: email: yliza118@gmail.com :: landing site https://naturalconexion.com/?wc-ajax=get_refreshed_fragments :: abandoned cart deleted [97a6adf309e3def4cc089f8430eefabe]
+2021-12-09T15:26:35+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 36e5adcfb85ac0d3191ac9d6777f4f32
+2021-12-09T15:26:40+00:00 NOTICE abandoned_cart.success :: email: alme_07@hotmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=36e5adcfb85ac0d3191ac9d6777f4f32
+2021-12-09T15:26:40+00:00 NOTICE cart.member.updated :: Updated alme_07@hotmail.com subscriber status to transactional and language to es
+2021-12-09T15:27:01+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17675
+2021-12-09T15:29:03+00:00 NOTICE order_sumbit :: #17675 has a financial status of pending and was skipped.
+2021-12-09T15:29:24+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17675
+2021-12-09T15:29:27+00:00 NOTICE debug :: Order ID 17675 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+        )
+
+)
+
+2021-12-09T15:31:45+00:00 NOTICE order.member.updated :: Updated alme_07@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T15:31:45+00:00 NOTICE order_submit.success :: addStoreOrder :: #17675 :: email: alme_07@hotmail.com :: landing site https://naturalconexion.com/?wc-ajax=get_refreshed_fragments :: abandoned cart deleted [36e5adcfb85ac0d3191ac9d6777f4f32]
+2021-12-09T15:47:05+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id f5872ef9f1c89fa2f1896aece5bff5cc
+2021-12-09T15:47:35+00:00 NOTICE abandoned_cart.success :: email: nicolerosero95@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=f5872ef9f1c89fa2f1896aece5bff5cc
+2021-12-09T15:47:36+00:00 NOTICE cart.member.updated :: Updated nicolerosero95@gmail.com subscriber status to transactional and language to es
+2021-12-09T15:48:19+00:00 NOTICE ac.cart_swap :: Deleted cart [nicolerosero95@gmail.com] :: ID [f5872ef9f1c89fa2f1896aece5bff5cc]
+2021-12-09T15:48:19+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 1aa1ddb6a83e8f4e43884c1e9aae9a7d
+2021-12-09T15:48:26+00:00 NOTICE abandoned_cart.success :: email: nickyrosero@hotmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=1aa1ddb6a83e8f4e43884c1e9aae9a7d
+2021-12-09T15:48:26+00:00 NOTICE cart.member.updated :: Updated nickyrosero@hotmail.com subscriber status to subscribed and language to es
+2021-12-09T15:49:14+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17676
+2021-12-09T15:50:56+00:00 NOTICE order_sumbit :: #17676 has a financial status of pending and was skipped.
+2021-12-09T15:51:52+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17676
+2021-12-09T15:51:54+00:00 NOTICE debug :: Order ID 17676 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-admin/admin-ajax.php
+        )
+
+)
+
+2021-12-09T15:54:28+00:00 NOTICE order.member.updated :: Updated nickyrosero@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T15:54:28+00:00 NOTICE order_submit.success :: addStoreOrder :: #17676 :: email: nickyrosero@hotmail.com :: landing site https://naturalconexion.com/wp-admin/admin-ajax.php :: abandoned cart deleted [1aa1ddb6a83e8f4e43884c1e9aae9a7d]
+2021-12-09T15:57:35+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17677
+2021-12-09T15:59:26+00:00 NOTICE order_sumbit :: #17677 has a financial status of pending and was skipped.
+2021-12-09T16:00:13+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17677
+2021-12-09T16:00:16+00:00 NOTICE debug :: Order ID 17677 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+        )
+
+)
+
+2021-12-09T16:02:18+00:00 NOTICE order.member.updated :: Updated jfer.9010@hotmail.com subscriber status to subscribed and language to 
+2021-12-09T16:02:18+00:00 NOTICE order_submit.success :: addStoreOrder :: #17677 :: email: jfer.9010@hotmail.com :: landing site https://naturalconexion.com/?wc-ajax=get_refreshed_fragments
+2021-12-09T16:14:26+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 5794d1ee01cb686a2377b1b92561b49b
+2021-12-09T16:15:07+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17678
+2021-12-09T16:15:16+00:00 NOTICE abandoned_cart.success :: email: paolaflex.14@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=5794d1ee01cb686a2377b1b92561b49b
+2021-12-09T16:15:17+00:00 NOTICE cart.member.updated :: Updated paolaflex.14@gmail.com subscriber status to transactional and language to es
+2021-12-09T16:18:20+00:00 NOTICE order_sumbit :: #17678 has a financial status of pending and was skipped.
+2021-12-09T16:21:02+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17678
+2021-12-09T16:21:05+00:00 NOTICE debug :: Order ID 17678 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-admin/admin-ajax.php
+        )
+
+)
+
+2021-12-09T16:23:01+00:00 NOTICE order.member.updated :: Updated paolaflex.14@gmail.com subscriber status to subscribed and language to 
+2021-12-09T16:23:01+00:00 NOTICE order_submit.success :: addStoreOrder :: #17678 :: email: paolaflex.14@gmail.com :: landing site https://naturalconexion.com/wp-admin/admin-ajax.php :: abandoned cart deleted [5794d1ee01cb686a2377b1b92561b49b]
+2021-12-09T18:59:55+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 431981d038eb2de0d0052387a28d6ee9
+2021-12-09T19:00:23+00:00 NOTICE abandoned_cart.success :: email: naslylozano@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=431981d038eb2de0d0052387a28d6ee9
+2021-12-09T19:00:23+00:00 NOTICE cart.member.updated :: Updated naslylozano@gmail.com subscriber status to subscribed and language to es
+2021-12-09T19:02:24+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 431981d038eb2de0d0052387a28d6ee9
+2021-12-09T19:02:25+00:00 NOTICE abandoned_cart.success :: email: naslylozano@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=431981d038eb2de0d0052387a28d6ee9
+2021-12-09T19:26:23+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_User_Submit queued :: obj_id 1273
+2021-12-09T19:26:23+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17679
+2021-12-09T19:27:23+00:00 NOTICE member.sync :: Updated Member naslylozano@gmail.com ( merge fields only ) :: Array
+(
+    [merge_fields] => Array
+        (
+            [FNAME] => Nasly Viviana
+            [LNAME] => Giraldo
+        )
+
+)
+
+2021-12-09T19:28:28+00:00 NOTICE order_sumbit :: #17679 has a financial status of pending and was skipped.
+2021-12-09T19:32:01+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17679
+2021-12-09T19:32:04+00:00 NOTICE debug :: Order ID 17679 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-admin/admin-ajax.php
+        )
+
+)
+
+2021-12-09T19:34:05+00:00 NOTICE order.member.updated :: Updated naslylozano@gmail.com subscriber status to subscribed and language to 
+2021-12-09T19:34:05+00:00 NOTICE order_submit.success :: addStoreOrder :: #17679 :: email: naslylozano@gmail.com :: landing site https://naturalconexion.com/wp-admin/admin-ajax.php :: abandoned cart deleted [431981d038eb2de0d0052387a28d6ee9]
+2021-12-09T20:49:46+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17680
+2021-12-09T20:51:22+00:00 NOTICE order_sumbit :: #17680 has a financial status of pending and was skipped.
+2021-12-09T21:18:53+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id e8967ccf8f29395949fad144559fb6f1
+2021-12-09T21:19:45+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_User_Submit queued :: obj_id 1329
+2021-12-09T21:19:45+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17681
+2021-12-09T21:19:46+00:00 NOTICE abandoned_cart.success :: email: raskolnicov14@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=e8967ccf8f29395949fad144559fb6f1
+2021-12-09T21:19:46+00:00 NOTICE cart.member.updated :: Updated raskolnicov14@gmail.com subscriber status to subscribed and language to es
+2021-12-09T21:19:46+00:00 NOTICE member.sync :: Updated Member raskolnicov14@gmail.com ( merge fields only ) :: Array
+(
+    [merge_fields] => Array
+        (
+            [FNAME] => Caterine
+            [LNAME] => Ocampo Aguirre
+        )
+
+)
+
+2021-12-09T21:21:22+00:00 NOTICE order_sumbit :: #17681 has a financial status of pending and was skipped.
+2021-12-09T21:21:24+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 17681
+2021-12-09T21:21:25+00:00 NOTICE debug :: Order ID 17681 was pending and is now failed :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T21:22:16+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 16444
+2021-12-09T21:22:16+00:00 NOTICE debug :: Order ID 16444 was pending and is now cancelled :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2021-12-09T21:23:19+00:00 NOTICE system.debug :: order 17681 is in failed status, and is being skipped for now.
+2021-12-09T21:25:11+00:00 NOTICE order_sumbit :: #16444 has a financial status of cancelled and was skipped.

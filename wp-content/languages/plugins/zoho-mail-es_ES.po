@@ -1,0 +1,69 @@
+# Translation of Plugins - Zoho Mail for WordPress - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Zoho Mail for WordPress - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-01-08 12:40:38+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Zoho Mail for WordPress - Stable (latest release)\n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+msgid "Zoho Mail"
+msgstr "Zoho Mail"
+
+#. Author URI of the plugin
+msgid "https://www.zoho.com/mail/"
+msgstr "https://www.zoho.com/mail/"
+
+#. Description of the plugin
+msgid "Configure your zoho account to send email from your WordPress site"
+msgstr "Configura tu cuenta de zoho para mandar correos electrónicos desde tu sitio WordPress"
+
+#. Plugin URI of the plugin
+msgid "http://mail.zoho.com"
+msgstr "http://mail.zoho.com"
+
+#: zohoMail.php:406
+msgid "Configure Your Account."
+msgstr "Configura tu cuenta"
+
+#: zohoMail.php:394
+msgid "Send Mail"
+msgstr "Enviar correo"
+
+#: zohoMail.php:365
+msgid "Mail Sending Failed"
+msgstr "El envío del correo falló"
+
+#: zohoMail.php:363
+msgid "Mail Sent Successfully"
+msgstr "Correo enviado correctamente"
+
+#: zohoMail.php:357
+msgid "Account not Configured"
+msgstr "Cuenta no configurada"
+
+#: zohoMail.php:268
+msgid "Settings saved."
+msgstr "Ajustes guardados."
+
+#: zohoMail.php:253 zohoMail.php:354
+msgid "Reload the page again"
+msgstr "Recarga de nuevo la página"
+
+#: zohoMail.php:183
+msgid "Access Granted."
+msgstr "Acceso concedido."
+
+#: zohoMail.php:181
+msgid "Invalid From Address."
+msgstr "Dirección de remitente no válida."
+
+#: zohoMail.php:177
+msgid "Invalid Client Secret"
+msgstr "Clave secreta de cliente no válida"

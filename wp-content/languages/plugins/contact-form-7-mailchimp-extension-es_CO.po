@@ -1,0 +1,116 @@
+# Translation of Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk) in Spanish (Colombia)
+# This file is distributed under the same license as the Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-25 11:53:11+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es_CO\n"
+"Project-Id-Version: Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk)\n"
+
+#: lib/find.php:168
+msgid "Total mailchimp.com Audiences: "
+msgstr "Audiencias totales de mailchimp.com: "
+
+#: lib/parts/tanu.php:78
+msgid "Add As Unsubscribed "
+msgstr "Añadir como no suscrito"
+
+#: lib/parts/tanu.php:56
+msgid "Enable"
+msgstr "Activar"
+
+#: lib/parts/tanu.php:45
+msgid "Send more fields to Mailchimp.com"
+msgstr "Envía más campos a Mailchimp.com"
+
+#: chimpmatic-lite.php:111
+msgid "4days"
+msgstr "4 días"
+
+#: chimpmatic-lite.php:106
+msgid "5min"
+msgstr "5 minutos"
+
+#: chimpmatic-lite.php:101
+msgid "12hours"
+msgstr "12 horas"
+
+#: chimpmatic-lite.php:96
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#: chimpmatic-lite.php:91
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#: chimpmatic-lite.php:64
+msgid "ChimpMatic Settings"
+msgstr "Ajustes de ChimpMatic"
+
+#: lib/handler.php:108
+msgid "ChimpMatic Lite"
+msgstr "ChimpMatic Lite"
+
+#: lib/activate.php:191
+msgid "Dismiss this notice."
+msgstr "Descartar este aviso."
+
+#: lib/activate.php:185
+msgid "Help me develop the plugin and provide support by <br><a class=\"donate button button-primary button-hero load-customize\" href=\""
+msgstr "Ayúdame a desarrollar el plugin y proveer soporte <br><a class=\"donate button button-primary button-hero load-customize\" href=\""
+
+#: lib/activate.php:183
+msgid "<div class=\"welcome-panel-column-container\"><div class=\"welcome-panel-column\"><h3>Get Started</h3><p>Make sure it works as you expect <br><a class=\"button button-primary button-hero load-customize\" href=\"%s\">Review your settings <span alt=\"f111\" class=\"dashicons dashicons-admin-generic\" style=\"font-size: 17px;vertical-align: middle;\"> </span> </a>"
+msgstr "<div class=\"welcome-panel-column-container\"><div class=\"welcome-panel-column\"><h3>Primeros pasos</h3><p>Asegúrate de que funcione como lo esperas<br><a class=\"button button-primary button-hero load-customize\" href=\"%s\">Revisa tus ajustes<span alt=\"f111\" class=\"dashicons dashicons-admin-generic\" style=\"font-size: 17px;vertical-align: middle;\"> </span> </a>"
+
+#: lib/activate.php:181
+msgid "We worked hard to make it more reliable, faster, and now with a better Debugger, and more help documents."
+msgstr "Trabajamos duro para hacerlo más confiable, más rápido y ahora con un mejor depurador y más documentos de ayuda."
+
+#: lib/activate.php:180
+msgid "MailChimp Extension has been improved!"
+msgstr "¡MailChimp Extension ha sido menjorado!"
+
+#: lib/view.php:228
+msgid "MailChimp field name or *|MERGE|* tag "
+msgstr "Nombre del campo o etiqueta *|MERGE|* de MailChimp "
+
+#: lib/view.php:222
+msgid "Contact Form [mail-tag] "
+msgstr "Formulario de contacto [mail-tag] "
+
+#: lib/view.php:194
+msgid "MailChimp API Key:"
+msgstr "Clave API de MailChimp:"
+
+#: lib/view.php:57
+msgid "Subscriber Name - *|FNAME|* "
+msgstr "Nombre del suscriptor - *|FNAME|* "
+
+#: lib/view.php:51
+msgid "Subscriber Email: *|EMAIL|* "
+msgstr "Correo electrónico del suscriptor: *|EMAIL|* "
+
+#. Author URI of the plugin
+msgid "https://renzojohnson.com"
+msgstr "https://renzojohnson.com"
+
+#. Author of the plugin
+msgid "Renzo Johnson"
+msgstr "Renzo Johnson"
+
+#. Description of the plugin
+msgid "Integrate Contact Form 7 with Mailchimp. Automatically add form submissions to predetermined lists in Mailchimp, using its latest API."
+msgstr "Integra Contact Form 7 con Mailchimp. Añade automáticamente los envíos desde formularios a listas predeterminadas en MailChimp, usando su última API."
+
+#. Plugin URI of the plugin
+msgid "https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension"
+msgstr "https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension"
+
+#. Plugin Name of the plugin
+msgid "Contact Form 7 Extension For Mailchimp"
+msgstr "Contact Form 7 Extension For Mailchimp"

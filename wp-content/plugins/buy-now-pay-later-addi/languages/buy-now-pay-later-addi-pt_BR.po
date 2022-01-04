@@ -1,0 +1,444 @@
+# Copyright (C) 2021 Addi
+# This file is distributed under the same license as the Buy Now Pay Later - ADDI plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Buy Now Pay Later - ADDI 1.3.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/buy-now-pay-later-"
+"addi\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-12-02 10:26-0500\n"
+"PO-Revision-Date: 2021-12-02 10:26-0500\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: buy-now-pay-later-addi\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+#. Plugin Name of the plugin
+msgid "Buy Now Pay Later - ADDI"
+msgstr "Compre agora Pague depois - ADDI"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://co.addi.com/"
+msgstr "https://br.addi.com/"
+
+#. Description of the plugin
+msgid ""
+"Ofrece a tus clientes la posibilidad de comprar a cuotas lo que quieran, "
+"cuando quieran, pagando después con <strong>Addi</strong>. En minutos. SIN "
+"INTERESES. Sin complicaciones."
+msgstr ""
+"Ofereça aos seus clientes a possibilidade de parcelarem SEM JUROS o que "
+"quiserem e quando quiserem, pagando depois com <strong>Addi</strong>. "
+"Parcelamento rápido, em minutos. Como deve ser."
+
+#. Author of the plugin
+msgid "Addi"
+msgstr ""
+
+#: addi-gateway.php:719
+msgid "CPF"
+msgstr "CPF"
+
+#: addi-gateway.php:729
+msgid "Cédula"
+msgstr "CPF"
+
+#: addi-gateway.php:782
+msgctxt "Addi"
+msgid "Addi"
+msgstr ""
+
+#: addi-gateway.php:783
+msgid "Pago a cuotas - ADDI."
+msgstr "PIX parcelado - ADDI."
+
+#: addi-gateway.php:795
+msgid "Paga a cuotas"
+msgstr "PIX parcelado sem juros"
+
+#: addi-gateway.php:1209
+msgid "Tu pago no fue aprobado. Por favor, inténtalo de nuevo."
+msgstr "Seu pagamento não foi aprovado. Por favor, tente novamente."
+
+#: addi-gateway.php:1238
+msgid "Habilitar/Deshabilitar"
+msgstr "Habilitar/Desabilitar"
+
+#: addi-gateway.php:1239
+msgid "Habilitar Addi"
+msgstr ""
+
+#: addi-gateway.php:1245
+msgid "Ally slug en ADDI"
+msgstr "Ally slug em ADDI"
+
+#: addi-gateway.php:1253
+msgid "Checkout"
+msgstr ""
+
+#: addi-gateway.php:1258
+msgid "Descripción"
+msgstr "Descrição"
+
+#: addi-gateway.php:1260
+msgid "Esta descricpión es visible en el checkout."
+msgstr "Esta descrição está visível na finalização da compra."
+
+#: addi-gateway.php:1261
+msgid ""
+"<b>Finaliza tu compra con ADDI</b></br><b>Es simple, rápido y seguro</b></"
+"br><b>1.</b> Sin tarjeta de crédito y en minutos.</br><b>2.</b> Proceso 100% "
+"online y sin papeleo.</br><b>3.</b> Solo necesitas tu cédula y WhatsApp para "
+"aplicar."
+msgstr ""
+"<b>Finalize sua compra com a ADDI</b></br><b>É simples, rápido, e seguro</"
+"b></br><b>1.</b> Compre agora e parcele no PIX sem juros.</br><b>2.</b> "
+"Pague a entrada e a próxima parcela em até um mês após a compra</br><b>3.</"
+"b> Sem burocracias, sem custos ocultos e em minutos.</br><b>4.</b> Você só "
+"precisa de PIX e seu WhatsApp."
+
+#: addi-gateway.php:1265 addi-gateway.php:1270
+msgid "Información del checkout"
+msgstr "Informação de checkout"
+
+#: addi-gateway.php:1275
+msgid ""
+"Indícanos aquí el nombre con el que identificas cada uno de estos datos en "
+"tu checkout. Si no has configurado nada especial, déjalo en blanco."
+msgstr ""
+"Coloque aqui o nome com o qual você identifica cada um desses dados em seu "
+"checkout. Se você não definiu nada especial, deixe em branco."
+
+#: addi-gateway.php:1280
+msgid "Campo Nombres"
+msgstr "Campo Nomes"
+
+#: addi-gateway.php:1286
+msgid "Campo Apellidos"
+msgstr "Campo Sobrenome"
+
+#: addi-gateway.php:1292
+msgid "Campo Documento"
+msgstr "Campo do Documento"
+
+#: addi-gateway.php:1298
+msgid "Campo Dirección"
+msgstr "Campo Endereço"
+
+#: addi-gateway.php:1304
+msgid "Campo Ciudad"
+msgstr "Campo Cidade"
+
+#: addi-gateway.php:1310
+msgid "Campo Email"
+msgstr "Campo Email"
+
+#: addi-gateway.php:1316
+msgid "Campo Teléfono"
+msgstr "Campo Telefone"
+
+#: addi-gateway.php:1330
+msgid "Ambiente pruebas"
+msgstr "Ambiente de teste"
+
+#: addi-gateway.php:1331
+msgid "Habilitar ambiente de pruebas"
+msgstr "Habilitar ambiente de teste"
+
+#: addi-gateway.php:1333
+msgid "Colocar este método de pago en ambiente de pruebas."
+msgstr "Coloque este método de pagamento em um ambiente de teste."
+
+#: addi-gateway.php:1338
+msgid "Logs"
+msgstr ""
+
+#: addi-gateway.php:1339
+msgid "Habilitar Logs"
+msgstr ""
+
+#: addi-gateway.php:1349
+msgid "Página de producto"
+msgstr "Pagina do produto"
+
+#: addi-gateway.php:1354
+msgid "Widget"
+msgstr ""
+
+#: addi-gateway.php:1355
+msgid "Habilitar widget"
+msgstr ""
+
+#: addi-gateway.php:1357
+msgid "Habilitar widget ADDI en la página de producto."
+msgstr "Habilitar widget ADDI na pagina do produto."
+
+#: addi-gateway.php:1361 addi-gateway.php:1539
+msgid "Posición del widget"
+msgstr "Posição do widget"
+
+#: addi-gateway.php:1366
+msgid "Encima de título de producto"
+msgstr "Acima do título do produto"
+
+#: addi-gateway.php:1367
+msgid "Default"
+msgstr "Predefinição"
+
+#: addi-gateway.php:1368
+msgid "Encima de formulario de variaciones de precio"
+msgstr "Acima do formulário de variações de preço"
+
+#: addi-gateway.php:1369
+msgid "Encima de precio variación"
+msgstr "Acima da variação de preço"
+
+#: addi-gateway.php:1370
+msgid "Debajo de botón añadir al carrito"
+msgstr "Acima botão adicionar ao carrinho"
+
+#: addi-gateway.php:1371
+msgid "Debajo de formulario de variaciones de precio"
+msgstr "Abaixo do formulário de variações de preço"
+
+#: addi-gateway.php:1372
+msgid "Debajo de formulario de agregar producto"
+msgstr "Abaixo do formulário de adicionar produto"
+
+#: addi-gateway.php:1373
+msgid "Encima de información extra"
+msgstr "Acima das informações extras"
+
+#: addi-gateway.php:1374
+msgid "Debajo de información extra"
+msgstr "Abaixo das informações extras"
+
+#: addi-gateway.php:1375
+msgid "Encima de redes sociales"
+msgstr "Acima das redes sociais"
+
+#: addi-gateway.php:1379 addi-gateway.php:1384
+msgid "Configuración Estilos Widget"
+msgstr "Configurações de estilo Widget"
+
+#: addi-gateway.php:1389
+msgid "Color del borde"
+msgstr "Cor da borda"
+
+#: addi-gateway.php:1391
+msgid ""
+"Indica el color (palabra o código HEX) para el borde del widget de ADDI que "
+"aparece en la página de producto."
+msgstr ""
+"especifica a cor (palavra ou código HEX) da borda do widget ADDI que aparece "
+"na página do produto."
+
+#: addi-gateway.php:1396
+msgid "Curvatura del borde"
+msgstr "Curvatura da borda"
+
+#: addi-gateway.php:1398 addi-gateway.php:1515
+msgid ""
+"Indica el tamaño de la curvatura para el borde del widget de ADDI que "
+"aparece en la página de producto."
+msgstr ""
+"especifica o tamanho da curvatura da borda do widget ADDI que aparece na "
+"página do produto."
+
+#: addi-gateway.php:1403 addi-gateway.php:1464
+msgid "Color de fuente"
+msgstr "Cor da fonte"
+
+#: addi-gateway.php:1405
+msgid ""
+"Indica el color (palabra o código HEX) para la fuente del widget de ADDI que "
+"aparece en la página de producto."
+msgstr ""
+"indica a cor (palavra ou código HEX) da fonte do widget ADDI que aparece na "
+"página do produto."
+
+#: addi-gateway.php:1410
+msgid "Tipo de fuente"
+msgstr "Tipo de fonte"
+
+#: addi-gateway.php:1412
+msgid ""
+"Indica el tipo de fuente que quieres usar para el widget de ADDI que aparece "
+"en la página de producto."
+msgstr ""
+"indica o tipo de fonte que você deseja usar para o widget ADDI que aparece "
+"na página do produto."
+
+#: addi-gateway.php:1417
+msgid "Tamaño de fuente"
+msgstr "Tamanho da fonte"
+
+#: addi-gateway.php:1419
+msgid ""
+"Indica el tamaño de fuente del widget de ADDI que aparece en la página de "
+"producto."
+msgstr ""
+"indica o tamanho da fonte do widget ADDI que aparece na página do produto."
+
+#: addi-gateway.php:1424
+msgid "Color de fondo ícono ADDI"
+msgstr "Cor de fundo do ícone ADDI"
+
+#: addi-gateway.php:1426
+msgid ""
+"Indica el color del fondo del cuadro con el logo de ADDI para el widget de "
+"ADDI que aparece en la página de producto."
+msgstr ""
+"indica a cor de fundo da caixa do logotipo da ADDI para o widget ADDI que "
+"aparece na página do produto."
+
+#: addi-gateway.php:1431
+msgid "Color de fondo widget"
+msgstr "Cor de fundo do widget"
+
+#: addi-gateway.php:1433
+msgid ""
+" Indica el color del fondo del widget de ADDI que aparece en la página de "
+"producto."
+msgstr "indica a cor de fundo do widget ADDI que aparece na página do produto."
+
+#: addi-gateway.php:1438
+msgid "Margen"
+msgstr "Margem"
+
+#: addi-gateway.php:1440
+msgid ""
+"Indica el tamaño de margen para el widget de ADDI que aparece en la página "
+"de producto."
+msgstr ""
+"indica o tamanho da margem do widget ADDI que aparece na página do produto."
+
+#: addi-gateway.php:1445
+msgid "Logo ADDI en blanco"
+msgstr "Logotipo ADDI branco"
+
+#: addi-gateway.php:1452
+msgid "Configuración Estilos Modal"
+msgstr "Configurações de estilo Modal"
+
+#: addi-gateway.php:1457
+msgid "Color de fondo"
+msgstr "Cor de fundo"
+
+#: addi-gateway.php:1459
+msgid ""
+"Indica el color (palabra o código HEX) del fondo para el modal con la "
+"información de ADDI."
+msgstr ""
+"indica a cor (palavra ou código HEX) do fundo do modal com as informações "
+"ADDI."
+
+#: addi-gateway.php:1466
+msgid ""
+"Indica el color (palabra o código HEX) de la fuente para el modal con la "
+"información de ADDI."
+msgstr ""
+"indica a cor (palavra ou código HEX) da fonte do modal com as informações "
+"ADDI."
+
+#: addi-gateway.php:1471
+msgid "Color precio"
+msgstr "Cor do Preço"
+
+#: addi-gateway.php:1473
+msgid "Indica el color (palabra o código HEX) para el precio en el modal."
+msgstr "indica a cor (palavra ou código HEX) do preço no modal."
+
+#: addi-gateway.php:1478
+msgid "Color fondo banner"
+msgstr "Cor de fundo do banner"
+
+#: addi-gateway.php:1480
+msgid ""
+"Indica el color (palabra o código HEX) para el fondo del banner de tasa de "
+"interés."
+msgstr ""
+" indica a cor (palavra ou código HEX) do fundo do banner de taxa de juros."
+
+#: addi-gateway.php:1485
+msgid "Curvatura del borde banner"
+msgstr "Curvatura da borda do banner"
+
+#: addi-gateway.php:1487
+msgid ""
+"Indica el tamaño de la curvatura para el borde del banner de tasa de interés."
+msgstr "indica o tamanho da curvatura da borda do banner da taxa de juros."
+
+#: addi-gateway.php:1492
+msgid "Color fuente banner"
+msgstr "Cor da fonte do banner"
+
+#: addi-gateway.php:1494
+msgid ""
+"Indica el color (palabra o código HEX) para la fuente del banner de tasa de "
+"interés."
+msgstr ""
+"indica a cor (palavra ou código HEX) da fonte do banner da taxa de juros."
+
+#: addi-gateway.php:1499
+msgid "Color fondo modal"
+msgstr "Cor de fundo modal"
+
+#: addi-gateway.php:1501
+msgid "Indica el color (palabra o código HEX) para el fondo del modal. "
+msgstr "indica a cor (palavra ou código HEX) do fundo modal."
+
+#: addi-gateway.php:1506
+msgid "Color borde botón"
+msgstr "Cor da borda do botão"
+
+#: addi-gateway.php:1508
+msgid ""
+" Indica el color (palabra o código HEX) para el borde del botón del modal."
+msgstr "indica a cor (palavra ou código HEX) da borda do botão modal."
+
+#: addi-gateway.php:1513
+msgid "Curvatura del borde del botón"
+msgstr "Curvatura da borda do botão"
+
+#: addi-gateway.php:1520
+msgid "Color de fondo botón"
+msgstr "Cor da fundo botão"
+
+#: addi-gateway.php:1522
+msgid "Indica el color (palabra o código HEX) para el fondo del botón."
+msgstr "indica a cor (palavra ou código HEX) da fundo do botão da modal."
+
+#: addi-gateway.php:1527
+msgid "Color de fondo fuente botón"
+msgstr "Cor da fundo do fonte do botão"
+
+#: addi-gateway.php:1529
+msgid ""
+"Indica el color (palabra o código HEX) para el fondo de la fuente del botón."
+msgstr "indica a cor (palavra ou código HEX) da fundo do fonte da botão."
+
+#: addi-gateway.php:1534
+msgid "Home"
+msgstr ""
+
+#: addi-gateway.php:1554
+msgid "Tipo de Widget"
+msgstr "Tipo do widget"
+
+#: addi-gateway.php:1566
+msgid "Widget en el Home"
+msgstr "Widget no home"
+
+#: addi-gateway.php:1567
+msgid "Habilitar widget en el home"
+msgstr "Habilitar widget no home"
+
+#: addi-gateway.php:2118 addi-gateway.php:2125 addi-gateway.php:2133
+msgid "Error procesando el pedido. Por favor, inténtalo de nuevo."
+msgstr "Erro ao processar o pedido. Por favor, tente novamente."

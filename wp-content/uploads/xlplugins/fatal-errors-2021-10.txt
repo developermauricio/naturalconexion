@@ -1,0 +1,85 @@
+
+Oct 14, 2021 16.57.42: Uncaught RuntimeException: Error al guardar la acción: Error de la base de datos. in /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php:85
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(177): ActionScheduler_DBStore->save_action()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(84): ActionScheduler_ActionFactory->store()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/packages/action-scheduler/functions.php(36): ActionScheduler_ActionFactory->single()
+#3 /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/queue/class-wc-action-queue.php(44): as_schedule_single_action()
+#4 /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/queue/class-wc-action-queue.php(31): WC_Action_Queue->schedule
+
+Oct 27, 2021 17.30.21: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(279): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(30): EgoiApiV3->getSenders()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(89): CampaignWidget->get_email_senders()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.32.14: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(215): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(668): EgoiApiV3->getWebPushSites()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(110): CampaignWidget->get_webpush_info()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.34.24: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(215): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(668): EgoiApiV3->getWebPushSites()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(110): CampaignWidget->get_webpush_info()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.34.34: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(215): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(668): EgoiApiV3->getWebPushSites()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(110): CampaignWidget->get_webpush_info()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.35.04: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(279): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(30): EgoiApiV3->getSenders()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(89): CampaignWidget->get_email_senders()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.38.08: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(279): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(30): EgoiApiV3->getSenders()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(89): CampaignWidget->get_email_senders()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown
+
+Oct 27, 2021 17.43.56: Uncaught Error: Cannot use object of type WP_Error as array in /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php:768
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/class-egoi-for-wp-apiv3.php(215): ClientHttp->__construct()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(668): EgoiApiV3->getWebPushSites()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/smart-marketing-for-wp-V.3.7.11/includes/campaignwidget/campaign-widget.php(110): CampaignWidget->get_webpush_info()
+#3 /home/forge/naturalconexion.com/wp-admin/includes/template.php(1389): CampaignWidget->email_campaign_widget_display_meta_box()
+#4 /home/forge/naturalconexion.com/wp-admin/edit-form-advanced.php(681): do_meta_boxes()
+#5 /home/forge/naturalconexion.com/wp-admin/post.php(206): require('/home/forge/nat...')
+#6 {main}
+  thrown

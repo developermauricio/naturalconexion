@@ -1,0 +1,300 @@
+/*.woocommerce_page_woo_email_customizer_page_builder #adminmenumain,*/
+/*.woocommerce_page_woo_email_customizer_page_builder #wpbody,*/
+.woocommerce_page_woo_email_customizer_page_builder {
+	overflow: hidden;
+}
+.woocommerce_page_woo_email_customizer_page_builder #wpfooter {
+	display: none;
+}
+.woocommerce_page_woo_email_customizer_page_builder #wpcontent {
+	padding: 0!important;
+	overflow: hidden;
+	height: 100vh;
+}
+.woocommerce_page_woo_email_customizer_page_builder .alertify-logs,
+.woocommerce_page_woo_email_customizer_page_builder .alertify {
+	z-index: 9999;
+}
+.woocommerce_page_woo_email_customizer_page_builder #email-builder select {
+	max-width: 150px;
+}
+.woocommerce_page_woo_email_customizer_page_builder .email-builder-header-actions a.md-btn-mini {
+	margin-right: 2px;
+	padding: 2px 6px;
+	height: 28px;
+	margin-top: 1px;
+}
+.woocommerce_page_woo_email_customizer_page_builder .email-builder-header-actions a.md-btn-mini i {
+	margin-top: 3px;
+}
+
+#openModal.modal {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	top: 0;
+	overflow: hidden;
+}
+
+#openModal.modal .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(63,63,63,0.79);
+}
+
+#openModal.modal .content {
+	position: absolute;
+	top: 50%;
+	max-height: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: auto;
+	padding: 0 1rem 1rem 1rem;
+	background-color: white;
+}
+
+#openModal.modal .content h3 {
+	margin: 0 -1rem;
+	padding: 1rem;
+	position: sticky;
+	top: 0;
+	background-color: white;
+	box-shadow: 0px 1px 2px 0px rgba(204, 204, 204, 0.5);
+}
+
+#openModal.modal .content h3 .close {
+	float: right;
+	text-decoration: none;
+	color: rgba(63,63,63,0.79);
+}
+
+#openModal.modal .content .codes-title {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#openModal.modal .content tr:not(:first-child) .codes-title {
+	padding: 1rem 0 .1rem;
+}
+#openModal.modal .content tr td:not(.codes-title):first-child {
+	user-select: all;
+}
+
+.elements-list .md-list-addon-element .actions {
+	cursor: pointer;
+}
+.hide {
+	display: none;
+}
+#email-builder-settings{
+	margin: 20px
+}
+.email-builder-settings-option span.label {
+	padding: 0 10px;
+}
+.woombtrl-icon-picture:before {
+	font-size: 27px;
+	margin-left: -.2em;
+}
+.block-properties .form-row {
+	margin: 1em 0;
+}
+.block-properties .form-row .md-input-filled {
+	margin-top: 2em;
+}
+.block-properties .form-row select {
+	padding: 0;
+	max-width: 220px!important;
+}
+.email-builder_hint_order {
+	display: inline-block;
+	margin: 5px 0 0 0;
+	padding: 5px;
+}
+.email-builder-settings_fields {
+	margin: 5px 0;
+	display: block;
+	padding: 5px 0;
+}
+#settings_custom_css {
+	min-width: 300px;
+	min-height: 150px;
+}
+.email-builder-settings_fields .settings-label {
+	font-weight: bold;
+}
+.copy_template_span{
+	display: inline-block;
+	cursor: pointer;
+	font-size: small;
+}
+.copy_template_container{
+	margin: 20px 0;
+}
+#email-builder-settings {
+	overflow-y: auto;
+}
+#email-builder .woocommerce-help-tip{
+	height: 22px;
+	width: 22px;
+	font-size: 1.4em;
+}
+.woo_email_customizer_settings_con{
+	margin: 10px 20px;
+	display: block;
+	overflow-y: auto;
+	height: 100%;
+}
+.woo_email_customizer_settings_con .nav-tabs>li.active>a,
+.woo_email_customizer_settings_con .nav-tabs>li.active>a:focus,
+.woo_email_customizer_settings_con .nav-tabs>li.active>a:hover {
+	color: #555;
+	cursor: default;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+.woo_email_customizer_settings_con .nav-tabs>li>a {
+	margin-right: 2px;
+	line-height: 1.42857143;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
+}
+.woo_email_customizer_settings_con .nav>li>a {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+.woo_email_customizer_settings_con .nav-tabs>li {
+	display: inline-block;
+	margin: 0;
+}
+.woo_email_customizer_settings_con .nav-tabs {
+	border-bottom: 1px solid #ddd;
+}
+.woo_email_customizer_settings_con .nav {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+.woo_email_customizer_settings_con .nav-container{
+	margin: 10px 0;
+}
+.woo_email_content_edit_toggle{
+	bottom: 15px;
+	position: relative;
+	right: 16px;
+}
+#woo-mail-settings_toggle .tab-pane{
+	display: none;
+}
+#woo-mail-settings_toggle .tab-pane.active{
+	display: block;
+}
+.email-builder-settings-option_template_con .email-builder-settings_fields .settings-label{
+	display: inline-block;
+	min-width: 250px;
+}
+span.default_lang_text{
+	font-size: 10px;
+	display: block;
+	color: grey;
+}
+#builder_el_o_image_url{
+	margin-top: 30px;
+}
+.builder_el_o_image_url_label_span{
+	display: block;
+}
+.builder_el_o_image_url_label_span_hint{
+	font-size: 10px;
+	color: grey;
+}
+.wem_coupon_con_identifier {
+	display: none;
+}
+.email-builder-header-actions-con{
+	display: flex;
+}
+.email-builder-header-banner {
+	padding: 10px 15px;
+	background: #fff;
+	color: #333;
+	box-shadow: 0 7px 14px 0 rgba(59,65,94, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07);
+	border-radius: 0;
+	margin-bottom: 15px;
+	display: flex;
+    align-items: center;
+	border-left: 4px solid #F27052;
+	position: relative;
+	flex-wrap: wrap;
+}
+.email-builder-header-banner .icon-box-style i{
+    background: linear-gradient(to bottom right, #385FF7 30%, #7E6AFC 70%);
+    color: #fff;
+    text-align: center;
+    float: left;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+.email-builder-header-banner h2{
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.33;
+	margin: 0;
+}
+.email-builder-header-banner .woo_email_customizer_action{
+	flex-basis: 15%;
+	text-align: center;
+}
+.email-builder-header-banner .woo_email_customizer_action .button-primary{
+	background: #F27052;
+    border: 1px solid #F27052;
+    padding: 3px 15px;
+    height: auto;
+    text-transform: capitalize;
+    font-size: 13px;
+	line-height: 26px;
+    text-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    margin: 0;
+}
+.email-builder-header-banner .woo_email_customizer_action .button-primary:hover{
+	background: #f25939;
+	color: #fff;
+    border-color: #f25939;
+}
+.email-builder-header-actions-2 {
+	 margin-top: 18px;
+}
+
+@media (max-width: 1000px) {
+	.email-builder-header-banner .woo_email_customizer_action{
+		text-align: left;
+	}
+	.email-builder-header-banner .woo_email_customizer_action .button-primary{
+		margin: 10px 0 0;
+	}
+}
+.email-builder-header-banner a.woo_email_customizer-message-close {
+	text-decoration: none;
+	display: flex;
+	padding-top: 2px;
+}
+.md-btn-connect{
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.woocommerce_page_woo_email_customizer_page_builder #adminmenuwrap{
+	height: 94vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}

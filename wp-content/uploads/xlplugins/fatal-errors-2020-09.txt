@@ -1,0 +1,24 @@
+
+Sep 29, 2020 04.41.58: Uncaught Exception: Pedido no válido. in /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:105
+Stack trace:
+#0 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(112): WC_Data_Store->read(Object(WC_Order))
+#2 /home/naturalconexion/public_html/wp-content/plugins/woocommerce-payu-latam/confirmation.php(54): WC_Abstract_Order->__construct('11137')
+#3 {main}
+  thrown
+
+Sep 29, 2020 04.42.49: Uncaught Exception: Pedido no válido. in /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:105
+Stack trace:
+#0 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(112): WC_Data_Store->read(Object(WC_Order))
+#2 /home/naturalconexion/public_html/wp-content/plugins/woocommerce-payu-latam/confirmation.php(54): WC_Abstract_Order->__construct('11152')
+#3 {main}
+  thrown
+
+Sep 29, 2020 04.42.57: Uncaught Exception: Pedido no válido. in /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:105
+Stack trace:
+#0 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 /home/naturalconexion/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(112): WC_Data_Store->read(Object(WC_Order))
+#2 /home/naturalconexion/public_html/wp-content/plugins/woocommerce-payu-latam/confirmation.php(54): WC_Abstract_Order->__construct('11130')
+#3 {main}
+  thrown

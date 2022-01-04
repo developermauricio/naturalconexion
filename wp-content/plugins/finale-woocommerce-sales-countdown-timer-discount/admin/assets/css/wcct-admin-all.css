@@ -1,0 +1,2 @@
+@font-face{font-family:'xlcore';src:url(../fonts/xlcore.eot?yjfmpn);src:url(../fonts/xlcore.eot?yjfmpn#iefix) format("embedded-opentype"),url(../fonts/xlcore.ttf?yjfmpn) format("truetype"),url(../fonts/xlcore.woff?yjfmpn) format("woff"),url(../fonts/xlcore.svg?yjfmpn#xlcore) format("svg");font-weight:400;font-style:normal}
+#adminmenu .wp-has-submenu.toplevel_page_xlplugins .wp-menu-image:before{font-family:'xlcore' !important;content:"\e900";font-size:12px;padding:11px 0 0 0}

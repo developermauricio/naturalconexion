@@ -1,0 +1,493 @@
+/* wc countdown timer styles */
+.wcct_pl5 {
+    padding-left: 5px
+}
+
+.wcct_pl10 {
+    padding-left: 10px
+}
+
+.wcct_pr5 {
+    padding-right: 5px
+}
+
+.wcct_pr10 {
+    padding-right: 10px
+}
+
+.wcct_countdown_timer {
+    margin-bottom: 0;
+    display: inline-block
+}
+
+.cart_totals .wcct_countdown_timer {
+    display: block
+}
+
+.wcct_countdown_timer * {
+    font-family: arial, sans-serif
+}
+
+.wcct_countdown_timer p:empty, .wcct_counter_bar p:empty {
+    display: none
+}
+
+.wcct_countdown_timer .wcct_border_none {
+    border-color: transparent !important;
+}
+
+.wcct_timer_wrap {
+    display: inline-block;
+    margin-bottom: 10px
+}
+
+.wcct_table {
+    display: table;
+    height: 100%;
+    width: 100%
+}
+
+.wcct_table_cell {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.wcct_countdown_timer .wcct_table_cell {
+    font-size: 12px;
+    line-height: 1.5;
+    vertical-align: top
+}
+
+.wcct_colon_sep {
+    padding: 0 0 0 10px;
+}
+
+.wcct_countdown_round_fill:after {
+    display: table;
+    content: '';
+    clear: both
+}
+
+.wcct_countdown_round_fill .wcct_timer_wrap * {
+    font-family: arial, sans-serif;
+    text-align: center
+}
+
+.wcct_countdown_round_fill .wcct_timer_wrap .wcct_round_wrap {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    float: left;
+    margin: 0 5px;
+    text-align: center
+}
+
+.wcct_countdown_round_fill .wcct_timer_wrap .wcct_round_wrap span {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 1.2
+}
+
+.wcct_countdown_round_ghost:after {
+    display: table;
+    content: '';
+    clear: both
+}
+
+.wcct_countdown_round_ghost .wcct_timer_wrap * {
+    font-family: arial, sans-serif;
+    text-align: center
+}
+
+.wcct_countdown_round_ghost .wcct_timer_wrap .wcct_round_wrap {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    color: #000;
+    float: left;
+    margin: 0 5px;
+    text-align: center
+}
+
+.wcct_countdown_round_ghost .wcct_timer_wrap .wcct_round_wrap span {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 1.2
+}
+
+.wcct_countdown_square_fill:after {
+    display: table;
+    content: '';
+    clear: both
+}
+
+.wcct_countdown_square_fill .wcct_timer_wrap * {
+    font-family: arial, sans-serif;
+    text-align: center
+}
+
+.wcct_countdown_square_fill .wcct_timer_wrap .wcct_square_wrap {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    float: left;
+    margin: 0 5px;
+    text-align: center
+}
+
+.wcct_countdown_square_fill .wcct_timer_wrap .wcct_square_wrap span {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 1.2
+}
+
+.wcct_countdown_square_ghost:after {
+    display: table;
+    content: '';
+    clear: both
+}
+
+.wcct_countdown_square_ghost .wcct_timer_wrap * {
+    font-family: arial, sans-serif;
+    text-align: center
+}
+
+.wcct_countdown_square_ghost .wcct_timer_wrap .wcct_square_wrap {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    color: #000;
+    float: left;
+    margin: 0 5px;
+    text-align: center
+}
+
+.wcct_countdown_square_ghost .wcct_timer_wrap .wcct_square_wrap span {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 1.2
+}
+
+.wcct_countdown_highlight_1:after {
+    display: table;
+    content: '';
+    clear: both
+}
+
+.wcct_countdown_highlight_1 .wcct_timer_wrap {
+    font-family: arial, sans-serif;
+    margin-bottom: 5px
+}
+
+.wcct_countdown_highlight_1 .wcct_timer_wrap .wcct_highlight_1_wrap {
+    color: #000;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.2
+}
+
+.wcct_countdown_highlight_1 .wcct_timer_wrap .wcct_highlight_1_wrap span {
+    display: block;
+    margin: 0 auto;
+    font-size: 25px;
+    display: inline-block
+}
+
+.wcct_countdown_highlight_1[data-type="single"] .wcct_timer_wrap .wcct_highlight_1_wrap {
+    padding: 0 5px
+}
+
+.wcct_countdown_highlight_1[data-type="single"] .wcct_timer_wrap .wcct_highlight_1_wrap .wcct_colon_sep {
+    padding: 0 0 0 10px
+}
+
+.wcct_countdown_timer.wcct_countdown_square_ghost .wcct_wrap_border, .wcct_countdown_timer.wcct_countdown_round_ghost .wcct_wrap_border {
+    border: 2px solid #000000;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px
+}
+
+.wcct_countdown_timer.wcct_countdown_square_fill .wcct_wrap_border, .wcct_countdown_timer.wcct_countdown_round_fill .wcct_wrap_border {
+    border: 4px solid #000000;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.wcct_countdown_timer.wcct_countdown_round_fill .wcct_wrap_border, .wcct_countdown_timer.wcct_countdown_round_ghost .wcct_wrap_border {
+    border-radius: 50%
+}
+
+.wcct_timer_wrap .wcct_round_wrap:first-child, .wcct_timer_wrap .wcct_square_wrap:first-child, .wcct_timer_wrap .wcct_highlight_1_wrap:first-child {
+    margin-left: 0
+}
+
+.wcct_timer_wrap .wcct_round_wrap:last-child, .wcct_timer_wrap .wcct_square_wrap:last-child, .wcct_timer_wrap .wcct_highlight_1_wrap:last-child {
+    margin-right: 0
+}
+
+.wcct_countdown_timer[data-type="single"] p, .wcct_counter_bar[data-type="single"] p {
+    font-family: inherit;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 10px
+}
+
+.wcct_countdown_timer[data-type="single"] p:last-child, .wcct_counter_bar[data-type="single"] p:last-child {
+    margin-bottom: 0
+}
+
+.wcct_countdown_timer[data-type="single"] p span {
+    color: #ee303c;
+}
+
+.wcct_countdown_timer[data-type="single"], .wcct_counter_bar[data-type="single"] {
+    margin-bottom: 10px
+}
+
+.wcct_countdown_timer[data-type="grid"] p, .wcct_counter_bar[data-type="grid"] p {
+    font-family: verdana, sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.wcct_countdown_timer.wcct_countdown_default {
+    display: block
+}
+
+.wcct_countdown_timer.wcct_countdown_default .wcct_timer_wrap {
+    display: inline;
+    font-family: inherit
+}
+
+.wcct_counter_bar {
+    display: none;
+    margin-bottom: 0
+}
+
+.wcct_progress_aria {
+    overflow: hidden;
+    height: 16px;
+    max-width: 320px;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1)
+}
+
+.wcct_progress_aria .wcct_progress_bar {
+    width: 0;
+    height: 100%;
+    background-color: #ee303c;
+    -moz-transition: ease-in-out 1s all;
+    -webkit-transition: ease-in-out 1s all;
+    transition: ease-in-out 1s all;
+    -o-transition: ease-in-out 1s all;
+    -ms-transition: ease-in-out 1s all
+}
+
+.wcct_progress_aria .wcct_progress_bar.wcct_bar_orientation_rtl {
+    width: 100%
+}
+
+.wcct_bar_stripe .wcct_progress_bar {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px
+}
+
+.wcct_bar_stripe.wcct_bar_stripe_animate .wcct_progress_bar {
+    -webkit-animation: wcct-progress-bar-stripes 2s linear infinite;
+    animation: wcct-progress-bar-stripes 2s linear infinite;
+    -moz-animation: wcct-progress-bar-stripes 2s linear infinite
+}
+
+.wcct_bar_edge_smooth {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px
+}
+
+.wcct_counter_timer_expiry p {
+    border: 1px solid #ccc;
+    padding: 5px
+}
+
+.wcct_timer.wcct_countdown_default .wcct_timer_wrap {
+    padding: 0
+}
+
+.wcct_animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.wcct_custom_text {
+    margin-bottom: 10px;
+    display: inline-block
+}
+
+.wcct_custom_text p:last-child {
+    margin-bottom: 0
+}
+
+@-webkit-keyframes wcctEffectPulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+    50% {
+        -webkit-transform: scale3d(1.04, 1.04, 1.04);
+        transform: scale3d(1.04, 1.04, 1.04)
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+@keyframes wcctEffectPulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+    50% {
+        -webkit-transform: scale3d(1.04, 1.04, 1.04);
+        transform: scale3d(1.04, 1.04, 1.04)
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+.wcct_pulse {
+    -webkit-animation-name: pulse;
+    animation-name: wcctEffectPulse
+}
+
+@-webkit-keyframes wcct-progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@-o-keyframes wcct-progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@keyframes wcct-progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@media (max-width: 991px) {
+    .wcct_countdown_round_fill .wcct_timer_wrap .wcct_round_wrap, .wcct_countdown_round_ghost .wcct_timer_wrap .wcct_round_wrap, .wcct_countdown_square_ghost .wcct_timer_wrap .wcct_square_wrap, .wcct_countdown_square_fill .wcct_timer_wrap .wcct_square_wrap {
+        width: 50px;
+        height: 50px;
+        margin: 0 2px
+    }
+
+    .wcct_countdown_round_ghost .wcct_timer_wrap .wcct_round_wrap {
+        border-width: 1px
+    }
+
+    .wcct_table_cell {
+        font-size: 9px
+    }
+
+    .wcct_countdown_highlight_1 .wcct_timer_wrap .wcct_highlight_1_wrap {
+        margin: 0 2px;
+        font-size: 13px
+    }
+
+    .wcct_countdown_highlight_1 .wcct_timer_wrap .wcct_highlight_1_wrap span {
+        font-size: 20px
+    }
+
+    .wcct_countdown_highlight_1 .wcct_timer_wrap .wcct_highlight_1_wrap span.wcct_pl10 {
+        padding-left: 5px
+    }
+}
+
+.wcct_admin_page_node .ab-sub-wrapper .ab-submenu li span.ab-item {
+    padding: 0px 10px 0px 10px !important;
+}
+
+.wcct_admin_page_node .ab-sub-wrapper .ab-submenu li span.ab-item a {
+    display: inline-block !important;
+    padding: 0px !important;
+    text-decoration: underline !important;
+}
+
+li.wcct_admin_page_node > .ab-item {
+    background: #0073aa !important;
+    color: #fff !important;
+}
+
+ul#wp-admin-bar-wcct_admin_page_node-default {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+ul#wp-admin-bar-wcct_admin_page_node-default > li {
+    width: 270px;
+    padding: 0 10px;
+}
+
+ul#wp-admin-bar-wcct_admin_page_node-default > li > span {
+    height: auto !important;
+    white-space: initial !important;
+    padding: 0 !important;
+    line-height: 19px !important;
+}
+
+body.single-product li.wcct_admin_page_node .ab-sub-wrapper:before {
+    content: "Finale Campaigns Details";
+    padding: 0 10px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+

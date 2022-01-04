@@ -1,0 +1,746 @@
+# Copyright (C) 2021 iconic-woo-sales-booster
+# This file is distributed under the same license as the iconic-woo-sales-booster package.
+msgid ""
+msgstr ""
+"Project-Id-Version: iconic-woo-sales-booster\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: iconic-woo-sales-booster.php:141
+msgid "Sales Booster for WooCommerce"
+msgstr ""
+
+#: iconic-woo-sales-booster.php:143
+msgid "Settings"
+msgstr ""
+
+#: inc/class-assets.php:41
+msgid "Please Try Again"
+msgstr ""
+
+#: inc/class-assets.php:42
+msgid "Added to Cart"
+msgstr ""
+
+#: inc/class-assets.php:43, templates/frontend/order-bump/product/bump-products.php:144
+msgid "Add Selected to Cart"
+msgstr ""
+
+#: inc/class-assets.php:44
+msgid "Please select a variation before adding the selected products to your cart."
+msgstr ""
+
+#. translators: Product title.
+#: inc/class-cart.php:88
+msgid "Sorry, '%s' could not be added to your cart."
+msgstr ""
+
+#: inc/class-cart.php:93
+msgid "All products were added to your cart."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:78
+msgid "Display individual product variations of a variable product in your product listings. Make it easy for your customers to view and filter product variations."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:93
+msgid "Enable zoom, sliders, video, fullscreen, multiple images per variation, and customisable layout options for your product imagery."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:108
+msgid "Choose a delivery date and time for each order. Add a limit to the number of allowed reservations, restrict time slots to specific delivery methods, and so much more."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:123
+msgid "Link a group of WooCommerce products together by their attributes; a new way to handle product variations."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:138
+msgid "Use transparent image layers for your variable products, removing the need to create hundreds of final product variation images."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:153
+msgid "A modern take on quick view for WooCommerce; expand product details within your product listings for a convenient shopping experience."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:164
+msgid "Add and manage pages in your WooCommerce \"My Account\" area using the native WordPress \"Pages\" functionality."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:175
+msgid "Quickly view any product from the catalog, without reloading the page. Encourage sales with easy and efficient product browsing."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:190
+msgid "Bored of the standard dropdown fields when viewing a variable product? Turn them into colour, image, or text swatches!"
+msgstr ""
+
+#: inc/class-core-cross-sells.php:205
+msgid "Easily add custom fields to your product variations; the perfect way to display organised additional product data to your customers."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:216
+msgid "Bundle a selection of products on a single product page. It even works with variable products!"
+msgstr ""
+
+#: inc/class-core-cross-sells.php:227
+msgid "Use proven cross-selling techniques to increase the average order value of your store."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:238
+msgid "Prevent abandoned carts with a slick multi-step checkout experience, designed for your customer’s device."
+msgstr ""
+
+#: inc/class-core-cross-sells.php:313
+msgid "Learn More"
+msgstr ""
+
+#: inc/class-core-cross-sells.php:322
+msgid "View All Iconic Plugins"
+msgstr ""
+
+#: inc/class-core-cross-sells.php:327
+msgid "Trusted by over 10,000 WooCommerce Businesses and Online Shops"
+msgstr ""
+
+#: inc/class-core-licence.php:184
+msgid "Back to Settings"
+msgstr ""
+
+#: inc/class-core-licence.php:210
+msgid "Changelog"
+msgstr ""
+
+#: inc/class-core-licence.php:221
+msgid "Manage Licence &amp; Billing"
+msgstr ""
+
+#: inc/class-core-settings.php:337
+msgid "Thank you for choosing Iconic. We've put together some useful links to help you get started:"
+msgstr ""
+
+#: inc/class-core-settings.php:342
+msgid "Need some help?"
+msgstr ""
+
+#. translators: Documentation URL.
+#: inc/class-core-settings.php:346
+msgid "Take a look at our <a href=\"%s?utm_source=Iconic&utm_medium=Plugin&utm_campaign=iconic-wsb&utm_content=need-some-help\" target=\"_blank\">troubleshooting documentation</a>."
+msgstr ""
+
+#: inc/class-core-settings.php:350
+msgid "There is a permanent link to the plugin documentation in the \"Support\" section below."
+msgstr ""
+
+#: inc/class-core-settings.php:425
+msgid "Getting Started"
+msgstr ""
+
+#: inc/class-core-settings.php:469
+msgid "Dashboard"
+msgstr ""
+
+#: inc/class-core-settings.php:476
+msgid "License &amp; Account Settings"
+msgstr ""
+
+#: inc/class-core-settings.php:482
+msgid "License &amp; Billing"
+msgstr ""
+
+#: inc/class-core-settings.php:483
+msgid "Activate or sync your license, cancel your subscription, print invoices, and manage your account information."
+msgstr ""
+
+#: inc/class-core-settings.php:489
+msgid "Your Account"
+msgstr ""
+
+#: inc/class-core-settings.php:490
+msgid "Manage all of your Iconic plugins, supscriptions, renewals, and more."
+msgstr ""
+
+#: inc/class-core-settings.php:502, inc/class-core-settings.php:508
+msgid "Support"
+msgstr ""
+
+#: inc/class-core-settings.php:509
+msgid "Get premium support with a valid license."
+msgstr ""
+
+#: inc/class-core-settings.php:515
+msgid "Documentation"
+msgstr ""
+
+#: inc/class-core-settings.php:516
+msgid "Read the plugin documentation."
+msgstr ""
+
+#: inc/class-core-settings.php:863
+msgid "Submit Ticket"
+msgstr ""
+
+#: inc/class-core-settings.php:872
+msgid "Read Documentation"
+msgstr ""
+
+#: inc/class-core-settings.php:881
+msgid "Manage Your Account"
+msgstr ""
+
+#: inc/class-order-bump.php:66, inc/class-order-bump.php:66, inc/class-order-bump.php:87
+msgid "Sales Booster"
+msgstr ""
+
+#: inc/class-settings.php:45
+msgid "Design"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:142
+msgid "Show Progress Bar"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:144
+msgid "Bump Title"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:146
+msgid "Bump Subtitle"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:148, templates/admin/order-bump/checkout/after-checkout/steps/customization.php:57
+msgid "Product Intro"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:150, templates/admin/order-bump/checkout/after-checkout/steps/customization.php:69
+msgid "Product Benefits"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:152, templates/admin/order-bump/checkout/after-checkout/steps/customization.php:108
+msgid "Button Text"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:154, templates/admin/order-bump/checkout/after-checkout/steps/customization.php:95
+msgid "Skip Text"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:164
+msgid "After Checkout Cross-Sells"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:165
+msgid "After Checkout Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:166, inc/checkout/class-order-bump-at-checkout-manager.php:190
+msgid "Add New"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:167
+msgid "Add New Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:168
+msgid "Edit Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:169
+msgid "New Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:170
+msgid "View Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:171
+msgid "Find Cross-Sell"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:172
+msgid "No cross-sells were found."
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:173, inc/checkout/class-order-bump-at-checkout-manager.php:197
+msgid "Not found in trash"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:174
+msgid "After Checkout"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:211, inc/checkout/class-order-bump-at-checkout-manager.php:235
+msgid "Product(s)"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:215, inc/checkout/class-order-bump-at-checkout-manager.php:239
+msgid "Offer"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:219, inc/checkout/class-order-bump-at-checkout-manager.php:243
+msgid "Customize"
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:267
+msgid "Cross-Sell Updated."
+msgstr ""
+
+#: inc/checkout/class-order-bump-after-checkout-manager.php:268
+msgid "Cross-Sell Created."
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:51
+msgid "Clicks"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:172
+msgid "Checkbox text"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:174
+msgid "Bump description"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:176
+msgid "Attachment"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:178
+msgid "Render settings"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:188
+msgid "Checkout Order Bumps"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:189
+msgid "Checkout Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:191
+msgid "Add New Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:192
+msgid "Edit Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:193
+msgid "New Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:194
+msgid "View Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:195
+msgid "Find Order Bump"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:196
+msgid "No order bumps were found."
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:198
+msgid "Order Bumps"
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:292
+msgid "Order Bump Updated."
+msgstr ""
+
+#: inc/checkout/class-order-bump-at-checkout-manager.php:293
+msgid "Order Bump Created."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:25, inc/product-page/class-order-bump-product-page-manager.php:189, inc/product-page/class-order-bump-product-page-manager.php:238, inc/product-page/class-order-bump-product-page-manager.php:348, templates/admin/order-bump/product/product-data-panel.php:6
+msgid "Frequently Bought Together"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:26
+msgid "Display these products on the single product page and easily add them to the cart with a single button."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:190
+msgid "These are cross-sells which appear on the product page near the Add to Cart button."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:195
+msgid "Link Product Titles?"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:201
+msgid "Show Product Thumbnail?"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:207
+msgid "Hide Product if Already in Cart?"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:213
+msgid "Enable AJAX for \"Add Selected to Cart\" button?"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:219
+msgid "Show hidden products?"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:225, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:209
+msgid "Position"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:229
+msgid "After Add to Cart Button"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:230
+msgid "Before Add to Cart Button"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:235, inc/product-page/class-order-bump-product-page-modal-manager.php:66
+msgid "Cross Sells Title"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:236, inc/product-page/class-order-bump-product-page-modal-manager.php:67
+msgid "Leave blank to disable the title."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:305
+msgid "Bought together discount"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:387
+msgid "From"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-manager.php:728
+msgid "Save %s when bought together"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:25
+msgid "After Add to Cart"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:26
+msgid "Display these suggested products in a modal popup after adding the main product to the cart."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:54
+msgid "After Add to Cart Modal"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:55
+msgid "These are cross-sells which appear in a modal after adding a product to the cart."
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:60
+msgid "Header Bar Color"
+msgstr ""
+
+#: inc/product-page/class-order-bump-product-page-modal-manager.php:69, inc/product-page/class-order-bump-product-page-modal-manager.php:264
+msgid "Customers Also Bought"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:159
+msgid "Impressions"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:160
+msgid "Purchases"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:161
+msgid "Conversions"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:271
+msgid "%s is required"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:327
+msgid "Display type"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:329
+msgid "Apply when"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:334, templates/admin/order-bump/checkout/steps/products.php:85
+msgid "Show Order Bump even if the offer product is already in the cart."
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:341
+msgid "Specific products"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:359
+msgid "Discount cannot be more than product price"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:352
+msgid "Discount cannot be more than 100%"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:367
+msgid "Offered product cannot be in list of products used for condition"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:373
+msgid "Product offer"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:375
+msgid "Discount"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:377
+msgid "Discount type"
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:392
+msgid "Updated."
+msgstr ""
+
+#: inc/checkout/abstracts/class-order-bump-checkout-manager-abstract.php:393
+msgid "Created."
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:11, templates/admin/order-bump/checkout/after-checkout/steps/customization.php:35
+msgid "Title"
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:16
+msgid "Description"
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:18
+msgid "Use this to \"pitch\" the bundle to your customers."
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:22, templates/admin/order-bump/product/product-data-panel.php:62
+msgid "Products"
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:41
+msgid "Unchecked by Default"
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:43
+msgid "When enabled, the products in the frequently bought together bundle will be unchecked by default."
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:47
+msgid "Discount (Optional)"
+msgstr ""
+
+#: templates/admin/order-bump/product/product-data-panel.php:57
+msgid "After Add to Cart Popup"
+msgstr ""
+
+#: templates/frontend/order-bump/checkout/checkout-bump-modal.php:24
+msgid "Order Submitted"
+msgstr ""
+
+#: templates/frontend/order-bump/checkout/checkout-bump-modal.php:32
+msgid "Special Offer"
+msgstr ""
+
+#: templates/frontend/order-bump/checkout/checkout-bump-modal.php:40
+msgid "Order Receipt"
+msgstr ""
+
+#: templates/frontend/order-bump/checkout/checkout-bump-modal.php:147, templates/frontend/order-bump/checkout/checkout-bump.php:85
+msgid "Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+
+#: templates/frontend/order-bump/checkout/checkout-bump.php:28
+msgid "Customize the design and content of your order bump."
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-modal.php:39
+msgid "%s was added to your cart!"
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-modal.php:82
+msgid "Cart subtotal: %s"
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-modal.php:87
+msgid "%d Item"
+msgid_plural "%d Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/frontend/order-bump/product/bump-modal.php:93
+msgid "Checkout"
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-modal.php:100
+msgid "View Cart "
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-products.php:56
+msgid "This item"
+msgstr ""
+
+#: templates/frontend/order-bump/product/bump-products.php:131
+msgid "Total Price:"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:8
+msgid "Create Offer"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:11
+msgid "Select a product to offer during checkout if the conditions are met."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:38
+msgid "Discount (optional):"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:43
+msgid "Max quantity: "
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:44
+msgid "Min quantity: "
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/offer.php:45
+msgid "Numbers only"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:10
+msgid "Select Product(s)"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:13
+msgid "This offer will be enabled when the selected products are in the cart."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:18
+msgid "Display for:"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:25
+msgid "All Products"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:28
+msgid "Specific Products"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:38
+msgid "Apply order bump when"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:44
+msgid "Any"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:47
+msgid "All"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/steps/products.php:50
+msgid "of these products are in the cart"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:8, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:12
+msgid "Customize Design"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:17
+msgid "Progress Bar"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:25, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:163, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:181, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:199
+msgid "Yes"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:28, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:166, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:184, templates/admin/order-bump/checkout/at-checkout/steps/customization.php:202
+msgid "No"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:43
+msgid "Wait! Your order is almost complete..."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:49
+msgid "Subtitle"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:52
+msgid "Add this offer to your order for only $1.99 - that's 50% off!"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:64
+msgid "Before we complete your order, here's a special one-time offer that you will only see on this page."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:89
+msgid "Add benefit"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:103
+msgid "No thanks, I'll pass."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/after-checkout/steps/customization.php:116
+msgid "Add to my order"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:43
+msgid "Upload image"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:74
+msgid "One time offer! Get this product with HUGE discount right now! Click the checkbox above to add this product to your order. Get it now, because you won't have this chance again."
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:103
+msgid "Highlight color"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:118
+msgid "Border color"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:133
+msgid "Border style"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:141
+msgid "Solid"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:144
+msgid "Dashed"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:147
+msgid "Dotted"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:154
+msgid "Show image"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:173
+msgid "Show price"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:191
+msgid "Show shadow"
+msgstr ""
+
+#: templates/admin/order-bump/checkout/at-checkout/steps/customization.php:216
+msgid "Before \"Place Order\" button"
+msgstr ""

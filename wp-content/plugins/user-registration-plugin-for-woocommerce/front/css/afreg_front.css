@@ -1,0 +1,77 @@
+.half_width { width: 48% !important; margin-right: 2% !important; float: left; }
+
+.afreg_field_message{ width: 100%;  clear: both; }
+
+.afreg_field_message_radio{ width: 100%; font-size: 12px; clear: both; float: left; }
+
+.afreg_radio { width: auto; margin-right: 20px; }
+
+.afreg_radios{ width: auto; margin-right: 20px; float: none; }
+
+.afreg_radio .radio { width: auto; margin-right: 20px; float: left; }
+
+.afreg_radio .input-radio { float: left; margin-top: 7px; }
+
+.afreg_radio .description{ width: 100%; float: left; }
+
+.afreg_field_message_wordpress{ width: 100%; font-size: 12px; float: left;}
+
+.form-row-wordpress label{ width: 100%; float: left; font-weight: bold; }
+
+.form-row-wordpress{ width: 100%; float: left; margin-top: 15px !important; }
+
+.form-row-wordpress .inputselect{ width: 100%; float: left; height: 33px; }
+
+.form-row-wordpress .inputmselect{ width: 100%; float: left; height: 100px; padding: 10px; }
+
+.inputcheckbox{width: auto !important; float: left; margin-top: 2px !important;}
+
+.input-radio { margin-top: 4px; margin-right: 6px; }
+.afreg_field_message_wordpress_checkbox{ width: auto; float: left; margin-left: 5px; }
+
+#login{ width: auto; !important; }
+
+.afreg_field_message_radio_wordpress{ width: 100%; float: left; margin-top: 5px !important; }
+
+.wordpress_additional .input{ font-size: 14px !important; font-weight: normal !important; padding: 9px !important; }
+
+.wordpress_additional .inputnumb{ height: 37px !important; }
+
+.enu_warning { background-color: #ff9966; width: 100%; padding: 20px; color: #fff; }
+
+.enu_error { background-color: #cc3300; width: 100%; padding: 20px; color: #fff; }
+
+
+.fmessage { float: left; width: 100%; font-size: 13px; }
+
+.afreg_full_field{ width: 100% !important; float: left; }
+.afreg_half_field
+{
+	width: 47% !important;
+	margin-right: 3% !important;
+	float: left;
+}
+
+.afreg_extra_fields .half_field {
+
+	width: 47% !important;
+	margin-right: 3% !important;
+	float: left;
+}
+
+.afreg_extra_fields .input-text,.input-select{
+	min-height: 40px !important;
+	max-height: 40px !important;
+	height: 40px !important;
+}
+.woocommerce-privacy-policy-text{
+	clear: both;
+}
+
+p.reg_passmail{
+	clear: both !important;
+}
+
+.red_class{ color: red; }
+
+span.select2-container{ width: 100%!important; }

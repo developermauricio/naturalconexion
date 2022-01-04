@@ -1,0 +1,10 @@
+				@font-face {
+					font-family: 'verdana';
+					src: url('/wp-content/uploads/useanyfont/1020verdana.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/1020verdana.woff') format('woff');
+					font-display: auto;
+				}
+
+				.verdana{font-family: 'verdana' !important;}
+
+		

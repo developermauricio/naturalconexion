@@ -1,0 +1,25 @@
+.h5vp_input {
+	padding: 7px;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #fff;
+	overflow:hidden;
+	width: 505px;
+}
+
+.h5vp_button {
+	position:relative;
+	bottom:0px;
+	padding:13px 0 2px 8px;
+	border-top:1px solid #fff;
+	overflow:hidden;
+	width:495px;
+}
+
+.h5vp_select {
+	width:330px !important;
+	}
+	
+	.label_option {
+		display: block; float: left; width: 165px; height: 30px; line-height: 25px;
+		}
+	

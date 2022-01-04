@@ -1,0 +1,22 @@
+.plugins tr[data-slug="wc-smart-cod"] td, .plugins tr[data-slug="wc-smart-cod"] th {
+  box-shadow: none;
+}
+
+.plugins tr.wsc-pro-after-plugin td {
+  border-left: 4px solid #00a0d2;
+  padding: 0;
+}
+
+tr.wsc-pro-after-plugin td .notice {
+  margin: 5px 20px 15px 40px;
+}
+
+.wsc-pro-notice {
+  position: relative;
+}
+
+.wsc-pro-notice span.extra-line {
+  display: block;
+  margin-top: 5px;
+}
+

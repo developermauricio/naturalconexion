@@ -1,0 +1,6 @@
+Options -Indexes
+deny from all
+<FilesMatch '\.(txt)$'>
+Order Allow,Deny
+Allow from all
+</FilesMatch>

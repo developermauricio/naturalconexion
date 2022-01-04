@@ -1,0 +1,33 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+.btn-ingredientes-naturales-inicio {
+    margin-left: 5vh;
+}
+.wd-side-hidden {
+    z-index: 9999;
+}
+.wa__btn_popup {
+    right: 20px;
+    bottom: 80px;
+}
+
+div#colAddi {
+    background: #6d6cfd;
+    max-height: 80px;
+}
+div.title-col-addi {
+    padding-top: 23px;
+}
+
+
+/*  Estilos para movil  */
+@media (max-width: 767.98px) { 
+  .title-landing h4 {
+    font-size: 1.1rem !important;
+  }
+  .title2-landing h1 {
+    font-size: 1rem !important;
+  }
+}
+</style>
+<!-- end Simple Custom CSS and JS -->

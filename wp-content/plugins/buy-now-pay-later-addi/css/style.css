@@ -1,0 +1,83 @@
+addi-widget > addi-banner > div.addi-banner-co {
+  /*padding: 5vh 0 10vh 0;*/
+  margin:12px 0;
+}
+
+addi-widget > addi-banner > div.addi-banner-wrapper-co {
+  /*padding: 5vh 0 10vh 0;*/
+  margin:12px 0;
+}
+
+li.wc_payment_method.payment_method_addi > label[for=payment_method_addi] > img[alt="Paga a cuotas"] {
+margin-left: 6px;
+margin-top: -7px;
+max-height: 20px;
+}
+
+/*li.wc_payment_method.payment_method_addi > div.payment_box.payment_method_addi {
+  border: 1px solid #C9CDD1;
+  box-sizing: border-box;
+  border-radius: 8px;
+}*/
+
+li.wc_payment_method.payment_method_addi > div.payment_box.payment_method_addi > div.desc_header {
+height: 50px;
+  border-bottom: 1px solid #C9CDD1;
+}
+
+/*.constraint-container {
+margin: 10px 0;
+}*/
+
+.constraint-container {
+font-size: 12px;
+padding: 6px 16px 6px 18px;
+border: 1px solid #FA4D4B;
+border-radius: 3px;
+background: #FFF2F2;
+margin: 0 20px 10px;
+}
+
+/*.constraint-label {
+font-size: 12px;
+background-color: #da565c;
+border-radius: 4px;
+padding: 3px;
+color: #fff;
+}*/
+
+.discount-container {
+/*margin: 10px 0;*/
+margin: 0 20px 10px;
+background: #00BE7A;
+border: 1px solid #00BE7A;
+box-sizing: border-box;
+border-radius: 16px;
+width: fit-content;
+}
+
+.discount-label {
+/*background-color: #6cba9b;*/
+border-radius: 16px;
+padding: 3px;
+font-weight: 600;
+font-size: 14px;
+color: #fff;
+margin: 0 20px 10px;
+}
+
+.discount-sub-container {
+margin: 0 20px 10px;
+}
+
+.discount-sub-label {
+color: #4D525C;
+font-size: 15px;
+font-style: italic;
+font-weight: normal;
+}
+
+.button-disabled {
+opacity: 0.3 !important;
+cursor:not-allowed !important;
+}

@@ -1,0 +1,306 @@
+/* START OF SWITCHER */
+.trigger_div {
+	padding: 5px 20px 5px 162px !important;
+	margin: 9px 0;
+}
+
+.trigger_div .ios-switch,
+.trigger_div .switch {
+	float: left;
+	margin: 0 0 0 -150px !important;
+}
+
+.trigger_div label {
+	float: unset;
+	width: unset;
+	margin: unset;
+}
+
+@media all and (max-width: 500px) {
+	.trigger_div {
+		display: flex;
+		padding: 5px 20px 5px 20px !important;
+		flex-direction: column-reverse;
+	}
+
+	.trigger_div .ios-switch {
+		margin: 0px !important;
+	}
+
+	.trigger_div .switch {
+		margin: 15px 0px 0px !important;
+	}
+
+	.trigger_div label {
+		float: left;
+	}
+}
+
+.toggleFeed.ios-switch,
+.toggleFeed.ios-switch + div {
+	margin-left: -40px;
+}
+
+@media all and (max-width: 782px) {
+	.toggleFeed.ios-switch {
+		position: absolute;
+		margin-left: unset;
+		right: 0;
+		z-index: 2;
+		top: -3px;
+	}
+
+	.toggleFeed.ios-switch + div {
+		position: absolute;
+		margin-left: unset;
+		right: 0;
+		top: -3px;
+	}
+}
+
+/* iOS checkbox */
+input[type="checkbox"].ios-switch { /* .catalog_settings form here acting as a filter for older browsers */
+	position: absolute;
+	opacity: 0;
+}
+
+input[type="checkbox"].ios-switch,
+div.switch {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3em;
+	height: 1em;
+	border: 1px solid #9aa3b2;
+	border-radius: 999px;
+	margin: 0 .5em;
+	background: white;
+	background-image: linear-gradient(rgba(0, 0, 0, .1), transparent), linear-gradient(90deg, #397af4 50%, transparent 50%);
+	background-size: 200% 100%;
+	background-position: 100% 0;
+	background-origin: border-box;
+	background-clip: border-box;
+	overflow: hidden;
+	transition-duration: .4s;
+	transition-property: padding, width, background-position, text-indent;
+	/* box-shadow: 0 0.1em 0.1em rgba(0,0,0,.2) inset, 0 0.45em 0 0.1em rgba(0,0,0,.05) inset; */
+	font-size: 168%;
+	margin-top: 3.5px;
+	margin-left: 0;
+}
+
+input[type="checkbox"].ios-switch:checked + div.switch {
+	padding-left: 2em;
+	width: calc(1em - 1px);
+	background-position: 0 0;
+}
+
+input[type="checkbox"].ios-switch + div.switch:before {
+	content: 'On';
+	float: left;
+	width: 1.65em;
+	height: 1.65em;
+	margin-top: -1px;
+	margin-left: -1px;
+	border: 1px solid rgb(154, 163, 179);
+	border-radius: inherit;
+	background: white;
+	color: white;
+	text-indent: -2.5em;
+	background: #e6e6e6;
+}
+
+input[type="checkbox"].ios-switch:active + div.switchdiv:before {
+	background-color: #eee;
+}
+
+input[type="checkbox"].ios-switch + div.switch:before,
+input[type="checkbox"].ios-switch + div.switch:after {
+	font: bold 60%/1.9 sans-serif;
+	text-transform: uppercase;
+}
+
+input[type="checkbox"].ios-switch + div.switch:after {
+	content: 'Off';
+	float: left;
+	text-indent: .5em;
+	color: rgba(0, 0, 0, .45);
+	text-shadow: none;
+
+}
+
+/* iOS chackbox ended */
+
+body.rtl input[type="checkbox"].ios-switch {
+	float: right;
+	margin: 0 -115px 0 0 !important;
+}
+
+body.rtl .trigger_div .switch {
+	float: right;
+	margin: 0 0 0 49px !important;
+}
+
+body.rtl input[type="checkbox"].ios-switch:checked + div.switch {
+	float: right;
+	margin: 0 0 0 50px !important;
+}
+
+body.rtl input[type="checkbox"].ios-switch + div.switch:before {
+	text-indent: 2.5em;
+}
+
+body.rtl input[type="checkbox"].ios-switch, body.rtl div.switch {
+	transition-property: initial;
+}
+
+.woocommerce_variable_attributes .trigger_div {
+	padding-left: 150px !important;
+}
+
+/* END OF SWITCHER */
+
+.extra-link-2-wrapper {
+	margin-left: 10px;
+}
+
+/* START OF DROPDOWN */
+/* FastSelect */
+.fstElement {
+	width: 100%;
+	border-radius: 0.25em;
+}
+
+.fstControls {
+	padding: 0.4em 0.2em 0em 0.4em;
+}
+
+.fstMultipleMode .fstControls {
+	padding: 0.4em 0.2em 0em 0.4em;
+	width: 100%;
+}
+
+.fstControls .fstChoiceItem {
+	font-size: 1em;
+	padding: .1em .3em .1em 1.3em;
+	border-radius: .4em;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 100%;
+	text-overflow: ellipsis;
+}
+
+.fstResultItem {
+	font-size: 0.7em;
+	padding: .2em;
+}
+
+.fstMultipleMode .fstQueryInput {
+	font-size: 0.7em;
+}
+
+/* FastSelect ended */
+
+.wpwoof-box .fstElement {
+	width: calc(100% - 50px);;
+}
+
+.wpwoof-box .fstToggleBtn {
+	padding: 5px 10px;
+	font-size: 15px;
+}
+
+.wpwoof-box .fstGroupTitle {
+	font-size: 15px;
+	padding: .2em;
+	margin: 0;
+}
+
+.wpwoof-box .fstResultItem {
+	font-size: 15px;
+	padding-left: 15px;
+}
+
+.wpwoof-box .fstSingleMode .fstQueryInput {
+	font-size: 15px;
+}
+
+.add-new-field-wrapper .fstElement {
+	width: calc(50% + 71px);
+}
+
+/* END OF DROPDOWN */
+
+/* START OF Extra custom field */
+
+.add-extra-fields.form-field.custom_field_type span.extra-link-wrapper {
+	display: block;
+	width: auto;
+}
+
+.add-extra-fields.form-field.custom_field_type .extra-link-wrapper label {
+	float: none;
+}
+
+.add-extra-fields.form-field.custom_field_type .extra-link-wrapper label {
+	margin: 0 15px 0 5px;
+	width: auto;
+}
+
+/* END OF Extra custom field */
+
+/* START OF product variations */
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field label {
+	width: 150px;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field span.wrap {
+	width: 50%;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field span.extra-link-2-wrapper {
+	width: 40px;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field select.select.short {
+	width: calc(50% - 18px);
+	margin-right: 2.5%;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field > input.short {
+	width: 47.5%;
+	margin-right: 2.5%;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field.custom_field_type input.catalog-pro-custom-extra-field {
+	margin-left: 0 !important;
+	width: 140px !important;
+	margin-right: 10px;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .form-field.custom_field_type .extra-link-wrapper {
+	padding-top: 5px;
+	padding-left: 150px;
+}
+
+.catalog-pro-variations-google-taxonomy-container {
+	width: 50%;
+}
+
+.catalog-pro-variations-google-taxonomy-container select {
+	width: 100%;
+}
+
+.woocommerce_variable_attributes.product-catalog-feed-pro .add-new-field-wrapper .fstElement {
+	width: calc(60% + 71px);
+	margin-right: 8px;
+}
+/* END OF product variations */
+
+#woocommerce-coupon-data ul.wc-tabs, #woocommerce-product-data ul.wc-tabs, .woocommerce ul.wc-tabs {
+	overflow: hidden;
+}

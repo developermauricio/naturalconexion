@@ -1,0 +1,18 @@
+
+Mar 01, 2021 21.12.35: Allowed memory size of 268435456 bytes exhausted (tried to allocate 1179648 bytes)
+
+Mar 18, 2021 21.12.32: Allowed memory size of 268435456 bytes exhausted (tried to allocate 2621440 bytes)
+
+Mar 19, 2021 21.12.29: Allowed memory size of 268435456 bytes exhausted (tried to allocate 2621440 bytes)
+
+Mar 20, 2021 21.12.43: Allowed memory size of 268435456 bytes exhausted (tried to allocate 2621440 bytes)
+
+Mar 21, 2021 21.12.33: Allowed memory size of 268435456 bytes exhausted (tried to allocate 2621440 bytes)
+
+Mar 22, 2021 21.12.22: Allowed memory size of 268435456 bytes exhausted (tried to allocate 2621440 bytes)
+
+Mar 24, 2021 21.12.11: Allowed memory size of 268435456 bytes exhausted (tried to allocate 655360 bytes)
+
+Mar 28, 2021 21.12.27: Allowed memory size of 268435456 bytes exhausted (tried to allocate 655360 bytes)
+
+Mar 31, 2021 21.12.36: Allowed memory size of 268435456 bytes exhausted (tried to allocate 655360 bytes)

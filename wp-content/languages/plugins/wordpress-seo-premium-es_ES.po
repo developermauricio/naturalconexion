@@ -1,0 +1,1314 @@
+# Translation of Yoast - Yoast SEO Premium (for WordPress) in Spanish (Spain)
+# This file is distributed under the same license as the Yoast - Yoast SEO Premium (for WordPress) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-09 17:24:17+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Yoast - Yoast SEO Premium (for WordPress)\n"
+
+#: src/schema-templates/job-salary.block.php:12
+msgid "Job base salary"
+msgstr "Salario base del trabajo"
+
+#: src/schema-templates/job-requirements.block.php:12
+msgid "Job requirements"
+msgstr "Requisitos del trabajo"
+
+#: src/schema-templates/job-location.block.php:12
+msgid "Job location"
+msgstr "Ubicación del trabajo"
+
+#: src/schema-templates/job-location-region.block.php:12
+msgid "Job state/province/region"
+msgstr "Estado/provincia/región del trabajo"
+
+#: src/schema-templates/job-location-postal-code.block.php:12
+msgid "Job postal code"
+msgstr "Código postal del trabajo"
+
+#: src/schema-templates/job-location-country.block.php:12
+msgid "Job country"
+msgstr "País del trabajo"
+
+#: src/schema-templates/job-location-city.block.php:12
+msgid "Job city"
+msgstr "Ciudad del trabajo"
+
+#: src/schema-templates/job-location-address.block.php:12
+msgid "Job address"
+msgstr "Dirección del trabajo"
+
+#: src/schema-templates/job-employment-type.block.php:32
+msgid "Job employment type"
+msgstr "Tipo de empleo del trabajo"
+
+#: src/schema-templates/job-benefits.block.php:12
+msgid "Job benefits"
+msgstr "Beneficios del trabajo"
+
+#: src/schema-templates/job-apply-button.block.php:12
+msgid "Job apply button"
+msgstr "Botón de solicitud del trabajo"
+
+#: src/schema-templates/job-application-closing-date.block.php:14
+msgid "Apply before"
+msgstr "Solicitar antes de"
+
+#: src/schema-templates/job-application-closing-date.block.php:12
+msgid "Job application closing date"
+msgstr "Fecha de finalización para solicitar el trabajo"
+
+#: src/integrations/admin/thank-you-page-integration.php:80
+msgid "Installation Successful"
+msgstr "Instalación correcta"
+
+#: classes/views/thank-you.php:104
+msgid "Browse our courses"
+msgstr "Echa un vistazo a nuestros cursos"
+
+#. translators: %1$s: Yoast SEO Premium, %2$s: <strong>, %3$s: Yoast SEO, %4$s:
+#. </strong>
+#: classes/views/thank-you.php:91
+msgid "%1$s grants you direct access to %2$sall premium %3$s academy courses%4$s. Learn all the ins and outs of holistic SEO from industry experts."
+msgstr "%1$s te ofrece acceso directo a %2$stodos los cursos premium %3$s de la academia%4$s.  Aprende los pros y contras del SEO holístico de los expertos del sector."
+
+#: classes/views/thank-you.php:84
+msgid "Master vital SEO skills with our online courses"
+msgstr "Domina las habilidades SEO vitales con nuestros cursos en línea"
+
+#: classes/views/thank-you.php:79
+msgid "Check out the Redirect Manager"
+msgstr "Revisa el gestor de redirecciones"
+
+#. translators: %1$s: Yoast SEO, %2$s: <strong>, %3$s: </strong>
+#: classes/views/thank-you.php:68
+msgid "The %1$s %2$sRedirect Manager%3$s automatically prevents visitors from reaching a dead end whenever you move or delete content. It also makes managing your existing redirects easy."
+msgstr "El %1$s %2$sgestor de redirecciones%3$s evita automáticamente que los visitantes lleguen a un punto muerto cuando mueves o borras contenido. También hace que gestionar tus redirecciones existentes sea algo sencillo."
+
+#: classes/views/thank-you.php:61
+msgid "Keep your site well-organised so people won't get lost"
+msgstr "Mantén tu sitio bien organizado para que la gente no se sienta perdida"
+
+#: classes/views/thank-you.php:56
+msgid "Score some more green bullets"
+msgstr "Consigue más bolitas verdes"
+
+#. translators: %1$s: <strong>, %2$s: </strong>
+#: classes/views/thank-you.php:46
+msgid "Different people search with different search terms. With our %1$spremium analysis%2$s, you are free to use variations and synonyms of your keywords in your content, which will make your writing style far more natural."
+msgstr "Cada persona busca con diferentes términos de búsqueda. Con nuestros análisis %1$spremium%2$s, puedes utilizar a tu gusto variaciones y sinónimos de tus palabras clave en tu contenido, lo que hará que tu estilo de redacción sea mucho más natural."
+
+#: classes/views/thank-you.php:39
+msgid "Optimize your content further with our smart analysis"
+msgstr "Optimiza aún más tu contenido con nuestro análisis inteligente"
+
+#: classes/views/thank-you.php:34
+msgid "Do the cornerstone workout!"
+msgstr "¡Haz el ejercicio de contenido esencial!"
+
+#. translators: %1$s: <strong>, %2$s: </strong>
+#: classes/views/thank-you.php:24
+msgid "%1$sCornerstone content%2$s is the content on your site that’s most important. You want to rank highest in Google with these articles. Make sure your internal linking structure reflects what pages are most important. Want to know how?"
+msgstr "%1$sContenido esencial%2$s es el contenido más importante de tu sitio. Quieres posicionar alto en Google con estos artículos. Asegúrate de que tu estructura de enlazado interno refleje qué páginas son las más importantes. ¿Quieres saber cómo hacerlo?"
+
+#: classes/views/thank-you.php:17
+#: assets/js/src/workouts/components/CornerstoneWorkout.js:106
+msgid "Rank with articles you want to rank with"
+msgstr "Posiciona con los artículos con los que quieres posicionar"
+
+#: classes/views/thank-you.php:12
+msgid "So, what's next?"
+msgstr "¿Y ahora qué toca?"
+
+#: classes/views/thank-you.php:10
+msgid "Installation successful!"
+msgstr "¡Instalación correcta!"
+
+#: src/schema-templates/job-location-city.block.php:12
+msgid "The city in which the street address is, and which is in the region. For example, Los Angeles."
+msgstr "La ciudad en la que está la dirección de la calle, y en la que está la región. Por ejemplo, Valladolid."
+
+#: src/schema-templates/job-location-region.block.php:14
+msgid "Enter state/province/region"
+msgstr "Introduce el estado/provincia/región"
+
+#: src/schema-templates/job-location-region.block.php:12
+msgid "The state, province or region in which the city is, and which is in the country. For example, California."
+msgstr "El estado, provincia o región en la que está la ciudad, y en la que está el país. Por ejemplo, Castilla y León."
+
+#: src/schema-templates/job-location-country.block.php:12
+msgid "The country. For example, USA."
+msgstr "El país. Por ejemplo, España."
+
+#: src/schema-templates/job-location-address.block.php:12
+msgid "The street address. For example, 111 South Grand Avenue."
+msgstr "La dirección de la calle. Por ejemplo, Plaza Circular 12."
+
+#: src/schema-templates/job-location-postal-code.block.php:12
+msgid "The postal code. For example, 90012."
+msgstr "El código postal. Por ejemplo, 00897."
+
+#: src/schema-templates/job-office-location.block.php:30
+msgid "Add additional information to your location details..."
+msgstr "Añade información adicional a los detalles de tu ubicación…"
+
+#: src/integrations/blocks/block-patterns.php:71
+msgid "Yoast Job Posting"
+msgstr "Publicar trabajo Yoast"
+
+#: src/schema-templates/job-salary-range.block.php:36
+msgid "The salary range of the job, depending on a variety of factors (e.g. education level or level of experience)."
+msgstr "El rango salarial del trabajo, dependiente de varios factores (por ejemplo, el nivel educativo o de experiencia)."
+
+#: src/schema-templates/job-apply-button.block.php:14
+msgid "Apply button (add a link)"
+msgstr "Botón de aplicar. (añade un enlace)"
+
+#: src/schema-templates/job-apply-button.block.php:12
+msgid "A button through which visitors can apply for the job. (Make sure to add a link.)"
+msgstr "Un botón desde el que los visitantes pueden solicitar el trabajo. (Asegúrate de añadir un enlace)."
+
+#: src/integrations/admin/user-profile-integration.php:144
+msgid "The info you add below is added to the data Yoast SEO outputs in its schema.org output, for instance when you're the author of a page. Please only add the info you feel good sharing publicly."
+msgstr "La información que añadas abajo se añade a la salida de datos de Yoast SEO de schema.org, por ejemplo, cuando eres el autor de una página. Por favor, añade solo la información de la que te sientas cómodo compartir públicamente."
+
+#: src/integrations/admin/user-profile-integration.php:143
+msgid "Yoast SEO Schema enhancements"
+msgstr "Mejoras del schema de Yoast SEO"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:127
+msgid "E.g. %1$sAcme inc%2$s"
+msgstr "P.ej. %1$sMartínez S.L.%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:125
+msgid "Employer name"
+msgstr "Nombre del empleador"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:121
+msgid "E.g. %1$ssoftware engineer%2$s"
+msgstr "P.ej. %1$singeniero de software%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:115
+msgid "Employer information"
+msgstr "Información del empleador"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:111
+msgid "Comma separated, e.g. %1$sEnglish, French, Dutch%2$s"
+msgstr "Separados por comas, p.ej. %1$singlés, francés, español%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:109
+msgid "Language(s) spoken"
+msgstr "Idioma(s) hablado(s)"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:105
+msgid "Comma separated, e.g. %1$sPHP, JavaScript, 90's rock music%2$s"
+msgstr "Separados por comas, p.ej. %1$sPHP, JavaScript, música rock de los 90%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:103
+msgid "Expertise in"
+msgstr "Experiencia en"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:99
+msgid "Comma separated, e.g. %1$sMost likely to succeed - 1991, Smartest in class - 1990%2$s"
+msgstr "Separados por comas, p.ej. %1$sEl más preparado para triunfar - 1991, el más inteligente de la clase - 1990%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:97
+msgid "Awards"
+msgstr "Premios"
+
+#: src/integrations/admin/user-profile-integration.php:93
+msgid "Extra information"
+msgstr "Información adicional"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:89
+msgid "E.g. %1$sfemale%2$s, %1$smale%2$s, %1$snon-binary%2$s"
+msgstr "P.ej. %1$smujer%2$s, %1$shombre%2$s, %1$sno binario%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:87
+msgid "Gender"
+msgstr "Género"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:83
+msgid "Use format: %1$sYYYY-MM-DD%2$s"
+msgstr "Formato a utilizar: %1$sYYYY-MM-DD%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:81
+msgid "Birth date"
+msgstr "Fecha de nacimiento"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:77
+msgid "E.g. %1$sMD%2$s, %1$sPhD%2$s"
+msgstr "P.ej. %1$sMD%2$s, %1$sPhD%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:75
+msgid "Honorific suffix"
+msgstr "Sufijo honorífico"
+
+#. translators: %1$s is replaced by `<code>`, %2$s by `</code>`.
+#: src/integrations/admin/user-profile-integration.php:71
+msgid "E.g. %1$sDr%2$s, %1$sMs%2$s, %1$sMr%2$s"
+msgstr "P.ej. %1$sDr%2$s, %1$sSra.%2$s, %1$sSr%2$s"
+
+#: src/integrations/admin/user-profile-integration.php:69
+msgid "Honorific prefix"
+msgstr "Prefijo honorífico"
+
+#: src/integrations/admin/user-profile-integration.php:65
+msgid "Basic information"
+msgstr "Información básica"
+
+#: premium.php:337
+msgid "Custom fields to include in page analysis"
+msgstr "Campos personalizados a incluir en el análisis de página"
+
+#: premium.php:330
+msgid "Learn more about including custom fields in the page analysis"
+msgstr "Aprende más sobre cómo incluir campos personalizados en el análisis de página"
+
+#: src/schema-templates/job-benefits.block.php:12
+msgid "The description of benefits associated with the job."
+msgstr "La descripción de las ventajas asociadas al trabajo."
+
+#: src/schema-templates/job-description.block.php:12
+msgid "The description of the job."
+msgstr "La descripción del trabajo."
+
+#: src/schema-templates/job-employment-type.block.php:32
+msgid "The type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship)."
+msgstr "El tipo de empleo (por ejemplo, a tiempo completo, a tiempo parcial, por contrato, temporal, estacional, pasantía)."
+
+#: src/schema-templates/job-application-closing-date.block.php:12
+msgid "The date after which the job posting is not valid anymore."
+msgstr "La fecha tras la cual la oferta del empleo dejará de ser válida."
+
+#: src/schema-templates/job-location.block.php:12
+msgid "The (typically single) geographic location associated with the job."
+msgstr "La ubicación geográfica (normalmente única) a la que está asociado el trabajo."
+
+#: src/schema-templates/job-location-address.block.php:12
+#: src/schema-templates/job-office-location.block.php:28
+msgid "The address where the office is located."
+msgstr "La dirección en la que está ubicada la oficina."
+
+#: src/schema-templates/job-requirements.block.php:12
+msgid "The description of skills and experience needed for the position."
+msgstr "La descripción de las habilidades y experiencia necesaria para el puesto."
+
+#: src/schema-templates/job-base-salary.block.php:17
+#: src/schema-templates/job-salary-range.block.php:17
+msgid "day"
+msgstr "día"
+
+#: src/schema-templates/job-base-salary.block.php:13
+#: src/schema-templates/job-salary-range.block.php:13
+msgid "hour"
+msgstr "hora"
+
+#: src/schema-templates/job-base-salary.block.php:21
+#: src/schema-templates/job-salary-range.block.php:21
+msgid "week"
+msgstr "semana"
+
+#: src/schema-templates/job-base-salary.block.php:25
+#: src/schema-templates/job-salary-range.block.php:25
+msgid "month"
+msgstr "mes"
+
+#: src/schema-templates/job-base-salary.block.php:29
+#: src/schema-templates/job-salary-range.block.php:29
+msgid "year"
+msgstr "año"
+
+#: src/schema-templates/job-base-salary.block.php:36
+#: src/schema-templates/job-salary.block.php:14
+msgid "Base salary"
+msgstr "Salario base"
+
+#: src/schema-templates/job-base-salary.block.php:39
+#: src/schema-templates/job-salary-range.block.php:39
+msgid "Currency"
+msgstr "Moneda"
+
+#: src/schema-templates/job-base-salary.block.php:40
+#: src/schema-templates/job-salary-range.block.php:40
+#: src/schema-templates/job-salary-range.block.php:42
+msgid "Enter amount"
+msgstr "Introduce cantidad"
+
+#: src/schema-templates/job-base-salary.block.php:40
+msgid "Value"
+msgstr "Valor"
+
+#: src/schema-templates/job-base-salary.block.php:41
+#: src/schema-templates/job-salary-range.block.php:44
+msgid "Unit"
+msgstr "Unidad"
+
+#: src/schema-templates/job-benefits.block.php:13
+msgid "Benefits"
+msgstr "Ventajas"
+
+#: src/schema-templates/job-benefits.block.php:15
+msgid "Enter benefit"
+msgstr "Introduce ventajas"
+
+#: src/schema-templates/job-description.block.php:12
+msgid "Job description"
+msgstr "Descripción del trabajo"
+
+#: src/schema-templates/job-description.block.php:14
+msgid "Enter a job description..."
+msgstr "Introduce una descripción del trabajo"
+
+#: src/schema-templates/job-employment-type.block.php:13
+msgid "Full time"
+msgstr "A tiempo completo"
+
+#: src/schema-templates/job-employment-type.block.php:17
+msgid "Part time"
+msgstr "A tiempo parcial"
+
+#: src/schema-templates/job-employment-type.block.php:21
+msgid "Contractor"
+msgstr "Contratista"
+
+#: src/schema-templates/job-employment-type.block.php:25
+msgid "Temporary"
+msgstr "Temporal"
+
+#: src/schema-templates/job-employment-type.block.php:35
+msgid "Employment"
+msgstr "Empleo"
+
+#: src/schema-templates/job-employment-type.block.php:36
+msgid "This is an internship"
+msgstr "Es una pasantía"
+
+#: src/schema-templates/job-employment-type.block.php:36
+msgid "this is an internship"
+msgstr "esto es un pasantía"
+
+#: src/schema-templates/job-employment-type.block.php:37
+msgid "This is a volunteer role"
+msgstr "Esto es un voluntariado"
+
+#: src/schema-templates/job-employment-type.block.php:37
+msgid "this is a volunteer role"
+msgstr "esto es un voluntariado"
+
+#: src/schema-templates/job-location.block.php:14
+#: src/schema-templates/job-office-location.block.php:28
+msgid "Office location"
+msgstr "Ubicación de la oficina"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "Address where the office is located"
+msgstr "Dirección de la oficina"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "Address"
+msgstr "Dirección"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "Postal code"
+msgstr "Código postal"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "City"
+msgstr "Ciudad"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "Region"
+msgstr "Región"
+
+#: src/schema-templates/job-location.block.php:14
+msgid "Country"
+msgstr "País"
+
+#: src/schema-templates/job-location.block.php:15
+#: src/schema-templates/job-remote-location.block.php:12
+msgid "Remote job"
+msgstr "Trabajo en remoto"
+
+#: src/schema-templates/job-location.block.php:15
+msgid "This job is 100% remote"
+msgstr "Este trabajo es 100% remoto"
+
+#: src/schema-templates/job-location-address.block.php:14
+msgid "Enter street address"
+msgstr "Introduce la calle de la dirección "
+
+#: src/schema-templates/job-location-postal-code.block.php:14
+msgid "Enter postal code"
+msgstr "Introduce el código postal"
+
+#: src/schema-templates/job-location-city.block.php:14
+msgid "Enter city"
+msgstr "Introduce la ciudad"
+
+#: src/schema-templates/job-location-country.block.php:14
+msgid "Enter country"
+msgstr "Introduce el país"
+
+#: src/schema-templates/job-remote-location.block.php:12
+#: src/schema-templates/job-remote-location.block.php:14
+msgid "This job is 100% remote."
+msgstr "Este trabajo es 100% remoto."
+
+#: src/schema-templates/job-requirements.block.php:13
+msgid "Requirements"
+msgstr "Requisitos"
+
+#: src/schema-templates/job-requirements.block.php:15
+msgid "Enter requirement"
+msgstr "Introduce los requisitos"
+
+#: src/schema-templates/job-salary-range.block.php:36
+#: src/schema-templates/job-salary.block.php:15
+msgid "Salary range"
+msgstr "Rango salarial"
+
+#: src/schema-templates/job-salary-range.block.php:40
+msgid "Min value"
+msgstr "Valor mínimo"
+
+#: src/schema-templates/job-salary-range.block.php:42
+msgid "Max value"
+msgstr "Valor máximo"
+
+#: src/schema-templates/job-base-salary.block.php:36
+#: src/schema-templates/job-salary.block.php:12
+#: src/schema-templates/job-salary.block.php:14
+msgid "The base salary of the job."
+msgstr "El salario base del trabajo."
+
+#: src/schema-templates/job-salary.block.php:15
+msgid "The salary range of the job, depending on a variety of factors (e.g. a candidate's education level or level of experience)."
+msgstr "El rango salarial del trabajo, dependiente de varios factores (por ejemplo, el nivel educativo o de experiencia)."
+
+#: src/integrations/admin/user-profile-integration.php:119
+msgid "Job title"
+msgstr "Puesto del trabajo"
+
+#. translators: %1$s: Yoast SEO, %2$s: Link start tag, %3$s: Link end tag.
+#: src/addon-installer.php:163
+msgid "%2$sActivate %1$s now%3$s"
+msgstr "%2$sActiva %1$s ahora%3$s"
+
+#. translators: %1$s: Yoast SEO, %2$s: Link start tag, %3$s: Link end tag.
+#: src/addon-installer.php:170
+msgid "%2$sUpgrade %1$s now%3$s"
+msgstr "%2$sActualiza %1$s ahora%3$s"
+
+#. translators: %1$s: Yoast SEO, %2$s: Link start tag, %3$s: Link end tag.
+#: src/addon-installer.php:175
+msgid "%2$sInstall %1$s now%3$s"
+msgstr "%2$sInstala %1$s ahora%3$s"
+
+#. translators: %1$s: Yoast SEO, %2$s: The minimum Yoast SEO version required,
+#. %3$s: Yoast SEO Premium.
+#: src/addon-installer.php:114
+msgid "%1$s %2$s must be installed and activated in order to use %3$s."
+msgstr "La versión %2$s de %1$s debe ser instalada y activada para poder utilizar %3$s."
+
+#. translators: %1$s: Yoast SEO, %2$s: Link start tag, %3$s: Link end tag.
+#: src/addon-installer.php:158
+msgid "%2$sNetwork Activate %1$s now%3$s"
+msgstr "%2$sActivar %1$s en toda la red%3$s"
+
+#. translators: %1$s: Yoast SEO, %2$s: The minimum Yoast SEO version required.
+#: src/addon-installer.php:188
+msgid "Please contact a network administrator to install %1$s %2$s."
+msgstr "Por favor, contacta con un administrador de la red para instalar %1$s %2$s."
+
+#. translators: %1$s: Yoast SEO, %2$s: The minimum Yoast SEO version required.
+#: src/addon-installer.php:192
+msgid "Please contact an administrator to install %1$s %2$s."
+msgstr "Por favor, contacta con un administrador para instalar %1$s %2$s."
+
+#: src/integrations/blocks/job-posting-block.php:68
+msgid "Required Job Posting Blocks"
+msgstr "Bloques obligatorios en ofertas de trabajo"
+
+#: src/integrations/blocks/job-posting-block.php:73
+msgid "Recommended Job Posting Blocks"
+msgstr "Bloques recomendados de ofertas de empleo."
+
+#: src/integrations/blocks/estimated-reading-time-block.php:55
+#: assets/js/src/blocks/estimated-reading-time/block.js:179
+msgid "Estimated reading time:"
+msgstr "Tiempo de lectura estimado:"
+
+#: classes/redirect/presenters/redirect-page-presenter.php:69
+msgid "Settings"
+msgstr "Ajustes"
+
+#: classes/redirect/redirect-table.php:100
+msgid "Filter"
+msgstr "Filtro"
+
+#: classes/premium-javascript-strings.php:61
+#: classes/redirect/redirect-table.php:411
+msgid "Edit"
+msgstr "Editar"
+
+#: classes/premium-javascript-strings.php:53
+#: assets/js/src/components/RedirectNotification.js:123
+#: assets/js/src/elementor/components/RedirectNotification.js:127
+msgid "OK"
+msgstr "Aceptar"
+
+#: classes/export/export-keywords-csv.php:67
+msgid "title"
+msgstr "título"
+
+#: classes/export/export-keywords-csv.php:73
+msgid "meta description"
+msgstr "metadescripción"
+
+#: premium.php:297
+msgid "Create Redirect"
+msgstr "Crear redirección"
+
+#: classes/redirect/redirect-formats.php:23 premium.php:361
+msgid "Redirects"
+msgstr "Redirecciones"
+
+#: classes/redirect/views/redirects-form.php:59
+msgid "URL"
+msgstr "URL"
+
+#: classes/premium-import-manager.php:241
+msgid "Redirect import failed: the Redirection plugin is not installed or activated."
+msgstr "La importación de redirecciones ha fallado: el plugin Redirection no está instalado o no está activo."
+
+#: classes/premium-import-manager.php:317
+msgid "Redirect import failed: no redirects found."
+msgstr "La importación de redirecciones ha fallado: no se han encontrado redirecciones."
+
+#: classes/premium-javascript-strings.php:31
+msgid "You have unsaved redirects, are you sure you want to leave?"
+msgstr "Tienes redirecciones sin guardar ¿estás seguro de que quieres salir?"
+
+#: classes/redirect/redirect-table.php:115
+msgid "New URL"
+msgstr "Nueva URL"
+
+#: classes/premium-javascript-strings.php:62
+#: classes/redirect/redirect-table.php:308
+#: classes/redirect/redirect-table.php:412
+msgid "Delete"
+msgstr "Borrar"
+
+#: classes/redirect/views/redirects-tab-plain.php:61
+#: classes/redirect/views/redirects-tab-regex.php:72
+msgid "Search"
+msgstr "Buscar"
+
+#: classes/redirect/views/redirects-tab-settings.php:104
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: classes/redirect/redirect-formats.php:24
+msgid "Regex Redirects"
+msgstr "Redirecciones regex"
+
+#: classes/redirect/presenters/redirect-table-presenter.php:68
+msgid "Old URL"
+msgstr "URL antigua"
+
+#: classes/redirect/views/redirects-tab-plain.php:41
+#: classes/redirect/views/redirects-tab-regex.php:52
+msgid "Add Redirect"
+msgstr "Añadir redirección"
+
+#: classes/redirect/views/redirects-tab-settings.php:48
+msgid "As you're on Nginx, you should add the following include to the Nginx config file:"
+msgstr "Como estás en Nginx, debes añadir el siguiente include en el fichero de configuración de Nginx:"
+
+#: classes/redirect/views/redirects-tab-settings.php:22
+msgid "As you're on Apache, you should add the following include to the website httpd config file:"
+msgstr "Como estás en Apache, debes añadir el siguiente include en el archivo httpd config de la web:"
+
+#. Description of the plugin
+msgid "The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
+msgstr "La primera y auténtica solución SEO todo en uno para WordPress, que incluye análisis de contenido on-page, mapas del sitio XML y mucho más."
+
+#: classes/redirect/exporters/redirect-csv-exporter.php:76
+#: assets/js/src/workouts/components/CornerstoneWorkout/MostLinked.js:98
+msgid "Type"
+msgstr "Tipo"
+
+#. translators: %s: '.htaccess' file name.
+#: classes/redirect/views/redirects-tab-settings.php:35
+msgid "We're unable to save the redirects to your %s file. Please make the file writable."
+msgstr "No podemos guardar las redirecciones a tu archivo %s, por favor añade permisos de escritura al archivo."
+
+#: classes/redirect/views/redirects-tab-settings.php:93
+msgid "Generate a separate redirect file"
+msgstr "Genera un archivo de redirecciones separado"
+
+#: classes/redirect/redirect-page.php:140
+msgid "Redirects per page"
+msgstr "Redirecciónes por pagina"
+
+#: classes/views/import-redirects.php:74
+msgid "Import .htaccess"
+msgstr "Importar .htaccess"
+
+#: classes/premium-javascript-strings.php:26
+msgid "The old URL field can't be empty."
+msgstr "El campo de la URL antigua no puede estar vacío."
+
+#: classes/premium-javascript-strings.php:28
+msgid "The new URL field can't be empty."
+msgstr "El campo de la nueva URL no puede estar vacío."
+
+#: classes/premium-javascript-strings.php:29
+msgid "Error while saving this redirect"
+msgstr "Error al guardar esta redirección"
+
+#: classes/premium-javascript-strings.php:30
+msgid "New type can't be empty."
+msgstr "Nuevo tipo no puede estar vacío."
+
+#. Author of the plugin
+msgid "Team Yoast"
+msgstr "El equipo Yoast"
+
+#: classes/premium-javascript-strings.php:25
+msgid "You can't redirect a URL to itself."
+msgstr "No puedes redireccionar una URL hacia sí misma."
+
+#. translators: %s: '.htaccess' file name
+#: classes/redirect/views/redirects-tab-settings.php:96
+msgid "By default we write the redirects to your %s file, check this if you want the redirects written to a separate file. Only check this option if you know what you are doing!"
+msgstr "Por defecto, escribimos las redirecciones a tu archivo %s, activa esto si quieres que las redirecciones se escriban en un archivo separado. ¡Activa esta opción sólo si sabes lo que estás haciendo!"
+
+#: classes/redirect/presenters/redirect-table-presenter.php:65
+msgid "Regular Expression"
+msgstr "Expresión regular"
+
+#. translators: 1: '.htaccess' file name
+#: classes/redirect/views/redirects-tab-settings.php:91
+msgid "Write redirects to the %1$s file. Make sure the %1$s file is writable."
+msgstr "Escribe las redirecciones al archivo %1$s. Asegúrate de que el archivo %1$s tenga permisos de escritura."
+
+#. translators: %s: '.htaccess' file name
+#: classes/views/import-redirects.php:12
+msgid "Import redirects from %s"
+msgstr "Importar redirecciones de %s"
+
+#: classes/premium-javascript-strings.php:27
+msgid "The Regular Expression field can't be empty."
+msgstr "El campo Expresión regular no puede estar vacío."
+
+#. translators: %s is replaced with the URL that will be deleted.
+#: classes/premium-javascript-strings.php:34
+msgid "Please enter the new URL for %s"
+msgstr "Introduce la nueva URL para %s"
+
+#. translators: variables will be replaced with from and to URLs.
+#: classes/premium-javascript-strings.php:36
+msgid "Redirect created from %1$s to %2$s!"
+msgstr "¡Redirección creada de %1$s a %2$s!"
+
+#: classes/redirect/redirect-table.php:113
+#: classes/redirect/views/redirects-form.php:22
+msgctxt "noun"
+msgid "Type"
+msgstr "Tipo"
+
+#. translators: %1$s: '.htaccess' file name, %2$s: plugin name
+#: classes/views/import-redirects.php:18
+msgid "You can copy the contents of any %1$s file in here, and it will import the redirects into %2$s."
+msgstr "Puedes copiar el contenido de cualquier archivo %1$s aquí, y se importarán las redirecciones en %2$s."
+
+#: classes/premium-javascript-strings.php:41
+msgid "Redirect added."
+msgstr "Redirección añadida."
+
+#: classes/premium-javascript-strings.php:42
+msgid "The redirect was added successfully."
+msgstr "Redirección añadida correctamente."
+
+#: classes/premium-javascript-strings.php:45
+msgid "Redirect updated."
+msgstr "Redirección actualizada."
+
+#: classes/premium-javascript-strings.php:46
+msgid "The redirect was updated successfully."
+msgstr "Redirección actualizada correctamente."
+
+#: classes/premium-javascript-strings.php:49
+#: classes/premium-redirect-service.php:51
+#: classes/redirect-undo-endpoint.php:94
+msgid "Redirect deleted."
+msgstr "Redirección eliminada."
+
+#: classes/premium-javascript-strings.php:50
+#: classes/premium-redirect-service.php:52
+#: classes/redirect-undo-endpoint.php:95
+msgid "The redirect was deleted successfully."
+msgstr "La redirección se ha eliminado correctamente."
+
+#: classes/premium-javascript-strings.php:54
+#: classes/redirect/views/redirects-quick-edit.php:43
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: classes/premium-javascript-strings.php:55
+msgid "Save"
+msgstr "Guardar"
+
+#: classes/premium-javascript-strings.php:56
+msgid "Save anyway"
+msgstr "Guardar de todos modos"
+
+#: classes/premium-javascript-strings.php:58
+#: classes/redirect/views/redirects-quick-edit.php:22
+msgid "Edit redirect"
+msgstr "Editar redirección"
+
+#: classes/premium-javascript-strings.php:59
+msgid "You are already editing a redirect, please finish this one first"
+msgstr "Ya estás editando una redirección. Por favor, termina esta primero"
+
+#: classes/redirect/validation/redirect-accessible-validation.php:29
+msgid "The URL you entered could not be resolved."
+msgstr "La URL que has introducido no se puede resolver."
+
+#. translators: %1$s expands to the returned http code
+#: classes/redirect/validation/redirect-accessible-validation.php:40
+msgid "The URL you are redirecting to seems to return a %1$s status. You might want to check if the target can be reached manually before saving."
+msgstr "Parece que la URL a la que estás redirigiendo devuelve un estado %1$s. Puede que quieras comprobar si se el destino es accesible antes de guardar."
+
+#: classes/redirect/validation/redirect-accessible-validation.php:49
+msgid "You're redirecting to a target that returns a 301 HTTP code (permanently moved). Make sure the target you specify is directly reachable."
+msgstr "Estás redirigiendo a un objetivo que devuelve un código HTTP 301 (movido permanentemente). Asegúrate de que se puede acceder directamente al destino que especifiques."
+
+#. translators: %1$s expands to the returned http code
+#: classes/redirect/validation/redirect-accessible-validation.php:57
+msgid "The URL you entered returned a HTTP code different than 200(OK). The received HTTP code is %1$s."
+msgstr "La URL que has introducido ha devuelto un código HTTP distinto de 200 (OK). El código HTTP recibido es %1$s."
+
+#: classes/redirect/redirect-ajax.php:65
+msgid "Unknown error. Failed to create redirect."
+msgstr "Error desconocido. No se ha podido crear la redirección."
+
+#: classes/redirect/redirect-ajax.php:99
+msgid "Unknown error. Failed to update redirect."
+msgstr "Error desconocido. No se ha podido actualizar la redirección."
+
+#: classes/redirect/validation/redirect-endpoint-validation.php:40
+msgid "The redirect you are trying to save will create a redirect loop. This means there probably already exists a redirect that points to the origin of the redirect you are trying to save"
+msgstr "La redirección que intentas guardar creará un bucle de redireccionamiento. Esto significa que probablemente ya existe una redirección que apunta al origen de la redirección que intentas guardar"
+
+#. translators: %1$s: will be the target, %2$s: will be the found endpoint.
+#: classes/redirect/validation/redirect-endpoint-validation.php:48
+msgid "%1$s will be redirected to %2$s. Maybe it's worth considering to create a direct redirect to %2$s."
+msgstr "%1$s será redirigido a %2$s. Quizá merezca la pena crear una redirección directa a %2$s."
+
+#. translators: %s expands to the file path that we tried to write to
+#: classes/redirect/redirect-file-util.php:86
+msgid "We're unable to write data to the file %s"
+msgstr "No se han podido escribir datos en el archivo %s"
+
+#: classes/redirect/redirect-types.php:26
+msgid "301 Moved Permanently"
+msgstr "301 movido permanentemente"
+
+#: classes/redirect/redirect-types.php:27
+msgid "302 Found"
+msgstr "302 encontrado"
+
+#: classes/redirect/redirect-types.php:28
+msgid "307 Temporary Redirect"
+msgstr "307 redirección temporal"
+
+#: classes/redirect/redirect-types.php:29
+msgid "410 Content Deleted"
+msgstr "410 contenido eliminado"
+
+#: classes/redirect/redirect-types.php:30
+msgid "451 Unavailable For Legal Reasons"
+msgstr "451 no disponible por motivos legales"
+
+#: classes/redirect/validation/redirect-presence-validation.php:34
+msgid "Not all the required fields are filled."
+msgstr "No están rellanos todos los campos requeridos."
+
+#: classes/redirect/validation/redirect-uniqueness-validation.php:32
+msgid "The old URL already exists as a redirect."
+msgstr "La URL antigua ya existe como una redirección."
+
+#: classes/redirect/views/redirects-quick-edit.php:42
+msgid "Update Redirect"
+msgstr "Actualizar redirección"
+
+#. translators: %s expands to the folder location where the redirects fill will
+#. be saved.
+#: classes/redirect/views/redirects-tab-settings.php:61
+msgid "We're unable to save the redirect file to %s"
+msgstr "No podemos guardar el archivo de redirección en %s"
+
+#. translators: %1$s: Yoast SEO Premium, %2$s: List with actions, %3$s: <a
+#. href=''>, %4$s: </a>, %5$s: Slug to post
+#: classes/post-watcher.php:260
+msgid "%1$s detected that you moved a post (%5$s) to the trash. You can either: %2$s Don't know what to do? %3$sRead this post%4$s."
+msgstr "%1$s ha detectado que has movido una entrada (%5$s) a la papelera. Puedes: %2$s ¿No sabes qué hacer? %3$sLee esta entrada%4$s."
+
+#. translators: %1$s: Yoast SEO Premium, %2$s: List with actions, %3$s: <a
+#. href='{post_with_explaination.}'>, %4$s: </a>, %5%s: The removed url.
+#: classes/post-watcher.php:476
+msgid "%1$s detected that you deleted a post (%5$s). You can either: %2$s Don't know what to do? %3$sRead this post %4$s."
+msgstr "%1$s ha detectado que has borrado una entrada (%5$s). Puedes: %2$s ¿No sabes qué hacer? %3$sLee este artículo%4$s."
+
+#. translators: %1$s will be replaced with the from URL.
+#: classes/premium-javascript-strings.php:38
+msgid "410 Redirect created from %1$s!"
+msgstr "¡Redirección 401 creada desde %1$s!"
+
+#. translators: %1$s: Yoast SEO Premium, %2$s: List with actions, %3$s: <a
+#. href='{post_with_explaination.}'>, %4$s: </a>, %5%s: The removed url.
+#: classes/term-watcher.php:280
+msgid "%1$s detected that you deleted a term (%5$s). You can either: %2$s Don't know what to do? %3$sRead this post %4$s."
+msgstr "%1$s ha detectado que has borrado un término (%5$s). Puedes: %2$s ¿No sabes qué hacer? %3$sLee este artículo%4$s."
+
+#: classes/watcher.php:282
+msgid "Redirect it to another URL"
+msgstr "Redirigirla a otra URL"
+
+#: classes/watcher.php:283
+msgid "Make it serve a 410 Content Deleted header"
+msgstr "Hacer que muestre una cabecera 410 de contenido borrado"
+
+#: classes/redirect/views/redirects-tab-settings.php:85
+msgid "Web server"
+msgstr "Servidor web"
+
+#: classes/redirect/views/redirects-tab-settings.php:87
+msgid "Redirect method"
+msgstr "Método de redirección"
+
+#. translators: %s: 'Yoast SEO Premium'
+#: classes/redirect/views/redirects-tab-settings.php:100
+msgid "%s can generate redirect files that can be included in your website web server configuration. If you choose this option the PHP redirects will be disabled. Only check this option if you know what you are doing!"
+msgstr "%s puede generar ficheros de redirección que pueden ser incluidos en la configuración de tu servidor web. Si eliges esta opción las redirecciones PHP se desactivarán. ¡Marca esta opción solo si sabes lo que haces!"
+
+#. translators: %s expands to the file path that we tried to write to
+#: classes/redirect/redirect-file-util.php:44
+msgid "We're unable to create the directory %s"
+msgstr "No se ha podido crear el directorio %s"
+
+#: classes/redirect/validation/redirect-self-redirect-validation.php:25
+msgid "You are attempting to redirect to the same URL as the origin. Please choose a different URL to redirect to."
+msgstr "Estás intentando redirigir a la misma URL que el origen. Por favor, elige una URL distinta a la que redirigir."
+
+#. translators: 1: opens a link to a related help center article. 2: closes the
+#. link.
+#: classes/redirect/views/redirects-form.php:42
+msgid "The redirect type is the HTTP response code sent to the browser telling the browser what type of redirect is served. %1$sLearn more about redirect types%2$s."
+msgstr "El tipo de redirección es el código de respuesta HTTP enviado al navegador, que dice al navegador qué tipo de redirección se está sirviendo. %1$sAprende más acerca de los tipos de redirección%2$s."
+
+#. translators: 1: opens a link to a related help center article. 2: closes the
+#. link.
+#: classes/redirect/views/redirects-tab-regex.php:30
+msgid "Regular Expression (regex) Redirects are extremely powerful redirects. You should only use them if you know what you are doing. %1$sRead more about regex redirects on our help center%2$s."
+msgstr "Las redirecciones con expresiones regulares (regex) son redirecciones extremadamente potentes. Solo deberías usarlas si sabes lo que estás haciendo %1$sLee más acerca de las redirecciones regex en nuestra base de conocimiento%2$s."
+
+#: premium.php:397
+msgid "Enabled"
+msgstr "Activado"
+
+#: classes/views/import-redirects.php:72
+msgid "Enter redirects to import"
+msgstr "Introduce las redirecciones a importar"
+
+#. translators: %1$s expands to the subdirectory WordPress is installed.
+#: classes/redirect/validation/redirect-subdirectory-validation.php:37
+msgid "Your redirect is missing the subdirectory where WordPress is installed in. This will result in a redirect that won't work. Make sure the redirect starts with %1$s"
+msgstr "Tu redirección no contiene el subdirectorio en el que está instalado WordPress. Esto va a crear una redirección que no funcionará. Asegúrate de que la redirección empieza por %1$s"
+
+#: classes/redirect/redirect-table.php:249
+msgid "Select this redirect"
+msgstr "Selecciona esta redirección"
+
+#. translators: %s expands to Yoast
+#: classes/metabox-link-suggestions.php:101
+msgid "%s internal linking"
+msgstr "Enlaces internos %s"
+
+#. translators: %s: '.htaccess' file name
+#: classes/premium-import-manager.php:67 classes/views/import-redirects.php:45
+msgid "Import redirects"
+msgstr "Importar redirecciones"
+
+#: classes/views/import-redirects.php:25
+msgid "Redirection"
+msgstr "Redirection"
+
+#: classes/views/import-redirects.php:26
+msgid "Safe Redirect Manager"
+msgstr "Safe Redirect Manager"
+
+#: classes/views/import-redirects.php:27
+msgid "Simple 301 Redirects"
+msgstr "Simple 301 Redirects"
+
+#: classes/views/import-redirects.php:38
+msgid "Import from other redirect plugins"
+msgstr "Importar desde otros plugins de redirección"
+
+#: classes/views/import-redirects.php:42
+msgid "Import from:"
+msgstr "Importar desde:"
+
+#: classes/watcher.php:253
+msgid "New URL:"
+msgstr "Nueva URL:"
+
+#: classes/watcher.php:251
+msgid "Old URL:"
+msgstr "URL antigua:"
+
+#: classes/premium-redirect-export-manager.php:31
+#: classes/views/export-redirects.php:15
+msgid "Export redirects"
+msgstr "Exportar redirecciones"
+
+#: classes/redirect/exporters/redirect-csv-exporter.php:74
+msgid "Origin"
+msgstr "Origen"
+
+#: classes/redirect/exporters/redirect-csv-exporter.php:75
+msgid "Target"
+msgstr "Destino"
+
+#: classes/redirect/exporters/redirect-csv-exporter.php:77
+msgid "Format"
+msgstr "Formato"
+
+#: classes/views/export-redirects.php:10
+msgid "Export redirects to a CSV file"
+msgstr "Exportar redirecciones a un archivo CSV"
+
+#: classes/views/export-redirects.php:11
+msgid "If you need to have a list of all redirects, you can generate a CSV file using the button below."
+msgstr "Si necesitas una lista de todas las redirecciones puedes generar un archivo CSV usando el botón de abajo."
+
+#: classes/views/export-redirects.php:12
+msgid "Please note that the first row in this file is a header. This row should be ignored when parsing or importing the data from the export."
+msgstr "Ten en cuenta que la primer fila de este archivo es una cabecera. Esta fila debe ignorarse al procesar o importar los datos de la exportación."
+
+#: classes/premium-import-manager.php:275
+msgid "CSV import failed: the provided file could not be parsed using a CSV parser."
+msgstr "La importación del CSV ha fallado: el archivo proporcionado no se ha podido interpretar usando un analizador de CSV."
+
+#: classes/views/import-redirects.php:52
+msgid "Import from a CSV file"
+msgstr "Importar desde un archivo CSV"
+
+#: classes/views/import-redirects.php:59
+msgid "Import CSV file"
+msgstr "Importar archivo CSV"
+
+#. translators: %1$s: Yoast SEO Premium, %2$s: <a href='{undo_redirect_url}'>,
+#. %3$s: </a>, %4$s: Slug to post
+#: classes/post-watcher.php:287
+msgid "%1$s detected that you restored a post (%4$s) from the trash, for which a redirect was created. %2$sClick here to remove the redirect%3$s"
+msgstr "%1$s ha detectado que has restaurado de la papelera una entrada (%4$s) para la que se había creado una redirección. %2$sHaz clic aquí para eliminar la redirección%3$s"
+
+#. translators: %1$s expands to the link to an article to read more about
+#. orphaned content, %2$s expands to </a>
+#: classes/premium-orphaned-post-filter.php:54
+msgid "%1$sLearn more about orphaned content%2$s."
+msgstr "%1$sAprende más sobre el contenido huérfano%2$s."
+
+#. translators: %1$s: plural form of the current post type, %2$s: a Learn more
+#. about link
+#: classes/premium-orphaned-post-filter.php:62
+msgid "Ask your SEO Manager or Site Administrator to count links in all texts, so we can identify orphaned %1$s. %2$s"
+msgstr "Pide a tu gestor SEO o administrador del sitio que recuente los enlaces de todos los textos para que podamos identificar %1$s. %2$s"
+
+#. translators: %1$s expands to link to the recalculation option, %2$s: anchor
+#. closing, %3$s: plural form of the current post type, %4$s: a Learn more
+#. about link
+#: classes/premium-orphaned-post-filter.php:71
+msgid "%1$sClick here%2$s to index your links, so we can identify orphaned %3$s. %4$s"
+msgstr "%1$sHaz clic aquí%2$s para indexar tus enlaces para que podamos identificar %3$s. %4$s"
+
+#. translators: %1$s: plural form of the current post type, %2$s: a Learn more
+#. about link
+#: classes/premium-orphaned-post-filter.php:81
+msgid "'Orphaned content' refers to %1$s that have no inbound links, consider adding links towards these %1$s. %2$s"
+msgstr "Por «contenido huérfano» nos referimos a %1$s que no tienen enlaces entrantes, plantéate añadir enlaces hacia estas %1$s. %2$s"
+
+#: classes/premium-orphaned-post-filter.php:140
+#: assets/js/src/workouts/components/OrphanedWorkout.js:87
+msgid "Orphaned content"
+msgstr "Contenido huérfano"
+
+#: classes/export/export-keywords-csv.php:68
+msgid "url"
+msgstr "url"
+
+#: classes/export/export-keywords-csv.php:69
+msgid "readability score"
+msgstr "puntuación de legibilidad"
+
+#: classes/export/export-keywords-csv.php:76
+msgid "ID"
+msgstr "ID"
+
+#: classes/redirect/redirect-table.php:84
+msgid "Filter by redirect type"
+msgstr "Filtrar por tipo de redirección"
+
+#: classes/redirect/redirect-table.php:86
+msgid "All redirect types"
+msgstr "Todos los tipos de redirección"
+
+#. translators: %s resolves to the button label translation.
+#: classes/views/export-keywords.php:12
+msgid "If you need a list of all public posts, terms and related keyphrases, you can generate a CSV file using the %s button below."
+msgstr "Si necesitas una lista de todas las entradas públicas, términos y frases clave relacionadas puedes generar un archivo CSV usando el botón %s de abajo."
+
+#: classes/views/export-keywords.php:21
+msgid "Export keyphrases to a CSV file"
+msgstr "Exportar frases clave a un archivo CSV"
+
+#: classes/views/export-keywords.php:23
+msgid "You can add or remove columns to be included in the export using the checkboxes below."
+msgstr "Puedes añadir o quitar columnas que incluir en la exportación usando las casillas de abajo."
+
+#: classes/views/export-keywords.php:31
+msgid "Export URL"
+msgstr "Exportar URL"
+
+#: classes/views/export-keywords.php:32
+msgid "Export title"
+msgstr "Exportar título"
+
+#: classes/views/export-keywords.php:35
+msgid "Export readability score"
+msgstr "Exportar puntuación de legibilidad"
+
+#: classes/views/export-keywords.php:49
+msgid "Please note:"
+msgstr "Por favor, ten en cuenta:"
+
+#: classes/views/export-keywords.php:51
+msgid "The first row in this file is the header row. This row should be ignored when parsing or importing the data from the export."
+msgstr "La primera fila de este archivo es la fila de cabecera. Esta fila debe ignorarse al procesar o importar los datos de la exportación."
+
+#: classes/views/export-keywords.php:52
+msgid "Exporting data can take a long time when there are many posts, pages, public custom post types or terms."
+msgstr "La exportación de datos puede llevar mucho tiempo cuando hay muchas entradas, páginas, tipos de contenido públicos o términos."
+
+#: classes/redirect/views/redirects-tab-plain.php:25
+msgid "Plain redirects"
+msgstr "Redirecciones simples"
+
+#: classes/redirect/views/redirects-tab-regex.php:25
+msgid "Regular Expression redirects"
+msgstr "Redirecciones con expresiones regulares"
+
+#: classes/redirect/views/redirects-tab-settings.php:74
+msgid "Redirects settings"
+msgstr "Ajustes de redirecciones"
+
+#: classes/export/export-keywords-csv.php:77
+msgctxt "post_type of a post or the taxonomy of a term"
+msgid "type"
+msgstr "tipo"
+
+#: classes/export/export-keywords-csv.php:72
+msgid "seo title"
+msgstr "título seo"
+
+#: classes/views/export-keywords.php:33
+msgid "Export SEO title"
+msgstr "Exportar título SEO"
+
+#: classes/views/export-keywords.php:34
+msgid "Export meta description"
+msgstr "Exportar metadescription"
+
+#: classes/export/export-keywords-csv.php:70
+msgid "keyphrase"
+msgstr "frase clave"
+
+#: classes/export/export-keywords-csv.php:71
+msgid "keyphrase score"
+msgstr "puntuación de la frase clave"
+
+#: classes/premium-keyword-export-manager.php:40
+#: classes/views/export-keywords.php:8
+msgid "Export keyphrases"
+msgstr "Exportar frases clave"
+
+#: classes/views/export-keywords.php:30
+msgid "Export keyphrase scores"
+msgstr "Exportar puntuaciones de frase clave"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://yoa.st/2jc"
+msgstr "https://yoa.st/2jc"
+
+#. Plugin Name of the plugin
+msgid "Yoast SEO Premium"
+msgstr "Yoast SEO Premium"
+
+#. translators: 1: link to redirects overview, 2: closing link tag
+#: classes/premium-import-manager.php:192
+msgid "All redirects have been imported successfully. Go to the %1$sredirects overview%2$s to see the imported redirects."
+msgstr "Todas las redirecciones se han importado correctamente. Ve a la %1$slista de redirecciones%2$s para ver las redirecciones importadas."
+
+#. translators: 1: link to redirects overview, 2: closing link tag
+#: classes/premium-import-manager.php:201
+msgid "No redirects have been imported. Probably they already exist as a redirect. Go to the %1$sredirects overview%2$s to see the existing redirects."
+msgstr "No se ha importado ninguna redirección. Probablemente ya existían. Ve a la %1$slista de redirecciones%2$s para ver las redirecciones existentes."
+
+#. translators: 1: amount of imported redirects, 2: total amount of redirects,
+#. 3: link to redirects overview, 4: closing link tag
+#: classes/premium-import-manager.php:209
+msgid "Imported %1$s/%2$s redirects successfully. Go to the %3$sredirects overview%4$s to see the imported redirect."
+msgid_plural "Imported %1$s/%2$s redirects successfully. Go to the %3$sredirects overview%4$s to see the imported redirects."
+msgstr[0] "%1$s/%2$s redirección importada con éxito. Ve a la %3$slista de redirecciones%4$s para verla."
+msgstr[1] "%1$s/%2$s redirecciones importadas con éxito. Ve a la %3$svista general de las redirecciones%4$s para verlas."
+
+#: classes/premium-import-manager.php:251
+msgid "Redirect import failed: the selected redirect plugin is not installed or activated."
+msgstr "La importación de redirecciones ha fallado: el plugin de redirección seleccionado no está instalado o no está activo."
+
+#: classes/premium-import-manager.php:269
+msgid "CSV import failed: No file selected."
+msgstr "La importación del CSV ha fallado: no has seleccionado ningún archivo."
+
+#. translators: 1: The maximum file size
+#: classes/premium-import-manager.php:283
+msgid "CSV import failed: the provided file is larger than %1$s."
+msgstr "La importación del CSV ha fallado: el archivo proporcionado pesa más de %1$s."
+
+#: classes/premium-import-manager.php:290
+msgid "CSV import failed: the provided file is not a CSV file."
+msgstr "La importación del CSV ha fallado: el archivo proporcionado no es un archivo CSV."
+
+#: classes/premium-import-manager.php:309
+msgid "Redirect import failed: we can't recognize this type of import."
+msgstr "La importación de redirecciones ha fallado: no se reconoce el tipo de importación."
+
+#: classes/premium-stale-cornerstone-content-filter.php:51
+msgid "Stale cornerstone content"
+msgstr "Contenido esencial anticuado"
+
+#. translators: %s expands to the posttype label, %2$s expands anchor to blog
+#. post about cornerstone content, %3$s expands to </a>
+#: classes/premium-stale-cornerstone-content-filter.php:68
+msgid "Stale cornerstone content refers to cornerstone content that hasn’t been updated in the last 6 months. Make sure to keep these %1$s up-to-date. %2$sLearn more about cornerstone content%3$s."
+msgstr "El contenido esencial anticuado se refiere al contenido esencial que no se ha actualizado en los últimos 6 meses. Asegúrate de mantener estos %1$s actualizados. %2$sAprende más sobre el contenido esencial%3$s."
+
+#: classes/views/import-redirects.php:56
+msgid "Choose a CSV file from your computer:"
+msgstr "Elige un archivo CSV de tu ordenador:"
+
+#: classes/watcher.php:264 assets/js/src/components/RedirectNotification.js:133
+#: assets/js/src/elementor/components/RedirectNotification.js:133
+msgid "Undo"
+msgstr "Deshacer"
+
+#: classes/premium-redirect-service.php:60
+#: classes/redirect-undo-endpoint.php:83 classes/redirect-undo-endpoint.php:103
+msgid "Redirect not deleted."
+msgstr "Redirección no borrada."
+
+#: classes/premium-redirect-service.php:61
+#: classes/redirect-undo-endpoint.php:84 classes/redirect-undo-endpoint.php:104
+msgid "Something went wrong when deleting this redirect."
+msgstr "Algo ha salido mal al borrar esta redirección."
+
+#: classes/redirect/validation/redirect-relative-origin-validation.php:27
+msgid "The old URL for your redirect is not relative. Only the new URL is allowed to be absolute. Make sure to provide a relative old URL."
+msgstr "La URL antigua de tu redirección no es relativa. Solo puede ser absoluta la URL nueva. Asegúrate de proporcionar una URL antigua relativa."
+
+#. translators: %1$s: Yoast SEO Premium, %2$s and %3$s expand to a link to the
+#. admin page.
+#: classes/post-watcher.php:463
+msgid "%1$s created a %2$sredirect%3$s from the old post URL to the new post URL."
+msgstr "%1$s ha creado una %2$sredirección%3$s de la URL de la entrada antigua a la de la nueva entrada."
+
+#. translators: %1$s: Yoast SEO Premium, %2$s and %3$s expand to a link to the
+#. admin page.
+#: classes/term-watcher.php:267
+msgid "%1$s created a %2$sredirect%3$s from the old term URL to the new term URL."
+msgstr "%1$s ha creado una %2$sredirección%3$s desde la URL del término antiguo a la URL del nuevo término."
+
+#: classes/watcher.php:258
+msgid "Ok"
+msgstr "Vale"
+
+#. translators: %s: Zapier.
+#: src/integrations/third-party/zapier.php:122
+msgid "Go to your %s Dashboard"
+msgstr "Ve a tu panel de control de %s"
+
+#. translators: 1: Zapier, 2: The Zapier API Key.
+#: src/integrations/third-party/zapier.php:127
+msgid "%1$s uses this API Key: %2$s"
+msgstr "%1$s utiliza esta API: %2$s"
+
+#: src/integrations/third-party/zapier.php:131
+msgid "Reset API Key"
+msgstr "Restablecer clave API"
+
+#. translators: %s: Zapier.
+#: src/integrations/third-party/zapier.php:170
+msgid "%s will ask for an API key. Use this one:"
+msgstr "%s te pedirá una clave de API. Utiliza esta:"
+
+#: src/integrations/third-party/zapier.php:176
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapeles"
+
+#. translators: 1: Link start tag, 2: Yoast SEO, 3: Zapier, 4: Link closing
+#. tag.
+#: src/integrations/third-party/zapier-classic-editor.php:71
+#: assets/js/src/components/ZapierPrePublishContent.js:22
+msgid "%1$sConnect %2$s with %3$s%4$s to instantly share your published posts with 2000+ destinations such as Twitter, Facebook and more."
+msgstr "%1$sConecta %2$s con %3$s%4$s para compartir instantáneamente tus entradas publicadas con más de 2000 destinos como Twitter, Facebook y más."
+
+#. translators: 1: Yoast SEO, 2: Zapier.
+#: src/integrations/third-party/zapier.php:111
+msgid "%1$s is successfully connected to %2$s!"
+msgstr "¡%1$s está conectado correctamente a %2$s!"
+
+#. translators: 1: Yoast SEO, 2: Zapier, 3: Emphasis open tag, 4: Emphasis
+#. close tag.
+#: src/integrations/third-party/zapier.php:145
+msgid "%1$s is not connected to %2$s. To set up a connection, make sure you click %3$sSave changes%4$s first, then copy the given API key below and use it to %3$screate%4$s and %3$sturn on%4$s a Zap within your %2$s account."
+msgstr "%1$s no está conectado a %2$s. Para configurar una conexión asegúrate de hacer clic primero en %3$sGuardar cambios%4$s, luego copia la clave API de abajo y úsala para %3$screar%4$s y %3$sactivar%4$s un Zap dentro de tu cuenta de %2$s."
+
+#. translators: 1: Yoast SEO.
+#: src/integrations/third-party/zapier.php:155
+msgid "Please note that you can only create 1 Zap with a trigger event from %1$s. Within this Zap you can choose one or more actions."
+msgstr "Ten en cuenta que solo puedes crear 1 Zap con un evento disparador desde %1$s. Dentro de este Zap puedes elegir una o más acciones."
+
+#. translators: %s: Zapier.
+#: src/integrations/third-party/zapier.php:181
+msgid "Create a Zap in %s"
+msgstr "Crear un Zap en %s"

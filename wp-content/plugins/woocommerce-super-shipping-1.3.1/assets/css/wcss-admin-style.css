@@ -1,0 +1,179 @@
+.woocommerce table.wcss-form-table{
+	margin: 0;
+	position: relative;
+	border-collapse: collapse;
+	width: 100%;
+	clear: both;
+	font-size: 14px;
+}
+
+.same-row{
+	float: left;
+	margin-right: 50px;
+}
+
+tr.special_region{
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	background: #fff;
+	display: block;
+	margin-bottom: 10px;
+	cursor: move;
+}
+
+tr.special_region > td{
+	border-top: 1px solid #DDD;
+	cursor: auto;
+	display: block;
+	padding: 15px;
+}
+
+tr.special_region > td table{
+	width: 100%;
+}
+
+tr.special_region > td > table tr > td{
+	padding-bottom: 15px;
+	line-height: 30px;
+}
+
+.special_region th.titledesc{
+	padding-left: 15px;
+	display: inline;
+	width: 100%;
+	line-height: 45px;
+}
+
+.handlediv {
+	float: right;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+}
+
+.handlediv .toggle-indicator:before {
+	margin-top: 4px;
+	width: 20px;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	text-indent: -1px;
+	vertical-align: middle;
+}
+
+.handlediv.closed .toggle-indicator:before {
+	content: "\f140";
+}
+
+.toggle-indicator:before{
+	content: "\f142";
+	display: inline-block;
+	font: 400 20px/1 dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: none!important;
+}
+
+.wcss_error_tip{
+	max-width: 20em;
+	line-height: 1.8em;
+	position: absolute;
+	white-space: normal;
+	background: #d82223;
+	margin: 1.5em 1px 0 -1em;
+	z-index: 9999999;
+	color: #fff;
+	font-size: .8em;
+	max-width: 150px;
+	text-align: center;
+	border-radius: 3px;
+	padding: .618em 1em;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+.wcss_error_tip:after{
+	content: "";
+	display: block;
+	border: 8px solid #d82223;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+	position: absolute;
+	top: -3px;
+	left: 50%;
+	margin: -1em 0 0 -3px;
+}
+
+.wc-ss-modal-box .ui-dialog {
+    	padding: 0;
+    	border: none;
+    	border-radius: 0;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar{
+	border: none;
+    	border-radius: 0;
+    	height: auto;
+    	background: #fcfcfc;
+    	padding: 1em 1.5em;
+    	border-bottom: 1px solid #ddd;
+    	display: block;
+    	position: relative;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar .ui-dialog-title{
+	margin: 0;
+    	font-size: 18px;
+    	font-weight: 700;
+    	line-height: 1.5em;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar .ui-button{
+	border-color: transparent;
+	background: #fff;
+	cursor: pointer;
+    	color: #777;
+    	height: 55px;
+    	width: 55px;
+    	padding: 0;
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+    	text-align: center;
+    	border: 0;
+    	border-left: 1px solid #ddd;
+    	border-radius: 0px;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar .ui-button:hover{
+	background: #f3f3f3;
+	border-color: #ccc;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar .ui-button .ui-icon-closethick{
+	background-image: none;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar-close{
+	margin: 0px;
+}
+
+.wc-ss-modal-box .ui-dialog .ui-dialog-titlebar button:before{
+	font: normal 22px/50px dashicons!important;
+    	color: #666;
+    	display: block;
+    	content: '\f335';
+    	font-weight: 300;
+}
+
+.wc-ss-modal-box .ui-dialog-content{
+	text-align: center;
+}
+
+.wc-ss-modal-box .ui-dialog-content h4{
+	margin: 0.9em;
+}
+
+.wc-ss-modal-box .ui-dialog-content .wc-ss-tot{
+	padding: 18px 9px;
+}

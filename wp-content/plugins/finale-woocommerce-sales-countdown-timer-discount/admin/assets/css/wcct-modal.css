@@ -1,0 +1,18 @@
+#WCCT_MB_HideSelect,#WCCT_MB_window{position:fixed;background-color:#fff}
+#WCCT_MB_overlay{background:#000;opacity:.7;filter:alpha(opacity=70);position:fixed;top:0;right:0;bottom:0;left:0;z-index:100050}
+#WCCT_MB_window{z-index:100050;visibility:hidden;text-align:left;top:50%;left:50%;-webkit-box-shadow:0 3px 6px rgba(0,0,0,.3);box-shadow:0 3px 6px rgba(0,0,0,.3)}
+#WCCT_MB_window img#WCCT_MB_Image{display:block;margin:15px 0 0 15px;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #666;border-left:1px solid #666}
+#WCCT_MB_caption{height:25px;padding:7px 30px 10px 25px;float:left}
+#WCCT_MB_closeWindow{height:25px;padding:11px 25px 10px 0;float:right}
+#WCCT_MB_closeWindowButton{position:absolute;left:auto;right:0;width:29px;height:29px;border:0;padding:0;background:0 0;cursor:pointer;outline:0;-webkit-transition:color .1s ease-in-out,background .1s ease-in-out;transition:color .1s ease-in-out,background .1s ease-in-out}
+#WCCT_MB_ajaxWindowTitle{float:left;font-weight:600;line-height:29px;overflow:hidden;padding:0 29px 0 10px;text-overflow:ellipsis;white-space:nowrap;width:calc(100% - 39px)}
+#WCCT_MB_title{background:#fcfcfc;border-bottom:1px solid #ddd;height:29px}
+#WCCT_MB_ajaxContent{clear:both;padding:2px 15px 15px;overflow:auto;text-align:left;line-height:1.4em}
+#WCCT_MB_ajaxContent.WCCT_MB_modal{padding:15px}
+#WCCT_MB_ajaxContent p{padding:5px 0}
+#WCCT_MB_load{position:fixed;display:none;z-index:103;top:50%;left:50%;background-color:#E8E8E8;border:1px solid #555;margin:-45px 0 0 -125px;padding:40px 15px 15px}
+#WCCT_MB_HideSelect{z-index:99;top:0;left:0;border:none;filter:alpha(opacity=0);opacity:0;height:100%;width:100%}
+#WCCT_MB_iframeContent{clear:both;border:none}
+.wcct_modal_close_btn{display:block;color:#666;text-align:center;line-height:29px;width:29px;height:29px;position:absolute;top:0;right:0}
+.wcct_modal_close_btn:before{content:"\f158";font:400 20px/29px dashicons;speak:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+#WCCT_MB_closeWindowButton:focus .wcct_modal_close_btn,#WCCT_MB_closeWindowButton:hover .wcct_modal_close_btn{color:#00a0d2}

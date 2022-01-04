@@ -1,0 +1,11 @@
+				@font-face {
+					font-family: 'verdana';
+					src: url('/wp-content/uploads/useanyfont/1020verdana.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/1020verdana.woff') format('woff');					
+				}
+
+				.verdana{font-family: 'verdana' !important;}
+
+				.et_gf_verdana{background:none !important;font-family:verdana;text-indent:0 !important;font-size:25px;}
+
+				/* NOTA:  para agregar una nueva fuente  */

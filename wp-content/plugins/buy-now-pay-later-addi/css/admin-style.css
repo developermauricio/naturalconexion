@@ -1,0 +1,194 @@
+label[for="woocommerce_addi_hidden_field_1"] + br + p.description {
+  margin-top: -35px;
+  margin-left: 0px;
+}
+
+.hidden {
+  display: none;
+}
+  
+.hr-default {
+  background: transparent;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  width: 100% !important;
+  border-top: 1px solid grey;	
+  position: relative;
+  margin: 0% -10% !important;
+  outline: none !important;
+  pointer-events: none; 
+}
+
+.widget-section-header {
+  background-color: transparent !important;
+  border: none !important;
+  display: none;
+}
+
+.widget-description-header {
+  background-color: transparent !important;
+  border: none !important;
+  display: none;
+}
+
+#woocommerce_addi_modalBadgeLogoStyle {
+  margin-right: 385px !important;
+}
+
+label[for="woocommerce_addi_widget-section-header"] {
+  min-width: 240px;
+  color: #1d2327;
+  font-size: 1.3em;
+}
+
+label[for="woocommerce_addi_addi_description_checkout_page"] {
+  min-width: 440px;
+  color: #646970 !important;
+  font-size: 13px !important;
+	top: -27px;
+    font-weight: lighter;
+    font-family: inherit;
+}
+
+label[for="woocommerce_addi_addi_section_product_page"] {
+  font-size: 1.2em !important;
+}
+
+label[for="woocommerce_addi_addi_section_checkout_page"] {
+  font-size: 1.2em !important;
+}
+
+/* Widget / Modal styles in admin */
+
+.customCircle {
+  background: #e3e3e3;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #6e6e6e;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 31px;
+  margin-left: 12px;
+  margin-right: 5px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
+/*Widget*/
+.customCircle.addiWidget.step1 {
+  background-color:#779ad4;
+  color: white;
+}
+
+.customCircle.addiWidget.step2 {
+  background-color:#84c1c6;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step3 {
+  background-color:#74ce4a;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step4 {
+  background-color:#74ce4a;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step5 {
+  background-color:#74ce4a;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step6 {
+  background-color:#f5dd61;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step7 {
+  background-color:#e33733;
+  color: white;
+}
+
+
+.customCircle.addiWidget.step8 {
+  background-color:#9832ed;
+  color: white;
+}
+
+.customCircle.addiWidget.step9 {
+  background-color:#1f1cfb;
+  color: white;
+}
+/*Widget*/
+/*Modal*/
+.customCircle.addiWidgetModal.step1 {
+  background-color:#779ad4;
+  color: white;
+}
+
+.customCircle.addiWidgetModal.step2 {
+  background-color:#84c1c6;
+  color: white;
+}
+
+
+.customCircle.addiWidgetModal.step3 {
+  background-color:#74ce4a;
+  color: white;
+}
+
+
+.customCircle.addiWidgetModal.step4 {
+  background-color:#f5dd61;
+  color: white;
+}
+
+
+.customCircle.addiWidgetModal.step5 {
+  background-color:#f5dd61;
+  color: white;
+}
+
+
+.customCircle.addiWidgetModal.step6 {
+  background-color:#f5dd61;
+  color: white;
+}
+
+
+.customCircle.addiWidgetModal.step7 {
+  background-color:#e33733;
+  color: white;
+}
+
+.customCircle.addiWidgetModal.step8 {
+  background-color:#9832ed;
+  color: white;
+}
+
+.customCircle.addiWidgetModal.step9 {
+  background-color:#9832ed;
+  color: white;
+}
+
+.customCircle.addiWidgetModal.step10 {
+  background-color:#9832ed;
+  color: white;
+}
+
+.customCircle.addiWidgetModal.step11 {
+  background-color:#9832ed;
+  color: white;
+}
+/*Modal*/
+

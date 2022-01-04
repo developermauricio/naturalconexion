@@ -1,0 +1,400 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-09-06 12:45+0530\n"
+"PO-Revision-Date: 2016-09-06 13:19+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:110
+msgid "Are you sure you want to delete?"
+msgstr "Sind Sie sicher, dass Sie löschen möchten?"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:111
+msgid "Enter banner image link"
+msgstr "Geben Sie Banner Bildlink"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:123
+msgid "Banner Management"
+msgstr "Banner -Management"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:241
+msgid "Banner saved succesfully"
+msgstr "Banner gespeichert erfolgreich"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:245
+#: admin/class-woocommerce-category-banner-management-admin.php:871
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:248
+msgid "Banner Management Settings"
+msgstr "Banner -Management -Einstellungen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:249
+msgid ""
+"You can easily add banner in WooCommerce stores and you can upload the "
+"banner for page specific, category specific and welcome page specific."
+msgstr ""
+"Sie können ganz einfach Banner in WooCommerce Stores hinzufügen und Sie "
+"können das Banner für seitenspezifische , kategoriespezifische und "
+"spezifische willkommen Seite hochladen."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:250
+msgid ""
+"You can upload custom banner  at the top of your product category pages. "
+"Easily update the image through your product category edit page.You can "
+"upload custom banner  at the top of your product category pages. Easily "
+"update the image through your product category edit page."
+msgstr ""
+"Sie können benutzerdefinierte Banner an der Spitze Ihrer Produktkategorie -"
+"Seiten hochladen. Einfach aktualisieren Sie das Bild durch Ihre "
+"Produktkategorie bearbeiten page.You können benutzerdefinierte Banner an der "
+"Spitze Ihrer Produktkategorie -Seiten hochladen. Einfach aktualisieren Sie "
+"das Bild durch Ihre Produktkategorie Seite bearbeiten."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:253
+msgid "Page specific banner"
+msgstr "Seiten spezifische Banner"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:254
+msgid ""
+"You can upload custom banner on page specific. Easily update the image and "
+"redirect page URL from below setting option."
+msgstr ""
+"Sie können benutzerdefinierte Banner auf Seite spezifische hochladen. "
+"Einfach das Bild zu aktualisieren und URL der Seite von unten "
+"Einstellmöglichkeit umleiten."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:266
+msgid "Banner for shop page "
+msgstr "Banner für Shop-Seite"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:272
+#: admin/class-woocommerce-category-banner-management-admin.php:425
+#: admin/class-woocommerce-category-banner-management-admin.php:581
+#: admin/class-woocommerce-category-banner-management-admin.php:737
+msgid "Enable/Disable"
+msgstr "Aktivieren/Deaktivieren"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:281
+#: admin/class-woocommerce-category-banner-management-admin.php:434
+#: admin/class-woocommerce-category-banner-management-admin.php:952
+msgid "Preview"
+msgstr "Vorschau"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:281
+#: admin/class-woocommerce-category-banner-management-admin.php:434
+#: admin/class-woocommerce-category-banner-management-admin.php:952
+msgid "Click here"
+msgstr "Klick hier"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:298
+#: admin/class-woocommerce-category-banner-management-admin.php:451
+#: admin/class-woocommerce-category-banner-management-admin.php:608
+#: admin/class-woocommerce-category-banner-management-admin.php:750
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:302
+#: admin/class-woocommerce-category-banner-management-admin.php:455
+#: admin/class-woocommerce-category-banner-management-admin.php:612
+#: admin/class-woocommerce-category-banner-management-admin.php:754
+#: admin/class-woocommerce-category-banner-management-admin.php:955
+msgid "Select Banner"
+msgstr "Wählen Sie Banner"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:304
+#: admin/class-woocommerce-category-banner-management-admin.php:319
+#: admin/class-woocommerce-category-banner-management-admin.php:457
+#: admin/class-woocommerce-category-banner-management-admin.php:471
+#: admin/class-woocommerce-category-banner-management-admin.php:614
+#: admin/class-woocommerce-category-banner-management-admin.php:628
+#: admin/class-woocommerce-category-banner-management-admin.php:756
+#: admin/class-woocommerce-category-banner-management-admin.php:770
+#: admin/class-woocommerce-category-banner-management-admin.php:957
+msgid "Single Banner"
+msgstr "Einzel Banner"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:305
+#: admin/class-woocommerce-category-banner-management-admin.php:346
+#: admin/class-woocommerce-category-banner-management-admin.php:458
+#: admin/class-woocommerce-category-banner-management-admin.php:498
+#: admin/class-woocommerce-category-banner-management-admin.php:615
+#: admin/class-woocommerce-category-banner-management-admin.php:655
+#: admin/class-woocommerce-category-banner-management-admin.php:757
+#: admin/class-woocommerce-category-banner-management-admin.php:797
+#: admin/class-woocommerce-category-banner-management-admin.php:958
+msgid "Multiple Banner"
+msgstr "Mehrere Banner"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:310
+#: admin/class-woocommerce-category-banner-management-admin.php:462
+#: admin/class-woocommerce-category-banner-management-admin.php:619
+#: admin/class-woocommerce-category-banner-management-admin.php:761
+#: admin/class-woocommerce-category-banner-management-admin.php:964
+msgid "Start Date"
+msgstr "Anfang Datum"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:314
+#: admin/class-woocommerce-category-banner-management-admin.php:466
+#: admin/class-woocommerce-category-banner-management-admin.php:623
+#: admin/class-woocommerce-category-banner-management-admin.php:765
+#: admin/class-woocommerce-category-banner-management-admin.php:975
+msgid "End Date"
+msgstr "Ende Datum"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:323
+#: admin/class-woocommerce-category-banner-management-admin.php:363
+#: admin/class-woocommerce-category-banner-management-admin.php:475
+#: admin/class-woocommerce-category-banner-management-admin.php:515
+#: admin/class-woocommerce-category-banner-management-admin.php:632
+#: admin/class-woocommerce-category-banner-management-admin.php:672
+#: admin/class-woocommerce-category-banner-management-admin.php:774
+#: admin/class-woocommerce-category-banner-management-admin.php:815
+#: admin/class-woocommerce-category-banner-management-admin.php:986
+msgid "Banner Image"
+msgstr "Banner Image"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:324
+#: admin/class-woocommerce-category-banner-management-admin.php:364
+#: admin/class-woocommerce-category-banner-management-admin.php:476
+#: admin/class-woocommerce-category-banner-management-admin.php:516
+#: admin/class-woocommerce-category-banner-management-admin.php:633
+#: admin/class-woocommerce-category-banner-management-admin.php:673
+#: admin/class-woocommerce-category-banner-management-admin.php:775
+#: admin/class-woocommerce-category-banner-management-admin.php:816
+#: admin/class-woocommerce-category-banner-management-admin.php:990
+#: admin/class-woocommerce-category-banner-management-admin.php:1042
+msgid "Upload File"
+msgstr "Datei hochladen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:338
+#: admin/class-woocommerce-category-banner-management-admin.php:394
+#: admin/class-woocommerce-category-banner-management-admin.php:490
+#: admin/class-woocommerce-category-banner-management-admin.php:551
+#: admin/class-woocommerce-category-banner-management-admin.php:647
+#: admin/class-woocommerce-category-banner-management-admin.php:708
+#: admin/class-woocommerce-category-banner-management-admin.php:789
+#: admin/class-woocommerce-category-banner-management-admin.php:851
+msgid "Banner Image Link"
+msgstr "Banner Image Link"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:339
+#: admin/class-woocommerce-category-banner-management-admin.php:395
+#: admin/class-woocommerce-category-banner-management-admin.php:491
+#: admin/class-woocommerce-category-banner-management-admin.php:552
+#: admin/class-woocommerce-category-banner-management-admin.php:648
+#: admin/class-woocommerce-category-banner-management-admin.php:709
+#: admin/class-woocommerce-category-banner-management-admin.php:790
+#: admin/class-woocommerce-category-banner-management-admin.php:1008
+msgid "Where users will be directed if they click on the banner."
+msgstr "Wo Benutzer gerichtet werden, wenn sie auf das Banner klicken."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:350
+#: admin/class-woocommerce-category-banner-management-admin.php:502
+#: admin/class-woocommerce-category-banner-management-admin.php:659
+#: admin/class-woocommerce-category-banner-management-admin.php:801
+#: admin/class-woocommerce-category-banner-management-admin.php:1014
+msgid "Banner Type"
+msgstr "Banner Typ"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:353
+#: admin/class-woocommerce-category-banner-management-admin.php:505
+#: admin/class-woocommerce-category-banner-management-admin.php:662
+#: admin/class-woocommerce-category-banner-management-admin.php:805
+#: admin/class-woocommerce-category-banner-management-admin.php:1019
+msgid "Random"
+msgstr "Zufällig"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:354
+#: admin/class-woocommerce-category-banner-management-admin.php:506
+#: admin/class-woocommerce-category-banner-management-admin.php:663
+#: admin/class-woocommerce-category-banner-management-admin.php:806
+#: admin/class-woocommerce-category-banner-management-admin.php:1020
+msgid "Slider"
+msgstr "Schieberegler"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:359
+#: admin/class-woocommerce-category-banner-management-admin.php:511
+#: admin/class-woocommerce-category-banner-management-admin.php:668
+#: admin/class-woocommerce-category-banner-management-admin.php:811
+#: admin/class-woocommerce-category-banner-management-admin.php:1026
+msgid "Display Navigation"
+msgstr "Display- Navigation"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:364
+#: admin/class-woocommerce-category-banner-management-admin.php:516
+#: admin/class-woocommerce-category-banner-management-admin.php:673
+#: admin/class-woocommerce-category-banner-management-admin.php:816
+#: admin/class-woocommerce-category-banner-management-admin.php:1043
+msgid "Remove All"
+msgstr "Alles entfernen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:365
+#: admin/class-woocommerce-category-banner-management-admin.php:517
+#: admin/class-woocommerce-category-banner-management-admin.php:674
+#: admin/class-woocommerce-category-banner-management-admin.php:817
+#: admin/class-woocommerce-category-banner-management-admin.php:1044
+msgid "Users can add multiple images. Image size should be 960 * 360."
+msgstr ""
+"Benutzer können mehrere Bilder hinzufügen können. Bildgröße sollte 960 * 360 "
+"sein."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:385
+#: admin/class-woocommerce-category-banner-management-admin.php:542
+#: admin/class-woocommerce-category-banner-management-admin.php:699
+#: admin/class-woocommerce-category-banner-management-admin.php:842
+#: admin/class-woocommerce-category-banner-management-admin.php:1063
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:418
+msgid "Banner for cart page"
+msgstr "Banner für Wagenseite"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:476
+#: admin/class-woocommerce-category-banner-management-admin.php:633
+#: admin/class-woocommerce-category-banner-management-admin.php:775
+#: admin/class-woocommerce-category-banner-management-admin.php:991
+msgid "Remove File"
+msgstr "Datei löschen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:574
+msgid "Banner for checkout page"
+msgstr "Banner für Kasse Seite"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:731
+msgid "Banner for thank you page"
+msgstr "Banner für danken Ihnen Seite"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:852
+msgid "Where users will be directed if they click  on the banner."
+msgstr "Wo Benutzer gerichtet werden, wenn sie auf das Banner klicken."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:864
+msgid "Category specific banner"
+msgstr "Kategorie spezifische Banner"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:866
+msgid ""
+"You can upload custom banner at the top of your product category pages. "
+"Easily update the image through your product category edit page."
+msgstr ""
+"Sie können benutzerdefinierte Banner an der Spitze Ihrer Produktkategorie -"
+"Seiten hochladen. Einfach aktualisieren Sie das Bild durch Ihre "
+"Produktkategorie Seite bearbeiten."
+
+#: admin/class-woocommerce-category-banner-management-admin.php:868
+msgid "Go to category page"
+msgstr "Gehen Sie zur Kategorie -Seite"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:868
+msgid "click here"
+msgstr "Klick hier"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:944
+msgid "Automatically insert banner above main content"
+msgstr "Automatisch einfügen Banner über Hauptinhalt"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:1003
+msgid "Banner image link"
+msgstr "Banner Bild link"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:1038
+msgid "Banner Images"
+msgstr "Banner Images"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:2053
+msgid "WooCommerce Banner Management plugin 1.0.0"
+msgstr "WooCommerce Banner -Management -Plugin 1.0.0"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:2057
+#, php-format
+msgid ""
+"%s <p class='aecw-div-congo'>Congratulations! You can easily add banner in "
+"WooCommerce stores and you can upload the banner specific for page,category "
+"and welcome page.</p>"
+msgstr ""
+"%s <p class='aecw-div-congo'>Herzliche Glückwünsche! Sie können ganz einfach "
+"Banner in WooCommerce Stores hinzufügen und Sie können die Banner spezifisch "
+"für Seite , Kategorie und Willkommen-Seite hochladen.</p>"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:2086
+msgid "Go To Banner Management Setting"
+msgstr "Lesen Sie die Banner -Management einstellen"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:2165
+msgid "Easily Add Banner in WooCommerce stores"
+msgstr "Einfaches Hinzufügen von Banner in WooCommerce Stores"
+
+#: admin/class-woocommerce-category-banner-management-admin.php:2166
+msgid ""
+"<p class=\"wbm-content\">Allows you to manage page (Shop page, Cart page, "
+"Checkout page, Thank you page) and category wise banners in your WooCommerce "
+"store.You can easily add banner (Single and multiple) in WooCommerce stores "
+"and you can upload the banner specific for page and category.</p>"
+msgstr ""
+"<p class=\"wbm-content\">Hier können Sie Seite zu verwalten (Shop -Seite , "
+"Wagenseite , Check-out -Seite , Danke -Seite ) und Kategorie weise Banner in "
+"Ihrem WooCommerce store.You leicht Banner hinzufügen ( Einzel- und "
+"Mehrfach ) in WooCommerce speichert und Sie können die Banner spezifisch für "
+"Seite laden und Kategorie.</p>"
+
+#: includes/class-woocommerce-category-banner-management.php:216
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/class-woocommerce-category-banner-management.php:217
+msgid "Docs"
+msgstr "Docs"
+
+#: includes/class-woocommerce-category-banner-management.php:218
+msgid "Support"
+msgstr "Unterstützen"
+
+#: public/woocommerce/checkout/thankyou.php:27
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction. Please attempt your purchase again."
+msgstr ""
+"Leider kann Ihre Bestellung nicht als die Ursprungsbankverarbeitet werden / "
+"Händler Ihre Transaktion abgelehnt hat . Bitte versuchen Kauf wieder."
+
+#: public/woocommerce/checkout/thankyou.php:30
+msgid "Pay"
+msgstr "Bezahlen"
+
+#: public/woocommerce/checkout/thankyou.php:32
+msgid "My Account"
+msgstr "Mein Konto"
+
+#: public/woocommerce/checkout/thankyou.php:172
+#: public/woocommerce/checkout/thankyou.php:203
+msgid "Thank you. Your order has been received."
+msgstr "Vielen Dank. Ihre Bestellung ist eingegangen."
+
+#: public/woocommerce/checkout/thankyou.php:176
+msgid "Order Number:"
+msgstr "Bestell nummer:"
+
+#: public/woocommerce/checkout/thankyou.php:180
+msgid "Date:"
+msgstr "Datum:"
+
+#: public/woocommerce/checkout/thankyou.php:184
+msgid "Total:"
+msgstr "Gesamt:"
+
+#: public/woocommerce/checkout/thankyou.php:189
+msgid "Payment Method:"
+msgstr "Zahlung Methode:"

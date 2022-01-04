@@ -1,0 +1,8 @@
+[30-Nov-2020 05:01:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/naturalconexion/public_html/wp-content/plugins/hello.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/naturalconexion/public_html/wp-content/plugins/hello.php on line 69
+[30-Nov-2020 05:01:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/naturalconexion/public_html/wp-content/plugins/hello.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/naturalconexion/public_html/wp-content/plugins/hello.php on line 69

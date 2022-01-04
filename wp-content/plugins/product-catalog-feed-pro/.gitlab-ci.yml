@@ -1,0 +1,10 @@
+stages:
+  - deploy
+ 
+deploy_master:
+  stage: deploy
+  script:
+  - if [ -z "$CREDENTIALS" ] || [ -z "$FTP_FOLDER" ]; then echo "Need to set variables"; exit 1; fi
+  - lftp -e "mirror --exclude ^\.git.* --exclude \.gitlab-ci.yaml -eRv  $CI_PROJECT_DIR $FTP_FOLDER; quit;" ftp://$CREDENTIALS
+  only:
+  - master

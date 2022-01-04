@@ -1,0 +1,48 @@
+{
+  "enabled": "checkbox",
+  "ads_ids": "array",
+  "pixel_lang": "array_v",
+
+  "woo_variable_as_simple": "checkbox",
+  "woo_content_id": "select",
+  "woo_item_id_prefix": "text",
+  "woo_item_id_suffix": "text",
+  "woo_purchase_enabled": "checkbox",
+  "woo_purchase_conversion_labels": "array",
+  "woo_initiate_checkout_conversion_labels": "array",
+  "woo_add_to_cart_enabled": "checkbox",
+  "woo_add_to_cart_conversion_labels": "array",
+  "woo_view_content_enabled": "checkbox",
+  "woo_view_content_conversion_labels": "array",
+  "woo_view_category_enabled": "checkbox",
+  "woo_view_category_conversion_labels": "array",
+  "woo_affiliate_enabled": "checkbox",
+
+
+  "edd_content_id": "select",
+  "edd_content_id_prefix": "text",
+  "edd_content_id_suffix": "text",
+  "edd_purchase_enabled": "checkbox",
+  "edd_purchase_conversion_labels": "array",
+
+  "edd_add_to_cart_enabled": "checkbox",
+  "edd_add_to_cart_conversion_labels": "array",
+  "edd_view_content_enabled": "checkbox",
+  "edd_view_content_conversion_labels": "array",
+  "edd_view_category_enabled": "checkbox",
+  "edd_view_category_conversion_labels": "array",
+
+  "signal_events_enabled": "checkbox",
+
+  "page_view_post_enabled": "checkbox",
+  "page_view_page_enabled": "checkbox",
+  "page_view_custom_post_enabled": "array",
+  "page_view_business_vertical": "text",
+  "verify_meta_tag": "array_textarea",
+
+  "wcf_cart_flows_event_enabled": "checkbox",
+  "wcf_step_event_enabled": "checkbox",
+  "wcf_bump_event_enabled": "checkbox",
+  "wcf_pixel_id": "text",
+  "wcf_verify_meta_tag": "text"
+}

@@ -1,0 +1,607 @@
+a:2:{s:4:"time";i:1600827237;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:10978;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-09-21 21:13:57";s:13:"post_date_gmt";s:19:"2020-09-22 02:13:57";s:12:"post_content";s:12914:"
+/* Responsive */
+@media (max-width:767px)  and (min-width:320px){
+	.textos-ingredientes-naturales-inicio{
+		margin-top: -1.5rem !important;
+	}
+	.titulo-ingredientes-naturales-inicio .woodmart-title-container 	{
+		text-align: center !important;	
+	}
+	.titulo-ingredientes-naturales-inicio .title-after_title{
+		text-align: justify !important;
+	}
+	.woodmart-button-wrapper .btn-ingredientes-naturales-inicio{
+		text-align: center !important;
+	}
+	/* Ajuste de imagen con flor*/
+	.img-flor-piel-mobil{
+		display:block !important
+	}
+	.img-flor-piel-escritorio{
+		display:none
+	}
+	.img-piel-desnudo-inicio{
+		padding-bottom: 1.5rem;
+	}
+	.fila-piel-desnudo-inicio .woodmart-button-wrapper{
+		text-align: center !important;
+		padding-left: 0vh !important;
+	}
+	/*altura titlo Nuestros Ingredientes Naturales*/
+	.titulo-ingredientes-naturales-inicio{
+		margin-top: -4rem; !important
+	}
+	
+	.img-crema-inicio{
+	margin-left: -1.6rem !important;
+	}
+	/* Seccion productos agroecologicos */
+	.fila-productos-agricolas-inicio{
+	left: 1rem !important
+}
+	.fila-productos-img-inicio .woodmart-button-wrapper{
+		text-align: center !important;
+	}
+	.titulo-proposito-eco-comunidad{
+		text-align: center !important;
+	}
+	
+	.wa__btn_popup{
+	    margin-bottom: 6rem !important;
+	    margin-right: -1.6rem !important;
+	}
+	
+}
+.wa__btn_popup{
+		margin-bottom: 3rem;;
+	margin-right:-0.6rem;
+	}
+	.img-flor-piel-mobil{
+		display:none
+	}
+.img-productos-veganos-inicio{
+	margin-top: -5rem;
+}
+.fila-productos-agricolas-inicio{
+	height: 22rem;
+	position: absolute !important;
+}
+
+
+.fila-piel-desnudo-inicio .woodmart-button-wrapper{
+	padding-left: 5vh;
+	padding-bottom: 0vh !important;
+}
+}
+
+/*.fila-piel-desnudo-inicio{
+	position: absolute !important;
+} */
+
+/* Estilo para los textos de testimonios */
+.textos-testimonios-inicio .testimonial-content{
+	color: #000000 !important;
+}
+/* Altura de la seccion de instagram*/
+.instagram-column-inicio{
+	margin-top: -2rem;
+}
+.primer-texto-eco-comunidad{
+	text-align: justify;
+}
+
+/*ESTILOS PARA ECO COMUNIDAD */
+.img-transformador-eco-comunidad{
+	padding-top: 2rem !important;
+}
+.img-sembremos-arbol-eco-comunidad .vc_column-inner{
+	padding-top: 0px !important;
+}
+/* Estilos quienes somos */
+h3.custom-text {
+    color: #468586;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+	  line-height: 1.5em;
+}
+p.custom-text-2 {
+    font-size: 17px;
+    font-family: loto, sans-serif;
+}
+h3#textos {
+    margin-bottom: 0px;
+}
+
+/* Estilo contactanos */
+.my-row {
+    width: 90%;
+	margin-left: 12px;
+}
+
+input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+    border-radius: 20px;
+}
+
+input.wpcf7-form-control.wpcf7-text.wpcf7-tel.wpcf7-validates-as-tel {
+    border-radius: 20px;
+}
+
+textarea.wpcf7-form-control.wpcf7-textarea {
+    border-radius: 20px;
+}
+
+input.wpcf7-form-control.wpcf7-submit.btn-color-black {
+    color: #fff;
+    width: 80%;
+    border-radius: 20px;
+    transition-duration: 0.3s;
+    background: #378030 !important;
+    transition-property: transform;
+}
+.my-btn {
+    text-align: center;
+}
+.added_to_cart:hover, .btn:hover, .button:hover, [type=button]:hover, [type=submit]:hover, button:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+@media (min-width: 1025px){
+.col-lg-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 100%;
+}
+}
+@media (min-width:768px){
+.col-lg-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 100%;
+	}
+}
+@media (min-width:768px){
+.site-content.shop-content-area.col-lg-9.col-12.col-md-9.description-area-before.content-with-products.ajax-loaded{
+	width: 100%;
+}
+.wbm_banner_image {
+    width: 74%;
+	}
+}
+.owl-next {
+	color: black !important;
+}
+.owl-prev {
+	color: black !important;
+}
+.owl-dots .owl-dot span {
+	border: 2px solid rgba(0,0,0,.2) !important;
+}
+.owl-dots .owl-dot.active span {
+    border-color: #3E3E3E !important;
+    background-color: #3E3E3E !important;
+}
+/* Pagina ingredientes */
+.woodmart-text-block>ul>li:before{
+	top: 12px;
+	font-weight: 900;
+	color: black;
+	font-size: 10px
+}
+.box-title-default .info-box-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+p.textos-parrafos {
+    font-size: 18px;
+    color: #2F5A5B;
+    text-align: justify;
+}
+.btn.btn-style-link {
+	border-width: 0px;
+}
+.interesar-pagina-gracias{
+	text-align:center
+}
+
+/* respondive ingredientes */
+@media (max-width:567px)  and (min-width:320px){
+	
+div#text-hidro {
+	    padding-left: 2vh !important;
+    padding-right: 2vh !important;
+}
+div#hidro-mobile {
+	padding-right: 5vh !important;
+  padding-left: 5vh !important;
+}
+div#hidro-mobile-2 {
+	padding-right: 3vh !important;
+  padding-left: 3vh !important;
+}
+div#hidro-image {
+	 padding-top: 0 !important;
+	 padding-bottom: 0 !important;
+   padding-right: 5vh !important;
+   padding-left: 5vh !important;
+}
+div#hidro-image-2 {
+   padding: 5vh !important;
+	padding-top: 0px !important;
+}
+div#row-hidros {
+    padding: 0px !important;
+}
+div#wd-5f59488c2a94e {
+    margin: 0px -30px;
+    margin-bottom: 30px;
+}
+div#row-vegetales {
+    padding: 0px 7vh !important;
+}
+div#col-ingre-final {
+    padding: 0vh 1vh !important;
+}
+.info-box-subtitle.subtitle-style-default.woodmart-font-weight-.font-primary {
+ font-size: 26px !important;
+ line-height: initial !important;
+}
+h2.info-box-title.woodmart-font-weight-.box-title-style-default.font-alt {
+    font-size: 26px !important;
+ line-height: initial !important;
+}
+h4.woodmart-title-container.title.woodmart-font-weight- {
+ font-size: 25px !important;
+ line-height: initial !important;
+}
+	
+div#row-img-agro {
+    padding: 0px 3vh!important;
+}
+
+.box-icon-wrapper.box-with-icon.box-icon-simple {
+    margin-left: 0px;
+}
+div#col-img {
+    padding-bottom: 15px;
+}
+div#row-img-agro {
+    padding-right: 0 !important;
+}
+img[src*="718@2x"] { 
+	width:160px;
+	padding-right: 15px;
+}
+div#text-poder {
+    padding: 3vh !important;
+}
+div#text-juntas {
+	padding: 3vh !important;
+	margin-bottom: 0px !important;
+}
+div#text-cosecha {
+  padding: 3vh !important;
+  padding-top: 0px !important;
+	margin-bottom: 0px;
+}
+div#text-ecosistema {
+	padding: 3vh !important;
+}
+div#text-adopta-arbol {
+    padding: 3vh !important;
+}
+.text-conecta{
+   margin-bottom: 0px !important;
+   font-size: 54px !important;
+}
+.text-naturaleza{
+	margin-bottom: 0px !important;
+  font-size: 54px !important;
+}
+	div#fila-aceites {
+    padding: 5vh 7vh !important;
+}
+	
+}
+/* otro media query  */
+@media (max-width:767px)  and (min-width:320px){
+	.vc_tta-tabs-container {
+    position: sticky !important;
+    top: 60px !important;
+    background: white;
+    padding: 2vh 0;
+
+}
+	.website-wrapper {
+		position: relative;
+		overflow: initial !important;
+	}
+	.vc_tta.vc_general.vc_tta-style-classic.vc_tta-tabs .vc_tta-tabs-container {
+    display: block;
+    mask-image: linear-gradient(to left,transparent 5px,#000 0px);
+    -webkit-mask-image: linear-gradient(to left,transparent 5px,#000 0px);
+}
+	
+div#fila-verde {
+    padding: 2rem 2vh !important;
+	padding-right: 4vh !important;
+}
+.woodmart-line-default .woodmart-timeline-line {
+    border-left-style: none;
+}
+.timeline-col.timeline-col-primary {
+    padding: 20px 10px;
+}
+.time-verde .timeline-col.timeline-col-primary {
+    box-shadow: 0 0 4px rgba(0,0,0,.2) !important;
+}
+.timeline-col.timeline-col-secondary {
+    margin-top: 15px;
+}
+.time-verde .timeline-col.timeline-col-primary {
+    background: #809e6d !important;
+}
+.time-verde {
+    background: #fff!important;
+}
+span.line-dot.dot-start {
+    display: none;
+}
+span.line-dot.dot-end {
+    display: none;
+}
+.woodmart-timeline-dot {
+    margin-top: -7px !important;
+    margin-left: -8px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+div#img-natural-quienes-somos {
+  transform: none !important;
+}
+div#img-dueñas {
+    transform: none !important;
+}
+div#col-2-quienes-somos {
+  padding-top: 8vh !important;
+	margin-top: 0px !important;
+}
+div#fila-img-quienes-somos {
+    padding: 0px 2vh !important;
+}
+}
+/* fin responsive */
+
+div#hidro-mobile {
+	padding-right: 12vh ;
+  padding-left: 12vh ;
+}
+div#hidro-mobile-2 {
+	padding-right: 12vh ;
+  padding-left: 12vh ;
+}
+div#hidro-image {
+	padding-bottom: 10vh;
+	padding-top: 10vh ;
+  padding-right: 10vh;
+  padding-left: 15vh;
+}
+div#hidro-image-2 {
+  padding-right: 10vh ;
+  padding-left: 10vh ;
+	padding-bottom: 5vh !important;
+}
+div#row-hidros {
+    padding: 0px 15vh;
+}
+.btn-popup-light {
+  color: #2F5A5B !important;
+}
+div#row-vegetales {
+    padding: 0px 15vh;
+}
+.wa__btn_popup_txt{
+	display:none;
+}
+
+.box-icon-wrapper.box-with-text.text-size-small.box-icon-simple {
+    margin-bottom: 0px;
+}
+div#col-ingre-final {
+    padding: 7vh 2vh;
+}
+.info-box-subtitle.subtitle-style-default.woodmart-font-weight-.font-primary {
+    font-style: italic;
+    margin-bottom: 0px !important;
+}
+h2.info-box-title.woodmart-font-weight-.box-title-style-default.font-alt {
+	font-style: italic;
+}
+.woocommerce-info {
+    background: #cfe5b6;
+    color: black;
+}
+.woocommerce-info a {
+  color: #3f3f3f !important;
+}
+
+.promo-banner .promo-banner-image {
+    width: auto;
+}
+button.btn.btn-face {
+    border-radius: 50%;
+    width: 15px;
+    background: #3b5998;
+    color: white;
+    text-align: center;
+    padding: 11px 18px;
+}
+button.btn.btn-insta {
+    border-radius: 50%;
+    width: 15px;
+    background: #3b5998;
+    color: white;
+    text-align: center;
+    padding: 11px 18px;
+	
+}
+
+button.btn.btn-insta{  
+  width: 15px;
+	color: white;
+	border-radius: 50%;
+  text-align: center;
+  padding: 11px 18px;
+  background: #f09433; 
+background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+.btn i {
+    margin-left: 0px;
+}
+.td-icon {
+ /* width: 1.82482%; */
+  width: 2%;
+  height: 24px;
+  text-align: center;
+  padding: 2px 5px;
+	border: none;
+}
+
+.td-text {
+  width: 34.9619%;
+  height: 24px;
+  padding: 0px 12px;
+	border: none;
+	text-align: justify;
+}
+img.my-img-2 {
+    max-width: fit-content;
+}
+.span-text {
+  color: #468586;
+	font-size: 16px;
+	text-align: justify !important;
+}
+a.button.product_type_gift-card.add_to_cart_button.add-to-cart-loop span:after {
+    content: 'Agregar al carrito';
+    font-size: 14px;
+}
+a.button.product_type_gift-card.add_to_cart_button.add-to-cart-loop span {
+    font-size: 0;
+}
+/* iconos de productos veganos */
+img.my-img:hover {
+    transform: scale(2.5);
+    margin: 30px;
+    transition-duration: 0.5s;
+    padding: 5px;
+    transition-timing-function: ease-in-out;
+}
+img.my-img {
+  transition: transform 1s;
+	width: 60px;
+}
+/* TIMELINE */
+.timeline-col.timeline-col-secondary {
+  box-shadow: none !important;
+	background: white !important;
+}
+.timeline-col.timeline-col-secondary .timeline-arrow {
+    display: none !important;
+}
+.time-verde {
+    color: white;
+    font-size: 16px;
+}
+.time-line {
+    font-size: 16px;
+}
+.timeline-col.timeline-col-primary {
+	
+  border: 1px solid #809E6D;
+	border-radius: 5px;
+}
+.woodmart-item-shadow .woodmart-item-position-left .timeline-col-primary .timeline-arrow:before {
+    text-shadow: 2px 0 2px rgba(128,159,109,1);
+}
+.woodmart-item-shadow .woodmart-item-position-right .timeline-col-primary .timeline-arrow:before {
+    text-shadow: -2px 0 2px rgba(128,159,109,1);
+}
+.woodmart-timeline-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -13px;
+    margin-left: -13px;
+    width: 25px;
+    height: 25px;
+    border: solid 2px #FFF;
+    border-radius: 50%;
+}
+/* FIN TIMELINE */
+/* quienes somos */
+.text-conecta{
+	font-family: AmostelySignature;
+    color: #fcb53b;
+    margin-bottom: 0px !important;
+    font-size: 90px;
+    text-align: center;
+}
+.text-naturaleza{
+	font-family: AmostelySignature;
+    color: #fff;
+    margin-bottom: 0px !important;
+    font-size: 90px;
+    text-align: center;
+}
+div#img-natural-quienes-somos h2 {
+  color: #549134;
+	transform: translateY(20%);
+}
+div#img-natural-quienes-somos {
+  transform: translateY(20%);
+}
+div#img-dueñas {
+    transform: translateY(15%);
+}
+/* blog  */
+.page-title.page-title-default.title-size-default.title-design-centered.color-scheme-light.title-blog .entry-title {
+    display: none;
+}
+.blog-post-loop .entry-header {
+    position: relative;
+    text-align: center;
+    padding-top: 0px;
+}
+
+.post-single-page.has-post-thumbnail .article-inner>.entry-header {
+    margin-bottom: 30px;
+    padding-top: 0px;
+}
+
+.single-post .page-title-default {
+    display: none !important;
+}
+/* fin blog */
+
+.btn.btn-style-link {
+    border-width: 0px;
+    text-align: left;
+}
+.page-title-default{
+	margin-top: 0.03rem;
+}
+.meta-author{
+	display:none !important
+}
+.single-product-page{
+	margin-top: 2.3rem;
+}
+.wcct_countdown_timer p{
+	font-weight: 900;
+	color: #378030
+}";s:10:"post_title";s:14:"woodmart-child";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"inherit";s:14:"comment_status";s:6:"closed";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:16:"7142-revision-v1";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2020-09-21 21:13:57";s:17:"post_modified_gmt";s:19:"2020-09-22 02:13:57";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:7142;s:4:"guid";s:51:"https://jjllorente.com/2020/09/21/7142-revision-v1/";s:10:"menu_order";i:0;s:9:"post_type";s:8:"revision";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

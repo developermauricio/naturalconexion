@@ -1,0 +1,14 @@
+{
+    "name": "pixelyoursite/pro",
+    "description": "Track conversions and every action on your online store",
+    "type": "project",
+    "require": {
+        "glenscott/url-normalizer": "1.4.0",
+        "techcrunch/wp-async-task": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "vendor_prefix/"
+        ]
+    }
+}

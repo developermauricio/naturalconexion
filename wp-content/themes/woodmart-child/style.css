@@ -1,0 +1,101 @@
+/*
+ Theme Name:   Woodmart Child
+ Description:  Woodmart Child Theme
+ Author:       XTemos
+ Author URI:   http://xtemos.com
+ Template:     woodmart
+ Version:      1.0.0
+ Text Domain:  woodmart
+*/
+
+
+
+span.select2-selection__placeholder {
+    font-size: 0;
+}
+
+span.select2-selection__placeholder:before {
+    content: "Seleccione Departamento";
+    font-size: 14px;
+}
+/*span#select2-billing_city-container {
+    font-size: 0;
+}
+span#select2-billing_city-container:before {
+    content: "Seleccione Ciudad/Municipio";
+    font-size: 14px;
+}*/
+
+
+/* Styles page checkout */
+label.woocommerce-form__label.woocommerce-form__label-for-checkbox.inline {
+    display: inline-block;
+}
+
+.iconic-wsb-checkout-bump__price span.woocommerce-Price-amount.amount:before {
+    content: "$33,000 ";
+    color: #777777;
+    text-decoration: line-through;
+}
+
+/* ocultar filtros de la tienda */
+form.woocommerce-ordering {
+    display: none;
+}
+
+.opacity-video-bg .vc_video-bg {
+    opacity: .3 !important;
+}
+
+/* Estilos de formulario de registro */
+div#content-form-data {
+    border: 5px solid #e6e6e6;
+}
+
+
+div#formContanctFlash {
+    background: #ffffffa3;
+    padding: 1rem 0 5px 0;
+    border-radius: 5px;
+}
+
+@media (max-width: 767.98px) {
+	.padding-top-form {
+		padding-top: 1rem;
+	}
+	
+	div#content-form-register {
+    	background: #fff !important;
+		padding-top: 0 !important;
+    	padding-bottom: 0 !important;
+	}
+	div#content-form-register .color-scheme-light, .woodmart-dark {
+    /*color: rgb(220 220 220);*/
+	}
+
+div.title-data-form h4 {
+    color: #000 !important;
+}
+
+div.title-data-form div {
+    color: #000 !important;
+}
+
+
+label.color-label {
+    color: #000 !important;
+}
+	a.color-label {
+    color: #378030;
+}
+
+#form-data .color-scheme-light input[type=text], .color-scheme-light input[type=email], .color-scheme-light input[type=password], .color-scheme-light input[type=search], .color-scheme-light input[type=number], .color-scheme-light input[type=url], .color-scheme-light input[type=tel], .color-scheme-light input[type=date], .color-scheme-light select, .color-scheme-light textarea {
+    border-color: rgb(8 8 8 / 32%);
+}
+	
+	input.color-input {
+    	border-color: #dcdcdc !important;
+		color: #5d5b5b !important;
+}
+	
+}

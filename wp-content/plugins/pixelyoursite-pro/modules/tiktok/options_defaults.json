@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "pixel_id": "",
+  "advanced_matching_enabled": true,
+
+  "woo_add_to_cart_enabled": true,
+  "woo_view_content_enabled": true,
+  "woo_initiate_checkout_enabled": true,
+  "woo_purchase_enabled": true,
+
+  "edd_add_to_cart_enabled": true,
+  "edd_initiate_checkout_enabled": true,
+  "edd_purchase_enabled": true,
+  "edd_view_content_enabled": true,
+
+  "search_event_enabled": true
+}

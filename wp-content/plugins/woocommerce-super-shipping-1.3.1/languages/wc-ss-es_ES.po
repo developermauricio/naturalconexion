@@ -1,0 +1,597 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-04-11 14:37+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_attr__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-wss-setup-wizard.php:59
+#, php-format
+msgid ""
+"Sorry, but <strong>this version is not compatible with your current Super "
+"Shipping's version</strong>.<br><br> You need to have installed at least the "
+"1.2.7 version in order to can update to the last version.<br><br> Contact "
+"with the technical support to ask for help <a href=\"%s\" target=\"_blank"
+"\">clicking here</a>."
+msgstr ""
+"Lo siento, pero <strong>esta versión no es compatible con tu versión actual "
+"de Super Shipping</strong>.<br><br> Necesitas tener instalada al menos la "
+"versión 1.2.7 para poder actualizar a la última versión.<br><br> Contacta "
+"con el soporte técnico para solicitar ayuda <a href=\"%s\" target=\"_blank"
+"\">haciendo clic aquí</a>."
+
+#: includes/class-wss-setup-wizard.php:60
+msgid "Finish and exit"
+msgstr "Terminar y salir"
+
+#: includes/class-wss-setup-wizard.php:87
+msgid ""
+"Congratulation! Your settings are migrated successfully. You can check it "
+"clicking on the button below.<br><br><strong>IMPORTANT!</strong>: You "
+"shouldn't delete the shipping zones named with the term \"Zone\" followed by "
+"a number (i.e. <em>Zone 0</em>) and which don't have any shipping methods "
+"assigned. These zones have been created to exclude those shipping areas."
+msgstr ""
+"¡Enhorabuena! Tu configuración se ha migrado con éxito. Puedes comprobarlo "
+"haciendo clic en el botón que tienes debajo.<br><br><strong>¡IMPORTANTE!</"
+"strong>: No debes eliminar las zonas de envío nombradas con el término "
+"“Zona” seguido de un número (por ejemplo, <em>Zona 0</em>) y que no tienen "
+"ningún método de envío asignado. Estas zonas han sido creadas para excluir "
+"esas áreas de envío."
+
+#: includes/class-wss-setup-wizard.php:88
+msgid ""
+"<strong>ERROR:</strong> The migration process couldn't finish successfully."
+msgstr ""
+"<strong>ERROR:</strong> El proceso de migración no pudo finalizarse "
+"correctamente."
+
+#: includes/class-wss-setup-wizard.php:90
+msgid "Check the result out"
+msgstr "Comprobar el resultado"
+
+#: includes/class-wss-setup-wizard.php:91
+msgid "Exit"
+msgstr "Salir"
+
+#: includes/html-setup-wizard.php:16
+msgid "Super Shipping &rsaquo; Setup Wizard"
+msgstr "Super Shipping &rsaquo; Asistente de configuración"
+
+#: includes/html-setup-wizard.php:30
+msgid "Hi! Wellcome to the Super Shipping setup wizard"
+msgstr "¡Hola! Bienvenido al Asistente de Configuración de Super Shipping"
+
+#: includes/html-setup-wizard.php:34
+msgid ""
+"This new version include a lot of improvements, fixes and the full "
+"integration with the WooCommerce's shipping zones manager."
+msgstr ""
+"Esta nueva versión incluye numerosas mejoras, correcciones de errores y una "
+"integración completa con el gestor de zonas de envío de WooCommerce."
+
+#: includes/html-setup-wizard.php:35
+msgid ""
+"From now, all new Super Shipping's zones and shipping tables will be create "
+"and edit from the WooCommerce's native manager."
+msgstr ""
+"Desde ahora, todas las nuevas zonas y tablas de envío de Super Shipping se "
+"crearán y editarán desde el gestor nativo de WooCommerce."
+
+#: includes/html-setup-wizard.php:37
+msgid ""
+"To migrate all shipping zones and tables that you already had to the "
+"WooCommerce's manager, you only need to click on the button below. That's "
+"all!"
+msgstr ""
+"Para migrar al gestor de WooCommerce todas las zonas y tablas de envío que "
+"ya tienes, solo necesitas clicar en el botón que tienes debajo. ¡Eso es todo!"
+
+#: includes/html-setup-wizard.php:42
+msgid "Create a backup of shipping settings before to start the migration"
+msgstr "Crear una copia de seguridad de la configuración por si acaso."
+
+#: includes/html-setup-wizard.php:44
+msgid "Start the migration"
+msgstr "Empezar la migración"
+
+#: includes/html-setup-wizard.php:51
+msgid "Create a shipping zone"
+msgstr "Crear una zona de envío"
+
+#: includes/html-setup-wizard.php:52
+msgid "Set up the shipping method for this zone"
+msgstr "Configurar un método de envío para esta zona"
+
+#: includes/html-setup-wizard.php:53
+msgid "Ready!"
+msgstr "¡Listo!"
+
+#: includes/html-setup-wizard.php:59 includes/html-setup-wizard.php:66
+msgid "Next"
+msgstr "Siguiente"
+
+#: includes/html-setup-wizard.php:65
+msgid "Prev"
+msgstr "Anterior"
+
+#: includes/html-setup-wizard.php:70
+msgid ""
+"You are ready to start, but before let we recommend you take a look at the "
+"Super Shipping's documentation. There you'll find everything you need to set "
+"up your shippings. <a href=\"https://supershipping.helpscoutdocs.com/\" "
+"target=\"_blank\"><strong>Click here to see it</strong></a>"
+msgstr ""
+"Ya estás listo para empezar, pero antes te recomendamos que eches un vistazo "
+"a la documentación de Super Shipping. Ahí encontrarás todo lo necesario para "
+"configurar tus envíos. <a href=\"https://supershipping.helpscoutdocs.com/\" "
+"target=\"_blank\"><strong>Haz clic aquí para verlo</strong></a>"
+
+#: includes/html-setup-wizard.php:72
+msgid "Go back"
+msgstr "Volver atrás"
+
+#: includes/html-setup-wizard.php:73
+msgid "Let's start!"
+msgstr "¡Empecemos!"
+
+#: includes/html-shipping-classes-priority.php:17
+#: includes/html-shipping-tables.php:20 woocommerce-super-shipping.php:399
+msgid "Shipping class"
+msgstr "Clase de envío"
+
+#: includes/html-shipping-classes-priority.php:18
+msgid "Priority"
+msgstr "Prioridad"
+
+#: includes/html-shipping-classes-priority.php:28
+#: includes/html-shipping-classes-priority.php:88
+#: includes/html-shipping-tables.php:47 woocommerce-super-shipping.php:411
+msgid "No Class"
+msgstr "Sin Clase"
+
+#: includes/html-shipping-classes-priority.php:47
+msgid "Add New Priority"
+msgstr "Añadir Nueva Prioridad"
+
+#: includes/html-shipping-classes-priority.php:48
+msgid "Delete selected priorities"
+msgstr "Eliminar prioridades seleccionadas"
+
+#: includes/html-shipping-classes-priority.php:102
+#: includes/html-shipping-extra-fees-table.php:83
+msgid "Delete the selected shipping classes priority?"
+msgstr "¿Quieres borrar las prioridades de clases de envío seleccionadas?"
+
+#: includes/html-shipping-extra-fees-table.php:17
+msgid "Fee Label"
+msgstr "Etiqueta de la Tasa"
+
+#: includes/html-shipping-extra-fees-table.php:18
+#: woocommerce-super-shipping.php:1562
+msgid "Fee"
+msgstr "Tasa"
+
+#: includes/html-shipping-extra-fees-table.php:27
+#: includes/html-shipping-extra-fees-table.php:70
+msgid "ie: My fee name"
+msgstr "ejemplo: Mi nombre de tasa"
+
+#: includes/html-shipping-extra-fees-table.php:37
+msgid "Add New Fee"
+msgstr "Añadir Nueva Tasa"
+
+#: includes/html-shipping-extra-fees-table.php:38
+msgid "Delete selected fees"
+msgstr "Eliminar tasas seleccionadas"
+
+#: includes/html-shipping-tables.php:17
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: includes/html-shipping-tables.php:21 woocommerce-super-shipping.php:401
+msgid "Condition"
+msgstr "Condición"
+
+#: includes/html-shipping-tables.php:22 woocommerce-super-shipping.php:402
+msgid "Range [min] and [max]"
+msgstr "Rango [min] y [max]"
+
+#: includes/html-shipping-tables.php:22
+msgid ""
+"Enter here the range of values you want to use for the shipping rule. The "
+"comparison is made for values greater than [min] and less than or equal to "
+"[max]."
+msgstr ""
+"Introduce aquí el rango de valores que quieras usar para la regla de envío. "
+"La comparación se hace para valores mayor que [min] y menor o igual que "
+"[max]."
+
+#: includes/html-shipping-tables.php:23 woocommerce-super-shipping.php:403
+msgid "Cost"
+msgstr "Coste"
+
+#: includes/html-shipping-tables.php:23 woocommerce-super-shipping.php:404
+#, fuzzy, php-format
+msgid ""
+"You can add a percentage (without % symbol) or a fixed cost, excluding tax."
+msgstr ""
+"Puedes añadir un valor del porcentaje (sin el símbolo %) o un coste fijo, "
+"sin incluir impuestos."
+
+#: includes/html-shipping-tables.php:24 woocommerce-super-shipping.php:405
+msgid "Cost per additional unit"
+msgstr "Coste por unidad adicional"
+
+#: includes/html-shipping-tables.php:30
+msgid "Add rule"
+msgstr "Añadir regla"
+
+#: includes/html-shipping-tables.php:31
+msgid "Duplicate rule"
+msgstr "Duplicar regla"
+
+#: includes/html-shipping-tables.php:32
+msgid "Delete selected rule"
+msgstr "Eliminar regla seleccionada"
+
+#: includes/html-shipping-tables.php:58 woocommerce-super-shipping.php:412
+msgid "Weight"
+msgstr "Peso"
+
+#: includes/html-shipping-tables.php:59 woocommerce-super-shipping.php:413
+msgid "Price"
+msgstr "Precio"
+
+#: includes/html-shipping-tables.php:60 woocommerce-super-shipping.php:414
+msgid "Item count"
+msgstr "Número de artículos"
+
+#: includes/html-shipping-tables.php:61 woocommerce-super-shipping.php:415
+msgid "Volume"
+msgstr "Volumen"
+
+#: includes/html-shipping-tables.php:65 woocommerce-super-shipping.php:416
+msgid "Min"
+msgstr "Mínimo"
+
+#: includes/html-shipping-tables.php:66 woocommerce-super-shipping.php:417
+msgid "Max"
+msgstr "Máximo"
+
+#: woocommerce-super-shipping.php:5
+msgid ""
+"WooCommerce Super Shipping is a WooCommerce's add-on that allows you to "
+"configure advanced shipping costs. You can to set different shipping costs "
+"for multiple zones, based on the weight, volume, number of items or price of "
+"the products."
+msgstr ""
+"WooCommerce Super Shipping es un complemento para WooCommerce que te permite "
+"configurar costes de envío avanzados. Podrás establecer diferentes costes de "
+"envío para varias zonas, según el peso, el volumen, la cantidad de artículos "
+"o el precio de los productos."
+
+#: woocommerce-super-shipping.php:168
+msgid ""
+"With this shipping method you'll can to set up multiples shipping rates "
+"based on products weight, number of items, price or even volume."
+msgstr ""
+"Con este método de envío podrás definir múltiples costes de envío basados en "
+"el peso de los productos, el número de artículos, el precio o incluso el "
+"volumen."
+
+#: woocommerce-super-shipping.php:209
+msgid "Method Title"
+msgstr "Título del método de envío"
+
+#: woocommerce-super-shipping.php:211
+msgid ""
+"This is the title which the customer sees in the cart and checkout page."
+msgstr "Este es el título que el cliente ve en el carrito y la página de pago."
+
+#: woocommerce-super-shipping.php:212
+msgid "Super Shipping"
+msgstr "Super Shipping"
+
+#: woocommerce-super-shipping.php:217
+msgid "Are you going apply taxes?"
+msgstr "¿Vas a aplicarle impuestos?"
+
+#: woocommerce-super-shipping.php:221
+msgid "Yes"
+msgstr "Si"
+
+#: woocommerce-super-shipping.php:222
+msgid "No"
+msgstr "No"
+
+#: woocommerce-super-shipping.php:226
+msgid "Measure Volumetric Weight"
+msgstr "Medir el Peso Volumétrico"
+
+#: woocommerce-super-shipping.php:228
+msgid ""
+"If you consider the volumetric weight in the shipping, you have to check "
+"this option."
+msgstr ""
+"Si vas a tener en cuenta el peso volumétrico en el envío, tienes que marcar "
+"esta opción."
+
+#: woocommerce-super-shipping.php:233
+msgid "Volumetric Weight Factor"
+msgstr "Factor de Peso Volumétrico"
+
+#: woocommerce-super-shipping.php:235
+msgid "The factor value to calculate the volumetric weight."
+msgstr "El valor del factor para calcular el peso volumétrico."
+
+#: woocommerce-super-shipping.php:237
+msgid "i.e. 5000"
+msgstr "ejemplo: 5000 "
+
+#: woocommerce-super-shipping.php:240 woocommerce-super-shipping.php:389
+msgid "Calculation Type"
+msgstr "Tipo de Cálculo"
+
+#: woocommerce-super-shipping.php:244 woocommerce-super-shipping.php:390
+msgid "Per order"
+msgstr "Por pedido"
+
+#: woocommerce-super-shipping.php:245 woocommerce-super-shipping.php:391
+msgid "Per item"
+msgstr "Por artículo"
+
+#: woocommerce-super-shipping.php:246 woocommerce-super-shipping.php:392
+msgid "Per class"
+msgstr "Por clase de envío"
+
+#: woocommerce-super-shipping.php:250 woocommerce-super-shipping.php:385
+msgid "Apply by user rol"
+msgstr "Aplicar según rol de usuario"
+
+#: woocommerce-super-shipping.php:255 woocommerce-super-shipping.php:406
+msgid "All users"
+msgstr "Todos los usuarios"
+
+#: woocommerce-super-shipping.php:256 woocommerce-super-shipping.php:407
+msgid "Guest user"
+msgstr "Cliente invitado"
+
+#: woocommerce-super-shipping.php:260 woocommerce-super-shipping.php:383
+msgid "Including tax"
+msgstr "Incluyendo impuestos"
+
+#: woocommerce-super-shipping.php:262 woocommerce-super-shipping.php:384
+msgid "Use only when you have shipping rules based on price."
+msgstr "Usar solo cuando tengas reglas de envío basadas en precio."
+
+#: woocommerce-super-shipping.php:266 woocommerce-super-shipping.php:381
+msgid "Apply percentage of the cart total cost"
+msgstr "Aplica un porcentaje del coste total del carrito"
+
+#: woocommerce-super-shipping.php:268
+msgid ""
+"If you check this option, the rules calculates the shipping rate based on a "
+"percentage of the cart total cost, instead of a fixed cost."
+msgstr ""
+"Si marcas esta opción, las reglas calcularán un coste de envío basado en un "
+"porcentaje del total del carrito, en lugar de un coste fijo."
+
+#: woocommerce-super-shipping.php:269
+#, php-format
+msgid ""
+"For example: a rule with the cost value 10, it mean that the shipping cost "
+"is 10% of the cart total cost."
+msgstr ""
+"Por ejemplo: una regla con el valor coste 10, significa que el coste de "
+"envío es un 10% del coste total del carrito."
+
+#: woocommerce-super-shipping.php:274 woocommerce-super-shipping.php:379
+msgid "Apply shipping class priority"
+msgstr "Aplicar prioridad de la clase de envío"
+
+#: woocommerce-super-shipping.php:276 woocommerce-super-shipping.php:380
+msgid ""
+"If you check this option, the final shipping rate will match with the cost "
+"of the shipping class with the higher priority."
+msgstr ""
+"Si marcas esta opción, el coste final será el obtenido con la clase de envío "
+"de mayor prioridad."
+
+#: woocommerce-super-shipping.php:286
+msgid "Colombian's cities to allow this shipping method"
+msgstr "Ciudades de Colombia que permite este método de envío"
+
+#: woocommerce-super-shipping.php:289
+msgid "Select the city referring to the region that you have previously added"
+msgstr ""
+"Selecciona la ciudad que hace referencia a la región que has añadido antes"
+
+#: woocommerce-super-shipping.php:297
+msgid "Shipping rules"
+msgstr "Reglas de envío"
+
+#: woocommerce-super-shipping.php:299
+#, php-format
+msgid ""
+"Set up the shipping rules below. <span %1s>Don't you know how the shipphing "
+"rules work yet? This can help you &rarr; <a href=\"%2s\" %3s>See the "
+"documentation</a></span>"
+msgstr ""
+"Define las reglas de envío debajo. <span %1s>¿Aún no sabes cómo funcionan "
+"las reglas de envío? Esto puede ayudarte &rarr; <a href=\"%2s\" %3s>Ver la "
+"documentación</a></span>"
+
+#: woocommerce-super-shipping.php:306
+msgid "Shipping Extra Fees"
+msgstr "Tasas Extra de Envío"
+
+#: woocommerce-super-shipping.php:308
+msgid "Here you can to set up the extra fees for each table."
+msgstr "Aquí puedes configurar las tasas extra para cada tabla."
+
+#: woocommerce-super-shipping.php:315
+msgid "Shipping Classes Priority"
+msgstr "Prioridad de las Clases de Envío"
+
+#: woocommerce-super-shipping.php:317
+msgid "Here you have to define the shipping class priority."
+msgstr "Aquí tienes que definir la prioridad de la clase de envío."
+
+#: woocommerce-super-shipping.php:382
+#, php-format
+msgid ""
+"If you check this option, the rules applies a percentage of the cart total "
+"cost instead of a fixed cost, i.e: a rule with the cost value 10, it mean "
+"that the shipping cost is 10% of the cart total cost."
+msgstr ""
+"Si marcas esta opción, las reglas de envío aplican un porcentaje del coste "
+"total del carrito en lugar de un coste fijo, por ejemplo: una regla de envío "
+"con el valor de coste 10, significa que el coste de envío es un 10% del "
+"coste total del carrito."
+
+#: woocommerce-super-shipping.php:386
+msgid "Choose users roles"
+msgstr "Selecciona el tipo de usuario"
+
+#: woocommerce-super-shipping.php:387
+msgid "Shipping zone"
+msgstr "Zona de envío"
+
+#: woocommerce-super-shipping.php:388
+msgid "Where do you want to enable the local pick up?"
+msgstr "¿Dónde quieres habilitar la recogida local?"
+
+#: woocommerce-super-shipping.php:393
+msgid "Shipping Method Name"
+msgstr "Nombre del Método de Envío"
+
+#: woocommerce-super-shipping.php:394
+msgid ""
+"This text will be shown as shipping method title in Cart and Checkout pages."
+msgstr ""
+"Este texto se mostrará como título del método de envío en las páginas de "
+"Carrito y Finalizar Compra."
+
+#: woocommerce-super-shipping.php:395
+msgid "National Shipping"
+msgstr "Envío Nacional"
+
+#: woocommerce-super-shipping.php:396
+msgid "Local Pickup"
+msgstr "Recogida local"
+
+#: woocommerce-super-shipping.php:397
+msgid "Table"
+msgstr "Tabla"
+
+#: woocommerce-super-shipping.php:398
+msgid "The table name can not be empty."
+msgstr "El nombre de la tabla no puede estar vacío."
+
+#: woocommerce-super-shipping.php:400
+msgid "Select a shipping zone"
+msgstr "Selecciona una zona de envío"
+
+#: woocommerce-super-shipping.php:408
+msgid "Add row"
+msgstr "Añadir fila"
+
+#: woocommerce-super-shipping.php:409
+msgid "Duplicate row"
+msgstr "Duplicar fila"
+
+#: woocommerce-super-shipping.php:410
+msgid "Delete selected rows"
+msgstr "Eliminar filas seleccionadas"
+
+#: woocommerce-super-shipping.php:418
+msgid "Are you sure to delete the selected tables?"
+msgstr "¿Estás seguro de borrar las tablas seleccionadas?"
+
+#: woocommerce-super-shipping.php:419
+msgid "Delete the selected rates?"
+msgstr "¿Quieres borrar las filas seleccionadas?"
+
+#: woocommerce-super-shipping.php:420
+msgid "The range and cost fields can not be empty"
+msgstr ""
+"Los campos de rango (máximo y mínimo) y de coste no pueden estar vacíos"
+
+#: woocommerce-super-shipping.php:421
+msgid "Select the type of table"
+msgstr "Selecciona el tipo de tabla"
+
+#: woocommerce-super-shipping.php:440
+msgid "Shipping Tables Rates"
+msgstr "Tablas de Tarifas de Envío"
+
+#: woocommerce-super-shipping.php:442
+msgid "Here you have to define the shipping table rates."
+msgstr "Aquí es donde tienes que definir tus tablas de tarifas de envío."
+
+#: woocommerce-super-shipping.php:1418
+msgid "Start here"
+msgstr "Empieza por aquí"
+
+#: woocommerce-super-shipping.php:1419
+msgid "Documentation"
+msgstr "Documentación"
+
+#: woocommerce-super-shipping.php:1435
+msgid "Doubs?"
+msgstr "¿Dudas?"
+
+#: woocommerce-super-shipping.php:1898
+msgid "How to display shipping methods"
+msgstr "Cómo mostrar métodos de envío"
+
+#: woocommerce-super-shipping.php:1899
+msgid "Hide the rest of shipping methods when free shipping is available"
+msgstr "Ocultar el resto de métodos cuando el envío gratis está disponible"
+
+#: woocommerce-super-shipping.php:1906
+msgid "Show all free shipping methods"
+msgstr "Mostrar todos los métodos de envío gratuitos"
+
+#: woocommerce-super-shipping.php:1909
+msgid ""
+"If there are more than one free shipping methods availables, the plugin will "
+"show all of them."
+msgstr "Si hay más de un envío gratuito disponible, los mostrará todos."
+
+#: woocommerce-super-shipping.php:1913
+msgid "No shipping methods available message"
+msgstr "Mensaje cuando no hay métodos de envío disponibles"
+
+#: woocommerce-super-shipping.php:1916
+msgid ""
+"This message will be shown in the cart page when no shipping methods "
+"availables."
+msgstr ""
+"Este mensaje será mostrado en la página de carrito cuando no haya métodos de "
+"envío disponibles."
+
+#: woocommerce-super-shipping.php:1917
+msgid ""
+"Sorry, right now there are no shipping methods available for your address"
+msgstr ""
+"Lo sentimos, ahora mismo no hay métodos de envío disponibles para tu "
+"dirección."
+
+#~ msgid ""
+#~ "Congratulation! Your settings are migrated successfully. You can check it "
+#~ "clicking on the button below."
+#~ msgstr ""
+#~ "¡Enhorabuena! Tu configuración se ha migrado con éxito. Puedes "
+#~ "comprobarla haciendo clic en el botón que tienes debajo."

@@ -1,0 +1,688 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: ca\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:400
+msgid "A valid zone ID must be supplied"
+msgstr "Un identificador de la zona vàlida ha de ser subministrada"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "A zone with the ID provided does not exist"
+msgstr "Una zona amb l'ID proporcionat no existeix"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:323
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:432
+msgid "Add New"
+msgstr "Afegir nova"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:45
+msgid "Add New Fee"
+msgstr "Afegir nova taxa"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:43
+msgid "Add New Priority"
+msgstr "Afegir nova prioritat"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:197
+msgid "Add Table"
+msgstr "Afegir taula"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:136
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Add row"
+msgstr "Afegir fila"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:467
+msgid "All Allowed Countries are set on the WooCommerce \\'General\\' tab"
+msgstr "Tots els països permesos estan definits a la pestanya \\'General\\' de WooCommerce"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:69
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "All users"
+msgstr "Tots els usuaris"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:338
+msgid "An error has occurred and the selected zones were not deleted"
+msgstr "S'ha produït un error i les zones seleccionades no han sigut esborrades"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:67
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Apply by user rol"
+msgstr "Aplicar segons el rol d'usuari"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:99
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Apply percentage of the cart total cost"
+msgstr "Aplica un percentatge del cost total de la cistella"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:110
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Apply shipping class priority"
+msgstr "Aplicar prioritat de la classe d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Are you sure to delete the selected tables?"
+msgstr "Estàs segur d'esborrar les taules seleccionades?"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:55
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Calculation Type"
+msgstr "Tipus de càlcul"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:547
+msgid "Choose a country&hellip;"
+msgstr "Tria un país i hellip;"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:472
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:495
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:516
+msgid "Choose countries / states&hellip;"
+msgstr "Selecciona països / estats / províncies & hellip;"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:68
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Choose users roles"
+msgstr "Selecciona el tipus d'usuari"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:127
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Condition"
+msgstr "Condició"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:129
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Cost"
+msgstr "Cost"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:130
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Cost per additional unit"
+msgstr "Cost per unitat addicional"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:466
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:493
+msgid "Countries"
+msgstr "Països"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:458
+msgid "Countries / States"
+msgstr "Països / Estats"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:546
+msgid "Country"
+msgstr "País"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Delete"
+msgstr "Esborrar"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:197
+msgid "Delete Selected Tables"
+msgstr "Esborrar taules seleccionades"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:46
+msgid "Delete selected fees"
+msgstr "Esborrar taxes seleccionades"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:44
+msgid "Delete selected priorities"
+msgstr "Esborrar prioritats seleccionades"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:138
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Delete selected rows"
+msgstr "Esborrar files seleccionades"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Delete the selected rates?"
+msgstr "Vols esborrar les files seleccionades?"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:87
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:82
+msgid "Delete the selected shipping classes priority?"
+msgstr "Vols esborrar les prioritats de classes d'enviament seleccionades?"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:451
+msgid "Description"
+msgstr "Descripció"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Drag and drop the table rows to sort the zones by their priority, lowest - highest. Click the <strong>Save Changes</strong> button when finished."
+msgstr "Arrossega i deixa anar les files de la taula per ordenar les zones d'enviament per prioritat, de major a menor. Després fes clic a <strong>Desa els canvis</strong>."
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:197
+msgid "Duplicate Tables"
+msgstr "Duplicar taules"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:137
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Duplicate row"
+msgstr "Duplicar fila"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Edit"
+msgstr "Editar"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Enable this shipping method"
+msgstr "Activa aquest mètode d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Enable/Disable"
+msgstr "Activar/Desactivar"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:444
+msgid "Enable/Disable the use of this zone"
+msgstr "Activa/Desactiva l'ús d'aquesta zona"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:443
+msgid "Enabled"
+msgstr "Activat"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:457
+msgid "Everywhere"
+msgstr "A tot arreu"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:571
+msgid "Except"
+msgstr "Excepte"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Except for"
+msgstr "Excepte per"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:536
+msgid "Except the Postal Codes"
+msgstr "Excepte els Codis Postals"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:514
+msgid "Except the States/Provinces"
+msgstr "Excepte els Estats/Províncies"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:19
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Fee"
+msgstr "Taxa"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:17
+msgid "Fee Label"
+msgstr "Etiqueta de la taxa"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:128
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "From x to y"
+msgstr "Des de [x] a [y]"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:432
+msgid "Go back to the zones list"
+msgstr "Tornar al llistat de zones"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:70
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Guest user"
+msgstr "Client convidat"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Here you can to set up the extra fees for each table."
+msgstr "Aquí pots configurar les taxes extra per a cada taula."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Here you have to define the shipping class priority."
+msgstr "Aquí has de definir la prioritat de la classe d'enviament."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Here you have to define the shipping table rates."
+msgstr "Aquí és on has de definir les teves taules de tarifes d'enviament."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Hide every shipping price from this method when free shipping is active."
+msgstr "Amaga tots els preus d'enviaments d'aquest mètode quan l'enviament gratuït està actiu."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Hiden when free shipping is active"
+msgstr "Amagat quan l'enviament gratuït està actiu"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:111
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "If you check this option, the final shipping rate will match with the cost of the shipping class with the higher priority."
+msgstr "Si marques aquesta opció, el cost final serà l'obtingut amb la classe d'enviament de major prioritat."
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:89
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "If you check this option, the price condition for this table rate will include the taxes."
+msgstr "Si marques aquesta opció, la condició de preu per a aquesta taula tindrà en compte els impostos per al càlcul."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "If you check this option, the rules applies a percentage of the cart total cost instead of a fixed cost, i.e: a rule with the cost value 10, it mean that the shipping cost is 10% of the cart total cost."
+msgstr "Si marques aquesta opció, les regles d'enviament apliquen un percentatge del cost total de la cistella en comptes d'un cost fix, per exemple: una regla d'enviament amb el valor de cost 10, vol dir que el cost d'enviament és un 10% del cost total de la cistella."
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:100
+msgid "If you check this option, the rules apply a percentage of the cart total cost instead of a fixed cost, i.e: a rule with the cost value 10, it mean that the shipping cost is 10% of the cart total cost."
+msgstr "Si marques aquesta opció, les regles d'enviament aplicaran un percentatge del cost total de la cistella en comptes d'un cost fix, per exemple: una regla amb el valor 10 en el camp cost, vol dir que el cost de l'enviament és un 10% del cost total de la cistella."
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "If you consider the volumetric weight in the shipping, you have to check this option."
+msgstr "Si tens en compte el pes volumètric en l'enviament, has de marcar aquesta opció."
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:88
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Including tax"
+msgstr "Incloent impostos"
+
+#. Text in echo
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:267
+msgid "It\\'s necesary to update the plugin\\'s options to the latest version in order to avoid errors."
+msgstr "Cal actualitzar les opcions del plugin a l'última versió per evitar errors."
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:166
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Item count"
+msgstr "Nombre d'articles"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:463
+msgid "Locations"
+msgstr "Ubicacions"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:171
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Max"
+msgstr "Màxim"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Measure Volumetric Weight"
+msgstr "Mesurar el pes volumètric"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Method Title"
+msgstr "Títol del mètode d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:170
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Min"
+msgstr "Mínim"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:30
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "National Shipping"
+msgstr "Sense classe"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:26
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:70
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:152
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "No Class"
+msgstr "Sense classe"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "No shipping methods available message"
+msgstr "Missatge quan no hi ha mètodes d'enviament disponibles"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "None"
+msgstr "No aplicable"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Normal Shipping"
+msgstr "Enviament normal"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:59
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Per class"
+msgstr "Per classe d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:58
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Per item"
+msgstr "Per article"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:57
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Per order"
+msgstr "Per comanda"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:459
+msgid "Postal Code"
+msgstr "Codi Postal"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:564
+msgid "Postal Codes"
+msgstr "Codis Postals"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:165
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Price"
+msgstr "Preu"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:18
+msgid "Priority"
+msgstr "Prioritat"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Priority Order"
+msgstr "Prioritat de l'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:268
+msgid "Run the updater"
+msgstr "Executar l'actualització"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:579
+msgid "Save changes"
+msgstr "Desar canvis"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Select a shipping zone"
+msgstr "Selecciona una zona d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:123
+msgid "Select all"
+msgstr "Seleccionar tot"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:28
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:75
+msgid "Select one shipping table"
+msgstr "Selecciona una taula d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Settings"
+msgstr "Configuració"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Shipping Classes Priority"
+msgstr "Prioritat de les classes d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Shipping Extra Fees"
+msgstr "Taxes extra d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:18
+msgid "Shipping Table"
+msgstr "Taula d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Shipping Tables Rates"
+msgstr "Taules de tarifes d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:432
+msgid "Shipping Zone"
+msgstr "Zona d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:323
+msgid "Shipping Zones"
+msgstr "Zones d'enviament"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-classes-priority.php:17
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:126
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Shipping class"
+msgstr "Classe d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:37
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Shipping zone"
+msgstr "Zona d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Shipping zones"
+msgstr "Zones d'enviament"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:400
+msgid "Sorry, a zone with the given ID could not be found"
+msgstr "Ho sentim, una zona amb l'ID donat no s'ha pogut trobar"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Sorry, right now there are no shipping methods available for your address"
+msgstr "Ho sentim, ara mateix no hi ha mètodes d'enviament disponibles per a la teva adreça"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Status"
+msgstr "Estat"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:20
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Table"
+msgstr "Taula"
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:29
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Table Name"
+msgstr "Nom de la taula"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Tax Status"
+msgstr "Impostos"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Taxable"
+msgstr "Aplicable"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "The factor value to calculate the volumetric weight."
+msgstr "El valor del factor per a calcular el pes volumètric."
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:334
+msgid "The selected zones have been deleted"
+msgstr "S'han eliminat les zones seleccionades"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "This controls the default title which the user sees during checkout."
+msgstr "Això controla el títol per defecte que el client veu durant el pagament."
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:452
+msgid "This is an optional field to provide admins a brief description of this zone. This will NOT appear on any shop page"
+msgstr "Aquest és un camp opcional que proporciona a l'administrador una breu descripció d'aquesta zona d'enviament. Això NO apareixerà en cap pàgina de la botiga"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "This message will be shown in the cart page when no shipping methods availables."
+msgstr "Aquest missatge es mostrarà a la pàgina de la cistella quan no hi hagi mètodes d'enviament disponibles."
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:447
+msgid "Title"
+msgstr "Títol"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "To manage the shipping rates for these zones, go to here &rarr;"
+msgstr "Per gestionar les tarifes d'enviament per a aquesta zona, has d'anar a aquí & rarr;"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Toggle featured"
+msgstr "Alternar destacats"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:455
+msgid "Type"
+msgstr "Tipus"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "Volumetric Weight Factor"
+msgstr "Factor de pes volumètric"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:164
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "Weight"
+msgstr "Pes"
+
+#. Text in echo
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:267
+msgid "WooCommerce Super Shipping Data Update"
+msgstr "Actualitzar dades de WooCommerce Super Shipping"
+
+#. Text in echo
+#: woocommerce-super-shipping/includes/html-shipping-costs-table-rates.php:129
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:1
+msgid "You can add a percentage (without % symbol) or a fixed cost, excluding tax."
+msgstr "Pots afegir un valor del percentage (sense el símbol %) o un cost fix, sense incloure impostos."
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:327
+msgid "Your zones have been updated. Please test your forms to ensure that everything is in working order"
+msgstr "Les teves zones d'enviament s'han actualitzat. Si us plau, comprova els teus formularis per assegurar-te de que tot funciona en ordre"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:440
+msgid "Zone Details"
+msgstr "Detalls de la zona"
+
+#. Text in function
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:548
+msgid "Zone Title"
+msgstr "Zona títol"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "i.e. 5000"
+msgstr "exemple: 5000 "
+
+#. Text in function
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:26
+#: woocommerce-super-shipping/includes/html-shipping-extra-fees-table.php:73
+msgid "ie: My fee name"
+msgstr "exemple: El meu nom de taxa"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:567
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:574
+msgid "is a wildcard used to representent multiple characters/numbers"
+msgstr "és un comodí utilitzat per representar múltiples caràcters/números"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:568
+msgid "is used to denote postal codes or ranges to be excluded"
+msgstr "s'utilitza per denotar codis postals o rangs per ser exclosos"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:538
+msgid "is used to separate all postal code entries"
+msgstr "s'utilitza per separar totes les entrades de codi postal"
+
+#. Text in echo
+#: woocommerce-super-shipping/shipping-zones/zone-list-table.php:573
+msgid "is used to separate two postal codes in a range (numerical codes ONLY)"
+msgstr "s'utilitza per separar dos codis postals en un rang (NOMÉS codis numèrics)"
+
+#. Text in function
+#: woocommerce-super-shipping/woocommerce-super-shipping.php:275
+msgid "name"
+msgstr "nom"

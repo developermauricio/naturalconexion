@@ -1,0 +1,880 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Addify - User Registration Plugin for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-18 12:39+0000\n"
+"PO-Revision-Date: 2020-08-18 12:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.2; wp-5.5"
+
+#: addify-registration-addon-main.php:75 addify-registration-addon-main.php:88
+msgid "Registration Fields"
+msgstr "Campo di registrazione"
+
+#: addify-registration-addon-main.php:76
+msgid "Registration Field"
+msgstr "Campo di registrazione"
+
+#: addify-registration-addon-main.php:77 addify-registration-addon-main.php:78
+msgid "Add New Field"
+msgstr "Aggiungi nuovo campo"
+
+#: addify-registration-addon-main.php:79
+msgid "Edit Registration Field"
+msgstr "Modifica campo di registrazione"
+
+#: addify-registration-addon-main.php:80
+msgid "New Registration Field"
+msgstr "Nuovo campo di registrazione"
+
+#: addify-registration-addon-main.php:81
+msgid "View Registration Field"
+msgstr "Visualizza il campo di registrazione"
+
+#: addify-registration-addon-main.php:82
+msgid "Search Registration Field"
+msgstr "Cerca campo di registrazione"
+
+#: addify-registration-addon-main.php:84
+msgid "No registration field found"
+msgstr "Nessun campo di registrazione trovato"
+
+#: addify-registration-addon-main.php:85
+msgid "No registration field found in trash"
+msgstr "Nessun campo di registrazione trovato nel cestino"
+
+#: addify-registration-addon-main.php:87
+msgid "All Fields"
+msgstr "Tutti i campi"
+
+#: addify-registration-addon-main.php:373
+msgid "Select a county / state..."
+msgstr ""
+"Seleziona paese / stato\n"
+
+#: front/class-afreg-fields-front.php:71 admin/class-afreg-fields-admin.php:86
+msgid "Click here to view"
+msgstr ""
+"Clicca qui per vedere\n"
+
+#: front/class-afreg-fields-front.php:75 front/class-afreg-fields-front.php:82
+#: front/class-afreg-fields-front.php:1507 front/class-afreg-fields-front.php:1525
+#: front/class-afreg-fields-front.php:1542 front/class-afreg-fields-front.php:1560
+#: front/class-afreg-fields-front.php:1578 front/class-afreg-fields-front.php:1595
+#: front/class-afreg-fields-front.php:1612 front/class-afreg-fields-front.php:1629
+#: front/class-afreg-fields-front.php:1646 front/class-afreg-fields-front.php:1664
+#: front/class-afreg-fields-front.php:1877 front/class-afreg-fields-front.php:1890
+#: front/class-afreg-fields-front.php:1892 front/class-afreg-fields-front.php:1898
+#: front/class-afreg-fields-front.php:1912 front/class-afreg-fields-front.php:1915
+#: front/class-afreg-fields-front.php:1972 front/class-afreg-fields-front.php:1985
+#: front/class-afreg-fields-front.php:1987 front/class-afreg-fields-front.php:1993
+#: front/class-afreg-fields-front.php:1997
+msgid ": "
+msgstr ":"
+
+#: front/class-afreg-fields-front.php:187 front/class-afreg-fields-front.php:3834
+msgid "---Select---"
+msgstr "---Seleziona---"
+
+#. %s: field label
+#: front/class-afreg-fields-front.php:1168 front/class-afreg-fields-front.php:1218
+#: front/class-afreg-fields-front.php:1226 front/class-afreg-fields-front.php:1236
+#: front/class-afreg-fields-front.php:1246 front/class-afreg-fields-front.php:1257
+#: front/class-afreg-fields-front.php:1269 front/class-afreg-fields-front.php:1273
+#: front/class-afreg-fields-front.php:1282 front/class-afreg-fields-front.php:1295
+#: front/class-afreg-fields-front.php:1310 front/class-afreg-fields-front.php:1330
+#: front/class-afreg-fields-front.php:1338 front/class-afreg-fields-front.php:1348
+#: front/class-afreg-fields-front.php:1358 front/class-afreg-fields-front.php:1368
+#: front/class-afreg-fields-front.php:1380 front/class-afreg-fields-front.php:1384
+#: front/class-afreg-fields-front.php:1393 front/class-afreg-fields-front.php:1406
+#: front/class-afreg-fields-front.php:1421 front/class-afreg-fields-front.php:5335
+#: front/class-afreg-fields-front.php:5347 front/class-afreg-fields-front.php:5358
+#: front/class-afreg-fields-front.php:5369 front/class-afreg-fields-front.php:5380
+#: front/class-afreg-fields-front.php:5392 front/class-afreg-fields-front.php:5403
+#: front/class-afreg-fields-front.php:5414 front/class-afreg-fields-front.php:5425
+#: front/class-afreg-fields-front.php:5436 front/class-afreg-fields-front.php:5440
+msgid "Error"
+msgstr "Errore"
+
+#: front/class-afreg-fields-front.php:1849
+msgid "User details are as follow:"
+msgstr "I dettagli dell'utente sono i seguenti:"
+
+#: front/class-afreg-fields-front.php:1850 front/class-afreg-fields-front.php:1948
+msgid "Username: "
+msgstr "Nome utente:"
+
+#: front/class-afreg-fields-front.php:1851 front/class-afreg-fields-front.php:1949
+msgid "E-mail: "
+msgstr "E-mail:"
+
+#: front/class-afreg-fields-front.php:1859
+msgid "Approve Link "
+msgstr ""
+"Approva collegamento\n"
+
+#: front/class-afreg-fields-front.php:1860
+msgid "Disapprove Link "
+msgstr ""
+"Disapprovare collegamento\n"
+
+#: front/class-afreg-fields-front.php:1890 front/class-afreg-fields-front.php:1985
+msgid "Yes"
+msgstr "sì"
+
+#: front/class-afreg-fields-front.php:1892 front/class-afreg-fields-front.php:1987
+msgid "No"
+msgstr "No"
+
+#: front/class-afreg-fields-front.php:1947
+msgid "Your details are as follow:"
+msgstr "I tuoi dettagli sono i seguenti:"
+
+#: front/class-afreg-fields-front.php:2596 front/class-afreg-fields-front.php:3265
+#: admin/class-afreg-fields-admin.php:1690
+msgid "Current"
+msgstr "Attuale"
+
+#: front/class-afreg-fields-front.php:3530 front/class-afreg-fields-front.php:3547
+#: front/class-afreg-fields-front.php:3565 front/class-afreg-fields-front.php:3578
+#: front/class-afreg-fields-front.php:3618 front/class-afreg-fields-front.php:3635
+#: front/class-afreg-fields-front.php:3653 front/class-afreg-fields-front.php:3666
+#: front/class-afreg-fields-front.php:4437 front/class-afreg-fields-front.php:4450
+#: front/class-afreg-fields-front.php:4466 front/class-afreg-fields-front.php:4484
+#: front/class-afreg-fields-front.php:4497 front/class-afreg-fields-front.php:4505
+#: front/class-afreg-fields-front.php:5195 front/class-afreg-fields-front.php:5207
+#: front/class-afreg-fields-front.php:5218 front/class-afreg-fields-front.php:5229
+#: front/class-afreg-fields-front.php:5240 front/class-afreg-fields-front.php:5252
+#: front/class-afreg-fields-front.php:5263 front/class-afreg-fields-front.php:5274
+#: front/class-afreg-fields-front.php:5285 front/class-afreg-fields-front.php:5296
+#: front/class-afreg-fields-front.php:5335 front/class-afreg-fields-front.php:5347
+#: front/class-afreg-fields-front.php:5358 front/class-afreg-fields-front.php:5369
+#: front/class-afreg-fields-front.php:5380 front/class-afreg-fields-front.php:5392
+#: front/class-afreg-fields-front.php:5403 front/class-afreg-fields-front.php:5414
+#: front/class-afreg-fields-front.php:5425 front/class-afreg-fields-front.php:5436
+msgid " is required!"
+msgstr "è obbligatorio!"
+
+#: front/class-afreg-fields-front.php:3538 front/class-afreg-fields-front.php:3626
+#: front/class-afreg-fields-front.php:4457
+msgid " is not a valid email address!"
+msgstr "non è un indirizzo email valido!"
+
+#: front/class-afreg-fields-front.php:3556 front/class-afreg-fields-front.php:3644
+#: front/class-afreg-fields-front.php:4475
+msgid " is not a valid number!"
+msgstr "non è un numero valido!"
+
+#: front/class-afreg-fields-front.php:3575 front/class-afreg-fields-front.php:3663
+#: front/class-afreg-fields-front.php:4494
+msgid "Invalid reCaptcha!"
+msgstr "ReCaptcha non valido!"
+
+#: front/class-afreg-fields-front.php:3593 front/class-afreg-fields-front.php:3681
+#: front/class-afreg-fields-front.php:4517
+msgid ": File type is not allowed!"
+msgstr ": Il tipo di file non è permesso!"
+
+#: front/class-afreg-fields-front.php:3606 front/class-afreg-fields-front.php:3694
+#: front/class-afreg-fields-front.php:4530
+msgid ": File size is too big!"
+msgstr ": La dimensione del file è troppo grande!"
+
+#: front/class-afreg-fields-front.php:5058
+msgid "Select a country..."
+msgstr "Seleziona un Paese..."
+
+#: front/class-afreg-fields-front.php:5300 front/class-afreg-fields-front.php:5440
+msgid " is not valid!"
+msgstr "non è valido!"
+
+#: front/class-afreg-fields-front.php:5512
+msgid "</b> is required!"
+msgstr "è obbligatorio!"
+
+#: admin/afreg_def_admin.php:7
+msgid "Enable Default Registration Fields"
+msgstr "Abilita campi di registrazione predefiniti"
+
+#: admin/afreg_def_admin.php:8
+msgid ""
+"Enable default woocommerce registration fields on registration page. When user enter "
+"these fields data will be populated on billing fields automatically."
+msgstr ""
+"Abilita i campi di registrazione woocommerce predefiniti nella pagina di registrazione. "
+"Quando l'utente immette questi campi, i dati verranno automaticamente inseriti nei "
+"campi di fatturazione."
+
+#: admin/afreg_def_admin.php:11
+msgid "Settings saved successfully."
+msgstr "Impostazioni salvate correttamente."
+
+#: admin/afreg_def_admin.php:42
+msgid "Label:"
+msgstr "Etichetta:"
+
+#: admin/afreg_def_admin.php:47
+msgid "Placeholder:"
+msgstr "Segnaposto:"
+
+#: admin/afreg_def_admin.php:52
+msgid "Message:"
+msgstr "Messaggio:"
+
+#: admin/afreg_def_admin.php:57
+msgid "Required:"
+msgstr "Necessario:"
+
+#: admin/afreg_def_admin.php:62
+msgid "Sort Order:"
+msgstr "Ordinamento:"
+
+#: admin/afreg_def_admin.php:66
+msgid "Field Width:"
+msgstr "Larghezza del campo:"
+
+#: admin/afreg_def_admin.php:68 admin/class-afreg-fields-admin.php:232
+msgid "Full Width"
+msgstr "Intera larghezza"
+
+#: admin/afreg_def_admin.php:72 admin/class-afreg-fields-admin.php:233
+msgid "Half Width"
+msgstr "Mezza larghezza"
+
+#: admin/afreg_def_admin.php:81
+msgid "Status:"
+msgstr "Stato"
+
+#: admin/afreg_def_admin.php:83
+msgid "Publish"
+msgstr "Pubblica"
+
+#: admin/afreg_def_admin.php:84
+msgid "Unpublish"
+msgstr "Non pubblicato"
+
+#: admin/class-afreg-fields-admin.php:101
+msgid "Field Details"
+msgstr "Dettagli del campo"
+
+#: admin/class-afreg-fields-admin.php:102
+msgid "Field Formating"
+msgstr "Formazione del campo"
+
+#: admin/class-afreg-fields-admin.php:103
+msgid "User Role Dependency"
+msgstr "Dipendenza dal ruolo utente"
+
+#: admin/class-afreg-fields-admin.php:104 admin/class-afreg-fields-admin.php:331
+msgid "Field Status"
+msgstr "Stato del campo"
+
+#: admin/class-afreg-fields-admin.php:119
+msgid "Field Label"
+msgstr "Etichetta sul campo"
+
+#: admin/class-afreg-fields-admin.php:120
+msgid "Enter the text in above title field, that will become field label."
+msgstr ""
+"Inserisci il testo nel campo del titolo sopra, che diventerà l'etichetta del campo."
+
+#: admin/class-afreg-fields-admin.php:124 admin/class-afreg-fields-admin.php:453
+msgid "Field Type"
+msgstr "Tipo di campo"
+
+#: admin/class-afreg-fields-admin.php:126
+msgid "Text"
+msgstr "Testo"
+
+#: admin/class-afreg-fields-admin.php:127
+msgid "Textarea"
+msgstr "Area testo"
+
+#: admin/class-afreg-fields-admin.php:128
+msgid "Email"
+msgstr "E-mail"
+
+#: admin/class-afreg-fields-admin.php:129
+msgid "Selectbox"
+msgstr "Casella di scelta"
+
+#: admin/class-afreg-fields-admin.php:130
+msgid "Multi Selectbox"
+msgstr "Caselle di scelta multipla"
+
+#: admin/class-afreg-fields-admin.php:131
+msgid "Checkbox"
+msgstr "Casella di controllo"
+
+#: admin/class-afreg-fields-admin.php:132
+msgid "Multi Checkbox"
+msgstr "Casella di controllo multipla"
+
+#: admin/class-afreg-fields-admin.php:133
+msgid "Radio Button"
+msgstr "Pulsante di opzione"
+
+#: admin/class-afreg-fields-admin.php:134
+msgid "Number"
+msgstr "Numero"
+
+#: admin/class-afreg-fields-admin.php:135
+msgid "Password"
+msgstr "Parola d'ordine"
+
+#: admin/class-afreg-fields-admin.php:136
+msgid "File Upload (Supports my account registration page only)"
+msgstr "Caricamento file (supporta solo la pagina di registrazione del mio account)"
+
+#: admin/class-afreg-fields-admin.php:137
+msgid "Color Picker"
+msgstr "Prendi il colore"
+
+#: admin/class-afreg-fields-admin.php:138
+msgid "Date Picker"
+msgstr "Prendi la data"
+
+#: admin/class-afreg-fields-admin.php:139
+msgid "Time Picker"
+msgstr "Time Picker"
+
+#: admin/class-afreg-fields-admin.php:140
+msgid "Google reCAPTCHA (Supports my account registration page only"
+msgstr "Google reCAPTCHA (supporta solo la pagina di registrazione del mio account"
+
+#: admin/class-afreg-fields-admin.php:145
+msgid ""
+"For google reCaptcha field you must enter correct site key and secret key in our module "
+"settings. Without these keys google reCaptcha will not work."
+msgstr ""
+"Per il campo Google reCaptcha devi inserire la chiave del sito corretta e la chiave "
+"segreta nelle impostazioni del nostro modulo. Senza queste chiavi, Google reCaptcha non "
+"funzionerà."
+
+#: admin/class-afreg-fields-admin.php:149
+msgid "File Upload Size(MB)"
+msgstr "Dimensione caricamento file(MB)"
+
+#: admin/class-afreg-fields-admin.php:154
+msgid "Allowed File Types(Add Comma(,) separated types. e.g png,jpg,gif)"
+msgstr ""
+"Tipi di file consentiti (Aggiungi tipi separati da virgola (,), ad esempio png, jpg, "
+"gif)"
+
+#: admin/class-afreg-fields-admin.php:159
+msgid "Field Options"
+msgstr "Opzioni di campo"
+
+#: admin/class-afreg-fields-admin.php:164
+msgid "Option Value"
+msgstr "Valore dell'opzione"
+
+#: admin/class-afreg-fields-admin.php:165
+msgid "Field Label/Text"
+msgstr "Etichetta / testo del campo"
+
+#: admin/class-afreg-fields-admin.php:166
+msgid "Action"
+msgstr "Aziona"
+
+#: admin/class-afreg-fields-admin.php:182
+msgid "Remove Option"
+msgstr "Rimuovi opzione"
+
+#: admin/class-afreg-fields-admin.php:192
+msgid "Add New Option"
+msgstr "Aggiungi nuova opzione"
+
+#: admin/class-afreg-fields-admin.php:215
+msgid "Required Field"
+msgstr "Campo obbligatorio"
+
+#: admin/class-afreg-fields-admin.php:220
+msgid "Read Only Field(Customer can not update this from My Account page)"
+msgstr ""
+"Campo di sola lettura (il cliente non può aggiornarlo dalla pagina Il mio account)"
+
+#: admin/class-afreg-fields-admin.php:225
+msgid "Show in admin order detail page and order email"
+msgstr ""
+"Mostra nella pagina dei dettagli dell'ordine di amministrazione e invia l'email\n"
+
+#: admin/class-afreg-fields-admin.php:230
+msgid "Field Width"
+msgstr "Larghezza del campo"
+
+#: admin/class-afreg-fields-admin.php:239
+msgid "Field Placeholder Text"
+msgstr "Testo segnaposto campo"
+
+#: admin/class-afreg-fields-admin.php:244
+msgid "Field Description"
+msgstr "Descrizione del campo"
+
+#: admin/class-afreg-fields-admin.php:249
+msgid "Field Custom Css Class"
+msgstr "Classe CSS personalizzata campo"
+
+#: admin/class-afreg-fields-admin.php:268
+msgid "is Dependable?"
+msgstr "è affidabile?"
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:273 admin/class-afreg-fields-admin.php:722
+msgid "Select User Roles"
+msgstr "Seleziona ruoli utente"
+
+#: admin/class-afreg-fields-admin.php:309
+msgid ""
+"Select user roles on which you want to show this field, leave empty for show in all."
+msgstr ""
+"Seleziona i ruoli utente su cui vuoi mostrare questo campo, lascia vuoto per lo "
+"spettacolo in tutto."
+
+#: admin/class-afreg-fields-admin.php:326
+msgid "Field Sort Order"
+msgstr "Ordinamento dei campi"
+
+#: admin/class-afreg-fields-admin.php:333 admin/class-afreg-fields-admin.php:470
+#: admin/class-afreg-fields-admin.php:484
+msgid "Active"
+msgstr "Attiva"
+
+#: admin/class-afreg-fields-admin.php:334 admin/class-afreg-fields-admin.php:472
+#: admin/class-afreg-fields-admin.php:485
+msgid "Inactive"
+msgstr "Non attivo"
+
+#: admin/class-afreg-fields-admin.php:454
+msgid "Status"
+msgstr "Stato"
+
+#: admin/class-afreg-fields-admin.php:455
+msgid "Sort Order"
+msgstr "Ordinamento"
+
+#: admin/class-afreg-fields-admin.php:553 admin/class-afreg-fields-admin.php:554
+msgid "Enable Default Fields"
+msgstr "Abilita campi predefiniti"
+
+#: admin/class-afreg-fields-admin.php:562 admin/class-afreg-fields-admin.php:563
+msgid "Settings"
+msgstr "impostazioni"
+
+#: admin/class-afreg-fields-admin.php:580
+msgid "Registration Fields Settings"
+msgstr "Impostazioni dei campi di registrazione"
+
+#: admin/class-afreg-fields-admin.php:585
+msgid "General Settings"
+msgstr "impostazioni generali"
+
+#: admin/class-afreg-fields-admin.php:586
+msgid "User Role Settings"
+msgstr "Impostazioni ruolo utente"
+
+#: admin/class-afreg-fields-admin.php:587 admin/class-afreg-fields-admin.php:1135
+msgid "Approve New User Settings"
+msgstr "Approvare le nuove impostazioni utente"
+
+#: admin/class-afreg-fields-admin.php:588
+msgid "Email Settings"
+msgstr "Impostazioni dell 'email"
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:632
+msgid "Additional Fields Section Title"
+msgstr "Titolo sezione campi aggiuntivi"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:637
+msgid ""
+"This is the title for the section where additional fields are displayed on front end "
+"registration form."
+msgstr ""
+"Questo è il titolo della sezione in cui vengono visualizzati campi aggiuntivi nel "
+"modulo di registrazione del front-end."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:654
+msgid "Site Key"
+msgstr "Chiave del sito"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:659
+msgid ""
+"This is gogle reCaptcha site key, you can get this from google. With this key google "
+"reCaptcha will not work."
+msgstr ""
+"Questa è la chiave del sito di google reCaptcha, puoi ottenerla da Google. Con questa "
+"chiave Google reCaptcha non funzionerà."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:669
+msgid "Secret Key"
+msgstr "Chiave segreta"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:674
+msgid ""
+"This is gogle reCaptcha secret key, you can get this from google. With this key google "
+"reCaptcha will not work."
+msgstr ""
+"Questa è la chiave segreta di google reCaptcha, puoi ottenerla da Google. Con questa "
+"chiave Google reCaptcha non funzionerà."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:692
+msgid "Enable User Role Selection"
+msgstr "Abilita selezione ruolo utente"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:697
+msgid ""
+"Enable/Disable User Role selection on registraiton page. If this is enable then a user "
+"role dropdown will be shown on registration page."
+msgstr ""
+"Abilita / disabilita la selezione del ruolo utente nella pagina di registrazione. Se "
+"questa opzione è abilitata, verrà visualizzato un menu a discesa del ruolo utente nella "
+"pagina di registrazione."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:707
+msgid "User Role Field Label"
+msgstr "Etichetta campo ruolo utente"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:712
+msgid "Field label for user role selection select box."
+msgstr "Casella di selezione etichetta campo per selezione ruolo utente."
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:727
+msgid ""
+"Select which user roles you want to show in dropdown on registration page. Note: "
+"Administrator role is not avaiable for show in dropdown."
+msgstr ""
+"Seleziona i ruoli utente che desideri mostrare nel menu a discesa nella pagina di "
+"registrazione. Nota: il ruolo di amministratore non è disponibile per la "
+"visualizzazione nel menu a discesa."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:745
+msgid "Enable Approve New User"
+msgstr "Abilita Approva nuovo utente"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:750
+msgid ""
+"Enable/Disable Approve new user. When this option is enabled all new registered users "
+"will be set to Pending until admin approves"
+msgstr ""
+"Abilita / Disabilita Approvazione nuovo utente. Quando questa opzione è abilitata, "
+"tutti i nuovi utenti registrati verranno impostati su In sospeso fino all'approvazione "
+"dell'amministratore"
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:760
+msgid "Enable Approve New User at Checkout Page"
+msgstr "Abilita Approva nuovo utente nella pagina di pagamento"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:765
+msgid " Enable/Disable Approve new user at checkout page. "
+msgstr "Abilita / Disabilita Approva nuovo utente alla pagina di pagamento."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:775
+msgid "Exclude User Roles"
+msgstr "Escludi ruoli utente"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:780
+msgid ""
+"Select which user roles users you want to exclude from manual approval. These user "
+"roles users will be automatically approved."
+msgstr ""
+"Seleziona quali ruoli utente desideri escludere dall'approvazione manuale. Questi ruoli "
+"utente verranno automaticamente approvati."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:797
+msgid "Message for Users when Account is Created"
+msgstr "Messaggio per gli utenti quando viene creato l'account"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:802
+msgid ""
+"First message that will be displayed to user when he/she completes the registration "
+"process, this message will be displayed only when manual approval is required. "
+msgstr ""
+"Primo messaggio che verrà visualizzato all'utente quando completa il processo di "
+"registrazione, questo messaggio verrà visualizzato solo quando è richiesta "
+"l'approvazione manuale."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:812
+msgid "Message for Users when Account is pending for approval"
+msgstr "Messaggio per gli utenti quando l'account è in attesa di approvazione"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:817
+msgid ""
+"This will be displayed when user will attempt to login after registration and his/her "
+"account is still pending for admin approval. "
+msgstr ""
+"Questo verrà visualizzato quando l'utente tenterà di accedere dopo la registrazione e "
+"il suo account è ancora in attesa di approvazione da parte dell'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:827
+msgid "Message for Users when Account is disapproved"
+msgstr "Messaggio per gli utenti quando l'account non è stato approvato"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:832
+msgid "Message for Users when Account is Disapproved By Admin."
+msgstr "Messaggio per gli utenti quando l'account non è approvato dall'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:851
+msgid "Admin Email Address"
+msgstr "Indirizzo e-mail amministratore"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:856
+msgid ""
+"This email address will be used for getting new user email notification for admin, if "
+"this is empty then defualt wordpress admin email address will be used."
+msgstr ""
+"Questo indirizzo e-mail verrà utilizzato per ottenere la notifica e-mail del nuovo "
+"utente per l'amministratore, se è vuoto, verrà utilizzato l'indirizzo e-mail admin "
+"wordpress predefinito."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:868
+msgid "Enable admin email notification"
+msgstr "Abilita notifica e-mail amministratore"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:873
+msgid "Enable or Disable new user notification to admin from this module. "
+msgstr ""
+"Abilita o Disabilita la notifica del nuovo utente all'amministratore da questo modulo."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:884
+msgid "Admin Email Subject"
+msgstr "Amministratore Oggetto email"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:889
+msgid "This email subject is used when new user notification is sent to admin. "
+msgstr ""
+"Questo oggetto e-mail viene utilizzato quando la notifica di un nuovo utente viene "
+"inviata all'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:899
+msgid "Admin Email Text"
+msgstr "Admin Email Text"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:904
+msgid ""
+"This email text will be used when new user notification is sent to admin. If Approve "
+"new user is active then you can write text about new user approval."
+msgstr ""
+"Questo testo di posta elettronica verrà utilizzato quando la notifica di un nuovo "
+"utente viene inviata all'amministratore. Se Approva nuovo utente è attivo, è possibile "
+"scrivere un testo sulla nuova approvazione dell'utente."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:916
+msgid "Enable welcome email notification"
+msgstr ""
+"Abilita notifica e-mail di benvenuto\n"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:921
+msgid "Enable or Disable welcome email notification from this module. "
+msgstr "Abilita o disabilita la notifica e-mail di benvenuto da questo modulo."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:932
+msgid "Welcome/Pending Email Subject"
+msgstr "Oggetto e-mail di benvenuto / in sospeso"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:937
+msgid ""
+"This is the email subject; this subject is used when the email is sent to the user on "
+"account creation to include fields data and manual approval message."
+msgstr ""
+"Questo è l'oggetto dell'e-mail; questo argomento viene utilizzato quando l'e-mail viene "
+"inviata all'utente al momento della creazione dell'account per includere i dati dei "
+"campi e il messaggio di approvazione manuale."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:947
+msgid "Welcome/Pending Email Body Text"
+msgstr ""
+"Testo corpo e-mail di benvenuto / in attesa\n"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:952
+msgid ""
+"This is the email body; when a new customer registers this email be automatically sent "
+"and the custom fields will be included in that email. This body text will be included "
+"along with the default fields data."
+msgstr ""
+"Questo è il corpo dell'email; quando un nuovo cliente registra questa e-mail verrà "
+"automaticamente inviata e i campi personalizzati saranno inclusi in quella e-mail. "
+"Questo testo del corpo verrà incluso insieme ai dati dei campi predefiniti."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:963
+msgid "Approved Email Subject"
+msgstr "Oggetto email approvato"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:968
+msgid ""
+"This is the approved email subject, this subject is when used when account is approved "
+"by administrator.  "
+msgstr ""
+"Questo è l'oggetto e-mail approvato, questo oggetto viene utilizzato quando l'account è "
+"approvato dall'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:978
+msgid "Approved Email Text"
+msgstr "Testo email approvato"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:983
+msgid ""
+"This is the approved email message, this message is used when account is approved by "
+"administrator. "
+msgstr ""
+"Questo è il messaggio di posta elettronica approvato, questo messaggio viene utilizzato "
+"quando l'account è approvato dall'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:994
+msgid "Disapproved Email Subject"
+msgstr "Oggetto email non approvato"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:999
+msgid ""
+"This is the disapproved email subject, this subject is used when account is disapproved "
+"by administrator."
+msgstr ""
+"Questo è l'oggetto e-mail non approvato, questo oggetto viene utilizzato quando "
+"l'account non è approvato dall'amministratore."
+
+#. ID used to identify the field throughout the theme
+#: admin/class-afreg-fields-admin.php:1009
+msgid "Disapproved Email Text"
+msgstr "Testo email non approvato"
+
+#. The array of arguments to pass to the callback. In this case, just a description.
+#: admin/class-afreg-fields-admin.php:1014
+msgid ""
+"This is the disapproved email message, this message is used when account is disapproved "
+"by administrator."
+msgstr ""
+"Questo è il messaggio di posta elettronica non approvato, questo messaggio viene "
+"utilizzato quando l'account non è approvato dall'amministratore."
+
+#: admin/class-afreg-fields-admin.php:1027
+msgid "Manage registration module general settings from here."
+msgstr "Gestisci le impostazioni generali del modulo di registrazione da qui."
+
+#: admin/class-afreg-fields-admin.php:1042
+msgid "Google reCaptcha Settings"
+msgstr "Impostazioni di Google reCaptcha"
+
+#: admin/class-afreg-fields-admin.php:1067
+msgid ""
+"Manage user role settings from here. Choose wheather you want to show user role "
+"dropdown on registraiton page or not and choose which user roles you want to show in "
+"dropdown on registration page."
+msgstr ""
+"Gestisci le impostazioni del ruolo utente da qui. Scegli dove vuoi mostrare il menu a "
+"discesa del ruolo utente nella pagina di registrazione o meno e scegli quali ruoli "
+"utente vuoi mostrare nel menu a discesa nella pagina di registrazione."
+
+#: admin/class-afreg-fields-admin.php:1134
+msgid "Manage Approve new user settings from here."
+msgstr "Gestisci Approvazione delle nuove impostazioni utente da qui."
+
+#: admin/class-afreg-fields-admin.php:1201
+msgid "Approve New User Messages Settings"
+msgstr "Approvare le impostazioni dei nuovi messaggi utente"
+
+#: admin/class-afreg-fields-admin.php:1233
+msgid "Manage Email Settings"
+msgstr "Gestisci impostazioni e-mail"
+
+#: admin/class-afreg-fields-admin.php:2014
+msgid "User Status"
+msgstr "Stato dell'utente"
+
+#: admin/class-afreg-fields-admin.php:2048 admin/class-afreg-fields-admin.php:2327
+#: admin/class-afreg-fields-admin.php:2328
+msgid "Approve"
+msgstr "Approva"
+
+#: admin/class-afreg-fields-admin.php:2049 admin/class-afreg-fields-admin.php:2330
+#: admin/class-afreg-fields-admin.php:2331
+msgid "Disapprove"
+msgstr "Disapprova"
+
+#: admin/class-afreg-fields-admin.php:2247
+msgid "Filter"
+msgstr "Filtro"
+
+#: admin/class-afreg-fields-admin.php:2251 admin/class-afreg-fields-admin.php:2253
+msgid "View all users"
+msgstr "Vedi tutti gli utenti"
+
+#: admin/class-afreg-fields-admin.php:2260
+msgid "Disapproved"
+msgstr "Non approvato"
+
+#. Name of the plugin
+msgid "Custom User Registration Fields for WooCommerce"
+msgstr "Campi di registrazione utente personalizzati per WooCommerce"
+
+#. Description of the plugin
+msgid ""
+"User Registration Plugin for WooCommerce allows you to add extra fields to your "
+"registration form. Registration Fields Addon is compatible with both WordPress & "
+"WooCommerce. Support 14 types of fields and compatible with Addify plugins. (PLEASE "
+"TAKE BACKUP BEFORE UPDATING THE PLUGIN)."
+msgstr ""
+"Il plug-in di registrazione dell'utente per WooCommerce consente di aggiungere campi "
+"aggiuntivi al modulo di registrazione. L'addon dei campi di registrazione è compatibile "
+"con WordPress e WooCommerce. Supporta 14 tipi di campi ed è compatibile con i plugin "
+"Addify. (SI PREGA DI EFFETTUARE IL BACKUP PRIMA DI AGGIORNARE IL PLUGIN)."
+
+#. URI of the plugin
+msgid "https://woocommerce.com/products/custom-user-registration-fields-for-woocommerce/"
+msgstr "https://woocommerce.com/products/custom-user-registration-fields-for-woocommerce/"
+
+#. Author of the plugin
+msgid "Addify"
+msgstr "Addify"
+
+#. Author URI of the plugin
+msgid "http://www.addifypro.com"
+msgstr "http://www.addifypro.com"

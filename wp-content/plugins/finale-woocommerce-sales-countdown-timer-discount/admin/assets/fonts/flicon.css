@@ -1,0 +1,1623 @@
+@font-face {
+    font-family: "flicon";
+    src: url("./flicon.eot");
+    src: url("./flicon.eot?#iefix") format("embedded-opentype"),
+    url("./flicon.woff") format("woff"),
+    url("./flicon.ttf") format("truetype"),
+    url("./flicon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "flicon";
+        src: url("./flicon.svg#Flaticon") format("svg");
+    }
+}
+
+.flicon {
+    font-family: "flicon";
+    font-size: 20px;
+    font-style: normal
+}
+
+.flicon-accesibility-sign:before {
+    content: "\f100";
+}
+
+.flicon-access-key-filled-circular-tool:before {
+    content: "\f101";
+}
+
+.flicon-acrobat-reader-file:before {
+    content: "\f102";
+}
+
+.flicon-add-button-circle:before {
+    content: "\f103";
+}
+
+.flicon-add-filled-cross-sign:before {
+    content: "\f104";
+}
+
+.flicon-airplane-filled-shape:before {
+    content: "\f105";
+}
+
+.flicon-airplane-silhouette:before {
+    content: "\f106";
+}
+
+.flicon-alarm-bell-outline:before {
+    content: "\f107";
+}
+
+.flicon-alphabetical-order:before {
+    content: "\f108";
+}
+
+.flicon-anchor-navigational-interface-sign:before {
+    content: "\f109";
+}
+
+.flicon-antique-building:before {
+    content: "\f10a";
+}
+
+.flicon-archive-filled-box:before {
+    content: "\f10b";
+}
+
+.flicon-arrow-angle-pointing-to-right:before {
+    content: "\f10c";
+}
+
+.flicon-arrow-double-up-and-down-sign:before {
+    content: "\f10d";
+}
+
+.flicon-arrow-down-broken-filled-angle:before {
+    content: "\f10e";
+}
+
+.flicon-arrow-down-curve:before {
+    content: "\f10f";
+}
+
+.flicon-arrow-down-filled-triangle:before {
+    content: "\f110";
+}
+
+.flicon-arrow-left-broken-angle:before {
+    content: "\f111";
+}
+
+.flicon-arrow-pointing-to-right:before {
+    content: "\f112";
+}
+
+.flicon-arrow-right-curve:before {
+    content: "\f113";
+}
+
+.flicon-arrows-circle-of-two-rotating-in-clockwise-direction:before {
+    content: "\f114";
+}
+
+.flicon-arrows-couple-to-opposite-directions:before {
+    content: "\f115";
+}
+
+.flicon-arrows-right-and-left-filled-triangles:before {
+    content: "\f116";
+}
+
+.flicon-arrows-triangles-pointing-to-opposite-sides:before {
+    content: "\f117";
+}
+
+.flicon-arrows-up-and-down-filled-triangles:before {
+    content: "\f118";
+}
+
+.flicon-ascending-arrow:before {
+    content: "\f119";
+}
+
+.flicon-ascending-business-graphic:before {
+    content: "\f11a";
+}
+
+.flicon-asterisk:before {
+    content: "\f11b";
+}
+
+.flicon-audio-file:before {
+    content: "\f11c";
+}
+
+.flicon-audio-filled-speaker-of-interface:before {
+    content: "\f11d";
+}
+
+.flicon-automatic-rotation:before {
+    content: "\f11e";
+}
+
+.flicon-automatic-rotation-to-vertical-or-horizontal-position:before {
+    content: "\f11f";
+}
+
+.flicon-back-filled-arrow:before {
+    content: "\f120";
+}
+
+.flicon-back-left-arrow:before {
+    content: "\f121";
+}
+
+.flicon-back-left-arrow-circular-button:before {
+    content: "\f122";
+}
+
+.flicon-back-triangular-arrow-square-button-outline:before {
+    content: "\f123";
+}
+
+.flicon-back-triangular-left-arrow-in-square-filled-button:before {
+    content: "\f124";
+}
+
+.flicon-barcode-lines:before {
+    content: "\f125";
+}
+
+.flicon-bars-graphic:before {
+    content: "\f126";
+}
+
+.flicon-bell-silhouette:before {
+    content: "\f127";
+}
+
+.flicon-bold:before {
+    content: "\f128";
+}
+
+.flicon-bomb:before {
+    content: "\f129";
+}
+
+.flicon-book:before {
+    content: "\f12a";
+}
+
+.flicon-book-1:before {
+    content: "\f12b";
+}
+
+.flicon-book-closed-tool:before {
+    content: "\f12c";
+}
+
+.flicon-bookmark-filled-interface-sign:before {
+    content: "\f12d";
+}
+
+.flicon-bottle-with-liquid:before {
+    content: "\f12e";
+}
+
+.flicon-browser-button:before {
+    content: "\f12f";
+}
+
+.flicon-building:before {
+    content: "\f130";
+}
+
+.flicon-building-silhouette:before {
+    content: "\f131";
+}
+
+.flicon-burn:before {
+    content: "\f132";
+}
+
+.flicon-business-ascendant-graphic-line:before {
+    content: "\f133";
+}
+
+.flicon-business-stats-file:before {
+    content: "\f134";
+}
+
+.flicon-button-of-three-squares:before {
+    content: "\f135";
+}
+
+.flicon-button-of-three-vertical-squares:before {
+    content: "\f136";
+}
+
+.flicon-calculator:before {
+    content: "\f137";
+}
+
+.flicon-car-filled-frontal-transport:before {
+    content: "\f138";
+}
+
+.flicon-characters-interface-button-with-oriental-sign:before {
+    content: "\f139";
+}
+
+.flicon-characters-interface-sign:before {
+    content: "\f13a";
+}
+
+.flicon-chat-message-oval-outlined-speech-bubble:before {
+    content: "\f13b";
+}
+
+.flicon-chat-of-a-couple-of-filled-rectangular-speech-bubbles:before {
+    content: "\f13c";
+}
+
+.flicon-chat-oval-filled-speech-bubble:before {
+    content: "\f13d";
+}
+
+.flicon-chat-oval-filled-speech-bubbles:before {
+    content: "\f13e";
+}
+
+.flicon-chatting-oval-speech-bubbles:before {
+    content: "\f13f";
+}
+
+.flicon-checked-box:before {
+    content: "\f140";
+}
+
+.flicon-checkmark-for-verification:before {
+    content: "\f141";
+}
+
+.flicon-checkmark-outline:before {
+    content: "\f142";
+}
+
+.flicon-christmas-tree-silhouette:before {
+    content: "\f143";
+}
+
+.flicon-circle:before {
+    content: "\f144";
+}
+
+.flicon-circle-of-two-clockwise-arrows-rotation:before {
+    content: "\f145";
+}
+
+.flicon-circle-with-irregular-shape-inside:before {
+    content: "\f146";
+}
+
+.flicon-circles-loader:before {
+    content: "\f147";
+}
+
+.flicon-clipboard:before {
+    content: "\f148";
+}
+
+.flicon-clipboard-filled-with-text:before {
+    content: "\f149";
+}
+
+.flicon-clipboard-rotated-interface-tool:before {
+    content: "\f14a";
+}
+
+.flicon-clock-circular-outline:before {
+    content: "\f14b";
+}
+
+.flicon-clock-with-circular-arrow:before {
+    content: "\f14c";
+}
+
+.flicon-cloud-filled-shape:before {
+    content: "\f14d";
+}
+
+.flicon-cocktail-glass-silhouette:before {
+    content: "\f14e";
+}
+
+.flicon-code-programming-file:before {
+    content: "\f14f";
+}
+
+.flicon-code-programming-signs:before {
+    content: "\f150";
+}
+
+.flicon-code-sign:before {
+    content: "\f151";
+}
+
+.flicon-collapse-rectangular-filled-button-of-interface:before {
+    content: "\f152";
+}
+
+.flicon-compass:before {
+    content: "\f153";
+}
+
+.flicon-compressed-zip-file:before {
+    content: "\f154";
+}
+
+.flicon-contrast-circular-button:before {
+    content: "\f155";
+}
+
+.flicon-copy-interface-outlined-sign:before {
+    content: "\f156";
+}
+
+.flicon-credit-or-debit-card:before {
+    content: "\f157";
+}
+
+.flicon-cropping-tool-button-of-interface:before {
+    content: "\f158";
+}
+
+.flicon-cross:before {
+    content: "\f159";
+}
+
+.flicon-cross-circular-button:before {
+    content: "\f15a";
+}
+
+.flicon-cross-remove-sign:before {
+    content: "\f15b";
+}
+
+.flicon-crosshair-target-interface:before {
+    content: "\f15c";
+}
+
+.flicon-cube:before {
+    content: "\f15d";
+}
+
+.flicon-cubes-stack:before {
+    content: "\f15e";
+}
+
+.flicon-curved-up-arrow:before {
+    content: "\f15f";
+}
+
+.flicon-data-storage-discs-stack:before {
+    content: "\f160";
+}
+
+.flicon-database:before {
+    content: "\f161";
+}
+
+.flicon-design-button:before {
+    content: "\f162";
+}
+
+.flicon-design-structure-square-button:before {
+    content: "\f163";
+}
+
+.flicon-digital-interface-sign-of-motherboard:before {
+    content: "\f164";
+}
+
+.flicon-dislike-social-gesture:before {
+    content: "\f165";
+}
+
+.flicon-double-horizontal-arrow:before {
+    content: "\f166";
+}
+
+.flicon-down-arrow:before {
+    content: "\f167";
+}
+
+.flicon-down-arrow-angle:before {
+    content: "\f168";
+}
+
+.flicon-down-arrow-button:before {
+    content: "\f169";
+}
+
+.flicon-down-filled-hand-gesture:before {
+    content: "\f16a";
+}
+
+.flicon-down-triangular-arrow-button:before {
+    content: "\f16b";
+}
+
+.flicon-download-from-the-cloud:before {
+    content: "\f16c";
+}
+
+.flicon-download-interface-sign:before {
+    content: "\f16d";
+}
+
+.flicon-edit:before {
+    content: "\f16e";
+}
+
+.flicon-email-outbox:before {
+    content: "\f16f";
+}
+
+.flicon-equalization-button:before {
+    content: "\f170";
+}
+
+.flicon-equalizer-console-with-three-switches-at-different-levels:before {
+    content: "\f171";
+}
+
+.flicon-erase:before {
+    content: "\f172";
+}
+
+.flicon-event-empty-calendar-page:before {
+    content: "\f173";
+}
+
+.flicon-exclamation-warning-sign:before {
+    content: "\f174";
+}
+
+.flicon-expand:before {
+    content: "\f175";
+}
+
+.flicon-expand-four-arrows-rectangular-button:before {
+    content: "\f176";
+}
+
+.flicon-eye-on-monitor-screen:before {
+    content: "\f177";
+}
+
+.flicon-facebook-logo:before {
+    content: "\f178";
+}
+
+.flicon-facebook-square-social-logo:before {
+    content: "\f179";
+}
+
+.flicon-faq-circular-filled-button:before {
+    content: "\f17a";
+}
+
+.flicon-favorite:before {
+    content: "\f17b";
+}
+
+.flicon-fax:before {
+    content: "\f17c";
+}
+
+.flicon-file-add-filled-button:before {
+    content: "\f17d";
+}
+
+.flicon-file-fill-rectangle:before {
+    content: "\f17e";
+}
+
+.flicon-file-of-text:before {
+    content: "\f17f";
+}
+
+.flicon-file-outlined-blank-paper-sheet:before {
+    content: "\f180";
+}
+
+.flicon-film-strip:before {
+    content: "\f181";
+}
+
+.flicon-filter-filled-tool:before {
+    content: "\f182";
+}
+
+.flicon-finger-pointing-left-of-filled-hand-gesture:before {
+    content: "\f183";
+}
+
+.flicon-finger-pointing-up-of-filled-hand-gesture:before {
+    content: "\f184";
+}
+
+.flicon-fire-extinguisher:before {
+    content: "\f185";
+}
+
+.flicon-flag-checkered-sportive-tool:before {
+    content: "\f186";
+}
+
+.flicon-flag-fill-shape:before {
+    content: "\f187";
+}
+
+.flicon-flag-filled-shape:before {
+    content: "\f188";
+}
+
+.flicon-flag-or-text-lines-with-a-video:before {
+    content: "\f189";
+}
+
+.flicon-flag-sportive-tool-outline:before {
+    content: "\f18a";
+}
+
+.flicon-folder-filled-shape:before {
+    content: "\f18b";
+}
+
+.flicon-four-thumbnails-visualization-button:before {
+    content: "\f18c";
+}
+
+.flicon-game-control:before {
+    content: "\f18d";
+}
+
+.flicon-gear-configuration-interface:before {
+    content: "\f18e";
+}
+
+.flicon-gears-configuration-tool:before {
+    content: "\f18f";
+}
+
+.flicon-giftbox:before {
+    content: "\f190";
+}
+
+.flicon-google-plus-logo:before {
+    content: "\f191";
+}
+
+.flicon-graduate-hat:before {
+    content: "\f192";
+}
+
+.flicon-group-filled-persons:before {
+    content: "\f193";
+}
+
+.flicon-group-of-people:before {
+    content: "\f194";
+}
+
+.flicon-hammer-silhouette:before {
+    content: "\f195";
+}
+
+.flicon-hammer-silhouette-1:before {
+    content: "\f196";
+}
+
+.flicon-hard-disk:before {
+    content: "\f197";
+}
+
+.flicon-headphones-silhouette:before {
+    content: "\f198";
+}
+
+.flicon-help-circular-filled-button:before {
+    content: "\f199";
+}
+
+.flicon-hierarchical-structure:before {
+    content: "\f19a";
+}
+
+.flicon-hierarchy:before {
+    content: "\f19b";
+}
+
+.flicon-home-silhouette:before {
+    content: "\f19c";
+}
+
+.flicon-horizontal-rectangle-with-lines:before {
+    content: "\f19d";
+}
+
+.flicon-horizontal-rectangles-lines:before {
+    content: "\f19e";
+}
+
+.flicon-image:before {
+    content: "\f19f";
+}
+
+.flicon-image-file-type:before {
+    content: "\f1a0";
+}
+
+.flicon-image-filled-square-button:before {
+    content: "\f1a1";
+}
+
+.flicon-image-square-button:before {
+    content: "\f1a2";
+}
+
+.flicon-images:before {
+    content: "\f1a3";
+}
+
+.flicon-inbox-download-interface-sign:before {
+    content: "\f1a4";
+}
+
+.flicon-inbox-empty-tray:before {
+    content: "\f1a5";
+}
+
+.flicon-information:before {
+    content: "\f1a6";
+}
+
+.flicon-information-1:before {
+    content: "\f1a7";
+}
+
+.flicon-information-circle:before {
+    content: "\f1a8";
+}
+
+.flicon-ink-drop-filled-shape:before {
+    content: "\f1a9";
+}
+
+.flicon-interface-button-of-four-thumbnails:before {
+    content: "\f1aa";
+}
+
+.flicon-interface-circular-sign:before {
+    content: "\f1ab";
+}
+
+.flicon-invisible:before {
+    content: "\f1ac";
+}
+
+.flicon-italic-text:before {
+    content: "\f1ad";
+}
+
+.flicon-jar-filled-silhouette:before {
+    content: "\f1ae";
+}
+
+.flicon-key-access-button:before {
+    content: "\f1af";
+}
+
+.flicon-keyword:before {
+    content: "\f1b0";
+}
+
+.flicon-label-commercial-circular-filled-tool:before {
+    content: "\f1b1";
+}
+
+.flicon-laptop:before {
+    content: "\f1b2";
+}
+
+.flicon-layout:before {
+    content: "\f1b3";
+}
+
+.flicon-layout-square-interface-button:before {
+    content: "\f1b4";
+}
+
+.flicon-leaf-filled-shape:before {
+    content: "\f1b5";
+}
+
+.flicon-left-and-right-arrows-buttons:before {
+    content: "\f1b6";
+}
+
+.flicon-left-angle-arrow:before {
+    content: "\f1b7";
+}
+
+.flicon-left-arrow:before {
+    content: "\f1b8";
+}
+
+.flicon-left-arrow-1:before {
+    content: "\f1b9";
+}
+
+.flicon-left-filled-arrow:before {
+    content: "\f1ba";
+}
+
+.flicon-left-quote:before {
+    content: "\f1bb";
+}
+
+.flicon-left-quote-1:before {
+    content: "\f1bc";
+}
+
+.flicon-lifesaver:before {
+    content: "\f1bd";
+}
+
+.flicon-lifesaver-1:before {
+    content: "\f1be";
+}
+
+.flicon-lightbulb-creativity-interface-sign-outline:before {
+    content: "\f1bf";
+}
+
+.flicon-lightbulb-filled-interface-sign:before {
+    content: "\f1c0";
+}
+
+.flicon-lightning-bolt-filled-shape:before {
+    content: "\f1c1";
+}
+
+.flicon-like:before {
+    content: "\f1c2";
+}
+
+.flicon-like-filled-hand:before {
+    content: "\f1c3";
+}
+
+.flicon-like-heart-social-shape-outline:before {
+    content: "\f1c4";
+}
+
+.flicon-like-social-heart:before {
+    content: "\f1c5";
+}
+
+.flicon-link:before {
+    content: "\f1c6";
+}
+
+.flicon-link-break:before {
+    content: "\f1c7";
+}
+
+.flicon-list-button:before {
+    content: "\f1c8";
+}
+
+.flicon-list-square-button:before {
+    content: "\f1c9";
+}
+
+.flicon-list-with-bullets:before {
+    content: "\f1ca";
+}
+
+.flicon-lock-closed-padlock-silhouette:before {
+    content: "\f1cb";
+}
+
+.flicon-lock-square-locked-filled-padlock:before {
+    content: "\f1cc";
+}
+
+.flicon-login:before {
+    content: "\f1cd";
+}
+
+.flicon-login-left-arrow:before {
+    content: "\f1ce";
+}
+
+.flicon-logout:before {
+    content: "\f1cf";
+}
+
+.flicon-logout-button:before {
+    content: "\f1d0";
+}
+
+.flicon-logout-square-button:before {
+    content: "\f1d1";
+}
+
+.flicon-logout-square-outlined-interface-button:before {
+    content: "\f1d2";
+}
+
+.flicon-logout-web-button:before {
+    content: "\f1d3";
+}
+
+.flicon-lyrics:before {
+    content: "\f1d4";
+}
+
+.flicon-magic-wand:before {
+    content: "\f1d5";
+}
+
+.flicon-man-silhouette-with-raised-arms:before {
+    content: "\f1d6";
+}
+
+.flicon-man-with-tie:before {
+    content: "\f1d7";
+}
+
+.flicon-map:before {
+    content: "\f1d8";
+}
+
+.flicon-megaphone-or-speaker-silhouette:before {
+    content: "\f1d9";
+}
+
+.flicon-men-silhouette:before {
+    content: "\f1da";
+}
+
+.flicon-menu:before {
+    content: "\f1db";
+}
+
+.flicon-message-rectangular-filled-speech-bubble:before {
+    content: "\f1dc";
+}
+
+.flicon-message-speech-bubble-rectangle-with-text:before {
+    content: "\f1dd";
+}
+
+.flicon-minus:before {
+    content: "\f1de";
+}
+
+.flicon-minus-button:before {
+    content: "\f1df";
+}
+
+.flicon-minus-button-1:before {
+    content: "\f1e0";
+}
+
+.flicon-minus-button-rectangle:before {
+    content: "\f1e1";
+}
+
+.flicon-minus-line:before {
+    content: "\f1e2";
+}
+
+.flicon-minus-sign-in-filled-circle:before {
+    content: "\f1e3";
+}
+
+.flicon-mobile-phone-filled-tool:before {
+    content: "\f1e4";
+}
+
+.flicon-money-bill-of-one:before {
+    content: "\f1e5";
+}
+
+.flicon-monitor:before {
+    content: "\f1e6";
+}
+
+.flicon-movie-camera-silhouette:before {
+    content: "\f1e7";
+}
+
+.flicon-multimedia-play-square-button:before {
+    content: "\f1e8";
+}
+
+.flicon-music-file-filled-interface-sign:before {
+    content: "\f1e9";
+}
+
+.flicon-musical-note:before {
+    content: "\f1ea";
+}
+
+.flicon-mute-microphone:before {
+    content: "\f1eb";
+}
+
+.flicon-new-email-button:before {
+    content: "\f1ec";
+}
+
+.flicon-new-email-filled-back-envelope:before {
+    content: "\f1ed";
+}
+
+.flicon-new-email-filled-closed-envelope-back:before {
+    content: "\f1ee";
+}
+
+.flicon-newspaper:before {
+    content: "\f1ef";
+}
+
+.flicon-night-moon-phase:before {
+    content: "\f1f0";
+}
+
+.flicon-numbered-list:before {
+    content: "\f1f1";
+}
+
+.flicon-numeric-ascending-sort:before {
+    content: "\f1f2";
+}
+
+.flicon-numerical-descending-sort-button-of-interface:before {
+    content: "\f1f3";
+}
+
+.flicon-old-elevator-levels-tool:before {
+    content: "\f1f4";
+}
+
+.flicon-omega-sign:before {
+    content: "\f1f5";
+}
+
+.flicon-orientation-filled-arrow:before {
+    content: "\f1f6";
+}
+
+.flicon-oval-filled-speech-bubble-with-circles:before {
+    content: "\f1f7";
+}
+
+.flicon-paintbrush:before {
+    content: "\f1f8";
+}
+
+.flicon-painting-painter-palette-filled-tool:before {
+    content: "\f1f9";
+}
+
+.flicon-paper-airplane:before {
+    content: "\f1fa";
+}
+
+.flicon-paper-plane:before {
+    content: "\f1fb";
+}
+
+.flicon-paragraph-sign:before {
+    content: "\f1fc";
+}
+
+.flicon-paragraph-text-button-of-interface:before {
+    content: "\f1fd";
+}
+
+.flicon-paragraph-text-interface-sign:before {
+    content: "\f1fe";
+}
+
+.flicon-pawprint:before {
+    content: "\f1ff";
+}
+
+.flicon-pencil-striped-writing-tool:before {
+    content: "\f200";
+}
+
+.flicon-person-business-card:before {
+    content: "\f201";
+}
+
+.flicon-person-in-a-circle:before {
+    content: "\f202";
+}
+
+.flicon-phone:before {
+    content: "\f203";
+}
+
+.flicon-phone-call-button:before {
+    content: "\f204";
+}
+
+.flicon-phone-call-square-button:before {
+    content: "\f205";
+}
+
+.flicon-photo-camera:before {
+    content: "\f206";
+}
+
+.flicon-photo-camera-1:before {
+    content: "\f207";
+}
+
+.flicon-photo-camera-filled-tool:before {
+    content: "\f208";
+}
+
+.flicon-photo-capture-sound:before {
+    content: "\f209";
+}
+
+.flicon-photo-sharing-square-interface-button:before {
+    content: "\f20a";
+}
+
+.flicon-pin-circular-silhouette:before {
+    content: "\f20b";
+}
+
+.flicon-pin-filled-silhouette:before {
+    content: "\f20c";
+}
+
+.flicon-pin-silhouette:before {
+    content: "\f20d";
+}
+
+.flicon-placeholder-filled-point:before {
+    content: "\f20e";
+}
+
+.flicon-play-filled-square-button:before {
+    content: "\f20f";
+}
+
+.flicon-play-filled-triangle-button-of-right-arrow:before {
+    content: "\f210";
+}
+
+.flicon-play-player-button-of-video:before {
+    content: "\f211";
+}
+
+.flicon-play-square-control-button-for-multimedia:before {
+    content: "\f212";
+}
+
+.flicon-plug-silhouette:before {
+    content: "\f213";
+}
+
+.flicon-portfolio-filled-open-folder:before {
+    content: "\f214";
+}
+
+.flicon-portfolio-filled-tool:before {
+    content: "\f215";
+}
+
+.flicon-power-button:before {
+    content: "\f216";
+}
+
+.flicon-printing-filled-interface-button:before {
+    content: "\f217";
+}
+
+.flicon-programming-code-signs:before {
+    content: "\f218";
+}
+
+.flicon-prohibition:before {
+    content: "\f219";
+}
+
+.flicon-puzzle-piece-silhouette:before {
+    content: "\f21a";
+}
+
+.flicon-question-sign-in-square-outline:before {
+    content: "\f21b";
+}
+
+.flicon-question-square-button:before {
+    content: "\f21c";
+}
+
+.flicon-quote-sign:before {
+    content: "\f21d";
+}
+
+.flicon-rec-circular-button:before {
+    content: "\f21e";
+}
+
+.flicon-rectangle-with-stripes:before {
+    content: "\f21f";
+}
+
+.flicon-rectangular-interface-button:before {
+    content: "\f220";
+}
+
+.flicon-rectangular-paper-sheets-filled-sign:before {
+    content: "\f221";
+}
+
+.flicon-recycle-bin:before {
+    content: "\f222";
+}
+
+.flicon-recycle-bin-outline:before {
+    content: "\f223";
+}
+
+.flicon-recycle-three-arrows-triangle:before {
+    content: "\f224";
+}
+
+.flicon-restaurant-fork-and-knife:before {
+    content: "\f225";
+}
+
+.flicon-return-arrow-curve-pointing-left:before {
+    content: "\f226";
+}
+
+.flicon-retweet-arrows:before {
+    content: "\f227";
+}
+
+.flicon-right-arrow:before {
+    content: "\f228";
+}
+
+.flicon-right-arrow-in-square-button:before {
+    content: "\f229";
+}
+
+.flicon-right-direction-filled-hand-gesture:before {
+    content: "\f22a";
+}
+
+.flicon-right-pagination:before {
+    content: "\f22b";
+}
+
+.flicon-right-quotation-sign:before {
+    content: "\f22c";
+}
+
+.flicon-ring:before {
+    content: "\f22d";
+}
+
+.flicon-road-perspective:before {
+    content: "\f22e";
+}
+
+.flicon-rocket-filled-space-ship:before {
+    content: "\f22f";
+}
+
+.flicon-rss-feed-suscription-square-filled-button:before {
+    content: "\f230";
+}
+
+.flicon-safe-box:before {
+    content: "\f231";
+}
+
+.flicon-scissors-open-tool:before {
+    content: "\f232";
+}
+
+.flicon-search:before {
+    content: "\f233";
+}
+
+.flicon-share:before {
+    content: "\f234";
+}
+
+.flicon-shield-checkered-tool:before {
+    content: "\f235";
+}
+
+.flicon-shield-of-security-interface:before {
+    content: "\f236";
+}
+
+.flicon-shield-silhouette-of-rhomboid-shape:before {
+    content: "\f237";
+}
+
+.flicon-shopping-bag:before {
+    content: "\f238";
+}
+
+.flicon-shopping-cart-silhouette:before {
+    content: "\f239";
+}
+
+.flicon-shuffle-arrows:before {
+    content: "\f23a";
+}
+
+.flicon-shuffle-crossing-arrows:before {
+    content: "\f23b";
+}
+
+.flicon-size-option-square-button-of-lines:before {
+    content: "\f23c";
+}
+
+.flicon-smile:before {
+    content: "\f23d";
+}
+
+.flicon-smile-face-in-a-rectangle:before {
+    content: "\f23e";
+}
+
+.flicon-sort-alphabetically-down-from-z-to-a:before {
+    content: "\f23f";
+}
+
+.flicon-sort-descending:before {
+    content: "\f240";
+}
+
+.flicon-sort-down:before {
+    content: "\f241";
+}
+
+.flicon-speaker:before {
+    content: "\f242";
+}
+
+.flicon-speaker-filled-audio-tool:before {
+    content: "\f243";
+}
+
+.flicon-speaker-filled-interface-tool:before {
+    content: "\f244";
+}
+
+.flicon-speech-bubble-with-cross-close-sign:before {
+    content: "\f245";
+}
+
+.flicon-speedometer:before {
+    content: "\f246";
+}
+
+.flicon-spoon-shape:before {
+    content: "\f247";
+}
+
+.flicon-sport-recognition-ribbon-badge:before {
+    content: "\f248";
+}
+
+.flicon-square-filled-geometric-shape:before {
+    content: "\f249";
+}
+
+.flicon-square-outline:before {
+    content: "\f24a";
+}
+
+.flicon-star-filled-fivepointed-shape:before {
+    content: "\f24b";
+}
+
+.flicon-star-social-favorite-middle-full:before {
+    content: "\f24c";
+}
+
+.flicon-stats-circular-filled-graphic:before {
+    content: "\f24d";
+}
+
+.flicon-street-square:before {
+    content: "\f24e";
+}
+
+.flicon-strikethrough-text-interface-sign:before {
+    content: "\f24f";
+}
+
+.flicon-subscribe-rss-button:before {
+    content: "\f250";
+}
+
+.flicon-sun:before {
+    content: "\f251";
+}
+
+.flicon-tablet-vertical-tool:before {
+    content: "\f252";
+}
+
+.flicon-tag-filled-tool:before {
+    content: "\f253";
+}
+
+.flicon-target-of-concentric-circles:before {
+    content: "\f254";
+}
+
+.flicon-taxi-filled-frontal-view:before {
+    content: "\f255";
+}
+
+.flicon-tea-cup-filled-shape:before {
+    content: "\f256";
+}
+
+.flicon-telephone-auricular:before {
+    content: "\f257";
+}
+
+.flicon-text-center-alignment:before {
+    content: "\f258";
+}
+
+.flicon-text-correction-verification:before {
+    content: "\f259";
+}
+
+.flicon-text-file-filled-interface-paper-sheet:before {
+    content: "\f25a";
+}
+
+.flicon-text-file-square-filled-button:before {
+    content: "\f25b";
+}
+
+.flicon-text-justified-option-interface-button:before {
+    content: "\f25c";
+}
+
+.flicon-text-left-alignment:before {
+    content: "\f25d";
+}
+
+.flicon-text-letter:before {
+    content: "\f25e";
+}
+
+.flicon-text-letter-interface:before {
+    content: "\f25f";
+}
+
+.flicon-text-right-alignment-button:before {
+    content: "\f260";
+}
+
+.flicon-thumb-down-social-filled-gesture:before {
+    content: "\f261";
+}
+
+.flicon-travel-bag-or-portfolio-filled-tool:before {
+    content: "\f262";
+}
+
+.flicon-trophy-sportive-cup-silhouette:before {
+    content: "\f263";
+}
+
+.flicon-truck-silhouette:before {
+    content: "\f264";
+}
+
+.flicon-twitter-social-network-logo:before {
+    content: "\f265";
+}
+
+.flicon-umbrella-filled-opened-tool:before {
+    content: "\f266";
+}
+
+.flicon-underlined-text-interface-button:before {
+    content: "\f267";
+}
+
+.flicon-unlocked-padlock-filled-shape:before {
+    content: "\f268";
+}
+
+.flicon-unlocked-padlock-filled-silhouette:before {
+    content: "\f269";
+}
+
+.flicon-up-and-down-arrows-button:before {
+    content: "\f26a";
+}
+
+.flicon-up-arrow:before {
+    content: "\f26b";
+}
+
+.flicon-up-arrow-angle:before {
+    content: "\f26c";
+}
+
+.flicon-up-arrow-button:before {
+    content: "\f26d";
+}
+
+.flicon-up-arrow-filled-angle:before {
+    content: "\f26e";
+}
+
+.flicon-up-arrow-in-square-filled-button:before {
+    content: "\f26f";
+}
+
+.flicon-up-arrow-triangle-in-square-outlined-button:before {
+    content: "\f270";
+}
+
+.flicon-up-triangle:before {
+    content: "\f271";
+}
+
+.flicon-upload:before {
+    content: "\f272";
+}
+
+.flicon-upload-to-internet-cloud:before {
+    content: "\f273";
+}
+
+.flicon-user-filled-person-shape:before {
+    content: "\f274";
+}
+
+.flicon-user-profile-square-button:before {
+    content: "\f275";
+}
+
+.flicon-verification-square-button:before {
+    content: "\f276";
+}
+
+.flicon-verify-button-circle:before {
+    content: "\f277";
+}
+
+.flicon-video-file:before {
+    content: "\f278";
+}
+
+.flicon-video-file-1:before {
+    content: "\f279";
+}
+
+.flicon-video-file-filled-sign:before {
+    content: "\f27a";
+}
+
+.flicon-video-filled-camera-silhouette:before {
+    content: "\f27b";
+}
+
+.flicon-virus-bug:before {
+    content: "\f27c";
+}
+
+.flicon-visible-opened-eye-interface-option:before {
+    content: "\f27d";
+}
+
+.flicon-voice:before {
+    content: "\f27e";
+}
+
+.flicon-voice-microphone:before {
+    content: "\f27f";
+}
+
+.flicon-volume-bars-in-a-rectangle:before {
+    content: "\f280";
+}
+
+.flicon-volume-vertical-ascending-lines:before {
+    content: "\f281";
+}
+
+.flicon-warning-exclamation-sign-in-a-circle:before {
+    content: "\f282";
+}
+
+.flicon-warning-exclamation-signal-in-a-triangle:before {
+    content: "\f283";
+}
+
+.flicon-weekly-calendar:before {
+    content: "\f284";
+}
+
+.flicon-woman-silhouette:before {
+    content: "\f285";
+}
+
+.flicon-word-filled-file:before {
+    content: "\f286";
+}
+
+.flicon-wordpress:before {
+    content: "\f287";
+}
+
+.flicon-wordpress-logo:before {
+    content: "\f288";
+}
+
+.flicon-wordpress-logo-1:before {
+    content: "\f289";
+}
+
+.flicon-wrench-silhouette:before {
+    content: "\f28a";
+}
+
+.flicon-write-a-note:before {
+    content: "\f28b";
+}
+
+.flicon-x-file:before {
+    content: "\f28c";
+}
+
+.flicon-zipped-file:before {
+    content: "\f28d";
+}
+
+.flicon-zoom-minus-sign:before {
+    content: "\f28e";
+}
+
+.flicon-zoom-with-plus-sign:before {
+    content: "\f28f";
+}

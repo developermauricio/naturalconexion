@@ -1,0 +1,18 @@
+#xl_notice_type_3 *{box-sizing:border-box}
+#xl_notice_type_3{border:none;border-top:5px solid #20235b;position:relative;background:#fff;margin:5px 0 15px;padding:1px 12px}
+#xl_notice_type_3 .dashicons-megaphone{position:absolute;right:0;font-size:70px;width:100px;height:80px;bottom:0;-webkit-transform:scaleX(-1);transform:scaleX(-1);color:#cdcdcd}
+#xl_notice_type_3 .upsell_left_abs{position:absolute;left:10px}
+#xl_notice_type_3 .xl_upsell_area{padding-left:100px;position:relative;margin:15px 0}
+#xl_notice_type_3 .upsell_main_abs h3{margin:0;font-size:22px;line-height:1.4}
+#xl_notice_type_3 .upsell_main_abs p{margin:6px 0 15px;font-size:16px;line-height:20px}
+#xl_notice_type_3 .upsell_right_abs .upsell_xl_plugin_btn{display:flex;align-items:center;width:100%;float:none;padding:0;margin:0;background:transparent;border:none}
+#xl_notice_type_3 .upsell_right_abs .upsell_xl_plugin_btn a{text-decoration:none;font-size:14px}
+#xl_notice_type_3 .upsell_right_abs .upsell_xl_plugin_btn a.button-primary{padding:0 15px;margin-right:20px}
+#xl_notice_type_3 .upsell_right_abs .upsell_xl_plugin_btn .dashicons{margin-right:5px}
+#xl_notice_type_3 .upsell_right_abs .upsell_xl_plugin_btn a.xl-notice-dismiss{font-size:13px;margin-right:10px}
+#xl_notice_type_3[data-plugin="nextmove"] .upsell_left_abs{background-color:#1bc2a8;border-radius:6px;width:70px;height:70px;padding:8px}
+#xl_notice_type_3[data-plugin="nextmove"] .upsell_left_abs img{max-width:100%}
+#xl_notice_type_3[data-plugin="finale"] .upsell_left_abs{background-color:#fd7e21;border-radius:6px;width:70px;height:70px;padding:8px}
+#xl_notice_type_3[data-plugin="finale"] .upsell_left_abs img{max-width:100%}
+#xl_notice_type_3[data-plugin="finale_review"] .upsell_left_abs{background-color:#fd7e21;border-radius:6px;width:70px;height:70px;padding:8px}
+#xl_notice_type_3[data-plugin="finale_review"] .upsell_left_abs img{max-width:100%}

@@ -1,0 +1,1074 @@
+#, # Copyright (C) 2018 Flycart
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: WooCommerce Email Customizer with Drag and Drop Email Builder\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Flycart\n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: includes/common.php:174
+msgid "Template(s) imported successfully"
+msgstr ""
+
+#: includes/common.php:177
+msgid "No data available to import"
+msgstr ""
+
+#: includes/common.php:180
+msgid "File not found"
+msgstr ""
+
+#: includes/common.php:183
+msgid "Support only json file format"
+msgstr ""
+
+#: includes/common.php:186 includes/common.php:189
+msgid "File not selected for import"
+msgstr ""
+
+#: includes/common.php:419 pages/woo-admin-page-3.php:108
+#: pages/woo-admin-page.php:104 update_checker.php:206
+msgid "Settings"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:68
+msgid "To load the subscription details in table format"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:69
+msgid "Display subscription start date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:70
+msgid "Display subscription end date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:71
+msgid "Display subscription next payment date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:72
+msgid "Display subscription trial end date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:73
+msgid "Display subscription cancelled date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:74
+msgid "Display subscription payment retry date"
+msgstr ""
+
+#: includes/compatible/woocommerce-subscriptions.php:75
+msgid "Display subscription last order created"
+msgstr ""
+
+#: includes/email-base-3.php:596 includes/email-base.php:309
+msgid "Failed to save"
+msgstr ""
+
+#: includes/email-base-3.php:620 includes/email-base-3.php:627
+#: includes/email-base.php:333 includes/email-base.php:340
+msgid "Save success"
+msgstr ""
+
+#: includes/email-base-3.php:663 includes/email-base-3.php:690
+#: includes/email-base.php:376 includes/email-base.php:403
+msgid "Template reset successfully"
+msgstr ""
+
+#: includes/email-base-3.php:667 includes/email-base-3.php:680
+#: includes/email-base.php:380 includes/email-base.php:393
+msgid "Template reset Failed"
+msgstr ""
+
+#: includes/email-base-3.php:960 includes/email-base.php:652
+msgid "Payment page"
+msgstr ""
+
+#: includes/email-base-3.php:971
+msgid "Order"
+msgstr ""
+
+#: includes/email-base-3.php:1021 includes/email-base.php:703
+msgid "Go to site"
+msgstr ""
+
+#: includes/email-base-3.php:1087
+msgid ""
+"Retainful - Next order coupon is not enabled. This block will not be visible "
+"to customer"
+msgstr ""
+
+#: includes/email-base-3.php:1316
+msgid "Failed to copy: Template not exist "
+msgstr ""
+
+#: includes/email-base-3.php:1323
+msgid "Copied email template successfully"
+msgstr ""
+
+#: includes/email-base-3.php:1327 includes/email-base-3.php:1332
+msgid "Failed to copy email template"
+msgstr ""
+
+#: includes/functions.php:30 includes/functions.php:31
+msgid "Template IDs cannot exceed 20 characters in length"
+msgstr ""
+
+#: includes/helper-3.php:167 includes/helper.php:155
+msgid "You must be logged in"
+msgstr ""
+
+#: includes/helper-3.php:210 includes/helper-3.php:211 includes/helper.php:203
+#: includes/helper.php:204
+msgid "WooCommerce Email Customizer"
+msgstr ""
+
+#: includes/helper-3.php:256 includes/helper-3.php:265 includes/helper.php:249
+#: includes/helper.php:258
+msgid "Woo Mail Builder"
+msgstr ""
+
+#: includes/helper-3.php:258 includes/helper-3.php:267 includes/helper.php:251
+#: includes/helper.php:260
+msgid "Preview Email"
+msgstr ""
+
+#: includes/helper-3.php:259 includes/helper-3.php:268 includes/helper.php:252
+#: includes/helper.php:261
+msgid ""
+"Preview and test emails as they will appear in mail clients when received."
+msgstr ""
+
+#: includes/notices/notices.php:93
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: includes/settings.php:56 includes/settings.php:72
+#: pages/settings/default.php:29
+msgid "Invalid"
+msgstr ""
+
+#: includes/settings.php:61 pages/settings/default.php:35
+#: pages/woo-admin-page-3.php:360 pages/woo-admin-page.php:353
+msgid "Active"
+msgstr ""
+
+#: includes/settings.php:64 pages/settings/default.php:41
+msgid "Active and expired"
+msgstr ""
+
+#: includes/settings.php:94
+msgid "Saved successfully"
+msgstr ""
+
+#: includes/settings.php:98
+msgid "Save Failed"
+msgstr ""
+
+#: pages/notices/html-notice-dashboard.php:13
+#: pages/notices/html-notice-emc-dashboard.php:14
+msgid "Dismiss"
+msgstr ""
+
+#: pages/settings/default.php:17
+msgid "Licence key"
+msgstr ""
+
+#: pages/settings/default.php:24
+msgid "Validate"
+msgstr ""
+
+#: pages/settings/default.php:63
+msgid "Display payment instruction above order table"
+msgstr ""
+
+#: pages/settings/default.php:69 pages/settings/default.php:81
+#: pages/settings/default.php:121 pages/settings/template_options.php:98
+msgid "Yes"
+msgstr ""
+
+#: pages/settings/default.php:70 pages/settings/default.php:82
+#: pages/settings/default.php:122 pages/settings/template_options.php:99
+msgid "No"
+msgstr ""
+
+#: pages/settings/default.php:71
+msgid "Only for Customer"
+msgstr ""
+
+#: pages/settings/default.php:76
+msgid "Show product image"
+msgstr ""
+
+#: pages/settings/default.php:86
+msgid "Image size"
+msgstr ""
+
+#: pages/settings/default.php:92
+msgid "Thumbnail"
+msgstr ""
+
+#: pages/settings/default.php:93
+msgid "Full"
+msgstr ""
+
+#: pages/settings/default.php:98
+msgid "Image height"
+msgstr ""
+
+#: pages/settings/default.php:107
+msgid "Image width"
+msgstr ""
+
+#: pages/settings/default.php:116
+msgid "Show product sku"
+msgstr ""
+
+#: pages/settings/default.php:126
+msgid "Order Item table border color"
+msgstr ""
+
+#: pages/settings/default.php:137
+msgid "Container width"
+msgstr ""
+
+#: pages/settings/default.php:149
+msgid "Custom CSS"
+msgstr ""
+
+#: pages/settings/default.php:160
+msgid "Order URL"
+msgstr ""
+
+#: pages/settings/default.php:167
+msgid "Use the shortcode [woo_mb_order_id] for dynamic id"
+msgstr ""
+
+#: pages/settings/default.php:172
+msgid "Change email subject and form name"
+msgstr ""
+
+#: pages/settings/default.php:179 pages/settings/integrations.php:84
+#: pages/settings/template_options.php:111
+msgid "Save settings"
+msgstr ""
+
+#: pages/settings/import_export_template.php:15
+#: pages/settings/import_export_template.php:18
+msgid "Export"
+msgstr ""
+
+#: pages/settings/import_export_template.php:19
+msgid "Export all templates"
+msgstr ""
+
+#: pages/settings/import_export_template.php:24
+msgid "Import templates"
+msgstr ""
+
+#: pages/settings/import_export_template.php:30
+msgid "Import"
+msgstr ""
+
+#: pages/settings/integrations.php:16
+msgid "Next order coupon settings"
+msgstr ""
+
+#: pages/settings/integrations.php:31
+msgid "App id"
+msgstr ""
+
+#: pages/settings/integrations.php:43
+msgid "Connected"
+msgstr ""
+
+#: pages/settings/integrations.php:44
+msgid "Not connected"
+msgstr ""
+
+#: pages/settings/integrations.php:50
+msgid "Discount type"
+msgstr ""
+
+#: pages/settings/integrations.php:56
+msgid "Percentage"
+msgstr ""
+
+#: pages/settings/integrations.php:57
+msgid "Fixed"
+msgstr ""
+
+#: pages/settings/integrations.php:62
+msgid "Discount value"
+msgstr ""
+
+#: pages/settings/integrations.php:71
+msgid "Retainful coupon flow"
+msgstr ""
+
+#: pages/settings/integrations.php:77
+msgid "Allow any one to apply coupon"
+msgstr ""
+
+#: pages/settings/integrations.php:78
+msgid "Allow the customer to apply coupon, but validate at checkout"
+msgstr ""
+
+#: pages/settings/integrations.php:79
+msgid "Allow customer to apply coupon only after login"
+msgstr ""
+
+#: pages/settings/reset_template.php:22
+msgid "Reset all templates"
+msgstr ""
+
+#: pages/settings/reset_template.php:25 pages/settings/reset_template.php:28
+msgid "Reset all template to default"
+msgstr ""
+
+#: pages/settings/reset_template.php:31
+msgid "Reset selected template"
+msgstr ""
+
+#: pages/settings/reset_template.php:50
+msgid "Choose which email status to reset."
+msgstr ""
+
+#: pages/settings/reset_template.php:52
+msgid "Template to reset"
+msgstr ""
+
+#: pages/settings/reset_template.php:66
+msgid "Reset single template to empty"
+msgstr ""
+
+#: pages/settings/template_options.php:79
+msgid "Direction"
+msgstr ""
+
+#: pages/settings/template_options.php:84
+msgid "ltr"
+msgstr ""
+
+#: pages/settings/template_options.php:85
+msgid "rtl"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:80 pages/woo-admin-page.php:82
+msgid "Close preview"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:81 pages/woo-admin-page.php:83
+msgid "Save email"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:105 pages/woo-admin-page.php:101
+msgid "Site default language: "
+msgstr ""
+
+#: pages/woo-admin-page-3.php:109 pages/woo-admin-page.php:105
+msgid "settings"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:115
+msgid "Return back"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:116 pages/woo-admin-page-3.php:271
+#: pages/woo-admin-page.php:112 pages/woo-admin-page.php:264
+#: pages/woo-admin-settings.php:32
+msgid "arrow_back"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:120 pages/woo-admin-page.php:117
+msgid "Your default site language is "
+msgstr ""
+
+#: pages/woo-admin-page-3.php:137 pages/woo-admin-page-3.php:458
+#: pages/woo-admin-page.php:135
+msgid "Choose which email to preview or send."
+msgstr ""
+
+#: pages/woo-admin-page-3.php:139 pages/woo-admin-page.php:137
+msgid "Email to show"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:155 pages/woo-admin-page.php:155
+msgid "Choose which order to use to populate the email template preview."
+msgstr ""
+
+#: pages/woo-admin-page-3.php:158 pages/woo-admin-page.php:158
+msgid "Sample order to show"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:162 pages/woo-admin-page.php:162
+msgid "There are no orders to preview..."
+msgstr ""
+
+#: pages/woo-admin-page-3.php:181 pages/woo-admin-page.php:181
+#, php-format
+msgid "...Showing the most recent %u orders"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:185 pages/woo-admin-page.php:185
+msgid ""
+"The order you select here is just used for previewing your email design. But "
+"when WooCommerce uses this email design to send notifications to the "
+"customers, the respective order data would be used."
+msgstr ""
+
+#: pages/woo-admin-page-3.php:188 pages/woo-admin-page.php:188
+msgid "The order data is used as a sample"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:198 pages/woo-admin-page.php:198
+msgid "close"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:199 pages/woo-admin-page.php:199
+msgid "save"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:201
+msgid "Copy Template"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:202 pages/woo-admin-page-3.php:263
+#: pages/woo-admin-page.php:256
+msgid "content_copy"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:204
+msgid "Copy"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:210 pages/woo-admin-page.php:204
+msgid "remove_red_eye"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:211 pages/woo-admin-page.php:205
+msgid "Preview"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:214 pages/woo-admin-page.php:208
+msgid "Shortcodes"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:217 pages/woo-admin-page.php:211
+msgid "email"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:218 pages/woo-admin-page.php:212
+msgid "Send test email"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:245 pages/woo-admin-page-3.php:325
+#: pages/woo-admin-page-3.php:375 pages/woo-admin-page-3.php:407
+#: pages/woo-admin-page.php:238 pages/woo-admin-page.php:318
+#: pages/woo-admin-page.php:368 pages/woo-admin-page.php:399
+msgid "Background color"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:250 pages/woo-admin-page.php:243
+msgid "open_in_new"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:262 pages/woo-admin-page.php:255
+msgid "Delete element"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:262 pages/woo-admin-page.php:255
+msgid "delete"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:263 pages/woo-admin-page.php:256
+msgid "Clone element"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:264 pages/woo-admin-page.php:257
+msgid "Move element"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:264 pages/woo-admin-page.php:257
+msgid "drag_handle"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:278 pages/woo-admin-page.php:271
+msgid "Image URL"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:278 pages/woo-admin-page.php:271
+msgid "Path of logo image Eg:https://example.com/logo.png"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:283 pages/woo-admin-page.php:276
+msgid "Text"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:288 pages/woo-admin-page-3.php:379
+#: pages/woo-admin-page.php:281 pages/woo-admin-page.php:372
+msgid "Button text"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:293 pages/woo-admin-page.php:286
+msgid "URL"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:299 pages/woo-admin-page-3.php:320
+#: pages/woo-admin-page-3.php:369 pages/woo-admin-page-3.php:396
+#: pages/woo-admin-page.php:292 pages/woo-admin-page.php:313
+#: pages/woo-admin-page.php:362 pages/woo-admin-page.php:388
+msgid "Left"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:300 pages/woo-admin-page-3.php:370
+#: pages/woo-admin-page.php:293 pages/woo-admin-page.php:363
+msgid "Center"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:301 pages/woo-admin-page-3.php:314
+#: pages/woo-admin-page-3.php:371 pages/woo-admin-page-3.php:400
+#: pages/woo-admin-page.php:294 pages/woo-admin-page.php:307
+#: pages/woo-admin-page.php:364 pages/woo-admin-page.php:392
+msgid "Right"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:311 pages/woo-admin-page-3.php:394
+#: pages/woo-admin-page.php:304 pages/woo-admin-page.php:386
+msgid "Top"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:317 pages/woo-admin-page-3.php:398
+#: pages/woo-admin-page.php:310 pages/woo-admin-page.php:390
+msgid "Bottom"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:326 pages/woo-admin-page.php:319
+msgid "Text color"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:327 pages/woo-admin-page.php:320
+msgid "Button background color"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:332 pages/woo-admin-page.php:325
+msgid "Font"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:334 pages/woo-admin-page.php:327
+msgid "Size"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:339 pages/woo-admin-page.php:332
+msgid "Color"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:343 pages/woo-admin-page.php:336
+msgid "Weight"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:349 pages/woo-admin-page.php:342
+msgid "Family"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:358 pages/woo-admin-page.php:351
+msgid "Button"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:364 pages/woo-admin-page.php:357
+msgid "Full width"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:383 pages/woo-admin-page.php:376
+msgid "Link"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:418 pages/woo-admin-page.php:410
+msgid ""
+"Please choose an <strong>email</strong> and an <strong>order</strong> from "
+"list above to show."
+msgstr ""
+
+#: pages/woo-admin-page-3.php:430 pages/woo-admin-page-3.php:477
+msgid "Copy template"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:432
+msgid "From"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:432 pages/woo-admin-page-3.php:478
+msgid "to"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:436
+msgid "Copy to"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:439
+msgid "Copy from"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:460
+msgid "Email type"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:490 pages/woo-admin-page.php:424
+msgid "Order Details:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:494 pages/woo-admin-page.php:428
+msgid "To Get Items"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:498 pages/woo-admin-page.php:432
+msgid "To Get Order ID"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:502
+msgid "To Get Order number"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:506 pages/woo-admin-page.php:436
+msgid "To Get Order URL: Takes url from settings"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:510 pages/woo-admin-page.php:440
+msgid "To Get Order Sub-Total"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:514 pages/woo-admin-page.php:444
+msgid "To Get Order Total"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:518 pages/woo-admin-page.php:448
+msgid "To Get Order Fee"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:522 pages/woo-admin-page.php:452
+msgid "To Get Order Refunds"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:526 pages/woo-admin-page.php:456
+msgid "To Get Order Date"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:529 pages/woo-admin-page.php:459
+msgid "Payment:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:533 pages/woo-admin-page-3.php:537
+#: pages/woo-admin-page.php:463 pages/woo-admin-page.php:467
+msgid "To Get Payment Method"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:541 pages/woo-admin-page.php:471
+msgid "To Get Payment URL"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:545
+msgid "To get payment url in string for using in href"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:549 pages/woo-admin-page.php:475
+msgid "To Get Transaction ID"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:552 pages/woo-admin-page.php:478
+msgid "Shipping:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:556 pages/woo-admin-page.php:482
+msgid "To Get Shipping Method"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:560 pages/woo-admin-page.php:486
+msgid "To get Shipping Total"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:564 pages/woo-admin-page.php:490
+msgid "To Get Shipping First Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:568 pages/woo-admin-page.php:494
+msgid "To Get Shipping Last Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:572 pages/woo-admin-page.php:498
+msgid "To Get Shipping Company"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:576 pages/woo-admin-page.php:502
+msgid "To Get Shipping Address"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:580 pages/woo-admin-page.php:506
+msgid "To Get Shipping Address 1"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:584 pages/woo-admin-page.php:510
+msgid "To Get Shipping Address 2"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:588 pages/woo-admin-page.php:514
+msgid "To Get Shipping City"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:592 pages/woo-admin-page.php:518
+msgid "To Get Shipping State"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:596 pages/woo-admin-page.php:522
+msgid "To Get Shipping Postal Code"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:600 pages/woo-admin-page.php:526
+msgid "To Get Shipping Country"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:603 pages/woo-admin-page.php:529
+msgid "Billing:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:607 pages/woo-admin-page.php:533
+msgid "To Get Billing Address"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:611 pages/woo-admin-page.php:537
+msgid "To Get First Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:615 pages/woo-admin-page.php:541
+msgid "To Get Last Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:619 pages/woo-admin-page.php:545
+msgid "To Get Billing Company"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:623 pages/woo-admin-page.php:549
+msgid "To Get Billing Address 1"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:627 pages/woo-admin-page.php:553
+msgid "To Get Billing Address 2"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:631 pages/woo-admin-page.php:557
+msgid "To Get Billing City"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:635 pages/woo-admin-page.php:561
+msgid "To Get Billing State"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:639 pages/woo-admin-page.php:565
+msgid "To Get Billing PostalTo Get User's Email Code"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:643 pages/woo-admin-page.php:569
+msgid "To Get Billing Country"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:647 pages/woo-admin-page.php:573
+msgid "To Get Billing Phone"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:651 pages/woo-admin-page.php:577
+msgid "To Get Billing Email"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:654 pages/woo-admin-page.php:580
+msgid "General:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:658 pages/woo-admin-page.php:584
+msgid "To get Site Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:662 pages/woo-admin-page.php:588
+msgid "To Get Site URL"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:666 pages/woo-admin-page.php:592
+msgid "To Get User Id"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:670 pages/woo-admin-page.php:596
+msgid "To Get User's Name"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:674 pages/woo-admin-page.php:600
+msgid "To Get User's Email"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:678 pages/woo-admin-page.php:604
+msgid "To Get Customer provided note"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:682 pages/woo-admin-page.php:608
+msgid "To Get Customer last note"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:686 pages/woo-admin-page.php:612
+msgid "To Get all Customer Notes"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:689
+msgid "Reset Password:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:693
+msgid "To get reset url"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:697
+msgid "To get reset url in string for using in href"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:700
+msgid "New User:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:704
+msgid "To get User Password"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:708
+msgid "To get activation url"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:711 pages/woo-admin-page.php:615
+msgid "Custom code:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:715 pages/woo-admin-page.php:619
+msgid "Your custom code can be overridden by copying ["
+msgstr ""
+
+#: pages/woo-admin-page-3.php:717 pages/woo-admin-page.php:621
+msgid ""
+"You can also add attributes if required Eg:[woo_mb_custom_code type=\"pre-"
+"order-link\"]"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:721
+msgid "Retainful - Next order coupon:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:725
+msgid "Next order coupon code"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:729
+msgid "Next order coupon code text to use in href"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:733
+msgid "Next order coupon code value"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:737
+msgid "Site url with next order coupon code"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:740
+msgid ""
+"WooCommerce email contents through hooks: ShortCodes get replaced only in "
+"actual emails"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:744
+msgid "Contents which loads by the hook woocommerce_email_order_meta"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:748
+msgid "Contents which loads by the hook woocommerce_email_before_order_table"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:758
+msgid "Additional order meta:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:766
+#, php-format
+msgid "Loads value of order meta key - %s"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:779 pages/woo-admin-page.php:632
+msgid "Custom fields:"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:804
+msgid "Flexible Checkout Custom Fields :"
+msgstr ""
+
+#: pages/woo-admin-page-3.php:824
+msgid "Additional short codes :"
+msgstr ""
+
+#: pages/woo-admin-settings.php:23
+msgid "WooCommerce Email Customizer - Settings"
+msgstr ""
+
+#: pages/woo-admin-settings.php:31
+msgid "Return back to home"
+msgstr ""
+
+#: pages/woo-admin-settings.php:36
+msgid "General"
+msgstr ""
+
+#: pages/woo-admin-settings.php:37
+msgid "Reset templates"
+msgstr ""
+
+#: pages/woo-admin-settings.php:38
+msgid "Import/Export templates"
+msgstr ""
+
+#: pages/woo-admin-settings.php:39
+msgid "Enable/Disable template"
+msgstr ""
+
+#: pages/woo-admin-settings.php:41
+msgid "Retainful - Next order coupon"
+msgstr ""
+
+#: templates/woo_mail/email-order-items-3.php:33
+msgid "Product image"
+msgstr ""
+
+#: templates/woo_mail/email-order-items.php:34
+msgid "Product Image"
+msgstr ""
+
+#: templates/woo_mail/order_items-3.php:38
+#: templates/woo_mail/order_items-3.php:40
+#: templates/woo_mail/order_items.php:34 templates/woo_mail/order_items.php:36
+#, php-format
+msgid "Order #%s"
+msgstr ""
+
+#: templates/woo_mail/order_items-3.php:46
+#: templates/woo_mail/order_items.php:42
+msgid "Product"
+msgstr ""
+
+#: templates/woo_mail/order_items-3.php:47
+#: templates/woo_mail/order_items.php:43
+msgid "Quantity"
+msgstr ""
+
+#: templates/woo_mail/order_items-3.php:48
+#: templates/woo_mail/order_items.php:44
+msgid "Price"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:18
+#: templates/woo_mail/order_totals.php:18
+msgid "Subtotal:"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:25
+#: templates/woo_mail/order_totals.php:25
+msgid "Discount:"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:32
+#: templates/woo_mail/order_totals.php:32
+msgid "Shipping Tax"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:39
+#: templates/woo_mail/order_totals.php:39
+msgid "Shipping Total"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:54
+#: templates/woo_mail/order_totals.php:54
+msgid "Fee"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:93
+#: templates/woo_mail/order_totals.php:93
+msgid "Refund"
+msgstr ""
+
+#: templates/woo_mail/order_totals-3.php:100
+#: templates/woo_mail/order_totals.php:100
+msgid "Total:"
+msgstr ""
+
+#: templates/woo_mail/subscription-details.php:20
+msgid "Subscription"
+msgstr ""
+
+#: templates/woo_mail/subscription-details.php:40
+msgid "-"
+msgstr ""
+
+#: update_checker.php:58
+msgid "enter licence key"
+msgstr ""
+
+#: update_checker.php:59 update_checker.php:62
+#, php-format
+msgid ""
+"Please %s to receive automatic updates or you can manually update the plugin "
+"by downloading it."
+msgstr ""
+
+#: update_checker.php:61
+msgid "renew your support licence"
+msgstr ""
+
+#: update_checker.php:201
+msgid "WooCommerce Email Customizer with Drag and Drop Email Builder installed"
+msgstr ""
+
+#: update_checker.php:203
+msgid ""
+" - Make sure to activate your copy of the plugin to receive updates, support "
+"and security fixes!"
+msgstr ""
+
+#: update_checker.php:208
+msgid "Dismiss this notice."
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:44
+msgid "Add a new post of type Woo Mail Template"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:45
+msgid "Edit Woo Mail Template"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:46
+msgid "New Woo Mail Template"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:47
+msgid "View Woo Mail Template"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:48
+msgid "Search Woo Mail Template"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:49
+msgid "No Woo Mail Template found"
+msgstr ""
+
+#: woo-email-customizer-page-builder.php:50
+msgid "No Woo Mail Template currently trashed"
+msgstr ""

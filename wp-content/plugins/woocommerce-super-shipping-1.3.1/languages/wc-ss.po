@@ -1,0 +1,520 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-04-11 14:46+0200\n"
+"PO-Revision-Date: 2019-04-11 14:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-wss-setup-wizard.php:59
+#, php-format
+msgid ""
+"Sorry, but <strong>this version is not compatible with your current Super "
+"Shipping's version</strong>.<br><br> You need to have installed at least the "
+"1.2.7 version in order to can update to the last version.<br><br> Contact "
+"with the technical support to ask for help <a href=\"%s\" target=\"_blank"
+"\">clicking here</a>."
+msgstr ""
+
+#: includes/class-wss-setup-wizard.php:60
+msgid "Finish and exit"
+msgstr ""
+
+#: includes/class-wss-setup-wizard.php:87
+msgid ""
+"Congratulation! Your settings are migrated successfully. You can check it "
+"clicking on the button below.<br><br><strong>IMPORTANT!</strong>: You "
+"shouldn't delete the shipping zones named with the term \"Zone\" followed by "
+"a number (i.e. <em>Zone 0</em>) and which don't have any shipping methods "
+"assigned. These zones have been created to exclude those shipping areas."
+msgstr ""
+
+#: includes/class-wss-setup-wizard.php:88
+msgid ""
+"<strong>ERROR:</strong> The migration process couldn't finish successfully."
+msgstr ""
+
+#: includes/class-wss-setup-wizard.php:90
+msgid "Check the result out"
+msgstr ""
+
+#: includes/class-wss-setup-wizard.php:91
+msgid "Exit"
+msgstr ""
+
+#: includes/html-setup-wizard.php:30
+msgid "Hi! Wellcome to the Super Shipping setup wizard"
+msgstr ""
+
+#: includes/html-setup-wizard.php:34
+msgid ""
+"This new version include a lot of improvements, fixes and the full "
+"integration with the WooCommerce's shipping zones manager."
+msgstr ""
+
+#: includes/html-setup-wizard.php:35
+msgid ""
+"From now, all new Super Shipping's zones and shipping tables will be create "
+"and edit from the WooCommerce's native manager."
+msgstr ""
+
+#: includes/html-setup-wizard.php:37
+msgid ""
+"To migrate all shipping zones and tables that you already had to the "
+"WooCommerce's manager, you only need to click on the button below. That's "
+"all!"
+msgstr ""
+
+#: includes/html-setup-wizard.php:42
+msgid "Create a backup of shipping settings before to start the migration"
+msgstr ""
+
+#: includes/html-setup-wizard.php:44
+msgid "Start the migration"
+msgstr ""
+
+#: includes/html-setup-wizard.php:51
+msgid "Create a shipping zone"
+msgstr ""
+
+#: includes/html-setup-wizard.php:52
+msgid "Set up the shipping method for this zone"
+msgstr ""
+
+#: includes/html-setup-wizard.php:53
+msgid "Ready!"
+msgstr ""
+
+#: includes/html-setup-wizard.php:59 includes/html-setup-wizard.php:66
+msgid "Next"
+msgstr ""
+
+#: includes/html-setup-wizard.php:65
+msgid "Prev"
+msgstr ""
+
+#: includes/html-setup-wizard.php:70
+msgid ""
+"You are ready to start, but before let we recommend you take a look at the "
+"Super Shipping's documentation. There you'll find everything you need to set "
+"up your shippings. <a href=\"https://supershipping.helpscoutdocs.com/\" "
+"target=\"_blank\"><strong>Click here to see it</strong></a>"
+msgstr ""
+
+#: includes/html-setup-wizard.php:72
+msgid "Go back"
+msgstr ""
+
+#: includes/html-setup-wizard.php:73
+msgid "Let's start!"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:17
+#: includes/html-shipping-tables.php:20 woocommerce-super-shipping.php:399
+msgid "Shipping class"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:18
+msgid "Priority"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:28
+#: includes/html-shipping-classes-priority.php:88
+#: includes/html-shipping-tables.php:47 woocommerce-super-shipping.php:411
+msgid "No Class"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:47
+msgid "Add New Priority"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:48
+msgid "Delete selected priorities"
+msgstr ""
+
+#: includes/html-shipping-classes-priority.php:102
+#: includes/html-shipping-extra-fees-table.php:83
+msgid "Delete the selected shipping classes priority?"
+msgstr ""
+
+#: includes/html-shipping-extra-fees-table.php:17
+msgid "Fee Label"
+msgstr ""
+
+#: includes/html-shipping-extra-fees-table.php:18
+#: woocommerce-super-shipping.php:1562
+msgid "Fee"
+msgstr ""
+
+#: includes/html-shipping-extra-fees-table.php:27
+#: includes/html-shipping-extra-fees-table.php:70
+msgid "ie: My fee name"
+msgstr ""
+
+#: includes/html-shipping-extra-fees-table.php:37
+msgid "Add New Fee"
+msgstr ""
+
+#: includes/html-shipping-extra-fees-table.php:38
+msgid "Delete selected fees"
+msgstr ""
+
+#: includes/html-shipping-tables.php:17
+msgid "Select all"
+msgstr ""
+
+#: includes/html-shipping-tables.php:21 woocommerce-super-shipping.php:401
+msgid "Condition"
+msgstr ""
+
+#: includes/html-shipping-tables.php:22 woocommerce-super-shipping.php:402
+msgid "Range [min] and [max]"
+msgstr ""
+
+#: includes/html-shipping-tables.php:22
+msgid ""
+"Enter here the range of values you want to use for the shipping rule. The "
+"comparison is made for values greater than [min] and less than or equal to "
+"[max]."
+msgstr ""
+
+#: includes/html-shipping-tables.php:23 woocommerce-super-shipping.php:403
+msgid "Cost"
+msgstr ""
+
+#: includes/html-shipping-tables.php:23 woocommerce-super-shipping.php:404
+#, php-format
+msgid ""
+"You can add a percentage (without % symbol) or a fixed cost, excluding tax."
+msgstr ""
+
+#: includes/html-shipping-tables.php:24 woocommerce-super-shipping.php:405
+msgid "Cost per additional unit"
+msgstr ""
+
+#: includes/html-shipping-tables.php:30
+msgid "Add rule"
+msgstr ""
+
+#: includes/html-shipping-tables.php:31
+msgid "Duplicate rule"
+msgstr ""
+
+#: includes/html-shipping-tables.php:32
+msgid "Delete selected rule"
+msgstr ""
+
+#: includes/html-shipping-tables.php:58 woocommerce-super-shipping.php:412
+msgid "Weight"
+msgstr ""
+
+#: includes/html-shipping-tables.php:59 woocommerce-super-shipping.php:413
+msgid "Price"
+msgstr ""
+
+#: includes/html-shipping-tables.php:60 woocommerce-super-shipping.php:414
+msgid "Item count"
+msgstr ""
+
+#: includes/html-shipping-tables.php:61 woocommerce-super-shipping.php:415
+msgid "Volume"
+msgstr ""
+
+#: includes/html-shipping-tables.php:65 woocommerce-super-shipping.php:416
+msgid "Min"
+msgstr ""
+
+#: includes/html-shipping-tables.php:66 woocommerce-super-shipping.php:417
+msgid "Max"
+msgstr ""
+
+#: woocommerce-super-shipping.php:168
+msgid ""
+"With this shipping method you'll can to set up multiples shipping rates "
+"based on products weight, number of items, price or even volume."
+msgstr ""
+
+#: woocommerce-super-shipping.php:209
+msgid "Method Title"
+msgstr ""
+
+#: woocommerce-super-shipping.php:211
+msgid ""
+"This is the title which the customer sees in the cart and checkout page."
+msgstr ""
+
+#: woocommerce-super-shipping.php:212
+msgid "Super Shipping"
+msgstr ""
+
+#: woocommerce-super-shipping.php:217
+msgid "Are you going apply taxes?"
+msgstr ""
+
+#: woocommerce-super-shipping.php:221
+msgid "Yes"
+msgstr ""
+
+#: woocommerce-super-shipping.php:222
+msgid "No"
+msgstr ""
+
+#: woocommerce-super-shipping.php:226
+msgid "Measure Volumetric Weight"
+msgstr ""
+
+#: woocommerce-super-shipping.php:228
+msgid ""
+"If you consider the volumetric weight in the shipping, you have to check "
+"this option."
+msgstr ""
+
+#: woocommerce-super-shipping.php:233
+msgid "Volumetric Weight Factor"
+msgstr ""
+
+#: woocommerce-super-shipping.php:235
+msgid "The factor value to calculate the volumetric weight."
+msgstr ""
+
+#: woocommerce-super-shipping.php:237
+msgid "i.e. 5000"
+msgstr ""
+
+#: woocommerce-super-shipping.php:240 woocommerce-super-shipping.php:389
+msgid "Calculation Type"
+msgstr ""
+
+#: woocommerce-super-shipping.php:244 woocommerce-super-shipping.php:390
+msgid "Per order"
+msgstr ""
+
+#: woocommerce-super-shipping.php:245 woocommerce-super-shipping.php:391
+msgid "Per item"
+msgstr ""
+
+#: woocommerce-super-shipping.php:246 woocommerce-super-shipping.php:392
+msgid "Per class"
+msgstr ""
+
+#: woocommerce-super-shipping.php:250 woocommerce-super-shipping.php:385
+msgid "Apply by user rol"
+msgstr ""
+
+#: woocommerce-super-shipping.php:255 woocommerce-super-shipping.php:406
+msgid "All users"
+msgstr ""
+
+#: woocommerce-super-shipping.php:256 woocommerce-super-shipping.php:407
+msgid "Guest user"
+msgstr ""
+
+#: woocommerce-super-shipping.php:260 woocommerce-super-shipping.php:383
+msgid "Including tax"
+msgstr ""
+
+#: woocommerce-super-shipping.php:262 woocommerce-super-shipping.php:384
+msgid "Use only when you have shipping rules based on price."
+msgstr ""
+
+#: woocommerce-super-shipping.php:266 woocommerce-super-shipping.php:381
+msgid "Apply percentage of the cart total cost"
+msgstr ""
+
+#: woocommerce-super-shipping.php:268
+msgid ""
+"If you check this option, the rules calculates the shipping rate based on a "
+"percentage of the cart total cost, instead of a fixed cost."
+msgstr ""
+
+#: woocommerce-super-shipping.php:269
+#, php-format
+msgid ""
+"For example: a rule with the cost value 10, it mean that the shipping cost "
+"is 10% of the cart total cost."
+msgstr ""
+
+#: woocommerce-super-shipping.php:274 woocommerce-super-shipping.php:379
+msgid "Apply shipping class priority"
+msgstr ""
+
+#: woocommerce-super-shipping.php:276 woocommerce-super-shipping.php:380
+msgid ""
+"If you check this option, the final shipping rate will match with the cost "
+"of the shipping class with the higher priority."
+msgstr ""
+
+#: woocommerce-super-shipping.php:286
+msgid "Colombian's cities to allow this shipping method"
+msgstr ""
+
+#: woocommerce-super-shipping.php:289
+msgid "Select the city referring to the region that you have previously added"
+msgstr ""
+
+#: woocommerce-super-shipping.php:297
+msgid "Shipping rules"
+msgstr ""
+
+#: woocommerce-super-shipping.php:299
+#, php-format
+msgid ""
+"Set up the shipping rules below. <span %1s>Don't you know how the shipphing "
+"rules work yet? This can help you &rarr; <a href=\"%2s\" %3s>See the "
+"documentation</a></span>"
+msgstr ""
+
+#: woocommerce-super-shipping.php:306
+msgid "Shipping Extra Fees"
+msgstr ""
+
+#: woocommerce-super-shipping.php:308
+msgid "Here you can to set up the extra fees for each table."
+msgstr ""
+
+#: woocommerce-super-shipping.php:315
+msgid "Shipping Classes Priority"
+msgstr ""
+
+#: woocommerce-super-shipping.php:317
+msgid "Here you have to define the shipping class priority."
+msgstr ""
+
+#: woocommerce-super-shipping.php:382
+#, php-format
+msgid ""
+"If you check this option, the rules applies a percentage of the cart total "
+"cost instead of a fixed cost, i.e: a rule with the cost value 10, it mean "
+"that the shipping cost is 10% of the cart total cost."
+msgstr ""
+
+#: woocommerce-super-shipping.php:386
+msgid "Choose users roles"
+msgstr ""
+
+#: woocommerce-super-shipping.php:387
+msgid "Shipping zone"
+msgstr ""
+
+#: woocommerce-super-shipping.php:388
+msgid "Where do you want to enable the local pick up?"
+msgstr ""
+
+#: woocommerce-super-shipping.php:393
+msgid "Shipping Method Name"
+msgstr ""
+
+#: woocommerce-super-shipping.php:394
+msgid ""
+"This text will be shown as shipping method title in Cart and Checkout pages."
+msgstr ""
+
+#: woocommerce-super-shipping.php:395
+msgid "National Shipping"
+msgstr ""
+
+#: woocommerce-super-shipping.php:396
+msgid "Local Pickup"
+msgstr ""
+
+#: woocommerce-super-shipping.php:397
+msgid "Table"
+msgstr ""
+
+#: woocommerce-super-shipping.php:398
+msgid "The table name can not be empty."
+msgstr ""
+
+#: woocommerce-super-shipping.php:400
+msgid "Select a shipping zone"
+msgstr ""
+
+#: woocommerce-super-shipping.php:408
+msgid "Add row"
+msgstr ""
+
+#: woocommerce-super-shipping.php:409
+msgid "Duplicate row"
+msgstr ""
+
+#: woocommerce-super-shipping.php:410
+msgid "Delete selected rows"
+msgstr ""
+
+#: woocommerce-super-shipping.php:418
+msgid "Are you sure to delete the selected tables?"
+msgstr ""
+
+#: woocommerce-super-shipping.php:419
+msgid "Delete the selected rates?"
+msgstr ""
+
+#: woocommerce-super-shipping.php:420
+msgid "The range and cost fields can not be empty"
+msgstr ""
+
+#: woocommerce-super-shipping.php:421
+msgid "Select the type of table"
+msgstr ""
+
+#: woocommerce-super-shipping.php:440
+msgid "Shipping Tables Rates"
+msgstr ""
+
+#: woocommerce-super-shipping.php:442
+msgid "Here you have to define the shipping table rates."
+msgstr ""
+
+#: woocommerce-super-shipping.php:1418
+msgid "Start here"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1419
+msgid "Documentation"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1435
+msgid "Doubs?"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1898
+msgid "How to display shipping methods"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1899
+msgid "Hide the rest of shipping methods when free shipping is available"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1906
+msgid "Show all free shipping methods"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1909
+msgid ""
+"If there are more than one free shipping methods availables, the plugin will "
+"show all of them."
+msgstr ""
+
+#: woocommerce-super-shipping.php:1913
+msgid "No shipping methods available message"
+msgstr ""
+
+#: woocommerce-super-shipping.php:1916
+msgid ""
+"This message will be shown in the cart page when no shipping methods "
+"availables."
+msgstr ""
+
+#: woocommerce-super-shipping.php:1917
+msgid ""
+"Sorry, right now there are no shipping methods available for your address"
+msgstr ""

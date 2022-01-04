@@ -1,0 +1,17 @@
+{
+  "enabled": "checkbox",
+  "pixel_id": "array",
+  "advanced_matching_enabled": "checkbox",
+
+  "woo_add_to_cart_enabled": "checkbox",
+  "woo_view_content_enabled": "checkbox",
+  "woo_initiate_checkout_enabled": "checkbox",
+  "woo_purchase_enabled": "checkbox",
+
+  "edd_add_to_cart_enabled": "checkbox",
+  "edd_initiate_checkout_enabled": "checkbox",
+  "edd_purchase_enabled": "checkbox",
+  "edd_view_content_enabled": "checkbox",
+
+  "search_event_enabled": "checkbox"
+}

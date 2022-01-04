@@ -1,0 +1,176 @@
+# Translation of Plugins - Departamentos y Ciudades de Colombia para Woocommerce - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Departamentos y Ciudades de Colombia para Woocommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-31 16:55:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Departamentos y Ciudades de Colombia para Woocommerce - Stable (latest release)\n"
+
+#: includes/settings-filter-by-cities.php:24
+msgid "No"
+msgstr "No"
+
+#: includes/settings-filter-by-cities.php:23
+msgid "Yes"
+msgstr "Sí"
+
+#: includes/settings-filter-by-cities.php:18
+msgid "When doing single shipping method, it eliminates all others and imposes its own rules"
+msgstr "Al hacer un solo método de envío, elimina todos los demás e impone sus propias reglas"
+
+#: includes/settings-filter-by-cities.php:16
+msgid "Single method"
+msgstr "Método único"
+
+#: departamentos-y-ciudades-de-colombia-para-woocommerce.php:61
+msgid "Suscribete Gratis"
+msgstr "Suscríbete gratis"
+
+#: departamentos-y-ciudades-de-colombia-para-woocommerce.php:59
+msgid "%s"
+msgstr "%s"
+
+#: departamentos-y-ciudades-de-colombia-para-woocommerce.php:57
+msgid ""
+"<strong>Te gustaria conectar tu tienda con las principales transportadoras del país ?.\n"
+"        Sé uno de los primeros</strong> "
+msgstr ""
+"<strong>Te gustaria conectar tu tienda con las principales transportadoras del país ?.\n"
+"        Sé uno de los primeros</strong> "
+
+#: includes/settings-filter-by-cities.php:103
+msgid "Per order: Charge shipping for the most expensive shipping class"
+msgstr "Por pedido: cobra el envío por la clase de envío más costesa"
+
+#: includes/settings-filter-by-cities.php:102
+msgid "Per class: Charge shipping for each shipping class individually"
+msgstr "Por clase: cobra el envío por cada clase de envío individualmente"
+
+#: includes/settings-filter-by-cities.php:97
+msgid "Calculation type"
+msgstr "Tipo de cálculo"
+
+#: includes/settings-filter-by-cities.php:88
+msgid "No shipping class cost"
+msgstr "Clase de envío sin coste"
+
+#: includes/settings-filter-by-cities.php:80
+#: includes/settings-filter-by-cities.php:90
+msgid "N/A"
+msgstr "N/D"
+
+#. translators: %s: shipping class name
+#: includes/settings-filter-by-cities.php:78
+msgid "\"%s\" shipping class cost"
+msgstr "Coste de la clase de envío «%s»"
+
+#. translators: %s: URL for link.
+#: includes/settings-filter-by-cities.php:70
+msgid "These costs can optionally be added based on the <a href=\"%s\">product shipping class</a>."
+msgstr "Estos costes se pueden añadir opcionalmente según la <a href=\"%s\">clase de envío del producto</a>."
+
+#: includes/settings-filter-by-cities.php:66
+msgid "Shipping class costs"
+msgstr "Costes de la clase de envío"
+
+#: includes/settings-filter-by-cities.php:56
+msgid "Select the city referring to the region that you have previously added"
+msgstr "Selecciona la ciudad que hace referencia a la región que has añadido previamente"
+
+#: includes/settings-filter-by-cities.php:53
+msgid "Cities"
+msgstr "Ciudades"
+
+#: includes/settings-filter-by-cities.php:46
+msgid "Coste"
+msgstr "Coste"
+
+#: includes/settings-filter-by-cities.php:42
+msgctxt "Tax status"
+msgid "None"
+msgstr "Ninguno"
+
+#: includes/settings-filter-by-cities.php:41
+msgid "Taxable"
+msgstr "Sujeto a impuestos"
+
+#: includes/settings-filter-by-cities.php:36
+msgid "Tax status"
+msgstr "Estado del impuesto"
+
+#: includes/settings-filter-by-cities.php:32
+msgid "Shipping filter By cities"
+msgstr "Filtro de envío por ciudades"
+
+#: includes/settings-filter-by-cities.php:31
+msgid "This controls the title which the user sees during checkout."
+msgstr "Esto controla el título que el usuario ve durante el pago."
+
+#: includes/settings-filter-by-cities.php:29
+msgid "Method title"
+msgstr "Título del método"
+
+#: includes/settings-filter-by-cities.php:12
+msgid "Supports the following placeholders: <code>[qty]</code> = number of items, <code>[cost]</code> = cost of items, <code>[fee percent=\"10\" min_fee=\"20\"]</code> = Percentage based fee."
+msgstr "Es compatible con los siguientes marcadores de posición: <code>[qty]</code> = número de artículos, <code>[cost]</code> = coste de los artículos, <code>[fee percent=\"10\" min_fee=\"20\"]</code> = tasa basada en porcentaje."
+
+#: includes/settings-filter-by-cities.php:12
+msgid "Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>."
+msgstr "Introduce un coste (sin impuestos) o una suma, por ejemplo, <code>10.00 * [qty]</code> ."
+
+#: includes/filter-by-cities.php:29
+msgid "Allows adding rules by city"
+msgstr "Permite añadir reglas por ciudad"
+
+#: includes/filter-by-cities.php:28
+msgid "Shipping filter By Cities"
+msgstr "Filtro de envío por ciudades"
+
+#: includes/admin/html/html-shipping-methods.php:20
+msgid "Other methods"
+msgstr "Otros métodos"
+
+#: includes/admin/html/html-shipping-methods.php:19
+msgid "Configured Shipping filter By Cities methods"
+msgstr "Configurado el filtro de envío por métodos de ciudades"
+
+#: includes/admin/html/html-shipping-methods.php:18
+msgid "Zone name"
+msgstr "Nombre de la zona"
+
+#: includes/admin/html/html-shipping-methods.php:13
+msgid "This table shows <a href=\"%s\">all shipping zones</a> and for each zone the shipping methods provided by this plugin."
+msgstr "Esta tabla muestra <a href=\"%s\">todas las zonas de envío</a> y para cada zona los métodos de envío proporcionados por este plugin."
+
+#: includes/admin/html/html-shipping-methods.php:10
+msgid "Configured Shipping filter By Cities  Methods in all shipping zones"
+msgstr "Filtro de envío configurado por métodos de ciudades en todas las zonas de envío"
+
+#. Author URI of the plugin
+msgid "https://saulmoralespa.com"
+msgstr "https://saulmoralespa.com"
+
+#. Author of the plugin
+msgid "Saul Morales Pacheco"
+msgstr "Saul Morales Pacheco"
+
+#. Description of the plugin
+msgid "Plugin modificado con los departementos y ciudades de Colombia"
+msgstr "Plugin modificado con los departamentos y ciudades de Colombia"
+
+#. Plugin Name of the plugin
+msgid "Departamentos y Ciudades de Colombia para Woocommerce"
+msgstr "Departamentos y ciudades de Colombia para WooCommerce"
+
+#: includes/states-places.php:160 includes/states-places.php:247
+msgid "Select an option&hellip;"
+msgstr "Elige una opción&hellip;"
+
+#: includes/states-places.php:119
+msgid "required"
+msgstr "obligatorio"
