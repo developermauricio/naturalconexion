@@ -1,5 +1,10 @@
 <!-- start Simple Custom CSS and JS -->
 <style type="text/css">
+div#sliderJuernes {
+    margin-top: -40px;
+}
+
+
 .btn-ingredientes-naturales-inicio {
     margin-left: 5vh;
 }
@@ -19,6 +24,14 @@ div.title-col-addi {
     padding-top: 23px;
 }
 
+li.meta-author span.fn {
+    font-size: 0;
+}
+li.meta-author span.fn:before {
+    content: "Natural Conexion";
+    font-size: 1rem;
+}
+
 
 /*  Estilos para movil  */
 @media (max-width: 767.98px) { 
@@ -29,5 +42,10 @@ div.title-col-addi {
     font-size: 1rem !important;
   }
 }
-</style>
+.area-sidebar-shop .widget_categories{
+  display:none !important
+}
+.sidebar-right.area-sidebar-1 #woocommerce_product_categories-2{
+  display:none !important
+} </style>
 <!-- end Simple Custom CSS and JS -->

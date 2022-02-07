@@ -1,4 +1,4 @@
-a:2:{s:4:"time";i:1641321912;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:16030;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2021-09-09 10:13:37";s:13:"post_date_gmt";s:19:"2021-09-09 15:13:37";s:12:"post_content";s:289:"<strong>Ingredientes principales:</strong>
+a:2:{s:4:"time";i:1644304940;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:16030;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2021-09-09 10:13:37";s:13:"post_date_gmt";s:19:"2021-09-09 15:13:37";s:12:"post_content";s:289:"<strong>Ingredientes principales:</strong>
 <ul>
  	<li>Manzanilla.</li>
  	<li>Caléndula.</li>
@@ -8,7 +8,7 @@ a:2:{s:4:"time";i:1641321912;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:16030;s:11
  	<li>Semillas de mora.</li>
  	<li>Semillas de uva.</li>
  	<li>Harina de arroz.</li>
-</ul>";s:10:"post_title";s:62:"Crema Limpiadora Exfoliante Manzanilla, Miel y Germen de Trigo";s:12:"post_excerpt";s:1195:"Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.
+</ul>";s:10:"post_title";s:68:"Crema Limpiadora Exfoliante Manzanilla, Miel y Germen de Trigo 120gr";s:12:"post_excerpt";s:1195:"Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.
 
 Ideal para todo tipo de piel.
 
@@ -38,4 +38,4 @@ Aplicar el producto sobre la piel limpia con movimientos circulares, realizando 
 </ul>
 Activa la belleza natural de tu piel. ¡Pídelo ya!
 
-[sc name="sellos"]";s:11:"post_status";s:5:"draft";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:0:"";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2021-12-30 20:55:19";s:17:"post_modified_gmt";s:19:"2021-12-31 01:55:19";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:59:"https://naturalconexion.com/?post_type=product&#038;p=16030";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}
+[sc name="sellos"]";s:11:"post_status";s:5:"draft";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:0:"";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-01-04 16:06:08";s:17:"post_modified_gmt";s:19:"2022-01-04 21:06:08";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:59:"https://naturalconexion.com/?post_type=product&#038;p=16030";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

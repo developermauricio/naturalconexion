@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-01-03 19:39+0000\n"
+"PO-Revision-Date: 2022-01-24 16:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -90,7 +90,7 @@ msgstr ""
 #: header-elements/account.php:35 inc/modules/sticky-toolbar.php:30
 #: inc/modules/sticky-toolbar.php:87 woocommerce/checkout/thankyou.php:41
 msgid "My account"
-msgstr ""
+msgstr "Mi cuenta"
 
 #: header-elements/burger.php:23 header-elements/main-menu.php:35
 #: inc/builder/elements/Menu.php:23 inc/import/class-remove.php:574
@@ -116,7 +116,7 @@ msgstr ""
 #: inc/integrations/woocommerce/modules/compare.php:152
 #: inc/modules/sticky-toolbar.php:301
 msgid "Compare products"
-msgstr ""
+msgstr "Comparar productos"
 
 #: header-elements/compare.php:39 inc/admin/settings/sections.php:305
 #: inc/builder/elements/Compare.php:20 inc/configs/js-scripts.php:882
@@ -129,7 +129,7 @@ msgstr ""
 #: inc/modules/sticky-toolbar.php:46 inc/modules/sticky-toolbar.php:93
 #: inc/modules/sticky-toolbar.php:309
 msgid "Compare"
-msgstr ""
+msgstr "Comparar"
 
 #: header-elements/main-menu.php:67
 msgid ""
@@ -145,11 +145,11 @@ msgstr ""
 #: inc/modules/search.php:152 inc/modules/sticky-toolbar.php:73
 #: inc/modules/sticky-toolbar.php:103 inc/modules/sticky-toolbar.php:330
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: header-elements/wishlist.php:27
 msgid "My Wishlist"
-msgstr ""
+msgstr "Mi lista de deseos"
 
 #: header-elements/wishlist.php:43 inc/admin/settings/sections.php:313
 #: inc/admin/settings/wishlist.php:18 inc/builder/elements/Wishlist.php:20
@@ -160,7 +160,7 @@ msgstr ""
 #: inc/integrations/woocommerce/template-tags.php:1789
 #: inc/modules/sticky-toolbar.php:22 inc/modules/sticky-toolbar.php:85
 msgid "Wishlist"
-msgstr ""
+msgstr "lista de deseos"
 
 #: inc/admin/dashboard/dashboard.php:23 inc/admin/dashboard/dashboard.php:88
 #: inc/admin/dashboard/dashboard.php:89
@@ -6051,7 +6051,7 @@ msgstr ""
 
 #: inc/admin/settings/sections.php:475
 msgid "Login/Register"
-msgstr ""
+msgstr "Iniciar sesión / Registrarse"
 
 #: inc/admin/settings/sections.php:487
 msgid "Social profiles"
@@ -8152,7 +8152,7 @@ msgstr ""
 #: inc/widgets/class-widget-search.php:39 woocommerce/cart/cart.php:34
 #: woocommerce/cart/cart.php:80
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #: inc/builder/elements/Search.php:133
 #: inc/integrations/elementor/elements/blog/class-blog.php:100
@@ -9779,7 +9779,7 @@ msgstr ""
 
 #: inc/import/class-remove.php:538
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: inc/import/class-remove.php:542
 msgid "Mailchimp forms"
@@ -13114,7 +13114,7 @@ msgstr ""
 #: inc/integrations/woocommerce/template-tags.php:625
 #: woocommerce/cart/mini-cart.php:51
 msgid "Show"
-msgstr ""
+msgstr "Mostrar"
 
 #: inc/integrations/elementor/elements/class-widget-products.php:103
 #: inc/integrations/elementor/elements/products/class-products.php:118
@@ -16327,12 +16327,12 @@ msgstr ""
 
 #: inc/integrations/woocommerce/modules/compare.php:370
 msgid "Compare list is empty."
-msgstr ""
+msgstr "La lista de comparación está vacía."
 
 #: inc/integrations/woocommerce/modules/compare.php:377
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:238
 msgid "Return to shop"
-msgstr ""
+msgstr "Volver a la tienda"
 
 #: inc/integrations/woocommerce/modules/compare.php:678
 #: inc/integrations/woocommerce/modules/compare.php:715
@@ -16439,7 +16439,7 @@ msgstr ""
 #: inc/integrations/woocommerce/template-tags.php:1710
 #: inc/integrations/woocommerce/template-tags.php:2024
 msgid "Sign in"
-msgstr ""
+msgstr "Registrarse"
 
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:204
 msgid "Your products wishlist"
@@ -16447,7 +16447,7 @@ msgstr ""
 
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:227
 msgid "Wishlist is empty."
-msgstr ""
+msgstr "La lista de deseos está vacía."
 
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:302
 msgid "Add to wishlist"
@@ -16463,7 +16463,7 @@ msgstr ""
 #: inc/integrations/woocommerce/template-tags.php:2082
 #: inc/shortcodes/user-panel.php:42
 msgid "Logout"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: inc/integrations/woocommerce/template-tags.php:53
 msgid "Order complete"
@@ -16518,7 +16518,7 @@ msgstr ""
 
 #: inc/integrations/woocommerce/template-tags.php:818
 msgid "products"
-msgstr ""
+msgstr "productos"
 
 #: inc/integrations/woocommerce/template-tags.php:889
 msgid "No product categories exist."
@@ -16571,7 +16571,7 @@ msgstr ""
 
 #: inc/integrations/woocommerce/template-tags.php:1686
 msgid "My Account"
-msgstr ""
+msgstr "Mi cuenta"
 
 #: inc/integrations/woocommerce/template-tags.php:1696
 msgid "Hello, %s"
@@ -16579,12 +16579,12 @@ msgstr ""
 
 #: inc/integrations/woocommerce/template-tags.php:1700
 msgid "Login / Register"
-msgstr ""
+msgstr "Iniciar sesión / Registrarse"
 
 #: inc/integrations/woocommerce/template-tags.php:1710
 #: inc/integrations/woocommerce/template-tags.php:2036
 msgid "Create an Account"
-msgstr ""
+msgstr "Crea una cuenta"
 
 #: inc/integrations/woocommerce/template-tags.php:1890
 msgid "Username or email address"
@@ -16593,23 +16593,23 @@ msgstr ""
 #: inc/integrations/woocommerce/template-tags.php:1894
 #: woocommerce/myaccount/form-login.php:98
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: inc/integrations/woocommerce/template-tags.php:1905
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: inc/integrations/woocommerce/template-tags.php:1909
 msgid "Lost your password?"
-msgstr ""
+msgstr "¿Perdiste tu contraseña?"
 
 #: inc/integrations/woocommerce/template-tags.php:1911
 msgid "Remember me"
-msgstr ""
+msgstr "Recuérdame"
 
 #: inc/integrations/woocommerce/template-tags.php:1917
 msgid "Or login with"
-msgstr ""
+msgstr "O inicia sesión con"
 
 #: inc/integrations/woocommerce/template-tags.php:1979
 #: inc/integrations/woocommerce/template-tags.php:2026 sidebar.php:27
@@ -16618,7 +16618,7 @@ msgstr "cerrar"
 
 #: inc/integrations/woocommerce/template-tags.php:2035
 msgid "No account yet?"
-msgstr ""
+msgstr "¿No tienes cuenta aún?"
 
 #: inc/integrations/woocommerce/template-tags.php:2079
 msgid "Vendor dashboard"
@@ -17049,7 +17049,7 @@ msgstr ""
 
 #: inc/modules/search.php:97
 msgid "Start typing to see products you are looking for."
-msgstr ""
+msgstr "Empiece a escribir para ver los productos que busca."
 
 #: inc/modules/search.php:102
 msgid "Start typing to see projects you are looking for."
@@ -17101,7 +17101,7 @@ msgstr ""
 
 #: inc/modules/sticky-toolbar.php:216
 msgid "My wishlist"
-msgstr ""
+msgstr "Mi lista de deseos"
 
 #: inc/modules/sticky-toolbar.php:262
 msgid "My cart"
@@ -17549,11 +17549,11 @@ msgstr ""
 
 #: inc/template-tags/template-tags.php:336
 msgid "Continue reading"
-msgstr ""
+msgstr "Continuar leyendo"
 
 #: inc/template-tags/template-tags.php:503
 msgid "By"
-msgstr ""
+msgstr "Por"
 
 #: inc/template-tags/template-tags.php:505
 msgid "Posted by"
@@ -18033,7 +18033,7 @@ msgstr ""
 
 #: inc/widgets/class-widget-search.php:30
 msgid "Search products"
-msgstr ""
+msgstr "Buscar Productos"
 
 #: inc/widgets/class-widget-search.php:66
 msgid "Show categories"
@@ -18149,7 +18149,7 @@ msgstr ""
 
 #: single-portfolio.php:23
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "Continuar leyendo <span class=\"meta-nav\">&rarr;</span>"
 
 #: single.php:31
 msgid "Tags"
@@ -18204,7 +18204,7 @@ msgstr ""
 
 #: woocommerce/cart/mini-cart.php:110
 msgid "Return To Shop"
-msgstr ""
+msgstr "Volver a la tienda"
 
 #: woocommerce/checkout/form-checkout.php:31
 msgid "You must be logged in to checkout."
@@ -18256,8 +18256,8 @@ msgstr ""
 #: woocommerce/content-product-cat.php:89
 msgid "%s product"
 msgid_plural "%s products"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s producto"
+msgstr[1] "%s productos"
 
 #. translators: %s: Name product category
 #: woocommerce/content-product-cat.php:101
@@ -18282,7 +18282,7 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:156
 #: woocommerce/myaccount/form-login.php:160
 msgid "Login"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: woocommerce/myaccount/form-login.php:75
 #: woocommerce/myaccount/form-login.php:115
@@ -18298,7 +18298,7 @@ msgstr ""
 
 #: woocommerce/myaccount/form-login.php:104
 msgid "A password will be sent to your email address."
-msgstr ""
+msgstr "Se le enviará una contraseña a su dirección de correo electrónico."
 
 #: woocommerce/myaccount/form-login.php:109
 msgid "Anti-spam"
@@ -18410,7 +18410,7 @@ msgstr ""
 #: inc/import/class-after.php:104
 msgctxt "Page title"
 msgid "My account"
-msgstr ""
+msgstr "Mi cuenta"
 
 #: inc/integrations/tgm-plugin-activation.php:1206
 #: inc/integrations/tgm-plugin-activation.php:3033
@@ -18440,7 +18440,7 @@ msgstr ""
 #: inc/modules/search.php:96
 msgctxt "submit button"
 msgid "Search for products"
-msgstr ""
+msgstr "Buscar productos"
 
 #: inc/modules/search.php:101
 msgctxt "submit button"
@@ -18460,7 +18460,7 @@ msgstr ""
 #: inc/modules/search.php:157
 msgctxt "submit button"
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: inc/modules/sticky-toolbar.php:226
 msgctxt "toolbar"
@@ -18470,7 +18470,7 @@ msgstr ""
 #: inc/modules/sticky-toolbar.php:365
 msgctxt "toolbar"
 msgid "My account"
-msgstr ""
+msgstr "Mi cuenta"
 
 #: inc/template-tags/template-tags.php:568
 msgctxt "meta-date"
