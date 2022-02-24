@@ -1,0 +1,504 @@
+@font-face {
+  font-family: 'villatheme';
+  src: url('fonts/villatheme.eot?iyse7t');
+  src: url('fonts/villatheme.eot?iyse7t#iefix') format('embedded-opentype'),
+  url('fonts/villatheme.ttf?iyse7t') format('truetype'),
+  url('fonts/villatheme.woff?iyse7t') format('woff'),
+  url('fonts/villatheme.svg?iyse7t#villatheme') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="vlt-ico-"], [class*=" vlt-ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'villatheme' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vlt-ico-vc_btn:before {
+  content: "\e900";
+}
+
+.vlt-ico-voucher:before {
+  content: "\e901";
+}
+
+.vlt-ico-icon:before {
+  content: "\e902";
+}
+
+.vlt-ico-move:before {
+  content: "\e903";
+}
+
+.vlt-ico-format_color_text:before {
+  content: "\e904";
+}
+
+.vlt-ico-format_color_fill:before {
+  content: "\e905";
+}
+
+.vlt-ico-border_color:before {
+  content: "\e906";
+}
+
+.vlt-ico-palette:before {
+  content: "\e907";
+}
+
+.vlt-ico-question:before {
+  content: "\e908";
+}
+
+.vlt-ico-shopping-cart:before {
+  content: "\e909";
+}
+
+.vlt-ico-floppy-disk:before {
+  content: "\e962";
+}
+
+.vlt-ico-spinner2:before {
+  content: "\e97b";
+}
+
+.vlt-ico-spinner9:before {
+  content: "\e982";
+}
+
+.vlt-ico-bin2:before {
+  content: "\e9ad";
+}
+
+.vlt-ico-bold:before {
+  content: "\ea62";
+}
+
+.vlt-ico-underline:before {
+  content: "\ea63";
+}
+
+.vlt-ico-italic:before {
+  content: "\ea64";
+}
+
+.vlt-ico-paragraph-left:before {
+  content: "\ea77";
+}
+
+.vlt-ico-paragraph-center:before {
+  content: "\ea78";
+}
+
+.vlt-ico-paragraph-right:before {
+  content: "\ea79";
+}
+
+.vlt-ico-mail3:before {
+  content: "\ea85";
+}
+
+.vlt-ico-facebook:before {
+  content: "\ea90";
+}
+
+.vlt-ico-facebook2:before {
+  content: "\ea91";
+}
+
+.vlt-ico-file-excel:before {
+  content: "\eae2";
+}
+
+.vlt-ico-messenger:before {
+  content: "\e90a";
+  color: #0084ff;
+}
+
+.vlt-ico-header:before {
+  content: "\e90b";
+}
+
+.vlt-ico-cross:before {
+  content: "\ea0f";
+}
+
+html, body {
+  line-height: 1 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", 'Open Sans', sans-serif !important;
+}
+
+#post-preview {
+  display: none;
+}
+
+.postbox-container {
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
+  h2 {
+    font-weight: 600;
+  }
+
+  .postbox {
+    .inside {
+      font-size: 14px !important;
+
+      select, .select2-selection--single {
+        border: 1px solid #ddd;
+        height: 32px;
+      }
+
+      .vlt-margin-top {
+        margin-top: 8px !important;
+      }
+
+      .vlt-margin-bottom {
+        margin-bottom: 8px !important;
+      }
+
+      .select2-selection--multiple {
+        border: 1px solid #ddd;
+      }
+    }
+  }
+}
+
+.form_builder_field {
+  &:hover {
+    outline: 1px solid #d6d6d6;
+  }
+}
+
+.wacv-control-box {
+  position: relative;
+
+  &:hover .wacv-control-bar.wacv-control-bar-left.handle {
+    opacity: 1;
+  }
+
+  .wacv-control-bar.wacv-control-bar-left.handle {
+    position: relative;
+    opacity: 0;
+  }
+
+  .handle.ui-sortable-handle {
+    position: absolute;
+    left: -28px;
+    background-color: #d6d6d6;
+    color: #6f6f6f;
+    border: none;
+    width: 28px;
+    height: 28px;
+  }
+
+  .remove_bal_field.ui-sortable-handle {
+    position: absolute;
+    right: -28px;
+    background-color: #d6d6d6;
+    color: #6f6f6f;
+    border: none;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+//New
+.wacv-email-builder-area {
+  width: 100%;
+
+  td:first-child {
+    width: 95px;
+    vertical-align: top;
+  }
+}
+
+#wacv-preview {
+  background-color: #F7F7F7;
+  padding: 20px;
+  font-family: Lato, Arial, Helvetica, 'Open Sans', sans-serif;
+
+  p {
+    line-height: 1.8;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .placeholder {
+    background-color: #eee;
+    border: 1px dotted #0082ea;
+  }
+
+  .wacv-email-content {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    min-height: 600px;
+
+    .form-builder-field {
+      position: relative;
+      height: auto !important;
+      width: 600px;
+    }
+
+    .wacv-block {
+      z-index: 99999;
+
+      &:hover {
+        outline: 1px solid #d6d6d6;
+      }
+
+      &:hover .wacv-handle button {
+        opacity: 1;
+      }
+
+      .wacv-output {
+        width: 600px;
+      }
+
+      .form-builder-field:hover {
+        outline: 1px solid #0662ff;
+      }
+
+      hr {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.wacv-control-table {
+  width: 100%;
+
+  * {
+    box-shadow: none;
+  }
+
+  input {
+    box-shadow: none;
+
+  }
+
+  td {
+    white-space: nowrap;
+    padding: 3px;
+
+    .wacv-button-link {
+      width: 100%;
+    }
+  }
+
+  td.wacv-padding-ctrl {
+    div {
+      float: right;
+      text-align: right;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      float: right;
+
+      td {
+        padding: 0;
+      }
+
+      input[type=number] {
+        font-size: 12px;
+        width: 40px;
+        padding: 0 0 0 2px;
+      }
+    }
+  }
+
+  .wacv-control-panel-label {
+    font-weight: 700;
+  }
+
+  .mce-tinymce.mce-container.mce-panel {
+    box-shadow: none;
+  }
+
+  .wp-picker-container, .wacv-element-align, .wacv-button-width, .wacv-open-image, .wacv-image-width, .wacv-button-format, .wp-color-result {
+    float: right;
+    width: 120px;
+  }
+
+  .wp-picker-container button.wp-color-result, .wacv-button-format {
+    margin: 0;
+  }
+
+  .wp-picker-active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    z-index: 9;
+    width: fit-content;
+  }
+
+}
+
+//Handle
+.wacv-handle {
+  button {
+    border: none;
+    color: #6f6f6f;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .wacv-move {
+    left: -29px;
+    background-color: #d6d6d6;
+  }
+
+  .wacv-move:hover {
+    cursor: move;
+  }
+
+  .wacv-remove {
+    right: -29px;
+    background-color: #d6d6d6;
+  }
+}
+
+.wacv-elements {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .element:hover {
+    cursor: move;
+    color: #6e6e6e;
+  }
+
+  .element {
+    padding: 10px 5px;
+    color: #212121;
+    font-size: 14px;
+    margin: 2px;
+    background-color: #e8e8e8;
+  }
+}
+
+.wacv-template-sample {
+  margin-top: 10px;
+
+  select {
+    box-shadow: none;
+    margin: 2px;
+  }
+}
+
+
+#email_settings {
+  //* {
+  //  font-size: 14px;
+  //}
+
+  .wp-color-result-text {
+    font-size: 11px;
+  }
+
+  .wacv-padding {
+    padding-bottom: 10px;
+
+    input[type=text] {
+      box-shadow: none;
+      width: 100%;
+    }
+  }
+
+  p.wacv-label {
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+
+  hr {
+    margin: 7px 0;
+  }
+
+  .wacv-send-test-email {
+    * {
+      margin: 2px 0;
+    }
+  }
+
+  .wacv-pos-btn-color {
+    position: relative;
+  }
+
+  .mce-tinymce.mce-container.mce-panel {
+    width: auto !important;
+    margin: 0 -15px;
+    border-bottom: 1px solid #ccc;
+
+    button {
+      max-width: 85px;
+    }
+  }
+
+  .wacv-viwec-suggest {
+    font-size: 11px;
+    display: block;
+    line-height: 3;
+  }
+}
+
+#coupon_setting {
+  font-size: 14px;
+
+  .wacv-explain {
+    color: #838383 !important;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .wacv-label {
+    width: 30%;
+    white-space: nowrap;
+  }
+
+  .select2-search__field {
+    width: auto !important;
+  }
+
+  .wacv-generate-coupon, .wacv-select-wc-coupon {
+    select, input[type=number] {
+      width: 500px;
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    td {
+      padding: 5px 0;
+    }
+  }
+}

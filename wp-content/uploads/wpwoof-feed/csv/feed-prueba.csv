@@ -1,5 +1,5 @@
 # ref_application_id 451257172939091
-ID	inventory	description	additional_image_link	condition	mpn	title	short_description	availability	price	link	image_link	brand	item_group_id	custom_label_0	custom_label_1	google_product_category	product_type	sale_price	shipping_weight	shipping_length	shipping_height	product_dimensions
+ID	inventory	description	additional_image_link	condition	mpn	title	short_description	availability	price	link	image_link	brand	item_group_id	custom_label_0	google_product_category	product_type	custom_label_1	shipping_weight	shipping_length	shipping_height	product_dimensions	sale_price
 11549	5	"Gel Caliente 280gr: Reduce medidas y elimina la grasa corporal de manera natural. Nuestro Gel Adelgazante Corporal es una fórmula a base de extractos naturales con propiedades térmicas que ayudan aumentar la temperatura corporal. Ideal para moldear la figura.
 Gel frío 280gr: ¡Llegó el momento de combatir la flacidez corporal!.
 Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de la piel.
@@ -33,7 +33,7 @@ No son testados en animales.
       
 "		new	11549	"Kit Moldea Tu Cuerpo Naturalmente"	"Gel Caliente 280gr: Reduce medidas y elimina la grasa corporal de manera natural. Nuestro Gel Adelgazante Corporal es una fórmula a base de extractos naturales con propiedades térmicas que ayudan aumentar la temperatura corporal. Ideal para moldear la figura.
 Gel frío 280gr: ¡Llegó el momento de combatir la flacidez corporal!.
-Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de "	"in stock"	"60000 COP"	https://naturalconexion.com/product/kit-moldea-tu-cuerpo-naturalmente/	https://naturalconexion.com/wp-content/uploads/2020/11/Diseño-sin-título-7.png	"Natural Conexión"	11549			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Kit especiales > Productos veganos"					
+Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de "	"in stock"	"60000 COP"	https://naturalconexion.com/product/kit-moldea-tu-cuerpo-naturalmente/	https://naturalconexion.com/wp-content/uploads/2020/11/Diseño-sin-título-7.png	"Natural Conexión"	11549		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Kit especiales > Productos veganos"						
 11827	5	"Reduce medidas y ayuda a eliminar la grasa corporal de manera natural. La fórmula de nuestro gel caliente está desarrollada a base de extractos naturales con propiedades térmicas que ayudan a aumentar la temperatura corporal. Ideal para moldear la figura.
 Ingredientes principales:
 
@@ -83,7 +83,7 @@ Agroecológicos.
 Naturales.
 No contienen parabenos.
 No son testados en animales.
-"	"in stock"	"30000 COP"	https://naturalconexion.com/product/gel-caliente-280gr/	https://naturalconexion.com/wp-content/uploads/2020/12/24.png	"Natural Conexión"	11827			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+"	"in stock"	"30000 COP"	https://naturalconexion.com/product/gel-caliente-280gr/	https://naturalconexion.com/wp-content/uploads/2020/12/24.png	"Natural Conexión"	11827		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"						
 11829	5	"Nuestro gel frío mejora la textura de la piel, haciéndola lucir tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de la piel.
 Ingredientes principales:
 
@@ -132,13 +132,13 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-¡Atrévete a conocer el poder natural!"	"in stock"	"30000 COP"	https://naturalconexion.com/product/gel-frio-280gr/	https://naturalconexion.com/wp-content/uploads/2020/12/23.png	"Natural Conexión"	11829			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+¡Atrévete a conocer el poder natural!"	"in stock"	"30000 COP"	https://naturalconexion.com/product/gel-frio-280gr/	https://naturalconexion.com/wp-content/uploads/2020/12/23.png	"Natural Conexión"	11829		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"						
 12351	89	"Regala un Bono con un valor de 30.000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	12351	"Bono de Regalo 30.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-30-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-30-mil.jpg	"Natural Conexión"	12351			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	12351	"Bono de Regalo 30.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-30-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-30-mil.jpg	"Natural Conexión"	12351		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 12355	90	"Regala un Bono con un valor de 50.000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	12355	"Bono de Regalo 50.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-50-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-50-mil.jpg	"Natural Conexión"	12355			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	12355	"Bono de Regalo 50.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-50-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-50-mil.jpg	"Natural Conexión"	12355		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 12357	90	"Regala un Bono con un valor de 80.000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	12357	"Bono de Regalo 80.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-80-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-80-mil.jpg	"Natural Conexión"	12357			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	12357	"Bono de Regalo 80.000"		"in stock"	"0 COP"	https://naturalconexion.com/product/bono-de-regalo-80-000/	https://naturalconexion.com/wp-content/uploads/2021/02/bono-80-mil.jpg	"Natural Conexión"	12357		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 12497	5	"Fórmula elaborada con extracto de arroz que lo hace rico en vitamina E. Tiene propiedades emolientes, humectantes y antioxidantes.
 A base de glicerina vegetal que ayuda a hidratar y retener la humedad, permitiendo a la piel mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Ideal para todo tipo de piel.
@@ -183,7 +183,7 @@ Naturales
 No contienen parabenos
 No son testados en animales.
 
-¡Disfruta de tu belleza natural! Pídel"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-arroz-100gr/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-34.png	"Natural Conexión"	12497			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"					
+¡Disfruta de tu belleza natural! Pídel"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-arroz-100gr/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-34.png	"Natural Conexión"	12497		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"						
 12504	5	"Fórmula elaborada a base del extracto del aloe vera. Es un potente regenerador celular y ayuda a nutrir a profundidad la piel. A base de glicerina vegetal que tiene propiedades hidratantes y retiene la humedad, lo que ayuda a la piel a mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Ideal para pieles secas.
 Ingredientes principales:
@@ -226,7 +226,7 @@ Naturales
 No contienen parabenos
 No son testados en animales.
 
-¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-aloe-vera-100gr/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-35.png	"Natural Conexión"	12504		aloevera	"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo > Facial > Productos veganos"					
+¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-aloe-vera-100gr/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-35.png	"Natural Conexión"	12504		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo > Facial > Productos veganos"	aloevera					
 12596	5	"&nbsp;
 Productos:
 Serum Antiedad 60gr: Empieza y termina tu rutina de cuidado de la piel con nuestro Serum Antiedad, una fórmula especial con Colágeno que actúa como factor antienvejecimiento, ayudando a prevenir el envejecimiento prematuro. Le entrega elasticidad y firmeza a tu rostro.
@@ -270,7 +270,7 @@ Naturales
 No contienen parabenos
 No son testados en animales
 
-"	"in stock"	"111000 COP"	https://naturalconexion.com/product/kit-colageno/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-12.png	"Natural Conexión"	12596			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"					
+"	"in stock"	"111000 COP"	https://naturalconexion.com/product/kit-colageno/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-12.png	"Natural Conexión"	12596		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"						
 13104	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -312,49 +312,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-"	"in stock"	"10000 COP"	https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-naranja-5-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg	"Natural Conexión"	13104			"Health & Beauty > Personal Care > Cosmetics"	Facial					
-13110	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
-La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
-Ingredientes principales:
-
-Caléndula.
-Oliva.
-Manzanilla.
-Cera de Abejas
-
-¿Cómo se usa?
-Aplicar una capa fina en los labios, varias veces al día.
-Precaución:
-No exponer el producto a temperaturas extremas.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-¡Disfruta de tu belleza natural!
-      
-"		new	13110	"Hidratante y Protector para Labios De Hierbabuen 5 gr"	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
-La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
-Ingredientes principales:
-
-Caléndula.
-Oliva.
-Manzanilla.
-Cera de Abejas
-
-¿Cómo se usa?
-Aplicar una capa fina en los labios, varias veces al día.
-Precaución:
-No exponer el producto a temperaturas extremas.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-"	"in stock"	"10000 COP"	https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-hierbabuen-5-gr/	https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-17.png	"Natural Conexión"	13110			"Health & Beauty > Personal Care > Cosmetics"	Facial					
+"	"in stock"	"10000 COP"	https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-naranja-5-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg	"Natural Conexión"	13104		"Health & Beauty > Personal Care > Cosmetics"	Facial						
 13115	5	"Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
 Ingredientes principales:
 
@@ -395,7 +353,7 @@ Dióxido de Titanio. (Pantalla física. Con certificación orgánica para cosmé
 
 ¿Cómo se usa?
 Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.
-Nuestros"	"in stock"	"22000 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-30gr/	https://naturalconexion.com/wp-content/uploads/2021/04/WhatsApp-Image-2021-11-05-at-11.43.40-AM.jpeg	"Natural Conexión"	13115	top-30-days		"Health & Beauty > Personal Care > Cosmetics"	Corporal					
+Nuestros"	"in stock"	"22000 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-30gr/	https://naturalconexion.com/wp-content/uploads/2021/04/WhatsApp-Image-2021-11-05-at-11.43.40-AM.jpeg	"Natural Conexión"	13115	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	Corporal						
 13117	5	"Fórmula elaborada a base del extracto del aloe vera. Es un potente regenerador celular y ayuda a nutrir a profundidad la piel. A base de glicerina vegetal que tiene propiedades hidratantes y retiene la humedad, lo que ayuda a la piel a mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Ideal para pieles secas.
 Ingredientes principales:
@@ -437,7 +395,7 @@ Naturales
 No contienen parabenos
 No son testados en animales.
 
-¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-azucenas-100gr/	https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png	"Natural Conexión"	13117	on-sale		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas"	"16200 COP"				
+¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-azucenas-100gr/	https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png	"Natural Conexión"	13117	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas"						"16200 COP"
 13665	5	"¡Poder natural para toda la familia!
 Lleva 3 Protectores Solares con Extractos Botánicos de 15gr cada uno y déjate habitar por la sabiduría ancestral de la naturaleza.
 Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
@@ -480,7 +438,7 @@ Germen de Trigo.
 Aceite de Oliva.
 Dióxido de Titanio. (Pantalla física, con certificación orgánica para cosmética natural)
 
-¿Có"	"in stock"	"33000 COP"	https://naturalconexion.com/product/kit-protector-solar-x3/	https://naturalconexion.com/wp-content/uploads/2021/05/Protector-Solar-15-gr-x3.png	"Natural Conexión"	13665			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+¿Có"	"in stock"	"33000 COP"	https://naturalconexion.com/product/kit-protector-solar-x3/	https://naturalconexion.com/wp-content/uploads/2021/05/Protector-Solar-15-gr-x3.png	"Natural Conexión"	13665		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"						
 14012	5	"
 
 
@@ -508,7 +466,7 @@ No son testados en animales.
 
 Jabón Artesanal Caléndula 100 gr:  Fórmula elaborada con extractos de caléndula y manzanilla que, por sus propiedades, estimulan la regeneración de tejidos y ayudan al control de barros y espinillas. A base de glicerina vegetal que entrega hidratación, permitiendo a la piel mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Tónico Natural Rosas 120 ml: Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen refrescando la piel, disminuyendo la dilatación de los poros, equilibrando el pH e hidratando tu rostro. Ideal para todo tipo de piel. También puede utilizarse para sellar el maquillaje.
-Hidratante y Protector para Labios De Caléndula y Manzanilla 5 gr: Nuestros Hidratantes y Protec"	"in stock"	"138900 COP"	https://naturalconexion.com/product/kit-poder-natural/	https://naturalconexion.com/wp-content/uploads/2021/06/Kit-Poder-Natural-.png	"Natural Conexión"	14012			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"					
+Hidratante y Protector para Labios De Caléndula y Manzanilla 5 gr: Nuestros Hidratantes y Protec"	"in stock"	"138900 COP"	https://naturalconexion.com/product/kit-poder-natural/	https://naturalconexion.com/wp-content/uploads/2021/06/Kit-Poder-Natural-.png	"Natural Conexión"	14012		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"						
 14633	5	"
 Exfoliante Manzanilla 120 gr: Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.
 Mascarilla de Avena 120 gr: ¡Es momento de una sesión de spa en tu hogar! Regálate un momento de conexión contigo y la naturaleza, disfruta de nuestra Mascarilla de acción profunda que remueve impurezas dejando la piel radiante, suave y sedosa. Previene el envejecimiento prematuro, atenúa las arrugas y devuélvele suavidad y tersura a tu rostro.
@@ -549,7 +507,7 @@ Caléndula.
 Aceite de Oliva.
 Aceite de semillas de uva.
 Aceite de argán.
-"	"in stock"	"50000 COP"	https://naturalconexion.com/product/exfoliante-manzanilla-120-gr-y-mascarilla-de-avena-120-gr/	https://naturalconexion.com/wp-content/uploads/2021/07/45.png	"Natural Conexión"	14633		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+"	"in stock"	"50000 COP"	https://naturalconexion.com/product/exfoliante-manzanilla-120-gr-y-mascarilla-de-avena-120-gr/	https://naturalconexion.com/wp-content/uploads/2021/07/45.png	"Natural Conexión"	14633		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"	"linea facial"					
 14953	5	"¡Es momento de una sesión de spa en tu hogar! Regálate un momento de conexión contigo y la naturaleza. Disfruta de nuestra Mascarilla Facual de acción profunda, que hidrata, nutre y limpia, dejando la piel radiante, suave y sedosa. Ideal para pieles delicadas y/o secas.
  Ingredientes principales:
 
@@ -593,7 +551,7 @@ No contienen parabenos
 No son testados en animales
 
 Devuelve la vida a tu piel ¡Pídelo ya!
-"	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-de-manzanilla-y-calendula-60-gr/	https://naturalconexion.com/wp-content/uploads/2021/07/KIT-HUMECTACION-PIEL-MIXTA-13.png	"Natural Conexión"	14953		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial					
+"	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-de-manzanilla-y-calendula-60-gr/	https://naturalconexion.com/wp-content/uploads/2021/07/KIT-HUMECTACION-PIEL-MIXTA-13.png	"Natural Conexión"	14953		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"					
 15567	5	"¡Limpieza y frescura con el poder de la naturaleza!
 Las propiedades del drago ayudan a eliminar las bacterias y los gérmenes presentes en la piel. Es perfecto para un correcto lavado de manos y cuerpo. Ideal para pieles delicadas.
 Ingredientes principales:
@@ -636,7 +594,7 @@ Libres de cocoamidas y cocoamido propil betaina.
 
 Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-*BIEN"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-drago-500ml/	https://naturalconexion.com/wp-content/uploads/2021/08/KIT-HUMECTACION-PIEL-MIXTA-20.png	"Natural Conexión"	15567			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"					
+*BIEN"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-drago-500ml/	https://naturalconexion.com/wp-content/uploads/2021/08/KIT-HUMECTACION-PIEL-MIXTA-20.png	"Natural Conexión"	15567		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"						
 15573	5	"Jabón Líquido con Extractos Botánicos Caléndula y Manzanilla.
 Entrégale frescura e hidratación a tu piel, permite que los ingredientes de nuestro Jabón Líquido de Caléndula limpien tu rostro sin resecarlo. El poder de las plantas actúa regenerando los tejidos y previniendo las imperfecciones. Ideal para pieles grasas y delicadas.
 Ingredientes principales:
@@ -680,7 +638,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-¡Es momento de conectar con la naturaleza y experimenta"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-calendula-y-manzanilla-500ml/	https://naturalconexion.com/wp-content/uploads/2021/08/KIT-HUMECTACION-PIEL-MIXTA-21.png	"Natural Conexión"	15573			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"					
+¡Es momento de conectar con la naturaleza y experimenta"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-calendula-y-manzanilla-500ml/	https://naturalconexion.com/wp-content/uploads/2021/08/KIT-HUMECTACION-PIEL-MIXTA-21.png	"Natural Conexión"	15573		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"						
 15830	5	"Humecta y protege de manera natural.
 Fórmula elaborada con extracto de arroz que lo hace rico en vitamina E. Tiene propiedades emolientes, humectantes y antioxidantes.
 A base de glicerina vegetal que te ayuda a hidratar y retener la humedad, permitiéndole  a tu piel mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
@@ -716,7 +674,7 @@ Chía. (con certificación orgánica para cosmética natural)
 Vitamina E.
 Arroz.
 
-¿Cómo se"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-arroz-100gr/	https://naturalconexion.com/wp-content/uploads/2021/09/KIT-HUMECTACION-PIEL-MIXTA-65.png	"Natural Conexión"	15830			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"					
+¿Cómo se"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-arroz-100gr/	https://naturalconexion.com/wp-content/uploads/2021/09/KIT-HUMECTACION-PIEL-MIXTA-65.png	"Natural Conexión"	15830		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"						
 15867	5	"
 Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
 Ingredientes principales:
@@ -758,7 +716,7 @@ Aceite de Oliva.
 Dióxido de Titanio. (Pantalla física, con certificación orgánica para cosmética natural)
 
 ¿Cómo se usa?
-Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a "	"in stock"	"49900 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-80-ml/	https://naturalconexion.com/wp-content/uploads/2021/09/Protector-Solar-80ml_Mesa-de-trabajo-1-copia-9-2.jpg	"Natural Conexión"	15867	top-30-days	favoritos	"Health & Beauty > Personal Care > Cosmetics"	Facial					
+Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a "	"in stock"	"49900 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-80-ml/	https://naturalconexion.com/wp-content/uploads/2021/09/Protector-Solar-80ml_Mesa-de-trabajo-1-copia-9-2.jpg	"Natural Conexión"	15867	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	Facial	favoritos					
 15962	5	"El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Favorece la producción de colágeno y elastina. Penetra en los poros removiendo impurezas. Purifica dejando la piel radiante, sedosa y suave. Es ideal para todo tipo de piel, especialmente para pieles mixtas con tendencia a grasa. Su efecto es mayor al complementar con la Mascarilla Facial de Aloe vera y Pepino.
 Ingredientes principales:
 
@@ -798,7 +756,7 @@ Harina de arroz.
 
 ¿Cómo se usa?
 Aplicar el producto sobre la piel limpia con movimientos circulares, realizando suaves masajes durante dos minutos, luego enjuagar con abundante agua. Realizar este proceso una vez a la semana o cada 15 días.
-Nues"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-aloe-vera-y-pepino-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	15962	on-sale		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas > Productos veganos"	"22500 COP"				
+Nues"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-aloe-vera-y-pepino-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	15962	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas > Productos veganos"						"22500 COP"
 16033	5	"Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.
 Ideal para todo tipo de piel.
 Ingredientes principales:
@@ -844,7 +802,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-Agroecológicos"	"in stock"	"15000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-manzanilla-miel-y-germen-de-trigo-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg	"Natural Conexión"	16033		"linea facial manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	Facial					
+Agroecológicos"	"in stock"	"15000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-manzanilla-miel-y-germen-de-trigo-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg	"Natural Conexión"	16033		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial manzanilla"					
 16036	5	"Los ingredientes activos de la papaya, equilibran la producción de grasa en la piel. Nuestra Mascarilla Facial de Papaya, por su fórmula rica en antioxidantes, aporta hidratación y nutrición a tu rostro. Purifica la piel dejándola sedosa, suave y radiante. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas y/o con barros y espinillas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Papaya.
  Ingredientes principales:
 
@@ -884,7 +842,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¿Cómo se usa?
-Aplicar una fina capa en el cuello y el rostro, con suaves masajes circulares. Dejar actuar entre 15-30 minutos. Enjuagar con a"	"in stock"	"25000 COP"	https://naturalconexion.com/product/mascarilla-facial-papaya-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/mascarilla-papaya.jpg	"Natural Conexión"	16036			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Aplicar una fina capa en el cuello y el rostro, con suaves masajes circulares. Dejar actuar entre 15-30 minutos. Enjuagar con a"	"in stock"	"25000 COP"	https://naturalconexion.com/product/mascarilla-facial-papaya-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/mascarilla-papaya.jpg	"Natural Conexión"	16036		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 16039	5	"Relaja y refresca naturalmente.
 Hemos creado para ti un gel ideal para relajar el cuerpo y disminuir el cansancio físico. Está compuesto por la fusión de 12 plantas de la flora medicinal colombiana. Se absorbe fácilmente sin dejar rastro en la piel. Se puede aplicar en cualquier momento del día, en especial cuando el cansancio físico aparece.
 Ideal para deportistas y personas con trabajos pesados.
@@ -936,7 +894,7 @@ Son 100% biodegradables.
 Agroecológicos.
 Naturales.
 No contienen parabenos.
-"	"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/gel-pronto-alivio-250.jpg	"Natural Conexión"	16039	on-sale	"favoritos gel gel pronto alivio"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Ofertas > Productos veganos"	"29750 COP"	"0.278 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/gel-pronto-alivio-250.jpg	"Natural Conexión"	16039	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Ofertas > Productos veganos"	"favoritos gel gel pronto alivio"	"0.278 kg"	"1 cm"	"50 cm"	1:1:1:cm	"29750 COP"
 16042	5	"Su fórmula está diseñada para estimular la producción de fibras de colágeno y elastina, actuando como factor antienvejecimiento. Ayuda a renovar los tejidos atenuando las líneas de expresión, manteniendo y prolongando el aspecto joven de la piel, devolviendo su elasticidad, firmeza y lozanía.
 ¡Prolonga el aspecto joven de tu piel!
  Ingredientes principales:
@@ -989,7 +947,7 @@ Son 100% biodegradable
 Agroecológicos
 Naturales
 No contienen parabenos
-No son"	"in stock"	"75000 COP"	https://naturalconexion.com/product/crema-serum-antiedad-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/Serum-Antiedad_Mesa-de-trabajo-1.jpg	"Natural Conexión"	16042			"Health & Beauty > Personal Care > Cosmetics"	Facial					
+No son"	"in stock"	"75000 COP"	https://naturalconexion.com/product/crema-serum-antiedad-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/Serum-Antiedad_Mesa-de-trabajo-1.jpg	"Natural Conexión"	16042		"Health & Beauty > Personal Care > Cosmetics"	Facial						
 16045	5	"Suave complejo de microgránulos de arroz y extracto de papaya, integrados en una fórmula delicada de limpieza. Las propiedades exfoliantes de la papaya, ayudan a limpiar los poros obstruidos al remover las células muertas, previniendo barros y espinillas
 Ingredientes principales:
 
@@ -1035,7 +993,7 @@ Agroecológicos.
 Naturales.
 No contienen parabenos.
 No son testados en animales.
-"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-papaya-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-papaya.jpg	"Natural Conexión"	16045			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"					
+"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-papaya-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-papaya.jpg	"Natural Conexión"	16045		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"						
 16340	5	"El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Favorece la producción de colágeno y elastina. Penetra en los poros hidratando y nutriendo el rostro. Purifica dejando la piel radiante, sedosa y suave. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Aloe vera y Pepino.
 Ingredientes principales:
 
@@ -1072,7 +1030,7 @@ Nuestros productos:
 No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
-Natural."	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-facial-aloe-vera-y-pepino-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/MASCARILLA_PEPINO_120ml.jpg	"Natural Conexión"	16340			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Natural."	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-facial-aloe-vera-y-pepino-60-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/MASCARILLA_PEPINO_120ml.jpg	"Natural Conexión"	16340		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 16472	5	"
 Protector Solar con Extractos Botánicos Todo tipo de piel 80ml: Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
 Jabón Líquido con Extractos botánicos Perejil 250 ml: Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celular.
@@ -1092,7 +1050,7 @@ No son testados en animales.
       
 "		new	16472	"Kit Unifica Tu Tono de Piel"	"
 Protector Solar con Extractos Botánicos Todo tipo de piel 80ml: Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
-Jabón Líquido con Extractos botánicos Perejil 250 ml: Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celu"	"in stock"	"130900 COP"	https://naturalconexion.com/product/unifica-el-tono-de-tu-piel/	https://naturalconexion.com/wp-content/uploads/2021/10/Kit-Unifica-Tu-Tono-de-Piel.png	"Natural Conexión"	16472			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"					
+Jabón Líquido con Extractos botánicos Perejil 250 ml: Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celu"	"in stock"	"130900 COP"	https://naturalconexion.com/product/unifica-el-tono-de-tu-piel/	https://naturalconexion.com/wp-content/uploads/2021/10/Kit-Unifica-Tu-Tono-de-Piel.png	"Natural Conexión"	16472		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"						
 16478	5	"
 Aceite Esencial Canela 10 ml: El Aceite Esencial de Canela es útil para disminuir el estrés, ya que tiene propiedades relajantes. Perfuma y purifica los espacios. Promueve la regeneración celular estimulando la producción de colágeno y elastina, evitando el envejecimiento prematuro. Hidrata y nutre el cabello, fortalece las fibras capilares y lo deja suave, sedoso y brillante. En Aromaterapia es usado para ayudarnos a encontrar el equilibrio emocional y reducir la fatiga.
 Aceite esencial Naranja 10 ml: El Aceite Esencial de Naranja hidrata y nutre la piel, ayudando a dar elasticidad a la misma, reduciendo arrugas del rostro y líneas de expresión por su alto contenido de Vitamina C. Es altamente efectivo para tonificar la piel. Estimula la producción de colágeno, ayudando con esto a la disminución de la celulitis y previniendo la aparición de estrías. Protege el cabello de los radicales libres y lo hidrata profundamente; todo esto sin dañar el equilibrio lípido, dejándolo suave y brillante. En Aromaterapia es considerado el aceite del optimismo y la felicidad.
@@ -1111,7 +1069,7 @@ No son testados en animales.
       
 "		new	16478	"Kit Esencias Puras de la Naturaleza"	"
 Aceite Esencial Canela 10 ml: El Aceite Esencial de Canela es útil para disminuir el estrés, ya que tiene propiedades relajantes. Perfuma y purifica los espacios. Promueve la regeneración celular estimulando la producción de colágeno y elastina, evitando el envejecimiento prematuro. Hidrata y nutre el cabello, fortalece las fibras capilares y lo deja suave, sedoso y brillante. En Aromaterapia es usado para ayudarnos a encontrar el equilibrio emocional y reducir la fatiga.
-Aceite esencial Naranja 10 ml: El Aceite Esencial de Naranja hidrata y nutre la piel, ayudando a dar elasticidad a la misma, reduciendo arrugas del rostro y líneas de expresión por su alto contenido de Vitamina C. Es altamente efectivo para tonificar la piel. Estimula la producción de colágeno, ayudando con esto a la disminución de la celulitis y previniendo la aparición de estrías. Protege el cabello de los radicales libres y lo hidrata profundamente; to"	"in stock"	"96000 COP"	https://naturalconexion.com/product/esencias-puras-de-la-naturaleza/	https://naturalconexion.com/wp-content/uploads/2021/10/Formato-Tienda-2.png	"Natural Conexión"	16478			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"					
+Aceite esencial Naranja 10 ml: El Aceite Esencial de Naranja hidrata y nutre la piel, ayudando a dar elasticidad a la misma, reduciendo arrugas del rostro y líneas de expresión por su alto contenido de Vitamina C. Es altamente efectivo para tonificar la piel. Estimula la producción de colágeno, ayudando con esto a la disminución de la celulitis y previniendo la aparición de estrías. Protege el cabello de los radicales libres y lo hidrata profundamente; to"	"in stock"	"96000 COP"	https://naturalconexion.com/product/esencias-puras-de-la-naturaleza/	https://naturalconexion.com/wp-content/uploads/2021/10/Formato-Tienda-2.png	"Natural Conexión"	16478	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"						
 16855	5	"Es momento de cuidar tus manos, mantenerlas limpias y evitar que pierdan su humectación natural. Hemos creado para ti un Jabón Líquido que, gracias a las maravillosas propiedades del extracto de avena, protege tu piel respetando su equilibrio natural.
 Ideal para pieles secas.
 Ingredientes principales:
@@ -1153,7 +1111,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¡Conoce el poder de lo natural!
-"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-de-avena-500ml/	https://naturalconexion.com/wp-content/uploads/2021/10/Repuesto-Jabon-Liquido-de-Avena.jpg	"Natural Conexión"	16855			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"					
+"	"in stock"	"32000 COP"	https://naturalconexion.com/product/repuesto-jabon-liquido-con-extractos-botanicos-de-avena-500ml/	https://naturalconexion.com/wp-content/uploads/2021/10/Repuesto-Jabon-Liquido-de-Avena.jpg	"Natural Conexión"	16855	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"						
 17042	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1195,7 +1153,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-"	"in stock"	"10000 COP"	https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-menta-5-gr/	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-6.png	"Natural Conexión"	17042	recent-product		"Health & Beauty > Personal Care > Cosmetics"	Facial					
+"	"in stock"	"10000 COP"	https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-menta-5-gr/	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-6.png	"Natural Conexión"	17042	recent-product	"Health & Beauty > Personal Care > Cosmetics"	Facial						
 17269	5	"Solo tenemos 200 unidades disponibles con su regalo de lanzamiento.
 ¡PREVENTA! ÚNICO Y PERFECTO PARA ESTA NAVIDAD.
 A partir del 13 de diciembre se hacen las entregas.
@@ -1212,12 +1170,12 @@ A partir de los 25 años de edad es importante empezar a usar la Vitamina C, ya 
 Extraemos de manera artesanal tesoros de la tierra para llevar hasta tus manos el mejor alimento para tu piel. Además hemos investigado durante años las mejores fórmulas para el cuidado facial y en base a eso desarrollamos nuestro mágico Sérum de última generación.
 ANTIOXIDANTE Y ANTIEDAD
       
-"	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	17269	"Sérum Facial Con Vitamina C Mayakú + 3 Obsequios"	"Solo tenemos 200 unidades disponibles con su regalo de lanzamiento.
+"	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	17269	"Kit Sérum Facial Con Vitamina C Mayakú"	"Solo tenemos 200 unidades disponibles con su regalo de lanzamiento.
 ¡PREVENTA! ÚNICO Y PERFECTO PARA ESTA NAVIDAD.
 A partir del 13 de diciembre se hacen las entregas.
 Desde HOY podrás adquirir el mejor Sérum con Vitamina C Liposomada de la historia.
 Contiene Vitamina C Liposomada al 10% de última generación; rica en antioxidantes que proporciona un aspecto saludable a la piel y, al mismo tiempo, protege las células cutáneas de los radicales libres.  Además, tiene ácido hialurónico de origen VEGANO, que ayuda a mejorar la luminosidad de la piel y la producción natural de colágeno, retrasando el proceso de envejecimiento prematuro.
-Libre de siliconas y aceites sintéticos, que son contaminantes y no se permiten en la Cosmética Natural"	"in stock"	"120000 COP"	https://naturalconexion.com/product/serum-facial-con-vitamina-c/	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg	"Natural Conexión"	17269	recent-product	"lanzamiento sin descuento"	"Health & Beauty > Personal Care > Cosmetics > Skin Care > Anti-Aging Skin Care Kits"	"Bonos de regalo"					
+Libre de siliconas y aceites sintéticos, que son contaminantes y no se permiten en la Cosmética Natural"	"in stock"	"185000 COP"	https://naturalconexion.com/product/serum-facial-con-vitamina-c/	https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg	"Natural Conexión"	17269	"recent-product on-sale"	"Health & Beauty > Personal Care > Cosmetics > Skin Care > Anti-Aging Skin Care Kits"	"Bonos de regalo"	"lanzamiento sin descuento"					"166500 COP"
 17294	5	"Relaja y refresca naturalmente.
 Hemos creado para ti un gel ideal para relajar el cuerpo y disminuir el cansancio físico. Está compuesto por la fusión de 12 plantas de la flora medicinal colombiana. Se absorbe fácilmente sin dejar rastro en la piel. Se puede aplicar en cualquier momento del día, en especial cuando el cansancio físico aparece.
 Ideal para deportistas y personas con trabajos pesados.
@@ -1251,34 +1209,7 @@ No son testados en animales.
 
 Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"70000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-gr/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-12-03-at-11.53.09-AM.jpeg	"Natural Conexión"	17294	recent-product		"Health & Beauty > Personal Care > Cosmetics"	Ofertas					
-17297	5	"Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.
-Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
-¿Cómo se usa?
-Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Libre de pantallas químicas.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-Activa la belleza natural de tu piel  ¡Pídelo ya!
-      
-"		new	17297	"Protector Solar con Extractos Botánicos/SPT 50+ Todo tipo de piel 80 ml"	"Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.
-Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
-¿Cómo se usa?
-Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Libre de pantallas químicas.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales."	"in stock"	"99800 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spt-50-todo-tipo-de-piel/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2022-01-24-at-10.56.44-AM.jpeg	"Natural Conexión"	17297	"recent-product top-30-days"		"Health & Beauty > Personal Care > Cosmetics"	Ofertas					
+"	"in stock"	"70000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-gr/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-12-03-at-11.53.09-AM.jpeg	"Natural Conexión"	17294	recent-product	"Health & Beauty > Personal Care > Cosmetics"	Ofertas						
 17383	5	"Fórmula especialmente elaborada para revitalizar cabellos maltratados y desvitalizados, reestructurando la fibra capilar, proporcionándole brillo y a su vez, protegiendo y realzando el color. Ideal para hidratar y nutrir el cabello.
 Ingredientes principales:
 
@@ -1320,7 +1251,7 @@ No contienen parabenos.
 No son testados en animales.
 
  ¡Adquiérelo ya!
-"	"in stock"	"28000 COP"	https://naturalconexion.com/product/crema-nutritiva-capilar-germen-de-trigo-280-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/100.png	"Natural Conexión"	17383	recent-product	manzanilla	"Health & Beauty > Personal Care > Cosmetics"	Capilar		"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"28000 COP"	https://naturalconexion.com/product/crema-nutritiva-capilar-germen-de-trigo-280-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/100.png	"Natural Conexión"	17383	recent-product	"Health & Beauty > Personal Care > Cosmetics"	Capilar	manzanilla	"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 17427	5	"Nuestro Jabón Líquido de Té Verde es ideal para pieles con impurezas, ayudando a prevenir barros y espinillas; ya que equilibra la producción de grasa en la piel. Su pH balanceado limpia, humecta y nutre sin dejar sensación de resequedad. Unifica el tono natural, aclara y evita la aparición de manchas.
 Ingredientes principales:
 
@@ -1368,83 +1299,7 @@ No son testados en animales.
 
 ¡Conoce el poder de lo natural!
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-con-extractos-botanicos-te-verde-250ml/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-te-verde.png	"Natural Conexión"	17427	recent-product		"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
-17568	5	"Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.
-Ingredientes principales:
-
-Arroz.
-Oliva.
-Vitamina E.
-Argán.
-Germen de trigo.
-
-¿Cómo se usa?
-Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-¡Una fórmula diseñada para entregarle vitalidad a tu piel! ¡Adquiérela hoy!
-      
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	17568	"Leche Desmaquilladora Pague 2 lleve 3"	"Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.
-Ingredientes principales:
-
-Arroz.
-Oliva.
-Vitamina E.
-Argán.
-Germen de trigo.
-
-¿Cómo se usa?
-Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animal"	"in stock"	"66000 COP"	https://naturalconexion.com/product/leche-desmaquilladora-pague-2-lleve-3/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.02.06-AM.jpeg	"Natural Conexión"	17568	recent-product	"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas > Productos veganos"		"0.25 kg"	"1 cm"	"50 cm"	1:1:1:cm
-17570	5	"Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.
-&nbsp;
-Ingredientes principales:
-
-Aceite de Ajonjolí.
-Aceite de Ricino.
-Aceite de Sacha inchi.
-Aceite de Oliva.
-Aceite de Argán.
-Aceite de Aguacate.
-Aceite de Jojoba.
-Vitamina E.
- Aceite de semillas de Maracuyá.
-
-¿Cómo se usa?
-Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestañas.
-¡Conéctate con lo natural!
-Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-      
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	17570	"Aceite Desmaquillador 60ML Pague 2 lleve 3"	"Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.
-&nbsp;
-Ingredientes principales:
-
-Aceite de Ajonjolí.
-Aceite de Ricino.
-Aceite de Sacha inchi.
-Aceite de Oliva.
-Aceite de Argán.
-Aceite de Aguacate.
-Aceite de Jojoba.
-Vitamina E.
- Aceite de semillas de Maracuyá.
-
-¿Cómo se usa?
-Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestaña"	"in stock"	"50000 COP"	https://naturalconexion.com/product/aceite-desmaquillador-60ml-pague-2-lleve-3/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.24.40-AM.jpeg	"Natural Conexión"	17570	recent-product		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-con-extractos-botanicos-te-verde-250ml/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-te-verde.png	"Natural Conexión"	17427	recent-product	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 17602	5	"Fórmula elaborada bajo los principios de la cosmética natural con más de 10 extractos botánicos que hidratan y nutren profundamente el contorno de los ojos. Sus ingredientes activos naturales ayudan a reducir las líneas de expresión retardando los efectos del envejecimiento.
 Ingredientes principales:
 
@@ -1493,7 +1348,7 @@ Agroecológicos.
 No contienen parabenos.
 No son testados en animales.
 
-Todo el cuidado de la naturaleza hasta la puerta"	"in stock"	"40000 COP"	https://naturalconexion.com/product/contorno-de-ojos-de-germen-de-trigo-30gr/	https://naturalconexion.com/wp-content/uploads/2021/12/Contorno-ojos-germen-de-trigo-60-gr.png	"Natural Conexión"	17602	recent-product	"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.035 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Todo el cuidado de la naturaleza hasta la puerta"	"in stock"	"40000 COP"	https://naturalconexion.com/product/contorno-de-ojos-de-germen-de-trigo-30gr/	https://naturalconexion.com/wp-content/uploads/2021/12/Contorno-ojos-germen-de-trigo-60-gr.png	"Natural Conexión"	17602	recent-product	"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"	"0.035 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 17809	5	"Contiene Vitamina C Liposomada al 10% de última generación; rica en antioxidantes que proporciona un aspecto saludable a la piel y, al mismo tiempo, protege las células cutáneas de los radicales libres.  Además, tiene ácido hialurónico de origen VEGANO, que ayuda a mejorar la luminosidad de la piel y la producción natural de colágeno, retrasando el proceso de envejecimiento prematuro.
 Libre de siliconas y aceites sintéticos, que son contaminantes y no se permiten en la Cosmética Natural.
 
@@ -1510,20 +1365,20 @@ ANTIOXIDANTE Y ANTIEDAD
 Libre de siliconas y aceites sintéticos, que son contaminantes y no se permiten en la Cosmética Natural.
 
 ¿Porqué usarlo?
-Resulta que la Vitamina C es una de las principales vitaminas que nuestro organismo o piel necesita para generar la síntesis de colágeno y así contrarrestar los radicales libres, a los cuales nos encontram"	"in stock"	"120000 COP"	https://naturalconexion.com/product/serum-facial-con-vitamina-c-mayaku/	https://naturalconexion.com/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-16-at-12.33.06-PM.jpeg	"Natural Conexión"	17809	"recent-product on-sale"	"lanzamiento serum 15"	"Health & Beauty > Personal Care > Cosmetics > Skin Care > Anti-Aging Skin Care Kits"	"Bonos de regalo"	"102000 COP"				
+Resulta que la Vitamina C es una de las principales vitaminas que nuestro organismo o piel necesita para generar la síntesis de colágeno y así contrarrestar los radicales libres, a los cuales nos encontram"	"in stock"	"120000 COP"	https://naturalconexion.com/product/serum-facial-con-vitamina-c-mayaku/	https://naturalconexion.com/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-16-at-12.33.06-PM.jpeg	"Natural Conexión"	17809	recent-product	"Health & Beauty > Personal Care > Cosmetics > Skin Care > Anti-Aging Skin Care Kits"	"Bonos de regalo"	"lanzamiento serum 15"					
 18058	5	"MASCARILLA Y EXFOLIANTE DE PAPAYA 60 GR: Suave complejo de microgránulos de arroz y extracto de papaya, integrados en una fórmula delicada de limpieza. Las propiedades exfoliantes de la papaya, ayudan a limpiar los poros obstruidos al remover las células muertas, previniendo barros y espinillas.
 Los ingredientes activos de la papaya, equilibran la producción de grasa en la piel. Nuestra Mascarilla Facial de Papaya, por su fórmula rica en antioxidantes, aporta hidratación y nutrición a tu rostro. Purifica la piel dejándola sedosa, suave y radiante. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas y/o con barros y espinillas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Papaya.
 CREMA HIDRATANTE CALENDULA Y MANZANILLA 60 GR: Por sus ingredientes activos, nuestra Crema Hidratante Nutritiva de Caléndula y Manzanilla, tiene propiedades astringentes, calmantes y regeneradoras; mejora el aspecto de la piel grasa, con barros o espinillas.
 TONICO CALENDULA Y MANZANILLA 120 ML: La caléndula y la manzanilla poseen propiedades calmantes. Nuestro Tónico Natural ayuda a cerrar los poros, equilibrar el pH, hidratar, tonificar, refrescar y purificar la piel. Favorece la producción de colágeno y elastina.
 "		new	18058	"Kit piel Grasa Papaya"	"MASCARILLA Y EXFOLIANTE DE PAPAYA 60 GR: Suave complejo de microgránulos de arroz y extracto de papaya, integrados en una fórmula delicada de limpieza. Las propiedades exfoliantes de la papaya, ayudan a limpiar los poros obstruidos al remover las células muertas, previniendo barros y espinillas.
 Los ingredientes activos de la papaya, equilibran la producción de grasa en la piel. Nuestra Mascarilla Facial de Papaya, por su fórmula rica en antioxidantes, aporta hidratación y nutrición a tu rostro. Purifica la piel dejándola sedosa, suave y radiante. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas y/o con barros y espinillas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Papaya.
-CREMA HIDRATANTE CALENDULA Y MANZANILLA 60 GR: Por sus ingredientes activos, nuestra Crema Hidratante Nutritiva de Caléndula y Manzanilla, tiene propiedades astringentes, calmantes y "	"in stock"	"91000 COP"	https://naturalconexion.com/product/kit-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2022/01/KIT-PIEL-GRASA-2022.png	"Natural Conexión"	18058	recent-product		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+CREMA HIDRATANTE CALENDULA Y MANZANILLA 60 GR: Por sus ingredientes activos, nuestra Crema Hidratante Nutritiva de Caléndula y Manzanilla, tiene propiedades astringentes, calmantes y "	"in stock"	"91000 COP"	https://naturalconexion.com/product/kit-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2022/01/KIT-PIEL-GRASA-2022.png	"Natural Conexión"	18058	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"						
 18061	5	"TONICO NATURAL DE ROSAS 120 ML: Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen refrescando tu piel, cerrando los poros, equilibrando el pH e hidratando tu rostro. Ideal para todo tipo de piel.
 PROTECTOR SOLAR DE UVA 60 GR: Fórmula libre de filtros químicos que actúa como una barrera física, brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Contiene aceite de semillas de uva, el cual es rico en antioxidantes y vitaminas. Estimula la producción de colágeno y elastina. Cuida la piel de radicales libres mientras la hidrata, nutre y suaviza. Hipoalergénico y dermatológicamente probado.
 CREMA HIDRTANTE COLAGENO Y ELASTINA 60 GR: Experimenta cómo la naturaleza transforma tu piel con nuestra crema de colágeno y elastina, ingredientes que le entregan salud, elasticidad y belleza a tu rostro.
 "		new	18061	"kit Hidratante"	"TONICO NATURAL DE ROSAS 120 ML: Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen refrescando tu piel, cerrando los poros, equilibrando el pH e hidratando tu rostro. Ideal para todo tipo de piel.
 PROTECTOR SOLAR DE UVA 60 GR: Fórmula libre de filtros químicos que actúa como una barrera física, brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Contiene aceite de semillas de uva, el cual es rico en antioxidantes y vitaminas. Estimula la producción de colágeno y elastina. Cuida la piel de radicales libres mientras la hidrata, nutre y suaviza. Hipoalergénico y dermatológicamente probado.
-CREMA HIDRTANTE COLAGENO Y ELASTINA 60 GR: Experimenta cómo la naturaleza transforma tu piel con nuestra crema de colágeno y elastina, ingredientes que le entregan salud, elasticidad y bell"	"in stock"	"117000 COP"	https://naturalconexion.com/product/kit-hidratante/	https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.24.14-AM.jpeg	"Natural Conexión"	18061	recent-product		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+CREMA HIDRTANTE COLAGENO Y ELASTINA 60 GR: Experimenta cómo la naturaleza transforma tu piel con nuestra crema de colágeno y elastina, ingredientes que le entregan salud, elasticidad y bell"	"in stock"	"117000 COP"	https://naturalconexion.com/product/kit-hidratante/	https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.24.14-AM.jpeg	"Natural Conexión"	18061	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"						
 18449	5	"Hidrata y protege naturalmente.
 Tratamiento formulado con extracto natural de romero, ortiga, quina y aloe vera, cuyos ingredientes activos favorecen la regeneración del folículo piloso, estimulando el crecimiento, evitando la caída y dándole un aspecto revitalizado. Además de estos compuestos estimulantes, contiene otros extractos vegetales que fortalecen, reparan, humectan, nutren y acondicionan la fibra capilar.
 Ideal para el crecimiento del cabello.
@@ -1575,7 +1430,43 @@ Extracto de San Joaquín.
 Humedezca muy bien el cabello, aplique el shampoo y realice suaves masajes en forma circular hasta hacer espuma. Enjuague con abundante agua, procurando no dejar residuos
 Ingredientes principales
 
-"	"in stock"	"48000 COP"	https://naturalconexion.com/product/repuesto-natural-romero-quina-y-ortiga-280-ml/	https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-24-at-8.54.57-AM.jpeg	"Natural Conexión"	18449	recent-product	"ortiga quina"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+"	"in stock"	"48000 COP"	https://naturalconexion.com/product/repuesto-natural-romero-quina-y-ortiga-280-ml/	https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-24-at-8.54.57-AM.jpeg	"Natural Conexión"	18449	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	"ortiga quina"					
+18696	5	"¡Ya nuestra nueva edición está en casa! Ritual Box 10 años para todos desde hoy.
+DISPONIBLE
+Nuestra edición especial la hicimos para ellas, inspirada en dos mujeres campesinas, que aman el campo y buscaron superarse, para regresar y ayudar a dignificar esta labor de una forma justa. Porqué hace más de diez años que empezaron a cultivar este sueño que ahora se llama Natural Conexion, a ellas toda nuestra gratitud, porque generan empleo, porque han dignificado la labor en el campo y porque cuidan el medio ambiente con su gran proyecto de cosméticos naturales.
+CONTIENE:
+&#8211; Leche Desmaquilladora 250 gr
+&#8211; Tónico Facial 120 ml
+&#8211; Protector Solar 30 gr
+&#8211; Protector Labial 5 gr
+&#8211; Aromaset (Aromatizante para espacios con cera de soya) OBSEQUIO.
+&#8211; Cupón de descuento para su recompra, aplican T&amp;C.
+Cada producto que compras en Natural Conexion, está pensado de una forma consciente, para que sea amigable con tu salud, el medio ambiente y sobre todo que toda su cadena productiva tenga un pago justo desde nuestros productores de plantas, hasta la transformación y comercialización del mismo.
+Una oportunidad para cuidarte sin remordimientos.
+En nuestro Kit Box Aniversario, tenemos dos opciones para ti. Recuerda que puedes elegirlo de acuerdo a tu necesidad:
+Opción 1: Para piel mixta o grasa
+1. Leche Limpiadora de Caléndula
+2.Tónico de Té Verde
+3 Protector Solar 30 gr
+4. Protector Labial Caléndula 5 gr
+5. Aromaset
+Opción dos: para piel seca o normal
+1. Leche Limpiadora de Arroz
+2.Tónico de Rosas
+3 Protector Solar 30 gr
+4. Protector Labial Caléndula 5 gr
+5. Aromaset
+¡RECUERDA COLOCAR EN LAS OBSERVACIONES CUAL DESEAS ABQUIRIR!
+"	https://naturalconexion.com/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-07-at-4.20.12-PM.jpeg	new	18696	"Ritual Box 10 años Aniversario"	"¡Ya nuestra nueva edición está en casa! Ritual Box 10 años para todos desde hoy.
+DISPONIBLE
+Nuestra edición especial la hicimos para ellas, inspirada en dos mujeres campesinas, que aman el campo y buscaron superarse, para regresar y ayudar a dignificar esta labor de una forma justa. Porqué hace más de diez años que empezaron a cultivar este sueño que ahora se llama Natural Conexion, a ellas toda nuestra gratitud, porque generan empleo, porque han dignificado la labor en el campo y porque cuidan el medio ambiente con su gran proyecto de cosméticos naturales.
+CONTIENE:
+&#8211; Leche Desmaquilladora 250 gr
+&#8211; Tónico Facial 120 ml
+&#8211; Protector Solar 30 gr
+&#8211; Protector Labial 5 gr
+&#8211; Aromaset (Aromatizante para espacios con cera de soya) OBSEQUIO.
+&#8211; Cupón de descuento para su reco"	"in stock"	"86000 COP"	https://naturalconexion.com/product/ritual-box-10-anos-aniversario/	https://naturalconexion.com/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-08-at-11.07.50-AM.jpeg	"Natural Conexión"	18696	recent-product	"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 7426	5	"Nuestro Desodorante Natural de Dama, cambio de imagen, pero sigue siendo la misma fórmula.
 ¡Protégete de naturalmente!
 La línea de Desodorantes Naturales de Natural Conexion, está elaborada con ingredientes bio-activos derivados de la salvia, el tomillo, el romero y el laurel que, por sus propiedades, evitan la generación del mal olor a causa del sudor. No mancha la piel, no contiene alcohol etílico, ni compuestos antitranspirantes, permitiendo que la piel respire naturalmente.
@@ -1613,7 +1504,7 @@ Piedra Lumbre.
 
 ¿Cómo se usa?
 Aplicar una fina capa en la axila, sobre la piel limpia y seca.
-Nuestros productos:"	"in stock"	"19900 COP"	https://naturalconexion.com/product/desodorante-dama/	https://naturalconexion.com/wp-content/uploads/2020/09/Desodorante-Natural-Dama.png	"Natural Conexión"	7426	top-30-days	"calendula favoritos"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"		"0.068 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Nuestros productos:"	"in stock"	"19900 COP"	https://naturalconexion.com/product/desodorante-dama/	https://naturalconexion.com/wp-content/uploads/2020/09/Desodorante-Natural-Dama.png	"Natural Conexión"	7426	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"calendula favoritos"	"0.068 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7429	5	"Fórmula elaborada con extractos de caléndula y manzanilla que, por sus propiedades, estimulan la regeneración de tejidos y ayudan en el control de barros y espinillas. A base de glicerina vegetal que entrega hidratación y retiene la humedad, permitiendo a la piel mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Ideal para pieles grasas o delicadas.
 Ingredientes principales:
@@ -1654,7 +1545,7 @@ Naturales
 No contienen parabenos
 No son testados en animales
 
-"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-calendula-y-manzanilla/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-33-2.png	"Natural Conexión"	7429		manzanilla	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.107 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-en-barra-de-calendula-y-manzanilla/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-33-2.png	"Natural Conexión"	7429	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	manzanilla	"0.107 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7430	5	"“Sí, el amor está muy bien a su modo, pero la amistad es una cosa mucho más alta. Realmente nada hay en el mundo más noble y raro que una amistad verdadera.”
 Tenemos el Kit perfecto para ti y tus amigos, llévate estos esenciales y crea espacios con aquellos que amas; mientras se conectan con la naturaleza.
 Permite que la sabiduría infinita de la naturaleza entre en contacto con tu ser.
@@ -1694,7 +1585,7 @@ Productos:
 1 Leche Desmaquilladora Caléndula. 60 ml.
 Nuestros productos:
 
-No contami"	"in stock"	"71111 COP"	https://naturalconexion.com/product/kit-viajero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-62.png	"Natural Conexión"	7430			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"		"0.51 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No contami"	"in stock"	"71111 COP"	https://naturalconexion.com/product/kit-viajero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-62.png	"Natural Conexión"	7430		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"		"0.51 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7431	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1741,7 +1632,7 @@ Hidratante y Protector para Labios Menta.
 Hidratante y Protector para Labios Caléndula y Manzanilla.
 
 ¿Cómo se usa?
-Aplicar una capa fina en los labios, varias v"	"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431	top-30-days	"cacao hierbabuena linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial					
+Aplicar una capa fina en los labios, varias v"	"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	Facial	"cacao hierbabuena linea facial"					
 7433	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1772,7 +1663,7 @@ No son testados en animales.
 
 ¡Disfruta de tu belleza natural!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7433	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Calendula+y+manzanilla	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"cacao hierbabuena linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.012 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7433	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Calendula+y+manzanilla	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"Health & Beauty > Personal Care > Cosmetics"	Facial	"cacao hierbabuena linea facial"	"0.012 kg"	"1 cm"	"50 cm"		
 7434	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1803,7 +1694,7 @@ No son testados en animales.
 
 ¡Disfruta de tu belleza natural!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7434	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Hierbabuena	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"cacao hierbabuena linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.012 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7434	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Hierbabuena	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"Health & Beauty > Personal Care > Cosmetics"	Facial	"cacao hierbabuena linea facial"	"0.012 kg"	"1 cm"	"50 cm"		
 7435	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1834,7 +1725,7 @@ No son testados en animales.
 
 ¡Disfruta de tu belleza natural!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7435	"Hidratante y Protector para Labios 5 gr"		"in stock"	"10000 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Frutos+rojos	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"cacao hierbabuena linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.012 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7435	"Hidratante y Protector para Labios 5 gr"		"in stock"	"10000 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Frutos+rojos	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"Health & Beauty > Personal Care > Cosmetics"	Facial	"cacao hierbabuena linea facial"	"0.012 kg"	"1 cm"	"50 cm"		
 7437	5	"Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados.
 La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.
 Ingredientes principales:
@@ -1865,7 +1756,7 @@ No son testados en animales.
 
 ¡Disfruta de tu belleza natural!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7437	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Menta	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"cacao hierbabuena linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.012 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-menta.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-4.png%2Chttps://naturalconexion.com/wp-content/uploads/2020/09/Kits-Página-Web-3.png	new	7437	"Hidratante y Protector para Labios 5 gr"		"in stock"	"9500 COP"	https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Menta	https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg	"Natural Conexión"	7431		"Health & Beauty > Personal Care > Cosmetics"	Facial	"cacao hierbabuena linea facial"	"0.012 kg"	"1 cm"	"50 cm"		
 7439	5	"Formulada a base de extractos botánicos que humectan, hidratan y reparan la fibra capilar. Previene la caída del cabello y protege el color del cabello natural o tinturado
 Ingredientes principales:
 
@@ -1907,7 +1798,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
- "	"in stock"	"53000 COP"	https://naturalconexion.com/product/reparadora-capilar-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/reparadora-de-cebolla.jpg	"Natural Conexión"	7439		cebolla	"Health & Beauty > Personal Care > Cosmetics"	Capilar		"0.543 kg"	"1 cm"	"50 cm"	1:1:1:cm
+ "	"in stock"	"53000 COP"	https://naturalconexion.com/product/reparadora-capilar-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/reparadora-de-cebolla.jpg	"Natural Conexión"	7439		"Health & Beauty > Personal Care > Cosmetics"	Capilar	cebolla	"0.543 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7440	5	"Esta formulación está creada para estimular y fortalecer el folículo piloso, gracias al contenido de azufre de la cebolla que, además, protege las fibras capilares. El Shampoo Natural de Cebolla, previene la caída del cabello y promueve el crecimiento, dándole brillo, frescura y vitalidad.
 Ingredientes principales:
 
@@ -1950,7 +1841,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-Lo lleva"	"in stock"	"30000 COP"	https://naturalconexion.com/product/shampoo-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-cebolla.jpg	"Natural Conexión"	7440		"cebolla descuento 10 juernes"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+Lo lleva"	"in stock"	"30000 COP"	https://naturalconexion.com/product/shampoo-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-cebolla.jpg	"Natural Conexión"	7440	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	cebolla					
 7443	5	"Suaviza tu cabello naturalmente.
 Fórmula elaborada con un complejo de extractos botánicos suavizantes derivados del coco y las almendras, que actúan sobre la fibra capilar revitalizando y devolviendo el brillo natural a los cabellos secos y maltratados.
 Ideal para cabellos secos y maltratados.
@@ -1997,7 +1888,7 @@ No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
 Naturales.
-No contienen parabenos."	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-coco-y-almendras/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-coco.jpg	"Natural Conexión"	7443		almendras	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+No contienen parabenos."	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-coco-y-almendras/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-coco.jpg	"Natural Conexión"	7443		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	almendras					
 7445	5	"Su fórmula está diseñada para hidratar y suavizar reestructurando la fibra capilar y proporcionando un brillo especial al cabello, realzando y protegiendo el color.
 Ingredientes principales:
 
@@ -2042,7 +1933,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Déjate envolver por la magia de la belleza natural
-Lo llevaremos hasta la puerta de tu c"	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-manzanilla.jpg	"Natural Conexión"	7445		manzanilla	"Health & Beauty > Personal Care > Cosmetics"	Capilar		"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Lo llevaremos hasta la puerta de tu c"	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/shampoo-manzanilla.jpg	"Natural Conexión"	7445		"Health & Beauty > Personal Care > Cosmetics"	Capilar	manzanilla	"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7446	5	"Hidrata y protege naturalmente.
 Tratamiento formulado con extracto natural de romero, ortiga, quina y aloe vera, cuyos ingredientes activos favorecen la regeneración del folículo piloso, estimulando el crecimiento, evitando la caída y dándole un aspecto revitalizado. Además de estos compuestos estimulantes, contiene otros extractos vegetales que fortalecen, reparan, humectan, nutren y acondicionan la fibra capilar.
 Ideal para el crecimiento del cabello.
@@ -2094,7 +1985,7 @@ Extracto de San Joaquín.
 Humedezca muy bien el cabello, aplique el shampoo y realice suaves masajes en forma circular hasta hacer espuma. Enjuague con abundante agua, procurando no dejar residuos
 Ingredientes principales
 
-"	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-romero-quina-y-ortiga/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-67.png	"Natural Conexión"	7446	top-30-days	"ortiga quina"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+"	"in stock"	"28000 COP"	https://naturalconexion.com/product/shampoo-de-romero-quina-y-ortiga/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-67.png	"Natural Conexión"	7446	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	"ortiga quina"					
 7451	5	"El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Por sus propiedades cierra los poros, equilibra el pH, hidrata, regenera, tonifica, refresca y purifica la piel. Favorece la producción de colágeno y elastina.
 Ideal para pieles grasas.
 Ingredientes principales:
@@ -2134,7 +2025,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-pepino.png	"Natural Conexión"	7451		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.125 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-pepino.png	"Natural Conexión"	7451		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"	"0.125 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7452	5	"El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Por sus propiedades cierra los poros, equilibra el pH, hidrata, regenera, tonifica, refresca y purifica la piel. Favorece la producción de colágeno y elastina.
 Ideal para pieles grasas.
 Ingredientes principales:
@@ -2155,7 +2046,7 @@ No contienen parabenos.
 No son testados en animales.
 
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7452	"Tónico Natural de Pepino y Aloe Vera 120ml"		"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-pepino/?attribute_peso=120+gr	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-pepino.png	"Natural Conexión"	7451		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"1 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7452	"Tónico Natural de Pepino y Aloe Vera 120ml"		"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-pepino/?attribute_peso=120+gr	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-pepino.png	"Natural Conexión"	7451		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"	"1 kg"	"1 cm"	"50 cm"		
 7469	5	"¡Protégete de naturalmente!
 La línea de Desodorantes Naturales de Natural Conexion, está elaborada con ingredientes bio-activos derivados de la salvia, el tomillo, el romero y el laurel que, por sus propiedades, evitan la generación del mal a causa del sudor. No mancha la piel, no contiene alcohol ni compuestos antitranspirantes, permitiendo que la piel respire naturalmente.
 Ingredientes principales:
@@ -2195,7 +2086,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-Agroecológic"	"in stock"	"19900 COP"	https://naturalconexion.com/product/desodorante-hombre/	https://naturalconexion.com/wp-content/uploads/2020/09/Formato-Tienda-4.png	"Natural Conexión"	7469	top-30-days	calendula	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"		"0.068 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Agroecológic"	"in stock"	"19900 COP"	https://naturalconexion.com/product/desodorante-hombre/	https://naturalconexion.com/wp-content/uploads/2020/09/Formato-Tienda-4.png	"Natural Conexión"	7469	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	calendula	"0.068 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7470	5	"La Crema Nutritiva Capilar de Cacao Claro, constituye un completo tratamiento para los cabellos desvitalizados, maltratados y/o secos.  Gracias al cacao, y demás extractos botánicos, esta formulación hidrata, nutre y revitaliza las fibras capilares, recuperando su suavidad y brillo natural. Ideal para todo tipo de cabello, especialmente cabellos claros y/o tinturados.
 Ingredientes principales:
 
@@ -2244,7 +2135,7 @@ Germen de trigo.
 
 ¿Cómo se usa?
 Después de lavar el cabello aplicar una cantidad suficiente. En cabellos grasos, aplicar de medios a puntas. En cabellos secos, aplicar desde la raíz. Dejar actuar mínimo por 5 minutos y enjuagar.
-Para una hidratación y nutrición profunda, dejar actuar de 30 a 40 minutos y enjuagar con abundante agua. Si se quiere una mayor reparación de la fibra capilar, dejar aplicado mínimo po"	"in stock"	"45500 COP"	https://naturalconexion.com/product/chocolister-cabello-claro/	https://naturalconexion.com/wp-content/uploads/2020/09/chocolister-claro-500.jpg	"Natural Conexión"	7470		cacao	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"		"41000 kg"			
+Para una hidratación y nutrición profunda, dejar actuar de 30 a 40 minutos y enjuagar con abundante agua. Si se quiere una mayor reparación de la fibra capilar, dejar aplicado mínimo po"	"in stock"	"45500 COP"	https://naturalconexion.com/product/chocolister-cabello-claro/	https://naturalconexion.com/wp-content/uploads/2020/09/chocolister-claro-500.jpg	"Natural Conexión"	7470		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	cacao	"41000 kg"				
 7473	5	"La Crema Nutritiva Capilar de Cacao Oscuro, constituye un completo tratamiento para los cabellos desvitalizados, maltratados y/o secos.  Gracias al cacao, y demás extractos botánicos, esta formulación hidrata, nutre y revitaliza las fibras capilares, recuperando su suavidad y brillo natural. Ideal para todo tipo de cabello, especialmente cabellos oscuros y/o tinturados.
 Ingredientes principales:
 
@@ -2281,7 +2172,7 @@ Germen de trigo.
 
 ¿Cómo se usa?
 Después de lavar el cabello aplicar una cantidad suficiente. En cabellos grasos, aplicar de medios a puntas. En cabellos secos, aplicar desde la raíz. Dejar actuar mínimo por 5 minutos y enjuagar.
-Para una hidratación y nutrición profunda, dejar actuar de 30 a 40 minutos y enjuagar con abundante agua. Si se quiere una mayor reparación de la fibra capilar, dejar aplicado mínimo "	"in stock"	"45500 COP"	https://naturalconexion.com/product/chocolister-cabello-oscuro/	https://naturalconexion.com/wp-content/uploads/2020/09/chocolister-oscuro-500.jpg	"Natural Conexión"	7473		cacao	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+Para una hidratación y nutrición profunda, dejar actuar de 30 a 40 minutos y enjuagar con abundante agua. Si se quiere una mayor reparación de la fibra capilar, dejar aplicado mínimo "	"in stock"	"45500 COP"	https://naturalconexion.com/product/chocolister-cabello-oscuro/	https://naturalconexion.com/wp-content/uploads/2020/09/chocolister-oscuro-500.jpg	"Natural Conexión"	7473		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	cacao					
 7477	5	"Suaviza y protege naturalmente.
 Su fórmula a base de almendras ayuda al cuidado diario de la piel después del baño o para un masaje corporal. Por sus principios activos tiene propiedades hidratantes que nutren la piel a profundidad.
 Ideal para masajes e hidratación de la piel.
@@ -2325,7 +2216,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Hidrata tu piel con nuestro Aceite de Almendras. Regálale a tu cuerpo lo mejor de lo Natural.
-"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-almendras/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-almendras.jpg	"Natural Conexión"	7477		almendras	"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-almendras/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-almendras.jpg	"Natural Conexión"	7477		"Health & Beauty > Personal Care > Cosmetics"	Corporal	almendras	"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7479	5	"Tonifica naturalmente.
 Su fórmula a base de naranja y romero ayuda al cuidado diario de la piel después del baño o para un masaje corporal. Sus ingredientes activos fomentan la capacidad de la piel de mantenerse hidratada, se absorbe fácilmente y deja la piel muy tersa. Tonifica y ayuda a eliminar el exceso de grasa localizada; los aceites esenciales contenidos aumentan la función de drenaje sobre el tejido. El romero es un potente antioxidante y regenerador de tejidos así que, estos dos ingredientes juntos, ayudan a atenuar y prevenir la celulitis.
 Ideal para todo tipo de piel.
@@ -2365,7 +2256,7 @@ Aplicar mediante masajes hasta lograr su completa absorción.
 Nuestros productos:
 
 No contaminan el agua.
-Son 1"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-naranja-y-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-de-romero-y-naranja.jpg	"Natural Conexión"	7479			"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Son 1"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-naranja-y-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-de-romero-y-naranja.jpg	"Natural Conexión"	7479		"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7480	5	"Relaja y tonifica naturalmente.
 Su fórmula a base de eucalipto ayuda al cuidado diario de la piel después del baño o para un masaje corporal. Por sus ingredientes activos ayuda a combatir el cansancio físico; relaja, refresca, nutre e hidrata. Se absorbe fácilmente y deja la piel muy tersa.
 Ideal para todo tipo de piel.
@@ -2407,7 +2298,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Disfruta los beneficios de la naturaleza en tu piel.  ¡Adquiérelo ya!
-"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-eucalipto/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-de-eucalipto.jpg	"Natural Conexión"	7480			"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-de-eucalipto/	https://naturalconexion.com/wp-content/uploads/2020/09/aceite-de-eucalipto.jpg	"Natural Conexión"	7480		"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.303 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7483	5	"Fórmula elaborada a base de extractos botánicos naturales; la cafeína contenida en el café, estimula la eliminación de toxinas acumuladas en el área de los ojos, disminuyendo las bolsas y las ojeras. Atenúa líneas de expresión, hidrata y suaviza los párpados. Previene el envejecimiento prematuro, mantiene la firmeza y elasticidad de la piel.
 Ingredientes principales:
 
@@ -2456,7 +2347,7 @@ Agroecológicos.
 No contienen parabenos.
 No son testados en animales.
 
-"	"in stock"	"40000 COP"	https://naturalconexion.com/product/contorno-de-ojos-de-cafe/	https://naturalconexion.com/wp-content/uploads/2020/09/contorno-de-ojos-cafe.jpg	"Natural Conexión"	7483		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.035 kg"	"3.1 cm"	"10.5 cm"	3.1:3.1:3.1:cm
+"	"in stock"	"40000 COP"	https://naturalconexion.com/product/contorno-de-ojos-de-cafe/	https://naturalconexion.com/wp-content/uploads/2020/09/contorno-de-ojos-cafe.jpg	"Natural Conexión"	7483		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"	"0.035 kg"	"3.1 cm"	"10.5 cm"	3.1:3.1:3.1:cm	
 7485	5	" ¡Te invitamos a probar nuestra rutina de cuidado natural para tu piel!
 Deja que el poder de los ingredientes naturales actúe sobre el contorno de tus ojos devolviéndole la elasticidad, la hidratación que necesitan y firmeza
 Experimenta cómo la naturaleza actúa y previene el envejecimiento prematuro.
@@ -2506,7 +2397,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Disfruta la conexión con lo natural ¡Adquiérelo ya!
-"	"in stock"	"45000 COP"	https://naturalconexion.com/product/contorno-de-ojos-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/contorno-de-ojos-uva.jpg	"Natural Conexión"	7485		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.035 kg"	"3.1 cm"	"10.5 cm"	3.1:3.1:3.1:cm
+"	"in stock"	"45000 COP"	https://naturalconexion.com/product/contorno-de-ojos-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/contorno-de-ojos-uva.jpg	"Natural Conexión"	7485		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial"	"0.035 kg"	"3.1 cm"	"10.5 cm"	3.1:3.1:3.1:cm	
 7486	5	"Hidrata naturalmente.
 Por sus ingredientes activos, nuestra Crema Hidratante Nutritiva de Caléndula y Manzanilla, tiene propiedades astringentes, calmantes y regeneradoras; mejora el aspecto de la piel grasa, con barros o espinillas.
 Ingredientes principales:
@@ -2536,7 +2427,7 @@ Extracto de Uva.
 ¿Cómo se usa?
 Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en el cuello y el rostro, masajeando hasta completar su absorción.
 ¡Es momento de conectar con la naturaleza y experimentar su poder! ¡Adquiérelo hoy!
- "	"in stock"	"35000 COP"	https://naturalconexion.com/product/crema-calendula-y-manzanilla/	https://naturalconexion.com/wp-content/uploads/2020/09/CALÉNDULA-Y-MANZANILLA_Mesa-de-trabajo-1.png	"Natural Conexión"	7486	top-30-days	"calendula linea facial manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.074 kg"	"1 cm"	"50 cm"	1:1:1:cm
+ "	"in stock"	"35000 COP"	https://naturalconexion.com/product/crema-calendula-y-manzanilla/	https://naturalconexion.com/wp-content/uploads/2020/09/CALÉNDULA-Y-MANZANILLA_Mesa-de-trabajo-1.png	"Natural Conexión"	7486	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	Facial	"calendula linea facial manzanilla"	"0.074 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7488	5	"Nutre naturalmente.
 Experimenta cómo la naturaleza transforma tu piel con nuestra crema de colágeno y elastina, ingredientes que le entregan salud, elasticidad y belleza a tu rostro.
 Ingredientes principales:
@@ -2584,7 +2475,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Belleza natural y única ¡Adquiérelo ya!
-"	"in stock"	"36000 COP"	https://naturalconexion.com/product/crema-de-colageno-y-elastina/	https://naturalconexion.com/wp-content/uploads/2020/09/crema-colageno-y-elastina.jpg	"Natural Conexión"	7488	top-30-days		"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.074 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"36000 COP"	https://naturalconexion.com/product/crema-de-colageno-y-elastina/	https://naturalconexion.com/wp-content/uploads/2020/09/crema-colageno-y-elastina.jpg	"Natural Conexión"	7488		"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.074 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7502	5	"Suave complejo de microgránulos de arroz y extracto de papaya, integrados en una fórmula delicada de limpieza. Las propiedades exfoliantes de la papaya, ayudan a limpiar los poros obstruidos al remover las células muertas, previniendo barros y espinillas
 Ingredientes principales:
 
@@ -2630,7 +2521,7 @@ Agroecológicos.
 Naturales.
 No contienen parabenos.
 No son testados en animales.
-"	"in stock"	"15000 COP"	https://naturalconexion.com/product/exfoliante-de-papaya/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-papaya.jpg	"Natural Conexión"	7502		"descuento 15 juernes"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"					
+"	"in stock"	"15000 COP"	https://naturalconexion.com/product/exfoliante-de-papaya/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-papaya.jpg	"Natural Conexión"	7502		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"						
 7503	5	"Relaja y refresca naturalmente.
 Hemos creado para ti un gel ideal para relajar el cuerpo y disminuir el cansancio físico. Está compuesto por la fusión de 12 plantas de la flora medicinal colombiana. Se absorbe fácilmente sin dejar rastro en la piel. Se puede aplicar en cualquier momento del día, en especial cuando el cansancio físico aparece.
 Ideal para deportistas y personas con trabajos pesados.
@@ -2682,7 +2573,7 @@ Son 100% biodegradables.
 Agroecológicos.
 Naturales.
 No contienen parabenos.
-"	"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-pronto-alivio/	https://naturalconexion.com/wp-content/uploads/2020/09/Gel-Pronto-Alivio-60-gr.png	"Natural Conexión"	7503		"favoritos gel gel pronto alivio"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"		"0.278 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-pronto-alivio/	https://naturalconexion.com/wp-content/uploads/2020/09/Gel-Pronto-Alivio-60-gr.png	"Natural Conexión"	7503		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"favoritos gel gel pronto alivio"	"0.278 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7504	5	"Jabón Líquido con Extractos Botánicos Caléndula y Manzanilla.
 Entrégale frescura e hidratación a tu piel, permite que los ingredientes de nuestro Jabón Líquido de Caléndula y Manzanilla limpien tu rostro sin resecarlo. El poder de las plantas actúa regenerando los tejidos y previniendo las imperfecciones. Ideal para pieles grasas y delicadas.
 Ingredientes principales:
@@ -2726,7 +2617,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-¡Es momento de conectar con la naturaleza "	"in stock"	"23000 COP"	https://naturalconexion.com/product/jabon-liquido-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-calendula.png	"Natural Conexión"	7504	top-30-days	"calendula manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"		"0.341 kg"	"1 cm"	"50 cm"	1:1:1:cm
+¡Es momento de conectar con la naturaleza "	"in stock"	"23000 COP"	https://naturalconexion.com/product/jabon-liquido-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-calendula.png	"Natural Conexión"	7504	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"	"calendula manzanilla"	"0.341 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7513	5	"La Leche Desmaquilladora de Caléndula y Manzanilla, limpia y remueve el maquillaje, las impurezas y la polución, aportando hidratación, nutrición y suavidad a la piel. Por sus ingredientes activos, mantiene el equilibrio natural, calma y estimula la producción de colágeno y elastina. Ideal para pieles delicadas y/o con barros y espinillas.
 Ingredientes principales:
 
@@ -2771,53 +2662,7 @@ Natural.
 No contienen parabenos.
 No son testados en animales.
 
-¡Es momento de conec"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.10-AM.jpeg	"Natural Conexión"	7513		"calendula linea facial manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
-7514	5	"Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel.
-¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro.
-Ideal para pieles con manchas.
-Ingredientes principales:
-
-Extracto y Aceite Esencial de Perejil.
-Extracto de Áloe Vera.
-Sauco.
-Arroz.
-Caléndula.
-Almendra.
-Ajonjolí.
-
-¿Cómo se usa?
-Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.
- Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-¡Disfruta de tu belleza natural! ¡Pídelo ya!
-      
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7514	"Leche Desmaquilladora Perejil 250 ml"	"Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel.
-¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro.
-Ideal para pieles con manchas.
-Ingredientes principales:
-
-Extracto y Aceite Esencial de Perejil.
-Extracto de Áloe Vera.
-Sauco.
-Arroz.
-Caléndula.
-Almendra.
-Ajonjolí.
-
-¿Cómo se usa?
-Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.
- Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológi"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-perejil/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM.jpeg	"Natural Conexión"	7514	on-sale	"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Ofertas > Productos veganos"	"29700 COP"	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+¡Es momento de conec"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.10-AM.jpeg	"Natural Conexión"	7513		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	"calendula linea facial manzanilla"	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7515	5	"La Leche Desmaquilladora de Té Verde, por sus ingredientes activos, mantiene el equilibrio natural de la piel, limpiando y removiendo maquillaje, impurezas y células muertas. Ayuda a emparejar el tono natural de la piel y previene la aparición de manchas. El té verde es rico en antioxidantes y vitamina C, componentes que calman el estrés oxidativo. Regula la producción de grasa en la piel. Ideal para pieles grasas o mixtas, y/o con barros y espinillas.
 Ingredientes principales:
 
@@ -2857,7 +2702,7 @@ No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
 Naturales.
-"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-1.jpeg	"Natural Conexión"	7515		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-1.jpeg	"Natural Conexión"	7515		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	"linea facial"	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7516	5	"¡Vuelve a lo natural! Cuida, desmaquilla y nutre tu piel con una fórmula diseñada para estimular la producción de Colágeno y Elastina y prevenir el envejecimiento prematuro.
 Limpia las impurezas y polución en tu rostro, aportando suavidad, hidratación y nutrición a la piel.
 Ideal para pieles maduras.
@@ -2907,7 +2752,7 @@ No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
 Naturales.
-No contienen"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-uva-y-argan/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-2.jpeg	"Natural Conexión"	7516		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No contienen"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-uva-y-argan/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-2.jpeg	"Natural Conexión"	7516		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	"linea facial"	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7518	5	"Nuestra crema hidratante contiene ingredientes activos naturales que calman, nutren, hidratan, regeneran y protegen la piel.
 Solo para uso externo.
 Ingredientes principales:
@@ -2959,7 +2804,7 @@ No son testados en animales.
 
 ¡Conoce el poder de lo natural!
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"46000 COP"	https://naturalconexion.com/product/leche-de-ortiga-y-venadillo/	https://naturalconexion.com/wp-content/uploads/2020/09/leche-de-ortiga.jpg	"Natural Conexión"	7518		ortiga	"Health & Beauty > Personal Care > Cosmetics"	Corporal					
+"	"in stock"	"46000 COP"	https://naturalconexion.com/product/leche-de-ortiga-y-venadillo/	https://naturalconexion.com/wp-content/uploads/2020/09/leche-de-ortiga.jpg	"Natural Conexión"	7518		"Health & Beauty > Personal Care > Cosmetics"	Corporal	ortiga					
 7533	5	"Los ingredientes activos de la papaya, equilibran la producción de grasa en la piel. Nuestra Mascarilla Facial de Papaya, por su fórmula rica en antioxidantes, aporta hidratación y nutrición a tu rostro. Purifica la piel dejándola sedosa, suave y radiante. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas y/o con barros y espinillas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Papaya.
  Ingredientes principales:
 
@@ -2999,7 +2844,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¿Cómo se usa?
-Aplicar una fina capa en el cuello y el rostro, con suaves masajes circulares. Dejar actuar entre 15-30 minutos. Enjuagar con a"	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-de-papaya/	https://naturalconexion.com/wp-content/uploads/2020/09/mascarilla-papaya.jpg	"Natural Conexión"	7533			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Aplicar una fina capa en el cuello y el rostro, con suaves masajes circulares. Dejar actuar entre 15-30 minutos. Enjuagar con a"	"in stock"	"15000 COP"	https://naturalconexion.com/product/mascarilla-de-papaya/	https://naturalconexion.com/wp-content/uploads/2020/09/mascarilla-papaya.jpg	"Natural Conexión"	7533		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7534	5	"Fórmula elaborada con Extractos Botánicos suavizantes derivados del Coco, provenientes de cosechas orgánicas y con espumantes biodegradables libres de sulfatos que no contaminan el agua, que al ser mezcladas con los Extractos de Almendras revitalizan la fibra capilar, devolviéndole su brillo natural.
 Ideal para hidratar cabellos secos y maltratados.
 Ingredientes principales: 
@@ -3044,7 +2889,7 @@ Son 100% biodegradables.
 Agroecológicos.
 Naturales.
 No contienen parabenos.
-No son testados en animales."	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-coco/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-18.png	"Natural Conexión"	7534		almendras	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"		"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No son testados en animales."	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-coco/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-18.png	"Natural Conexión"	7534		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	almendras	"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7535	5	"Fórmula especialmente elaborada para revitalizar cabellos maltratados y desvitalizados, reestructurando la fibra capilar, proporcionándole brillo y a su vez, protegiendo y realzando el color. Ideal para hidratar y nutrir el cabello.
 Ingredientes principales:
 
@@ -3086,7 +2931,7 @@ No contienen parabenos.
 No son testados en animales.
 
  ¡Adquiérelo ya!
-"	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/100.png	"Natural Conexión"	7535		manzanilla	"Health & Beauty > Personal Care > Cosmetics"	Capilar		"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/100.png	"Natural Conexión"	7535		"Health & Beauty > Personal Care > Cosmetics"	Capilar	manzanilla	"0.32 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7540	5	"Hidrata y refresca de manera natural.
 Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen refrescando tu piel, cerrando los poros, equilibrando el pH e hidratando tu rostro. Ideal para todo tipo de piel.
 Ingredientes principales:
@@ -3131,7 +2976,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-rosas/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-10.png	"Natural Conexión"	7540			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-rosas/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-10.png	"Natural Conexión"	7540		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7541	5	"¡Regenera tu piel!
 La caléndula y la manzanilla poseen propiedades calmantes. Nuestro Tónico Natural ayuda a cerrar los poros, equilibrar el pH, hidratar, tonificar, refrescar y purificar la piel. Favorece la producción de colágeno y elastina.
 Ideal para pieles delicadas o con barros y espinillas.
@@ -3172,7 +3017,7 @@ También es utilizado para sellar el maquillaje.
  Nuestros productos:
 
        No contaminan el agua.
-       Son 100% biodegradables"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-calendula.png	"Natural Conexión"	7541		"calendula manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm
+       Son 100% biodegradables"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-calendula.png	"Natural Conexión"	7541		"Health & Beauty > Personal Care > Cosmetics"	Facial	"calendula manzanilla"	"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7542	5	"Consigue un cabello más saludable y lleno de vida con nuestro tratamiento que contiene Extracto Natural de Romero, Ortiga, Quina y Áloe Vera, cuyos ingredientes activos favorecen la circulación y la regeneración del folículo piloso, estimulando el crecimiento y dándole un aspecto revitalizado al cabello. Fortalece, repara, humecta nutre y acondiciona la fibra capilar
 Ideal para estimular el crecimiento del cabello.
 Ingredientes principales: 
@@ -3215,7 +3060,7 @@ Nuestros productos:
 No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
-"	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-70.png	"Natural Conexión"	7542		"ortiga quina"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+"	"in stock"	"28000 COP"	https://naturalconexion.com/product/nutritiva-de-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-70.png	"Natural Conexión"	7542		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	"ortiga quina"					
 7560	5	" Cuida tu zona íntima de manera natural.
 Protege el equilibrio natural de tu zona íntima con nuestro Jabón Íntimo Natural, creado con extractos botánicos que te brindarán una sensación de limpieza, protección y bienestar. Nuestra suave fórmula no altera el pH, protege las pieles delicadas y previene los malos olores.
 Ingredientes principales:
@@ -3266,7 +3111,7 @@ Manzanilla.
 Ácido Láctico.
 
 ¿Cómo se usa?
-Lava la parte exte"	"in stock"	"32000 COP"	https://naturalconexion.com/product/jabon-intimo-natural/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-intimo.png	"Natural Conexión"	7560			"Health & Beauty > Personal Care > Cosmetics"	Corporal					
+Lava la parte exte"	"in stock"	"32000 COP"	https://naturalconexion.com/product/jabon-intimo-natural/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-intimo.png	"Natural Conexión"	7560	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	Corporal						
 7566	5	"Nuestro Gel de Castaño de Indias es ideal para cuidar tus piernas de la manera más natural. Posee propiedades que estimulan la micro-circulación ayudando a tonificar las venas y los capilares sanguíneos.
 Ingredientes principales:
 
@@ -3312,7 +3157,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+"	"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 10 juernes"					"13500 COP"
 7567	5	"Nuestro Gel de Castaño de Indias es ideal para cuidar tus piernas de la manera más natural. Posee propiedades que estimulan la micro-circulación ayudando a tonificar las venas y los capilares sanguíneos.
 Ingredientes principales:
 
@@ -3336,7 +3181,7 @@ No son testados en animales.
 
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7567	"Gel con Extractos Botánicos y Minerales Castaño de Indias."		"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/?attribute_cantidad=250+ml	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"		"0.278 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7567	"Gel con Extractos Botánicos y Minerales Castaño de Indias."		"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/?attribute_cantidad=250+ml	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 10 juernes"	"0.278 kg"	"1 cm"	"50 cm"		"31500 COP"
 7568	5	"Nuestro Gel de Castaño de Indias es ideal para cuidar tus piernas de la manera más natural. Posee propiedades que estimulan la micro-circulación ayudando a tonificar las venas y los capilares sanguíneos.
 Ingredientes principales:
 
@@ -3360,7 +3205,7 @@ No son testados en animales.
 
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
       
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7568	"Gel con Extractos Botánicos y Minerales Castaño de Indias."		"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/?attribute_cantidad=60+ml	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"		"0.074 kg"	"1 cm"	"50 cm"	
+"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7568	"Gel con Extractos Botánicos y Minerales Castaño de Indias."		"in stock"	"15000 COP"	https://naturalconexion.com/product/gel-castano-de-indias/?attribute_cantidad=60+ml	https://naturalconexion.com/wp-content/uploads/2020/09/GEL-CASTANO-DE-INDIAS-250-GR.png	"Natural Conexión"	7566	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 10 juernes"	"0.074 kg"	"1 cm"	"50 cm"		"13500 COP"
 7569	5	"Hidrata y refresca de manera natural.
 Nuestro tónico es tu aliado natural imprescindible, cuida tu piel mientras te refresca y purifica. Ayuda a cerrar los poros, equilibrar el pH y atenuar la grasa de tu rostro. 
 Ideal para pieles grasas, con barros y espinillas.
@@ -3404,7 +3249,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¡Unión con lo natural! ¡Pídelo ya!
-"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-te-verde.png	"Natural Conexión"	7569			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-te-verde.png	"Natural Conexión"	7569		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7570	5	"Complementa tu rutina de cuidado natural con este Tónico Facial que te brinda todas sus propiedades antioxidantes mientras hidrata, tonifica y evita el envejecimiento prematuro de tu piel.
 Ideal para todo tipo de piel.
 Ingredientes principales: 
@@ -3450,7 +3295,7 @@ No son testados en animales.
 
 ¡Conéctate con lo natural!
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-facial-de-uva.jpg	"Natural Conexión"	7570			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"26000 COP"	https://naturalconexion.com/product/tonico-facial-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/tonico-facial-de-uva.jpg	"Natural Conexión"	7570		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.144 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7573	5	"Nuestro Jabón Líquido de Té Verde es ideal para pieles con impurezas, ayudando a prevenir barros y espinillas; ya que equilibra la producción de grasa en la piel. Su pH balanceado limpia, humecta y nutre sin dejar sensación de resequedad. Unifica el tono natural, aclara y evita la aparición de manchas.
 Ingredientes principales:
 
@@ -3498,7 +3343,7 @@ No son testados en animales.
 
 ¡Conoce el poder de lo natural!
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-te-verde.png	"Natural Conexión"	7573	top-30-days		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-de-te-verde/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-te-verde.png	"Natural Conexión"	7573	top-30-days	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7574	5	"¡Ideal para todo tipo de piel! Limpia, humecta y nutre.
 En natural conexion hemos extraído todos los beneficios que nos regala la Uva y hemos creado un jabón que regenera la piel y la protege de las agresiones externas. La Uva contiene propiedades antioxidantes responsables de prevenir el envejecimiento cutáneo, además es rica en Vitamina E, lo que le confiere un poder regenerador de la piel.
 Ingredientes principales:
@@ -3541,7 +3386,7 @@ Naturales.
 No contienen parabenos.
 No son testados en animales.
 
-Lo llevaremos hasta la puerta de tu"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-liquido-de-uva.jpg	"Natural Conexión"	7574			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Lo llevaremos hasta la puerta de tu"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-liquido-de-uva.jpg	"Natural Conexión"	7574		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7575	5	"El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Favorece la producción de colágeno y elastina. Penetra en los poros removiendo impurezas. Purifica dejando la piel radiante, sedosa y suave. Es ideal para todo tipo de piel, especialmente para pieles mixtas con tendencia a grasa. Su efecto es mayor al complementar con la Mascarilla Facial de Aloe vera y Pepino.
 Ingredientes principales:
 
@@ -3581,7 +3426,7 @@ Harina de arroz.
 
 ¿Cómo se usa?
 Aplicar el producto sobre la piel limpia con movimientos circulares, realizando suaves masajes durante dos minutos, luego enjuagar con abundante agua. Realizar este proceso una vez a la semana o cada 15 días.
-Nues"	"in stock"	"15000 COP"	https://naturalconexion.com/product/exfoliante-de-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	7575			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"					
+Nues"	"in stock"	"15000 COP"	https://naturalconexion.com/product/exfoliante-de-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	7575		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"						
 7576	5	"Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.
 Ideal para todo tipo de piel.
 Ingredientes principales:
@@ -3627,7 +3472,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-Agroecológicos"	"in stock"	"25000 COP"	https://naturalconexion.com/product/exfoliante-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg	"Natural Conexión"	7576		"linea facial manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	Facial					
+Agroecológicos"	"in stock"	"25000 COP"	https://naturalconexion.com/product/exfoliante-de-manzanilla-miel-y-germen-de-trigo/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg	"Natural Conexión"	7576		"Health & Beauty > Personal Care > Cosmetics"	Facial	"linea facial manzanilla"					
 7579	5	"Fórmula libre de filtros químicos que actúa como una barrera física, brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Contiene aceite de semillas de uva, el cual es rico en antioxidantes y vitaminas. Estimula la producción de colágeno y elastina. Cuida la piel de radicales libres mientras la hidrata, nutre y suaviza. Hipoalergénico y dermatológicamente probado.
 Ingredientes principales:
 
@@ -3671,7 +3516,7 @@ Aplicar una cantidad suficiente del Protector Solar con Extractos Botánicos de 
 Nuestros productos:
 
 No contaminan el agua.
-Libre de pantallas quími"	"in stock"	"55000 COP"	https://naturalconexion.com/product/protector-solar-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-22.png	"Natural Conexión"	7579		"aloevera calendula"	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.135 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Libre de pantallas quími"	"in stock"	"55000 COP"	https://naturalconexion.com/product/protector-solar-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-22.png	"Natural Conexión"	7579		"Health & Beauty > Personal Care > Cosmetics"	Facial	"aloevera calendula"	"0.135 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7596	5	"Tener un cabello más sano, nutrido y suave ahora es posible.
 Creamos para ti un kit capilar que contiene Extractos Naturales de Cebolla, que fortalecen, nutren, suavizan, hidratan y revitalizan la fibra capilar aumentando el Colágeno natural del cabello.
 
@@ -3715,7 +3560,7 @@ Extracto Natural de Aloe Vera.
 
  Nuestros productos:
 
-No contaminan el"	"in stock"	"115000 COP"	https://naturalconexion.com/product/kit-capilar-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-CEBOLLA.jpg	"Natural Conexión"	7596			"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Kit especiales > Productos veganos"		"1.068 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No contaminan el"	"in stock"	"115000 COP"	https://naturalconexion.com/product/kit-capilar-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-CEBOLLA.jpg	"Natural Conexión"	7596		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Kit especiales > Productos veganos"		"1.068 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7597	5	"¡Protección, reparación y brillo! Este Kit Capilar es perfecto para estimular el crecimiento del cabello. Sus ingredientes activos favorecen la circulación y la regeneración del folículo piloso, estimulando el crecimiento, previniendo la caída del cabello y dándole un aspecto revitalizado.
 Devuelve el equilibrio a tu cabello con este kit que contiene:
 
@@ -3760,7 +3605,7 @@ Nuestros productos:
 No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
-Natur"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-6.png	"Natural Conexión"	7597		"kit capilar"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Kit especiales > Productos veganos"		"0.68 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Natur"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-6.png	"Natural Conexión"	7597		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Kit especiales > Productos veganos"	"kit capilar"	"0.68 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7604	5	"Suaviza naturalmente.
 El pepino, por sus características, cumple una función astringente. Posee un alto contenido de vitaminas A, C y E, compuestos encargados de mantener la piel joven y llena de vida. Por sus propiedades hidrata, nutre y regenera la piel. Favorece la producción de colágeno y elastina. El confrey es una planta rica en alantoína, ingrediente activo con un alto poder de regeneración celular.
 Ingredientes principales:
@@ -3806,7 +3651,7 @@ No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
 Naturales.
-No contienen parabe"	"in stock"	"35000 COP"	https://naturalconexion.com/product/crema-facial-confrey-y-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_CONFREY_PEPINO.jpg	"Natural Conexión"	7604		aloevera	"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.06 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No contienen parabe"	"in stock"	"35000 COP"	https://naturalconexion.com/product/crema-facial-confrey-y-pepino/	https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_CONFREY_PEPINO.jpg	"Natural Conexión"	7604		"Health & Beauty > Personal Care > Cosmetics"	Facial	aloevera	"0.06 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7605	5	"Gracias a los beneficios de la naturaleza podrás disfrutar de una crema especial para atenuar las líneas de expresión y aportar vitalidad a tu piel, Gracias las propiedades de la uva, tiene un gran poder antioxidante, antiradicalario y regenerador.
 Enriquecida con extractos de Aloe Vera y Aceite de Uva. Luce tu belleza natural mientras unifica el tono de la piel y previene líneas de expresión.
 Ideal para pieles maduras.
@@ -3856,7 +3701,7 @@ Vitamina E.
 Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en la zona del rostro y el cuello, masajear hasta completar su absorción.
 Nuestros productos:
 
-No contam"	"in stock"	"55000 COP"	https://naturalconexion.com/product/crema-facial-hidratante-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_FACIAL_UVA.jpg	"Natural Conexión"	7605			"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.06 kg"	"1 cm"	"50 cm"	1:1:1:cm
+No contam"	"in stock"	"55000 COP"	https://naturalconexion.com/product/crema-facial-hidratante-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_FACIAL_UVA.jpg	"Natural Conexión"	7605		"Health & Beauty > Personal Care > Cosmetics"	Facial		"0.06 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7611	5	"Devuelve la belleza natural a tu rostro con nuestro Exfoliante de Uva que no solo limpia y elimina impurezas, sino que también previene la aparición de los signos de envejecimiento.
 Por eso tenemos para ti nuestro Exfoliante de Uva, que remueve impurezas, purifica y deja radiante y sedosa tu piel.
 Ideal para pieles maduras.
@@ -3906,7 +3751,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-"	"in stock"	"27000 COP"	https://naturalconexion.com/product/exfoliante-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/EXFOLIANTE_UVA.jpg	"Natural Conexión"	7611		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"27000 COP"	https://naturalconexion.com/product/exfoliante-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/EXFOLIANTE_UVA.jpg	"Natural Conexión"	7611	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	"descuento 10 juernes linea facial"	"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	"24300 COP"
 7612	5	"Una piel naturalmente suave y luminosa. Nuestra fórmula se encarga de limpiar tu piel de manera profunda entregándole vitalidad, brillo y juventud, su fórmula antioxidante es perfecta para tu rostro.
 Ideal para pieles maduras.
 Ingredientes principales:
@@ -3954,7 +3799,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¡Transforma tu pie de la manera más natural! Adquiérelo ya.
-"	"in stock"	"27000 COP"	https://naturalconexion.com/product/mascarilla-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/MASCARILLA_UVA.jpg	"Natural Conexión"	7612		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"27000 COP"	https://naturalconexion.com/product/mascarilla-de-uva/	https://naturalconexion.com/wp-content/uploads/2020/09/MASCARILLA_UVA.jpg	"Natural Conexión"	7612		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"	"linea facial"	"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7617	5	"
 Crema Nutritiva Capilar Cebolla.
 La Crema Nutritiva Capilar de Cebolla, está creada para fortalecer, hidratar y nutrir la fibra capilar, gracias a la combinación de los ingredientes activos de la jojoba, la cebolla, el aguacate y demás componentes naturales. Regálale a tu cabello brillo, frescura y vitalidad, aplicando esta formulación después del Shampoo Natural de Cebolla.
@@ -3984,7 +3829,7 @@ Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
 "	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7617	"Crema Nutritiva Capilar Cebolla 280 ML"	"
 Crema Nutritiva Capilar Cebolla.
 La Crema Nutritiva Capilar de Cebolla, está creada para fortalecer, hidratar y nutrir la fibra capilar, gracias a la combinación de los ingredientes activos de la jojoba, la cebolla, el aguacate y demás componentes naturales. Regálale a tu cabello brillo, frescura y vitalidad, aplicando esta formulación después del Shampoo Natural de Cebolla.
-Ingredientes principales:"	"in stock"	"30000 COP"	https://naturalconexion.com/product/nutritiva-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/NUTRITIVA_CEBOLLA.jpg	"Natural Conexión"	7617		"cebolla descuento 10 juernes"	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"		"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Ingredientes principales:"	"in stock"	"30000 COP"	https://naturalconexion.com/product/nutritiva-de-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/NUTRITIVA_CEBOLLA.jpg	"Natural Conexión"	7617		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	cebolla	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7618	5	"Es momento de cuidar tus manos, mantenerlas limpias y evitar que pierdan su humectación natural. Hemos creado para ti un Jabón Líquido que, gracias a las maravillosas propiedades del extracto de avena, protege tu piel respetando su equilibrio natural.
 Ideal para pieles secas.
 Ingredientes principales:
@@ -4026,7 +3871,7 @@ No contienen parabenos.
 No son testados en animales.
 
 ¡Conoce el poder de lo natural!
-"	"in stock"	"23000 COP"	https://naturalconexion.com/product/jabon-liquido-avena/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-avena.png	"Natural Conexión"	7618		avena	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial"		"0.3 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"23000 COP"	https://naturalconexion.com/product/jabon-liquido-avena/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-avena.png	"Natural Conexión"	7618		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial"	avena	"0.3 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7619	5	"Nutre y regenera.
 ¿Qué esperas para probar nuestra Pomada de Caléndula y Manzanilla?
 Nuestra Pomada de Caléndula y Manzanilla hidrata la epidermis. La caléndula estimula el colágeno, el cual participa del proceso de regeneración de los tejidos de la piel.  Indicada para pieles secas o delicadas.
@@ -4074,7 +3919,7 @@ No contienen parabenos.
 No son testados en animales.
 
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"14000 COP"	https://naturalconexion.com/product/pomada-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-1.jpg	"Natural Conexión"	7619		"calendula manzanilla"	"Health & Beauty > Personal Care > Cosmetics"	Corporal		"0.03 kg"	"1 cm"	"50 cm"	1:1:1:cm
+"	"in stock"	"14000 COP"	https://naturalconexion.com/product/pomada-calendula/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-1.jpg	"Natural Conexión"	7619		"Health & Beauty > Personal Care > Cosmetics"	Corporal	"calendula manzanilla"	"0.03 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7634	5	"Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.
 &nbsp;
 Ingredientes principales:
@@ -4109,7 +3954,7 @@ Vitamina E.
  Aceite de semillas de Maracuyá.
 
 ¿Cómo se usa?
-Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestaña"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-desmaquillador/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-Desmaquillador.png	"Natural Conexión"	7634			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm
+Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestaña"	"in stock"	"25000 COP"	https://naturalconexion.com/product/aceite-desmaquillador/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-Desmaquillador.png	"Natural Conexión"	7634		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Productos veganos"		"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm	
 7654	5	"Relaja naturalmente.
 El Aceite Esencial de Romero tiene propiedades antioxidantes, gracias a sus ingredientes activos como el ácido rosmarínico. Hidrata las células cutáneas protegiéndolas de agentes externos, brindando elasticidad, frescura y suavidad. Estimula el crecimiento capilar y el fortalecimiento del mismo. Promueve la oxigenación celular, renovando las fuerzas perdidas entre el cansancio físico y mental, relajando el cuerpo. En Aromaterapia es considerado el aceite de la memoria, ayudando a despertar los sentidos y estimulando la actividad intelectual.
 ¿Cómo se usa?
@@ -4133,7 +3978,7 @@ El Aceite Esencial de Romero tiene propiedades antioxidantes, gracias a sus ingr
 ¿Cómo se usa?
 Para masajes: mezcla 4 gotas de Aceite Esencial de 10ml en cualquiera de nuestros Aceites Corporales, Cremas Hidratantes Nutritivas o con el Yogurt Corporal de Mango.
 Para el cabello: mezcla 2 gotas de Aceite Esencial en el Shampoo Natural a aplicar al momento de su lavado.
-Para difusor/humidificador: agrega 5 a 12 gotas de Aceite Ese"	"in stock"	"35000 COP"	https://naturalconexion.com/product/aceite-esencial-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Romero.jpg	"Natural Conexión"	7654			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+Para difusor/humidificador: agrega 5 a 12 gotas de Aceite Ese"	"in stock"	"35000 COP"	https://naturalconexion.com/product/aceite-esencial-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Romero.jpg	"Natural Conexión"	7654	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 15 juernes"					"29750 COP"
 7668	5	"Refresca naturalmente.
 El Aceite Esencial de Menta es reconocido por su aroma estimulante, fresco y mentolado. Calma, refresca y regula la producción de grasa en la piel. Estimula el crecimiento del cabello, aumentando también el número de folículos pilosos. Cuando los pensamientos y las ideas parecen enredarse en la cabeza, la menta ayuda a retomar el control y el foco. En Aromaterapia, es considerado el aceite de la concentración y el bienestar.
 ¿Cómo se usa?
@@ -4146,7 +3991,7 @@ El Aceite Esencial de Menta es reconocido por su aroma estimulante, fresco y men
 ¿Cómo se usa?
 Para masajes: mezclar 4 gotas de aceite esencial en 10ml de cualquiera de nuestros Aceites Corporales, Cremas Hidratantes Nutritivas o con el Yogurt Corporal de Mango. Para el cabello: mezclar 2 gotas de aceite esencial en la cantidad de Shampoo Natural a aplicar al momento del lavado. Para difusor/humidificador: agregar 5 a 12  gotas de aceite esencial.
 Extraemos de la naturaleza todos sus beneficios, para llevar bienestar a tu vida.
-"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-menta/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Menta.jpg	"Natural Conexión"	7668			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-menta/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Menta.jpg	"Natural Conexión"	7668		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"						
 7669	5	"Nutre naturalmente.
 El Aceite Esencial de Naranja hidrata y nutre la piel, ayudando a dar elasticidad a la misma, reduciendo arrugas del rostro y líneas de expresión por su alto contenido de Vitamina C. Es altamente efectivo para tonificar la piel. Estimula la producción de colágeno, ayudando con esto a la disminución de la celulitis y previniendo la aparición de estrías. Protege el cabello de los radicales libres y lo hidrata profundamente; todo esto sin dañar el equilibrio lípido, dejándolo suave y brillante. En Aromaterapia es considerado el aceite del optimismo y la felicidad.
 ¿Cómo se usa?
@@ -4166,7 +4011,7 @@ Permite que la sabiduría infinita de la naturaleza entre en contacto con tu ser
 "	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7669	"Aceite esencial Naranja 10ML"	"Nutre naturalmente.
 El Aceite Esencial de Naranja hidrata y nutre la piel, ayudando a dar elasticidad a la misma, reduciendo arrugas del rostro y líneas de expresión por su alto contenido de Vitamina C. Es altamente efectivo para tonificar la piel. Estimula la producción de colágeno, ayudando con esto a la disminución de la celulitis y previniendo la aparición de estrías. Protege el cabello de los radicales libres y lo hidrata profundamente; todo esto sin dañar el equilibrio lípido, dejándolo suave y brillante. En Aromaterapia es considerado el aceite del optimismo y la felicidad.
 ¿Cómo se usa?
-Para masajes: mezclar 4 gotas de aceite esencial en 10ml de cualquiera de nuestros Aceites Corporales, Cremas Hidratantes Nutritivas o con el Yogurt Corporal de Mango. Para el cabello: mezclar 2 gotas de aceite esencial en la cantidad de Shampoo Natural a aplicar al momento del lavado. Para difusor/humidificador: agregar 5 a 1"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-naranja/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Naranja.jpg	"Natural Conexión"	7669			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+Para masajes: mezclar 4 gotas de aceite esencial en 10ml de cualquiera de nuestros Aceites Corporales, Cremas Hidratantes Nutritivas o con el Yogurt Corporal de Mango. Para el cabello: mezclar 2 gotas de aceite esencial en la cantidad de Shampoo Natural a aplicar al momento del lavado. Para difusor/humidificador: agregar 5 a 1"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-naranja/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Naranja.jpg	"Natural Conexión"	7669		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"						
 7671	5	"Relaja naturalmente.
 El Aceite Esencial de Lavanda posee un aroma dulce, fresco y floral. A través de su alto poder regenerador, previene la formación de arrugas, hidratando y nutriendo la piel.  Su aroma calma y relaja ayudando, también, a conciliar el sueño; es ideal para ambientar espacios. En Aromaterapia es considerado el aceite de la armonía, el equilibrio y la tranquilidad.
 ¿Cómo se usa?
@@ -4196,7 +4041,7 @@ No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
 Naturales.
-No contien"	"in stock"	"32000 COP"	https://naturalconexion.com/product/aceite-esencial-de-lavanda/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Lavanda.jpg	"Natural Conexión"	7671			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+No contien"	"in stock"	"32000 COP"	https://naturalconexion.com/product/aceite-esencial-de-lavanda/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Lavanda.jpg	"Natural Conexión"	7671		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"						
 7672	5	"Relaja naturalmente.
 El Aceite Esencial de Hierbabuena despliega un aroma mentolado y dulce. Ayuda a relajar y refrescar. Resulta excelente para abrir poros, purificar y tonificar la piel. En Aromaterapia es considerado como vigorizante y reconfortante; fomenta una sensación de concentración al tiempo que eleva el ánimo.
 ¿Cómo se usa?
@@ -4210,7 +4055,7 @@ El Aceite Esencial de Hierbabuena despliega un aroma mentolado y dulce. Ayuda a 
 Para masajes: mezcla 4 gotas de Aceite Esencial de 10ml en cualquiera de nuestros Aceites Corporales, Cremas Hidratantes Nutritivas o con el Yogurt Corporal de Mango.
 Para el cabello: mezcla 2 gotas de Aceite Esencial en el Shampoo Natural a aplicar al momento de su lavado.
 Para difusor/humidificador: agrega 5 a 12 gotas de Aceite Esencial.
- "	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-hierbabuena/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Hierbabuena.jpg	"Natural Conexión"	7672		hierbabuena	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+ "	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-hierbabuena/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Hierbabuena.jpg	"Natural Conexión"	7672		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	hierbabuena					
 7674	5	"Refresca naturalmente.
 El Aceite Esencial de Eucalipto posee un aroma inconfundible alcanforado muy fresco, que perfuma y purifica el ambiente. Proviene de las hojas del eucalipto que tiene múltiples y diversas aplicaciones. Es relajante y refrescante. Además, permite prepararnos para los cambios bruscos de temperatura. Regula la producción de grasa en la piel. En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.
 ¿Cómo se usa?
@@ -4237,7 +4082,7 @@ Nuestros productos:
 
 No contaminan el agua.
 Son 100% biodegradables.
-Agroeco"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-eucalipto/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Eucalipto.jpg	"Natural Conexión"	7674			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+Agroeco"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-eucalipto/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Eucalipto.jpg	"Natural Conexión"	7674	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 15 juernes"					"25500 COP"
 7675	5	"Calma naturalmente.
 El Aceite Esencial de Canela es útil para disminuir el estrés, ya que tiene propiedades relajantes. Perfuma y purifica los espacios. Promueve la regeneración celular estimulando la producción de colágeno y elastina, evitando el envejecimiento prematuro. Hidrata y nutre el cabello, fortalece las fibras capilares y lo deja suave, sedoso y brillante. En Aromaterapia es usado para ayudarnos a encontrar el equilibrio emocional y reducir la fatiga.
 ¿Cómo se usa?
@@ -4263,49 +4108,7 @@ Para difusor/humidificador: agrega 5 a 12 gotas de Aceite Esencial.
 Nuestros productos:
 
 No contaminan el agua.
-Son 100%"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-canela/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Canela-1.jpg	"Natural Conexión"	7675			"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
-7680	5	"¡Limpieza y frescura con el poder de la naturaleza!
-Las propiedades del drago ayudan a eliminar las bacterias y los gérmenes presentes en la piel. Es perfecto para un correcto lavado de manos y cuerpo. Ideal para pieles delicadas.
-Ingredientes principales:
-
-Drago.
-Romero.
-Menta.
-Ortiga.
-
-¿Cómo se usa?
-Lavar cada que sea necesario. Especial para el baño diario.
-Nuestros productos son:
-
-Espumantes 100% biodegradables que no contaminan el agua, algunos de
-estos derivados de glucosas vegetales con certificación ECOCERT para cosmética natural.
-Libres de sal.
-Libres de cocoamidas y cocoamido propil betaina.
-
-Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
-Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-      
-"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7680	"Jabón Líquido con Extractos Botánicos Drago 250ML"	"¡Limpieza y frescura con el poder de la naturaleza!
-Las propiedades del drago ayudan a eliminar las bacterias y los gérmenes presentes en la piel. Es perfecto para un correcto lavado de manos y cuerpo. Ideal para pieles delicadas.
-Ingredientes principales:
-
-Drago.
-Romero.
-Menta.
-Ortiga.
-
-¿Cómo se usa?
-Lavar cada que sea necesario. Especial para el baño diario.
-Nuestros productos son:
-
-Espumantes 100% biodegradables que no contaminan el agua, algunos de
-estos derivados de glucosas vegetales con certificación ECOCERT para cosmética natural.
-Libres de sal.
-Libres de cocoamidas y cocoamido propil betaina.
-
-Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
-Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"	"in stock"	"23000 COP"	https://naturalconexion.com/product/jabon-drago-250ml/	https://naturalconexion.com/wp-content/uploads/2020/09/jabon-drago.png	"Natural Conexión"	7680		"jabon de drago"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+Son 100%"	"in stock"	"30000 COP"	https://naturalconexion.com/product/aceite-esencial-de-canela/	https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Canela-1.jpg	"Natural Conexión"	7675	on-sale	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	"descuento 20 juernes"					"24000 COP"
 7683	5	"Vive un ritual de bienestar y disfruta de las propiedades de los Aceites Esenciales 100% naturales
 
 Aceite Esencial de Eucalipto 10ml: Refrescante y a la vez relajante, ideal para realizar masajes porque te brinda alivio y una sensación de frescura instantánea, dejando la piel suave y calmada. ¡Relajación muscular natural! En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.
@@ -4330,7 +4133,7 @@ Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
 
 Aceite Esencial de Eucalipto 10ml: Refrescante y a la vez relajante, ideal para realizar masajes porque te brinda alivio y una sensación de frescura instantánea, dejando la piel suave y calmada. ¡Relajación muscular natural! En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.
 Aceite Esencial de Romero 10ml: Nuestro Aceite Esencial de Romero tiene un aroma sutil que ayuda a elevar los estados de ánimo y aumenta la energía. En aromaterapia es ideal, ya que tiene efectos contribuyen a mejorar la memoria. Regálate un masaje relajante, refrescante y siente sus propiedades naturales.
-Aceite Esencial de Lavanda 10ml: Hay olores que nos envuelven de tranquilidad y nos transportan a lo natural. El Aceite Esencial de Lavanda es 100% natural y tiene una fragancia que te re"	"in stock"	"95556 COP"	https://naturalconexion.com/product/kit-relajacion/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit_14_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7683		"kit kit relajación kits"	"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"					
+Aceite Esencial de Lavanda 10ml: Hay olores que nos envuelven de tranquilidad y nos transportan a lo natural. El Aceite Esencial de Lavanda es 100% natural y tiene una fragancia que te re"	"in stock"	"95556 COP"	https://naturalconexion.com/product/kit-relajacion/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit_14_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7683		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"	"kit kit relajación kits"					
 7684	5	"Hidrata y refresca naturalmente.
 Contiene ingredientes que nutren y fortalecen el cabello, estimulando el folículo piloso desde la raíz, activando su crecimiento y previniendo la caída. Es libre de alcohol. Elaborado con aceites esenciales e hidrosoles de las plantas, los cuales evitan la caída del cabello sin resecarlo.
 Ideal para evitar la caída del cabello y estimular el crecimiento.
@@ -4371,7 +4174,7 @@ Son 100% biodegradables.
 Agroecológicos.
 Naturales.
 No contienen parabenos.
-No "	"in stock"	"28000 COP"	https://naturalconexion.com/product/locion-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Loción-Capilar-Romero_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7684		ortiga	"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"					
+No "	"in stock"	"28000 COP"	https://naturalconexion.com/product/locion-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Loción-Capilar-Romero_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7684		"Health & Beauty > Personal Care > Cosmetics"	"Capilar > Productos veganos"	ortiga					
 7685	5	"Por sus características naturales de regeneración,
 el Pepino cumple una función astringente con un alto
 contenido de vitaminas A, C y E, sustancias encargadas
@@ -4391,7 +4194,57 @@ CREMA CONFREY Y PEPINO: Aplicar todas las mañanas para humectar.
 EXFOLIANTE PEPINO: Aplica 2 o máximo 3 veces a la semana realizando suaves masajes circulares sobre la piel y luego enjuagar con abundante agua.
 MASCARILLA PEPINO: Aplicar después del exfoliante para refrescar y humectar. Dejar actuar por 20 minutos aproximadamente, luego enjuagar con abundante agua.
 Productos agroecológicos, naturales, no testeados en animales y sin parabenos. Permite que la sabiduría infinita de la naturaleza entre en contacto con tu piel. Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-"		new	7685	"Kit Equilibrante"		"in stock"	"91000 COP"	https://naturalconexion.com/product/kit-equilibrante/	https://naturalconexion.com/wp-content/uploads/2020/09/55.png	"Natural Conexión"	7685		"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"					
+"		new	7685	"Kit Equilibrante"		"in stock"	"91000 COP"	https://naturalconexion.com/product/kit-equilibrante/	https://naturalconexion.com/wp-content/uploads/2020/09/55.png	"Natural Conexión"	7685		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"	"linea facial"					
+7687	5	"Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celular.
+Ideal para pieles con manchas.
+
+Espumantes 100% biodegradables que no contaminan el agua, algunos de estos derivados de glucosas vegetales con certificación ECOCERT para cosmética natural.
+Libres de sal.
+Libres de cocoamidas y cocoamido propil betaina
+
+Ingredientes principales:
+
+Extracto de Perejil.
+Aloe Vera.
+Manzanilla.
+Romero.
+Menta.
+Ortiga.
+Corteza de Drago.
+Blend Frutal. (Compuesto por extractos de Frutas que ayudan a nutrir e hidratar la piel)
+
+¿Cómo se usa?
+Lava el rostro todas las mañanas y noches, realizando suaves masajes con el Jabón Líquido de Perejil.
+ Nuestros productos:
+
+No contaminan el agua.
+Son 100% biodegradables.
+Agroecológicos.
+Naturales.
+No contienen parabenos.
+No son testados en animales.
+
+¡Apórtale energía y vitalidad a tu piel! ¡Adquiérelo ya!
+      
+"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	new	7687	"Jabón Líquido con Extractos botánicos Perejil 250 ml"	"Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celular.
+Ideal para pieles con manchas.
+
+Espumantes 100% biodegradables que no contaminan el agua, algunos de estos derivados de glucosas vegetales con certificación ECOCERT para cosmética natural.
+Libres de sal.
+Libres de cocoamidas y cocoamido propil betaina
+
+Ingredientes principales:
+
+Extracto de Perejil.
+Aloe Vera.
+Manzanilla.
+Romero.
+Menta.
+Ortiga.
+Corteza de Drago.
+Blend Frutal. (Compuesto por extractos de Frutas que ayudan a nutrir e hidratar la piel)
+
+"	"in stock"	"27000 COP"	https://naturalconexion.com/product/jabon-liquido-de-perejil/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2022-01-13-at-12.01.45-PM.jpeg	"Natural Conexión"	7687		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Productos veganos"						
 7688	5	"¡En Natural Conexión nos encanta brindarte bienestar! Por eso traemos para ti frescas y chispeantes fragancias ideales para tu día a día.
 
 Aceite Esencial de Eucalipto 10ml: Refrescante y a la vez relajante, ideal para realizar masajes porque te brinda alivio y una sensación de frescura instantánea, dejando la piel suave y calmada. ¡Relajación muscular natural! En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.
@@ -4417,7 +4270,7 @@ La naturaleza en tu ser ¡Adquiérelo ya!
 Aceite Esencial de Eucalipto 10ml: Refrescante y a la vez relajante, ideal para realizar masajes porque te brinda alivio y una sensación de frescura instantánea, dejando la piel suave y calmada. ¡Relajación muscular natural! En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.
 Aceite Esencial de Menta 10ml: ¡Aromatiza tu hogar de la manera más natural! El Aceite Esencial de Menta 100% natural favorecer el bienestar físico y mental y ayuda a incrementar la atención, relaja y refresca.
 Aceite Esencial de Romero 10ml: Nuestro Aceite Esencial de Romero tiene un aroma sutil que ayuda a elevar los estados de ánimo y aumenta la energía. En aromaterapia es ideal, ya que tiene efectos contribuyen a mejorar la memoria.
-"	"in stock"	"94444 COP"	https://naturalconexion.com/product/kit-relajante-mentolado/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Mentolado_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7688			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"					
+"	"in stock"	"94444 COP"	https://naturalconexion.com/product/kit-relajante-mentolado/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Mentolado_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7688		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"						
 7692	5	"&nbsp;
 
 Aceite Esencial de Hierbabuena 10ml: ¡Frescura natural al alcance de tus manos! El Aceite de Hierbabuena contiene cualidades refrescantes y tonificantes. En aromaterapia fomenta una sensación de concentración y eleva el ánimo, generando un ambiente de emociones positivas.
@@ -4441,7 +4294,7 @@ Traemos para ti lo mejor de la naturaleza ¡Pruébalo y recíbelo en casa!
 
 Aceite Esencial de Hierbabuena 10ml: ¡Frescura natural al alcance de tus manos! El Aceite de Hierbabuena contiene cualidades refrescantes y tonificantes. En aromaterapia fomenta una sensación de concentración y eleva el ánimo, generando un ambiente de emociones positivas.
 Aceite Esencial de Naranja 10ml: Disfruta de un agradable aroma cítrico, vive una experiencia refrescante y agradable con nuestro Aceite Esencial de Naranja. En Aromaterapia es considerado el Aceite del optimismo y la felicidad.
-Aceite Esencial de Lavanda 10ml: Hay olores que nos envuelven de tranquilidad y nos transportan a lo natural. El Aceite Esencial de Lavanda es una fragancia que te reconforta, brindándote una sensación de felicidad y calma gracias a sus prop"	"in stock"	"91111 COP"	https://naturalconexion.com/product/kit-concentracion/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Concentración_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7692			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"					
+Aceite Esencial de Lavanda 10ml: Hay olores que nos envuelven de tranquilidad y nos transportan a lo natural. El Aceite Esencial de Lavanda es una fragancia que te reconforta, brindándote una sensación de felicidad y calma gracias a sus prop"	"in stock"	"91111 COP"	https://naturalconexion.com/product/kit-concentracion/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Concentración_Mesa-de-trabajo-1.jpg	"Natural Conexión"	7692		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales > Productos veganos"						
 7697	5	"¡Disfruta del poder de la naturaleza en tu piel!
 
 Jabón Líquido Té Verde 250 ml: Regálate todas las mañanas y noches un ritual de salud e hidratación con nuestro Jabón Líquido de Té Verde, realizando suaves masajes y luego enjuaga con abundante agua.
@@ -4480,7 +4333,7 @@ Té Verde.
 Pepino.
 Manzanilla.
 Aloe Vera.
-Aceit"	"in stock"	"68000 COP"	https://naturalconexion.com/product/kit-limpieza-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-8.png	"Natural Conexión"	7697	top-30-days	"linea facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"					
+Aceit"	"in stock"	"68000 COP"	https://naturalconexion.com/product/kit-limpieza-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-8.png	"Natural Conexión"	7697		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"	"linea facial"					
 7698	5	"&nbsp;
 
 Leche Desmaquilladora de Caléndula 250 gr:  Encuentra el equilibrio perfecto en la naturaleza. Limpia, desmaquilla y elimina las impurezas de tu piel, mientras ayuda a la regeneración. Aplica todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retira con un pomo o algodón, hasta eliminar todo el maquillaje.
@@ -4509,7 +4362,7 @@ Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
 
 Leche Desmaquilladora de Caléndula 250 gr:  Encuentra el equilibrio perfecto en la naturaleza. Limpia, desmaquilla y elimina las impurezas de tu piel, mientras ayuda a la regeneración. Aplica todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retira con un pomo o algodón, hasta eliminar todo el maquillaje.
 Aceite Desmaquillador 60 ml: Luce un rostro radiante, libre de impurezas e hidratado. Cuida tu piel, estimula el crecimiento de tus pestañas y le aporta hidratación al contorno de los ojos.
-Tónico de Rosas 120 ml: Complementa tu rutina con nuestro Tónico Facial de Rosas. Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen mejorando las irritaciones de la piel, cerrando los poros, equilibrando e"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-desmaquillador-piel-normal/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-7.png	"Natural Conexión"	7698		"kit facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"					
+Tónico de Rosas 120 ml: Complementa tu rutina con nuestro Tónico Facial de Rosas. Bríndale a tu piel todos los beneficios de la naturaleza y deja que sus propiedades actúen mejorando las irritaciones de la piel, cerrando los poros, equilibrando e"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-desmaquillador-piel-normal/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-7.png	"Natural Conexión"	7698		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales > Productos veganos"	"kit facial"					
 7700	5	"&nbsp;
 Nuestro Yogurt Corporal de Mango está enriquecido con extractos botánicos que le ofrecen a tu piel excelentes propiedades nutritivas. Es un hidratante corporal de agradable textura que se absorbe fácilmente. La combinación de sus extractos botánicos proporciona nutrición, suavidad y ayudan a que tu piel tenga una apariencia más tersa.
 Ideal para todo tipo de piel.
@@ -4537,7 +4390,7 @@ Extracto de Mango
 ¿Cómo se usa?
 Aplicar con suaves masajes sobre la(s) zona(s) deseada(s).
 &nbsp;
- "	"in stock"	"35000 COP"	https://naturalconexion.com/product/yogurt-corporal-de-mango-250ml/	https://naturalconexion.com/wp-content/uploads/2020/09/Yogurt-2.png	"Natural Conexión"	7700		"descuento 10 juernes mango"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"					
+ "	"in stock"	"35000 COP"	https://naturalconexion.com/product/yogurt-corporal-de-mango-250ml/	https://naturalconexion.com/wp-content/uploads/2020/09/Yogurt-2.png	"Natural Conexión"	7700		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Productos veganos"	mango					
 7706	5	"¡Sorprende a la mujer más especial de tu vida con nuestro Kit Eco Natural!
 Completa tu rutina de belleza , recupera la suavidad de tu piel y protégela.  
 Productos:
@@ -4601,7 +4454,7 @@ Ideal para recuperar la humedad natural.
 Nutre y suaviza la piel. 
 Ideal para pieles secas y maltratadas.
 Es antioxidante.
-"	"in stock"	"84900 COP"	https://naturalconexion.com/product/kit-econativa/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Eco-Natural-1.png	"Natural Conexión"	7706		"favoritos kit facial"	"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Kit especiales"					
+"	"in stock"	"84900 COP"	https://naturalconexion.com/product/kit-econativa/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Eco-Natural-1.png	"Natural Conexión"	7706		"Health & Beauty > Personal Care > Cosmetics"	"Corporal > Facial > Kit especiales"	"favoritos kit facial"					
 7707	5	"¡Regálale el mejor cuidado a tu rostro!
 
 Crema Caléndula y Manzanilla 60gr: Traemos para ti una crema que será tu aliada por su poder regenerador. Si tu piel es grasa o tienes tendencia a que te salgan imperfecciones este producto es ideal para ti. Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en la zona del rostro y el cuello, masajear hasta su completa absorción.
@@ -4639,7 +4492,7 @@ Contorno de Ojos de Café 30gr: Una fórmula natural que previene arrugas premat
 Protector Solar con Extractos Botánicos 80ml: Regálate una rutina de cuidado natural con nuestro Protector Solar con Extractos Botánicos. Aplica en el rostro y cuello una fina capa y masajea hasta su completa absorción.
 
 Entrégale hidratación y cuidado natural a tu cuerpo.
-Ing"	"in stock"	"124900 COP"	https://naturalconexion.com/product/kit-humectacion-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Humectacion-Piel-Grasa-1.png	"Natural Conexión"	7707		"kit facial"	"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+Ing"	"in stock"	"124900 COP"	https://naturalconexion.com/product/kit-humectacion-piel-grasa/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Humectacion-Piel-Grasa-1.png	"Natural Conexión"	7707		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"	"kit facial"					
 7710	5	"Kit Limpieza Piel Delicada
 ¡Activa la belleza de tu piel!
 
@@ -4673,7 +4526,7 @@ Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
 
 Leche Limpiadora de Caléndula 250gr: Encuentra el equilibrio perfecto en la naturaleza. Limpia, desmaquilla y elimina las impurezas de tu piel, mientras ayuda a la regeneración. Aplica todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retira con un pomo o algodón, hasta eliminar todo el maquillaje.
 Jabón barra Áloe Vera 100gr: Fórmula elaborada a base del extracto de Áloe Vera, estas propiedades lo hacen regenerador de tejidos, suavizante y humectante. Lava el rostro todas las mañanas realizando suaves masajes. 
-Exfoliante de Manzanilla y Miel 60gr: La Manzanilla y la Miel remueve"	"in stock"	"58886 COP"	https://naturalconexion.com/product/kit-limpieza-piel-delicada/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-5.png	"Natural Conexión"	7710			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+Exfoliante de Manzanilla y Miel 60gr: La Manzanilla y la Miel remueve"	"in stock"	"58886 COP"	https://naturalconexion.com/product/kit-limpieza-piel-delicada/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-5.png	"Natural Conexión"	7710		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"						
 7716	5	"¡Es momento de cuidar tu piel de forma natural!
 
 Crema Caléndula y Manzanilla 60gr: Traemos para ti una crema que será tu aliada por su poder regenerador. Si tu piel es grasa o tienes tendencia a que te salgan imperfecciones este producto es ideal para ti. Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en la zona del rostro y el cuello, masajear hasta su completa absorción.
@@ -4709,7 +4562,7 @@ Los beneficios de la naturaleza.  ¡Pruébalo y recíbelo en casa!
 
 Crema Caléndula y Manzanilla 60gr: Traemos para ti una crema que será tu aliada por su poder regenerador. Si tu piel es grasa o tienes tendencia a que te salgan imperfecciones este producto es ideal para ti. Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en la zona del rostro y el cuello, masajear hasta su completa absorción.
 Contorno Ojos de Germen de Trigo 30gr: Nuestra fórmula es ideal para el cuidado de tu rostro porque trabaja atenuando las líneas de expresión, hidratando el contorno de tus ojos y atenuando ojeras. Aplicar en el área de los ojos con suaves masajes en el día y en la noche.
- Tónico facial Caléndula 120ml: Regálate una "	"in stock"	"100000 COP"	https://naturalconexion.com/product/kit-humectacion-piel-delicada/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-3.png	"Natural Conexión"	7716			"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"					
+ Tónico facial Caléndula 120ml: Regálate una "	"in stock"	"100000 COP"	https://naturalconexion.com/product/kit-humectacion-piel-delicada/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-3.png	"Natural Conexión"	7716		"Health & Beauty > Personal Care > Cosmetics"	"Facial > Kit especiales"						
 7719	5	"¡Entrégale a tu piel un regalo de la naturaleza!
 
 Leche Limpiadora de Caléndula 250ml: Encuentra el equilibrio perfecto en la naturaleza. Limpia, desmaquilla y elimina las impurezas de tu piel, mientras ayuda a la regeneración. Aplica todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retira con un pomo o algodón hasta eliminar todo el maquillaje.
@@ -4741,7 +4594,7 @@ No son testados en animales.
 
 Leche Limpiadora de Caléndula 250ml: Encuentra el equilibrio perfecto en la naturaleza. Limpia, desmaquilla y elimina las impurezas de tu piel, mientras ayuda a la regeneración. Aplica todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retira con un pomo o algodón hasta eliminar todo el maquillaje.
 Jabón barra Caléndula y Manzanilla 100gr: Deja que tu rostro se renueve, hidrate y luzca increíble con nuestro Jabón a base del Extracto de Caléndula y Manzanilla. El poder de las plantas actúa regenerando los tejidos y previniendo las imperfecciones. Lava el rostro todas las mañanas realizando suaves masajes. 
-Exfoliante de Pepino 60gr: ¡Una fórmula dise"	"in stock"	"63000 COP"	https://naturalconexion.com/product/kit-limpieza-piel-mixta/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-limpieza-piel-mixta.png	"Natural Conexión"	7719			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"					
+Exfoliante de Pepino 60gr: ¡Una fórmula dise"	"in stock"	"63000 COP"	https://naturalconexion.com/product/kit-limpieza-piel-mixta/	https://naturalconexion.com/wp-content/uploads/2020/09/Kit-limpieza-piel-mixta.png	"Natural Conexión"	7719		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"						
 7720	5	"
 Tónico Facial Pepino 120ml: ¡Reafirma tu piel! Después de lavar el rostro todas las mañanas, aplica el Tónico de Pepino y estimula con suaves toques, esto permitirá hidratar y ayuda a cerrar poros abiertos.
 Crema Facial Confrey 60gr: Ingredientes naturales especiales para cuidar tu rostro, luce una piel joven y llena de vida gracias a sus Vitaminas A, C y E. Aplicar una fina capa de crema sobre el rostro y el cuello todas las mañanas, masajear hasta su completa absorción. 
@@ -4773,10 +4626,10 @@ Tónico Facial Pepino 120ml: ¡Reafirma tu piel! Después de lavar el rostro tod
 Crema Facial Confrey 60gr: Ingredientes naturales especiales para cuidar tu rostro, luce una piel joven y llena de vida gracias a sus Vitaminas A, C y E. Aplicar una fina capa de crema sobre el rostro y el cuello todas las mañanas, masajear hasta su completa absorción. 
 Contorno Ojos de Germen de Trigo 30gr: Nuestra fórmula es ideal para el cuidado de tu rostro porque trabaja atenuando las líneas de expresión, hidratando el contorno de tus ojos y atenuando ojeras. Aplicar en el área de los ojos con suaves masajes en el día y en la noche.
 
-I"	"in stock"	"101000 COP"	https://naturalconexion.com/product/kit-humectacion-piel-mixta/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-12.png	"Natural Conexión"	7720			"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"					
+I"	"in stock"	"101000 COP"	https://naturalconexion.com/product/kit-humectacion-piel-mixta/	https://naturalconexion.com/wp-content/uploads/2020/09/LOGO-FEED-12.png	"Natural Conexión"	7720		"Health & Beauty > Personal Care > Cosmetics"	"Kit especiales"						
 8253	97	"Regala una tarjeta con un valor de 100000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	8253	"Regalo de 100000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-100000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-1.png	"Natural Conexión"	8253			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	8253	"Regalo de 100000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-100000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-1.png	"Natural Conexión"	8253		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 8257	98	"Regala una tarjeta con un valor de 150000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	8257	"Regalo de 150000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-150000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-2.png	"Natural Conexión"	8257			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	8257	"Regalo de 150000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-150000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-2.png	"Natural Conexión"	8257		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						
 8258	99	"Regala una tarjeta con un valor de 200000 pesos, para que esa persona pueda disfrutar de los productos natural.
-"		new	8258	"Regalo de 200000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-200000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-3.png	"Natural Conexión"	8258			"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"					
+"		new	8258	"Regalo de 200000"		"in stock"	"0 COP"	https://naturalconexion.com/product/regalo-de-200000/	https://naturalconexion.com/wp-content/uploads/2020/09/Bono-3.png	"Natural Conexión"	8258		"Health & Beauty > Personal Care > Cosmetics"	"Bonos de regalo"						

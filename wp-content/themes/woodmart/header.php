@@ -10,7 +10,12 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<meta name="google-site-verification" content="Ammoj7Y9GZ5Cmtx32wRkg-XcfHEB3gpnaHmvHzf5Fac" />
-	<!-- Global site tag (gtag) - Google Ads: 644710920 --> <amp-analytics type="gtag" data-credentials="include"> <script type="application/json"> { "vars": { "gtag_id": "AW-644710920", "config": { "AW-644710920": { "groups": "default" } } }, "triggers": { } } </script> </amp-analytics>
+	<!-- Global site tag (gtag.js) - Google Ads: 644710920 --> 
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-644710920"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-644710920'); </script>
+
+	<!-- Event snippet for Compra (1) conversion page --> 
+	<script> gtag('event', 'conversion', { 'send_to': 'AW-644710920/72JKCKK8tJkDEIiEtrMC', 'value': 1.0, 'currency': 'COP', 'transaction_id': '' }); </script>
 	<?php wp_head(); ?>
 </head>
 

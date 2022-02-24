@@ -1,0 +1,33 @@
+
+Our customer will check into checkbox plugin. Then we will auto send a remind message to them if they don't checkout their cart.
+We need page_messaging permission approved to public checkbox plugin and send message to our customer.
+
+Here are login credentials:
+Admin Url: https://fb.new2new.com/wp-admin
+Admin Username: demo
+Admin Password: demo
+
+Step-by-step instructions:
+1 Log in to website
+2 Go to dashboard > Abandoned Cart > Settings > Facebook > config
+3 Enter App ID and App Secret, click “Save Changes”, then click “Login Facebook” to Connect facebook account
+4 Select acvtive page > Save again (important)
+5 Go to facebook app, setup and select webhook event include message_optin (important)
+6 Go to single product page : https://dev.new2new.com/product/beanie/
+7 Check the checkbox plugin > click add to cart button
+8 Go to Facebook messenger to receive a message.
+*Note: This bot doesn't reply customer's message. It auto send a reminder message to customer when they have an abandoned cart on out website.
+
+Here are login credentials:
+Admin Url: https://dev.new2new.com/wp-admin
+Admin Username: villatheme_dev
+Admin Password: 77641176
+Step-by-step instructions:
+1 Log in to website
+2 Go to dashboard > WC Abandoned Cart > Settings > Facebook > config
+3 Connect to facebook account
+4 Select acvtive page > Save again (important)
+5 Go to facebook app, setup and select webhook event include message_optin (important)
+6 Go to single product page : https://dev.new2new.com/product/beanie/
+7 Check the checkbox plugin > click add to cart button 8 Go to Facebook messenger to receive a message.
+*Note: This bot doesn't reply customer's message. It auto send a reminder message to customer when they have an abandoned cart on out website.

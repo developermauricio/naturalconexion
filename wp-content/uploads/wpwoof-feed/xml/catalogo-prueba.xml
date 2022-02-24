@@ -19,6 +19,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/11/Diseño-sin-título-7.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>11549</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Corporal &gt; Kit especiales &gt; Productos veganos</g:product_type>
     </item>
@@ -36,6 +37,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-12.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>12596</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Kit especiales &gt; Productos veganos</g:product_type>
     </item>
@@ -53,7 +55,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>13117</g:item_group_id>
-        <g:custom_label_0>on-sale</g:custom_label_0>
+        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Facial &gt; Ofertas</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
@@ -153,12 +155,12 @@
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
+        <g:sale_price>29750 COP</g:sale_price>
         <g:shipping_weight>0.278 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
         <g:custom_label_1>favoritos gel gel pronto alivio</g:custom_label_1>
-        <g:sale_price>29750 COP</g:sale_price>
+        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
         <g:id>16472</g:id>
@@ -213,71 +215,6 @@
         <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Ofertas</g:product_type>
-    </item>
-    <item>
-        <g:id>17297</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[  Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.   Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.  ¿Cómo se usa?  Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.  Nuestros productos:   No contaminan el agua. Libre de pantallas químicas. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Activa la belleza natural de tu piel  ¡Pídelo ya!       ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>17297</g:mpn>
-        <g:title>Protector Solar con Extractos Botánicos/SPT 50+ Todo tipo de piel 80 ml</g:title>
-        <g:short_description><![CDATA[  Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.   Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.  ¿Cómo se usa?  Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.  Nuestros productos:   No contaminan el agua. Libre de pantallas químicas. Son 100% biodegradables. Agroecológicos. Naturales.]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>99800 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spt-50-todo-tipo-de-piel/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2022-01-24-at-10.56.44-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>17297</g:item_group_id>
-        <g:custom_label_0>recent-product top-30-days</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Ofertas</g:product_type>
-    </item>
-    <item>
-        <g:id>17568</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.  Ingredientes principales:   Arroz. Oliva. Vitamina E. Argán. Germen de trigo.  ¿Cómo se usa? Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Una fórmula diseñada para entregarle vitalidad a tu piel! ¡Adquiérela hoy!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>17568</g:mpn>
-        <g:title>Leche Desmaquilladora Pague 2 lleve 3</g:title>
-        <g:short_description><![CDATA[Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.  Ingredientes principales:   Arroz. Oliva. Vitamina E. Argán. Germen de trigo.  ¿Cómo se usa? Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animal]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>66000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/leche-desmaquilladora-pague-2-lleve-3/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.02.06-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>17568</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Facial &gt; Ofertas &gt; Productos veganos</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-        <g:shipping_weight>0.25 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
-        <g:custom_label_1>linea facial</g:custom_label_1>
-    </item>
-    <item>
-        <g:id>17570</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.    Ingredientes principales:   Aceite de Ajonjolí. Aceite de Ricino. Aceite de Sacha inchi. Aceite de Oliva. Aceite de Argán. Aceite de Aguacate. Aceite de Jojoba. Vitamina E.  Aceite de semillas de Maracuyá.   ¿Cómo se usa?  Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestañas.  ¡Conéctate con lo natural!   Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!          ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>17570</g:mpn>
-        <g:title>Aceite Desmaquillador 60ML Pague 2 lleve 3</g:title>
-        <g:short_description><![CDATA[Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.    Ingredientes principales:   Aceite de Ajonjolí. Aceite de Ricino. Aceite de Sacha inchi. Aceite de Oliva. Aceite de Argán. Aceite de Aguacate. Aceite de Jojoba. Vitamina E.  Aceite de semillas de Maracuyá.   ¿Cómo se usa?  Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestaña]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>50000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/aceite-desmaquillador-60ml-pague-2-lleve-3/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.24.40-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>17570</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Facial &gt; Ofertas &gt; Productos veganos</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-        <g:shipping_weight>0.12 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
         <g:id>18058</g:id>
@@ -338,31 +275,6 @@
         <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
-        <g:id>7514</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel. ¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro. Ideal para pieles con manchas.  Ingredientes principales:   Extracto y Aceite Esencial de Perejil. Extracto de Áloe Vera. Sauco. Arroz. Caléndula. Almendra. Ajonjolí.   ¿Cómo se usa?  Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.    Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Disfruta de tu belleza natural! ¡Pídelo ya!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7514</g:mpn>
-        <g:title>Leche Desmaquilladora Perejil 250 ml</g:title>
-        <g:short_description><![CDATA[Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel. ¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro. Ideal para pieles con manchas.  Ingredientes principales:   Extracto y Aceite Esencial de Perejil. Extracto de Áloe Vera. Sauco. Arroz. Caléndula. Almendra. Ajonjolí.   ¿Cómo se usa?  Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.    Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológi]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>33000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/leche-de-perejil/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7514</g:item_group_id>
-        <g:custom_label_0>on-sale</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Facial &gt; Ofertas &gt; Productos veganos</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-        <g:shipping_weight>0.28 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
-        <g:custom_label_1>linea facial</g:custom_label_1>
-        <g:sale_price>29700 COP</g:sale_price>
-    </item>
-    <item>
         <g:id>7596</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[Tener un cabello más sano, nutrido y suave ahora es posible. Creamos para ti un kit capilar que contiene Extractos Naturales de Cebolla, que fortalecen, nutren, suavizan, hidratan y revitalizan la fibra capilar aumentando el Colágeno natural del cabello.   Shampoo de Cebolla 280ml. Con Extracto Natural de Cebolla, Romero, Ortiga, Quina y Áloe Vera.  Nutritiva de Cebolla 280ml. Con Extracto Natural de Cebolla, Romero, Ortiga, Quina y Áloe Vera.  Reparadora de Cebolla 500ml. Con Extracto de Cebolla, Aceite de Aguacate, Aceite de Jojoba, Hibiscus y Linaza.   Ingredientes principales:   Extracto Natural de Cebolla. Extracto Natural de Romero. Extracto Natural de Ortiga. Extracto Natural de Quina. Extracto Natural de Aloe Vera.     Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Conéctate con la naturaleza.  ¡Pruébalo y recíbelo en casa!         ]]></g:description>
@@ -404,8 +316,8 @@
         <g:shipping_weight>0.68 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
         <g:custom_label_1>kit capilar</g:custom_label_1>
+        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
         <g:id>7683</g:id>

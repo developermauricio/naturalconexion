@@ -1,5 +1,5 @@
 # ref_application_id 451257172939091
-ID	inventory	description	condition	mpn	title	short_description	availability	price	link	image_link	brand	item_group_id	custom_label_0	google_product_category	product_type	additional_image_link	shipping_weight	shipping_length	shipping_height	product_dimensions	custom_label_1	sale_price
+ID	inventory	description	condition	mpn	title	short_description	availability	price	link	image_link	brand	item_group_id	custom_label_0	google_product_category	product_type	additional_image_link	sale_price	shipping_weight	shipping_length	shipping_height	custom_label_1	product_dimensions
 11549	5	"Gel Caliente 280gr: Reduce medidas y elimina la grasa corporal de manera natural. Nuestro Gel Adelgazante Corporal es una fórmula a base de extractos naturales con propiedades térmicas que ayudan aumentar la temperatura corporal. Ideal para moldear la figura.
 Gel frío 280gr: ¡Llegó el momento de combatir la flacidez corporal!.
 Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de la piel.
@@ -33,7 +33,7 @@ No son testados en animales.
       
 "	new	11549	"Kit Moldea Tu Cuerpo Naturalmente"	"Gel Caliente 280gr: Reduce medidas y elimina la grasa corporal de manera natural. Nuestro Gel Adelgazante Corporal es una fórmula a base de extractos naturales con propiedades térmicas que ayudan aumentar la temperatura corporal. Ideal para moldear la figura.
 Gel frío 280gr: ¡Llegó el momento de combatir la flacidez corporal!.
-Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de "	"in stock"	"60000 COP"	https://naturalconexion.com/product/kit-moldea-tu-cuerpo-naturalmente/	https://naturalconexion.com/wp-content/uploads/2020/11/Diseño-sin-título-7.png	"Natural Conexión"	11549		"Health & Beauty > Personal Care"	"Corporal > Kit especiales > Productos veganos"							
+Descubre nuestro secreto para lucir una piel más firme y con elasticidad. Nuestro Gel Reafirmante mejora la textura de la piel, haciéndola lucir más lisa y tonificada. Está compuesto por una mezcla de activos naturales que producen una sensación de frío al aplicarlo y ayudan a combatir la flacidez de "	"in stock"	"60000 COP"	https://naturalconexion.com/product/kit-moldea-tu-cuerpo-naturalmente/	https://naturalconexion.com/wp-content/uploads/2020/11/Diseño-sin-título-7.png	"Natural Conexión"	11549	recent-product	"Health & Beauty > Personal Care"	"Corporal > Kit especiales > Productos veganos"							
 12596	5	"&nbsp;
 Productos:
 Serum Antiedad 60gr: Empieza y termina tu rutina de cuidado de la piel con nuestro Serum Antiedad, una fórmula especial con Colágeno que actúa como factor antienvejecimiento, ayudando a prevenir el envejecimiento prematuro. Le entrega elasticidad y firmeza a tu rostro.
@@ -77,7 +77,7 @@ Naturales
 No contienen parabenos
 No son testados en animales
 
-"	"in stock"	"111000 COP"	https://naturalconexion.com/product/kit-colageno/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-12.png	"Natural Conexión"	12596		"Health & Beauty > Personal Care"	"Kit especiales > Productos veganos"							
+"	"in stock"	"111000 COP"	https://naturalconexion.com/product/kit-colageno/	https://naturalconexion.com/wp-content/uploads/2021/02/KIT-HUMECTACION-PIEL-MIXTA-12.png	"Natural Conexión"	12596	recent-product	"Health & Beauty > Personal Care"	"Kit especiales > Productos veganos"							
 13117	5	"Fórmula elaborada a base del extracto del aloe vera. Es un potente regenerador celular y ayuda a nutrir a profundidad la piel. A base de glicerina vegetal que tiene propiedades hidratantes y retiene la humedad, lo que ayuda a la piel a mantenerse en buen estado. Sus características lo hacen adecuado para el cuidado de pieles delicadas.
 Ideal para pieles secas.
 Ingredientes principales:
@@ -119,7 +119,7 @@ Naturales
 No contienen parabenos
 No son testados en animales.
 
-¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-azucenas-100gr/	https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png	"Natural Conexión"	13117	on-sale	"Health & Beauty > Personal Care"	"Facial > Ofertas"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg						"16200 COP"
+¡Disfruta de tu belleza natural! Píd"	"in stock"	"18000 COP"	https://naturalconexion.com/product/jabon-artesanal-azucenas-100gr/	https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png	"Natural Conexión"	13117	"recent-product on-sale"	"Health & Beauty > Personal Care"	"Facial > Ofertas"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"16200 COP"					
 13665	5	"¡Poder natural para toda la familia!
 Lleva 3 Protectores Solares con Extractos Botánicos de 15gr cada uno y déjate habitar por la sabiduría ancestral de la naturaleza.
 Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
@@ -271,7 +271,7 @@ Harina de arroz.
 
 ¿Cómo se usa?
 Aplicar el producto sobre la piel limpia con movimientos circulares, realizando suaves masajes durante dos minutos, luego enjuagar con abundante agua. Realizar este proceso una vez a la semana o cada 15 días.
-Nues"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-aloe-vera-y-pepino-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	15962	"recent-product on-sale"	"Health & Beauty > Personal Care"	"Facial > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg						"22500 COP"
+Nues"	"in stock"	"25000 COP"	https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-aloe-vera-y-pepino-120-gr/	https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg	"Natural Conexión"	15962	"recent-product on-sale"	"Health & Beauty > Personal Care"	"Facial > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"22500 COP"					
 16039	5	"Relaja y refresca naturalmente.
 Hemos creado para ti un gel ideal para relajar el cuerpo y disminuir el cansancio físico. Está compuesto por la fusión de 12 plantas de la flora medicinal colombiana. Se absorbe fácilmente sin dejar rastro en la piel. Se puede aplicar en cualquier momento del día, en especial cuando el cansancio físico aparece.
 Ideal para deportistas y personas con trabajos pesados.
@@ -323,7 +323,7 @@ Son 100% biodegradables.
 Agroecológicos.
 Naturales.
 No contienen parabenos.
-"	"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/gel-pronto-alivio-250.jpg	"Natural Conexión"	16039	"recent-product top-30-days on-sale"	"Health & Beauty > Personal Care"	"Corporal > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"0.278 kg"	"1 cm"	"50 cm"	1:1:1:cm	"favoritos gel gel pronto alivio"	"29750 COP"
+"	"in stock"	"35000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-ml/	https://naturalconexion.com/wp-content/uploads/2020/09/gel-pronto-alivio-250.jpg	"Natural Conexión"	16039	"recent-product top-30-days on-sale"	"Health & Beauty > Personal Care"	"Corporal > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"29750 COP"	"0.278 kg"	"1 cm"	"50 cm"	"favoritos gel gel pronto alivio"	1:1:1:cm
 16472	5	"
 Protector Solar con Extractos Botánicos Todo tipo de piel 80ml: Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
 Jabón Líquido con Extractos botánicos Perejil 250 ml: Disfruta el cuidado natural que tu piel necesita. Nuestro Jabón estimula la producción de Colágeno, ayuda a cerrar los poros y aclara el tono de la piel. Su alto contenido de antioxidantes naturales, vitaminas y minerales le devuelve vida a tu rostro, contrarrestan los efectos negativos de los radicales libres y el sol, a la vez que mejoran el proceso de reparación celular.
@@ -397,109 +397,6 @@ No son testados en animales.
 Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
 Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
 "	"in stock"	"70000 COP"	https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-gr/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-12-03-at-11.53.09-AM.jpeg	"Natural Conexión"	17294	recent-product	"Health & Beauty > Personal Care"	Ofertas							
-17297	5	"Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.
-Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
-¿Cómo se usa?
-Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Libre de pantallas químicas.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-Activa la belleza natural de tu piel  ¡Pídelo ya!
-      
-"	new	17297	"Protector Solar con Extractos Botánicos/SPT 50+ Todo tipo de piel 80 ml"	"Paga 2 Protector Solar de 80 gr y recibe 2 Protector Solar de 15 gr como OBSEQUIO.
-Que nunca te falte en tu rutina diaria la protección a tu piel, cuídala de manera natural. Hipoalergénico y dermatológicamente probado. Su fórmula con ingredientes activos naturales de origen vegetal y mineral es de fácil absorción. Libre de pantallas químicas. Actúa como una barrera física brindando una adecuada protección solar contra los rayos UVA Y UVB, cuidando la piel sin ocasionar efectos secundarios. Protege y suaviza la piel.
-¿Cómo se usa?
-Aplicar en el rostro y cuello una fina capa del Protector Solar y masajear hasta su completa absorción. Aportará protección e hidratación a la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Libre de pantallas químicas.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales."	"in stock"	"99800 COP"	https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spt-50-todo-tipo-de-piel/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2022-01-24-at-10.56.44-AM.jpeg	"Natural Conexión"	17297	"recent-product top-30-days"	"Health & Beauty > Personal Care"	Ofertas							
-17568	5	"Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.
-Ingredientes principales:
-
-Arroz.
-Oliva.
-Vitamina E.
-Argán.
-Germen de trigo.
-
-¿Cómo se usa?
-Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-¡Una fórmula diseñada para entregarle vitalidad a tu piel! ¡Adquiérela hoy!
-      
-"	new	17568	"Leche Desmaquilladora Pague 2 lleve 3"	"Limpia y remueve el maquillaje, las impurezas y la polución. Su fórmula especialmente elaborada para pieles secas, aporta hidratación, suavidad y nutrición. Los ingredientes activos contenidos en la Leche Desmaquilladora de Arroz, estimulan la regeneración y ayudan a mantener el equilibrio natural de la piel. Sus activos forman un gran complejo antiedad, que protegen la piel contra las agresiones externas.
-Ingredientes principales:
-
-Arroz.
-Oliva.
-Vitamina E.
-Argán.
-Germen de trigo.
-
-¿Cómo se usa?
-Aplicar sobre el rostro y el cuello haciendo masajes circulares. Retirar con un algodón o pañito hasta remover todo el maquillaje y/o todas las impurezas de la piel.
-Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animal"	"in stock"	"66000 COP"	https://naturalconexion.com/product/leche-desmaquilladora-pague-2-lleve-3/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.02.06-AM.jpeg	"Natural Conexión"	17568	recent-product	"Health & Beauty > Personal Care"	"Facial > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"0.25 kg"	"1 cm"	"50 cm"	1:1:1:cm	"linea facial"	
-17570	5	"Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.
-&nbsp;
-Ingredientes principales:
-
-Aceite de Ajonjolí.
-Aceite de Ricino.
-Aceite de Sacha inchi.
-Aceite de Oliva.
-Aceite de Argán.
-Aceite de Aguacate.
-Aceite de Jojoba.
-Vitamina E.
- Aceite de semillas de Maracuyá.
-
-¿Cómo se usa?
-Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestañas.
-¡Conéctate con lo natural!
-Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!
-      
-"	new	17570	"Aceite Desmaquillador 60ML Pague 2 lleve 3"	"Nuestro Aceite Desmaquillador está elaborado con un complejo de aceites naturales ricos en vitaminas y minerales que hidratan, nutren y fortalecen los folículos pilosos donde nacen las cejas y las pestañas, estimulando su crecimiento. A la vez que retira el maquillaje y las impurezas de la delicada área de los ojos. Nutre, hidrata, suaviza y fortalece.
-&nbsp;
-Ingredientes principales:
-
-Aceite de Ajonjolí.
-Aceite de Ricino.
-Aceite de Sacha inchi.
-Aceite de Oliva.
-Aceite de Argán.
-Aceite de Aguacate.
-Aceite de Jojoba.
-Vitamina E.
- Aceite de semillas de Maracuyá.
-
-¿Cómo se usa?
-Aplicar en párpados y pestañas al final del día, realizando masajes (muy suavemente) con un algodón o pomo, para retirar el maquillaje y la pestañina. Si no se utiliza maquillaje, puede usarse dos veces al día como fortalecedor de cejas y pestaña"	"in stock"	"50000 COP"	https://naturalconexion.com/product/aceite-desmaquillador-60ml-pague-2-lleve-3/	https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-30-at-11.24.40-AM.jpeg	"Natural Conexión"	17570	recent-product	"Health & Beauty > Personal Care"	"Facial > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"0.12 kg"	"1 cm"	"50 cm"	1:1:1:cm		
 18058	5	"MASCARILLA Y EXFOLIANTE DE PAPAYA 60 GR: Suave complejo de microgránulos de arroz y extracto de papaya, integrados en una fórmula delicada de limpieza. Las propiedades exfoliantes de la papaya, ayudan a limpiar los poros obstruidos al remover las células muertas, previniendo barros y espinillas.
 Los ingredientes activos de la papaya, equilibran la producción de grasa en la piel. Nuestra Mascarilla Facial de Papaya, por su fórmula rica en antioxidantes, aporta hidratación y nutrición a tu rostro. Purifica la piel dejándola sedosa, suave y radiante. Es ideal para todo tipo de piel, especialmente para pieles grasas o mixtas y/o con barros y espinillas. Su efecto es mayor al complementar con la Crema Limpiadora Exfoliante de Papaya.
 CREMA HIDRATANTE CALENDULA Y MANZANILLA 60 GR: Por sus ingredientes activos, nuestra Crema Hidratante Nutritiva de Caléndula y Manzanilla, tiene propiedades astringentes, calmantes y regeneradoras; mejora el aspecto de la piel grasa, con barros o espinillas.
@@ -552,53 +449,7 @@ Productos:
 1 Leche Desmaquilladora Caléndula. 60 ml.
 Nuestros productos:
 
-No contami"	"in stock"	"71111 COP"	https://naturalconexion.com/product/kit-viajero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-62.png	"Natural Conexión"	7430		"Health & Beauty > Personal Care"	"Kit especiales"	https://naturalconexion.com/wp-content/uploads/2021/09/KIT-HUMECTACION-PIEL-MIXTA-69.png	"0.51 kg"	"1 cm"	"50 cm"	1:1:1:cm		
-7514	5	"Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel.
-¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro.
-Ideal para pieles con manchas.
-Ingredientes principales:
-
-Extracto y Aceite Esencial de Perejil.
-Extracto de Áloe Vera.
-Sauco.
-Arroz.
-Caléndula.
-Almendra.
-Ajonjolí.
-
-¿Cómo se usa?
-Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.
- Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológicos.
-Naturales.
-No contienen parabenos.
-No son testados en animales.
-
-¡Disfruta de tu belleza natural! ¡Pídelo ya!
-      
-"	new	7514	"Leche Desmaquilladora Perejil 250 ml"	"Mantén el equilibrio natural de tu piel, mientras limpias a profundidad. Eliminas impurezas y células muertas, disminuyes el aspecto de las manchas en la piel.
-¡Nutrición e hidratación para tu rostro! Nuestra fórmula está diseñada para limpiar tu piel de la polución que puede ocasionar el envejecimiento prematuro.
-Ideal para pieles con manchas.
-Ingredientes principales:
-
-Extracto y Aceite Esencial de Perejil.
-Extracto de Áloe Vera.
-Sauco.
-Arroz.
-Caléndula.
-Almendra.
-Ajonjolí.
-
-¿Cómo se usa?
-Aplicar todas las noches una cantidad suficiente sobre el rostro y el cuello, haciendo masajes circulares, retirar con un pomo o algodón, hasta que se retiren todas las impurezas de la piel.
- Nuestros productos:
-
-No contaminan el agua.
-Son 100% biodegradables.
-Agroecológi"	"in stock"	"33000 COP"	https://naturalconexion.com/product/leche-de-perejil/	https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM.jpeg	"Natural Conexión"	7514	on-sale	"Health & Beauty > Personal Care"	"Facial > Ofertas > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"0.28 kg"	"1 cm"	"50 cm"	1:1:1:cm	"linea facial"	"29700 COP"
+No contami"	"in stock"	"71111 COP"	https://naturalconexion.com/product/kit-viajero/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-62.png	"Natural Conexión"	7430		"Health & Beauty > Personal Care"	"Kit especiales"	https://naturalconexion.com/wp-content/uploads/2021/09/KIT-HUMECTACION-PIEL-MIXTA-69.png		"0.51 kg"	"1 cm"	"50 cm"		1:1:1:cm
 7596	5	"Tener un cabello más sano, nutrido y suave ahora es posible.
 Creamos para ti un kit capilar que contiene Extractos Naturales de Cebolla, que fortalecen, nutren, suavizan, hidratan y revitalizan la fibra capilar aumentando el Colágeno natural del cabello.
 
@@ -642,7 +493,7 @@ Extracto Natural de Aloe Vera.
 
  Nuestros productos:
 
-No contaminan el"	"in stock"	"115000 COP"	https://naturalconexion.com/product/kit-capilar-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-CEBOLLA.jpg	"Natural Conexión"	7596		"Health & Beauty > Personal Care"	"Capilar > Kit especiales > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"1.068 kg"	"1 cm"	"50 cm"	1:1:1:cm		
+No contaminan el"	"in stock"	"115000 COP"	https://naturalconexion.com/product/kit-capilar-cebolla/	https://naturalconexion.com/wp-content/uploads/2020/09/KIT-CEBOLLA.jpg	"Natural Conexión"	7596		"Health & Beauty > Personal Care"	"Capilar > Kit especiales > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg		"1.068 kg"	"1 cm"	"50 cm"		1:1:1:cm
 7597	5	"¡Protección, reparación y brillo! Este Kit Capilar es perfecto para estimular el crecimiento del cabello. Sus ingredientes activos favorecen la circulación y la regeneración del folículo piloso, estimulando el crecimiento, previniendo la caída del cabello y dándole un aspecto revitalizado.
 Devuelve el equilibrio a tu cabello con este kit que contiene:
 
@@ -687,7 +538,7 @@ Nuestros productos:
 No contaminan el agua.
 Son 100% biodegradables.
 Agroecológicos.
-Natur"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-6.png	"Natural Conexión"	7597		"Health & Beauty > Personal Care"	"Capilar > Kit especiales > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg	"0.68 kg"	"1 cm"	"50 cm"	1:1:1:cm	"kit capilar"	
+Natur"	"in stock"	"84000 COP"	https://naturalconexion.com/product/kit-capilar-romero/	https://naturalconexion.com/wp-content/uploads/2020/09/Diseño-sin-título-6.png	"Natural Conexión"	7597		"Health & Beauty > Personal Care"	"Capilar > Kit especiales > Productos veganos"	https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg		"0.68 kg"	"1 cm"	"50 cm"	"kit capilar"	1:1:1:cm
 7683	5	"Vive un ritual de bienestar y disfruta de las propiedades de los Aceites Esenciales 100% naturales
 
 Aceite Esencial de Eucalipto 10ml: Refrescante y a la vez relajante, ideal para realizar masajes porque te brinda alivio y una sensación de frescura instantánea, dejando la piel suave y calmada. ¡Relajación muscular natural! En Aromaterapia es utilizado para levantar el ánimo y mantener los niveles de energía.

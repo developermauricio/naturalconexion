@@ -1,0 +1,1433 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Abandoned Cart Recovery Premium\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-17 03:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
+
+#: includes/settings/general-settings.php:77
+msgid ""
+" If you want to use CronJob server, access your server and config with "
+"command:"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:232
+msgid "1 - Create your facebook app at"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:257
+msgid "1 - Download the attachment file"
+msgstr ""
+
+#: includes/settings/sms-settings.php:111
+msgid "1. Create an account at "
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:299
+msgid "10 - Click 'Submit for Review' button."
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:238
+msgid ""
+"2 - At FB settings page > Basic, copy App ID, App secret to your plugin "
+"settings page."
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:259
+msgid ""
+"2 - Check again to ensured that all your necessary information is filled in "
+"the Facebook App Dashboard/Settings/Basic."
+msgstr ""
+
+#: includes/settings/sms-settings.php:118
+msgid "2. Login your SMS account "
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:239
+msgid "3 - Fill all your information."
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:260
+msgid "3 - Go to App Review > Permission and Feature. Add permission:"
+msgstr ""
+
+#: includes/settings/sms-settings.php:119
+msgid "3. Copy app id, app token & phone number to input fields above. "
+msgstr ""
+
+#: includes/templates/html-date-picker.php:20
+msgid "30 days"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:22
+msgid "365 days"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:240
+msgid ""
+"4 - Add products: Facebook Login with Web platform, Webhooks and Messenger."
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:262
+msgid "4 - Go to Request page > Edit request."
+msgstr ""
+
+#: includes/settings/sms-settings.php:120
+msgid "4. Create an bitly's account at "
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:278
+msgid "5 - Add App Verification Details"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:241
+msgid ""
+"5 - Facebook login > Settings: Copy the Valid OAuth Redirect URIs from the "
+"plugin settings and paste it to the settings of the Facebook login."
+msgstr ""
+
+#: includes/settings/sms-settings.php:124
+msgid "5. Login bitly's account "
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:281
+msgid ""
+"6 -  Add page_show_list detail and upload the video which you have just "
+"downloaded in the step 1."
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:242
+msgid ""
+"6 - Webhooks: Copy the Callback URL and Verify Token from the plugin "
+"settings and paste it to  the settings of the Webhooks."
+msgstr ""
+
+#: includes/settings/sms-settings.php:125
+msgid ""
+"6. Go to Settings > Edit profile > Generic Access Token, enter your password "
+"& click 'Generate Token' "
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:284
+msgid "7 - Add pages_manage_metadata detail & select uploaded video"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:243
+msgid "7 - Save this setting page"
+msgstr ""
+
+#: includes/settings/sms-settings.php:126
+msgid "7. Copy your access token to access token field & save settings"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:294
+msgid "8 - Add pages_messaging detail & select uploaded video"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:244
+msgid ""
+"8 - Click 'Login to Facebook' button > Select page you want to connect > "
+"Accept permissions > Done"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:297
+msgid ""
+"9 - Add Business Asset User Profile Access detail & select uploaded video"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:245
+msgid ""
+"9 - After connect to Facebook, return your Facebook App > Messenger > "
+"Settings. Edit Page Subscriptions, add subscription fields:"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:246
+msgid ""
+"9 - To publish checkbox plugin on frontend, you have to submit for reviewing "
+"your Facebook App and get the approval from the Facebook Team. Please follow "
+"these below steps:"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:21
+msgid "90 days"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:221
+msgid "Abandoned"
+msgstr ""
+
+#: includes/reports/reports.php:59 includes/reports/reports.php:60
+msgid "Abandoned Cart"
+msgstr ""
+
+#: includes/settings/general-settings.php:43
+msgid "Abandoned cart records will be automatically deleted after this time"
+msgstr ""
+
+#: includes/settings/general-settings.php:42
+msgid "Abandoned Cart time for Guest"
+msgstr ""
+
+#: includes/settings/general-settings.php:40
+msgid "Abandoned Cart time for Members"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:89
+#: includes/reports/reports.php:71 includes/reports/reports.php:72
+msgid "Abandoned Carts"
+msgstr ""
+
+#: includes/execute/abandoned-order-reminder.php:44
+msgid "Abandoned reminder sent"
+msgstr ""
+
+#: includes/templates/popup-template-1.php:11
+msgid "abc"
+msgstr ""
+
+#: includes/settings/sms-settings.php:76
+msgid "Access token"
+msgstr ""
+
+#: includes/reports/cart-logs-report-table.php:105
+#: includes/settings/admin-settings.php:484
+#: includes/settings/email-settings.php:100
+#: includes/settings/fb-messenger-settings.php:335
+msgid "Action"
+msgstr ""
+
+#: includes/reports/reports.php:131
+msgid "Action logs"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:139
+msgid "Active page"
+msgstr ""
+
+#: includes/facebook/messenger.php:72
+msgid "Add"
+msgstr ""
+
+#: includes/reports/cart-logs-report-product.php:109
+msgid "Add item"
+msgstr ""
+
+#: includes/email/email-templates.php:115
+msgid "Add New"
+msgstr ""
+
+#: includes/email/email-templates.php:114
+msgid "Add New Email Template"
+msgstr ""
+
+#: includes/settings/admin-settings.php:527
+#: includes/settings/email-settings.php:148
+#: includes/settings/fb-messenger-settings.php:374
+msgid "Add rule"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:62
+msgid "Add to cart"
+msgstr ""
+
+#: includes/reports/cart-logs-report-table.php:187
+msgid "Added"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:94
+#: includes/reports/customer-emails.php:97
+#: includes/reports/recovered-report-table.php:84
+msgid "All"
+msgstr ""
+
+#: includes/email/email-templates.php:112
+msgid "All Emails"
+msgstr ""
+
+#: includes/email/email-templates.php:306
+msgid "Allow free shipping"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:164
+msgid "Amount"
+msgstr ""
+
+#: includes/reports/product-report-table.php:98
+msgid "Amount of Abandoned"
+msgstr ""
+
+#: includes/reports/product-report-table.php:100
+msgid "Amount of Recovered"
+msgstr ""
+
+#: includes/facebook/messenger.php:111
+#: includes/settings/fb-messenger-settings.php:89
+#: includes/settings/sms-settings.php:46 includes/settings/sms-settings.php:55
+msgid "App ID"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:252
+msgid "App Review"
+msgstr ""
+
+#: includes/facebook/messenger.php:115
+#: includes/settings/fb-messenger-settings.php:90
+msgid "App secret"
+msgstr ""
+
+#: includes/settings/sms-settings.php:47 includes/settings/sms-settings.php:56
+msgid "App token"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:46
+msgid "Appear on"
+msgstr ""
+
+#: includes/settings/sms-settings.php:64
+msgid "Auth ID"
+msgstr ""
+
+#: includes/settings/sms-settings.php:65
+msgid "Auth secret"
+msgstr ""
+
+#: includes/settings/update.php:35
+msgid "Auto update key"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:79
+msgid "Background color"
+msgstr ""
+
+#: includes/email/email-templates.php:88
+msgid "Basic"
+msgstr ""
+
+#: includes/settings/sms-settings.php:72
+msgid "Bitly config"
+msgstr ""
+
+#: includes/reports/customer-emails.php:134
+msgid "Both email & phone"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:83
+msgid "Button background color"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:82
+msgid "Button color"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:71
+msgid "Button label"
+msgstr ""
+
+#: includes/facebook/messenger.php:123
+#: includes/settings/fb-messenger-settings.php:92
+msgid "Callback Webhooks URL"
+msgstr ""
+
+#: includes/facebook/fb-plugin.php:92
+msgid "Can I help you?"
+msgstr ""
+
+#. Description of the plugin
+msgid "Capture abandoned cart & send reminder emails to the customers."
+msgstr ""
+
+#: includes/settings/general-settings.php:36
+msgid "Cart"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:144
+msgid "Cart Detail"
+msgstr ""
+
+#: includes/reports/reports.php:173
+msgid "Cart Logs"
+msgstr ""
+
+#: includes/settings/general-settings.php:58
+msgid "Cart logs"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:35
+#: includes/settings/email-popup-settings.php:49
+#: includes/settings/general-settings.php:55
+msgid "Cart page"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:50
+msgid "Category page"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:93
+msgid "Change webhooks verify token."
+msgstr ""
+
+#: includes/settings/admin-settings.php:511
+msgid "Characters left for a SMS"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:171
+msgid "Checkbox skin"
+msgstr ""
+
+#: includes/facebook/send-message.php:123
+msgid "Checkout"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:36
+#: includes/settings/general-settings.php:55
+msgid "Checkout page"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:46
+msgid "Choose which pages where you want the request email pop-up appear"
+msgstr ""
+
+#: includes/execute/recovered.php:245
+msgid "Close"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:131
+msgid "Config"
+msgstr ""
+
+#: includes/settings/sms-settings.php:107
+msgid "Config guide"
+msgstr ""
+
+#: includes/facebook/messenger.php:135
+#: includes/settings/fb-messenger-settings.php:85
+#: includes/settings/fb-messenger-settings.php:228
+msgid "Connect"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:70
+msgid "Content"
+msgstr ""
+
+#: includes/plugin.php:259
+msgid "Continue shopping"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:213
+msgid "Copy"
+msgstr ""
+
+#: includes/reports/reports.php:177
+msgid "Coupon"
+msgstr ""
+
+#: includes/email/email-templates.php:302
+msgid "Coupon amount"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:162
+msgid "Coupon Code"
+msgstr ""
+
+#: includes/email/email-templates.php:303
+msgid "Coupon expiry after x days"
+msgstr ""
+
+#: includes/email/email-templates.php:166
+msgid "Coupon settings"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:114
+msgid "Coupon used"
+msgstr ""
+
+#: includes/reports/product-report-table.php:97
+msgid "Current Abandoned"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:39
+msgid "Current abandoned cart"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:23
+msgid "Custom"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:143
+#: includes/reports/recovered-report-table.php:111
+msgid "Customer"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:40
+msgid "Customer's email"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:170
+msgid "Dark"
+msgstr ""
+
+#: includes/email/email-templates.php:514
+#: includes/reports/abandoned-report-table.php:142
+msgid "Date"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:374
+msgid "Delete"
+msgstr ""
+
+#: includes/settings/general-settings.php:43
+msgid "Delete abandoned records"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:166
+msgid "Description"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:77
+msgid "Design"
+msgstr ""
+
+#: includes/email/email-templates.php:301
+msgid "Discount type"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:57
+msgid "Dismiss time"
+msgstr ""
+
+#: includes/reports/reports.php:110 includes/reports/reports.php:222
+#: includes/reports/reports.php:426
+msgid "Display"
+msgstr ""
+
+#: includes/settings/email-settings.php:45
+msgid ""
+"Display price include tax if tax is enabled & prices entered exclusive of tax"
+msgstr ""
+
+#: includes/define.php:265
+msgid "Do you want to export data?"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:256
+msgid "Download"
+msgstr ""
+
+#: includes/email/email-templates.php:631
+msgid "Duplicate"
+msgstr ""
+
+#: includes/email/email-templates.php:116
+msgid "Edit Email Templates"
+msgstr ""
+
+#: includes/reports/cart-logs-report-table.php:104
+#: includes/settings/admin-settings.php:65
+#: includes/settings/email-popup-settings.php:52
+#: includes/templates/popup-template-1.php:32
+msgid "Email"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:112
+msgid "Email Address"
+msgstr ""
+
+#: includes/settings/email-settings.php:37
+msgid "Email for Abandoned Cart"
+msgstr ""
+
+#: includes/settings/email-settings.php:50
+msgid "Email for Abandoned Order"
+msgstr ""
+
+#: includes/settings/admin-settings.php:66
+msgid "Email popup"
+msgstr ""
+
+#: includes/email/email-templates.php:153
+msgid "Email settings"
+msgstr ""
+
+#: includes/settings/email-settings.php:99
+msgid "Email template"
+msgstr ""
+
+#: includes/email/email-templates.php:160
+msgid "Email template builder"
+msgstr ""
+
+#: includes/email/email-templates.php:99 includes/email/email-templates.php:100
+#: includes/email/email-templates.php:110
+#: includes/email/email-templates.php:124
+msgid "Email Templates"
+msgstr ""
+
+#: includes/define.php:349
+msgid ""
+"Email templates have been updated. Please re-create your email templates."
+msgstr ""
+
+#: includes/reports/reports.php:90 includes/reports/reports.php:91
+#: includes/reports/reports.php:416
+msgid "Emails"
+msgstr ""
+
+#: includes/settings/email-settings.php:59
+#: includes/settings/sms-settings.php:160
+#: includes/settings/sms-settings.php:174
+msgid "Enable"
+msgstr ""
+
+#: includes/email/email-templates.php:312
+msgid "Exclude categories"
+msgstr ""
+
+#: includes/settings/general-settings.php:51
+msgid "Exclude people"
+msgstr ""
+
+#: includes/email/email-templates.php:310
+msgid "Exclude products"
+msgstr ""
+
+#: includes/email/email-templates.php:308
+msgid "Exclude sale items"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:390
+#: includes/reports/customer-emails.php:139
+msgid "Export"
+msgstr ""
+
+#: includes/settings/admin-settings.php:67
+msgid "Facebook"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:224
+msgid "Facebook API guide"
+msgstr ""
+
+#: includes/facebook/messenger.php:34 includes/facebook/messenger.php:35
+msgid "Fb Messenger"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:52
+msgid "Fields display"
+msgstr ""
+
+#: includes/email/email-templates.php:694
+msgid "Free version"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:147
+#: includes/reports/cart-logs-report-table.php:106
+#: includes/reports/customer-emails.php:129
+msgid "From"
+msgstr ""
+
+#: includes/settings/sms-settings.php:48 includes/settings/sms-settings.php:57
+msgid "From number"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:54
+msgid "GDPR"
+msgstr ""
+
+#: includes/reports/reports.php:171 includes/settings/admin-settings.php:64
+msgid "General"
+msgstr ""
+
+#: includes/settings/admin-settings.php:377
+msgid "Generate"
+msgstr ""
+
+#: includes/email/email-templates.php:289
+msgid "Generate coupon"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:44
+msgid "Get email popup"
+msgstr ""
+
+#: includes/settings/update.php:43
+msgid "Get Key"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:102
+#: includes/reports/abandoned-report-table.php:194
+#: includes/reports/cart-logs-report-table.php:162
+#: includes/reports/recovered-report-table.php:92
+#: includes/reports/recovered-report-table.php:188
+msgid "Guest"
+msgstr ""
+
+#: includes/execute/abandoned-cart.php:265
+msgid "Have a recovered order from abandoned cart"
+msgstr ""
+
+#: includes/email/email-templates.php:209
+msgid "Heading"
+msgstr ""
+
+#: includes/facebook/messenger.php:60
+msgid "Hear"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:550
+msgid "Hello, this is test sms message from Nexmo"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:572
+msgid "Hello, this is test sms message from Plivo"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:520
+msgid "Hello, this is test sms message from Twilio"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:234
+msgid "here"
+msgstr ""
+
+#: includes/email/email-templates.php:176
+#: includes/email/email-templates.php:177
+msgid "Hey !! You left something in your cart"
+msgstr ""
+
+#: includes/facebook/fb-plugin.php:89
+msgid "Hi"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:46
+msgid "Home page"
+msgstr ""
+
+#: includes/settings/admin-settings.php:503
+#: includes/settings/email-settings.php:119
+#: includes/settings/fb-messenger-settings.php:354
+msgid "hours"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://villatheme.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://villatheme.com/extensions/woo-abandoned-cart-recovery/"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:110
+msgid "ID"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:161
+msgid "Id"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:179
+msgid "If enable, a sample message will send to customer immediately"
+msgstr ""
+
+#: includes/settings/general-settings.php:58
+msgid "If enable, add to cart or remove cart action will be record."
+msgstr ""
+
+#: includes/settings/general-settings.php:41
+msgid "If enable, the plugin will track abandoned cart of guests"
+msgstr ""
+
+#: includes/settings/general-settings.php:39
+msgid "If enable, the plugin will track abandoned cart of logged users"
+msgstr ""
+
+#: includes/settings/email-settings.php:74
+msgid "Image size"
+msgstr ""
+
+#: includes/email/email-templates.php:307
+msgid "Individual use only"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:56
+msgid "Information required"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:86
+msgid "Input background color"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:84
+msgid "Input border color"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:85
+msgid "Input text color"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:63
+msgid "Invalid email notice"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:64
+msgid "Invalid phone number notice"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:283
+msgid "item"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:283
+msgid "items"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:167
+msgid "Language"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:169
+msgid "Light"
+msgstr ""
+
+#: includes/email/email-templates.php:314
+msgid "Limit usage to X items"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:123
+msgid "Log out Facebook"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:104
+msgid "Login Facebook"
+msgstr ""
+
+#: includes/email/email-templates.php:305
+msgid "Maximum spend"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:98
+#: includes/reports/recovered-report-table.php:88
+msgid "Member"
+msgstr ""
+
+#: includes/settings/admin-settings.php:483
+#: includes/settings/fb-messenger-settings.php:334
+msgid "Message"
+msgstr ""
+
+#: includes/email/email-templates.php:304
+msgid "Minimum spend"
+msgstr ""
+
+#: includes/settings/admin-settings.php:502
+#: includes/settings/email-settings.php:118
+#: includes/settings/fb-messenger-settings.php:353
+msgid "minutes"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:116
+msgid "More Info"
+msgstr ""
+
+#: includes/ajax.php:243
+msgid "No id to remove record"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:153
+msgid "No page was selected when connect Facebook"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:34
+msgid "No redirect"
+msgstr ""
+
+#: includes/email/email-templates.php:119
+msgid "Not Found"
+msgstr ""
+
+#: includes/email/email-templates.php:120
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/settings/email-settings.php:77
+msgid "Note: Recover link will be not work with Admin role"
+msgstr ""
+
+#: includes/settings/sms-settings.php:165
+msgid ""
+"Note: SMS character limit is 160 with GSM-7 encoding & 63 with other "
+"encoding (Ex:"
+msgstr ""
+
+#: includes/email/email-templates.php:287
+msgid "Note: This coupon won't be applied for order reminder email"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:87
+msgid "Notice color"
+msgstr ""
+
+#: includes/settings/email-settings.php:44
+msgid "Notification to Admin"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:163
+msgid "Number of Used"
+msgstr ""
+
+#: includes/reports/customer-emails.php:135
+msgid "Only email"
+msgstr ""
+
+#: includes/reports/customer-emails.php:136
+msgid "Only phone"
+msgstr ""
+
+#: includes/email/email-templates.php:695
+#: includes/settings/sms-settings.php:115
+msgid "or"
+msgstr ""
+
+#: includes/settings/email-settings.php:60
+#: includes/settings/sms-settings.php:181
+msgid "Order status"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:51
+msgid "page_id, e.g: 123,456"
+msgstr ""
+
+#: includes/email/email-templates.php:111
+msgid "Parent Email"
+msgstr ""
+
+#: includes/templates/popup-template-1.php:68
+msgid "Phone number"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:53
+msgid "Phone number (Only appear in template 1 popup)"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:508
+msgid "Please fill all fields"
+msgstr ""
+
+#: woocommerce-abandoned-cart-recovery.php:42
+msgid ""
+"Please install and activate WooCommerce to use WooCommerce Abandoned Cart "
+"Recovery."
+msgstr ""
+
+#: includes/facebook/fb-plugin.php:96
+msgid "Please view our information at "
+msgstr ""
+
+#: includes/email/email-templates.php:108
+msgctxt "Post Type General Name"
+msgid "Email Templates"
+msgstr ""
+
+#: includes/email/email-templates.php:109
+msgctxt "Post Type Singular Name"
+msgid "Email Templates"
+msgstr ""
+
+#: includes/settings/sms-settings.php:67
+msgid "Powerpack UUID"
+msgstr ""
+
+#: includes/email/email-templates.php:697
+msgid "Premium version"
+msgstr ""
+
+#: includes/settings/email-settings.php:45
+msgid "Price include tax"
+msgstr ""
+
+#: includes/email/email-templates.php:583
+#: includes/email/send-email-cron.php:301
+#: includes/email/send-email-cron.php:675
+msgid "Price:"
+msgstr ""
+
+#: includes/reports/cart-logs-report-product.php:108
+#: includes/reports/reports.php:137 includes/reports/reports.php:175
+msgid "Product"
+msgstr ""
+
+#: includes/email/email-templates.php:311
+msgid "Product categories"
+msgstr ""
+
+#: includes/reports/product-report-table.php:96
+msgid "Product Name"
+msgstr ""
+
+#: includes/email/email-templates.php:309
+msgid "Products"
+msgstr ""
+
+#: includes/email/email-templates.php:582
+#: includes/email/send-email-cron.php:303
+#: includes/email/send-email-cron.php:676
+msgid "Quantity:"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:151
+msgid "Reconnect Facebook"
+msgstr ""
+
+#: includes/settings/general-settings.php:56
+msgid "Recover link to"
+msgstr ""
+
+#: includes/email/email-templates.php:513
+#: includes/reports/abandoned-report-table.php:219
+#: includes/reports/product-report-table.php:99
+msgid "Recovered"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:113
+msgid "Recovered Cart Detail"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:79
+msgid "Recovered Carts"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:115
+msgid "Recovered Date"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:58
+msgid "Redirect after Add to cart"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:72
+msgid "Redirect URL"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:146
+msgid "Reminder logs"
+msgstr ""
+
+#: includes/facebook/messenger.php:62
+msgid "Remove"
+msgstr ""
+
+#: includes/reports/cart-logs-report-product.php:110
+msgid "Remove item"
+msgstr ""
+
+#: includes/reports/cart-logs-report-table.php:187
+msgid "Removed"
+msgstr ""
+
+#: includes/facebook/messenger.php:61
+msgid "Reply"
+msgstr ""
+
+#: includes/settings/email-settings.php:42
+msgid "Reply Emails to"
+msgstr ""
+
+#: includes/reports/reports.php:80 includes/reports/reports.php:81
+#: includes/reports/reports.php:168
+msgid "Reports"
+msgstr ""
+
+#: includes/settings/admin-settings.php:474
+msgid "Rules"
+msgstr ""
+
+#: includes/facebook/messenger.php:81 includes/facebook/messenger.php:132
+msgid "Save"
+msgstr ""
+
+#: includes/settings/admin-settings.php:90
+msgid "Save & Check Key"
+msgstr ""
+
+#: includes/settings/admin-settings.php:84
+msgid "Save settings"
+msgstr ""
+
+#: includes/email/email-templates.php:118
+msgid "Search Email Templates"
+msgstr ""
+
+#: includes/settings/sms-settings.php:147
+msgid "See detail"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:235
+msgid "Select 'Manage Business Integrations' type."
+msgstr ""
+
+#: includes/email/email-templates.php:295
+msgid "Select coupon"
+msgstr ""
+
+#: includes/settings/general-settings.php:42
+msgid "Select the time to mark a cart as abandoned with guests"
+msgstr ""
+
+#: includes/settings/general-settings.php:40
+msgid "Select the time to mark a cart as abandoned with logged in users"
+msgstr ""
+
+#: includes/email/email-templates.php:219
+#: includes/execute/abandoned-order-reminder.php:255
+#: includes/settings/sms-settings.php:94
+msgid "Send"
+msgstr ""
+
+#: includes/settings/email-settings.php:44
+msgid "Send a notification email to admin whenever a cart is recovered"
+msgstr ""
+
+#: includes/execute/abandoned-order-reminder.php:223
+msgid "Send abandoned order"
+msgstr ""
+
+#: includes/execute/abandoned-order-reminder.php:234
+msgid "Send abandoned order email"
+msgstr ""
+
+#: includes/settings/admin-settings.php:481
+#: includes/settings/email-settings.php:97
+#: includes/settings/fb-messenger-settings.php:332
+msgid "Send after"
+msgstr ""
+
+#: includes/settings/email-settings.php:41
+msgid "Send mail reminder to guest"
+msgstr ""
+
+#: includes/settings/email-settings.php:40
+msgid "Send mail reminder to members"
+msgstr ""
+
+#: includes/settings/email-settings.php:90
+msgid "Send mail rules"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:371
+msgid "Send reminder email"
+msgstr ""
+
+#: includes/settings/sms-settings.php:80
+msgid "Send test SMS"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:172
+msgid "Send to messenger require"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:325
+msgid "Send to messenger rules"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:57
+msgid "Set a time for the get email pop-up to reappear"
+msgstr ""
+
+#: woocommerce-abandoned-cart-recovery.php:71
+#: includes/facebook/messenger.php:44 includes/facebook/messenger.php:45
+#: includes/settings/admin-settings.php:43
+#: includes/settings/admin-settings.php:44
+#: includes/settings/admin-settings.php:57
+msgid "Settings"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:48
+msgid "Shop page"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:47
+msgid "Single product pages"
+msgstr ""
+
+#: includes/settings/admin-settings.php:68
+msgid "SMS"
+msgstr ""
+
+#: includes/settings/sms-settings.php:32
+msgid "SMS account config"
+msgstr ""
+
+#: includes/settings/sms-settings.php:157
+msgid "SMS for Abandoned Cart"
+msgstr ""
+
+#: includes/settings/sms-settings.php:171
+msgid "SMS for Abandoned Order"
+msgstr ""
+
+#: includes/settings/sms-settings.php:40
+msgid "SMS provider"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:145
+msgid "Status"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:61
+msgid "Sub title"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:81
+msgid "Sub title color"
+msgstr ""
+
+#: includes/email/email-templates.php:198
+msgid "Subject"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:532 includes/sms/send-sms-cron.php:557
+#: includes/sms/send-sms-cron.php:584
+msgid "Successful."
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:235
+msgid "Tax: "
+msgstr ""
+
+#: includes/email/email-templates.php:254
+#: includes/settings/email-popup-settings.php:59
+msgid "Template"
+msgstr ""
+
+#: includes/email/email-templates.php:255
+msgid "Template 1"
+msgstr ""
+
+#: includes/email/email-templates.php:214
+msgid "Test email"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:179
+msgid "Test mode"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:74
+msgid ""
+"The abandoned cart emails will be not sent to the Customer temporarily about "
+"current abandoned cart with current abandoned cart type or all the time with "
+"customer email type"
+msgstr ""
+
+#: includes/ajax.php:138
+msgid "This product is not exist"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:60
+#: includes/settings/email-popup-settings.php:69
+msgid "Title"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:80
+msgid "Title color"
+msgstr ""
+
+#: includes/reports/customer-emails.php:131
+msgid "To"
+msgstr ""
+
+#: includes/email/email-templates.php:692
+msgid ""
+"To make your email template more beautifully, you can get WooCommerce Email "
+"Template Customizer"
+msgstr ""
+
+#: includes/settings/sms-settings.php:84
+msgid "To number"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:18
+msgid "Today"
+msgstr ""
+
+#: includes/reports/cart-logs-report-product.php:111
+msgid "Total"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:234
+msgid "Total: "
+msgstr ""
+
+#: includes/settings/general-settings.php:41
+msgid "Tracking Guest's Cart"
+msgstr ""
+
+#: includes/settings/general-settings.php:39
+msgid "Tracking Member's Cart"
+msgstr ""
+
+#: includes/reports/coupon-used-report-table.php:165
+msgid "Type"
+msgstr ""
+
+#: includes/settings/admin-settings.php:482
+#: includes/settings/email-settings.php:98
+#: includes/settings/fb-messenger-settings.php:333
+msgid "Unit"
+msgstr ""
+
+#: includes/data.php:308
+msgid "Unknown Browser"
+msgstr ""
+
+#: includes/data.php:267
+msgid "Unknown OS Platform"
+msgstr ""
+
+#: includes/reports/customer-emails.php:98
+msgid "Unsubscribe"
+msgstr ""
+
+#: includes/plugin.php:260
+msgid "Unsubscribe abandoned cart reminder"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:67
+msgid "Unsubscribe popup"
+msgstr ""
+
+#: includes/settings/email-popup-settings.php:73
+msgid "Unsubscribe type"
+msgstr ""
+
+#: includes/reports/abandoned-report-table.php:221
+msgid "Unsubscribed"
+msgstr ""
+
+#: includes/settings/admin-settings.php:69
+msgid "Update"
+msgstr ""
+
+#: includes/email/email-templates.php:117
+msgid "Update Email Templates"
+msgstr ""
+
+#: includes/email/email-templates.php:313
+msgid "Usage limit per coupon"
+msgstr ""
+
+#: includes/email/email-templates.php:315
+msgid "Usage limit per user"
+msgstr ""
+
+#: includes/email/email-templates.php:287
+msgid "Use coupon"
+msgstr ""
+
+#: includes/settings/sms-settings.php:75
+msgid "Use shortlink"
+msgstr ""
+
+#: includes/email/email-templates.php:202
+msgid "Use WC's header & footer default"
+msgstr ""
+
+#: includes/email/email-templates.php:194
+msgid "Use WooCommerce Email Template Customizer"
+msgstr ""
+
+#: includes/facebook/messenger.php:119
+#: includes/settings/fb-messenger-settings.php:91
+msgid "Valid OAuth redirected URls:"
+msgstr ""
+
+#: includes/facebook/messenger.php:127
+#: includes/settings/fb-messenger-settings.php:93
+msgid "Verify Token"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:304
+msgid "Video guide"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:43
+msgid "View"
+msgstr ""
+
+#: includes/execute/get-fb-email.php:64
+msgid "View cart"
+msgstr ""
+
+#: includes/email/email-templates.php:113
+msgid "View Template"
+msgstr ""
+
+#. Author of the plugin
+msgid "VillaTheme"
+msgstr ""
+
+#: includes/reports/recovered-report-table.php:191
+msgid "Visitor"
+msgstr ""
+
+#: includes/email/email-templates.php:57
+msgid "WC Abandoned Cart"
+msgstr ""
+
+#: includes/settings/admin-settings.php:376
+msgid "WC Coupon"
+msgstr ""
+
+#: includes/facebook/fb-plugin.php:89
+msgid "Welcome to our store. Can I help you?"
+msgstr ""
+
+#: includes/reports/reports.php:435
+msgid "WooCommerce Abandoned Cart Recovery"
+msgstr ""
+
+#. Name of the plugin
+msgid "WooCommerce Abandoned Cart Recovery Premium"
+msgstr ""
+
+#: includes/templates/html-date-picker.php:19
+msgid "Yesterday"
+msgstr ""
+
+#: includes/sms/send-sms-cron.php:486
+msgid "You don't have enough balance to send the SMS or account is incorrect."
+msgstr ""
+
+#: includes/ajax.php:237
+msgid "You have no permission to do this action"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:136
+msgid "You haven't had any page. Create page before complete settings"
+msgstr ""
+
+#: includes/settings/fb-messenger-settings.php:40
+msgid ""
+"Your facebook user token is expired, please re-connect to continue using"
+msgstr ""
+
+#: includes/settings/general-settings.php:74
+msgid ""
+"Your WP Cron is disabled. If you want to use WP Cron, open file wp-config."
+"php and delete row define( \"DISABLE_WP_CRON\", true );."
+msgstr ""
+
+#: includes/settings/general-settings.php:86
+msgid ""
+"Your WP Cron is enabled. If you want to use Cronjob server, open file wp-"
+"config.php and add row define( \"DISABLE_WP_CRON\", true );. Access your "
+"server and config with command:"
+msgstr ""

@@ -1,0 +1,116 @@
+/**1.0.6.3 - 2021.07.21 **/
+- Updated: Image size in email option
+- Updated: Report recovered cart
+
+/**1.0.6.2 - 2021.03.27 **/
+- Fixed: Get customer name from email if customer name is empty.
+- Fixed: Assign user information for login action.
+- Fixed: Don't record cart log with admin role
+- Fixed: Coupon date expire
+- Updated: Calling country code for popup
+- Updated: Unsubscribe option one time or forever
+- Updated: Export unsubscribe email
+- Updated: Use shortlink or not in SMS
+
+/**1.0.6.1 - 2020.12.19 **/
+- Fixed: Modify column in database
+
+/**1.0.6 - 2020.11.25 **/
+- Fixed: Check update request
+- Updated: Unsubscribe page
+- Updated: Export customer's emails
+- Updated: Add GDPR option in email popup
+- Updated: Compatible with WC Email Template Customizer
+
+/**1.0.5.6 - 2020.07.17 **/
+- Fixed: Send reminder email when purchased
+- Updated: Connect Facebook with page_show_list permission
+- Updated: Options skin for facebook checkbox
+
+/**1.0.5.5 - 2020.04.28 **/
+- Fixed: Handle recover link
+- Updated: Optimize insert customer information
+
+/**1.0.5.4 - 2020.04.08 **/
+- Fixed: Bug in 1.0.5.3
+- Fixed: Send reminder for abandoned order from date modify
+- Fixed: Mark old reminder as complete
+- Updated: Bit.ly API to v4.0
+
+/**1.0.5.3 - 2020.04.03 **/
+- Fixed: Abandoned cart show value 0
+- Fixed: Not tracking from some bots
+- Updated: Support
+
+/**1.0.5.2 - 2020.01.07 **/
+- Fixed: Exclude country code is not exist in validation list
+- Fixed: Get country form IP in report page
+
+/**1.0.5.1 - 2019.12.23 **/
+- Fixed: Get phone in popup
+- Added: SMS count length
+- Fixed: Display real variation product in email, fb message reminder
+
+/**1.0.5 - 2019.12.19 **/
+- Updated: Popup appear with page id
+- Updated: Mark information available in abandoned cart records
+- Updated: Menu admin name
+- Added: Add option show price include tax when send reminder email
+- Added: Duplicate email template in row actions
+- Added: Compatible with WooCommerce Coupon Box, WooCommerce Lucky Wheel, MailChimp subscribe form
+- Added: Send test SMS
+- Added: shortcode {coupon_code} in email template builder
+- Added: Compatible with Coming Soon Page plugin
+- Fixed: Nexmo check balance
+- Fixed: Display flag on abandoned carts page
+- Fixed: Get abandoned cart record
+
+/**1.0.4.2 - 2019.10.17 **/
+- Updated: Add Plivo SMS provider
+
+/**1.0.4.1 - 2019.10.04 **/
+- Fixed: Email padding
+- Fixed: Email template color
+- Fixed: Translate text in email
+
+/**1.0.4 - 2019.10.01 **/
+- Fixed: Add order meta data for count to send email
+- Fixed: Request email popup with variation product
+- Added: Add more option: request email popup appear on home page
+- Added: Link to product on product report page
+- Added: Checkbox plugin require
+- Added: Checkbox plugin in popup request
+- Added: Send SMS via nexmo provider
+- Updated: Update email template
+
+/**1.0.3.3 - 2019.08.25 **/
+- Fixed: Facebook checkbox compatible with cache plugin
+- Fixed: Redirect page after request email popup
+- Fixed: Test mode for submit facebook review
+- Added: Support multisite
+
+/**1.0.3.2 - 2019.07.30 **/
+- Fixed: Template when send email manual
+- Fixed: CSS email template
+
+/**1.0.3.1 - 2019.07.27 **/
+- Fixed: Send SMS Cron
+
+/**1.0.3 - 2019.07.27 **/
+- Added: Twilio SMS
+- Removed: Routee SMS
+
+/**1.0.2 - 2019.07.22 **/
+- Added: Send reminder via SMS
+- Added: Send email reminder for abandoned order
+
+/**1.0.1.1 - 2019.07.19**/
+- Fixed: Error when delete facebook app id or app secret
+
+/**1.0.1 - 2019.07.18**/
+- Updated: Add auto update feature
+- Updated: Compatible with WooCommerce Boost Sales
+- Fixed: Conflict Add to cart button
+
+/**1.0.0 - 2019.05.10**/
+- First release

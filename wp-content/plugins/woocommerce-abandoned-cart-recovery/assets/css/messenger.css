@@ -1,0 +1,12 @@
+#wacv-messenger-setting {
+    margin-right: 20px;
+}
+
+#wacv-messenger-root table thead th:last-child {
+    width: 1px;
+    text-align: center;
+}
+
+#wacv-messenger-root table tbody td {
+    text-align: center;
+}
