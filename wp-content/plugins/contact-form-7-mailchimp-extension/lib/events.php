@@ -50,9 +50,9 @@ function vc_gaSendData($data) { //https://developers.google.com/analytics/devgui
 	$getString = 'https://ssl.google-analytics.com/collect';
 	$getString .= '?payload_data&';
 	$getString .= http_build_query($data);
-	$result = wp_remote_get($getString);
+	$result = callApiGetWithoutToken($getString);
   //$result = file_get_contents($getString);
-	return $result;
+	return $result[1];
 
 }
 

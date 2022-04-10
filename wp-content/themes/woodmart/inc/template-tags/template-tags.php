@@ -1309,8 +1309,12 @@ if ( ! function_exists( 'woodmart_page_title' ) ) {
 			$title_class .= woodmart_get_old_classes( ' nav-shop' );
 
 			?>
+			<div class="banner-shop-natural">
+			<?php echo do_shortcode( '[rev_slider alias="slider-7"][/rev_slider]' ); ?>
+			</div>
+		
 				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) && ! is_singular( 'product' ) ) : ?>
-					<div class="page-title <?php echo esc_attr( $title_class ); ?> title-shop" style="<?php echo esc_attr( $style ); ?>">
+					<!-- <div class="page-title <?php echo esc_attr( $title_class ); ?> title-shop" style="<?php echo esc_attr( $style ); ?>">
 						<div class="container">
 
 								<?php if ( is_product_category() || is_product_tag() ) : ?>
@@ -1328,7 +1332,7 @@ if ( ! function_exists( 'woodmart_page_title' ) ) {
 									woodmart_product_categories_nav();}
 								?>
 						</div>
-					</div>
+					</div> -->
 				<?php endif; ?>
 
 			<?php

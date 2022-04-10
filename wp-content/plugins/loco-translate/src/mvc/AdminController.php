@@ -29,8 +29,8 @@ abstract class Loco_mvc_AdminController extends Loco_mvc_Controller {
 
     /**
      * Pre-init call invoked by router
-     * @param mixed[]
-     * @return Loco_mvc_AdminController
+     * @param array
+     * @return static
      */    
     final public function _init( array $args ){
         if( loco_debugging() ){
@@ -129,12 +129,12 @@ abstract class Loco_mvc_AdminController extends Loco_mvc_Controller {
 
 
     /**
-     * "loco_external" filter callback, campaignizes external links
+     * "loco_external" filter callback, adds campaign identifier onto external links
      */
     public function filter_loco_external( $url ){
         $u = parse_url( $url );
         if( isset($u['host']) && 'localise.biz' === $u['host'] ){
-            $query = http_build_query( array( 'utm_medium' => 'plugin', 'utm_campaign' => 'wp', 'utm_source' => 'admin', 'utm_content' => $this->get('_route') ), null, '&' );
+            $query = http_build_query( array( 'utm_medium' => 'plugin', 'utm_campaign' => 'wp', 'utm_source' => 'admin', 'utm_content' => $this->get('_route') ) );
             $url = 'https://localise.biz'.$u['path'];
             if( isset($u['query']) ){
                 $url .= '?'. $u['query'].'&'.$query;
@@ -231,6 +231,11 @@ abstract class Loco_mvc_AdminController extends Loco_mvc_Controller {
                 'time' => microtime(true) - $this->bench,
             ) ) );
         }
+        // add urgent deprecation warning. Next version of Loco Translate will not run below these versions.
+        if( version_compare(PHP_VERSION,'5.6.20','<') || version_compare($GLOBALS['wp_version'],'5.2','<') ){
+            $this->set('_deprecation', true );
+        }
+        
         return $view->render( $tpl );
     }
 

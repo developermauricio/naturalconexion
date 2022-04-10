@@ -18,18 +18,34 @@
 
 
 
-function chimp_html_log_view (){
-?>
-		<div id="sys-dev">
+function chimp_html_log_view () {
+  ?>
+    <div id="sys-dev">
 
-  <div id="eventlog-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
-    <h3>Log Viewer</h3><input id="log_reset" type="button" value="Log Reset" class="button button-primary" style="width:15%;">
+      <div id="eventlog-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
+        <input id="log_reset" type="button" value="Clear This Log Now" class="button button-primary" style="width:auto%;">
 
-			<pre><code id="log_panel" ><?php get_log_array ()  ?></code></pre>
+    			<pre><code id="log_panel" ><?php get_log_array ()  ?></code></pre>
 
-	 </div>
+    	 </div>
 
-</div>
+    </div>
+<?php
+}
+
+
+function chimp_html_php_log_view () {
+  ?>
+    <div id="sys-dev-php" class="new-php-logger">
+
+      <div id="eventlog-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
+        <input id="log_reset" type="button" value="Clear This Log Now" class="button button-primary" style="width:auto%;">
+
+          <pre><code id="log_panel" ><?php get_php_log_array ()  ?></code></pre>
+
+       </div>
+
+    </div>
 <?php
 }
 
@@ -44,8 +60,4 @@ function mce_html_log_datefilter( $object ) {
 
 		var_dump ( $datesfilter );
 
-
 }
-
-
-

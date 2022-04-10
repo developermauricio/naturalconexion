@@ -23,7 +23,7 @@
 <div id="sys-dev">
 
   <div id="toggle-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
-    <h3>Debugger - System Info</h3>
+
     <pre><code><?php
 
   global $wpdb;
@@ -159,23 +159,23 @@
   $return .= 'Time Limit:               ' . ini_get( 'max_execution_time' ) . "\n";
   $return .= 'Max Input Vars:           ' . ini_get( 'max_input_vars' ) . "\n";
   $return .= 'Display Errors:           ' . ( ini_get( 'display_errors' ) ? 'On (' . ini_get( 'display_errors' ) . ')' : 'N/A' ) . "\n";
-  $return .= 'Display Errors:           ' . ( ini_get( 'display_errors' ) ? 'On (' . ini_get( 'display_errors' ) . ')' : 'N/A' ) . "\n";
   if ( strtok(phpversion(),'.') >= 5.3) {
     // php >= 5
     $return .= 'Host:                     ' . gethostname() . "\n";
   }
   $return .= 'HHost:                    ' . $_SERVER['HTTP_HOST'] . "\n";
   $return .= 'SName:                    ' . $_SERVER['SERVER_NAME'] . "\n";
-  $return .= 'allow_url_fopen:          ' . ini_get( 'allow_url_fopen' ) . "\n";
-  // $return .= 'Host by IP:               ' . gethostbyaddr() . "\n";
+  $return .= 'IP:               ' . $_SERVER['SERVER_ADDR'] . "\n";
 
 
 
   // PHP extensions and etc
   $return .= "\n" . '== PHP Extensions' . "\n";
   $return .= '================================================' . "\n";
+  $return .= 'Remote Post:              ' . $WP_REMOTE_POST . "\n";
   $return .= 'cURL:                     ' . ( function_exists( 'curl_init' ) ? 'Supported' : 'Not Supported' ) . "\n";
   $return .= 'fsockopen:                ' . ( function_exists( 'fsockopen' ) ? 'Supported' : 'Not Supported' ) . "\n";
+  $return .= 'allow_url_fopen:          ' . ini_get( 'allow_url_fopen' ) . "\n";
   $return .= 'SOAP Client:              ' . ( class_exists( 'SoapClient' ) ? 'Installed' : 'Not Installed' ) . "\n";
   $return .= 'Suhosin:                  ' . ( extension_loaded( 'suhosin' ) ? 'Installed' : 'Not Installed' ) . "\n";
 

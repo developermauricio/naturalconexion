@@ -2,6 +2,7 @@
 
 /**
  * View renderer
+ * @property-read string $_content
  */
 class Loco_mvc_View implements IteratorAggregate {
 
@@ -136,6 +137,7 @@ class Loco_mvc_View implements IteratorAggregate {
     /**
      * {@inheritDoc}
      */
+    #[ReturnTypeWillChange]
     public function getIterator(){
         return $this->scope;
     }

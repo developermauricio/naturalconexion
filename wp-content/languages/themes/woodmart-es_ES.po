@@ -8,13 +8,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-02-15 22:08+0000\n"
+"PO-Revision-Date: 2022-03-31 21:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.5; wp-5.8.2"
+"X-Loco-Version: 2.5.8; wp-5.8.2"
 
 #: 404.php:11
 msgid "Not Found"
@@ -2423,7 +2423,7 @@ msgstr ""
 #: inc/admin/settings/colors.php:88 inc/admin/settings/sections.php:259
 #: inc/modules/sticky-toolbar.php:393
 msgid "Shop"
-msgstr ""
+msgstr "TIenda"
 
 #: inc/admin/settings/colors.php:92 inc/admin/settings/sections.php:195
 #: inc/integrations/elementor/elements/blog/class-blog.php:45
@@ -5995,7 +5995,7 @@ msgstr ""
 #: inc/configs/js-scripts.php:764
 #: inc/integrations/woocommerce/modules/quick-view.php:114
 msgid "Quick view"
-msgstr ""
+msgstr "Vista rápida"
 
 #: inc/admin/settings/sections.php:323
 msgid "Thank you page"
@@ -7625,7 +7625,7 @@ msgstr ""
 #: inc/modules/sticky-toolbar.php:26 inc/modules/sticky-toolbar.php:86
 #: inc/modules/sticky-toolbar.php:268
 msgid "Cart"
-msgstr ""
+msgstr "Carrito"
 
 #: inc/builder/elements/Cart.php:21
 msgid "Shopping widget"
@@ -9603,7 +9603,7 @@ msgstr ""
 
 #: inc/enqueue.php:444
 msgid "days"
-msgstr ""
+msgstr "días"
 
 #: inc/enqueue.php:445
 msgid "hr"
@@ -13533,7 +13533,7 @@ msgstr ""
 #: inc/integrations/elementor/elements/products/products.php:402
 #: inc/shortcodes/products.php:327 woocommerce/loop/pagination.php:56
 msgid "Load more products"
-msgstr ""
+msgstr "Cargar más productos"
 
 #: inc/integrations/elementor/elements/products-tabs/class-products-tabs.php:48
 #: inc/integrations/visual-composer/maps/products-tabs.php:15
@@ -16451,7 +16451,7 @@ msgstr "La lista de deseos está vacía."
 
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:302
 msgid "Add to wishlist"
-msgstr ""
+msgstr "Añadir a la lista de deseos"
 
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:315
 #: inc/integrations/woocommerce/modules/wishlist/class-ui.php:322
@@ -17614,7 +17614,7 @@ msgstr ""
 
 #: inc/template-tags/template-tags.php:1225
 msgid "Search Results for: "
-msgstr ""
+msgstr "Resultados para: "
 
 #: inc/template-tags/template-tags.php:1345
 msgid "Go back"
@@ -17626,7 +17626,7 @@ msgstr ""
 
 #: inc/template-tags/template-tags.php:1384
 msgid "Search Results for \"%s\" Query"
-msgstr ""
+msgstr "Resultados para \"%s\" Query"
 
 #: inc/template-tags/template-tags.php:1385
 msgid "Posts Tagged \"%s\""
@@ -18465,7 +18465,7 @@ msgstr "Buscar"
 #: inc/modules/sticky-toolbar.php:226
 msgctxt "toolbar"
 msgid "Wishlist"
-msgstr ""
+msgstr "Lista de deseos"
 
 #: inc/modules/sticky-toolbar.php:365
 msgctxt "toolbar"

@@ -3,8 +3,8 @@ Contributors: timwhitlock
 Tags: translation, translators, localization, localisation, l10n, i18n, Gettext, PO, MO, productivity, multilingual, internationalization
 Requires at least: 4.1
 Requires PHP: 5.2.4
-Tested up to: 5.8.1
-Stable tag: 2.5.5
+Tested up to: 5.9
+Stable tag: 2.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,24 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 
 == Changelog ==
+
+= 2.5.8 =
+* Compatible with PHP 8.1
+* Bumped WordPress version to 5.9
+* Added deprecation warning prior to v2.6
+
+= 2.5.7 = 
+* Fixed bug in 2.5.6 where remote APIs could not be used in batch mode
+* Enforcing 10k character limit per request for Microsoft and Yandex Translators
+* Style fix for revision/diff table under restore tab
+
+= 2.5.6 =
+* Added loco_api_provider_source filter
+* Fixed bug loading user preferences saved in older version
+* Refactored file finder to avoid recursive function calls
+* Fixed bug displaying two forms for zero plural languages
+* Added Lecto AI to translation API providers
+* Bumped WordPress version to 5.8.3
 
 = 2.5.5 =
 * Fixed double file extension vulnerability reported by WordFence
@@ -431,7 +449,7 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 == Upgrade Notice ==
 
-= 2.5.5 =
+= 2.5.8 =
 * Various improvements and bug fixes
 
 

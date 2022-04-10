@@ -240,13 +240,12 @@ function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) 
    </div>
 
 
-  <div class="<?php echo ( ( $apivalid == 1  ) ? 'chmp-active' : 'chmp-inactive' ) ;  ?>">
-  <p class="p-author"><a type="button" aria-expanded="false" class="mce-trigger a-support ">Show Advanced Settings</a> &nbsp; <a class="cme-trigger-sys a-support ">Get System Information</a> &nbsp; <a class="cme-trigger-log a-support ">View Debug Logger</a></p>
-  </div>
+  <p class="p-author"><a type="button" aria-expanded="false" class="mce-trigger a-support ">Show Advanced Settings</a> &nbsp; <a class="cme-trigger-sys a-support ">Server Environment</a> &nbsp; <a class="cme-trigger-log a-support ">View Debug Logs</a> &nbsp; <a class="cme-trigger-php a-support ">View PHP Logs</a></p>
 
   <?php include SPARTAN_MCE_PLUGIN_DIR . '/lib/system.php'; ?>
 
   <?php  echo chimp_html_log_view() ; ?>
+  <?php  echo chimp_html_php_log_view() ; ?>
 
   <div class="dev-cta mce-cta welcome-panel" style="display: none;">
 

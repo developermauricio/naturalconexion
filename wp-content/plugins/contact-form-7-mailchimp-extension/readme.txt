@@ -3,7 +3,7 @@ Contributors: rnzo, chimpmatic
 Donate link: https://bit.ly/2HdTzmO
 Tags: mailchimp, newsletter, email, marketing, contact form 7, chimpmatic, mailchimp tags, mailchimp audiences
 Requires at least: 4.9
-Tested up to: 5.8.9
+Tested up to: 5.9.9
 Stable tag: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,16 +30,16 @@ Contact Form 7 & [Mailchimp Integration](https://chimpmatic.com/faqs) that gives
 
 * FREE!
 * [Easy to use](https://chimpmatic.com/help/connect-contact-form-7-with-mailchimp)
-* Support for [many custom fields](https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields)
-* Unlimited [contact forms](https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields)
+* Support for [many custom fields](https://chimpmatic.com/help)
+* Unlimited [contact forms](https://chimpmatic.com/faqs)
 * Use a different [Mailchimp API key](https://chimpmatic.com/help/contact-form-7-mailchimp-extension) per contact form
 * Use a different [Mailchimp mailing list](https://chimpmatic.com/help/contact-form-7-mailchimp-extension) per contact form
 * [Single opt-in](https://chimpmatic.com/help/contact-form-7-mailchimp-extension) - no confirmation email send to subscribers
 * [Double opt-in](https://chimpmatic.com/help/contact-form-7-mailchimp-extension) - confirmation email send to subscribers
-* [Opt-in checkbox](https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-opt-in-checkbox) - add the chance to opt-in/opt-out
+* [Opt-in checkbox](https://chimpmatic.com/help/mailchimp-opt-in-checkbox) - add the chance to opt-in/opt-out
 * Latest [Mailchimp API V3](https://chimpmatic.com)
 * Constantly updated
-* [Marketing professionals requests](https://chimpmatic.com/contacts)
+* [Marketing professionals requests](https://chimpmatic.com/contact)
 
 = Premium Features =
 
@@ -91,23 +91,23 @@ Do you have questions or issues with Contact Form 7 Mailchimp Extension? Use the
 4. [Mailchimp API Key](https://chimpmatic.com/how-to-find-your-mailchimp-api-key)
 4. [Mailchimp Tags or Labels](https://chimpmatic.com/how-to-find-your-mailchimp-api-key)
 5. [Mailchimp List ID](https://chimpmatic.com/help)
-6. [Mailchimp Opt-in Checkbox](https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-opt-in-checkbox)
+6. [Mailchimp Opt-in Checkbox](https://chimpmatic.com/help/mailchimp-opt-in-checkbox)
 7. [Chimpmail](https://chimpmatic.com/help/contact-form-7-mailchimp-extension)
 8. [Mailchimp Form](https://chimpmatic.com/help/contact-form-7-mailchimp-extension)
 9. [Aweber vs Mailchimp](https://chimpmatic.com/help/contact-form-7-mailchimp-extension)
 10. [Mailchimp Contact Form](https://chimpmatic.com/help/contact-form-7-mailchimp-extension)
-11. [Mailchimp Custom fields](https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields)
-11. [Marketing professionals requests](https://chimpmatic.com/contacts)
+11. [Mailchimp Custom fields](https://chimpmatic.com/help)
+11. [Marketing professionals requests](https://chimpmatic.com/contact)
 
 == Changelog ==
 
 For more information, see [Releases](https://chimpmatic.com/faqs).
 
-= 0.5.53 =
+= 0.5.60 =
 
-* Bug fixes
+* Corrected crashing on some server environments
 
-= 0.5.49 =
+= 0.5.57 =
 
 * Corrected Warning lib/handler.php
 

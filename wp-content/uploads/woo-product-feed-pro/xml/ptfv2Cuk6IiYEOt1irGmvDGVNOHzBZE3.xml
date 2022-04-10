@@ -5,15 +5,78 @@
     <link>https://naturalconexion.com</link>
     <description>WooCommerce Product Feed PRO - This product feed is created with the Product Feed PRO for WooCommerce plugin from AdTribes.io. For all your support questions check out our FAQ on https://www.adtribes.io or e-mail to: support@adtribes.io </description>
     <item>
+      <g:id>19643</g:id>
+      <g:title>Repuesto Shampoo Natural Cebolla 500 ml</g:title>
+      <g:description>Ingredientes principales: Cebolla. Romero. Eucalipto. Aguacate. Menta.</g:description>
+      <g:link>https://naturalconexion.com/product/repuesto-shampoo-natural-cebolla-500-ml/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-06-at-10.19.23-AM.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 53000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Capilar</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>19543</g:id>
+      <g:title>Ritual mamá Ama su piel con la Vitamina C</g:title>
+      <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
+      <g:link>https://naturalconexion.com/product/ritual-mama-ama-su-piel-con-la-vitamina-c/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-31-at-1.22.05-PM.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 148500.00</g:price>
+      <g:google_product_category>8452</g:google_product_category>
+      <g:product_type>Kit especiales</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>19541</g:id>
+      <g:title>Ritual Un Espacio Para Mamá</g:title>
+      <g:link>https://naturalconexion.com/product/ritual-un-espacio-para-mama/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-31-at-1.01.02-PM.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 104400.00</g:price>
+      <g:google_product_category>8452</g:google_product_category>
+      <g:product_type>Kit especiales</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>19538</g:id>
+      <g:title>Cuidado Natural Para Mamá</g:title>
+      <g:description>   </g:description>
+      <g:link>https://naturalconexion.com/product/cuidado-natural-para-mama/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/03/3.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 69210.00</g:price>
+      <g:google_product_category>8452</g:google_product_category>
+      <g:product_type>Kit especiales</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>19533</g:id>
+      <g:title>Ritual Aromaterapia Para Mamá</g:title>
+      <g:link>https://naturalconexion.com/product/ritual-aromaterapia-para-mama/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/03/6.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 88200.00</g:price>
+      <g:google_product_category>8452</g:google_product_category>
+      <g:product_type>Kit especiales</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
       <g:id>18696</g:id>
       <g:title>Ritual Box 10 años Aniversario</g:title>
       <g:description>Ingredientes principales: Caléndula. Manzanilla. Aloe Vera. Oliva. Argán.</g:description>
       <g:link>https://naturalconexion.com/product/ritual-box-10-anos-aniversario/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-08-at-11.07.50-AM.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 86000.00</g:price>
-      <g:google_product_category>2559</g:google_product_category>
-      <g:product_type>Bonos de regalo</g:product_type>
+      <g:price>COP 77400.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Kit especiales</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -64,8 +127,8 @@
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-16-at-12.33.06-PM.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 120000.00</g:price>
-      <g:google_product_category>2559</g:google_product_category>
-      <g:product_type>Bonos de regalo</g:product_type>
+      <g:google_product_category>2526</g:google_product_category>
+      <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -109,28 +172,15 @@
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
-      <g:id>17294</g:id>
-      <g:title>Gel con Extractos Botánicos y Minerales Pronto alivio 250 gr</g:title>
-      <g:description>Ingredientes principales: Pronto Alivio. Aloe vera. Eucalipto. Menta. Árnica. Caléndula. Ortiga. Manzanilla.</g:description>
-      <g:link>https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-gr/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-12-03-at-11.53.09-AM.jpeg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 70000.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
       <g:id>17269</g:id>
       <g:title>Kit Sérum Facial Con Vitamina C Mayakú</g:title>
       <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
       <g:link>https://naturalconexion.com/product/serum-facial-con-vitamina-c/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 166500.00</g:price>
-      <g:google_product_category>2559</g:google_product_category>
-      <g:product_type>Bonos de regalo</g:product_type>
+      <g:availability>backorder</g:availability>
+      <g:price>COP 185000.00</g:price>
+      <g:google_product_category>8452</g:google_product_category>
+      <g:product_type>Kit especiales||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -179,9 +229,9 @@
       <g:link>https://naturalconexion.com/product/unifica-el-tono-de-tu-piel/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/10/Kit-Unifica-Tu-Tono-de-Piel.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 130900.00</g:price>
-      <g:google_product_category>8452</g:google_product_category>
-      <g:product_type>Kit especiales</g:product_type>
+      <g:price>COP 117810.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Kit especiales</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -231,9 +281,9 @@
       <g:link>https://naturalconexion.com/product/gel-con-extractos-botanicos-y-minerales-pronto-alivio-250-ml/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/gel-pronto-alivio-250.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 29750.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:price>COP 35000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -270,9 +320,9 @@
       <g:link>https://naturalconexion.com/product/crema-limpiadora-exfoliante-de-aloe-vera-y-pepino-120-gr/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-de-pepino-60.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 22500.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Facial</g:product_type>
+      <g:price>COP 25000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -333,7 +383,7 @@
       <g:title>Aceite Esencial Cidrón 10ML</g:title>
       <g:link>https://naturalconexion.com/product/aceite-esencial-cidron-10ml/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/08/KIT-HUMECTACION-PIEL-MIXTA-19.png</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 36000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Corporal</g:product_type>
@@ -397,9 +447,9 @@
       <g:link>https://naturalconexion.com/product/jabon-artesanal-azucenas-100gr/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-32.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 16200.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas||Facial</g:product_type>
+      <g:price>COP 18000.00</g:price>
+      <g:google_product_category>2526</g:google_product_category>
+      <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -418,10 +468,10 @@
     </item>
     <item>
       <g:id>13104</g:id>
-      <g:title>Hidratante y Protector para Labios De Naranja 5 gr</g:title>
+      <g:title>Hidratante y Protector para Labios De Caléndula y Manzanilla 5 gr</g:title>
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas</g:description>
       <g:link>https://naturalconexion.com/product/hidratante-y-protector-para-labios-de-naranja-5-gr/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-naranja.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/04/CALENDULA.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
@@ -542,7 +592,7 @@
       <g:description>Ingredientes principales: Aceite de Semilla de Uva. Caléndula. Manzanilla. Aloe Vera. Cola de caballo. Manteca de Carité. Vitamina E. Aceite de Oliva. Ácido Linoleico. Flavonoides.</g:description>
       <g:link>https://naturalconexion.com/product/kit-belleza-natural/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/12/20.png</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 128000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Kit especiales||Facial</g:product_type>
@@ -817,7 +867,7 @@
       <g:description>Ingredientes principales: Drago. Romero. Menta. Ortiga.</g:description>
       <g:link>https://naturalconexion.com/product/jabon-drago-250ml/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/jabon-drago.png</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 23000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Corporal</g:product_type>
@@ -869,7 +919,7 @@
       <g:link>https://naturalconexion.com/product/aceite-esencial-de-naranja/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Naranja.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 30000.00</g:price>
+      <g:price>COP 27000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
@@ -994,12 +1044,12 @@
     </item>
     <item>
       <g:id>7606</g:id>
-      <g:title>Leche Desmaquilladora Arroz 250 ML</g:title>
+      <g:title>Leche Desmaquilladora Arroz 120 ML</g:title>
       <g:description>Ingredientes principales: Arroz. Oliva. Vitamina E. Argán. Germen de trigo.</g:description>
       <g:link>https://naturalconexion.com/product/leche-desmaquilladora-de-arroz/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.10-AM-1.jpeg</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>COP 33000.00</g:price>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/ARROZ.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 28000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -1103,9 +1153,9 @@
       <g:link>https://naturalconexion.com/product/protector-solar-uva/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-22.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 55000.00</g:price>
-      <g:google_product_category>2526</g:google_product_category>
-      <g:product_type>Facial</g:product_type>
+      <g:price>COP 49500.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1132,19 +1182,6 @@
       <g:price>COP 26000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Facial</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
-      <g:id>7573</g:id>
-      <g:title>Té Verde Jabón Líquido con Extractos botánicos 250ML</g:title>
-      <g:description>Ingredientes principales : Extracto Té verde. Aloe vera. Romero. Ortiga. Corteza de Drago. Quinoa.    </g:description>
-      <g:link>https://naturalconexion.com/product/jabon-liquido-de-te-verde/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/jabon-te-verde.png</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 27000.00</g:price>
-      <g:google_product_category>469</g:google_product_category>
-      <g:product_type>Productos veganos||Facial||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1282,25 +1319,25 @@
     </item>
     <item>
       <g:id>7514</g:id>
-      <g:title>Leche Desmaquilladora Perejil 250 ml</g:title>
+      <g:title>Leche Desmaquilladora Perejil 120 ML</g:title>
       <g:description>Ingredientes principales: Extracto y Aceite Esencial de Perejil. Extracto de Áloe Vera. Sauco. Arroz. Caléndula. Almendra. Ajonjolí.</g:description>
       <g:link>https://naturalconexion.com/product/leche-de-perejil/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM.jpeg</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>COP 29700.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Facial</g:product_type>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/LECHE-PEREJIL.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 28000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>7515</g:id>
-      <g:title>Leche Desmaquilladora Té Verde 250 ML</g:title>
+      <g:title>Leche Desmaquilladora Té Verde 120 ML</g:title>
       <g:description>Ingredientes principales: Té verde. Aloe vera. Oliva. Argán. Ortiga.</g:description>
       <g:link>https://naturalconexion.com/product/leche-de-te-verde/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-1.jpeg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/TE-VERDE.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 33000.00</g:price>
+      <g:price>COP 28000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -1313,9 +1350,9 @@
       <g:link>https://naturalconexion.com/product/leche-de-uva-y-argan/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2021-12-16-at-7.32.50-AM-2.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 33000.00</g:price>
-      <g:google_product_category>469</g:google_product_category>
-      <g:product_type>Productos veganos||Facial</g:product_type>
+      <g:price>COP 29700.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Productos veganos||Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1337,8 +1374,8 @@
       <g:title>Crema Serum Antiedad 30 GR</g:title>
       <g:description>Ingredientes principales: Aceite de Argán. Extracto de Manzanilla. Aloe Vera. Extracto de Manzanilla. Semillas de Uva. Germen de Trigo. Vitamina E. Colágeno. Elastina.</g:description>
       <g:link>https://naturalconexion.com/product/crema-serum/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/Serum-Antiedad_Mesa-de-trabajo-1.jpg</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/WhatsApp-Image-2022-03-28-at-9.04.38-AM.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 60000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
@@ -1598,9 +1635,9 @@
       <g:title>Hidratante y Protector para Labios 5 gr Calendula y manzanilla</g:title>
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Calendula+y+manzanilla</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/FRUTOS-ROJOS.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 9500.00</g:price>
+      <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -1612,9 +1649,9 @@
       <g:title>Hidratante y Protector para Labios 5 gr Hierbabuena</g:title>
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Hierbabuena</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/FRUTOS-ROJOS.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 9500.00</g:price>
+      <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -1626,7 +1663,7 @@
       <g:title>Hidratante y Protector para Labios 5 gr Frutos rojos</g:title>
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Frutos+rojos</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/FRUTOS-ROJOS.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
@@ -1640,7 +1677,7 @@
       <g:title>Hidratante y Protector para Labios 5 gr Menta</g:title>
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Menta</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/protector-labial-frutos-rojos.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/FRUTOS-ROJOS.jpeg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 9500.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
@@ -1672,18 +1709,6 @@
       <g:price>COP 18000.00</g:price>
       <g:google_product_category>469</g:google_product_category>
       <g:product_type>Productos veganos||Facial</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
-      <g:id>7430</g:id>
-      <g:title>Kit Viajero</g:title>
-      <g:link>https://naturalconexion.com/product/kit-viajero/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/KIT-HUMECTACION-PIEL-MIXTA-62.png</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 71111.00</g:price>
-      <g:google_product_category>8452</g:google_product_category>
-      <g:product_type>Kit especiales</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>

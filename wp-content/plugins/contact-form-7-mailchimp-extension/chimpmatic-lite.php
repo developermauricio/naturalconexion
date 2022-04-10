@@ -3,13 +3,13 @@
  * Plugin Name: Contact Form 7 Extension For Mailchimp
  * Plugin URI: https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension
  * Description: Integrate Contact Form 7 with Mailchimp. Automatically add form submissions to predetermined lists in Mailchimp, using its latest API.
- * Version: 0.5.53
+ * Version: 0.5.60
  * Author: Renzo Johnson
  * Author URI: https://renzojohnson.com
  * Text Domain: chimpmatic-lite
  * Domain Path: /languages/
  * Requires at least: 5.6
- * Requires PHP: 7.0
+ * Requires PHP: 5.6
  *
 */
 
@@ -32,7 +32,7 @@
 
 if ( ! defined( 'SPARTAN_MCE_VERSION' ) ) {
 
-		define( 'SPARTAN_MCE_VERSION', '0.5.53' );
+		define( 'SPARTAN_MCE_VERSION', '0.5.60' );
 		define( 'SPARTAN_MCE_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'SPARTAN_MCE_PLUGIN_NAME', trim( dirname( SPARTAN_MCE_PLUGIN_BASENAME ), '/' ) );
 		define( 'SPARTAN_MCE_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
@@ -80,206 +80,206 @@ if ( ! function_exists ( 'mc_after_setup_theme'  ) ) {
 // register_activation_hook(__FILE__,'mce_help');
 
 
-add_filter( 'cron_schedules', 'mce_cron_schedules');
+// add_filter( 'cron_schedules', 'mce_cron_schedules');
 
-if ( ! function_exists ( 'mce_cron_schedules'  ) ) {
+// if ( ! function_exists ( 'mce_cron_schedules'  ) ) {
 
-	function mce_cron_schedules( $schedules ) {
+// 	function mce_cron_schedules( $schedules ) {
 
-			 $schedules['weekly'] = array(
-					'interval' => 604800, // segundos en una semana
-					'display' => __( 'Weekly', 'mce-textdomain' ) //nombre del intervalo
-			 );
+// 			 $schedules['weekly'] = array(
+// 					'interval' => 604800, // segundos en una semana
+// 					'display' => __( 'Weekly', 'mce-textdomain' ) //nombre del intervalo
+// 			 );
 
-			 $schedules['monthly'] = array(
-					'interval' => 2592000, // segundos en 30 dias
-					'display' => __( 'Monthly', 'mce-textdomain' ) // nombre del intervalo
-			 );
+// 			 $schedules['monthly'] = array(
+// 					'interval' => 2592000, // segundos en 30 dias
+// 					'display' => __( 'Monthly', 'mce-textdomain' ) // nombre del intervalo
+// 			 );
 
-			$schedules['12hours'] = array(
-					'interval' => 43200, // segundos en 12 horas --43200
-					'display' => __( '12hours', 'mce-textdomain' ) // nombre del intervalo
-			 );
+// 			$schedules['12hours'] = array(
+// 					'interval' => 43200, // segundos en 12 horas --43200
+// 					'display' => __( '12hours', 'mce-textdomain' ) // nombre del intervalo
+// 			 );
 
-			 $schedules['5min'] = array(
-					'interval' => 300, // segundos en 5 minutos
-					'display' => __( '5min', 'mce-textdomain' ) // nombre del intervalo
-			 );
+// 			 $schedules['5min'] = array(
+// 					'interval' => 300, // segundos en 5 minutos
+// 					'display' => __( '5min', 'mce-textdomain' ) // nombre del intervalo
+// 			 );
 
-			 $schedules['4days'] = array(
-					'interval' => 345600, // cada 4 dias.
-					'display' => __( '4days', 'mce-textdomain' ) // nombre del intervalo
-			 );
+// 			 $schedules['4days'] = array(
+// 					'interval' => 345600, // cada 4 dias.
+// 					'display' => __( '4days', 'mce-textdomain' ) // nombre del intervalo
+// 			 );
 
-			 return $schedules;
-	}
+// 			 return $schedules;
+// 	}
 
-}
+// }
 
-register_activation_hook( __FILE__, 'mce_plugin_scrool' );
+// register_activation_hook( __FILE__, 'mce_plugin_scrool' );
 
-if ( ! function_exists ( 'mce_plugin_scrool'  ) ) {
+// if ( ! function_exists ( 'mce_plugin_scrool'  ) ) {
 
-	function mce_plugin_scrool() {
+// 	function mce_plugin_scrool() {
 
-			if( ! wp_next_scheduled( 'mce_12hours_cron_job' ) ) {
-					wp_schedule_event( current_time( 'timestamp' ), '12hours', 'mce_12hours_cron_job' );
-			}
+// 			if( ! wp_next_scheduled( 'mce_12hours_cron_job' ) ) {
+// 					wp_schedule_event( current_time( 'timestamp' ), '12hours', 'mce_12hours_cron_job' );
+// 			}
 
-			if( ! wp_next_scheduled( 'mce_4days_cron_job' ) ) {
-					wp_schedule_event( current_time( 'timestamp' ), '4days', 'mce_4days_cron_job' );
-			}
+// 			if( ! wp_next_scheduled( 'mce_4days_cron_job' ) ) {
+// 					wp_schedule_event( current_time( 'timestamp' ), '4days', 'mce_4days_cron_job' );
+// 			}
 
-		 //include SPARTAN_MCE_PLUGIN_DIR . '/lib/install-wp-plugins.php' ;
+// 		 //include SPARTAN_MCE_PLUGIN_DIR . '/lib/install-wp-plugins.php' ;
 
-	}
+// 	}
 
-}
+// }
 
-add_action( 'mce_12hours_cron_job', 'mce_do_this_job_12hours' );
-//(add_action( 'mce_4days_cron_job', 'mce_do_this_job_4days' ) ;
+// add_action( 'mce_12hours_cron_job', 'mce_do_this_job_12hours' );
+// //(add_action( 'mce_4days_cron_job', 'mce_do_this_job_4days' ) ;
 
-if ( ! function_exists ( 'mce_do_this_job_12hours'  ) ) {
+// if ( ! function_exists ( 'mce_do_this_job_12hours'  ) ) {
 
-	function mce_do_this_job_12hours() {
-			if ( get_site_option('mce_show_update_news') == null  )
-					add_site_option( 'mce_show_update_news', 1 ) ;
-			else  {
-				 $check = 0 ;
-				 $tittle = '' ;
-				 $message = mce_get_postnotice ($check,$tittle) ;
-				 if ( $check == 1 ) {
-						update_site_option('mce_show_update_news', 1);
-						update_site_option('mce_conten_panel_master', $message) ;
-						update_site_option('mce_conten_tittle_master', $tittle) ;  ;
-				 }
+// 	function mce_do_this_job_12hours() {
+// 			if ( get_site_option('mce_show_update_news') == null  )
+// 					add_site_option( 'mce_show_update_news', 1 ) ;
+// 			else  {
+// 				 $check = 0 ;
+// 				 $tittle = '' ;
+// 				 $message = mce_get_postnotice ($check,$tittle) ;
+// 				 if ( $check == 1 ) {
+// 						update_site_option('mce_show_update_news', 1);
+// 						update_site_option('mce_conten_panel_master', $message) ;
+// 						update_site_option('mce_conten_tittle_master', $tittle) ;  ;
+// 				 }
 
-				 if ( get_site_option('mce_conten_panel_welcome') != null ) {
+// 				 if ( get_site_option('mce_conten_panel_welcome') != null ) {
 
-						$check = 0 ;
-						$tittle = '' ;
-						$banner = mce_get_bannerladilla ($check,$tittle) ;
-						update_site_option('mce_conten_panel_welcome', $banner) ;
+// 						$check = 0 ;
+// 						$tittle = '' ;
+// 						$banner = mce_get_bannerladilla ($check,$tittle) ;
+// 						update_site_option('mce_conten_panel_welcome', $banner) ;
 
-						$check = 0 ;
-						$tittle = '' ;
-						$bannerlat = mce_get_bannerlateral ($check,$tittle) ;
-						update_site_option('mce_conten_panel_lateralbanner', $bannerlat) ;
+// 						$check = 0 ;
+// 						$tittle = '' ;
+// 						$bannerlat = mce_get_bannerlateral ($check,$tittle) ;
+// 						update_site_option('mce_conten_panel_lateralbanner', $bannerlat) ;
 
-				 }
+// 				 }
 
-			}
+// 			}
 
-			$chimp_db_logdb = new chimp_db_log( 'mce_db_issues', 1,'api' );
-			$res = $chimp_db_logdb->chimp_log_delete_db() ;
+// 			$chimp_db_logdb = new chimp_db_log( 'mce_db_issues', 1,'api' );
+// 			$res = $chimp_db_logdb->chimp_log_delete_db() ;
 
-			//stats
-			$dat = getdate () ;
-			 if ( $dat["wday"] == 4 or $dat["wday"] == 7 ) {
-				 mce_do_this_job_4days() ;
-			 }
+// 			//stats
+// 			$dat = getdate () ;
+// 			 if ( $dat["wday"] == 4 or $dat["wday"] == 7 ) {
+// 				 mce_do_this_job_4days() ;
+// 			 }
 
-	}
+// 	}
 
-}
+// }
 
-if ( ! function_exists ( 'mce_do_this_job_4days'  ) ) {
+// if ( ! function_exists ( 'mce_do_this_job_4days'  ) ) {
 
-	function mce_do_this_job_4days() {
+// 	function mce_do_this_job_4days() {
 
-		$mce_sents = ( is_null ( get_option( 'mce_sent') ) )? 0 : get_option( 'mce_sent')  ;
-		$diasdifer = mce_diferdays_dateact_date() ;
-		$diasdifer = ( is_null ( $diasdifer ) ) ? 0 : $diasdifer ;
+// 		$mce_sents = ( is_null ( get_option( 'mce_sent') ) )? 0 : get_option( 'mce_sent')  ;
+// 		$diasdifer = mce_diferdays_dateact_date() ;
+// 		$diasdifer = ( is_null ( $diasdifer ) ) ? 0 : $diasdifer ;
 
-		$aa =   $mce_sents ;
-		//sents
-		switch ( $aa ) {
-			case 0  :
-				$labelping = '0 sends';
-				break;
+// 		$aa =   $mce_sents ;
+// 		//sents
+// 		switch ( $aa ) {
+// 			case 0  :
+// 				$labelping = '0 sends';
+// 				break;
 
-			case  ( $aa > 0 and $aa < 100 ) :
-				$labelping = '1 - 99';
-				break;
+// 			case  ( $aa > 0 and $aa < 100 ) :
+// 				$labelping = '1 - 99';
+// 				break;
 
-			case ( $aa > 99 and $aa < 300 ):
-				$labelping = '100 - 299';
-				break;
+// 			case ( $aa > 99 and $aa < 300 ):
+// 				$labelping = '100 - 299';
+// 				break;
 
-			case ( $aa > 299 and $aa < 600 ):
-				$labelping = '300-599';
-				break;
+// 			case ( $aa > 299 and $aa < 600 ):
+// 				$labelping = '300-599';
+// 				break;
 
-			case ( $aa > 599 and $aa < 1000 ):
-				$labelping = '600-999';
-				break;
+// 			case ( $aa > 599 and $aa < 1000 ):
+// 				$labelping = '600-999';
+// 				break;
 
-			case ( $aa > 999  ):
-				$labelping = '> 999';
-				break;
+// 			case ( $aa > 999  ):
+// 				$labelping = '> 999';
+// 				break;
 
-			default :
-				$labelping = 'unrecognosible';
-				break;
+// 			default :
+// 				$labelping = 'unrecognosible';
+// 				break;
 
-		}
+// 		}
 
-		$respanalitc = vc_ga_send_event('Mailchimp Extension', 'SENDS', $labelping);
+// 		$respanalitc = vc_ga_send_event('Mailchimp Extension', 'SENDS', $labelping);
 
-		 //days
-		$aa =   $diasdifer ;
-		switch ( $aa ) {
-			case 0  :
-				$labelping = '0 days';
-				break;
+// 		 //days
+// 		$aa =   $diasdifer ;
+// 		switch ( $aa ) {
+// 			case 0  :
+// 				$labelping = '0 days';
+// 				break;
 
-			case  ( $aa > 0 and $aa < 100 ) :
-				$labelping = '1 - 99 days';
-				break;
+// 			case  ( $aa > 0 and $aa < 100 ) :
+// 				$labelping = '1 - 99 days';
+// 				break;
 
-			case ( $aa > 99 and $aa < 300 ):
-				$labelping = '100 - 299 days';
-				break;
+// 			case ( $aa > 99 and $aa < 300 ):
+// 				$labelping = '100 - 299 days';
+// 				break;
 
-			case ( $aa > 299 and $aa < 600 ):
-				$labelping = '300-599 days';
-				break;
+// 			case ( $aa > 299 and $aa < 600 ):
+// 				$labelping = '300-599 days';
+// 				break;
 
-			case ( $aa > 599 and $aa < 1000 ):
-				$labelping = '600-999 days';
-				break;
+// 			case ( $aa > 599 and $aa < 1000 ):
+// 				$labelping = '600-999 days';
+// 				break;
 
-			case ( $aa > 999  ):
-				$labelping = '> 999 days';
-				break;
+// 			case ( $aa > 999  ):
+// 				$labelping = '> 999 days';
+// 				break;
 
-			default :
-				$labelping = 'unrecognosite';
-				break;
+// 			default :
+// 				$labelping = 'unrecognosite';
+// 				break;
 
-		}
+// 		}
 
-		$respanalitc = vc_ga_send_event('Mailchimp Extension', 'DAYS ACTIVATED', $labelping);
-
-
-	}
-
-}
-
-register_deactivation_hook( __FILE__, 'mce_plugin_deactivation' );
+// 		$respanalitc = vc_ga_send_event('Mailchimp Extension', 'DAYS ACTIVATED', $labelping);
 
 
-if ( ! function_exists ( 'mce_plugin_deactivation'  ) ) {
+// 	}
 
-	function mce_plugin_deactivation() {
+// }
 
-			wp_clear_scheduled_hook( 'mce_12hours_cron_job' );
-			wp_clear_scheduled_hook( 'mce_5min_cron_job' );
-			wp_clear_scheduled_hook( 'mce_4days_cron_job' );
-			delete_site_option( 'mce_show_update_news' );
-	}
+// register_deactivation_hook( __FILE__, 'mce_plugin_deactivation' );
 
-}
+
+// if ( ! function_exists ( 'mce_plugin_deactivation'  ) ) {
+
+// 	function mce_plugin_deactivation() {
+
+// 			wp_clear_scheduled_hook( 'mce_12hours_cron_job' );
+// 			wp_clear_scheduled_hook( 'mce_5min_cron_job' );
+// 			wp_clear_scheduled_hook( 'mce_4days_cron_job' );
+// 			delete_site_option( 'mce_show_update_news' );
+// 	}
+
+// }
 
 
 if (!function_exists('write_log')) {

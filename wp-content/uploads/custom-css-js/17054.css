@@ -31,8 +31,42 @@ li.meta-author span.fn:before {
     content: "Natural Conexion";
     font-size: 1rem;
 }
+.img-popup-suscrip {
+    height: 350px;
+}
+.img-popup-suscrip img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
 
 
+/* estilos modal subscribe */
+.content-subscribe {
+    text-align: center;
+}
+.content-subscribe h4.woodmart-title-container {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.banner-shop-natural{
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+#wd-623de5e6a6212 .wpb_single_image img{
+  max-width: 140% !important;
+}
+.wpb_single_image img{
+  max-width: 114% !important;
+}
+
+#wd-624216ad428b4 .woodmart-timeline-dot{
+  background-color: #378030 !important;
+}
+.wrapp-category .hover-mask{
+  display:none !important
+}
 /*  Estilos para movil  */
 @media (max-width: 767.98px) { 
   .title-landing h4 {

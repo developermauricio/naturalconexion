@@ -255,6 +255,13 @@ jQuery(".cme-trigger-log").click(function() {
 });
 
 
+jQuery(".cme-trigger-php").click(function() {
+
+  jQuery( "#eventlog-sys" ).slideToggle(250);
+
+});
+
+
 
 jQuery(document).on('click', '.cme-trigger-log', function(event){
 
