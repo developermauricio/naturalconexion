@@ -1913,7 +1913,11 @@ if ( ! function_exists( 'woodmart_login_form' ) ) {
 				</div>
 				<div style="padding-bottom: 1rem;">
 					<span class="social-login-title title wd-login-divider wood-login-divider"> Iniciar como Distribuidor </span>
-					<a class="button btn-distributor" target="_blank" href="https://ap01.aplicativoweb.com/login_1.php">Ingresar</a>
+					<!-- <a class="button btn-distributor" target="_blank" href="https://ap01.aplicativoweb.com/login_1.php">Ingresar</a> -->
+					<a class="button btn-distributor" target="_blank" href="https://sag-erp.azurewebsites.net/">Ingresar</a>
+				</div>
+				<div style="padding-bottom: 1rem;">
+					<a class="button btn-distributor" target="_blank" href="https://naturalconexion.sagerp.cloud/registrosnc/AspNetUsers/Create">Registrarse</a>
 				</div>
 
 				<?php if ( class_exists( 'WOODMART_Auth' ) && ( ( ! empty( $fb_app_id ) && ! empty( $fb_app_secret ) ) || ( ! empty( $goo_app_id ) && ! empty( $goo_app_secret ) ) || ( ! empty( $vk_app_id ) && ! empty( $vk_app_secret ) ) ) ) : ?>

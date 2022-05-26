@@ -1,4 +1,4 @@
-a:2:{s:4:"time";i:1649676018;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7716;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-09-04 22:24:41";s:13:"post_date_gmt";s:19:"2020-09-05 03:24:41";s:12:"post_content";s:988:"<b>Ingredientes principales:</b>
+a:2:{s:4:"time";i:1653602308;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7716;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-09-04 22:24:41";s:13:"post_date_gmt";s:19:"2020-09-05 03:24:41";s:12:"post_content";s:988:"<b>Ingredientes principales:</b>
 <ul>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Caléndula.</span></li>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Manzanilla.</span></li>
@@ -11,7 +11,9 @@ a:2:{s:4:"time";i:1649676018;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7716;s:11:
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Aceite de Oliva.</span></li>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Pantallas físicas (dióxido de titanio).</span></li>
 </ul>
-&nbsp;";s:10:"post_title";s:30:"Kit Humectación Piel Delicada";s:12:"post_excerpt";s:3118:"<span style="font-weight: 400;">¡Es momento de cuidar tu piel de forma natural!</span>
+&nbsp;";s:10:"post_title";s:30:"Kit Humectación Piel Delicada";s:12:"post_excerpt";s:3118:"[sc name="sellos"]
+
+<span style="font-weight: 400;">¡Es momento de cuidar tu piel de forma natural!</span>
 <ul>
  	<li><b>Crema Caléndula y Manzanilla 60gr: <span style="font-weight: 400;">Traemos para ti una crema que será tu aliada por su poder regenerador. Si tu piel es grasa o tienes tendencia a que te salgan imperfecciones este producto es ideal para ti. Después de limpiar y tonificar la piel, aplicar una cantidad suficiente en la zona del rostro y el cuello, masajear hasta su completa absorción.</span></b></li>
  	<li><strong>Contorno Ojos de Germen de Trigo 30gr:</strong> <span style="font-weight: 400;">Nuestra fórmula es ideal para el cuidado de tu rostro porque trabaja atenuando las líneas de expresión, hidratando el contorno de tus ojos y atenuando ojeras. Aplicar en el área de los ojos con suaves masajes en el día y en la noche.</span></li>
@@ -41,6 +43,4 @@ a:2:{s:4:"time";i:1649676018;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7716;s:11:
  	<li style="font-weight: 400;"><span style="font-weight: 400;">No contienen parabenos.  </span></li>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">No son testados en animales.</span></li>
 </ul>
-<span style="font-weight: 400;">Los beneficios de la naturaleza.  ¡Pruébalo y recíbelo en casa!</span>
-
-[sc name="sellos"]";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:29:"kit-humectacion-piel-delicada";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-01-03 14:10:25";s:17:"post_modified_gmt";s:19:"2022-01-03 19:10:25";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:60:"https://jjllorente.com/product/import-placeholder-for-23391/";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}
+<span style="font-weight: 400;">Los beneficios de la naturaleza.  ¡Pruébalo y recíbelo en casa!</span>";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:29:"kit-humectacion-piel-delicada";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-05-17 20:20:41";s:17:"post_modified_gmt";s:19:"2022-05-18 01:20:41";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:60:"https://jjllorente.com/product/import-placeholder-for-23391/";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}
