@@ -191,6 +191,11 @@ class WooSEA_pinterest {
 					"feed_name" => "g:age_group",
 					"format" => "optional",
 				),
+				"Alt text" => array(
+					"name" => "alt_text",
+					"feed_name" => "g:alt_text",
+					"format" => "optional",
+				),
 				"Color" => array(
 					"name" => "color",
 					"feed_name" => "g:color",

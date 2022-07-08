@@ -1,18 +1,18 @@
-=== Product Feed PRO for WooCommerce  ===
+=== Product Feed PRO for WooCommerce ===
 Contributors: jorisverwater,supportadtribes,evavangelooven
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: Product Feed, Google Shopping, Google Shopping Feed, WooCommerce Product Feed, WooCommerce Product Feed PRO, Bing Shopping, Bing product feed, Bing remarking, Google Merchant Feed, Google DRM Feed, Google Dynamic Remarketing Feed, Facebook feed, Google feed, Bing feed, Facebook Product Feed, Facebook pixel, Facebook Conversion API, Facebook CAPI,Facebook Dynamic remarketing, Data Feed, WooCommerce Feed, XML product feed, CSV product feed, TSV, TXT product feed, comparison shopping engines, comparison shopping websites, vergelijk.nl, vergelijk.be, vertaa.fi, beslist.nl, kieskeurig.nl, bol.com, raketten, pricerunner, pricegrabber, Buy, leGuide, Kelkoo, Twenga, Yandex, Etsy, Dealtime, Shopzilla, Billiger, Google Product Review feed
+Tags: Google Shopping Feed, Facebook feed, Facebook catalog feed, WooCommerce Product Feed, Product Feed, Bing Shopping Feed, Bing Product Feed, Google Merchant Feed, Skroutz, Google Product Feed, Pinterest, Idealo, Pixels, Conversion API
 Requires at least: 4.5
-Tested up to: 5.8
-Stable tag: 11.0.0
+Tested up to: 6.0
+Stable tag: 11.6.7
 
 == Description ==
 
-Generate WooCommerce product feeds for all your marketing channels, such as Google Shopping (merchant center), Facebook Remarketing, Bing Ads, Billiger.de, Pricerunner, Skroutz and many more. Next to custom feeds there are over 100 pre-defined templates included for marketplaces, comparison shopping engines and search engines. This plugin provides high-quality product feed for Google Shopping and many many more.
+Generate WooCommerce product feeds for all your marketing channels, such as Google Shopping (merchant center), Facebook, Remarketing, Bing Ads, Billiger.de, Pricerunner, Skroutz and many more. Next to custom feeds there are over 100 pre-defined templates included for marketplaces, comparison shopping engines and search engines. This plugin provides high-quality product feed for Google Shopping and many many more.
 
 = Why choose this plugin? =
-Simply because this is the most complete plugin offering support for an unlimited number of products and feeds, including features such as category- & field-mapping and advanced, rule-based, filtering and product variables support. Next to creating product feeds this plugin also add's the Facebook pixel, Facebook Conversion API (CAPI) and Google Dynamic Remarketing pixel to your website and makes sure they are aligned with your feeds.
+Simply because this is the most complete plugin offering support for an unlimited number of products and feeds, including features such as category- & field-mapping and advanced, rule-based, filtering and product variables support. Next to creating product feeds this plugin also add's pixels and conversion API (CAPI) and Google Dynamic Remarketing pixel to your website and makes sure they are aligned with your feeds.
 
 = Our mission =
 Offer free and advanced, intuitive, tooling and plugins for website owners and marketers to easily set-up and manage their online marketing campaigns.
@@ -55,6 +55,9 @@ Some marketing channels require you to map your categories to theirs (such as Go
 = Google Shopping =
 Our plugin offers added and advanced features for creating the best possible product feed for Google Shopping. Feeds created by our plugin have a high approval rate on products in Google's Merchant center. Also, because of a WooCommerce bug in the structured data of variable products all of these products would normally be disapproved in Google's merchant center. Our plugin fixes this bug and enables you to advertise on all of your products in Google Shopping.
 
+= Facebook Feed/Catalog and remarketing =
+Our plugin offers added and advanced features for creating the best possible product feed for your Facebook catalog and Facebook shop. Our plugin also includes the Facebook pixel and CAPI support. 
+
 = Google Analytics support =
 This plugin enables you to add and configure Google Analytics UTM tracking-codes to your product URL’s so you can measure the effectiveness of your marketing channels in Google Analytics. 
 
@@ -70,9 +73,9 @@ Our plugin supports the WooCommerce Shipping Table Rate plugin created by Bolder
 = Product variations / Variables =
 This plugin supports product variables so all your variations make it to product feeds as individual products too.
 
-= Facebook Pixel =
-This plugin adds the Facebook pixel code on your websites and makes sure it matches the content of your Facebook catalogue product feed
-Our plugin add's the following Facebook pixel events:
+= Pixel =
+This plugin adds the pixel code on your websites and makes sure it matches the content of your catalogue product feed
+Our plugin add's the following pixel events:
 * on your product pages, both for simple, variable and variations pages
 * on your category pages (ViewCategory event)
 * on your search result pages (Search event)
@@ -80,8 +83,8 @@ Our plugin add's the following Facebook pixel events:
 * on the checkout page (initiateCheckout event)
 * on the order thank you page (PurChase event)
 
-= Facebook Conversion API (CAPI) =
-This plugin connects to the Facebook Conversion API so all your website conversions are being tracked properly
+= Conversion API (CAPI) =
+This plugin connects to the Conversion API so all your website conversions are being tracked properly
 
 = Google Dynamic Remarketing Pixel =
 This plugin adds the Google Dynamic Remarketing pixel code on your website.
@@ -104,10 +107,13 @@ Our plugin supports the Aelia Currency Switcher
 = Polylang support (Elite version) =
 Our plugin supports Polylang
 
+= TranslatePress support (Elite version) =
+Our plugin supports TranslatePress - beta
+
 = Google Shopping product feed tutorial =
 [youtube https://www.youtube.com/watch?v=2XzxwKDufGw]
 
-= Facebook Dynamic Ads / Remarketing feed tutorial =
+= Dynamic Ads / Remarketing feed tutorial =
 [youtube https://www.youtube.com/watch?v=Ld-2Kj-_Dow]
 
 == Available features ==
@@ -120,6 +126,7 @@ Our plugin supports Polylang
 * Supports WCML, WooCommerce Multilingual
 * Supports Aelia Currency Switcher
 * Supports Polylang
+* Supports TranslatePress
 * Intuitive interface;
 * Supports product variations / variables;
 * Scheduled product feed refreshes: daily, twice-daily or every hour;
@@ -131,7 +138,6 @@ Our plugin supports Polylang
 * Create custom field names: create your own field names and fill them with static or dynamic values;
 * Add static field values to your product feeds;
 * Google Analytics support: add Google Analytics UTM parameters to your product feed and individual products.
-* Supports the official Facebook for WooCommerce plugin (SKU_ID parameter)
 * Supports Yoasts primary category feature
 * Supports Rankmaths primary category feature
 * Supports the official "WooCommerce Brands" plugin
@@ -154,6 +160,7 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * WPML / WCML support
 * Aelia currency switcher support
 * Polylang support
+* TranslatePress support
 * Addition of the extra fields on your product edit pages
 * Data manipulation feature
 * WooCommerce structured data bug fix
@@ -168,6 +175,7 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * Google Local Products
 * Google Local Products Inventory
 * Google Shopping Actions
+* Facebook shop
 * Facebook Dynamic Ad's / remarketing
 * Bing Shopping
 * Bing Shopping Promotions
@@ -201,6 +209,7 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * <a href="https://www.heureka.cz" target="_blank">Heureka.cz</a>
 * <a href="https://www.glami.gr" target="_blank">Glami.gr</a>
 * <a href="https://www.bestprice.gr" target="_blank">Bestprice.gr</a>
+* <a href="https://www.mall.sk" target="_blank">Mall.sk</a>
 * AdForm
 * Smartly.io
 * <a href="https://www.shareasale.com" target="_blank">Shareasale.com</a>
@@ -215,7 +224,6 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * Hintaseuranta
 * Connexity
 * <a href="https://www.katoni.dk" target="_blank">Katoni.dk</a>
-* Cdiscount
 * Fnac
 * ManoMano
 * <a href="https://www.fruugo.co.uk" target="_blank">Fruugo.co.uk</a>
@@ -233,7 +241,6 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * Webgains
 * Crowdfox
 * <a href="https://www.salidzini.lv" target="_blank">Salidzini.lv</a>
-* Real.de
 * Allyouneed
 * Apomio
 * <a href="http://developer.skroutz.gr/feedspec/" target="_blank" rel="nofollow">Skroutz.gr</a>
@@ -254,7 +261,6 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * <a href="https://www.compari.ro" target="_blank">Compari.ro</a>
 * My Best Brands
 * Preis.de
-* Rakuten
 * Restposten.de
 * Sparmedo.de
 * Stylelounge.de
@@ -303,7 +309,7 @@ Yes, it supports multiple. For example: Yoast's primary category feature and the
 = How do I set-up a product feed for Google Shopping? =
 Please check out our Youtube tutorial: [youtube https://www.youtube.com/watch?v=2XzxwKDufGw]
 
-= How do I set-up a product feed for Facebook Dynamic Ads? =
+= How do I set-up a product feed for Dynamic Ads? =
 Please check out our Youtube tutorial: [youtube https://www.youtube.com/watch?v=Ld-2Kj-_Dow] 
 
 = What file formats does this plugin support? =
@@ -313,7 +319,7 @@ This plugin outputs product feeds in the following file formats: TXT, CSV, XML a
 This plugin can refresh your product feeds daily, twicedaily or every hour.
 
 = What channels does this plugin support? =
-This plugin supports Google Shopping, Facebook, Bing, Yandex and over a 100 other channels.
+This plugin supports Google Shopping, Bing, price comparison sites and over a 100 other channels.
 
 = Does this plugin support Google shopping categories? =
 Yes, this plugin enables you to map your products and categories to Google Shopping categories using Google's official taxonomy.
@@ -339,7 +345,222 @@ Questions left or unanswered? Please do not hesitate to contact us at support@ad
 
 === Changelog ===
 
-= 11.0.0 (2012-12-11) =
+= 11.6.7 (2022-06-21) =
+* Fixed an issue when a non-string was added as a key to the product data array
+
+= 11.6.6 (2022-06-20) =
+* Removed some debugging code
+
+= 11.6.5 (2022-06-20) =
+* Added XML support for Google's Local Product Inventory feeds
+
+= 11.6.4 (2022-06-16) =
+* Checked for compatibility with WooCommerce 6.6.0
+
+= 11.6.3 (2022-06-07) =
+* Fixed the inventory count field for Vivino feeds
+
+= 11.6.2 (2022-06-06) =
+* Solved a Undefined array key HTTP_HOST PHP warning
+
+= 11.6.1 (2022-06-01) =
+* Added some more sanitisation and escaping
+
+= 11.6.0 (2022-05-31) =
+* Added support for the new Skroutz additional_image requirements
+
+= 11.5.9 (2022-05-31) =
+* Fixed an issue where the thousand separator for discounted prices by Flycart was causing malformed prices
+
+= 11.5.8 (2022-05-31) =
+* Fixed issues with regards to missing sanitazion and validation
+
+= 11.5.7 (2022-05-29) =
+* Solved an issue with an undefined variable
+
+= 11.5.6 (2022-05-10) =
+* Fixed an issue with the Skroutz template, adding comma's inbetween size values 
+
+= 11.5.5 (2022-05-05) =
+* Fixed a PHP notice introduced in the previous release
+
+= 11.5.4 (2022-04-29) =
+* Added the alt text attribute for Pinterest feeds
+* Added price attributes with thousand and decimal separators in it (mainly for TikTok)
+
+= 11.5.3 (2022-04-22) =
+* Removed all Facebook references in the plugin title and description
+
+= 11.5.2 (2022-04-15) =
+* Tested for compatibility with WooCommerce 6.4
+
+= 11.5.1 (2022-04-07) =
+* Fixed a multiply issue for price, regular price and sale price attributes that used a komma as decimal separator
+
+= 11.5.0 (2022-04-04) =
+* Added the Glami templates for Slovakia and the Czech Republic
+
+= 11.4.9 (2022-03-30) =
+* Changed the wpdb::prepare query string  
+
+= 11.4.8 (2022-03-29) =
+* Implemented a rounding feature for WooCommerce bundled products
+
+= 11.4.7 (2022-03-28) =
+* Added two new fields to the Google Shopping template: Short title and Excluded countries for Shopping ads
+
+= 11.4.6 (2022-03-23) =
+* The WooCommerce Composite plugin returned sale prices of 0.00. When this happens our plugin removes that sale price from the feeds
+
+= 11.4.5 (2022-03-22) =
+* Reverting the rounding on two decimals for bundled products as WooCommerce is not always returning int|float values
+
+= 11.4.4 (2022-03-21) =
+* Added links to TranslatePress tutorial
+* Fixed an issue with the WooCommerce bundled product plugin that returned prices with more than 2 decimals
+
+= 11.4.3 (2022-03-17) =
+* Fixed an issue for bundled products where VAT was added twice
+
+= 11.4.2 (2022-03-16) =
+* Simplified the SQL query that retrieved custom attribute names so it uses less memory
+
+= 11.4.1 (2022-03-15) =
+* Added 4 new Google Shopping fields in the template: product height, product length, product width and product weight
+
+= 11.4.0 (2022-03-14) =
+* Added encoding for percentage characters
+* Fixed a rounding error which one does on strings instead of int|floats
+
+= 11.3.9 (2022-03-10) =
+* Checked for compatibility with WooCommerce 6.3
+* Fixed a rounding error which one does on strings instead of int|floats
+
+= 11.3.8 (2022-03-07) =
+* Added the new custom number fields to the Facebook / Instragram template
+
+= 11.3.7 (2022-03-06) =
+* Solved an issue with an undefined variable in the Google pixel feature
+
+= 11.3.6 (2022-02-24) =
+* Fixed a floatval issue that occured when calculating prices for bundled products
+
+= 11.3.5 (2022-02-23) =
+* Fixed an issue with the deduplication counters
+
+= 11.3.4 (2022-02-22) =
+* Fixed an error, the _my_conversions table is being queried but did not always exist
+* Added an option to forcefully clean the dulication options
+
+= 11.3.3 (2022-02-21) =
+* Fixed a VAT issue for the Pinterest / Vivino / TikTok price attributes
+
+= 11.3.2 (2022-02-21) =
+* Fixed an issue that resulted in empty feeds when multiple feeds were configured and all at once were processing
+
+= 11.3.1 (2022-02-20) =
+* Added three Pinterest / Vivino / TikTok price attributes excluding VAT
+
+= 11.3.0 (2022-02-17) =
+* Considerable performance increase of the plugin. For WooCommerce shops with less than 750 processing speed doubled
+* Build-in a check that prevents duplicate products from being added to feeds
+
+= 11.2.9 (2022-02-14) =
+* Solved a Call to a member function addChild() on null issue
+
+= 11.2.8 (2022-02-12) =
+* Solved an array_key_exists error
+
+= 11.2.7 (2022-02-10) =
+* Fixed some minor CSS issues for the category mapping autosuggest
+* Changed plugin title in readme.txt file
+
+= 11.2.6 (2022-02-09) =
+* Tested for WooCommerce 6.2
+
+= 11.2.5 (2022-02-07) =
+* Solved an UTF8-encoding issue that broke XML feeds
+
+= 11.2.4 (2022-02-02) =
+* Added rawurldecode for some fields
+
+= 11.2.3 (2022-02-01) =
+* Fixed a XSS vulnerability issue
+
+= 11.2.2 (2022-01-31) =
+* Fixed a XSS vulnerability issue
+
+= 11.2.1 (2022-01-30) =
+* Fixed an issue for individually priced bundled products that had a discount configured, it was not adding the VAT to those prices.
+
+= 11.2.0 (2022-01-26) =
+* Fixed an issue where the plugin crached on Skroutz feeds when simple products were changed into variable products or the other way around
+
+= 11.1.9 (2022-01-26) =
+* Confirmed compatibility with Wordpress 5.9
+
+= 11.1.8 (2022-01-21) =
+* Added support for up to 5 additional images for Mall.sk feeds
+
+= 11.1.7 (2022-01-20) =
+* Bolder element changed the table rate shipping name method. This causes the integration to no longer work. This issue has been fixed now.
+
+= 11.1.6 (2022-01-20) =
+* Solved this error for Skroutz feed: Call to undefined method WC_Product_Simple::get_available_variations()
+
+= 11.1.5 (2022-01-20) =
+* Added support for the Mall.sk media (image) URL field
+
+= 11.1.4 (2022-01-14) =
+* Tested for compatibility with WC 6.1
+* Changed Skroutz template so it meets the new Skroutz color requirements
+
+= 11.1.3 (2022-01-09) =
+* Removed htaccess feature as it seems to be conflicting for some users
+
+= 11.1.2 (2022-01-07) =
+* Added support for the Mall.sk availability feed
+* Added user cap filter 
+
+= 11.1.1 (2022-01-03) =
+* Added quantity support for Skroutz feeds
+
+= 11.1.0 (2022-01-03) =
+* Update of post meta extra fields only when they are set and filled
+
+= 11.0.9 (2022-01-02) =
+* Added user security checks
+
+= 11.0.8 (2021-12-30) =
+* Added template for Slovakian Mall.sk marketplace
+
+= 11.0.7 (2021-12-23) =
+* Added missing capability checks on plugin settings that could influence product feeds. Only administrators are allowed to make these changes.
+
+= 11.0.6 (2021-12-22) =
+* Added htaccess files to the feed directories so they no longer will be cached (thanks @Anders!)
+* Added downloadable and virtual attribute data so those can be added to feeds and filtered on
+* Fixed an issue where disabled product variations still made it into the size attribute
+* Fixed an array merge warning that showed when a new feed was being created and no previous feed was present
+
+= 11.0.5 (2021-12-20) =
+* Fixed an issue where shipping formula's were not translated to shipping costs properly
+
+= 11.0.4 (2021-12-18) =
+* Solved a rounding issue for discount calculations on products that use a point as seperator
+
+= 11.0.3 (2021-12-16) =
+* Checked for compatibility with WooCommerce 6.0
+* Solved a PHP warning that was showing in the logs when creating a Skroutz feed
+
+= 11.0.2 (2021-12-15) =
+* Solved a PHP warning that was showing in the logs when creating a Skroutz feed
+* Solved a mysqli::real_connect() error
+
+= 11.0.1 (2021-12-14) =
+* Reverted previous release as it lead to invalid header errors on new plugin installs
+
+= 11.0.0 (2021-12-11) =
 * Removed unused variables from some functions and did an extra array check
 
 = 10.9.9 (2021-12-10) =
@@ -3512,6 +3733,221 @@ Questions left or unanswered? Please do not hesitate to contact us at support@ad
 * Strip HTML from the (short) description attributes
 
 == Upgrade Notice ==
+
+= 11.6.7 =
+Fixed an issue when a non-string was added as a key to the product data array
+
+= 11.6.6 =
+Removed some debugging code
+
+= 11.6.5 =
+Added XML support for Google's Local Product Inventory feeds
+
+= 11.6.4 =
+Checked for compatibility with WooCommerce 6.6.0
+
+= 11.6.3 =
+Fixed the inventory count field for Vivino feeds
+
+= 11.6.2 =
+Solved a Undefined array key HTTP_HOST PHP warning
+
+= 11.6.1 =
+Added some more sanitisation and escaping
+
+= 11.6.0 =
+Added support for the new Skroutz additional_image requirements
+
+= 11.5.9 =
+Fixed an issue where the thousand separator for discounted prices by Flycart was causing malformed prices
+
+= 11.5.8 =
+Fixed issues with regards to missing sanitazion and validation
+
+= 11.5.7 =
+Solved an issue with an undefined variable
+
+= 11.5.6 =
+Fixed an issue with the Skroutz template, adding comma's inbetween size values
+
+= 11.5.5 =
+Fixed a PHP notice introduced in the previous release
+
+= 11.5.4 =
+Added the alt text attribute for Pinterest feeds
+Added price attributes with thousand and decimal separators in it (mainly for TikTok)
+
+= 11.5.3 =
+Removed all Facebook references in the plugin title and description
+
+= 11.5.2 =
+Tested for compatibility with WooCommerce 6.4
+
+= 11.5.1 =
+Fixed a multiply issue for price, regular price and sale price attributes that used a komma as decimal separator
+
+= 11.5.0 =
+Added the Glami templates for Slovakia and the Czech Republic
+
+= 11.4.9 =
+Changed the wpdb::prepare query string
+
+= 11.4.8 =
+Implemented a rounding feature for WooCommerce bundled products
+
+= 11.4.7 =
+Added two new fields to the Google Shopping template: Short title and Excluded countries for Shopping ads
+
+= 11.4.6 =
+The WooCommerce Composite plugin returned sale prices of 0.00. When this happens our plugin removes that sale price from the feeds
+
+= 11.4.5 =
+Reverting the rounding on two decimals for bundled products as WooCommerce is not always returning int|float values
+
+= 11.4.4 =
+Added links to TranslatePress tutorial
+Fixed an issue with the WooCommerce bundled product plugin that returned prices with more than 2 decimals
+
+= 11.4.3 =
+Fixed an issue for bundled products where VAT was added twice
+
+= 11.4.2 =
+Simplified the SQL query that retrieved custom attribute names so it uses less memory
+
+= 11.4.1 =
+Added 4 new Google Shopping fields in the template: product height, product length, product width and product weight
+
+= 11.4.0 =
+Added encoding for percentage characters
+Fixed a rounding error which one does on strings instead of int|floats
+
+= 11.3.9 =
+Checked for compatibility with WooCommerce 6.3
+Fixed a rounding error which one does on strings instead of int|floats
+
+= 11.3.8 =
+Added the new custom number fields to the Facebook / Instragram template
+
+= 11.3.7 =
+Solved an issue with an undefined variable in the Google pixel feature
+
+= 11.3.6 =
+Fixed a floatval issue that occured when calculating prices for bundled products
+
+= 11.3.5 =
+Fixed an issue with the deduplication counters
+
+= 11.3.4 =
+Fixed an error, the _my_conversions table is being queried but did not always exist
+Added an option to forcefully clean the dulication options
+
+= 11.3.3 =
+Fixed a VAT issue for the Pinterest / Vivino / TikTok price attributes
+
+= 11.3.2 =
+Fixed an issue that resulted in empty feeds when multiple feeds were configured and all at once were processing
+
+= 11.3.1 =
+Added three Pinterest / Vivino / TikTok price attributes excluding VAT
+
+= 11.3.0 =
+Considerable performance increase of the plugin. For WooCommerce shops with less than 750 processing speed doubled
+Build-in a check that prevents duplicate products from being added to feeds
+
+= 11.2.9 =
+Solved a Call to a member function addChild() on null issue
+
+= 11.2.8 =
+Solved an array_key_exists error
+
+= 11.2.7 =
+Fixed some minor CSS issues for the category mapping autosuggest
+Changed plugin title in readme.txt file
+
+= 11.2.6 =
+Tested for WooCommerce 6.2
+
+= 11.2.5 =
+Solved an UTF8-encoding issue that broke XML feeds
+
+= 11.2.4 =
+Added rawurldecode for some fields
+
+= 11.2.3 =
+Fixed a XSS vulnerability issue
+
+= 11.2.2 =
+Fixed a XSS vulnerability issue
+
+= 11.2.1 =
+Fixed an issue for individually priced bundled products that had a discount configured, it was not adding the VAT to those prices.
+
+= 11.2.0 =
+Fixed an issue where the plugin crached on Skroutz feeds when simple products were changed into variable products or the other way around
+
+= 11.1.9 =
+Confirmed compatibility with Wordpress 5.9
+
+= 11.1.8 =
+Added support for up to 5 additional images for Mall.sk feeds
+
+= 11.1.7 =
+Bolder element changed the table rate shipping name method. This causes the integration to no longer work. This issue has been fixed now.
+
+= 11.1.6 =
+Solved this error for Skroutz feed: Call to undefined method WC_Product_Simple::get_available_variations()
+
+= 11.1.5 =
+Added support for the Mall.sk media (image) URL field
+
+= 11.1.4 =
+Tested for compatibility with WC 6.1
+Changed Skroutz template so it meets the new Skroutz color requirements
+
+= 11.1.3 =
+Removed htaccess feature as it seems to be conflicting for some users
+
+= 11.1.2 =
+Added support for the Mall.sk availability feed
+Added user cap filter
+
+= 11.1.1 =
+Added quantity support for Skroutz feeds
+
+= 11.1.0 =
+Update of post meta extra fields only when they are set and filled
+
+= 11.0.9 =
+Added user security checks
+
+= 11.0.8 =
+Added template for Slovakian Mall.sk marketplace
+
+= 11.0.7 =
+Added missing capability checks on plugin settings that could influence product feeds. Only administrators are allowed to make these changes
+
+= 11.0.6 =
+Added htaccess files to the feed directories so they no longer will be cached (thanks @Anders!)
+Fixed an issue where disabled product variations still made it into the size attribute
+Fixed an array merge warning that showed when a new feed was being created and no previous feed was present
+Added downloadable and virtual attribute data so those can be added to feeds and filtered on
+
+= 11.0.5 =
+Fixed an issue where shipping formula's were not translated to shipping costs properly
+
+= 11.0.4 =
+Solved a rounding issue for discount calculations on products that use a point as seperator
+
+= 11.0.3 =
+Checked for compatibility with WooCommerce 6.0
+Solved a PHP warning that was showing in the logs when creating a Skroutz feed
+
+= 11.0.2 =
+Solved a PHP warning that was showing in the logs when creating a Skroutz feed
+Solved a mysqli::real_connect() error
+
+= 11.0.1 =
+Reverted previous release as it lead to invalid header errors on new plugin installs
 
 = 11.0.0 =
 Removed unused variables from some functions and did an extra array check

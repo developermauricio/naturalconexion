@@ -4,13 +4,13 @@ Plugin Name: Shortcoder
 Plugin URI: https://www.aakashweb.com/wordpress-plugins/shortcoder/
 Description: Shortcoder plugin allows to create a custom shortcodes for HTML, JavaScript and other snippets. Now the shortcodes can be used in posts/pages and the snippet will be replaced in place.
 Author: Aakash Chakravarthy
-Version: 5.6
+Version: 5.8
 Author URI: https://www.aakashweb.com/
 Text Domain: shortcoder
 Domain Path: /languages
 */
 
-define( 'SC_VERSION', '5.6' );
+define( 'SC_VERSION', '5.8' );
 define( 'SC_PATH', plugin_dir_path( __FILE__ ) ); // All have trailing slash
 define( 'SC_URL', plugin_dir_url( __FILE__ ) );
 define( 'SC_ADMIN_URL', trailingslashit( plugin_dir_url( __FILE__ ) . 'admin' ) );
@@ -58,6 +58,9 @@ final class Shortcoder{
 
         $shortcode = self::find_shortcode( $atts, $shortcodes );
 
+        $shortcode = apply_filters( 'sc_mod_shortcode', $shortcode, $atts, $enclosed_content );
+        do_action( 'sc_do_before', $shortcode, $atts );
+
         if( !is_array( $shortcode ) ){
             return $shortcode;
         }
@@ -66,13 +69,16 @@ final class Shortcoder{
         $sc_settings = $shortcode[ 'settings' ];
 
         if( !self::can_display( $shortcode ) ){
-            return '<!-- Shortcode does not match the conditions -->';
+            $sc_content = '<!-- Shortcode does not match the conditions -->';
+        }else{
+            $sc_content = self::replace_sc_params( $sc_content, $atts );
+            $sc_content = self::replace_wp_params( $sc_content, $enclosed_content );
+            $sc_content = self::replace_custom_fields( $sc_content );
+            $sc_content = do_shortcode( $sc_content );
         }
 
-        $sc_content = self::replace_sc_params( $sc_content, $atts );
-        $sc_content = self::replace_wp_params( $sc_content, $enclosed_content );
-        $sc_content = self::replace_custom_fields( $sc_content );
-        $sc_content = do_shortcode( $sc_content );
+        $sc_content = apply_filters( 'sc_mod_output', $sc_content, $atts, $sc_settings, $enclosed_content );
+        do_action( 'sc_do_after', $sc_content, $atts, $sc_settings );
 
         return $sc_content;
 
@@ -108,6 +114,7 @@ final class Shortcoder{
     public static function default_sc_settings(){
 
         return array(
+            '_sc_description' => '',
             '_sc_disable_sc' => 'no',
             '_sc_disable_admin' => 'no',
             '_sc_editor' => '',

@@ -56,6 +56,19 @@ class THWCFD_Public_Checkout {
 
 		add_filter('woocommerce_email_order_meta_fields', array($this, 'display_custom_fields_in_emails'), 10, 3);
 		add_action('woocommerce_order_details_after_order_table', array($this, 'order_details_after_customer_details'), 20, 1);
+
+		add_filter('woocommerce_form_field_checkboxgroup', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_datetime_local', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_date', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_time', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_month', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_week', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_url', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_multiselect', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_hidden', array($this, 'woo_form_field_hidden'), 10, 4);
+		add_filter('woocommerce_form_field_heading', array($this, 'woo_form_field_heading'), 10, 4);
+		add_filter('woocommerce_form_field_paragraph', array($this, 'woo_form_field_paragraph'), 10, 4);
+
 	}
 
 	/**
@@ -292,22 +305,22 @@ class THWCFD_Public_Checkout {
 							$options_arr = THWCFD_Utils::prepare_field_options($new_field['options']);
 							$options = array();
 							foreach($options_arr as $key => $value) {
-								$options[$key] = THWCFD_Utils::t($value);
+								$options[$key] = __($value, 'woo-checkout-field-editor-pro');
 							}
 							$new_field['options'] = $options;
 						}
 					}
 
-					if($type === 'select' && apply_filters('thwcfd_enable_select2_for_select_fields', true)){
+					if(($type === 'select' || $type === 'multiselect') && apply_filters('thwcfd_enable_select2_for_select_fields', true)){
 						$new_field['input_class'][] = 'thwcfd-enhanced-select';
 					}
 					
 					if(isset($new_field['label'])){
-						$new_field['label'] = THWCFD_Utils::t($new_field['label']);
+						$new_field['label'] = __($new_field['label'], 'woo-checkout-field-editor-pro');
 					}
 
 					if(isset($new_field['placeholder'])){
-						$new_field['placeholder'] = THWCFD_Utils::t($new_field['placeholder']);
+						$new_field['placeholder'] = __($new_field['placeholder'], 'woo-checkout-field-editor-pro');
 					}
 					
 					$fields[$name] = $new_field;
@@ -354,8 +367,11 @@ class THWCFD_Public_Checkout {
 					if(!is_numeric($value)){
 						$err_msg = sprintf( __( '<strong>%s</strong> is not a valid number.', 'woo-checkout-field-editor-pro' ), $flabel );
 					}
+				}else if($vname === 'url'){
+					if (!filter_var($value, FILTER_VALIDATE_URL)) {
+						$err_msg = sprintf( __( '<strong>%s</strong> is not a valid url.', 'woo-checkout-field-editor-pro' ), $flabel );
+					}
 				}
-
 				if($err_msg){
 					if($errors || !$return){
 						$this->add_validation_error($err_msg, $errors);
@@ -389,7 +405,7 @@ class THWCFD_Public_Checkout {
 			
 			foreach($fields as $name => $field){
 				if(THWCFD_Utils::is_active_custom_field($field) && isset($posted[$name]) && !THWCFD_Utils::is_wc_handle_custom_field($field)){
-
+					$value = null;
 					$type = isset($field['type']) ? $field['type'] : 'text';
 
 					if($type == 'textarea'){
@@ -400,12 +416,29 @@ class THWCFD_Public_Checkout {
 						$options = isset($field['options']) ? $field['options'] : array();
 						$value =  isset($posted[$name]) ? sanitize_text_field($posted[$name]) : '';
 						$value = array_key_exists($value, $options) ? $value : '';
+					}else if($type == 'checkboxgroup' || $type == 'multiselect'){
+						$options = isset($field['options']) ? $field['options'] : array();
+						$submitted_options =  isset($posted[$name]) ? $posted[$name] : array();
+						if(! is_array($submitted_options)){
+							$submitted_options = explode(", ", $submitted_options);
+						}						
+						$options_key = array_keys($options);
+						if(!empty($submitted_options)){
+							foreach($submitted_options as $key => $single_option){
+								if(!in_array ($single_option, $options_key)){
+									unset ($submitted_options[$key]);
+								}
+							}
+						}
+						if(!empty($submitted_options)){
+							$value  = implode(",", $submitted_options);
+						}
 					}else{
 						$value =  isset($posted[$name]) ? sanitize_text_field($posted[$name]) : '';
 					}
 
 					if($value){
-						update_post_meta($order_id, $name, $value);
+						$result = update_post_meta($order_id, $name, $value);
 					}
 				}
 			}
@@ -467,17 +500,14 @@ class THWCFD_Public_Checkout {
 	public function order_details_after_customer_details($order){
 		$order_id = THWCFD_Utils::get_order_id($order);
 		$fields = THWCFD_Utils::get_checkout_fields($order);
-		
 		if(is_array($fields) && !empty($fields)){
 			$fields_html = '';
 			// Loop through all custom fields to see if it should be added
-			foreach($fields as $key => $field){			
+			foreach($fields as $key => $field){	
 				if(THWCFD_Utils::is_active_custom_field($field) && isset($field['show_in_order']) && $field['show_in_order'] && !THWCFD_Utils::is_wc_handle_custom_field($field)){
 					$value = get_post_meta( $order_id, $key, true );
-					
 					if($value){
 						$label = isset($field['label']) && $field['label'] ? $field['label'] : $key;
-
 						//$label = esc_attr($label);
 						$label = wp_kses_post(__($label, 'woo-checkout-field-editor-pro'));
 						//$value = wptexturize($value);
@@ -522,6 +552,207 @@ class THWCFD_Public_Checkout {
 	/*****************************************
 	----- Display Field Values - END --------
 	*****************************************/
+
+
+	public function woo_form_field($field, $key, $args, $value = null){
+
+		$field = '';
+
+		if ( $args['required'] ) {
+			$args['class'][] = 'validate-required';
+			$required        = '&nbsp;<abbr class="required" title="' . esc_attr__( 'required', 'woocommerce' ) . '">*</abbr>';
+		} else {
+			$required = '&nbsp;<span class="optional">(' . esc_html__( 'optional', 'woocommerce' ) . ')</span>';
+		}
+
+		if (is_string($args['label_class'])) {
+			$args['label_class'] = array($args['label_class']);
+		}
+
+		if(is_null($value)){
+			$value = $args['default'];
+		}
+
+		// Custom attribute handling.
+		$custom_attributes = array();
+		$args['custom_attributes'] = array_filter((array) $args['custom_attributes'], 'strlen');
+
+		if ($args['maxlength']) {
+			$args['custom_attributes']['maxlength'] = absint($args['maxlength']);
+		}
+
+		if (!empty($args['autocomplete'])) {
+			$args['custom_attributes']['autocomplete'] = $args['autocomplete'];
+		}
+
+		if (true === $args['autofocus']) {
+			$args['custom_attributes']['autofocus'] = 'autofocus';
+		}
+
+		if ($args['description']) {
+			$args['custom_attributes']['aria-describedby'] = $args['id'] . '-description';
+		}
+
+		if (!empty($args['custom_attributes']) && is_array($args['custom_attributes'])) {
+			foreach ($args['custom_attributes'] as $attribute => $attribute_value) {
+				$custom_attributes[] = esc_attr($attribute) . '="' . esc_attr($attribute_value) . '"';
+			}
+		}
+
+		if (!empty($args['validate'])) {
+			foreach ($args['validate'] as $validate) {
+				$args['class'][] = 'validate-' . $validate;
+			}
+		}
+
+		//$field           = '';
+		$label_id = $args['id'];
+		$sort = $args['priority'] ? $args['priority'] : '';
+		$field_container = '<p class="form-row %1$s" id="%2$s" data-priority="' . esc_attr($sort) . '">%3$s</p>';
+
+		switch ($args['type']) {
+
+			case 'multiselect':
+
+				$field = '';
+
+				$value = is_array($value) ? $value : array_map('trim', (array) explode(',', $value));
+
+				if (!empty($args['options'])) {
+					$field .= '<select name="' . esc_attr($key) . '[]" id="' . esc_attr($key) . '" class="select ' . esc_attr(implode(' ', $args['input_class'])) . '" multiple="multiple" ' . esc_attr(implode(' ', $custom_attributes)) . ' data-placeholder="' . esc_html__($args['placeholder'], 'woo-checkout-field-editor-pro') . '" >';
+					foreach ($args['options'] as $option_key => $option_text) {
+						$field .= '<option value="' . esc_attr($option_key) . '" ' . selected(in_array($option_key, $value), 1, false) . '>' . esc_html__($option_text, 'woo-checkout-field-editor-pro') . '</option>';
+					}
+					$field .= ' </select>';
+				}
+
+			break;
+
+			case 'checkboxgroup':
+
+				$field = '';
+
+				$value = is_array($value) ? $value : array_map('trim', (array) explode(',', $value));
+
+				if (!empty($args['options'])) {
+
+					$field .= ' <span class="woocommerce-multicheckbox-wrapper" ' . esc_attr(implode(' ', $custom_attributes)) . '>';
+
+					foreach ($args['options'] as $option_key => $option_text) {
+						$field .= '<label><input type="checkbox" name="' . esc_attr($key) . '[]" value="' . esc_attr($option_key) . '"' . checked(in_array($option_key, $value), 1, false) . ' /> ' . esc_html__($option_text, 'woo-checkout-field-editor-pro') . '</label>';
+					}
+
+					$field .= '</span>';
+				}
+
+			break;
+
+			case 'datetime_local':
+
+				$field = '';
+
+				$field .= '<input type="datetime-local" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
+			break;
+
+			case 'date':
+
+				$field = '';
+
+				$field .= '<input type="date" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
+			break;
+			case 'time':
+
+				$field = '';
+
+				$field .= '<input type="time" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
+			break;
+			case 'month':
+
+				$field = '';
+
+				$field .= '<input type="month" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
+			break;
+			case 'week':
+
+				$field = '';
+
+				$field .= '<input type="week" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
+			break;
+
+			case 'url':
+
+				$field = '';
+
+				$field .= '<input type="url" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" placeholder ="'.esc_attr($args['placeholder']). '" value="' . esc_attr( $value) . '" />';
+			break;
+
+			case 'file':
+
+				$field = '';
+
+			break;
+		}
+
+		if (!empty($field)) {
+			$field_html = '';
+
+			if ($args['label'] && 'checkbox' !== $args['type']) {
+				$field_html .= '<label for="' . esc_attr($label_id) . '" class="' . esc_attr(implode(' ', $args['label_class'])) . '">' . esc_html__($args['label'], 'woo-checkout-field-editor-pro') . $required . '</label>';
+			}
+
+			$field_html .= '<span class="woocommerce-input-wrapper">' . $field;
+
+			if ($args['description']) {
+				$field_html .= '<span class="description" id="' . esc_attr($args['id']) . '-description" aria-hidden="true">' . wp_kses_post($args['description']) . '</span>';
+			}
+
+			$field_html .= '</span>';
+
+			$container_class = esc_attr(implode(' ', $args['class']));
+			$container_id = esc_attr($args['id']) . '_field';
+			$field = sprintf($field_container, $container_class, $container_id, $field_html);
+		}
+
+		return $field;
+	}
+
+	public function woo_form_field_hidden($field, $key, $args, $value){
+		if(is_null($value) || (is_string($value) && $value === '')){
+            $value = $args['default'];
+        }
+
+		$field  = '<input type="hidden" id="'. esc_attr($key) .'" name="'. esc_attr($key) .'" value="'. esc_attr( $value ) .'" class="'.esc_attr(implode(' ', $args['class'])).'" />';
+		return $field;
+	}
+
+	public function woo_form_field_paragraph($field, $key, $args, $value){
+		$args['class'][] = 'thwcfd-field-wrapper thwcfd-field-paragraph';
+		
+		if(isset($args['label']) && !empty($args['label'])){
+			$field  = '<p class="form-row '.esc_attr(implode(' ', $args['class'])).'" id="'.esc_attr($key).'_field" >'. esc_html__($args['label'], 'woo-checkout-field-editor-pro') .'</ p >';
+		}
+
+		return $field;
+	}
+
+	public function woo_form_field_heading($field, $key, $args, $value = null){
+    	$args['class'][] = 'thwcfd-field-wrapper thwcfd-field-heading';
+		
+		$heading_html = '';
+		$field  = '';
+
+		if(isset($args['label']) && !empty($args['label'])){
+			$title_type  = isset($args['title_type']) && !empty($args['title_type']) ? $args['title_type'] : 'label';
+
+			$heading_html .= '<'. esc_attr($title_type) .' class="'. esc_attr(implode(' ', $args['label_class'])) .'" >'. esc_html__($args['label'], 'woo-checkout-field-editor-pro') .'</'. $title_type .'>';
+		}
+
+		if(!empty($heading_html)){
+			$field .= '<div class="form-row '.esc_attr(implode(' ', $args['class'])).'" id="'.esc_attr($key).'_field" data-name="'.esc_attr($key).'" >'. $heading_html .'</div>';
+		}
+		return $field;		
+	}
+	
 }
 
 endif;

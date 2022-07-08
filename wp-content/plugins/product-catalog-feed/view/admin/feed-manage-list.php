@@ -68,6 +68,7 @@ class WpWoof_Feed_Manage_list extends Wpwoof_Feed_List_Table {
         $option_name = $item['option_name'];
         $option_id   = $item['option_id'];
         $itemInfo = unserialize($item['option_value']);
+        if (!is_array($itemInfo))            return false;
 
 
         $menu_url  = menu_page_url('wpwoof-settings', false);
@@ -79,7 +80,7 @@ class WpWoof_Feed_Manage_list extends Wpwoof_Feed_List_Table {
             
             case 'feednumber':
                     $this->item_index = $this->item_index + 1;
-                    return $isPro?$this->item_index:$this->item_index.'&nbsp;<input '.( (empty($itemInfo['noGenAuto'])) ? 'checked="true"' : '' ).'" onchange="jQuery.fn.wpwoofSwicher('.$option_id.',jQuery(this).prop(\'checked\'));" type="checkbox" class="ios-switch toggleFeed" />';
+                    return $isPro?$this->item_index:$this->item_index.'&nbsp;<input '.( empty($itemInfo['noGenAuto']) ? 'checked="true"' : '' ).'" onchange="jQuery.fn.wpwoofSwicher('.$option_id.',jQuery(this).prop(\'checked\'));" type="checkbox" class="ios-switch toggleFeed" />';
             
             case 'feedname':
 //                trace($itemInfo,1);
@@ -125,10 +126,17 @@ class WpWoof_Feed_Manage_list extends Wpwoof_Feed_List_Table {
                 return $answ;
             
             case 'feeddate':
+                $out = "";
                 $date = new DateTime();
-                $date->setTimestamp($itemInfo['added_time']);
+                $date->setTimestamp(isset($itemInfo['generated_time'])?$itemInfo['generated_time']:$itemInfo['added_time']);
                 $date->setTimezone(new DateTimeZone($woocommerce_wpwoof_common->getWpTimezone()));
-                return $date->format('d/m/Y H:i:s');
+                $out .= $date->format('d/m/Y H:i:s');
+                $nextRun = wp_get_scheduled_event('wpwoof_generate_feed', array((int)$option_id));
+                if (!empty($nextRun) && !empty($nextRun->timestamp)) {
+                    $date->setTimestamp($nextRun->timestamp);
+                    $out .= '<br>Next update:<br>'.$date->format('d/m/Y H:i:s');
+                }
+                return $out;
             
             case 'feedaction':
                 //echo "itemInfo::<br>";
@@ -355,7 +363,7 @@ class WpWoof_Feed_Manage_list extends Wpwoof_Feed_List_Table {
             'feedname'      => __('Feed Name'),
             'feed_type'      => __('Feed Type'),
             'feedtaxcountry'=> __('Tax Сountry'),
-            'feeddate'      => __('Last upated'),
+            'feeddate'      => __('Last updated'),
             'feedaction'    => __("Action"),
             'feedupdate'    => __("Regenerate"),
             'feeddownload'  => __("Download"),
@@ -488,10 +496,11 @@ class WpWoof_Feed_Manage_list extends Wpwoof_Feed_List_Table {
 						if (!$id || !is_numeric($id))
 							continue;
 						
-						$value = unserialize(wpwoof_get_feed($id));
+						$value = wpwoof_get_feed($id);
 						if (!empty($value['feed_name'])) {
 							$value['noGenAuto'] = $changeStatusAction;
-							wpwoof_update_feed(serialize($value), $id, true);
+							wpwoof_update_feed($value, $id, true);
+                                                        wpwoof_product_catalog::schedule_feed($value);
 						}
 					}
 					$wpwoof_message = ($changeStatusAction === 0) ? 'Feed Activated Successfully' : 'Feed Deactivated Successfully';

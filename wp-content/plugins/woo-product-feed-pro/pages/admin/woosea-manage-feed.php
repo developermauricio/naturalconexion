@@ -6,7 +6,7 @@ $count_single = wp_count_posts('product');
 $published_single = $count_single->publish;
 $published_variation = $count_variation->publish;
 $published_products = $published_single+$published_variation;
-$host = $_SERVER['HTTP_HOST'];
+$host = sanitize_text_field($_SERVER['HTTP_HOST']);
 $add_manipulation_support = get_option ('add_manipulation_support');
 
 $product_numbers = array (
@@ -25,10 +25,11 @@ $versions = array (
 );
 
 // Get the sales from created product feeds
-global $wpdb;
-$charset_collate = $wpdb->get_charset_collate();
-$table_name = $wpdb->prefix . 'adtribes_my_conversions';
-$order_rows = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
+//global $wpdb;
+//$charset_collate = $wpdb->get_charset_collate();
+//$table_name = $wpdb->prefix . 'adtribes_my_conversions';
+//$order_rows = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
+$order_rows = "";
 
 /**
  * Change default footer text, asking to review our plugin
@@ -105,7 +106,14 @@ if (!wp_next_scheduled( 'woosea_cron_hook' ) ) {
                                 delete_option( 'woosea_getelite_notification' );
                                 delete_option( 'woosea_license_notification_closed' );
                                 wp_clear_scheduled_hook( 'woosea_cron_hook' );
-                                wp_clear_scheduled_hook( 'woosea_check_license' );
+				wp_clear_scheduled_hook( 'woosea_check_license' );
+			} elseif (array_key_exists('force-deduplication', $_GET)){
+				// Force deduplication
+				foreach($cron_projects as $key => $value){
+					$channel_hash = $cron_projects[$key]['channel_hash'];
+					$channel_duplicates = "woosea_duplicates_".$channel_hash;
+					delete_option($channel_duplicates);
+				}
 			} else {
                                 // Set default notification to show
                                 $getelite_notice = get_option('woosea_getelite_notification');
@@ -126,6 +134,7 @@ if (!wp_next_scheduled( 'woosea_cron_hook' ) ) {
 						<span class="dashicons dashicons-yes"></span><?php _e( 'WPML support - including their currency switcher','woo-product-feed-pro' );?> [<a href="https://adtribes.io/wpml-support/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=wpml%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
 						<span class="dashicons dashicons-yes"></span><?php _e( 'Aelia currency switcher support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/aelia-currency-switcher-feature/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=aelia%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
 						<span class="dashicons dashicons-yes"></span><?php _e( 'Polylang support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/polylang-support-product-feeds/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=polylang%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
+						<span class="dashicons dashicons-yes"></span><?php _e( 'TranslatePress support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/translatepress-support-product-feeds/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=translatepress%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
 						<span class="dashicons dashicons-yes"></span><?php _e( 'Facebook pixel feature','woo-product-feed-pro' );?> [<a href="https://adtribes.io/facebook-pixel-feature/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=facebook pixel feature" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/><br/>
  						<?php _e( 'Upgrade to the','woo-product-feed-pro' );?> <strong><a href="https://adtribes.io/pro-vs-elite/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=top-notification&utm_content=notification" target="_blank"><?php _e( 'Elite version of our plugin</a></strong> to get all these features.','woo-product-feed-pro' );?>
 						</p>
@@ -172,9 +181,6 @@ if (!wp_next_scheduled( 'woosea_cron_hook' ) ) {
 				$class = "";
 
 				foreach ($cron_projects as $key=>$val){
-				
-					//echo '<pre>' . print_r( $val, true ) . '</pre>';
-
 					if(isset($val['active']) AND ($val['active'] == "true")){
 						$checked = "checked";
 						$class = "";
@@ -318,7 +324,8 @@ if (!wp_next_scheduled( 'woosea_cron_hook' ) ) {
                                                                 <li><strong>5.</strong> <?php _e( 'WPML support','woo-product-feed-pro' );?></li>
                                                                	<li><strong>6.</strong> <?php _e( 'Aelia currency switcher support','woo-product-feed-pro' );?></li>
                                                                	<li><strong>7.</strong> <?php _e( 'Facebook pixel feature','woo-product-feed-pro' );?></li>
-                                                               	<li><strong>8.</strong> <?php _e( 'Polylang support','woo-product-feed-pro' );?></li>
+								<li><strong>8.</strong> <?php _e( 'Polylang support','woo-product-feed-pro' );?></li>
+								<li><strong>9.</strong> <?php _e( 'TranslatePress support','woo-product-feed-pro' );?></li>
 							 </ul>
                                                         <strong>
                                                         <a href="https://adtribes.io/pro-vs-elite/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=why-upgrade-box" target="_blank"><?php _e( 'Upgrade to Elite here!','woo-product-feed-pro' );?></a>

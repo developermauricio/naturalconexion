@@ -23,9 +23,9 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
      * {@inheritdoc}
      */
     public function getHelpTabs(){
-        return array (
+        return  [
             __('Overview','default') => $this->viewSnippet('tab-file-edit'),
-        );
+        ];
     }
 
 
@@ -34,8 +34,8 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
      * @return array
      */
     private function getNonces( $readonly ){
-        $nonces = array();
-        foreach( $readonly ? array('fsReference') : array('sync','save','fsReference','apis') as $name ){
+        $nonces = [];
+        foreach( $readonly ? ['fsReference'] : ['sync','save','fsReference','apis'] as $name ){
             $nonces[$name] = wp_create_nonce($name);
         }
         return $nonces;
@@ -114,7 +114,8 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
                     try {
                         $potdata = Loco_gettext_Data::load( $potfile );
                         if( ! $potdata->equalSource($data) ){
-                            Loco_error_AdminNotices::debug( sprintf( __("Translations don't match template. Run sync to update from %s",'loco-translate'), $potfile->basename() ) );
+                            Loco_error_AdminNotices::info( sprintf( __("Translations don't match template. Run sync to update from %s",'loco-translate'), $potfile->basename() ) )
+                            ->addLink( apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/sync'), __('Documentation','loco-translate') );
                         }
                     }
                     catch( Exception $e ){
@@ -161,17 +162,18 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
             }
             // translators: Warning when POT file is opened in the file editor. It can be disabled in settings.
             else if( 1 === $settings->pot_protect ){
-                Loco_error_AdminNotices::warn( __("This is NOT a translation file. Manual editing of source strings is not recommended.",'loco-translate') )
-                 ->addLink( Loco_mvc_AdminRouter::generate('config').'#loco--pot-protect', __('Settings','loco-translate') )
-                 ->addLink( apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/templates'), __('Documentation','loco-translate') )
-                 ->noLog();
+                $e = new Loco_error_Warning( __("This is NOT a translation file. Manual editing of source strings is not recommended.",'loco-translate') );
+                $e->addLink( Loco_mvc_AdminRouter::generate('config').'#loco--pot-protect', __('Settings','loco-translate') )
+                  ->addLink( apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/templates'), __('Documentation','loco-translate') )
+                  ->noLog();
+                Loco_error_AdminNotices::add($e);
             }
         }
         
         // back end expects paths relative to wp-content
         $wp_content = loco_constant('WP_CONTENT_DIR');
         
-        $this->set( 'js', new Loco_mvc_ViewParams( array(
+        $this->set( 'js', new Loco_mvc_ViewParams( [
             'podata' => $data->jsonSerialize(),
             'powrap' => (int) $settings->po_width,
             'multipart' => (bool) $settings->ajax_files,
@@ -181,13 +183,13 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
             'syncmode' => $syncmode,
             'popath' => $this->get('path'),
             'readonly' => $readonly,
-            'project' => $project ? array (
+            'project' => $project ?  [
                 'bundle' => $bundle->getId(),
                 'domain' => $project->getId(),
-            ) : null,
+            ] : null,
             'nonces' => $this->getNonces($readonly),
-        ) ) );
-        $this->set( 'ui', new Loco_mvc_ViewParams( array(
+        ] ) );
+        $this->set( 'ui', new Loco_mvc_ViewParams( [
              // Translators: button for adding a new string when manually editing a POT file
              'add'      => _x('Add','Editor','loco-translate'),
              // Translators: button for removing a string when manually editing a POT file
@@ -209,27 +211,25 @@ class Loco_admin_file_EditController extends Loco_admin_file_BaseController {
              'invs'     => _x('Toggle invisibles','Editor','loco-translate'),
              // Translators: Button that toggles between "code" and regular text editing modes
              'code'     => _x('Toggle code view','Editor','loco-translate'),
-        ) ) );
+        ] ) );
 
         // Download form params
-        $hidden = new Loco_mvc_HiddenFields( array(
+        $hidden = new Loco_mvc_HiddenFields( [
             'path'   => '',
             'source' => '',
             'route'  => 'download',
             'action' => 'loco_download',
-        ) );
+        ] );
         $this->set( 'dlFields', $hidden->setNonce('download') );
         $this->set( 'dlAction', admin_url('admin-ajax.php','relative') );
 
         // Remote file system required if file is not directly writable
         $this->prepareFsConnect( 'update', $this->get('path') );
         
-        // set simpler title for breadcrumb
-        $this->set('title', $file->basename() );
-        
         // ok to render editor as either po or pot
         $tpl = $locale ? 'po' : 'pot';
-        return $this->view( 'admin/file/edit-'.$tpl, array() );
+        $this->setFileTitle($file);
+        return $this->view( 'admin/file/edit-'.$tpl, [] );
     }
     
     

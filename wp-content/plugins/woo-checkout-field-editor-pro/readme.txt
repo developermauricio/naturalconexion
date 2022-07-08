@@ -3,9 +3,9 @@ Contributors: ThemeHigh
 Donate link: https://themehigh.com/
 Tags: checkout field editor, woocommerce checkout field editor, checkout manager, woocommerce checkout manager, checkout field customizer, checkout form editor, checkout form customizer, checkout, WooCommerce checkout, checkout form designer, woocommerce checkout fields, woocommerce checkout addons
 Requires at least: 4.9
-Tested up to: 5.8
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.5.1
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Checkout Field Editor (Checkout Manager) for WooCommerce - The best WooCommerce 
 == Description ==
 
 = Checkout Field Editor for WooCommerce =
-WooCommerce Checkout Field Editor (Checkout Manager) Plugin lets you add 7 different types of custom checkout fields to your Checkout page, blended with a simple and user-friendly interface.
+WooCommerce Checkout Field Editor (Checkout Manager) Plugin lets you add 20 different types of custom checkout fields to your Checkout page, blended with a simple and user-friendly interface.
 
 It  enables you to edit the default checkout fields of your WooCommerce platform, add new custom fields in the three sections (namely Billing, Shipping and Additional), edit, hide, or delete the default fields, change labels, rearrange checkout fields, validate the checkout fields, add custom css classes etc.
 
@@ -25,18 +25,31 @@ https://www.youtube.com/watch?v=_iKMe5lGIIM
 --------------------------------------------
 
 = Key Features =
-= ☞ Custom Checkout  field(s) =
-Add additional fields to your Checkout page using the Checkout Manager plugin. You can add seven different types of checkout fields in your WooCommerce checkout page and collect more information from the end-user. The various field types it supports include:
+= ☞ Custom Checkout  Field(s) =
+Add additional fields to your Checkout page using the Checkout Manager plugin. You can add twenty different types of checkout fields in your WooCommerce checkout page and collect more information from the end-user. The various field types it supports include:
 
-	*	Text 
+	*	Text
+	*   Number
+	*   Hidden
 	*	Password
 	*	Email
 	*	Phone
-	*	Select
-	*	Textarea
 	*	Radio
+	*	Textarea
+	*	Select
+	*   Multi Select
+	*   Checkbox
+	*   Checkbox Group
+	*	Datetime local
+	*	Date
+	*	Month
+	*	Time
+	*	Week
+	*	URL
+	*   Heading
+	*	Paragraph
 
-= ☞ Edit field(s) =
+= ☞ Edit Field(s) =
 Edit the custom fields as per the varying business requirements, including the default ones. 
 
 = ☞ Delete Field(s) =
@@ -57,24 +70,30 @@ Showcase or hide the custom checkout fields in the Order Details Page or in your
 = ☞ Validate the Checkout Fields =
 Validate the custom checkout fields (including the default ones), and never miss any valuable information from the user. 
 
+= ☞ Add fields and sections into multistep layouts =
+Add the fields and sections into any steps you created using the multistep checkout for WooCommerce plugin. [Multistep Checkout for WooCommerce](https://wordpress.org/plugins/woo-multistep-checkout/) plugin lets you split the checkout process into multiple steps so that the user is guided through the checkout until the payment is made.
+
 = ☞ Override Address Fields =
 By default, WooCommerce will change the address format based on the countries. Using this plugin, you can prevent the override address field properties and use the values set using the Checkout Manager plugin.
 
-= ☞ Reset to default fields =
+= ☞ Reset to Default Fields =
 Using this plugin, you can reset to the original state with the default fields on a single click.
 
-== 💎💎 Upgrade to Premium Version Now! ==
-The premium version of WooCommerce Checkout Field Editor (Checkout Manager) Plugin lets you add 17 different types of custom checkout fields and sections to your Checkout page, and make the best out of your Checkout form. 
+= ☞ Translate Ready to Other Language =
+The Checkout Field Editor plugin lets you translate to other languages as it is compatible with WPML, Polylang & Loco Translate translation plugins. To translate dynamic strings, use Polylang or WPML plugin.
 
-A range of advanced features that it delivers include 17 custom checkout field types, display sections and fields conditionally, custom validations, compatibility with third-party plugins, developer friendliness with custom hooks, change address display format, price fields with a set of price types etc.
+== 💎💎 Upgrade to Premium Version Now! ==
+The premium version of WooCommerce Checkout Field Editor (Checkout Manager) Plugin lets you add 24 different types of custom checkout fields and sections to your Checkout page, and make the best out of your Checkout form. 
+
+A range of advanced features that it delivers include 24 custom checkout field types, display sections and fields conditionally, custom validations, compatibility with third-party plugins, developer friendliness with custom hooks, change address display format, price fields with a set of price types etc.
 
 == Premium Features ==
 
 = ☞ Custom Checkout Sections =
 Add custom checkout sections apart from the three default sections, viz., Billing, Shipping and Additional sections. The Pro version stands apart from the free version with the same functionality.
 
-= ☞ 17 Custom field types with File Upload =
-The Pro version of WooCommerce Checkout Manager supports upto 17 field types, including the File Upload option. The 17 field types it supports are:
+= ☞ 24 Custom field types with File Upload =
+The Pro version of WooCommerce Checkout Manager supports upto 24 field types, including the File Upload option. The 24 field types it supports are:
 
 	1. Text
 	2. Hidden
@@ -91,8 +110,15 @@ The Pro version of WooCommerce Checkout Manager supports upto 17 field types, in
 	13. Date picker
 	14. Time picker
 	15. File Upload
-	16. Heading 
-	17. Label
+	16. Datetime local
+	17. Date
+	18. Month
+	19. Time
+	20. Week
+	21. URL
+	22. Heading 
+	23. Label
+	24. Paragraph
 
 = ☞ Display custom fields at 14 different positions =
 The free version of the plugin limits the user to display the custom checkout field at only certain positions. The Premium version allows you to display them at 14 different locations. Following are the positions where these checkout sections can be displayed:
@@ -249,6 +275,28 @@ Yes. There is a button 'reset to default fields' to go back to the WooCommerce d
 9. Locale override settings
 
 == Changelog ==
+= 1.6.1 =
+* Added Wordpress 6.0 compatability.
+* Added WooCommerce 6.5 compatability.
+
+= 1.6.0 =
+* Added WordPress 5.9 compatibility.
+* Added WooCommerce 6.3.1 compatibility.
+* Added new field type "Datetime local".
+* Added new field type "Date".
+* Added new field type "Month".
+* Added new field type "Time".
+* Added new field type "Week".
+* Added new field type "URL".
+* Added new field type "Paragraph".
+
+= 1.5.3 =
+* Added WooCommerce 6.1.0 compatibility.
+
+= 1.5.2 =
+* Added WooCommerce 6.0.0 compatibility.
+* Added Number, Hidden, Multi-Select, Checkbox, Checkbox Group and Heading as new field types.
+
 = 1.5.1 =
 * Added WooCommerce 5.9.0 compatibility.
 

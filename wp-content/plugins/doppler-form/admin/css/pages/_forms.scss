@@ -1,0 +1,23 @@
+
+table {
+  tbody {
+    tr {
+      &.deleting{
+        color: #999999;
+        a{
+          color: #999999;
+          pointer-events: none;
+          &.dplr-remove{
+            visibility: hidden;
+            display: inline-block;
+            &:after{
+              position: relative;
+              top: -2px;
+              @include circle-loading-gif;
+            }
+          }
+        }
+      }
+    }
+  }
+}

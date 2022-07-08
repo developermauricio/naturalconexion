@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Icon, tags } from '@woocommerce/icons';
+import { Icon, category } from '@wordpress/icons';
 import { registerBlockType } from '@wordpress/blocks';
 import { getSetting } from '@woocommerce/settings';
 
@@ -17,8 +17,12 @@ const blockTypeName = 'woocommerce/products-by-attribute';
 registerBlockType( blockTypeName, {
 	title: __( 'Products by Attribute', 'woocommerce' ),
 	icon: {
-		src: <Icon srcElement={ tags } />,
-		foreground: '#7f54b3',
+		src: (
+			<Icon
+				icon={ category }
+				className="wc-block-editor-components-block-icon"
+			/>
+		),
 	},
 	category: 'woocommerce',
 	keywords: [ __( 'WooCommerce', 'woocommerce' ) ],
@@ -74,6 +78,7 @@ registerBlockType( blockTypeName, {
 		contentVisibility: {
 			type: 'object',
 			default: {
+				image: true,
 				title: true,
 				price: true,
 				rating: true,
@@ -111,6 +116,14 @@ registerBlockType( blockTypeName, {
 		isPreview: {
 			type: 'boolean',
 			default: false,
+		},
+
+		/**
+		 * Whether to display in stock, out of stock or backorder products.
+		 */
+		stockStatus: {
+			type: 'array',
+			default: Object.keys( getSetting( 'stockStatusOptions', [] ) ),
 		},
 	},
 

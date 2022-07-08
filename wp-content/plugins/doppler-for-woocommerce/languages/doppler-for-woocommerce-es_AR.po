@@ -1,0 +1,398 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blank WordPress Pot v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2022-07-06 18:21-0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Your Team <translations@example.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-doppler-for-woocommerce-admin.php:160
+msgid "Ouch! Enter a valid Email."
+msgstr "¡Ouch! Escribe un Email válido."
+
+#: admin/class-doppler-for-woocommerce-admin.php:161
+msgid "Ouch! The Field is empty."
+msgstr "¡Ouch! El campo está vacío."
+
+#: admin/class-doppler-for-woocommerce-admin.php:162
+msgid ""
+"Ouch! There's something wrong with your Username or API Key. Please, try "
+"again."
+msgstr "¡Ouch! Hay un error en tu Usuario o API Key. Vuelve a intentarlo."
+
+#: admin/class-doppler-for-woocommerce-admin.php:163
+msgid "The List has been created correctly."
+msgstr "La Lista se ha creado correctamente."
+
+#: admin/class-doppler-for-woocommerce-admin.php:164
+msgid "Ouch! You've reached the maximum number of Lists created."
+msgstr "¡Ouch! Has alcanzado el número máximo de Listas creadas."
+
+#: admin/class-doppler-for-woocommerce-admin.php:165
+msgid "Ouch! You've already used this name for another List."
+msgstr "¡Ouch! Ya has utilizado este nombre para otra Lista."
+
+#: admin/class-doppler-for-woocommerce-admin.php:166
+msgid ""
+"Ouch! You've made several actions in a short period of time. Please wait a "
+"few minutes before making another one."
+msgstr ""
+"¡Ouch! Has realizado varias acciones en un periodo corto de tiempo. Por "
+"favor, espera unos minutos antes de realizar otra."
+
+#: admin/class-doppler-for-woocommerce-admin.php:167
+msgid "Ouch! List name is invalid. Please choose another name."
+msgstr "¡Ouch! El nombre de la Lista es inválido. Elige otro nombre."
+
+#: admin/class-doppler-for-woocommerce-admin.php:168 admin/partials/hub.php:23
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/class-doppler-for-woocommerce-admin.php:169
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: admin/class-doppler-for-woocommerce-admin.php:170
+#, fuzzy
+msgid "Ouch! The Lists couldn't be synchronized."
+msgstr "Listas a sincronizar"
+
+#: admin/class-doppler-for-woocommerce-admin.php:171
+msgid "Your Lists has been syncronized and saved succesfully."
+msgstr "Tus Listas fueron sincronizadas y guardadas con éxito."
+
+#: admin/class-doppler-for-woocommerce-admin.php:172
+msgid "We're synchronizing your Customers with your Doppler List..."
+msgstr "Estamos sincronizando tus Clientes con tus Listas de Doppler."
+
+#: admin/class-doppler-for-woocommerce-admin.php:173
+msgid ""
+"Select the Doppler Lists where you want to import your Customers. When "
+"synchronized, those Customers already registered and future customers will "
+"be sent automatically."
+msgstr ""
+"Selecciona las Listas de Doppler a donde quieres importar tus Clientes. Al "
+"sincronizarlas, se enviarán automáticamente los existentes y los futuros "
+"clientes."
+
+#: admin/class-doppler-for-woocommerce-admin.php:174
+#: admin/partials/lists.php:26 admin/partials/lists.php:68
+msgid "WooCommerce Buyers"
+msgstr "Compradores de WooCommerce"
+
+#: admin/class-doppler-for-woocommerce-admin.php:175
+#: admin/partials/lists.php:27 admin/partials/lists.php:95
+msgid "WooCommerce Contacts"
+msgstr "Contactos de WooCommerce"
+
+#: admin/class-doppler-for-woocommerce-admin.php:181
+msgid ""
+"Ouch! <strong>Doppler for WooCommerce</strong> requires the <a href="
+"\"https://wordpress.org/plugins/doppler-form/\">Doppler Forms</a> plugin to "
+"be installed and active."
+msgstr ""
+"¡Ouch! <strong>Doppler para WooCommerce</strong> requiere que tengas el "
+"plugin Formularios Doppler instalado y activo."
+
+#: admin/class-doppler-for-woocommerce-admin.php:184
+#, php-format
+msgid ""
+"Ouch! <strong>Doppler for WooCommerce</strong> requires at least "
+"<strong>Doppler Forms v%s</strong> to be active. Please <a href=\"%splugins."
+"php\">upgrade</a> Doppler Forms."
+msgstr ""
+"¡Ouch! <strong>Doppler para WooCommerce</strong> requiere al menos "
+"<strong>Doppler Forms v%s</strong> para  poder activarse. Por favor <a href="
+"\"%splugins.php\">actualiza</a> Doppler Forms."
+
+#: admin/class-doppler-for-woocommerce-admin.php:262
+#: admin/class-doppler-for-woocommerce-admin.php:263
+#: admin/class-doppler-for-woocommerce-admin.php:1157
+#: admin/partials/doppler-for-woocommerce-settings.php:36
+msgid "Doppler for WooCommerce"
+msgstr "Doppler para WooCommerce"
+
+#: admin/class-doppler-for-woocommerce-admin.php:1159
+msgid ""
+"By confirming this action some automations in your Doppler Woocommerce "
+"activation can be lost. <br> ¿Do yo wish to continue? "
+msgstr ""
+"Si tienes automations relacionados con este sitio podrían dejar de "
+"funcionar. <br> ¿Deseas continuar?"
+
+#: admin/partials/doppler-for-woocommerce-settings.php:34
+#, fuzzy
+msgid ""
+"https://www.fromdoppler.com/en/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
+msgstr ""
+"https://help.fromdoppler.com/es/como-agregar-un-campo-personalizado/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=woocommerce"
+
+#: admin/partials/doppler-for-woocommerce-settings.php:39
+msgid "Lists to synchronize"
+msgstr "Listas a sincronizar"
+
+#: admin/partials/doppler-for-woocommerce-settings.php:40
+msgid "Fields Mapping"
+msgstr "Mapeo de Campos"
+
+#: admin/partials/doppler-for-woocommerce-settings.php:52
+msgid "Fields mapped succesfully"
+msgstr "Los Campos han sido guardados correctamente."
+
+#: admin/partials/doppler-for-woocommerce-settings.php:65
+msgid "Subscribers lists saved succesfully"
+msgstr "Las Listas han sido guardadas correctamente."
+
+#: admin/partials/hub.php:13
+#, fuzzy
+#| msgid ""
+#| "Get your Site Tracking Code from Doppler and paste it below to track your "
+#| "visitors activity. Not sure how to get your code? Press <a href=\"https://"
+#| "help.fromdoppler.com/en/create-onsite-tracking-automation\" class=\"green-"
+#| "link\">HELP</a>"
+msgid ""
+"Obtain the Tracking Code from the Doppler App and paste it here in order to "
+"monitor the actions that the visitors perform in it. Any doubts? Press <a "
+"href=\"https://help.fromdoppler.com/en/create-onsite-tracking-automation\" "
+"class=\"green-link\">HELP</a>"
+msgstr ""
+"Obtén el código de Seguimiento de Doppler para tu Sitio Web y colócalo "
+"debajo para monitorear la actividad de tus visitantes. ¿Tienes dudas sobre "
+"cómo obtener tu código? Presiona <a href=\"https://help.fromdoppler.com/es/"
+"crear-automation-por-comportamiento-en-sitio\" class=\"green-link\">HELP</a>"
+
+#: admin/partials/hub.php:20
+msgid "Paste tracking code here."
+msgstr "Pegue aquí el código de Seguimiento en Sitio"
+
+#: admin/partials/lists.php:34
+msgid ""
+"Pick the Doppler Lists you want to import your Users into. You can sync "
+"existing Lists or create new ones."
+msgstr ""
+"Selecciona las Listas de Doppler a donde quieres importar tus Usuarios. "
+"Puedes sincronizar Listas existentes o crear nuevas."
+
+#: admin/partials/lists.php:36
+msgid ""
+"As they register to your store or buy a product, your Subscribers will be "
+"automatically sent to the selected Doppler Lists."
+msgstr ""
+"Cuando se registren a tu tienda o realicen una compra, tus suscriptores "
+"serán enviados automáticamente a la Lista de Doppler seleccionada."
+
+#: admin/partials/lists.php:43
+msgid "Write the List name"
+msgstr "Escribe el nombre de la Lista"
+
+#: admin/partials/lists.php:45
+msgid "Create List"
+msgstr "Crear Lista"
+
+#: admin/partials/lists.php:66
+msgid "Doppler List to send Buyers"
+msgstr "Lista de Doppler a la cual enviarás Compradores"
+
+#: admin/partials/lists.php:86
+msgid ""
+"Currently there is no Buyers list selected. Press synchronize to create and "
+"syncrhonize default Buyers List."
+msgstr ""
+"Actualmente no hay una Lista de Compradores seleccionada. Presiona "
+"Sincronizar para crear y sincronizar una Lista de Compradores."
+
+#: admin/partials/lists.php:92
+msgid "Doppler List to send Contacts"
+msgstr "Lista de Doppler a la cual enviarás Contactos"
+
+#: admin/partials/lists.php:113
+msgid ""
+"Currently there is no Contacts list selected. Press synchronize to create "
+"and syncrhonize default Contacts List."
+msgstr ""
+"Actualmente no hay una Lista de Contactos seleccionada. Presiona Sincronizar "
+"para crear y sincronizar una Lista de Compradores."
+
+#: admin/partials/lists.php:124
+msgid "Synchronize"
+msgstr "Sincronizar"
+
+#: admin/partials/mapping.php:14
+msgid ""
+"Send the information of your Contacts in WooCommerce to Doppler. To do this, "
+"select the Doppler Field equivalent to each of the WooCommerce Fields. <br/"
+">Need to create Custom Fields in Doppler?"
+msgstr ""
+"Envía la información de tus Contactos en WooCommerce a Doppler. Para ello, "
+"selecciona el Campo de Doppler equivalente a cada uno de los Campos de "
+"WooCommerce. <br/> ¿Necesitas crear Campos Personalizados en Doppler?"
+
+#: admin/partials/mapping.php:15
+msgid ""
+"https://help.fromdoppler.com/en/how-to-create-a-customized-field?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=woocommerce"
+msgstr ""
+"https://help.fromdoppler.com/es/como-agregar-un-campo-personalizado/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=woocommerce"
+
+#: admin/partials/mapping.php:15
+msgid "Learn how"
+msgstr "Descubre cómo"
+
+#: admin/partials/mapping.php:40
+msgid "Billing fields"
+msgstr "Campos de Facturación"
+
+#: admin/partials/mapping.php:43
+msgid "Shipping fields"
+msgstr "Campos de Envío"
+
+#: admin/partials/mapping.php:46
+msgid "Account fields"
+msgstr "Campos de Cuenta"
+
+#: admin/partials/mapping.php:56
+msgid "WooCommerce Fields"
+msgstr "Campos de WooCommerce"
+
+#: admin/partials/mapping.php:57
+msgid "Doppler Fields"
+msgstr "Campos de Doppler"
+
+#: admin/partials/mapping.php:111
+msgid "Save and Synchronize"
+msgstr "Guardar y Sincronizar"
+
+#: doppler-for-woocommerce.php:78
+msgid "This plugin requires "
+msgstr "Este plugin requiere que el plugin"
+
+#: doppler-for-woocommerce.php:78
+msgid " plugin to be active."
+msgstr "esté activo."
+
+#: includes/class-doppler-for-woocommerce-app-connect.php:173
+msgid "You do not have permission to assign API Keys to the selected user."
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce-app-connect.php:207
+msgid ""
+"API Key generated successfully. Make sure to copy your new keys now as the "
+"secret key will be hidden once you leave this page."
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce-app-connect.php:208
+msgid "Revoke key"
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce-dependency-check.php:36
+msgid ""
+"Ouch! Doppler for WooCommerce will not work if the following plugins are not "
+"installed and active:"
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce.php:295
+msgid "Doppler Once Every 15 Minutes"
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce.php:299
+msgid "Doppler Once Every 2 Minutes"
+msgstr ""
+
+#: includes/class-doppler-for-woocommerce.php:303
+msgid "Doppler Once Every 5 Minutes"
+msgstr ""
+
+#~ msgid "On-Site Tracking"
+#~ msgstr "Seguimiento en Sitio"
+
+#~ msgid "On Site Tracking code saved successfully"
+#~ msgstr "El código de Seguimiento en Sitio ha sido guardado correctamente."
+
+#~ msgid "Tracking code is invalid"
+#~ msgstr "El código de seguimiento no es válido."
+
+#~ msgid "Clear selection"
+#~ msgstr "Limpiar selección"
+
+#~ msgid "There was an error while trying to create the default Lists"
+#~ msgstr "¡Ouch! Ocurrió un error al intentar crear las Listas."
+
+#~ msgid ""
+#~ "You currently don't have Doppler Lists selected. Do you want to create a "
+#~ "List to send your Contacts to and another to send to your Buyers?"
+#~ msgstr ""
+#~ "Actualmente no tienes Listas de Doppler seleccionadas. ¿Quieres crear una "
+#~ "Lista a donde enviar tus Contactos y otra a donde llevar tus compradores?"
+
+#~ msgid "Create Doppler Lists"
+#~ msgstr "Crear Listas en Doppler"
+
+#, fuzzy
+#~| msgid "Lists Managment"
+#~ msgid "List Name"
+#~ msgstr "Administración de Listas"
+
+#~ msgid "Subscriptors"
+#~ msgstr "Suscriptores"
+
+#~ msgid "Buyers"
+#~ msgstr "Compradores"
+
+#~ msgid "Contacts"
+#~ msgstr "Contactos"
+
+#~ msgid "Synchronize lists"
+#~ msgstr "Sincronizar Listas"
+
+#~ msgid "Create a Doppler List"
+#~ msgstr "Crear una lista en Doppler"
+
+#~ msgid "Saving"
+#~ msgstr "Guardando"
+
+#~ msgid "Connect"
+#~ msgstr "Conectar"
+
+#~ msgid "Disconnect"
+#~ msgstr "Desconectar"
+
+#~ msgid "User Email"
+#~ msgstr "Email de Usuario"
+
+#~ msgid "API Key"
+#~ msgstr "API Key"
+
+#~ msgid "List ID"
+#~ msgstr "ID de la Lista"
+
+#~ msgid "Name"
+#~ msgstr "Nombre"
+
+#~ msgid "Subscribers"
+#~ msgstr "Suscriptores"
+
+#~ msgid "Are you sure you want to delete the List? "
+#~ msgstr "¿Estás seguro que deseas eliminar la Lista?"
+
+#~ msgid "It'll be deleted and can't be recovered."
+#~ msgstr "Será eliminada y no puede ser recuperada."

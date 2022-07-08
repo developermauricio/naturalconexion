@@ -519,9 +519,12 @@ function mce_lateral_banner()
 
 function mce_set_lateralbanner()
 {
-    $Defaultpanel = '<h3>ChimpMatic Pro is Here!</h3>
+
+  $Defaultpanel = '';
+
+    $DefaultpanelOLD = '<h3>ChimpMatic Pro</h3>
       <div class="inside">
-        <p>We have the the best tool to integrate <b>Contact Form 7</b> & <b>Mailchimp.com</b> mailing lists. We have new nifty features:</p>
+        <p>Chimpmatic PRO is best tool to integrate <b>Contact Form 7</b> & <b>Mailchimp.com</b> mailing lists. We have new nifty features:</p>
         <ol>
           <li><a href="https://chimpmatic.com?utm_source=ChimpMatic&utm_campaign=Tag-Existing" target="_blank"><span class="anew">NEW</span> Tag Existing Subscribers</a></li>
           <li><a href="https://chimpmatic.com?utm_source=ChimpMatic&utm_campaign=Group-Existing" target="_blank"><span class="anew">NEW</span> Group Existing Subscribers</a></li>
@@ -536,6 +539,25 @@ function mce_set_lateralbanner()
         </ol>
         <p><a href="https://chimpmatic.com?utm_source=ChimpMatic&utm_campaign=LearnMore" class="dops-button is-primary" target="_blank">Learn More</a></p>
       </div>';
+
+    $Defaultpanel .= '
+      <div class="inside  bg-f2"><h3>Upgrade to PRO</h3>
+        <p>We have the the best tool to integrate <b>Contact Form 7</b> & <b>Mailchimp.com</b> mailing lists. We have new nifty features:</p>
+        <ul>
+          <li>Tag Existing Subscribers</li>
+          <li>Group Existing Subscribers</li>
+          <li>Email Verification</li>
+          <li>AWESOME Support And more!</li>
+        </ul>
+
+      </div>';
+
+        $Defaultpanel .='<div class="promo-2022">';
+          $Defaultpanel .='<h1>40<span>%</span> Off!</h1>';
+          $Defaultpanel .='<p class="interesting">Submit your name and email and we’ll send you a coupon for <b>40% off</b> your upgrade to the pro version.</p>';
+
+          $Defaultpanel .= '<div class="wpcf7 cm-form" id="wpcf7-f10181-p10182-o1"><div action="https://chimpmatic.com/almost-there" target="_blank" method="post" class="wpcf7-form" novalidate="novalidate" data-status="init" _lpchecked="1"><div style="display: none;"> <input type="hidden" name="_wpcf7" value="10181"> <input type="hidden" name="_wpcf7_version" value="5.5.6"> <input type="hidden" name="_wpcf7_locale" value="en_US"> <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f10181-p10182-o1"> <input type="hidden" name="_wpcf7_container_post" value="10182"> <input type="hidden" name="_wpcf7_posted_data_hash" value=""></div><p><label><span class=" your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name"></span></label><br> <label><span class=" your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email"></span></label><br> <input type="submit" value="Send me the coupon" class="button cm-submit wpcf7-submit" formaction="https://chimpmatic.com/almost-there" target="_blank"></p></div></div>';
+        $Defaultpanel .='</div>';
 
     $banner = $Defaultpanel;
     //delete_site_option('mce_conten_panel_lateralbanner');
@@ -556,7 +578,7 @@ function mce_get_bannerlateral(&$check, &$tittle)
 {
     $check = 0;
 
-    $url = "https://renzojohnson.com/wp-json/wp/v2/posts?categories=17&orderby=modified&order=desc";
+    $url = "https://renzojohnson.com/wp-json/wp/v2/posts?categories=25&orderby=modified&order=desc";
 
     $response = callApiGetWithoutToken($url);
 

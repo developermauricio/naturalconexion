@@ -214,9 +214,36 @@ class CustomCSSandJS_Admin {
 			'deactivate'     => __( 'Deactivate', 'custom-css-js' ),
 			'active_title'   => __( 'The code is active. Click to deactivate it', 'custom-css-js' ),
 			'deactive_title' => __( 'The code is inactive. Click to activate it', 'custom-css-js' ),
+
+			/* CodeMirror options */
+			'codemirror' => array(
+				'indentUnit'       => 4,
+				'indentWithTabs'   => true,
+				'inputStyle'       => 'contenteditable',
+				'lineNumbers'      => true,
+				'lineWrapping'     => true,
+				'styleActiveLine'  => true,
+				'continueComments' => true,
+				'extraKeys'        => array(
+					'Ctrl-Space' => 'autocomplete',
+					'Cmd-Space'  => 'autocomplete',
+					'Ctrl-/'     => 'toggleComment',
+					'Cmd-/'      => 'toggleComment',
+					'Alt-F'      => 'findPersistent',
+					'Ctrl-F'     => 'findPersistent',
+					'Cmd-F'      => 'findPersistent',
+					'Ctrl-J'     =>  'toMatchingTag',
+				),
+				'direction'        => 'ltr', // Code is shown in LTR even in RTL languages.
+				'gutters'          => array( 'CodeMirror-lint-markers' ),
+				'matchBrackets'    => true,
+				'matchTags'        => array( 'bothTags' => true ),
+				'autoCloseBrackets' => true,
+				'autoCloseTags'    => true,
+			)
 		);
 
-		return $vars;
+		return apply_filters( 'ccj_code_editor_settings', $vars);
 	}
 
 	public function add_meta_boxes() {
@@ -821,7 +848,9 @@ End of comment */ ',
 			$meta = $this->get_options_meta_html();
 		}
 
-			wp_nonce_field( 'options_save_meta_box_data', 'custom-css-js_meta_box_nonce' );
+		$options['multisite'] = false;
+
+		wp_nonce_field( 'options_save_meta_box_data', 'custom-css-js_meta_box_nonce' );
 
 		?>
 			<div class="options_meta_box">
@@ -834,8 +863,7 @@ End of comment */ ',
 
 				if ( ( $_key == 'preprocessor' && $options['language'] == 'css' ) ||
 					( $_key == 'linking' && $options['language'] == 'html' ) ||
-					$_key == 'priority' ||
-					$_key == 'minify' ) {
+					in_array( $_key, ['priority', 'minify', 'multisite' ] ) ) {
 					$close_div = true;
 					$output   .= '<div class="ccj_opaque">';
 				}
@@ -974,6 +1002,16 @@ End of comment */ ',
 			),
 		);
 
+		if ( is_multisite() && is_super_admin() && is_main_site() ) {
+			$options['multisite'] = array(
+				'title'    => __( 'Apply network wide', 'custom-css-js-pro' ),
+				'type'     => 'checkbox',
+				'default'  => false,
+				'dashicon' => 'admin-multisite',
+				'disabled' => true,
+			);
+		}
+
 		return $options;
 	}
 
@@ -1065,6 +1103,16 @@ End of comment */ ',
 				'dashicon' => 'editor-code',
 			);
 			$options['type']['values']['footer']    = $tmp['footer'];
+		}
+
+		if ( is_multisite() && is_super_admin() && is_main_site() ) {
+			$options['multisite'] = array(
+				'title'    => __( 'Apply network wide', 'custom-css-js-pro' ),
+				'type'     => 'checkbox',
+				'default'  => false,
+				'dashicon' => 'admin-multisite',
+				'disabled' => true,
+			);
 		}
 
 		return $options;
@@ -1513,6 +1561,7 @@ endif;
             <tr><td><strong>Auto Complete</strong></td><td> <code>Ctrl</code> + <code>Space</code></td></tr>
             <tr><td><strong>Find</strong></td><td> <code>Ctrl</code> + <code>F</code></td></tr>
             <tr><td><strong>Replace</strong></td><td> <code>Shift</code> + <code>Ctrl</code> + <code>F</code></td></tr>
+            <tr><td><strong>Save</strong></td><td> <code>Ctrl</code> + <code>S</code></td></tr>
             <tr><td><strong>Comment line/block</strong></td><td> <code>Ctrl</code> + <code>/</code></td></tr>
             </table></p>',
 			)

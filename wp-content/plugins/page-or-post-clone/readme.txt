@@ -3,8 +3,8 @@ Contributors: carlos fazenda
 Tags: page, post, duplicator, clone, duplication, clone post, clone page, post duplicator, page duplicator
 Donate link: https://www.paypal.me/carlosfazenda/10
 Requires at least: 4.5
-Tested up to: 5.3
-Stable tag: 5.0
+Tested up to: 5.8.1
+Stable tag: 5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ How to Use and Install
 
 About
 
-	The Page and Post Clone plugin is maintained by http://carlosfazenda.com
+	Please consider to make a donation at https://www.paypal.me/carlosfazenda/10 This plugin is maintained by http://carlosfazenda.com
 
 == Installation ==
 
@@ -49,10 +49,13 @@ About
 
 = 1.1 =
 *   Minor bug changes
+
+= 1.2 =
+*   Minor bug changes
  
 == Upgrade Notice ==
  
-There is no need to upgrade just yet.
+Make sure to use the last version of the plugin. And consider to make a donation at https://www.paypal.me/carlosfazenda/10
  
 == Screenshots ==
 

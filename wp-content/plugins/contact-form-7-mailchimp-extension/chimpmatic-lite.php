@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form 7 Extension For Mailchimp
  * Plugin URI: https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension
  * Description: Integrate Contact Form 7 with Mailchimp. Automatically add form submissions to predetermined lists in Mailchimp, using its latest API.
- * Version: 0.5.60
+ * Version: 0.5.62
  * Author: Renzo Johnson
  * Author URI: https://renzojohnson.com
  * Text Domain: chimpmatic-lite
@@ -32,7 +32,7 @@
 
 if ( ! defined( 'SPARTAN_MCE_VERSION' ) ) {
 
-		define( 'SPARTAN_MCE_VERSION', '0.5.60' );
+		define( 'SPARTAN_MCE_VERSION', '0.5.62' );
 		define( 'SPARTAN_MCE_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'SPARTAN_MCE_PLUGIN_NAME', trim( dirname( SPARTAN_MCE_PLUGIN_BASENAME ), '/' ) );
 		define( 'SPARTAN_MCE_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );

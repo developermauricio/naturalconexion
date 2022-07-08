@@ -18,8 +18,8 @@ class VideoTemplate{
              <?php echo esc_html(Functions::trim(self::renderStyle())); ?>
         </style>
         <div id="h5vp_player">
-            <div id="<?php echo esc_attr(self::$uniqid); ?>" class="h5vp_player <?php echo esc_html($data['template']['class']) ?>" data-settings="<?php echo esc_attr(wp_json_encode($settings)); ?>">
-                <video controls playsinline poster="<?php echo esc_url($data['infos']['poster']);?>" <?php echo esc_html(self::getAttrs($data['options'])); ?> >
+            <div data-unique-id="<?php echo esc_attr(uniqid()) ?>" id="<?php echo esc_attr(self::$uniqid); ?>" class="h5vp_player <?php echo esc_html($data['template']['class']) ?>" data-settings="<?php echo esc_attr(wp_json_encode($settings)); ?>">
+                <video playsinline poster="<?php echo esc_url($data['infos']['poster']);?>" <?php echo esc_html(self::getAttrs($data['options'])); ?> >
                     <source src="<?php echo esc_html($data['infos']['source']) ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -51,11 +51,11 @@ class VideoTemplate{
         foreach(self::$styles as $selector => $style){
             $new = '';
             foreach($style as $property => $value){
-                if($value == ''){
-                    $new .= $property;
-                }else {
+                // if($value == ''){
+                //     $new .= $property.";";
+                // }else {
                     $new .= " $property: $value;";
-                }
+                // }
             }
             $output .= "$selector { $new }";
         }

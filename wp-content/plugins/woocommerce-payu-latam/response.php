@@ -334,4 +334,5 @@ if (strtoupper($signature) == strtoupper($signature_md5)) {
 	echo '<h1><center>La petici&oacute;n es incorrecta! Hay un error en la firma digital.</center></h1>';
 }
 get_footer('shop');
-?>
+/*  ?> */
+?> 

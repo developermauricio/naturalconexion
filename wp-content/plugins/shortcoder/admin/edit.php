@@ -36,6 +36,7 @@ class SC_Admin_Edit{
         echo '<strong>' . __( 'Your shortcode', 'shortcoder' ) . ': </strong>';
         echo '<code class="sc_preview_text">' . Shortcoder::get_sc_tag( $post->ID ) . '</code>';
         echo '<span id="edit-slug-buttons"><button type="button" class="sc_copy button button-small"><span class="dashicons dashicons-yes"></span> ' . __( 'Copy', 'shortcoder' ) . '</button></span>';
+        echo '<a href="#sc_mb_settings" class="sc_settings_link">' . __( 'Settings', 'shortcoder' ) . '</a>';
         echo '</div>';
 
         // Editor
@@ -77,6 +78,13 @@ class SC_Admin_Edit{
                 'helper' => __( 'Name of the shortcode to display when it is listed', 'shortcoder' )
             ))),
 
+            array( __( 'Description', 'shortcoder' ), SC_Admin_Form::field( 'textarea', array(
+                'value' => $settings[ '_sc_description' ],
+                'name' => '_sc_description',
+                'class' => 'widefat',
+                'helper' => __( 'Description of the shortcode for identification', 'shortcoder' )
+            ))),
+
             array( __( 'Temporarily disable shortcode', 'shortcoder' ), SC_Admin_Form::field( 'select', array(
                 'value' => $settings[ '_sc_disable_sc' ],
                 'name' => '_sc_disable_sc',
@@ -97,7 +105,7 @@ class SC_Admin_Edit{
                 'helper' => __( 'Select to disable the shortcode from executing for administrators.', 'shortcoder' )
             ))),
 
-            array( __( 'Execute shortcode in devices', 'shortcoder' ), SC_Admin_Form::field( 'select', array(
+            array( __( 'Execute shortcode on devices', 'shortcoder' ), SC_Admin_Form::field( 'select', array(
                 'value' => $settings[ '_sc_allowed_devices' ],
                 'name' => '_sc_allowed_devices',
                 'list' => array(
@@ -264,7 +272,9 @@ class SC_Admin_Edit{
         }
 
         echo '<li><span class="dashicons dashicons-list-view"></span>' . __( 'Custom parameter', 'shortcoder' ) . '<ul>';
-        echo '<li class="sc_params_form"><h4>' . __( 'Enter custom parameter name', 'shortcoder' ) . '</h4>';
+        echo '<li class="sc_params_form">';
+            echo '<p>' . __( 'Insert parameters in content and replace them with custom values when using the shortcode.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/custom-parameters/" target="_blank" title="' . __( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
+            echo '<h4>' . __( 'Enter custom parameter name', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cp_box widefat" pattern="[a-zA-Z0-9_-]+"/>';
             echo '<h4>' . __( 'Default value', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cp_default widefat"/>';
@@ -273,7 +283,9 @@ class SC_Admin_Edit{
         echo '</ul></li>';
 
         echo '<li><span class="dashicons dashicons-screenoptions"></span>' . __( 'Custom Fields', 'shortcoder' ) . '<ul>';
-        echo '<li class="sc_params_form"><h4>' . __( 'Enter custom field name', 'shortcoder' ) . '</h4>';
+        echo '<li class="sc_params_form">';
+            echo '<p>' . __( 'Pull a custom field value of the current post and display it inside the shortcode content.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/shortcode-parameters/#custom-fields" target="_blank" title="' . __( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
+            echo '<h4>' . __( 'Enter custom field name', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cf_box widefat" pattern="[a-zA-Z0-9_-]+"/>';
             echo '<button class="button sc_cf_btn">' . __( 'Insert custom field', 'shortcoder' ) . '</button>';
             echo '<p class="sc_cf_info"><small>' . __( 'Only alphabets, numbers, underscore and hyphens are allowed. Cannot be empty.', 'shortcoder' ) . '</small></p></li>';
@@ -295,7 +307,7 @@ class SC_Admin_Edit{
         echo '<p>Get updates on the WordPress plugins, tips and tricks to enhance your WordPress experience. No spam.</p>';
 
         echo '<div class="subscribe_form" data-action="https://aakashweb.us19.list-manage.com/subscribe/post-json?u=b7023581458d048107298247e&id=ef5ab3c5c4&c=">
-        <input type="email" value="' . get_option( 'admin_email' ) . '" class="subscribe_email_box" placeholder="Your email address">
+        <input type="text" value="' . get_option( 'admin_email' ) . '" class="subscribe_email_box" placeholder="Your email address">
         <p class="subscribe_confirm">Thanks for subscribing !</p>
         <button class="button subscribe_btn"><span class="dashicons dashicons-email"></span> Subscribe</button>
         </div>';

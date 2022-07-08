@@ -2,7 +2,7 @@
 //require_once('wp-load.php');
 /*
 Plugin Name: Zoho Mail
-Version: 1.4.7
+Version: 1.4.8
 Plugin URI: http://mail.zoho.com
 Author: Zoho Mail
 Author URI: https://www.zoho.com/mail/
@@ -289,19 +289,28 @@ function zmail_troubleshoot_callback() {
     <?php wp_nonce_field('zmail_integ_settings_nonce'); ?>
     <div class="page"><div class="page__content">
             <div class="page__header">
-                <h1>Welcome to <img src=<?php echo esc_url(plugins_url('assets/images/zoho.png',__FILE__))?> title="Zoho" alt="Zoho" width="115" /> Mail!</h1>
+                <h1>Welcome to <img src=<?php echo esc_url(plugins_url('assets/images/zoho.png',__FILE__))?> title='Zoho' alt="Zoho" width="115" /> Mail!</h1>
                 <p>Please visit the <a class="zm_a" href=<?php echo esc_url("https://accounts.zoho.com/developerconsole")?> target="_blank">Zoho OAuth Creation</a> documentation page for usage instructions.</p>
             </div>
-            <div class="form">
-                <div class="form__row">
-                    <label class="form--label">Domain</label>
-		    <select class="form--input form--input--select" name="zmail_integ_domain_name">
-			<option value="com" <?php if(get_option('zmail_integ_domain_name') == "com") {?> selected="true"<?php } ?>>.com</option>
-			<option value="eu" <?php if(get_option('zmail_integ_domain_name') == "eu") {?> selected="true"<?php } ?>>.eu</option>
-			<option value="in" <?php if(get_option('zmail_integ_domain_name') == "in") {?> selected="true"<?php }?>>.in</option>
-			<option value="com.cn" <?php if(get_option('zmail_integ_domain_name') == "com.cn") {?>selected="true"<?php }?>>.com.cn</option>
-			<option value="com.au" <?php if(get_option('zmail_integ_domain_name') == "com.au"){?>selected="true"<?php }?>>.com.au</option>
-                    </select> <i class="form__row-info">The name of the region the account is configured</i> </div>
+            <div class="form__row">
+                <label class="form--label">Where is your account hosted?</label>
+                <div class="form__domain">
+                  <span class="form__domain-info">mail.zoho</span>
+
+                    <select class="form__domain-value" name="zmail_integ_domain_name">
+                  			<option value="com" <?php if(get_option('zmail_integ_domain_name') == "com") {?> selected="true"<?php } ?>>.com</option>
+                  			<option value="eu" <?php if(get_option('zmail_integ_domain_name') == "eu") {?> selected="true"<?php } ?>>.eu</option>
+                  			<option value="in" <?php if(get_option('zmail_integ_domain_name') == "in") {?> selected="true"<?php }?>>.in</option>
+                  			<option value="com.cn" <?php if(get_option('zmail_integ_domain_name') == "com.cn") {?>selected="true"<?php }?>>.com.cn</option>
+                  			<option value="com.au" <?php if(get_option('zmail_integ_domain_name') == "com.au"){?>selected="true"<?php }?>>.com.au</option>
+                        <option value="jp" <?php if(get_option('zmail_integ_domain_name') == "jp"){?>selected="true"<?php }?>>.jp</option>
+                      </select>
+                    
+                  </div>
+                  <div>
+                      <i class="form__row-info">The name of the region the account is configured</i>
+                  </div>
+                </div>
                 <div class="form__row">
                     <label class="form--label">Client Id</label>
                     <input type="text" value="<?php echo get_option('zmail_integ_client_id') ?>" name="zmail_integ_client_id" class="form--input" id="zmail_integ_client_id" required/> <i class="form__row-info">Created in the developer console</i> </div>
@@ -618,6 +627,7 @@ if(!function_exists('wp_mail')) {
   }
   
 }
+
 
 
 

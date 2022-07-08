@@ -7,7 +7,10 @@ class Shortcode{
     protected static $_instance = null;
 
     public function __construct(){
-        add_shortcode('video', [$this, 'video']);
+        $option = get_option('h5vp_option');
+        if(!isset($option['h5vp_disable_video_shortcode']) || $option['h5vp_disable_video_shortcode'] !== '1'){
+            add_shortcode('video', [$this, 'video']);
+        }
         add_shortcode('html5_video', [$this, 'video']);
     }
 
@@ -19,6 +22,7 @@ class Shortcode{
         if(!isset($atts['id'])){
             return false;
         }
+
         $isGutenberg = get_post_meta($atts['id'], 'isGutenberg', true);
 
         ob_start();

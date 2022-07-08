@@ -286,6 +286,9 @@ jQuery(function($){
                             marginleft=-29;
                             total = 0;
                         }
+                        if( typeof data[feedId]['timestr'] != "undefined" ){
+                            $('tr#idTr'+feedId+' td.column-feeddate').html(data[feedId]['timestr']);
+                        }
                     }
 
                 if(marginleft<-2){
@@ -304,9 +307,6 @@ jQuery(function($){
     checkFeedsStatus();
     $.fn.toggleFeedField = function (sClass){
         //console.log('toggle:'+sClass);
-        if(sClass=='google'){
-            jQuery('#feed_variation_show_main').prop( "checked", false );
-        }
         jQuery('[class*="stl-"]').hide();
         jQuery('[class*="stl-'+sClass+'"]').show();
 		if ($('#ID-feed_type').val() == 'google' && $('#inventory').attr('data-new') == 1)

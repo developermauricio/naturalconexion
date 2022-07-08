@@ -3,9 +3,9 @@ Contributors: Zoho Mail
 Tags: mail,mailer,phpmailer,wp_mail,email,zoho,zoho mail
 Donate link: none
 Requires at least: 4.8
-Tested up to: 5.8
+Tested up to: 5.9.3
 Requires PHP: 5.6
-Stable tag: 1.4.7
+Stable tag: 1.4.8
 License: BSD
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ Zoho Mail plugin can help to ensure that the emails are sent from your account u
 9) Once the authentication process is done, Zoho Mail Plugin will be able to send emails from your website using Zoho Mail
 
 == ZOHO MAIL PLUGIN PARAMETERS ==
-- **Client Domain** :The domain where your Zoho Account data resides.
+- **Where is your account hosted?** :The region where your Zoho Account data resides.
 - **Client ID** :The Client ID of your Zoho Mail API.
 - **Client Secret** : The Client secret of your API.
 - **Authorized Redirect URI** : Authorized Redirect URL obtained from your website that is used to create Client ID.
@@ -136,11 +136,15 @@ In case, you are not sure on how to proceed with the Zoho Mail plugin, feel free
 * Zeptomail Notice and Warning message bug fix
 = 1.4.6 =
 * Tested for Wordpress 5.8
-= 1.4.6 =
+= 1.4.7 =
 * bug fix for cc emailid
+= 1.4.8 =
+* jp DC support added, domain param changed for clearer ux.
+
 
 == Upgrade Notice ==
 none
+
 
 
 

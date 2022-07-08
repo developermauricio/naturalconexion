@@ -3,8 +3,8 @@ Contributors: E-goi
 Donate link:
 Tags: Newsletter, Subscribe, E-goi, Widget, Subscribe Newsletter, Newsletter Populator, Send Newsletter, Marketing Automation, E-Mail Gatherer, egoi, Mailing List, E-mail Marketing, Email Marketing, Marketing
 Requires at least: 4.7
-Tested up to: 5.7.2
-Stable tag: 3.7.12
+Tested up to: 5.9.2
+Stable tag: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,8 +26,9 @@ Então não deixe de activar o Track & Engage, um sistema para rastrear todo o c
 **Funcionalidades:**
 * 100% Gratuito
 * Sincronização automática de contactos
+* Connected Sites
+* Conversão de encomenda por estado
 * Formulários simples
-* Formulários Avançados Html
 * Barra de subscrição
 * Formulários Pop-up
 * Formulários Widgets
@@ -50,7 +51,7 @@ Então não deixe de activar o Track & Engage, um sistema para rastrear todo o c
 
 **Add-on**
 
-Plugin [WooCommerce SMS – Notificações Estados Encomendas](https://pt.wordpress.org/plugins/sms-orders-alertnotifications-for-woocommerce/ "SMS Orders Alert/Notifications for WooCommerce")
+Plugin [WooCommerce SMS – Notificações Estados Encomendas](https://github.com/E-goi/sms-orders-alertnotifications-for-woocommerce/releases/download/1.5.4/sms-orders-alertnotifications-for-woocommerce-1.5.4.zip "SMS Orders Alert/Notifications for WooCommerce")
 
 **Requisitos**
 
@@ -76,6 +77,8 @@ So be sure to enable Track & Engage system to track all customer behavior in you
 **What you get**
 * 100% Free
 * WP/E-goi contact sync-up
+* Connected Sites
+* Order sync by status
 * Quick sign-up bar
 * Full sign-up bar customisation
 * Comments sign-up option
@@ -97,7 +100,7 @@ So be sure to enable Track & Engage system to track all customer behavior in you
 
 **Add-on**
 
-[SMS Orders Alert/Notifications for WooCommerce plugin.](https://pt.wordpress.org/plugins/sms-orders-alertnotifications-for-woocommerce/ "SMS Orders Alert/Notifications for WooCommerce")
+[SMS Orders Alert/Notifications for WooCommerce plugin.](https://github.com/E-goi/sms-orders-alertnotifications-for-woocommerce/releases/download/1.5.4/sms-orders-alertnotifications-for-woocommerce-1.5.4.zip "SMS Orders Alert/Notifications for WooCommerce")
 
 **Requirements**
 
@@ -166,8 +169,75 @@ You can create and update your lists, see how many subscribers you have, but you
 
 == Changelog ==
 
+= 4.1.1 = 
+- Fix TE abandoned cart issue
+
+= 4.1.0 = 
+- Tax rate on catalog sync
+
+= 4.0.9 = 
+- Improved performance issues
+
+= 4.0.8 = 
+- Fix warning errors
+
+= 4.0.7 =
+- Added new button position option for E-goi forms on Elementor
+- Added the possibility for external url redirect form E-goi forms on Elementor
+- Contact Sync minor fix for sites without Woocommerce
+
+= 4.0.6 =
+- Fix Elementor opt-in config
+- Fix warning errors
+- Fix compatibility issues with YITH WooCommerce Wishlist plugin
+- Fix simple form creation
+
+= 4.0.5 =
+- Elementor compatibility 3.6.1
+
+= 4.0.4 =
+- Fix Forms generation
+- Fix Subscription bar position
+
+= 4.0.3 =
+- Escape output variables
+
+= 4.0.2 =
+- PHP 8.1 Compatibility
+
+= 4.0.1 =
+- Improve form generation security
+
+= 4.0.0 =
+- Connected Sites
+- Lazy Sync
+- Backend conversions
+
+= 3.7.18 =
+- Fix flow contact sync roles
+- Escape output variables
+
+= 3.7.17 =
+- Escape output variables
+
+= 3.7.16 =
+- Code Format
+- Security improvements
+
+= 3.7.15 =
+- Update libraries
+- Security improvements
+
+= 3.7.14 =
+- Improve code readability
+- Security improvements
+
+= 3.7.13 =
+- Code refactor for Wordpress development guidelines
+
 = 3.7.12 =
 - Fix sync catalogs after edit a product variation
+- TM and Code Review
 
 = 3.7.11 =
 - Fix sync catalogs alert bug

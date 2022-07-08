@@ -245,6 +245,25 @@ class THWCFD_Utils {
 			if(isset($options[$value]) && !empty($options[$value])){
 				$value = $options[$value];
 			}
+		}elseif($type === 'checkboxgroup' || $type === 'multiselect'){
+			$options = isset($field['options']) ? $field['options'] : array();
+
+			$value_arr = explode(',', $value);
+			//THWCFD_Utils
+			if(is_array($value_arr)){
+				$new_value = array();
+				foreach($value_arr as $single_value){
+					if(isset($options[$single_value]) && !empty($options[$single_value])){
+						$new_value[] = $options[$single_value];
+					}else{
+						$new_value[] = $single_value;
+					}
+				}
+				$value = implode(', ', $new_value);
+			}elseif(isset($options[$value]) && !empty($options[$value])){
+				$value = $options[$value];
+			}
+				
 		}
 
 		return $value;

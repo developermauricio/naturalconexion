@@ -1,8 +1,8 @@
 <?php
-$domain = $_SERVER['HTTP_HOST'];
+$domain = sanitize_text_field($_SERVER['HTTP_HOST']);
 $plugin_settings = get_option( 'plugin_settings' );
 $license_information = get_option( 'license_information' );
-$host = $_SERVER['HTTP_HOST'];
+$host = sanitize_text_field($_SERVER['HTTP_HOST']);
 $directory_perm_xml = "";
 $directory_perm_csv = "";
 $directory_perm_txt = "";
@@ -346,7 +346,7 @@ if(isset($_GET["tab"])) {
 						</tr>
 						<tr>
 							<td>
-								<span><?php _e( 'Enable logging (Enable only on advice of our support-team):', 'woo-product-feed-pro');?></span>
+								<span><?php _e( 'Enable logging', 'woo-product-feed-pro');?></span>
 							</td>
 							<td>
                                                 		<label class="woo-product-feed-pro-switch">
@@ -385,7 +385,7 @@ if(isset($_GET["tab"])) {
 
 						<tr id="facebook_pixel">
 							<td>
-								<span><?php _e( 'Add Facebook Pixel:', 'woo-product-feed-pro');?> (<a href="https://adtribes.io/facebook-pixel-feature/" target="_blank"><?php _e( 'Read more about this', 'woo-product-feed-pro' );?>)</a></span>
+								<span><?php _e( 'Add Facebook Pixel', 'woo-product-feed-pro');?> (<a href="https://adtribes.io/facebook-pixel-feature/" target="_blank"><?php _e( 'Read more about this', 'woo-product-feed-pro' );?>)</a></span>
 							</td>
 							<td>
                                                 		<label class="woo-product-feed-pro-switch">
@@ -404,7 +404,7 @@ if(isset($_GET["tab"])) {
 						<?php
                                                 if($add_facebook_pixel == "yes"){
 							$facebook_pixel_id = get_option('woosea_facebook_pixel_id');
-							print "<tr id=\"facebook_pixel_id\"><td colspan=\"2\"><span>Insert your Facebook Pixel ID:</span>&nbsp;<input type=\"hidden\" name=\"nonce_facebook_pixel_id\" id=\"nonce_facebook_pixel_id\" value=\"$nonce\"><input type=\"text\" class=\"input-field-medium\" id=\"fb_pixel_id\" name=\"fb_pixel_id\" value=\"$facebook_pixel_id\">&nbsp;<input type=\"button\" id=\"save_facebook_pixel_id\" value=\"Save\"></td></tr>";	
+							print "<tr id=\"facebook_pixel_id\"><td colspan=\"2\"><span>Insert your Facebook Pixel ID</span>&nbsp;<input type=\"hidden\" name=\"nonce_facebook_pixel_id\" id=\"nonce_facebook_pixel_id\" value=\"$nonce\"><input type=\"text\" class=\"input-field-medium\" id=\"fb_pixel_id\" name=\"fb_pixel_id\" value=\"$facebook_pixel_id\">&nbsp;<input type=\"button\" id=\"save_facebook_pixel_id\" value=\"Save\"></td></tr>";	
 						}
 						?>
 
@@ -415,7 +415,7 @@ if(isset($_GET["tab"])) {
 
 						<tr id="content_ids">
 							<td colspan="2">
-                                                        	<span><?php _e( 'Content IDS variable products Facebook Pixel:', 'woo-product-feed-pro');?></span>
+                                                        	<span><?php _e( 'Content IDS variable products Facebook Pixel', 'woo-product-feed-pro');?></span>
 								<select id="woosea_content_ids" name="woosea_content_ids" class="select-field">
 									<?php
 									if($content_ids == "variation"){
@@ -487,7 +487,7 @@ if(isset($_GET["tab"])) {
 
 						<tr id="batch">
 							<td>
-								<span><?php _e( 'Change products per batch number (Enable only on advice of our support-team):', 'woo-product-feed-pro');?> (<a href="https://adtribes.io/batch-size-configuration-product-feed/?utm_source=<?php print "$host";?>&utm_medium=manage-settings&utm_content=batch size" target="_blank"><?php _e( 'Read more about this', 'woo-product-feed-pro' );?>)</a></span>
+								<span><?php _e( 'Change products per batch number', 'woo-product-feed-pro');?> (<a href="https://adtribes.io/batch-size-configuration-product-feed/?utm_source=<?php print "$host";?>&utm_medium=manage-settings&utm_content=batch size" target="_blank"><?php _e( 'Read more about this', 'woo-product-feed-pro' );?>)</a></span>
 							</td>
 							<td>
                                                 		<label class="woo-product-feed-pro-switch">
@@ -727,7 +727,8 @@ if(isset($_GET["tab"])) {
                                                                 <li><strong>5.</strong> <?php _e( 'WPML support', 'woo-product-feed-pro' );?></li>
                                                                 <li><strong>6.</strong> <?php _e( 'Aelia currency switcher support', 'woo-product-feed-pro');?></li>
                                                                 <li><strong>7.</strong> <?php _e( 'Facebook pixel feature', 'woo-product-feed-pro');?></li>
-                                                                <li><strong>8.</strong> <?php _e( 'Polylang support', 'woo-product-feed-pro');?></li>
+								<li><strong>8.</strong> <?php _e( 'Polylang support', 'woo-product-feed-pro');?></li>
+								<li><strong>9.</strong> <?php _e( 'TranslatePress support', 'woo-product-feed-pro');?></li>
 							</ul>
                                                         <strong>
                                                         <a href="https://adtribes.io/pro-vs-elite/?utm_source=<?php print"$host";?>&utm_medium=manage-settings&utm_campaign=why-upgrade-box" target="_blank"><?php _e( 'Upgrade to Elite here!', 'woo-product-feed-pro' );?></a>

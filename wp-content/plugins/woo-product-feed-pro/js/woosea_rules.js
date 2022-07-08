@@ -93,19 +93,22 @@ jQuery(document).ready(function($) {
                 	// Check if user selected a data manipulation condition
                 	jQuery("#rules_" + rowCount).on("change", function(){
              			if ($(this).val() == "categories") {
-					jQuery.ajax({
-     		   				method: "POST",
-        					url: ajaxurl,
-        					data: { 
-							'action': 'woosea_categories_dropdown', 
-							'rowCount': rowCount 
-						}
-      					})
+					var checkNumeric = $.isNumeric(rowCount);  
+					if(checkNumeric) {	
+						jQuery.ajax({
+     		   					method: "POST",
+        						url: ajaxurl,
+        						data: { 
+								'action': 'woosea_categories_dropdown', 
+								'rowCount': rowCount 
+							}
+      						})
 
-                			.done(function( data ) {
-			                        data = JSON.parse( data );
-                                       		jQuery("#criteria_" + rowCount).replaceWith('' + data.dropdown + '');
-					});
+                				.done(function( data ) {
+			                        	data = JSON.parse( data );
+                                       			jQuery("#criteria_" + rowCount).replaceWith('' + data.dropdown + '');
+						});
+					}
 				}
 			});
       		})

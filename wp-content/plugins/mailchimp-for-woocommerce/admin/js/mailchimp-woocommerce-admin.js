@@ -1,7 +1,7 @@
 (function( $ ) {
 	'use strict';
 
-	$( window ).load(function() {
+	$(window).on('load', function() {
 
 		// show/hide optional settings
 		var optionalSettings = false;
@@ -369,6 +369,34 @@
 			});
 		});
 
+		$('#tower_box_switch').change(function (e){
+			var switch_button = this;
+			var opt = this.checked ? 1 : 0;
+
+			var data = {
+				action: 'mailchimp_woocommerce_tower_status',
+				opt: opt
+			}
+
+			$('.tower_box_status').hide();
+			$('#tower_box_status_' + opt).show();
+
+			$.post(ajaxurl, data, function(response) {
+				if (response.success) {
+					$('#mc-tower-save').html(response.data);
+					$('#mc-tower-save').css('color', '#628735').show().fadeOut(3000);
+					switch_button.checked = opt;
+				}
+				else {
+					$('#mc-tower-save').html(response.data.error);
+					$('#mc-tower-save').css('color', 'red').show().fadeOut(3000);
+					switch_button.checked = 1 - opt;
+					$('.tower_box_status').hide();
+					$('#tower_box_status_' + (1 - opt)).show();
+				}
+			});
+		});
+
 		$('#comm_box_switch').change(function (e){
 			var switch_button = this;
 			var opt = this.checked ? 1 : 0;
@@ -666,6 +694,25 @@
 					break;
 			}
 		}
+		var ongoing_subscribed = $('#ongoing_sync_subscribed');
+		var ongoing_all = $('#ongoing_sync_all');
+		var cart_track_all = $('#cart_track_all');
+
+		if (ongoing_subscribed.prop('checked')) {
+			cart_track_all.attr('disabled', true);
+			cart_track_all.parent().css({opacity: '.5'});
+		}
+
+		ongoing_subscribed.click(function() {
+			$('#cart_track_subscribed').prop('checked', true).trigger('click');
+			cart_track_all.attr('disabled', true);
+			cart_track_all.parent().css({opacity: '.5'});
+		});
+
+		ongoing_all.click(function() {
+			cart_track_all.attr('disabled', false);
+			cart_track_all.parent().css({opacity: '1'});
+		});
 	});
 })( jQuery );
 

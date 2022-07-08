@@ -4,9 +4,9 @@ Author: Addi
 Author URI: https://co.addi.com/
 Tags: comments, spam
 Requires at least: 5.2
-Tested up to: 5.8
+Tested up to: 6.0
 Requires PHP: 7.0
-Stable tag: 1.3.6
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,58 @@ Nota: Para garantizar que recibes correctamente la respuesta por parte de ADDI, 
 3. El nuevo método de pago se mostrará en el checkout de tu sitio!.
 
 == Changelog ==
+
+= 1.5.3 2022-06-16 =
+* Updated the template for "Día sin IVA"
+
+= 1.5.2 2022-06-14 =
+* Fixed bug with the addi banner
+
+= 1.5.1 2022-06-09 =
+* Fix bug with the min/max purchase amount
+
+= 1.5 2022-06-06 =
+* Updated the checkout templates for BR
+
+= 1.4.3 2022-04-20 =
+* Limpieza de código.
+* modificacion habilitar/deshabilitar pro defecto estados personalizados.
+* corrección traducciones.
+* correción de errores.
+* ajustes en el archivo readme.
+
+= 1.4.2 2022-04-19 =
+* Limpieza de código.
+* estados personalizados de Addi.
+* correción de errores.
+* ajustes en el archivo readme.
+
+= 1.4.1 2022-03-24 =
+* Limpieza de código.
+* se corrigen posibles errores relacionados a funciones deprecadas de wpdb.
+* se añade calculo a algoritmo de precio para widget.
+* ajustes en el archivo readme.
+
+= 1.4.0 2022-03-04 =
+* Limpieza de código.
+* control de errores especificos al procesar pago con Addi. Mensajes actualizados.
+* ajustes en el archivo readme.
+
+= 1.3.9 2022-02-17 =
+* Limpieza de código.
+* se corrigen errores en la conversión de precios para comercios con descuentos.
+* ajustes en el archivo readme.
+
+= 1.3.8 2022-01-19 =
+* Limpieza de código.
+* se corrigen errores.
+* ajustes en el archivo readme.
+
+= 1.3.7 2022-01-17 =
+* Limpieza de código.
+* se valida si el campo cedula esta diligenciado o no para ser tomado.
+* ajustes en el archivo readme.
+
 = 1.3.6 2021-12-09 =
 * Limpieza de código.
 * fix checkout rendering (CO).

@@ -1,0 +1,30 @@
+.messages-container.blocker {
+    background: #e34f45;
+}
+
+.messages-container.warning {
+    background: #fbb224;
+}
+
+.messages-container.info {
+    background: #65c192;
+}
+
+.messages-container {
+    padding: 0 2%;
+    margin-bottom: $m1;
+    font-family: Arial,sans-serif;
+    display: flex;
+    &.d-none{
+        display: none;
+    }
+}
+
+.messages-container p {
+    color: #fff;
+    font-size: 13px;
+    a{
+        color: #fff;
+        font-weight: bold;
+    }
+}

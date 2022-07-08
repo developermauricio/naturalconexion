@@ -116,7 +116,7 @@
     box-shadow: 0 2px 5px -2px rgba(0,0,0,.2);
     border: 1px solid #dfdfdf;
     z-index: 9999;
-    max-height: 300px;
+    max-height: 350px;
     overflow: auto;
 }
 .sc_params_list li:hover ul{
@@ -137,7 +137,7 @@
 
 .sc_params_form{
     cursor: auto !important;
-    width: 330px;
+    width: 300px !important;
 }
 .sc_params_form h4:first-child{
     margin: 0 0 15px 0;
@@ -150,6 +150,17 @@
 }
 .sc_params_form .button {
     margin: 15px 0 5px 0;
+}
+.sc_params_form a{
+    text-decoration: none !important;
+    line-height: 0;
+    vertical-align: middle;
+}
+.sc_params_form a:hover{
+    opacity: 0.8;
+}
+.sc_params_form a .dashicons{
+    position: static !important;
 }
 
 .sc_cm_menu {
@@ -192,8 +203,37 @@
     margin-bottom: 10px;
 }
 
-/* Codemirror */
+.sc_settings_link{
+    float: right;
+}
 
+/* Shortcode list page */
+.sc_copy_list_wrap{
+    position: relative;
+}
+.sc_copy_list_wrap .sc_copy_list{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+.sc_copy_list_wrap input.widefat{
+    border: none;
+}
+.sc_copy_text.copied{
+    background-color: lightgreen;
+}
+.sc_copy_list{
+    display: none;
+}
+#the-list tr.type-shortcoder:hover a.sc_copy_list{
+    display: inline-block;
+}
+#the-list tr.type-shortcoder td.column-shortcode{
+    vertical-align: middle;
+}
+
+
+/* Codemirror */
 .cm-sc_param{
     font-weight: bold;
 }

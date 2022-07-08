@@ -1,0 +1,358 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"Blank WordPress Pot "
+"v1.0.0\n"
+"POT-Creation-Date: "
+"2019-11-22 16:04-0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your "
+"Name <you@example.com>\n"
+"Language-Team: Your Team "
+"<translations@example."
+"com>\n"
+"Report-Msgid-Bugs-To: "
+"Translator Name "
+"<translations@example."
+"com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Language: en_US\n"
+"X-Generator: Poedit "
+"2.2.1\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+
+#: admin/class-doppler-for-woocommerce-admin.php:160
+msgid ""
+"Ouch! Enter a valid "
+"Email."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:161
+msgid ""
+"Ouch! The Field is empty."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:162
+msgid ""
+"Ouch! There's something "
+"wrong with your Username "
+"or API Key. Please, try "
+"again."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:163
+msgid ""
+"The List has been "
+"created correctly."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:164
+msgid ""
+"Ouch! You've reached the "
+"maximum number of Lists "
+"created."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:165
+msgid ""
+"Ouch! You've already "
+"used this name for "
+"another List."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:166
+msgid ""
+"Ouch! You've made "
+"several actions in a "
+"short period of time. "
+"Please wait a few "
+"minutes before making "
+"another one."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:167
+msgid ""
+"Ouch! List name is "
+"invalid. Please choose "
+"another name."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:168
+#: admin/partials/hub.php:23
+#: admin/partials/mapping.php:111
+msgid "Save"
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:169
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:170
+msgid ""
+"Ouch! The Lists couldn't "
+"be synchronized."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:171
+msgid ""
+"Your Lists has been "
+"syncronized and saved "
+"succesfully."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:172
+msgid ""
+"We're synchronizing your "
+"Customers with your "
+"Doppler List..."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:173
+msgid ""
+"Select the Doppler Lists "
+"where you want to import "
+"your Customers. When "
+"synchronized, those "
+"Customers already "
+"registered and future "
+"customers will be sent "
+"automatically."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:174
+#: admin/partials/lists.php:56
+msgid "WooCommerce Buyers"
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:175
+#: admin/partials/lists.php:80
+msgid ""
+"WooCommerce Contacts"
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:181
+msgid ""
+"Ouch! <strong>Doppler "
+"for WooCommerce</strong> "
+"requires the <a href="
+"\"https://wordpress.org/"
+"plugins/doppler-form/"
+"\">Doppler Forms</a> "
+"plugin to be installed "
+"and active."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:184
+#, php-format
+msgid ""
+"Ouch! <strong>Doppler "
+"for WooCommerce</strong> "
+"requires at least "
+"<strong>Doppler Forms v"
+"%s</strong> to be "
+"active. Please <a href="
+"\"%splugins.php"
+"\">upgrade</a> Doppler "
+"Forms."
+msgstr ""
+
+#: admin/class-doppler-for-woocommerce-admin.php:227
+#: admin/class-doppler-for-woocommerce-admin.php:228
+#: admin/partials/doppler-for-woocommerce-settings.php:36
+msgid ""
+"Doppler for WooCommerce"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:34
+msgid ""
+"https://www.fromdoppler."
+"com/en/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:39
+msgid ""
+"Lists to synchronize"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:40
+msgid "Fields Mapping"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:41
+msgid "On-Site Tracking"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:53
+msgid ""
+"Fields mapped succesfully"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:68
+msgid ""
+"On Site Tracking code "
+"saved successfully"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:70
+msgid ""
+"Tracking code is invalid"
+msgstr ""
+
+#: admin/partials/doppler-for-woocommerce-settings.php:81
+msgid ""
+"Subscribers lists saved "
+"succesfully"
+msgstr ""
+
+#: admin/partials/hub.php:13
+msgid ""
+"Get your Site Tracking "
+"Code from Doppler and "
+"paste it below to track "
+"your visitors activity. "
+"Not sure how to get your "
+"code? Press <a href="
+"\"https://help."
+"fromdoppler.com/en/"
+"create-onsite-tracking-"
+"automation\" class="
+"\"green-link\">HELP</a>"
+msgstr ""
+
+#: admin/partials/hub.php:20
+msgid ""
+"Paste tracking code here."
+msgstr ""
+
+#: admin/partials/lists.php:29
+msgid ""
+"Pick the Doppler Lists "
+"you want to import your "
+"Users into. You can sync "
+"existing Lists or create "
+"new ones."
+msgstr ""
+
+#: admin/partials/lists.php:31
+msgid ""
+"As they register to your "
+"store or buy a product, "
+"your Subscribers will be "
+"automatically sent to "
+"the selected Doppler "
+"Lists."
+msgstr ""
+
+#: admin/partials/lists.php:38
+msgid "Write the List name"
+msgstr ""
+
+#: admin/partials/lists.php:40
+msgid "Create List"
+msgstr ""
+
+#: admin/partials/lists.php:54
+msgid ""
+"Doppler List to send "
+"Buyers"
+msgstr ""
+
+#: admin/partials/lists.php:77
+msgid ""
+"Doppler List to send "
+"Contacts"
+msgstr ""
+
+#: admin/partials/lists.php:107
+msgid "Clear selection"
+msgstr ""
+
+#: admin/partials/lists.php:112
+msgid "Synchronize"
+msgstr ""
+
+#: admin/partials/mapping.php:14
+msgid ""
+"Send the information of "
+"your Contacts in "
+"WooCommerce to Doppler. "
+"To do this, select the "
+"Doppler Field equivalent "
+"to each of the "
+"WooCommerce Fields. <br/"
+">Need to create Custom "
+"Fields in Doppler?"
+msgstr ""
+
+#: admin/partials/mapping.php:15
+msgid ""
+"https://help.fromdoppler."
+"com/en/how-to-create-a-"
+"customized-field?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=woocommerce"
+msgstr ""
+
+#: admin/partials/mapping.php:15
+msgid "Learn how"
+msgstr ""
+
+#: admin/partials/mapping.php:40
+msgid "Billing fields"
+msgstr ""
+
+#: admin/partials/mapping.php:43
+msgid "Shipping fields"
+msgstr ""
+
+#: admin/partials/mapping.php:46
+msgid "Account fields"
+msgstr ""
+
+#: admin/partials/mapping.php:56
+msgid "WooCommerce Fields"
+msgstr ""
+
+#: admin/partials/mapping.php:57
+msgid "Doppler Fields"
+msgstr ""
+
+#: doppler-for-woocommerce.php:56
+msgid ""
+"This plugin requires "
+msgstr ""
+
+#: doppler-for-woocommerce.php:56
+msgid ""
+" plugin to be active."
+msgstr ""

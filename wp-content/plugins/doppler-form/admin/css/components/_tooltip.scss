@@ -1,0 +1,118 @@
+.input-text{
+    &.input-icon {
+        .icon {
+            display: inline;
+            text-align: center;
+            >span {
+                &:after{
+                    background-image: url('../img/tip-icon.svg');
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    width: 100px;
+                    height: 16px;
+                    top: 1px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
+
+
+
+.tooltip {
+    position: relative;
+    > .tooltip-container {
+      position: absolute;
+      padding: 0 22px;
+      top: 0;
+      left: 0;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+    }
+    &.tooltip-warning > .tooltip-container {
+      top: 10px;
+      left: 0;
+      transform: translate(1%, 213%);
+      transition: all .25s ease;
+      max-height: 27px;
+      padding-left:0px;
+      padding-right:0px;
+      span {
+        font-size: 14px;
+        color: #E34F45;
+        letter-spacing: 0;
+        line-height: 24px;
+        font-family: "Proxima Nova Rg";
+      }
+      &::after {
+        display:none;
+      }
+    }
+    &.tooltip-info > .tooltip-container {
+      background: #000;
+      font-family: "Proxima Nova Rg";
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width:220px;
+      &::after {
+        border-width: 9px 8px 0;
+        border-color: #000 transparent transparent;
+      }
+      p {
+        color:#FFF;
+        font-size: 11px;
+        letter-spacing: 0;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+    &.tooltip-hide > .tooltip-container {
+      opacity: 0;
+    }
+    &.tooltip-hover {
+      &:hover > .tooltip-container {
+        opacity: 1;
+        visibility: visible;
+      }
+      > .tooltip-container {
+        visibility: hidden;
+        opacity: 0;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        background: transparent;
+        top: -60px;
+        left: 0;
+        pointer-events: auto;
+      }
+    }
+    &.tooltip-top > .tooltip-container {
+      transform: translate(-43%, -130%);
+      transition: all .25s ease;
+      &::after {
+        right: 45%;
+        bottom: -6px;
+      }
+    }
+    &.tooltip--user_api_error{
+      top: -10;
+    }
+  }

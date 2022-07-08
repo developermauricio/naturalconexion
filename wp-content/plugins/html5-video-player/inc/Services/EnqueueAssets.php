@@ -28,6 +28,11 @@ class EnqueueAssets{
         wp_register_style( 'bplugins-plyrio', H5VP_PLUGIN_DIR . 'css/player-style.css', array(), H5VP_VER , 'all' );
         wp_register_style( 'h5vp-public', H5VP_PLUGIN_DIR . 'dist/public.css', array('bplugins-plyrio'), H5VP_VER , 'all' );
 
+        $option = get_option('h5vp_option');
+
+        wp_localize_script( 'h5vp-public', 'h5vp', [
+            'pauseOther' => (boolean) isset($option['h5vp_pause_other_player']) ? $option['h5vp_pause_other_player'] : false,
+        ] );
     }
 
     /**

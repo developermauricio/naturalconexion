@@ -17,7 +17,7 @@ class Loco_admin_file_HeadController extends Loco_admin_file_BaseController {
             $path = $file->getPath();
             $action = 'head:'.$path;
             // set up view now in case of late failure
-            $fields = new Loco_mvc_HiddenFields( array() );
+            $fields = new Loco_mvc_HiddenFields( [] );
             $fields->setNonce( $action );
             $fields['auth'] = 'update';
             $fields['path'] = $this->get('path');
@@ -117,13 +117,11 @@ class Loco_admin_file_HeadController extends Loco_admin_file_BaseController {
         $this->prepareFsConnect( 'update', $this->get('path') );
         $this->enqueueScript('head');
 
-        // set simpler title for breadcrumb
-        $this->set('title', $file->basename() );
-        
         // localized files only can have sync settings
         $localized = $file instanceof Loco_fs_LocaleFile && $file->getLocale()->isValid();
 
         // Advanced mode shows all headers in one form
+        $this->setFileTitle($file);
         if( $this->get('advanced') || ! $localized ){
             return $this->view('admin/file/head');
         }
@@ -162,7 +160,7 @@ class Loco_admin_file_HeadController extends Loco_admin_file_BaseController {
         else if( '' === $conf->getSyncMode() ){
             $conf->setSyncMode('pot');
         }
-        
+
         return $this->view('admin/file/conf');
     }
     

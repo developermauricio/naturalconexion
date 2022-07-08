@@ -263,8 +263,8 @@ class WoocommerceWpwoofCommon
                 'length'    => false,
                 'woocommerce_default' => array('label' => 'Inventory', 'value' => '_stock', 'automap' => true),
                 'type'      => 'automap',
-                'xml'       => 'g:inventory',
-                'csv'       => 'inventory',
+                'xml'       => 'g:quantity_to_sell_on_facebook',
+                'csv'       => 'quantity_to_sell_on_facebook',
                 'CDATA'     => false,
                 'value_type'     => 'int'
             ),
@@ -952,7 +952,7 @@ class WoocommerceWpwoofCommon
         //echo $feed_id;
         //trace(get_option('wpwoof_status_'.$feed_id));
         $filePath = $this->getStatusFilePath($feed_id);
-        $jBuf = @file_get_contents($filePath);
+        $jBuf = is_file($filePath)?@file_get_contents($filePath):false;
         $feedStatus = ($jBuf) ? json_decode($jBuf, true) : array();
         if(empty($feedStatus) && is_file($filePath) && $counter < 3 ){ //file can be empty when upadte_feed_status() work
             usleep(1000); //wait 0.001 sec
@@ -963,7 +963,7 @@ class WoocommerceWpwoofCommon
         if (empty($feedStatus['products_left'])) $feedStatus['products_left'] = false;// array product IDs
         if (empty($feedStatus['total_products'])) $feedStatus['total_products'] = 0; // num total products
         if (empty($feedStatus['parsed_products'])) {
-            $feedStatus['parsed_products'] = in_array($feed_id, self::getScheduledFeeds())?-1:0;  // -1 if feed scheduled
+            $feedStatus['parsed_products'] = in_array($feed_id, self::getScheduledFeeds(true))?-1:0;  // -1 if feed scheduled
         }
         if (empty($feedStatus['parsed_product_ids'])) $feedStatus["parsed_product_ids"] = array();
         if (empty($feedStatus['type'])) $feedStatus["type"] = '';
@@ -1052,10 +1052,10 @@ class WoocommerceWpwoofCommon
         return $offset;
     }
     
-    public function getScheduledFeeds() {
+    public function getScheduledFeeds($runOnlyIn60s = false) {
         $ids = array();
-        foreach (get_option('cron', array()) as $cron) {
-            if (isset($cron['wpwoof_generate_feed'])) {
+        foreach (get_option('cron', array()) as $tm =>  $cron) {
+            if (isset($cron['wpwoof_generate_feed']) && (!$runOnlyIn60s || ($runOnlyIn60s && ($tm-60 < time() )) )) {
                 $ids[] = (int)$cron['wpwoof_generate_feed'][array_key_first($cron['wpwoof_generate_feed'])]['args'][0];
             }
         }

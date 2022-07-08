@@ -278,6 +278,31 @@ class WooSEA_facebook_drm {
 					"feed_name" => "g:custom_label_4",
 					"format" => "optional",
 				),
+				"custom_number_0" => array(
+					"name" => "custom_number_0",
+					"feed_name" => "g:custom_number_0",
+					"format" => "optional",
+				),
+				"custom_number_1" => array(
+					"name" => "custom_number_1",
+					"feed_name" => "g:custom_number_1",
+					"format" => "optional",
+				),
+				"custom_number_2" => array(
+					"name" => "custom_number_2",
+					"feed_name" => "g:custom_number_2",
+					"format" => "optional",
+				),
+				"custom_number_3" => array(
+					"name" => "custom_number_3",
+					"feed_name" => "g:custom_number_3",
+					"format" => "optional",
+				),
+				"custom_number_4" => array(
+					"name" => "custom_number_4",
+					"feed_name" => "g:custom_number_4",
+					"format" => "optional",
+				),
 				"inventory" => array(
 					"name" => "inventory",
 					"feed_name" => "g:inventory",
@@ -1466,6 +1491,11 @@ class WooSEA_facebook_drm {
 				"visibility" => array(
 					"name" => "visibility",
 					"feed_name" => "g:visibility",
+					"format" => "optional",
+				),
+				"status" => array(
+					"name" => "status",
+					"feed_name" => "g:status",
 					"format" => "optional",
 				),
 				"mobile_link" => array(

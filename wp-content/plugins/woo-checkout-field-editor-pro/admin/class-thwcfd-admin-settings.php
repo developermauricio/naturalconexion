@@ -25,7 +25,7 @@ abstract class THWCFD_Admin_Settings{
 			'advanced_settings' => __('Advanced Settings', 'woo-checkout-field-editor-pro'),
 			'pro' => __('Premium Features', 'woo-checkout-field-editor-pro'),
 			'themehigh_plugins' => __('Other Free Plugins', 'woo-checkout-field-editor-pro'),
-		);
+		);		
 	}
 	
 	public function get_tabs(){

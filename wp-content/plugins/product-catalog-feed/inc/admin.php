@@ -16,7 +16,7 @@ function wpwoof_update_feed( $option_value, $option_id,$flag=false,$feed_name=''
             if (empty($option_value['status_feed'])) {
                 $option_value['status_feed'] = "";
             }
-            $tmpdata = unserialize(wpwoof_get_feed($option_id));
+            $tmpdata = wpwoof_get_feed($option_id);
 
             if (!empty($tmpdata['status_feed'])) {
                 $option_value['status_feed'] = $tmpdata['status_feed'];
@@ -71,7 +71,6 @@ function wpwoof_get_feed( $option_id ) {
     $result = $wpdb->get_var($query);
     $result = unserialize($result);
     $result['edit_feed'] = $option_id;
-    $result = serialize($result);
     return $result;
 }
 
@@ -93,7 +92,7 @@ function wpwoof_feed_dir( $feedname, $file_type = 'xml' ) {
                  'pathtofile' => $path);
 }
 
-function wpwoof_create_feed($data, $schedule = true){
+function wpwoof_create_feed($data){
     global $wpdb;
     //trace($data,1);
     if(!isset($data['feed_type'])) exit();
@@ -103,10 +102,6 @@ function wpwoof_create_feed($data, $schedule = true){
     $fileurl = $upload_dir['url'];
     $file_name = $upload_dir['file'];
     $data['url'] = $fileurl;
-    if ($schedule) {
-        wp_schedule_single_event( time(), 'wpwoof_generate_feed', array((int)$data['edit_feed'] ) );
-        return $fileurl;
-    }
     
     if( update_option('wpwoof_feedlist_' . $feedname, $data) ){
         $row = $wpdb->get_row("SELECT * FROM ".$wpdb->options." WHERE option_name = 'wpwoof_feedlist_" . $feedname. "'", ARRAY_A);
@@ -118,9 +113,8 @@ function wpwoof_create_feed($data, $schedule = true){
     }
 
     $dir_path = str_replace( $file_name, '', $file );
-    if (wpwoof_checkDir($dir_path)) {
-        if(!wpwoofeed_generate_feed($data,  $data['feed_type'] == "adsensecustom" ? "csv" : "xml")) return false;
-    }
+    wpwoof_checkDir($dir_path);
+    wpwoof_product_catalog::schedule_feed($data, time());
     return $fileurl;
 }
 
@@ -133,8 +127,7 @@ function wpwoof_checkDir($path){
 
 function wpwoof_delete_feed_file($id){
     $option_id = $id;
-    $feed = wpwoof_get_feed($option_id);
-    $wpwoof_values = unserialize($feed);
+    $wpwoof_values = wpwoof_get_feed($option_id);
     $feed_name = sanitize_text_field($wpwoof_values['feed_name']);
     $upload_dir = wpwoof_feed_dir($feed_name);
     $file = $upload_dir['path'];

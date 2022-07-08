@@ -22,6 +22,12 @@ class WooSEA_google_shopping {
 					"format" => "required",
 					"woo_suggest" => "title",
 				),
+            			"Short title" => array(
+					"name" => "short_title",
+					"feed_name" => "g:short_title",
+					"format" => "optional",
+					"woo_suggest" => "title",
+				),
             			"Product description" => array(
 					"name" => "description",
 					"feed_name" => "g:description",
@@ -289,11 +295,6 @@ class WooSEA_google_shopping {
 					"feed_name" => "included_destination",
 					"format" => "optional",
 				),
-				"Excluded destination" => array(
-					"name" => "excluded_destination",
-					"feed_name" => "g:excluded_destination",
-					"format" => "optional",
-				),
 				"Ads grouping" => array(
 					"name" => "ads_grouping",
 					"feed_name" => "g:ads_grouping",
@@ -420,6 +421,11 @@ class WooSEA_google_shopping {
 					"feed_name" => "g:energy_label_image_link",
 					"format" => "optional",
 				),
+				"Excluding countries for Shopping ads" => array(
+					"name" => "shopping_ads_excluded_country",
+					"feed_name" => "g:shopping_ads_excluded_country",
+					"format" => "optional",
+				),
 				"Product detail" => array(
 					"name" => "product_detail",
 					"feed_name" => "g:product_detail",
@@ -518,6 +524,26 @@ class WooSEA_google_shopping {
 				"Product page url" => array(
 					"name" => "product_page_url",
 					"feed_name" => "g:product_page_url",
+					"format" => "optional",
+				),
+				"Product length" => array(
+					"name" => "product_length",
+					"feed_name" => "g:product_length",
+					"format" => "optional",
+				),
+				"Product width" => array(
+					"name" => "product_width",
+					"feed_name" => "g:product_width",
+					"format" => "optional",
+				),
+				"Product height" => array(
+					"name" => "product_height",
+					"feed_name" => "g:product_height",
+					"format" => "optional",
+				),
+				"Product weight" => array(
+					"name" => "product_weight",
+					"feed_name" => "g:product_weight",
 					"format" => "optional",
 				),
 				"Size system" => array(

@@ -3,7 +3,7 @@ Contributors: facebook, automattic, woothemes
 Tags: facebook, shop, catalog, advertise, pixel, product
 Requires at least: 4.4
 Tested up to: 5.9
-Stable tag: 2.6.8
+Stable tag: 2.6.17
 Requires PHP: 5.6 or greater
 MySQL: 5.6 or greater
 License: GPLv2 or later
@@ -38,6 +38,59 @@ When opening a bug on GitHub, please give us as many details as possible.
 * Current version of Facebook-for-WooCommerce, WooCommerce, Wordpress, PHP
 
 == Changelog ==
+
+= 2.6.17 - 2022-07-06 =
+* Fix - Add allow-plugins directive and adjust phpcs GitHub workflow.
+* Fix - Scheduled product not synced when status becomes "publish".
+* Tweak - WooCommerce 6.7 compatibility.
+* Update - Facebook Marketing API from v12.0 to v13.0.
+
+= 2.6.16 - 2022-06-07 =
+* Fix - Updating reference from old master branch.
+* Tweak - WC 6.6 compatibility.
+
+= 2.6.15 - 2022-06-01 =
+* Fix - Do not set `sale_price` when the product is not on sale.
+* Fix - FB Pixel is missing some ajax Add to cart events.
+* Fix - Feed visibility field value for hidden items.
+* Fix - Wrong Value Field in AddToCart Events.
+* Tweak - Not show the removed from sync confirm modal for unpublished products.
+
+= 2.6.14 - 2022-05-18 =
+* Fix - Non-latin custom product attribute names sync.
+* Fix - Syncing brand FB attribute instead of the website name.
+* Fix - Trigger InitiateCheckout event when site uses checkout block.
+* Fix - Wrong sale price start date getting synced to FB Catalog.
+* Fix - Allow products with "shop only" WooCommerce catalog visibility to sync to FB.
+* Fix - Remove semicolon from custom attribute value.
+* Tweak - Update the __experimental_woocommerce_blocks_checkout_update_order_meta action.
+* Tweak - WooCommerce 6.5 compatibility.
+* Tweak - WordPress 6.0 compatibility.
+
+= 2.6.13 - 2022-04-26 =
+* Fix - Issue with Facebook not displayed in the new WC navigation.
+* Fix - Issue with variable products syncing to FB product sets.
+* Fix - Scheduled job logs written to options table are never removed if job does not complete.
+* Fix - User-Agent to contain English extension name.
+* Fix - clear out wc_facebook_external_business_id option on disconnect.
+* Fix - fix product title length check to account for encoding.
+* Tweak - Use `Automattic\WooCommerce\Admin\Features\Features::is_enabled` instead of the deprecated `WooCommerce\Admin\Loader::is_feature_enabled`.
+
+= 2.6.12 - 2022-03-08 =
+* Add - Filter to change Facebook Retailer ID, wc_facebook_fb_retailer_id.
+
+= 2.6.11 - 2022-02-28 =
+* Fix - The syntax parsing error "unexpected ')'" in facebook-for-woocommerce.php.
+
+= 2.6.10 - 2022-02-22 =
+* Add - Filter to block full catalog batch API sync 'facebook_for_woocommerce_block_full_batch_api_sync'.
+* Update - Deprecate 'facebook_for_woocommerce_allow_full_batch_api_sync' filter.
+* Update - Facebook Marketing API from v11.0 to v12.0.
+
+= 2.6.9 - 2022-01-14 =
+* Fix - Replace is_ajax with wp_doing_ajax
+* Tweak - Update contributor guidelines
+* Tweak - WC 6.1 compatibility
 
 = 2.6.8 - 2021-12-21 =
 * Fix - Bump template from 1.0.4 to 1.0.5. #2115

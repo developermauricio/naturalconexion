@@ -3,8 +3,8 @@ Contributors: emrevona
 Donate link: http://profiles.wordpress.org/emrevona/
 Tags: cache, caching, performance, wp-cache, total cache, super cache, cdn
 Requires at least: 3.3
-Tested up to: 5.8
-Stable tag: 0.9.7
+Tested up to: 6.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,27 @@ The free version is enough to speed up your site but in the premium version ther
 18. Database Cleanup
 
 == Changelog ==
+
+= 1.0.2 =
+* to add WP-CLI command for clearing cache of a post [<a target="_blank" href="https://www.wpfastestcache.com/features/wp-cli-commands/">Details</a>]
+* to fix Warning scandir() at wpFastestCache.php:302
+* to fix Warning file_put_contents(/cache/wpfc-minified/index.html) at cache.php:1090
+* to fix Warning unlink(wp-cache-config.php) admin.php:885
+
+= 1.0.1 =
+* to clear only cache of post/page even if the "update post" option is disabled
+
+= 1.0.0 =
+* to define the save_settings() function of single preload feature as static function
+
+= 0.9.9 =
+* to clear cache when regular price of woocommorce is updated
+* refactoring of Automatic Cache
+
+= 0.9.8 =
+* to clear cache after updating Elementor Website Builder plugin
+* to clear cache after theme or plugin update by custom settings [<a target="_blank" href="https://www.wpfastestcache.com/features/clear-cache-after-theme-or-plugin-update/">Details</a>]
+* to enable Auto Cache Panel for the classic editor which is enabled via add_filter()
 
 = 0.9.7 =
 * to clear cache after theme or plugin update by default [<a target="_blank" href="https://www.wpfastestcache.com/features/clear-cache-after-theme-or-plugin-update/">Details</a>]

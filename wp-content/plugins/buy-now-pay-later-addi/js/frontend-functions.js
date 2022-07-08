@@ -53,5 +53,18 @@ jQuery(document).ready( function($) {
 		}, 3000);
 	}
 
+	// Checkout event listener
+	$('body').off('click', '.payment_method_addi')
+			.on('click', '.payment_method_addi', function () {
+				widgetTrackerAmplitude(window.amplitude_config.AMPLITUDE_EVENT['CHECKOUT_DISPLAYED'], {
+				});
+			});
+
+	$('body').on('click', '#place_order', function (e) {
+		if ($('#payment_method_addi').is(':checked')) {
+			widgetTrackerAmplitude(window.amplitude_config.AMPLITUDE_EVENT['CHECKOUT_SELECTED'], {
+			});
+		}
+	});
 });
 

@@ -1,7 +1,7 @@
 <?php
 $plugin_settings = get_option( 'plugin_settings' );
 $license_information = get_option( 'license_information' );
-$domain = $_SERVER['HTTP_HOST'];
+$domain = sanitize_text_field($_SERVER['HTTP_HOST']);
 $error = "false";
 $plugin_data = get_plugin_data( __FILE__ );
 

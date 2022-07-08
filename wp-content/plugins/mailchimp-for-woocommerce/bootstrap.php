@@ -64,9 +64,16 @@ spl_autoload_register(function($class) {
         'MailChimp_WooCommerce_Single_Product' => 'includes/processes/class-mailchimp-woocommerce-single-product.php',
         'MailChimp_WooCommerce_User_Submit' => 'includes/processes/class-mailchimp-woocommerce-user-submit.php',
         'MailChimp_WooCommerce_Process_Full_Sync_Manager' => 'includes/processes/class-mailchimp-woocommerce-full-sync-manager.php',
-        
+        'MailChimp_WooCommerce_Subscriber_Sync' => 'includes/processes/class-mailchimp-woocommerce-subscriber-sync.php',
+        'MailChimp_WooCommerce_WebHooks_Sync' => 'includes/processes/class-mailchimp-woocommerce-webhooks-sync.php',
+
         'MailChimp_WooCommerce_Public' => 'public/class-mailchimp-woocommerce-public.php',
         'MailChimp_WooCommerce_Admin' => 'admin/class-mailchimp-woocommerce-admin.php',
+
+        'MailChimp_WooCommerce_Fix_Duplicate_Store' => 'includes/api/class-mailchimp-woocommerce-fix-duplicate-store.php',
+        'MailChimp_WooCommerce_Logs' => 'includes/api/class-mailchimp-woocommerce-logs.php',
+        'MailChimp_WooCommerce_Tower' => 'includes/api/class-mailchimp-woocommerce-tower.php',
+        'MailChimp_WooCommerce_Log_Viewer' => 'includes/api/class-mailchimp-woocommerce-log-viewer.php',
     );
 
     // if the file exists, require it
@@ -87,7 +94,7 @@ function mailchimp_environment_variables() {
     return (object) array(
         'repo' => 'master',
         'environment' => 'production', // staging or production
-        'version' => '2.5.4',
+        'version' => '2.7',
         'php_version' => phpversion(),
         'wp_version' => (empty($wp_version) ? 'Unknown' : $wp_version),
         'wc_version' => function_exists('WC') ? WC()->version : null,
@@ -186,10 +193,11 @@ function mailchimp_as_push( Mailchimp_Woocommerce_Job $job, $delay = 0 ) {
  * @param bool $force_now
  */
 function mailchimp_handle_or_queue(Mailchimp_Woocommerce_Job $job, $delay = 0)
-{   
-    if ($job instanceof \MailChimp_WooCommerce_Single_Order && isset($job->id)) {
+{
+    if ($job instanceof \MailChimp_WooCommerce_Single_Order && isset($job->id) && empty($job->gdpr_fields)) {
         // if this is a order process already queued - just skip this
         if (get_site_transient("mailchimp_order_being_processed_{$job->id}") == true) {
+            mailchimp_debug('queue', "Not queuing up order {$job->id} because it's already queued");
             return;
         }
         // tell the system the order is already queued for processing in this saving process - and we don't need to process it again.
@@ -214,6 +222,36 @@ function mailchimp_get_remaining_jobs_count($job_hook) {
     ) : null;
     // mailchimp_log('sync.full_sync_manager.queue', "counting {$job_hook} actions:", array($existing_actions));		
     return count($existing_actions);
+}
+
+function mailchimp_submit_subscribed_only() {
+    return ! (bool) mailchimp_get_option('mailchimp_ongoing_sync_status', '1');
+}
+
+/**
+ * @return bool
+ */
+function mailchimp_carts_disabled() {
+    return mailchimp_get_option('mailchimp_cart_tracking', 'all') === 'disabled';
+}
+
+/**
+ * @return bool
+ */
+function mailchimp_carts_subscribers_only() {
+    return mailchimp_get_option('mailchimp_cart_tracking', 'all') === 'subscribed';
+}
+
+/**
+ * @param $email
+ * @return string|null
+ */
+function mailchimp_get_subscriber_status($email) {
+    try {
+        return mailchimp_get_api()->member(mailchimp_get_list_id(), $email)['status'];
+    } catch (\Exception $e) {
+        return null;
+    }
 }
 
 /**
@@ -255,6 +293,13 @@ function mailchimp_is_configured() {
 }
 
 /**
+ * @return bool
+ */
+function mailchimp_action_scheduler_exists() {
+    return ( did_action( 'plugins_loaded' ) && ! doing_action( 'plugins_loaded' ) && class_exists( 'ActionScheduler', false ) );
+}
+
+/**
  * @return bool|int
  */
 function mailchimp_get_api_key() {
@@ -267,7 +312,51 @@ function mailchimp_get_api_key() {
 function mailchimp_get_list_id() {
     return mailchimp_get_option('mailchimp_list', false);
 }
+/**
+ * Build mailchimp webhook url
+ * @param  string $key Encripted randome script
+ * @return string $url Webhook url
+ */
+function mailchimp_build_webhook_url( $key ) {
+    $key = base64_encode($key);
+    $url = MailChimp_WooCommerce_Rest_Api::url('member-sync') . '?auth=' . $key;
+    return $url;
+}
+/**
+ * Generate random string
+ * @return string
+ */
+function mailchimp_create_webhook_token(){
+    return md5( trim( strtolower(get_bloginfo('url') . '|' . time() . '|' . mailchimp_get_list_id() . '|' . wp_salt() )  ) );
+}
+/**
+ * Updates webhookurl option
+ * @param  string $url Webhook url 
+ * @return void
+ */
+function mailchimp_set_webhook_url( $url ) {
+    update_option('mc-mailchimp_webhook_url', $url);
+}
+/**
+ * Returns webhookurl option
+ * @return string
+ */
+function mailchimp_get_webhook_url() {
+    return get_option('mc-mailchimp_webhook_url', false);
+}
+/**
+ * Returns webhook url
+ * @return array Common localhost ips
+ */
+function mailchimp_common_loopback_ips(){
+    $common_loopback_ips = array(
+        '127.0.0.1',
+        '0:0:0:0:0:0:0:1',
+        '::1'
+    );
 
+    return $common_loopback_ips;
+}
 /**
  * @return string
  */
@@ -556,14 +645,33 @@ function mailchimp_woocommerce_get_all_image_sizes_list() {
  * This action is documented in includes/class-mailchimp-woocommerce-activator.php
  */
 function activate_mailchimp_woocommerce() {
-    // if we don't have woocommerce we need to display a horrible error message before the plugin is installed.
+
+    // if we don't have any of these dependencies,
+    // we need to display a horrible error message before the plugin is installed.
+    mailchimp_check_curl_is_installed();
+    mailchimp_check_woocommerce_is_installed();
+    // good to go - activate the plugin.
+    MailChimp_WooCommerce_Activator::activate();
+}
+
+function mailchimp_check_curl_is_installed() {
+    if (!function_exists('curl_exec')) {
+        // Deactivate the plugin
+        deactivate_plugins(__FILE__);
+        $error_message = __('The MailChimp For WooCommerce plugin requires <a href="https://www.php.net/manual/en/book.curl.php/">curl</a> to be enabled!', 'woocommerce');
+        wp_die($error_message);
+    }
+    return true;
+}
+
+function mailchimp_check_woocommerce_is_installed() {
     if (!mailchimp_check_woocommerce_plugin_status()) {
         // Deactivate the plugin
         deactivate_plugins(__FILE__);
         $error_message = __('The MailChimp For WooCommerce plugin requires the <a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a> plugin to be active!', 'woocommerce');
         wp_die($error_message);
     }
-    MailChimp_WooCommerce_Activator::activate();
+    return true;
 }
 
 /**
@@ -1110,7 +1218,7 @@ function mailchimp_update_member_with_double_opt_in(MailChimp_WooCommerce_Order 
                 } catch (\Exception $e) {
                     // if the error code is 404 - need to subscribe them because it means they were not on the list.
                     if ($e->getCode() == 404) {
-                        $api->subscribe($list_id, $email, false, $merge_fields);
+                        $api->subscribe($list_id, $email, 'pending', $merge_fields);
                         mailchimp_tell_system_about_user_submit($email, mailchimp_get_subscriber_status_options(false), 60);
                         mailchimp_log('double_opt_in', "Subscribed {$email} Using Double Opt In", $merge_fields);
                     } else {
@@ -1136,8 +1244,10 @@ function mailchimp_update_communication_status() {
     $original_opt = $plugin_admin->getData('comm.opt',0);
     $options = $plugin_admin->getOptions();
     if (is_array($options) && array_key_exists('admin_email', $options)) {
-        $plugin_admin->mailchimp_set_communications_status_on_server($original_opt, $options['admin_email']);
+        $plugin_admin->mailchimp_set_communications_status_on_server($original_opt, $options['admin_email']);    
     }
+    // communication is ready lets define the webhooks
+    $plugin_admin->defineWebhooks();
 }
 
 // call server to update comm status
@@ -1195,12 +1305,13 @@ function mailchimp_settings_errors() {
  * @throws MailChimp_WooCommerce_Error
  * @throws MailChimp_WooCommerce_ServerError
  */
-function mailchimp_member_data_update($user_email = null, $language = null, $caller = '', $status_if_new = 'transactional', $order = null, $gdpr_fields = null) {
+function mailchimp_member_data_update($user_email = null, $language = null, $caller = '', $status_if_new = 'transactional', $order = null, $gdpr_fields = null, $update_status = false) {
     mailchimp_debug('debug', "mailchimp_member_data_update", array(
         'user_email' => $user_email,
         'user_language' => $language,
         'caller' => $caller,
         'status_if_new' => $status_if_new,
+        'gdpr_fields' => $gdpr_fields,
     ));
     if (!$user_email) return;
     
@@ -1215,14 +1326,11 @@ function mailchimp_member_data_update($user_email = null, $language = null, $cal
             // update member with new data
             // if the member's subscriber status was transactional - and if we're passing in either one of these options below,
             // we can attach the new status to the member.
-            
-
             if ($member['status'] === 'transactional' && in_array($status_if_new, array('subscribed', 'pending'))) {
                 $member['status'] = $status_if_new;
             }
-
             if (($member['status'] === 'transactional' && in_array($status_if_new, array('subscribed', 'pending'))) || $member['status'] === 'subscribed') {
-                if (!empty($gdpr_fields)) {
+                if (!empty($gdpr_fields) && is_array($gdpr_fields)) {
                     $gdpr_fields_to_save = [];
                     foreach ($gdpr_fields as $id => $value) {
                         $gdpr_field['marketing_permission_id'] = $id;
@@ -1233,21 +1341,32 @@ function mailchimp_member_data_update($user_email = null, $language = null, $cal
             }
             $merge_fields = $order ? apply_filters('mailchimp_get_ecommerce_merge_tags', array(), $order) : array();
             if (!is_array($merge_fields)) $merge_fields = array();
-            mailchimp_get_api()->update($list_id, $user_email, $member['status'], $merge_fields, null, $language, $gdpr_fields_to_save);
+            if ($update_status && in_array($member['status'], array('unsubscribed', 'cleaned'))) {
+                $member['status'] = $status_if_new;
+            }
+            $result = mailchimp_get_api()->update($list_id, $user_email, $member['status'], $merge_fields, null, $language, $gdpr_fields_to_save);
             // set transient to prevent too many calls to update language
             mailchimp_set_transient($caller . ".member.{$hash}", true, 3600);
-            mailchimp_log($caller . '.member.updated', "Updated {$user_email} subscriber status to {$member['status']} and language to {$language}");
+            mailchimp_log($caller . '.member.updated', "Updated {$user_email} subscriber status to {$result['status']} and language to {$language}");
         } catch (\Exception $e) {
             if ($e->getCode() == 404) {
                 $merge_fields = $order ? apply_filters('mailchimp_get_ecommerce_merge_tags', array(), $order) : array();
                 if (!is_array($merge_fields)) $merge_fields = array();
+                if (!empty($gdpr_fields) && is_array($gdpr_fields)) {
+                    $gdpr_fields_to_save = [];
+                    foreach ($gdpr_fields as $id => $value) {
+                        $gdpr_field['marketing_permission_id'] = $id;
+                        $gdpr_field['enabled'] = (bool) $value;
+                        $gdpr_fields_to_save[] = $gdpr_field;
+                    }
+                }
                 // member doesn't exist yet, create as transactional ( or what was passed in the function args )
-                mailchimp_get_api()->subscribe($list_id, $user_email, $status_if_new, $merge_fields, array(), $language);
+                mailchimp_get_api()->subscribe($list_id, $user_email, $status_if_new, $merge_fields, array(), $language, $gdpr_fields_to_save);
                 // set transient to prevent too many calls to update language
                 mailchimp_set_transient($caller . ".member.{$hash}", true, 3600);
                 mailchimp_log($caller . '.member.created', "Added {$user_email} as transactional, setting language to [{$language}]");
             } else {
-                mailchimp_error($caller . '.member.sync.error', $e->getMessage(), $user_email);
+                mailchimp_error($caller . '.member.sync.error', $e->getMessage());
             }
         }
     }
@@ -1294,7 +1413,29 @@ function mailchimp_allowed_to_use_cookie($cookie) {
 // return the $cookie_name if you will allow it -
 // otherwise it is going to turn this feature off.
 
+/**
+ * @return mixed|null
+ */
+function mailchimp_get_outbound_ip() {
+    // if we have a dedicated IP address, and have set a configuration for it, we'll use it here.
+    if (defined('MAILCHIMP_USE_OUTBOUND_IP')) {
+        return MAILCHIMP_USE_OUTBOUND_IP;
+    } elseif (($server_address = mailchimp_get_data('SERVER_ADDR')) && !empty($server_address)) {
+        return $server_address;
+    } elseif (isset($_SERVER) && isset($_SERVER['SERVER_ADDR']) && !empty($_SERVER['SERVER_ADDR'])) {
+        return $_SERVER['SERVER_ADDR'];
+    }
+    return null;
+}
 
+/**
+ * @return bool
+ */
+function mailchimp_render_gdpr_fields() {
+    return true;
+    return defined('MAILCHIMP_RENDER_GDPR_FIELDS') &&
+        MAILCHIMP_RENDER_GDPR_FIELDS;
+}
 
 // Add WP CLI commands
 if (defined( 'WP_CLI' ) && WP_CLI) {

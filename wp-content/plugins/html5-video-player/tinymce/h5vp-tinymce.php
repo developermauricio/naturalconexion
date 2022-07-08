@@ -68,15 +68,15 @@ if ( strstr( $_SERVER['REQUEST_URI'], 'wp-admin/post-new.php' ) || strstr( $_SER
 	
 // ADD MEDIA BUTOON	
 	add_action( 'media_buttons', 'h5vp_shortcode_button', 1 );
-		function h5vp_shortcode_button() {
-			$img = H5VP_PLUGIN_DIR .'img/icn.png';
-			$container_id = 'h5vpmodal';
-			$title = 'Insert Html5 Video Player';
-			$context = '
-			<a class="thickbox button" id="h5vp_shortcode_button" title="'.$title.'" style="outline: medium none !important; cursor: pointer;" >
-			<img src="'.$img.'" alt="" width="20" height="20" style="position:relative; top:-1px"/>Html5 video player</a>';
-			echo $context;
-		}	
+	function h5vp_shortcode_button() {
+		$img = H5VP_PLUGIN_DIR .'img/icn.png';
+		$container_id = 'h5vpmodal';
+		$title = 'Insert Html5 Video Player';
+		$context = '
+		<a class="thickbox button" id="h5vp_shortcode_button" title="'.$title.'" style="outline: medium none !important; cursor: pointer;" >
+		<img src="'.$img.'" alt="" width="20" height="20" style="position:relative; top:-1px"/>Html5 video player</a>';
+		echo $context;
+	}
 }
 
 

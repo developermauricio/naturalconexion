@@ -152,7 +152,8 @@ $(document).ready(function(){
 
         $('.sc_wrap').each(function(){
             var name = $(this).find('.sc_head h3').text();
-            if(name.match(re) === null){
+            var desc = $(this).find('.sc_head p').text();
+            if(name.match(re) === null && desc.match(re) === null){
                 $(this).hide();
             }else{
                 $(this).show();

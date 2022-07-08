@@ -70,6 +70,7 @@ if( empty( $shortcodes ) ){
             echo '<div class="sc_head">';
                 echo '<img src="' . SC_ADMIN_URL . '/images/arrow.svg" width="16" />';
                 echo '<h3>' . $settings[ '_sc_title' ] . '</h3>';
+                echo '<p>' . esc_html( $settings[ '_sc_description' ] ) . '</p>';
                 echo '<div class="sc_tools">';
                     if( current_user_can( 'edit_post', $id ) ){
                         echo '<a href="' . admin_url( 'post.php?action=edit&post=' . $id ) . '" class="button" target="_blank">' . __( 'View', 'shortcoder' ) . '</a>';

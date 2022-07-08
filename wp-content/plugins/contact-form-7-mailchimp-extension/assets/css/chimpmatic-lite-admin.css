@@ -115,7 +115,7 @@
   position: absolute;
   right: 0;
   left: 0;
-  background: #fff url(../images/newsletter-stripe.svg) repeat-x;
+  /* background: #fff url(../images/newsletter-stripe.svg) repeat-x; */
   background-size: 70px 9px;
   width: 100%;
   height: 9px;
@@ -214,12 +214,19 @@
 
 
 
-.vc-notice {
+.vc-notice { /*  welcome-panel */
   position: relative;
   z-index: 0;
   padding-top: 32px;
   padding-bottom: 22px;
+  background-color: #fff;
 
+
+
+}
+
+.vc-notice h2 {
+  color: #000;
 }
 
 .vc-notice:before {
@@ -230,23 +237,39 @@
     background: #fff url('../images/newsletter-stripe.svg') repeat-x;
     background-size: 70px 9px;
     width: 100%;
-    // height: .5625rem;
     height: 9px;
     content: '';
     top: 0;
 }
 
-.welcome-panel-content {
+
+.vc-notice .welcome-panel-content {
   position: relative;
   z-index: 2;
+  justify-content: initial;
+  min-height: unset;
 }
 
-.welcome-panel-column-container:before,
-.welcome-panel-column-container:after {
-  content: '';
-  display: table;
-  clear: both;
+
+.vc-notice .welcome-panel-column-container {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 0;
+  padding: 0;
 }
+
+
+
+.vc-notice .welcome-panel-column {
+  background-color: #f6f6f6;
+  display: block;
+  padding: 15px 20px;
+}
+
+.vc-notice .welcome-panel-column > * {
+  display: block;
+}
+
+
 
 #chm_panel_camposformagroup label {
   display: inline-block;
@@ -292,6 +315,7 @@
 
 .dev-cta .welcome-panel-content {
   padding-left: 9em;
+  min-height: unset;
 
 }
 

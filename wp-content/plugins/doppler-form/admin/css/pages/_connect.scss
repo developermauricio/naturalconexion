@@ -1,0 +1,126 @@
+.dplr_connect {
+
+    a {
+      @include green-link;
+    }
+
+    p {
+        font-size: 18px;
+        max-width: 900px;
+        font-family: $text-family-rg;
+    }
+    
+    h1 {
+        color: $dark-brown;
+        font-family: $text-family-rg;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 44px;
+        text-align: center;
+    }
+    
+    #dplr_logo {
+        margin: 90px 0 60px 0;
+        display: inline-block;
+        img {
+            width: 210px;
+        }
+    }
+
+    .dplr_form_wrapper {
+        max-width: 760px;
+        margin-bottom: 50px;
+    }
+
+    .disconnect-box{
+      font-size: 18px;
+      font-family: $text-family-rg;
+      span{
+        margin-right: 30px;
+      }
+    }
+
+    form#dplr-connect-form{
+        .dp-button {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+        }
+        .dplr-input-section {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+    }
+
+    .dplr-row-section{
+      >div{
+        &:nth-child(2){
+          .tooltip-container{
+            &.pl-1{
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    
+    .tooltip.tooltip-warning > .tooltip-container span {
+      font-size: $font-size-regular;
+      color: $light-red;
+      letter-spacing: 0;
+      line-height: 24px;
+      font-family: $text-family-rg;
+    }
+
+    img.ok-message {
+        width: 44px;
+    }
+
+    .dplr-pasos {
+        max-width: 88%;
+        margin: auto;
+        text-align: left;
+        >div {
+          display: flex;
+          flex-direction: row;
+          >div {
+            flex-grow: 1;
+            padding-left: 50px;
+            padding-right: 50px;
+            figure {
+              margin: 0px;
+              min-height: 158px;
+              position: relative;
+              margin-bottom: 25px;
+              img {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+              }
+            }
+            span {
+              display: block;
+              color: $dark-brown;	
+              font-family: $text-family-rg;	
+              font-size: 30px;	
+              font-weight: bold;	
+              line-height: 32px;
+            }
+            p {
+              color: $primary-grey;	
+              font-family: $text-family-rg;	
+              font-size: 14px;	
+              line-height: 20px;
+              margin-top: 10px;
+            }
+            &:first-child {
+              padding-left: 0px;
+            }
+            &:last-child {
+              padding-right: 0px;
+            }
+          }
+        }
+      }
+
+}

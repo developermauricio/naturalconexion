@@ -156,6 +156,15 @@ class Schema_Generator implements Generator_Interface {
 			}
 		}
 
+		/**
+		 * Filter: 'wpseo_schema_graph' - Allows changing graph output.
+		 *
+		 * @api array $graph The graph to filter.
+		 *
+		 * @param Meta_Tags_Context $context A value object with context variables.
+		 */
+		$graph = \apply_filters( 'wpseo_schema_graph', $graph, $context );
+
 		return $graph;
 	}
 
@@ -309,7 +318,8 @@ class Schema_Generator implements Generator_Interface {
 	private function get_type_from_piece( $piece ) {
 		if ( isset( $piece['@type'] ) ) {
 			if ( \is_array( $piece['@type'] ) ) {
-				return $piece['@type'];
+				// Return as-is, but remove unusable values, like sub-arrays, objects, null.
+				return \array_filter( $piece['@type'], 'is_string' );
 			}
 
 			return [ $piece['@type'] ];

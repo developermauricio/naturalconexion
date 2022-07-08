@@ -32,6 +32,10 @@ class CustomCSSandJS_Warnings {
 
     /**
      * Check if qTranslate plugin is active and doesn't have the custom-css-js removed from the settings 
+	 *
+	 * The qTranslate-x plugin was removed from the wordpress.org repository in August 2021.
+	 *
+	 * So, theoretically, this error message is not necessary anymore.
      */
     function check_qtranslatex() {
 

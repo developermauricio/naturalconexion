@@ -139,3 +139,34 @@ html,
     background: url("../images/send.png") no-repeat;
     background-size: contain
 }
+
+    .form__domain {
+        border: solid 1px #979797;
+        border-radius: 4px;
+        display: flex;
+        padding: 8px 8px;
+        width: 500px;
+        font-size: 14px;
+        line-height: 1;
+        box-sizing: border-box;
+    }
+    .form__domain-info {
+        flex: 0 0 auto;
+    }
+    .form__domain-value {
+        flex: 1;
+        border: 0;
+        background-color: transparent !important;
+        padding-left: 0 !important;        
+        font-size: 14px;
+        margin-left: -3px;
+        line-height: 1 !important;
+        min-height: 12px !important;
+        max-width: 100% !important;
+    }
+    .form__domain-value:focus {
+        outline: 0 none;
+        border-color: transparent !important;
+        box-shadow: none !important;
+    }
+

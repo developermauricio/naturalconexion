@@ -1,0 +1,129 @@
+.panel {
+    position: relative;
+    overflow: auto;
+    margin: 16px 0;
+    padding: 23px 10px 0;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    background: $white;
+    font-size: $font-size-regular;
+    line-height: 2.1em;
+    &:first-child{
+      margin-top:0px;
+    }
+    .panel-header {
+        background: $regular_grey;
+        padding:1px 10px;
+        p, h1, h2, h3, h4, h5, h6 {
+            color: $white;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        th{
+          padding: 12px 0px;
+        }
+    }
+    .panel-body {
+        color: #838370;
+        padding: 10px;
+        th,td{
+            padding: 10px;
+        }
+        tr{
+          &:first-child{
+            th,td{
+              padding-top: 20px;
+            }
+          }
+        }
+    }
+    ul.accordion {
+        list-style-type: none;
+        padding:0;
+        margin-top: 5px;
+        > li {
+          background: $white;
+          position: relative;
+          border: 1px solid #d2d2d2;
+          padding:15px;
+          margin-bottom: 10px;
+          color:#333;
+          .type {
+            font-size: 10px;
+            font-style: italic;
+            color: #333;
+            font-weight: 700;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          > a {
+            text-decoration: none;
+            color: #666;
+            &:hover{
+              color:#999;
+            }
+          }
+          a.alt-toggle {
+            position: absolute;
+            right: 20px;
+            font-weight: 400;
+            cursor: pointer;
+            display:inline-block;
+            padding: 0 .3rem;
+            text-align:right;
+            &:hover {
+              color: #777575;
+              >i {
+                color: #777575;
+              }
+            }
+            > i {
+              font-style:normal;
+              font-weight: 600;
+              color:#aaa;
+              font-size: 20px;
+              position: relative;
+              top: 1px;
+              display: inline-block;
+              width: 18px;
+              text-align: center;
+              &::after {
+                text-align:center;
+                content: '+';
+                font-weight: bold;
+              }
+            }
+          }
+          .accordion-content {
+            padding:.75em 0;
+            border-top:1px solid #eee;
+            border-bottom:1px solid #eee;
+            background-color:#f8f8f8;
+            display: none;
+          }
+          &.active {
+            .accordion-content {
+              display: block;
+              margin-top: 10px;
+            }
+            a.alt-toggle {
+              > i {
+                &::after {
+                  content: '-';
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+    }
+}
+
+table{
+  &.panel{
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+}

@@ -33,7 +33,26 @@ if (array_key_exists('project_hash', $_GET)){
 		$standard_attributes[$k] = $value;	
 	}
 } else {
-        $project = WooSEA_Update_Project::update_project($_POST);
+        // Sanitize values in multi-dimensional POST array        
+        if(is_array($_POST)){
+                foreach($_POST as $p_key => $p_value){
+                        if(is_array($p_value)){
+                                foreach($p_value as $pp_key => $pp_value){
+                                        if(is_array($pp_value)){
+                                                foreach($pp_value as $ppp_key => $ppp_value){
+                                                        $_POST[$p_key][$pp_key][$ppp_key] = sanitize_text_field($ppp_value);
+                                                }
+                                        }       
+                                }
+                        } else {
+                                $_POST[$p_key] = sanitize_text_field($p_value);
+                        }
+                }
+        } else {
+                $_POST = array();
+        }
+
+	$project = WooSEA_Update_Project::update_project($_POST);
         $channel_data = WooSEA_Update_Project::get_channel_data(sanitize_text_field($_POST['channel_hash']));
 	$standard_attributes = $attributes_obj->get_standard_attributes($project);
 	

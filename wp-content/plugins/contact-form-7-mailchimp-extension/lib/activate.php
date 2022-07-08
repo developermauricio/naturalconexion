@@ -249,8 +249,8 @@ function mce_news_notices () {
   $tittle = '' ;
   //$message = mce_get_postnotice ($check,$tittle ) ;
 
-    $Defaulttittle = 'ChimpMatic Lite is now 0.5!' ;
-    $Defaultpanel = '<p class="about-description">Easier setup to get you up and running in no time. Please <a href="https://renzojohnson.com/contact" target="_blank" rel="noopener noreferrer">lets us know</a> what kind of features you would like to see added <a href="https://renzojohnson.com/contact" target="_blank" rel="noopener noreferrer">HERE</a></p>
+    $Defaulttittle = 'Chimpmatic Lite is now 0.5.61!' ;
+    $Defaultpanel = '<p class="about-description">Easier setup to get you up and running in no time. Please <a href="https://chimpmatic.com/contact" target="_blank" rel="noopener noreferrer">lets us know</a> what kind of features you would like to see added <a href="https://chimpmatic.com/contact" target="_blank" rel="noopener noreferrer">HERE</a></p>
 <div class="welcome-panel-column-container">
 <div class="welcome-panel-column">
 <h3>Get Started</h3>

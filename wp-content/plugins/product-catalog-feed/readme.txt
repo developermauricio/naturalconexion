@@ -2,8 +2,8 @@
 Contributors: pixelyoursite
 Tags: facebook product catalog feed, woocommerce feed, xml feed, product catalog woocommerce, woocommerce xml feed, woocommerce csv, product catalog csv, Facebook Dynamic Ads Feed
 Requires at least: 3.0.1
-Tested up to: 5.7
-Stable tag: 2.0.0
+Tested up to: 5.8
+Stable tag: 2.0.1
 License: http://www.gnu.org/licenses/gpl-3.0.html
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,16 @@ Download the plugin and activate it like any other WordPress plugin.
 Once it is activated, you can open it from the left menu. Click on the Add New Feed tab to create your first feed. 
 
 == Changelog ==
+
+
+= Product Catalog Feed 2.0.1 =
+
+* Fixing compatibility issues with PHP 8+
+
+* Fixing various bugs and code refactoring.
+
+* WooCommerce 6.1 compatibility check. 
+
 
 = Product Catalog Feed 2.0.0 =
 

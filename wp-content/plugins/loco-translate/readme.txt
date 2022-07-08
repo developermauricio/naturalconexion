@@ -1,10 +1,10 @@
 === Loco Translate ===
 Contributors: timwhitlock
 Tags: translation, translators, localization, localisation, l10n, i18n, Gettext, PO, MO, productivity, multilingual, internationalization
-Requires at least: 4.1
-Requires PHP: 5.2.4
-Tested up to: 5.9
-Stable tag: 2.5.8
+Requires at least: 5.2
+Requires PHP: 5.6.20
+Tested up to: 6.0.0
+Stable tag: 2.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ It also provides Gettext/localization tools for developers, such as extracting s
 Features include:
 
 * Built-in translation editor within WordPress admin
-* Integration with translation APIs including DeepL, Google, Microsoft and Yandex
+* Integration with translation APIs including DeepL, Google, Microsoft and Lecto AI
 * Create and update language files directly in your theme or plugin
 * Extraction of translatable strings from your source code
 * Native MO file compilation without the need for Gettext on your system
@@ -99,6 +99,25 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 
 == Changelog ==
+
+= 2.6.2 =
+* Bumped WordPress version to 6.0.0
+* Better labelling of reverse-engineered plural forms
+* Removed undocumented loco_locale_plurals filter; use loco_po_headers
+* Added PO folder location indicator in breadcrumb
+* Added syntax validation for formatted strings
+
+= 2.6.1 =
+* Bumped WordPress version to 5.9.2
+* Fix for CVE-2022-0765 reported by Taurus Omar via wpscan
+
+= 2.6.0 =
+* Dropped support for WordPress < 5.2
+* Code upgrades for >= PHP 5.6.20
+* Bumped WordPress version to 5.9.1
+* Removed Yandex API integration
+* Added loco_compile_script_reference filter
+* Plural-Forms retained when copying PO to same language
 
 = 2.5.8 =
 * Compatible with PHP 8.1
@@ -449,7 +468,7 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 == Upgrade Notice ==
 
-= 2.5.8 =
+= 2.6.2 =
 * Various improvements and bug fixes
 
 

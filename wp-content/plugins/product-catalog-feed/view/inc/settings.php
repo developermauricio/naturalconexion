@@ -138,7 +138,7 @@ if( isset( $at["subscription"] ) ) {
         <div class="filter_flex_section">
             <input type="hidden" value="0"  name="feed_variation_show_main">
             <input type="checkbox" class="ios-switch" value="1" id="feed_variation_show_main" name="feed_variation_show_main"<?php
-            if( !isset($wpwoof_values['feed_variation_show_main']) || ! empty($wpwoof_values['feed_variation_show_main']) ) echo ' checked '; ?> />
+            if( isset($wpwoof_values['feed_variation_show_main']) && ! empty($wpwoof_values['feed_variation_show_main']) ) echo ' checked '; ?> />
             <label class="addfeed-top-label" for="feed_variation_show_main">Show main variable product item</label>
         </div>
         <div class="filter_flex_section">

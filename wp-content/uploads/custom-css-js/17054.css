@@ -4,6 +4,9 @@ div#sliderJuernes {
     margin-top: -40px;
 }
 
+.iconic-wsb-checkout-bump__price span.woocommerce-Price-amount.amount:before{
+	display: none !important
+}
 
 .btn-ingredientes-naturales-inicio {
     margin-left: 5vh;
@@ -67,19 +70,40 @@ li.meta-author span.fn:before {
 .wrapp-category .hover-mask{
   display:none !important
 }
-/*  Estilos para movil  */
-@media (max-width: 767.98px) { 
-  .title-landing h4 {
-    font-size: 1.1rem !important;
-  }
-  .title2-landing h1 {
-    font-size: 1rem !important;
-  }
-}
+
 .area-sidebar-shop .widget_categories{
   display:none !important
 }
 .sidebar-right.area-sidebar-1 #woocommerce_product_categories-2{
   display:none !important
-} </style>
+}
+
+.list-menu-footer {
+	display: flex;
+	justify-content: center;
+	padding-top: 4rem;
+}
+
+
+/**************************  
+	Estilos para movil  
+***************************/
+@media (max-width: 767.98px) { 
+	  .title-landing h4 {
+		font-size: 1.1rem !important;
+	  }
+	  .title2-landing h1 {
+		font-size: 1rem !important;
+	  }
+	.list-menu-footer {
+		justify-content: left;
+		padding-top: 0;
+	}
+}
+ 
+
+/******************************  
+	Estilos para escritrio 
+*******************************
+@media (min-width: 992px) { }*/</style>
 <!-- end Simple Custom CSS and JS -->

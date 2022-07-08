@@ -3,8 +3,9 @@
  */
 import { __ } from '@wordpress/i18n';
 import { createBlock, registerBlockType } from '@wordpress/blocks';
-import { Icon, list } from '@woocommerce/icons';
+import { Icon, listView } from '@wordpress/icons';
 
+import { isFeaturePluginBuild } from '@woocommerce/block-settings';
 /**
  * Internal dependencies
  */
@@ -13,10 +14,15 @@ import './style.scss';
 import Block from './block.js';
 
 registerBlockType( 'woocommerce/product-categories', {
+	apiVersion: 2,
 	title: __( 'Product Categories List', 'woocommerce' ),
 	icon: {
-		src: <Icon srcElement={ list } />,
-		foreground: '#7f54b3',
+		src: (
+			<Icon
+				icon={ listView }
+				className="wc-block-editor-components-block-icon"
+			/>
+		),
 	},
 	category: 'woocommerce',
 	keywords: [ __( 'WooCommerce', 'woocommerce' ) ],
@@ -27,6 +33,16 @@ registerBlockType( 'woocommerce/product-categories', {
 	supports: {
 		align: [ 'wide', 'full' ],
 		html: false,
+		...( isFeaturePluginBuild() && {
+			color: {
+				background: false,
+				link: true,
+			},
+			typography: {
+				fontSize: true,
+				lineHeight: true,
+			},
+		} ),
 	},
 	example: {
 		attributes: {

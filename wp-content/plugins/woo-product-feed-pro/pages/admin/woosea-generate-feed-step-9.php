@@ -7,7 +7,7 @@ function my_footer_text($default) {
 }
 add_filter('admin_footer_text', 'my_footer_text');
 $add_manipulation_support = get_option ('add_manipulation_support');
-$host = $_SERVER['HTTP_HOST'];
+$host = sanitize_text_field($_SERVER['HTTP_HOST']);
 
 /**
  * Create notification object
@@ -38,7 +38,25 @@ if (array_key_exists('project_hash', $_GET)){
 	}
 	$manage_project = "yes";
 } else {
-        $project = WooSEA_Update_Project::update_project($_POST);
+        // Sanitize values in multi-dimensional POST array        
+        if(is_array($_POST)){
+                foreach($_POST as $p_key => $p_value){
+                        if(is_array($p_value)){
+                                foreach($p_value as $pp_key => $pp_value){
+                                        if(is_array($pp_value)){
+                                                foreach($pp_value as $ppp_key => $ppp_value){
+                                                        $_POST[$p_key][$pp_key][$ppp_key] = sanitize_text_field($ppp_value);
+                                                }
+                                        }       
+                                }
+                        } else {
+                                $_POST[$p_key] = sanitize_text_field($p_value);
+                        }
+                }
+        } else {
+                $_POST = array();
+        }
+	$project = WooSEA_Update_Project::update_project(sanitize_text_field($_POST));
         $channel_data = WooSEA_Update_Project::get_channel_data(sanitize_text_field($_POST['channel_hash']));
 	$count_rules = 0;
 }

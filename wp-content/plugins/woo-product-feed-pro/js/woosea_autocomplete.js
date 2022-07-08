@@ -5706,12 +5706,10 @@ jQuery(document).ready(function($) {
         jQuery(".js-autosuggest").on('click',function(){
 		var className = $(this).attr("class").split(' ')[3];
 		var rowCount = className.split("_")[1]
-		
-		//$('#the-basics-11603 .autocomplete_11603').typeahead({
+
 		jQuery("." + className).typeahead({
-		//jQuery(".autocomplete_" + rowCount ).typeahead({
  	     		input: '.js-autosuggest',     
-		       	source: google_taxonomy,
+			source: google_taxonomy,
 			hint: true,
 			loadingAnimation: false,
 			items: 10,
@@ -5722,7 +5720,6 @@ jQuery(document).ready(function($) {
 		jQuery( ".autocomplete_" + rowCount ).focus();
 
         	jQuery(this).on('change', function(){ // on change of state
-
 			var minimum = 1;
 			var len = jQuery(this).val().length;
 			var project_hash = $("#project_hash").val();
@@ -5733,7 +5730,6 @@ jQuery(document).ready(function($) {
 		
 			if (len >= minimum){
 				if ( !isNaN(parseInt(map_to_category)) ) {
-
 					jQuery.ajax({
                         			method: "POST",
                         			url: ajaxurl,

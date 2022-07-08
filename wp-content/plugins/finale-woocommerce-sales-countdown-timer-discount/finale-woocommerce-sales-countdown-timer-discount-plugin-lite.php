@@ -3,7 +3,7 @@
  * Plugin Name: Finale Lite - Sales Countdown Timer & Discount for WooCommerce
  * Plugin URI: https://xlplugins.com/finale-woocommerce-sales-countdown-timer-discount-plugin/
  * Description: Finale lets you create scheduled one time or recurring campaigns. It induces urgency with visual elements such as Countdown Timer and Counter Bar to motivate users to place an order.
- * Version: 2.14.1
+ * Version: 2.15.0
  * Author: XLPlugins
  * Author URI: https://www.xlplugins.com
  * Text Domain: finale-woocommerce-sales-countdown-timer-discount
@@ -13,9 +13,9 @@
  * XL: True
  * XLTOOLS: True
  * Requires at least: 4.9
- * Tested up to: 5.8.0
+ * Tested up to: 6.0.0
  * WC requires at least: 3.0
- * WC tested up to: 5.6.0
+ * WC tested up to: 6.5.1
  *
  * Finale Lite - Sales Countdown Timer & Discount for WooCommerce is free software.
  * You can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -170,7 +170,7 @@ if ( ! class_exists( 'WCCT_Core' ) ) :
 
 		public function define_plugin_properties() {
 			/** Defining Constants */
-			define( 'XLWCCT_VERSION', '2.14.1' );
+			define( 'XLWCCT_VERSION', '2.15.0' );
 			define( 'WCCT_MIN_WC_VERSION', '3.0' );
 			define( 'WCCT_FULL_NAME', 'Finale Lite - Sales Countdown Timer & Discount for WooCommerce' );
 			define( 'WCCT_PLUGIN_FILE', __FILE__ );

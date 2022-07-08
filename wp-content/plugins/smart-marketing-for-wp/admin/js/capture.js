@@ -23,7 +23,7 @@
 
     $.each(shortcodes, (k, v) => {
         var el = $(v);
-        new Clipboard(v);
+        new ClipboardJS(v);
 
         if ( el.is('div') ) {
             el.click(() => {
@@ -65,9 +65,10 @@
     /* Notifications */
     var notifications = $('.smsnf-notification');
 
-    notifications.fadeIn();
-
-    setTimeout(() => {notifications.fadeOut();}, 5000);
+    if(!notifications.attr('lazy')){
+        notifications.fadeIn();
+        setTimeout(() => {notifications.fadeOut();}, 5000);
+    }
 
     notifications.find('.close-btn').click(function() {
         notifications.fadeOut();
@@ -129,7 +130,7 @@
             $('#form_list_group').slideDown();
             $('#empty-forms').slideUp();
 
-            $.post(url_egoi_script.ajaxurl, {action: 'get_form_from_list', listID: list_id})
+            $.post(url_egoi_script.ajaxurl, {action: 'efwp_get_form_from_list', listID: list_id})
             .done(function(response) {
                 var forms = JSON.parse(response);
                 select_forms.find("option").not(':first').remove();

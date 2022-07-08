@@ -534,6 +534,10 @@ var thwcfd_settings_field = (function($, window, document) {
 		placeholder : {name : 'placeholder', type : 'text'},
 		class       : {name : 'class', type : 'text'},
 		validate    : {name : 'validate', type : 'select', multiple : 1 },
+		
+		title_type  : {name : 'title_type', type : 'select'},
+		
+		checked : {name : 'checked', type : 'checkbox'},
 
 		required : {name : 'required', type : 'checkbox'},
 		enabled  : {name : 'enabled', type : 'checkbox'},
@@ -820,10 +824,24 @@ var thwcfd_settings_field = (function($, window, document) {
 			err_msgs = MSG_INVALID_NAME;
 		}
 
-		if(option_values.length>0 && fvalue !='' && (ftype == 'select' || ftype == 'radio') ){
-			if(!(option_values.includes(fvalue))){
-				err_msgs = __('Enter a value given in the options.', 'woo-checkout-field-editor-pro');
+		if(fvalue && (option_values.length>0) && (ftype == 'select' || ftype == 'radio' || ftype == 'multiselect' || ftype == 'checkboxgroup')){
+			if(ftype == 'select' || ftype == 'radio'){
+				if(!(option_values.includes(fvalue))){
+					err_msgs = __('Enter default value given in the options.', 'woo-checkout-field-editor-pro');
+				}
+			}else if(ftype == 'multiselect' || ftype == 'checkboxgroup'){
+				var value_array = fvalue.split(', ');
+				for(var i = 0; i < value_array.length; i++){
+				    var value = value_array[i];
+					if(value && !(option_values.includes(value))){
+						err_msgs = __('Enter default values given in the options.', 'woo-checkout-field-editor-pro');
+					}
+				};
 			}
+		}
+
+		if(fvalue && ftype == 'number' && (/^-?\d+$/.test(fvalue) === false)){
+			err_msgs = __('Default value must be a number.', 'woo-checkout-field-editor-pro');
 		}
 
 		if(err_msgs != ''){
@@ -831,6 +849,8 @@ var thwcfd_settings_field = (function($, window, document) {
 			thwcfd_base.form_wizard_start(popup);
 			return false;
 		}
+
+		//return false;
 
 		return true;
 	}
@@ -991,26 +1011,6 @@ var thwcfd_settings = (function($, window, document) {
 		thwcfd_base.setup_form_wizard();
 	});
 
-
-	$( document ).on( 'click', '.thpladmin-notice .notice-dismiss', function() {
-		var wrapper = $(this).closest('div.thpladmin-notice');
-		var nonce = wrapper.data("nonce");
-		var action = wrapper.data("action");
-		var data = {
-			thwcfd_security_review_notice: nonce,
-			action: action,
-		};
-		$.post( ajaxurl, data, function() {
-
-		});
-	})
-
-	$(document).ready(function(){
-	   setTimeout(function(){
-	      $("#thwcfd_review_request_notice").fadeIn(500);
-	   }, 160);
-	});
-
 	$(document).keypress(function(e) {
 		if ($("#thwcfd_field_form_pp").is(':visible') && (e.keycode == 13 || e.which == 13)) {
 			e.preventDefault();
@@ -1052,24 +1052,21 @@ var thwcfd_settings = (function($, window, document) {
 	  	});	
 	}
 
-	function hide_review_request_notice(elm){
-		var wrapper = $(elm).closest('div.thpladmin-notice');
+	$( document ).on( 'click', '.thpladmin-notice .notice-dismiss', function() {
+		var wrapper = $(this).closest('div.thpladmin-notice');
 		var nonce = wrapper.data("nonce");
 		var data = {
-			thwcfd_security_review_notice: nonce,
-			action: 'skip_thwcfd_review_request_notice',
+			thwcfd_review_nonce: nonce,
+			action: 'hide_thwcfd_admin_notice',
 		};
 		$.post( ajaxurl, data, function() {
 
 		});
-		$(wrapper).hide(50);
-	}
-	   				
+	});   				
 	return {
 		selectAllFields : select_all_fields,
 		removeSelectedFields : remove_selected_fields,
 		enableDisableSelectedFields : enable_disable_selected_fields,
-		hideReviewRequestNotice : hide_review_request_notice,
    	};
 }(window.jQuery, window, document));	
 
@@ -1087,8 +1084,4 @@ function thwcfdEnableSelectedFields(){
 
 function thwcfdDisableSelectedFields(){
 	thwcfd_settings.enableDisableSelectedFields(0);
-}
-
-function thwcfdHideReviewRequestNotice(elm){
-	thwcfd_settings.hideReviewRequestNotice(elm);
 }

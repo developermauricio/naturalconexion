@@ -165,7 +165,7 @@
   }
   $return .= 'HHost:                    ' . $_SERVER['HTTP_HOST'] . "\n";
   $return .= 'SName:                    ' . $_SERVER['SERVER_NAME'] . "\n";
-  $return .= 'IP:               ' . $_SERVER['SERVER_ADDR'] . "\n";
+  $return .= 'IP:                       ' . $_SERVER['SERVER_ADDR'] . "\n";
 
 
 

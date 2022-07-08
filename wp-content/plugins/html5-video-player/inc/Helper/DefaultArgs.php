@@ -26,6 +26,8 @@ class DefaultArgs{
         $infos  = [
             'source' => '',
             'poster' => '',
+            'skin' => 'default',
+            'pause_other' => false
         ];
 
         $template = [

@@ -2,14 +2,14 @@
 
 /**
  * @package Coordinadora
- * @version 1.1.8
+ * @version 1.1.9
  */
 /*
 Plugin Name: Coordinadora
 Plugin URI: https://www.coordinadora.com/portafolio-de-servicios/
 Description: Plugin Oficial para la integración con Coordinadora.
 Author: Coordinadora
-Version: 1.1.8
+Version: 1.1.9
 Author URI: http://www.coordinadora.com
 */
 

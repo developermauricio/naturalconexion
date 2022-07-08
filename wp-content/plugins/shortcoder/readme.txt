@@ -7,8 +7,8 @@ Donate link: https://www.paypal.me/vaakash/
 License: GPLv2 or later
 Requires PHP: 5.3
 Requires at least: 4.9.0
-Tested up to: 5.8
-Stable tag: 5.6
+Tested up to: 6.0
+Stable tag: 5.8
 
 Create custom "Shortcodes" easily for HTML, JavaScript snippets and use the shortcodes within posts, pages & widgets.
 
@@ -113,6 +113,19 @@ No, right now the plugin supports only HTML, Javascript and CSS as shortcode con
 
 
 ## Changelog
+
+### 5.8
+* New: Option to set description for the shortcode.
+* New: New actions and filters introduced.
+* Fix: Minor admin UI enhancements.
+
+### 5.7
+* New: Reordered shortcode column in the "All shortcodes" page.
+* New: Option to copy shortcode directly from "All shortcodes" page.
+* New: Filter `sc_mod_content` to modify shortcode content before execution.
+* Fix: Shortcode won't save if the email field in the feedback form has invalid value.
+* Fix: Custom parameter with hyphen was not highlighted in code editor.
+* Fix: Minor admin UI enhancements.
 
 ### 5.6
 * New: Shortcodes available to copy/insert are now closed by default.

@@ -19,7 +19,7 @@ class WooSEA_google_local {
 				),
 				"Store code" => array(
 					"name" => "Store code",
-					"feed_name" => "store code",
+					"feed_name" => "store_code",
 					"format" => "required",
 				),
 				"Quantity" => array(
@@ -36,13 +36,13 @@ class WooSEA_google_local {
 				),
 				"Sale price" => array(
 					"name" => "Sale price",
-					"feed_name" => "Sale price",
+					"feed_name" => "sale_price",
 					"format" => "optional",
 					"woo_suggest" => "sale_price",
 				),
                                 "Sale price effective date" => array(
                                         "name" => "Sale price effective date",
-                                        "feed_name" => "sale price effective date",
+                                        "feed_name" => "sale_price_effective_date",
                                         "format" => "optional",
                                         "woo_suggest" => "sale_price_effective_date",
                                 ),
@@ -54,17 +54,17 @@ class WooSEA_google_local {
                                 ),
                                 "Weeks of supply" => array(
                                         "name" => "Weeks of supply",
-                                        "feed_name" => "weeks of supply",
+                                        "feed_name" => "weeks_of_supply",
                                         "format" => "optional",
                                 ),
                                 "Pickup method" => array(
                                         "name" => "Pickup method",
-                                        "feed_name" => "pickup method",
+                                        "feed_name" => "pickup_method",
                                         "format" => "optional",
                                 ),
                                 "Pickup sla" => array(
                                         "name" => "Pickup sla",
-                                        "feed_name" => "pickup sla",
+                                        "feed_name" => "pickup_sla",
                                         "format" => "optional",
                                 ),
                                 "Webitemid" => array(

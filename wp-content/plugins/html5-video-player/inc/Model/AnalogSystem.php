@@ -12,7 +12,6 @@ class AnalogSystem{
     public static function getData($id){
         $controls = get_post_meta($id, 'h5vp_controls', true);
        
-
         $options = [
             'controls' => $controls,
             'loop' => [
@@ -26,6 +25,7 @@ class AnalogSystem{
         $infos  = [
             'source' => get_post_meta($id,'h5vp_video_link', true),
             'poster' => get_post_meta($id,'h5vp_video_thumbnails', true),
+            'pause_other' => get_post_meta($id, 'h5vp_pause_other_player', true)
         ];
 
         $template = [

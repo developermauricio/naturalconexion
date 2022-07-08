@@ -8,7 +8,7 @@ final class H5AP_Elementor_Widget_Extension {
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '2.3.7';
+	const VERSION = '2.5.0';
 
 	/**
 	 * Minimum Elementor Version

@@ -163,7 +163,7 @@ class THWCFD_Admin_Settings_General extends THWCFD_Admin_Settings{
 						//$options_json = isset($field['options_json']) && $field['options_json'] ? htmlspecialchars($field['options_json']) : '';
 
 						$options_json = '';
-						if($type === 'select' || $type === 'radio'){
+						if($type === 'select' || $type === 'radio' || $type === 'checkboxgroup' || $type === 'multiselect'){
 							$options = isset($field['options']) ? $field['options'] : '';
 							$options_json = THWCFD_Utils::prepare_options_json($options);
 						}
@@ -366,16 +366,26 @@ class THWCFD_Admin_Settings_General extends THWCFD_Admin_Settings{
 			$field['name'] = isset($posted['i_oname']) ? sanitize_key($posted['i_oname']) : '';
 		}
 
-		if($type === 'select'){
+		if($type === 'select' || $type === 'multiselect'){
 			$field['validate'] = '';
 
 		}else if($type === 'radio'){
 			$field['validate'] = '';
 			$field['placeholder'] = '';
 
+		}else if($type === 'number'){
+			$field['validate'] = array('number');
+
+		}else if($type === 'checkbox'){
+			if(isset($posted['i_checked'])){
+				$field['default'] = 1;
+			}else{
+				$field['default'] = '';
+			}
+
 		}
 
-		if($type === 'select' || $type === 'radio'){
+		if($type === 'select' || $type === 'radio' || $type === 'checkboxgroup' || $type === 'multiselect'){
 			$options_json = isset($posted['i_options_json']) ? trim(stripslashes($posted['i_options_json'])) : '';
 			$options_arr = THWCFD_Utils::prepare_options_array($options_json, $type);
 
@@ -405,6 +415,7 @@ class THWCFD_Admin_Settings_General extends THWCFD_Admin_Settings{
 		$field['priority'] = isset($posted['i_priority']) ? absint($posted['i_priority']) : '';
 		//$field['custom'] = isset($posted['i_custom']) ? $posted['i_custom'] : '';
 		$field['custom'] = isset($posted['i_custom']) && $posted['i_custom'] ? 1 : 0;
+		
 		return $field;
 	}
 

@@ -9,16 +9,12 @@ Priority issues:
 - Add automotive fields for Facebook feed, see: https://developers.facebook.com/docs/marketing-api/dynamic-ads-auto/auto-catalog/
 - Autosuggest for category mapping broken
 - Add AddToCart event on buttons again
-- Add Vivino EXTRA fields, see: https://vivino.slab.com/public/posts/9gq0o3dg
-- Local product feed - store code should also work with an attribute and not just static values
 - Add Pinterest Tag; https://help.pinterest.com/nl/business/article/install-the-pinterest-tag
 - License key input field needs to be a password field (asterixes)
-- Allow adding multiple pictures to Yandex feeds, see:https://wordpress.org/support/topic/yandex-yml-support/#post-14344829
 - A seperate FB pixel per WPML website / language
 - Add a preview option so only 5-10 products are being generated
 - Own hosted plugin updating: https://rudrastyh.com/wordpress/self-hosted-plugin-update.html
-- Google local product feed inventory in XML format (not just TXT like it is now)
-- Add support for Multisites
+- Add support for Wordpress Multisites
 - Add a filter on review score (and amount of reviews)
 - Make extra woosea fields available for front-end usage
 - Add header to extra fields on product edit pages

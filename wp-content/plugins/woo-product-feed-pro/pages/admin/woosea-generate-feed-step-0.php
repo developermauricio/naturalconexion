@@ -72,7 +72,7 @@ $countries = $channel_obj->get_channel_countries();
 $channels = $channel_obj->get_channels($locale);
 
 if (array_key_exists('project_hash', $_GET)){
-        $project = WooSEA_Update_Project::get_project_data($_GET['project_hash']);
+        $project = WooSEA_Update_Project::get_project_data(sanitize_text_field($_GET['project_hash']));
 	$manage_project = "yes";
 }
 ?>
@@ -97,7 +97,8 @@ if (array_key_exists('project_hash', $_GET)){
                                                 <span class="dashicons dashicons-yes"></span><?php _e('Enhanched structured data on your product pages: more products approved in your Google Merchant Center','woo-product-feed-pro' );?> [<a href="https://adtribes.io/woocommerce-structured-data-bug/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=structured%20data%20bug" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
                                                 <span class="dashicons dashicons-yes"></span><?php _e( 'Advanced product data manipulation','woo-product-feed-pro' );?> [<a href="https://adtribes.io/feature-product-data-manipulation/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=product%20data%20manipulation" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
                                                 <span class="dashicons dashicons-yes"></span><?php _e( 'WPML support - including their currency switcher','woo-product-feed-pro' );?> [<a href="https://adtribes.io/wpml-support/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=wpml%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
-                                                <span class="dashicons dashicons-yes"></span><?php _e( 'Polylang support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/polylang-support-product-feeds/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=polylang%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
+						<span class="dashicons dashicons-yes"></span><?php _e( 'Polylang support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/polylang-support-product-feeds/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=polylang%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
+						<span class="dashicons dashicons-yes"></span><?php _e( 'TranslatePress support','woo-product-feed-pro' );?> [<a href="https://adtribes.io/translatepress-support-product-feeds/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=translatepress%20support" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/>
                                                 <span class="dashicons dashicons-yes"></span>Aelia currency switcher support [<a href="https://adtribes.io/aelia-currency-switcher-feature/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=aelia%20support" target="_blank">Read more</a>];<br/>
                                                 <span class="dashicons dashicons-yes"></span><?php _e( 'Facebook pixel feature','woo-product-feed-pro' );?> [<a href="https://adtribes.io/facebook-pixel-feature/?utm_source=<?php print "$host";?>&utm_medium=manage-feed&utm_campaign=facebook pixel feature" target="_blank"><?php _e( 'Read more','woo-product-feed-pro' );?></a>];<br/><br/>
                                                 <?php _e( 'Upgrade to the','woo-product-feed-pro' );?> <strong><a href="https://adtribes.io/pro-vs-elite/?utm_source=<?php print"$host";?>&utm_medium=manage-feed&utm_campaign=top-notification&utm_content=notification" target="_blank"><?php _e( 'Elite version of our plugin</a></strong> to get all these features.','woo-product-feed-pro' );?>
@@ -545,7 +546,8 @@ if (array_key_exists('project_hash', $_GET)){
                                                                 <li><strong>5.</strong> <?php _e( 'WPML support','woo-product-feed-pro' );?></li>
                                                                 <li><strong>6.</strong> <?php _e( 'Aelia currency switcher support','woo-product-feed-pro' );?></li>
                                                                 <li><strong>7.</strong> <?php _e( 'Facebook pixel feature','woo-product-feed-pro' );?></li>
-                                                                <li><strong>8.</strong> <?php _e( 'Polylang support','woo-product-feed-pro' );?></li>
+								<li><strong>8.</strong> <?php _e( 'Polylang support','woo-product-feed-pro' );?></li>
+								<li><strong>9.</strong> <?php _e( 'TranslatePress support','woo-product-feed-pro' );?></li>
 							 </ul>
                                                         <strong>
                                                         <a href="https://adtribes.io/pro-vs-elite/?utm_source=<?php print"$host";?>&utm_medium=page-0&utm_campaign=why-upgrade-box" target="_blank"><?php _e( 'Upgrade to Elite here!','woo-product-feed-pro' );?></a>

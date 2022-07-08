@@ -437,7 +437,7 @@ jQuery(document).ready(function ($) {
 
     $('.wcct_global_option .wcct_options_page_left_wrap').removeClass('dispnone');
 
-    $(window).on("load", function () {
+    $(document).ready( function () {
         $("body").on("click", ".cmb2_wcct_acc_head", function () {
 
 

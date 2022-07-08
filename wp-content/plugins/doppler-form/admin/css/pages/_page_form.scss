@@ -1,0 +1,33 @@
+.dplr-tab-content--form-create,.dplr-tab-content--form-edit {
+
+    .color-selector{
+        width: 201px;
+    }
+    
+    span.noti {
+        padding-left: 10px;
+    }
+
+    .dp-button {
+        margin-left: 20px;
+    }
+
+    .sortable li {
+        cursor: move;
+    }
+
+    .dplr-thankyou-url {
+        display: none;
+    }
+
+    .icon-close{
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+        img{
+            height: 10px;
+        }
+    }
+
+}
+

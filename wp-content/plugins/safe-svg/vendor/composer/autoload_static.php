@@ -4,11 +4,32 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite8e10821bdd565dee9c75d75521e5f33
+class ComposerStaticInite6369ee01de87c9996b1c2a1cd9470c9
 {
+    public static $prefixLengthsPsr4 = array (
+        'e' => 
+        array (
+            'enshrined\\svgSanitize\\' => 22,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'enshrined\\svgSanitize\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
+        ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInite6369ee01de87c9996b1c2a1cd9470c9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite6369ee01de87c9996b1c2a1cd9470c9::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite6369ee01de87c9996b1c2a1cd9470c9::$classMap;
 
         }, null, ClassLoader::class);
     }

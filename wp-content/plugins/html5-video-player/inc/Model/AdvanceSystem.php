@@ -47,6 +47,7 @@ class AdvanceSystem{
             'id' => 0,
             'source' => self::i($block, 'source'),
             'poster' => self::i($block, 'poster'),
+            'pause_other' => self::i($block, 'pauseOther', '', false)
         ];
 
         $template = array(

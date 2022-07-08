@@ -3,7 +3,7 @@ Contributors: qcode1
 Tags: coordinadora, envíos colombia
 Donate link: http://www.coordinadora.com/
 Requires at least: 5.5.3
-Tested up to: 5.7.2
+Tested up to: 5.9
 Requires PHP: 7.4
 Stable tag: trunk
 License: GPLv2 or later
@@ -36,6 +36,9 @@ Sigue los pasos luego de ingresar con tu cuenta. Ingresa la información solicit
 3. Login Coordinadora Web
 
 == Changelog ==
+= 1.1.9 =
+* Se prueba en la versión 5.9 de wordpress.
+
 = 1.1.7 =
 * Mejora en cálculo de envío.
 

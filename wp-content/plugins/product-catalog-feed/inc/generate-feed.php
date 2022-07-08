@@ -33,7 +33,7 @@ class WPwoofGenerator{
     private $_aCurrentlyFields = array();   /* it is fields for compile current feed */
     private $mainImage = ""; /* parent product image for childs */
 
-    function __construct($wpwoofeed_settings, $wpwoofeed_type)
+    function __construct($wpwoofeed_settings)
     {
         global $woocommerce, $wpwoofeed_wpml_langs, $wpwoofeed_wpml_debug, $wpWoofProdCatalog,
                $woocommerce_wpwoof_common, $store_info, $wp_query, $wpdb, $post, $_wp_using_ext_object_cache;
@@ -44,7 +44,7 @@ class WPwoofGenerator{
         $this->_woocommerce_wpwoof_common = $woocommerce_wpwoof_common;
         $this->_store_info = $store_info;
         $this->_wpwoofeed_settings = $wpwoofeed_settings;
-        $this->_wpwoofeed_type = $wpwoofeed_type;
+        $this->_wpwoofeed_type = $wpwoofeed_settings['feed_type'] == "adsensecustom" ? "csv" : "xml";
         $this->_wp_query = $wp_query;
         $this->_wpdb = $wpdb;
         $this->_post = $post;
@@ -201,8 +201,8 @@ class WPwoofGenerator{
     private function get_maim_product(){
         return (!empty($this->_wpwoofeed_settings["product_tmp_data"]["product"]) )  ? $this->_wpwoofeed_settings["product_tmp_data"]["product"] : null;
     }
-    private function _thumbnail_src( $post_id = null, $size = 'full'/*'post-thumbnail'*/, $product ) {
-        if(empty($post_id)) $post_id = $this->_get_id($product);
+    private function _thumbnail_src( $product, $size = 'full'/*'post-thumbnail'*/ ) {
+        $post_id = $this->_get_id($product);
         $size = !empty($this->_wpwoofeed_settings["field_mapping"]['image-size']) ? $this->_wpwoofeed_settings["field_mapping"]['image-size'] : "full";
 
 
@@ -450,13 +450,13 @@ class WPwoofGenerator{
                     $size = !empty($this->_wpwoofeed_settings["field_mapping"]['image-size']) ? $this->_wpwoofeed_settings["field_mapping"]['image-size'] : "full";
                     if( in_array( $this->_product_get_type($product),$this->_aVariationsType ) ){
 
-                        $link_var = $this->_thumbnail_src(version_compare( WC_VERSION, '3.0', '>=' ) ? $this->_get_id($product) : $product->variation_id,  $size,$product);
+                        //$link_var = $this->_thumbnail_src(version_compare( WC_VERSION, '3.0', '>=' ) ? $this->_get_id($product) : $product->variation_id,  $size,$product);
+                        $link_var = $this->_thumbnail_src($product,  $size);
 
 
                         if(!empty( $link_var)) return $link_var;
                     }
-                //if($this->_get_id($product)=="2144") echo "2144:".$tag.":".$this->_thumbnail_src( $this->_getParentID($product), 'shop_single', $product )."\n";
-                return $this->_thumbnail_src( $this->_get_id($product), $size, $product );
+                return $this->_thumbnail_src( $product, $size);
 
             case 'title':
                         $mainpr = $this->get_maim_product();
@@ -1870,7 +1870,7 @@ class WPwoofGenerator{
     }
     function generate(){
             // check if feed created in pro version
-            if ($this->_woocommerce_wpwoof_common->isPro($this->_wpwoofeed_settings['edit_feed'])) {
+            if ($this->_woocommerce_wpwoof_common->isPro($this->_wpwoofeed_settings)) {
                 $this->_woocommerce_wpwoof_common->delete_feed_status($this->_wpwoofeed_settings['edit_feed']);
                 wp_clear_scheduled_hook( 'wpwoof_generate_feed',  array( (int)$this->_wpwoofeed_settings['edit_feed'] ));
                 return;
@@ -1907,7 +1907,7 @@ class WPwoofGenerator{
             
             wp_schedule_single_event( time() + 60, 'wpwoof_generate_feed', array( (int)$this->_wpwoofeed_settings['edit_feed'] ) );
             if ($feedStatus['parsed_products']<=0) {
-                foreach ($this->_woocommerce_wpwoof_common->getScheduledFeeds() as $fid) {
+                foreach ($this->_woocommerce_wpwoof_common->getScheduledFeeds(true) as $fid) {
                     if ($fid == $this->_wpwoofeed_settings['edit_feed']) continue;
                     $tmpfeedStatus = $this->_woocommerce_wpwoof_common->get_feed_status($fid);
                     if ($tmpfeedStatus['parsed_products']>0) {
@@ -2074,6 +2074,9 @@ class WPwoofGenerator{
 
                 $this->_store_info->feed_url = $this->_store_info->feed_url_base;
                 $this->_store_info->US_feed = (!empty($this->_store_info->base_country) && substr('US' == $this->_store_info->base_country, 0, 2)) ? true : false;
+                
+                $this->_aTerms =  $this->getTerms();
+                $this->_aTermsT=  $this->getTerms("tags");
 
                 if($feedStatus['products_left'] && count($feedStatus['products_left'])>0 ){
                     $args = array(
@@ -2426,9 +2429,13 @@ class WPwoofGenerator{
 
                 $this->_woocommerce_wpwoof_common->delete_feed_status($this->_wpwoofeed_settings['edit_feed']);
                 wp_clear_scheduled_hook( 'wpwoof_generate_feed',  array( (int)$this->_wpwoofeed_settings['edit_feed'] )  );
+                if (empty($this->_wpwoofeed_settings['noGenAuto'])) {
+                    wp_schedule_single_event( time() + $this->_woocommerce_wpwoof_common->getInterval(), 'wpwoof_generate_feed', array( (int)$this->_wpwoofeed_settings['edit_feed'] ) );
+                }
 
                 if(!empty($this->_wpwoofeed_settings['edit_feed'])) {
                     $this->_wpwoofeed_settings['status_feed'] = 'finished';
+                    $this->_wpwoofeed_settings['generated_time'] = time();
                     wpwoof_update_feed($this->_wpwoofeed_settings, $this->_wpwoofeed_settings['edit_feed'],true);
                 }
             }catch(Exception $e){
@@ -2596,13 +2603,13 @@ class WPwoofGenerator{
 } //CLASS
 
 
-function wpwoofeed_generate_feed($feed_data, $type = 'xml'){
+function wpwoofeed_generate_feed($feed_data){
     if(WPWOOF_DEBUG) {
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL );
     }
-    $feedGenerator = new WPwoofGenerator( $feed_data, $type);
+    $feedGenerator = new WPwoofGenerator( $feed_data);
     $feedGenerator->generate();
 }
 

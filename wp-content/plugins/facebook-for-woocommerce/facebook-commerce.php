@@ -155,7 +155,7 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 	const FB_SHOP_PRODUCT_VISIBLE = 'published';
 
 	/** @var string the API flag to set a product as not visible in the Facebook shop */
-	const FB_SHOP_PRODUCT_HIDDEN = 'staging';
+	const FB_SHOP_PRODUCT_HIDDEN = 'hidden';
 
 	/** @var string @deprecated  */
 	const FB_CART_URL = 'fb_cart_url';
@@ -363,13 +363,6 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 				add_action( 'add_meta_boxes', 'SkyVerge\WooCommerce\Facebook\Admin\Product_Sync_Meta_Box::register', 10, 1 );
 
 				add_action(
-					'transition_post_status',
-					array( $this, 'fb_change_product_published_status' ),
-					10,
-					3
-				);
-
-				add_action(
 					'wp_ajax_ajax_fb_toggle_visibility',
 					array( $this, 'ajax_fb_toggle_visibility' )
 				);
@@ -417,6 +410,14 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 				'fb_page_id'             => $this->get_facebook_page_id(),
 				'facebook_jssdk_version' => $this->get_js_sdk_version(),
 			)
+		);
+
+		// Update products on change of status.
+		add_action(
+			'transition_post_status',
+			array( $this, 'fb_change_product_published_status' ),
+			10,
+			3
 		);
 
 		// Product Set hooks.
@@ -694,7 +695,29 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 	 * @since 2.6.1
 	 */
 	public function allow_full_batch_api_sync() {
+
+		/**
+		 * Block the full batch API sync.
+		 *
+		 * @param bool $block_sync Should the full batch API sync be blocked?
+		 *
+		 * @return boolean True if full batch sync should be blocked.
+		 * @since 2.6.10
+		 */
+		$block_sync = apply_filters(
+			'facebook_for_woocommerce_block_full_batch_api_sync',
+			false
+		);
+
+		if ( $block_sync ) {
+			return false;
+		}
+
 		$default_allow_sync = true;
+		// If 'facebook_for_woocommerce_allow_full_batch_api_sync' is not used, prevent get_product_count from firing.
+		if ( ! has_filter( 'facebook_for_woocommerce_allow_full_batch_api_sync' ) ) {
+			return $default_allow_sync;
+		}
 
 		/**
 		 * Allow full batch api sync to be enabled or disabled.
@@ -703,12 +726,18 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 		 * @param int $product_count Number of products in store.
 		 *
 		 * @return boolean True if full batch sync is safe.
+		 *
 		 * @since 2.6.1
+		 * @deprecated deprecated since version 2.6.10
 		 */
-		return apply_filters(
+		return apply_filters_deprecated(
 			'facebook_for_woocommerce_allow_full_batch_api_sync',
-			$default_allow_sync,
-			$this->get_product_count()
+			array(
+				$default_allow_sync,
+				$this->get_product_count(),
+			),
+			'2.6.10',
+			'facebook_for_woocommerce_block_full_batch_api_sync'
 		);
 	}
 
@@ -976,7 +1005,7 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 		 *
 		 * @see ajax_delete_fb_product()
 		 */
-		if ( ( ! is_ajax() || ! isset( $_POST['action'] ) || 'ajax_delete_fb_product' !== $_POST['action'] )
+		if ( ( ! wp_doing_ajax() || ! isset( $_POST['action'] ) || 'ajax_delete_fb_product' !== $_POST['action'] )
 			 && ! Products::published_product_should_be_synced( $product ) ) {
 
 			return;
@@ -1069,7 +1098,13 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 			return;
 		}
 
-		$this->update_fb_visibility( $product, $visibility );
+		if ( $visibility === self::FB_SHOP_PRODUCT_VISIBLE ) {
+			// - new status is 'publish' regardless of old status, sync to Facebook
+			$this->on_product_publish( $product->get_id() );
+		} else {
+			$this->update_fb_visibility( $product, $visibility );
+		}
+
 	}
 
 
@@ -1088,7 +1123,7 @@ class WC_Facebookcommerce_Integration extends WC_Integration {
 	 */
 	private function should_update_visibility_for_product_status_change( $new_status, $old_status ) {
 
-		return ( $old_status === 'publish' && $new_status !== 'publish' ) || ( $old_status === 'trash' && $new_status === 'publish' );
+		return ( $old_status === 'publish' && $new_status !== 'publish' ) || ( $old_status === 'trash' && $new_status === 'publish' ) || ( $old_status === 'future' && $new_status === 'publish' );
 	}
 
 

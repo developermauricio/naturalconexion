@@ -7,7 +7,7 @@ class GlobalChanges{
     public function __construct(){
         add_action( 'admin_head', [$this, 'h5vp_my_custom_script']);
         add_action('admin_menu', [$this, 'h5vp_add_custom_link_into_cpt_menu']);
-        add_action( 'wp_dashboard_setup', [$this, 'h5vp_add_dashboard_widgets'] );
+        // add_action( 'wp_dashboard_setup', [$this, 'h5vp_add_dashboard_widgets'] );
         
     }
 

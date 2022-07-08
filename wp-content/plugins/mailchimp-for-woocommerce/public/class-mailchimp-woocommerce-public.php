@@ -59,10 +59,12 @@ class MailChimp_WooCommerce_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_register_script($this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mailchimp-woocommerce-public.min.js', array(), $this->version, false);
+		wp_register_script($this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mailchimp-woocommerce-public.min.js', array(), $this->version.'.01', false);
 		wp_localize_script($this->plugin_name, 'mailchimp_public_data', array(
 			'site_url' => site_url(),
 			'ajax_url' => admin_url('admin-ajax.php'),
+			'disable_carts' => mailchimp_carts_disabled(),
+			'subscribers_only' => mailchimp_carts_subscribers_only(),
 			'language' => substr( get_locale(), 0, 2 ),
             'allowed_to_set_cookies' => mailchimp_allowed_to_use_cookie('mailchimp_user_email'),
 		));
@@ -97,5 +99,93 @@ class MailChimp_WooCommerce_Public {
 		wp_enqueue_script($this->plugin_name. '_gdpr', plugin_dir_url( __FILE__ ) .'js/mailchimp-woocommerce-checkout-gdpr.min.js', array(), $this->version, true);
 	}
 	
-	
+	public function user_my_account_opt_in()
+    {
+        $gdpr_fields = $this->user_my_account_gdpr_fields();
+        include_once('partials/mailchimp-woocommerce-my-account.php');
+    }
+
+    public function user_my_account_opt_in_save($user_id)
+    {
+        $subscribed = isset($_POST['mailchimp_woocommerce_is_subscribed_checkbox']) &&
+            $_POST['mailchimp_woocommerce_is_subscribed_checkbox'] == 'on';
+        update_user_meta( $user_id, 'mailchimp_woocommerce_is_subscribed', $subscribed);
+    }
+
+    /**
+     * @return string
+     */
+    public function user_my_account_gdpr_fields()
+    {
+        return static::gdpr_fields();
+    }
+
+    /**
+     * @param null $user
+     * @return string
+     */
+    public static function gdpr_fields($user = null)
+    {
+        if (!mailchimp_is_configured()) {
+            return "";
+        }
+
+        $api = mailchimp_get_api();
+        $GDPRfields = $api->getCachedGDPRFields(mailchimp_get_list_id(), 5);
+
+        $checkbox = '';
+
+        if (!empty($GDPRfields) && is_array($GDPRfields)) {
+            $checkbox .= "<div id='mailchimp-gdpr-fields'><p>";
+            $checkbox .= __('Please select all the ways you would like to hear from us', 'mailchimp-for-woocommerce');
+            $checkbox .= "<div class='clear'></div>";
+
+            // if the user is logged in, we will pull the 'is_subscribed' property out of the meta for the value.
+            // otherwise we use the default settings.
+            //$saved_fields = get_user_meta(get_current_user_id(), 'mailchimp_woocommerce_gdpr_fields');
+
+            /// if the user is logged in - and is already subscribed - just ignore this checkbox.
+            $user = $user ? $user : wp_get_current_user();
+            $current_gdpr_fields = array();
+            if ($user && $cached_gdpr_fields = mailchimp_get_transient("mailchimp_woocommerce_gdpr_fields_{$user->ID}")) {
+                foreach ($cached_gdpr_fields['value'] as $permission_id => $permission_value) {
+                    $current_gdpr_fields[] = array(
+                        'marketing_permission_id' => $permission_id,
+                        'enabled' => $permission_value,
+                    );
+                }
+            }
+            if (empty($cached_gdpr_fields) && !empty($user) && $user->user_email) {
+                try {
+                    $member = mailchimp_get_api()->member(mailchimp_get_list_id(), $user->user_email);
+                    $current_gdpr_fields = isset($member['marketing_permissions']) ?
+                        $member['marketing_permissions'] : array();
+                } catch (\Exception $e) {
+                    //mailchimp_error("GDPR ERROR", $e->getMessage());
+                }
+            }
+
+            foreach ($GDPRfields as $key => $field) {
+                $marketing_permission_id = $field['marketing_permission_id'];
+                $text = $field['text'];
+                $status = false;
+
+                foreach ($current_gdpr_fields as $current_gdpr_field) {
+                    if ($marketing_permission_id === $current_gdpr_field['marketing_permission_id']) {
+                        $status = $current_gdpr_field['enabled'];
+                        break;
+                    }
+                }
+
+                // Add to the checkbox output
+                $checkbox .= "<input class='mailchimp_woocommerce_gdpr_option' type='hidden' value='0' name='mailchimp_woocommerce_gdpr[{$marketing_permission_id}]'>";
+                $checkbox .= "<input id='mailchimp_woocommerce_gdpr[{$marketing_permission_id}]' type='checkbox' name='mailchimp_woocommerce_gdpr[{$marketing_permission_id}]' value='1'".($status ? ' checked="checked"' : '').">";
+                $checkbox .= "<label class='mailchimp_woocommerce_gdpr_label' for='mailchimp_woocommerce_gdpr[{$marketing_permission_id}]' ><span>{$text}</span></label>";
+                $checkbox .= "<div class='clear'></div>";
+            }
+            $checkbox .= "</p></div>";
+        }
+
+        return $checkbox;
+    }
 }

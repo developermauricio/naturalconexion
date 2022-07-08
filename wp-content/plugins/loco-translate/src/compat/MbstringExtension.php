@@ -15,7 +15,7 @@ abstract class Loco_compat_MbstringExtension {
     }
 
     public static function mb_list_encodings(){
-        return array('UTF-8','ISO-8859-1');
+        return ['UTF-8','ISO-8859-1'];
     }
 
     public static function mb_strlen( $str, $encoding = null ){
@@ -41,13 +41,18 @@ abstract class Loco_compat_MbstringExtension {
         }
         return $str;
     }
+    
+    public static function mb_strtolower( $str ){
+        return strtolower($str);
+    }
+
 }
 
 
 // @codeCoverageIgnoreStart
 
 if( ! function_exists('mb_detect_encoding') ){
-    function mb_detect_encoding( $str = '', array $encoding_list = array(), $strict = false ){
+    function mb_detect_encoding( $str = '', array $encoding_list = [], $strict = false ){
         return Loco_compat_MbstringExtension::mb_detect_encoding( $str, $encoding_list, $strict );
     }
 }
@@ -73,5 +78,11 @@ if( ! function_exists('mb_convert_encoding') ){
 if( ! function_exists('mb_encoding_aliases') ){
     function mb_encoding_aliases(){
         return false;
+    }
+}
+
+if( ! function_exists('mb_strtolower') ){
+    function mb_strtolower( $str ){
+        return Loco_compat_MbstringExtension::mb_strtolower($str);
     }
 }

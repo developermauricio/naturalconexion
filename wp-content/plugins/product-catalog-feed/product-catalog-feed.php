@@ -5,9 +5,9 @@ Description: WooCommerce auto-updated XML feeds for Facebook Product Catalogs (D
 Plugin URI: https://www.pixelyoursite.com/product-catalog-facebook
 Author: PixelYourSite
 Author URI: https://www.pixelyoursite.com
-Version: 2.0.0
+Version: 2.0.1
 WC requires at least: 3.0.0
-WC tested up to: 5.7
+WC tested up to: 6.1
 */
 /* Following are used for updating plugin */
 
@@ -15,7 +15,7 @@ if( !is_admin() && !wp_doing_cron () ){
 	return;
 }
 //Plugin Version
-define( 'WPWOOF_VERSION', '2.0.0');
+define( 'WPWOOF_VERSION', '2.0.1');
 //NOTIFICATION VERSION
 define( 'WPWOOF_VERSION_NOTICE', '0.0.0');
 
@@ -249,14 +249,13 @@ class wpwoof_product_catalog
 
 
     static function init() {
-        self::$interval = self::$WWC->getInterval(); //get_option('wpwoof_schedule', '0');
+        self::$interval = self::$WWC->getInterval();
         $is_xml = (isset($_GET['wpwoofeedxmldownload']) && wp_verify_nonce($_GET['wpwoofeedxmldownload'], 'wpwoof_download_nonce'));
         $is_csv = (isset($_GET['wpwoofeedcsvdownload']) && wp_verify_nonce($_GET['wpwoofeedcsvdownload'], 'wpwoof_download_nonce'));
         if ($is_xml || $is_csv) {
 
             $option_id = $_GET['feed'];
             $data = wpwoof_get_feed($option_id);
-            $data = unserialize($data);
             $data['edit_feed'] = $option_id;
             $feedname = $data['feed_name'];
             $upload_dir = wpwoof_feed_dir($feedname, ($is_xml ? 'xml' : 'csv'));
@@ -319,15 +318,15 @@ class wpwoof_product_catalog
 
         return array('path' => $file, 'url' => $fileurl, 'file' => $feedname . '.' . $file_type);
     }
-    static function set_disable_status()
-    {
-        if (isset($_POST['set_disable_status'])) {
-            if (!empty($_POST['feed_id']) && is_numeric($_POST['feed_id']))
-                $value = unserialize(wpwoof_get_feed($_POST['feed_id']));
+    static function set_disable_status() {
+        if (isset($_POST['set_disable_status']) && !empty($_POST['feed_id'])) {
+            $fid = (int) $_POST['feed_id'];
+            $value = wpwoof_get_feed($fid);
 
             if (!empty($value['feed_name'])) {
                 $value['noGenAuto'] = empty($_POST['set_disable_status']) ? 0 : 1;
-                wpwoof_update_feed($value, $_POST['feed_id'], true);
+                wpwoof_update_feed($value, $fid, true);
+                self::schedule_feed($value);
             }
 
             header('Content-Type: application/json');
@@ -358,8 +357,20 @@ class wpwoof_product_catalog
         if( isset($_POST['wpwoof_status']) && isset($_POST['feedids']) && !empty($_POST['feedids'])){
             foreach($_POST['feedids'] as $val){
                 $val=(int)$val;
-                $status = self::$WWC->get_feed_status($val);
                 $result[$val] = array();
+                $status = self::$WWC->get_feed_status($val);
+                $feedConfig = wpwoof_get_feed($val);
+                if (isset($feedConfig['generated_time']) || !empty($feedConfig['generated_time'])) {
+                    $date = new DateTime();
+                    $date->setTimestamp($feedConfig['generated_time']);
+                    $date->setTimezone(new DateTimeZone(self::$WWC->getWpTimezone()));
+                    $result[$val]['timestr'] = $date->format('d/m/Y H:i:s');
+                    $nextRun = wp_get_scheduled_event('wpwoof_generate_feed', array($val));
+                    if (!empty($nextRun) && !empty($nextRun->timestamp)) {
+                        $date->setTimestamp($nextRun->timestamp);
+                        $result[$val]['timestr'] .= '<br>Next update:<br>'.$date->format('d/m/Y H:i:s');
+                    }
+                }
                 $result[$val]['total'] = $status['total_products'];
                 $result[$val]['processed'] = $status['parsed_products'];
             }
@@ -444,22 +455,24 @@ class wpwoof_product_catalog
                 if ( self::$interval*1>0 ) {
                     wp_schedule_event(time(), self::$schedule[$option], 'wpwoof_feed_update');
                 }
+
+                global $wpdb;
+                $sql = "SELECT option_id,option_value  FROM $wpdb->options WHERE option_name LIKE 'wpwoof_feedlist_%' and option_value not like '%noGenAuto\";i:1%'";
+                $result = $wpdb->get_results($sql, 'ARRAY_A');
+                if(!empty($result)) {
+                    foreach ($result as $value) {
+                        self::schedule_feed(unserialize($value['option_value']));
+                    }
+                }
+                exit('OK');
             }
-            exit('OK');
+
         }
          wp_die();
      }
     static protected function _is_canRun(){
-            global $wp_roles;
-            $roles_selected = get_option('wpwoof_permissions_role',array('administrator'));
-            foreach ( $wp_roles->roles as $role => $options ) {
-                if ( in_array( $role, $roles_selected ) ) {
-                    $wp_roles->add_cap( $role, 'manage_feedpro' );
-                } else {
-                    $wp_roles->remove_cap( $role, 'manage_feedpro' );
-                }
-            }
             if( is_user_logged_in() ) {
+                $roles_selected = get_option('wpwoof_permissions_role',array('administrator'));
                 $user = wp_get_current_user();
                 if(is_super_admin($user->ID)) return true;
 
@@ -496,6 +509,15 @@ class wpwoof_product_catalog
                 add_action('admin_notices', array(__CLASS__, 'wpwoof_showSchedulerError'));
             }
 
+            // check if wpwoof_feed_update sheduled
+            $license_status =  get_option( 'pcbpys_license_status' );
+            $interval = self::$WWC->getInterval();
+            if($license_status == 'valid' && !wp_next_scheduled('wpwoof_feed_update') && $interval > 0) {
+                wp_schedule_event(time(), self::$schedule[$interval], 'wpwoof_feed_update');
+                if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tReScheduled wpwoof_feed_update\n",FILE_APPEND);
+            }
+            // end: check if wpwoof_feed_update sheduled
+
             if (!isset($_REQUEST['page']) || $_REQUEST['page'] != 'wpwoof-settings') {
                 return;
             }
@@ -506,6 +528,7 @@ class wpwoof_product_catalog
             if ($nonce && isset($_REQUEST['delete']) && !empty($_REQUEST['delete'])) {
                 $id = (int)$_REQUEST['delete'];
                 $deleted = wpwoof_delete_feed($id);
+                wp_clear_scheduled_hook('wpwoof_generate_feed', array($id));
 
                 if ($deleted) {
                     wp_cache_flush();
@@ -520,52 +543,21 @@ class wpwoof_product_catalog
 
             } else if ($nonce && isset($_REQUEST['edit']) && !empty($_REQUEST['edit'])) {
                 $option_id = (int)$_REQUEST['edit'];
-                $feed = wpwoof_get_feed($option_id);
-                $wpwoof_values = unserialize($feed);
+                $wpwoof_values = wpwoof_get_feed($option_id);
                 $wpwoof_values['edit_feed'] = $option_id;
                 $wpwoofeed_oldname = isset($wpwoof_values['feed_name']) ? $wpwoof_values['feed_name'] : '';
                 $wpwoof_add_button = 'Update the Feed';
                 $wpwoof_add_tab = 'Edit Feed : ' . $wpwoof_values['feed_name'];
             } else if ( $nonce &&  isset($_REQUEST['update']) && !empty($_REQUEST['update'])) {
                 $option_id = (int)$_REQUEST['update'];
-                $feed = wpwoof_get_feed($option_id);
-                $wpwoof_values = unserialize($feed);
+                $wpwoof_values = wpwoof_get_feed($option_id);
 
                 $wpwoof_values['edit_feed'] = $option_id;
-                $wpwoof_values['added_time'] = time();
-                $url = wpwoof_create_feed($wpwoof_values);
-                $wpwoof_values['url'] = $url;
-                $updated = wpwoof_update_feed($wpwoof_values, $option_id);
-                $wpwoof_message = '';
-                if ($url) {
-                    update_option('wpwoof_message', 'Feed Regenerated Successully.');
-                    $wpwoof_message = 'success';
-                }
-
-
-                /* Reload the current page */
-                wpwoof_refresh($wpwoof_message);
-            } else if ($nonce &&  isset($_REQUEST['generate']) && !empty($_REQUEST['generate'])) {
-                $option_id = $_REQUEST['generate'];
-                $feed = wpwoof_get_feed($option_id);
-                $wpwoof_values = unserialize($feed);
-                $wpwoof_values['edit_feed'] = $option_id;
-
-                $url = wpwoof_create_feed($wpwoof_values);
-
-                $wpwoof_message = '';
-                if ($url) {
-                    update_option('wpwoof_message', 'Feed Generated Successully.');
-                    $wpwoof_message = 'success';
-                }
-
-
-                /* Reload the current page */
-                wpwoof_refresh($wpwoof_message);
+                self::schedule_feed($wpwoof_values,time());
+                exit(json_encode(array("status" => "OK")));
             } else if ($nonce &&  isset($_REQUEST['copy']) && !empty($_REQUEST['copy'])) {
                 $option_id = $_REQUEST['copy'];
-                $feed = wpwoof_get_feed($option_id);
-                $wpwoof_values = unserialize($feed);
+                $wpwoof_values = wpwoof_get_feed($option_id);
                 unset($wpwoof_values['edit_feed']);
                 $aExists =  Array();
                 $copy_suffix = " - Copy ";
@@ -595,6 +587,23 @@ class wpwoof_product_catalog
 
                 /* Reload the current page */
                 wpwoof_refresh($wpwoof_message);
+            } elseif( isset( $_POST['pcbpys_add_permissions_role'] ) && isset($_POST['roles']) && is_array($_POST['roles']) && count($_POST['roles'])>0) {
+                if( ! check_admin_referer( 'pcbpys_nonce', 'pcbpys_nonce' ) )
+                    return; // get out if we didn't click the Activate button
+                $old_roles = get_option('wpwoof_permissions_role',array('administrator'));
+                update_option('wpwoof_permissions_role',$_POST['roles']);
+                global $wp_roles;
+                foreach ( $wp_roles->roles as $role => $options ) {
+                    if ( in_array( $role, $_POST['roles'] ) ) {
+                        if(!in_array( $role, $old_roles )) {
+                            $wp_roles->add_cap( $role, 'manage_feedpro' );
+                        }
+                    } else {
+                        if(in_array( $role, $old_roles )) {
+                            $wp_roles->remove_cap( $role, 'manage_feedpro' );
+                        }
+                    }
+                }
             }
         } //current_user_can('administrator')
     }
@@ -644,50 +653,35 @@ class wpwoof_product_catalog
 
         return $schedules;
     }
-    static function do_this_generate( $feed_id ) {
-        if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tSTART do_this_generate\t".$feed_id."\n",FILE_APPEND);
-        self::wpwoof_feed_go_update(array(0=>array("option_id"=>$feed_id)));
-    }
     static function wpwoof_feed_update() {
         global $wpdb;
         $var = "wpwoof_feedlist_";
-        $sql = "SELECT option_id FROM $wpdb->options WHERE option_name LIKE '".$var."%' and option_value not like '%noGenAuto\";i:1%' and option_value not like '%\"feed_category_all\";s:2:\"-1\";%'  and option_value not like '%\"feed_category\";%'";
+        $sql = "SELECT option_id,option_value FROM $wpdb->options WHERE option_name LIKE '".$var."%' and option_value not like '%noGenAuto\";i:1%'";
         if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tSTART wpwoof_feed_update\n",FILE_APPEND);
-        $result = $wpdb->get_results($sql, 'ARRAY_A');
-        self::wpwoof_feed_go_update($result);
-    }
-    static function wpwoof_feed_go_update($result) {
-        $vFirst=null;
-        $time = time();
-        foreach ($result as $key => $value) {
-            if(!$vFirst) {
-                $vFirst=$value;
-            } else {
-                $time+=180;//3min
-                wp_schedule_single_event( $time, 'wpwoof_generate_feed', array( (int)$value['option_id'] ) );
-                if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tSET wpwoof_generate_feed\t".$value['option_id']."\tTIME:".date("Y-m-d H:i:s",$time)."\n",FILE_APPEND);
+        $autoUpdFeeds = $wpdb->get_results($sql, 'ARRAY_A');
+        if(!empty($autoUpdFeeds)) {
+            $scheduledFeeds = self::$WWC->getScheduledFeeds();
+            foreach ($autoUpdFeeds as $value) {
+                if(!in_array($value['option_id'], $scheduledFeeds)) {
+                    self::schedule_feed(unserialize($value['option_value']));
+                }
             }
         }
-        if($vFirst){
-            $option_id = $vFirst['option_id'];
-            if($option_id){
-                if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tSTART wpwoof_feed_go_update\t".$option_id."\n",FILE_APPEND);
+    }
+    static function do_this_generate($feed_id) {
+        if (WPWOOF_DEBUG)
+            file_put_contents(self::$WWC->feedBaseDir . 'cron-wpfeed.log', date("Y-m-d H:i:s") . "\tSTART do_this_generate\t" . $feed_id . "\n", FILE_APPEND);
+        if ($feed_id) {
 
-                $feed = wpwoof_get_feed($option_id);
-                $wpwoof_values = unserialize($feed);
-                $wpwoof_values['edit_feed']=$option_id;
+            $wpwoof_values = wpwoof_get_feed($feed_id);
+            $wpwoof_values['edit_feed'] = $feed_id;
 
-                if(!isset($wpwoof_values['feed_name'])) {
-                    file_put_contents(WPWOOF_PATH . 'critical.log', date("Y-m-d H:i:s") . "\tERROR Structure:ID:|". $option_id."|\t". print_r($wpwoof_values, true) . "\n", FILE_APPEND);
-                    exit;
-                }
-
-                $wpwoof_values['added_time'] = time();
-                $url = wpwoof_create_feed($wpwoof_values, false);
-                $wpwoof_values['url'] = $url;
-                $updated = wpwoof_update_feed($wpwoof_values, $option_id);
-                if(WPWOOF_DEBUG) file_put_contents(self::$WWC->feedBaseDir.'cron-wpfeed.log',date("Y-m-d H:i:s")."\tEND wpwoof_feed_go_update\t". $option_id."|\t".print_r($updated,true)."\n",FILE_APPEND);
+            if (!isset($wpwoof_values['feed_name'])) {
+                file_put_contents(self::$WWC->feedBaseDir . 'critical.log', date("Y-m-d H:i:s") . "\tERROR Structure:ID:|" . $option_id . "|\t" . print_r($wpwoof_values, true) . "\n", FILE_APPEND);
+                exit;
             }
+
+            $url = wpwoofeed_generate_feed($wpwoof_values);
         }
     }
     static function activate() {
@@ -700,17 +694,6 @@ class wpwoof_product_catalog
 
         $path_upload 	= wp_upload_dir();
         $path_upload 	= $path_upload['basedir'];
-/*
-        foreach(self::$aSMartTags as $tag){
-            if( ! term_exists( $tag ) ){
-                wp_insert_term( $tag, 'product_tag', array(
-                    'description' => 'smart tag:' . $tag,
-                    'parent'      => 0,
-                    'slug'        => strtolower(trim($tag)),
-                ) );
-            }
-        }
-*/
 
 
         $pathes = array(
@@ -734,9 +717,22 @@ class wpwoof_product_catalog
                 }
             }
         }
+        global $wp_roles;
+        $roles_selected = get_option('wpwoof_permissions_role',array('administrator'));
+        foreach ( $wp_roles->roles as $role => $options ) {
+            if ( in_array( $role, $roles_selected ) ) {
+                $wp_roles->add_cap( $role, 'manage_feedpro' );
+            }
+        }
     }
     static function deactivate() {
+        global $wp_roles;
         wp_clear_scheduled_hook('wpwoof_feed_update');
+        wp_unschedule_hook('wpwoof_generate_feed');
+        $roles_selected = get_option('wpwoof_permissions_role',array('administrator'));
+        foreach ( $wp_roles->roles as $role => $options ) {
+            $wp_roles->remove_cap( $role, 'manage_feedpro' );
+        }
     }
     static function deactivate_generate_error($error_message, $deactivate = true, $echo_error = false) {
         if( $deactivate ) {
@@ -1006,7 +1002,7 @@ class wpwoof_product_catalog
 
         //compatibility <= 4.1.4
         if (empty($gm)) {
-            $gm = @array_merge(get_post_meta( $post_id, 'wpwoofgoogle', true ),get_post_meta( $post_id, 'wpwoofadsensecustom', true ));
+            $gm = @array_merge((array)get_post_meta( $post_id, 'wpwoofgoogle', array() ),(array)get_post_meta( $post_id, 'wpwoofadsensecustom', array() ));
         }
         $oFeed = new FeedFBGooglePro( $meta_keys, $meta_keys_sort, $attributes);
         $select_values = $helpLinks = array();
@@ -1158,7 +1154,23 @@ class wpwoof_product_catalog
         }
     }
 
-
+    static function schedule_feed($feed_config, $regenerateTime = false) {
+        if(self::$WWC->isPro($feed_config)) {            return false;}
+        $status = self::$WWC->get_feed_status($feed_config['edit_feed']);
+        if ($status['total_products'] != 0) {
+            trace($feed_config['edit_feed'].' - '.$status['total_products']);
+            return false;
+        }
+        if (!$regenerateTime && (!empty($feed_config['noGenAuto']) || self::$interval*1 == 0 )) {
+            wp_clear_scheduled_hook('wpwoof_generate_feed', array((int)$feed_config['edit_feed']));
+        } else {
+            $nextRun = $regenerateTime?$regenerateTime:(isset($feed_config['generated_time']) ? $feed_config['generated_time'] + self::$interval : time());
+            if (wp_next_scheduled('wpwoof_generate_feed', array((int)$feed_config['edit_feed'])) != $nextRun) {
+                wp_clear_scheduled_hook('wpwoof_generate_feed', array((int)$feed_config['edit_feed']));
+                wp_schedule_single_event($nextRun, 'wpwoof_generate_feed', array((int)$feed_config['edit_feed']));
+            }
+        }
+    }
 
 
 }

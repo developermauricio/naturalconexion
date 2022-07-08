@@ -49,8 +49,7 @@ class WooSEA_Get_Admin_Notifications {
 	}
 	
 	public function get_admin_notifications ( $step, $error ) {
-
-		$domain = $_SERVER['HTTP_HOST'];
+		$domain = sanitize_text_field($_SERVER['HTTP_HOST']);
 	
 		switch($step){
 			case 0:

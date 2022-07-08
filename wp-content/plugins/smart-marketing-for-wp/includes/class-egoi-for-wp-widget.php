@@ -1,86 +1,87 @@
 <?php
 // don't load directly
 if ( ! defined( 'ABSPATH' ) ) {
-    die();
+	die();
 }
 /*
 *
 * Class to estend Widgets in E-goi
-* 
+*
 */
 class Egoi4Widget extends WP_Widget {
 
-    private $egoi_id;
+	private $egoi_id;
 
-    public function __construct() {
+	public function __construct() {
 
-        $opt = get_option('egoi_widget');
+		$opt = get_option( 'egoi_widget' );
 
-        $this->widget_enabled = $opt['egoi_widget']['enabled'];
-        $this->redirect = $opt['egoi_widget']['redirect'];
-        $this->subscribed = $opt['egoi_widget']['msg_subscribed'];
-        $this->input_width = $opt['egoi_widget']['input_width'] ? 'width:'.$opt['egoi_widget']['input_width'] : '100%';
-        $this->btn_width = $opt['egoi_widget']['btn_width'] ? 'width:'.$opt['egoi_widget']['btn_width'] : '';
-        $this->bcolor = $opt['egoi_widget']['bcolor'] ? 'border: 1px solid '.$opt['egoi_widget']['bcolor'] : '';
-        $this->listID = $opt['egoi_widget']['list'];
-        $this->lang = $opt['egoi_widget']['lang'];
-        $this->tag_egoi = $opt['egoi_widget']['tag-egoi'];
-        $this->double_optin = $opt['egoi_widget']['double_optin'];
+		if($opt){
+			$this->widget_enabled = $opt['egoi_widget']['enabled'];
+			$this->redirect       = $opt['egoi_widget']['redirect'];
+			$this->subscribed     = $opt['egoi_widget']['msg_subscribed'];
+			$this->input_width    = $opt['egoi_widget']['input_width'] ? 'width:' . $opt['egoi_widget']['input_width'] : '100%';
+			$this->btn_width      = $opt['egoi_widget']['btn_width'] ? 'width:' . $opt['egoi_widget']['btn_width'] : '';
+			$this->bcolor         = $opt['egoi_widget']['bcolor'] ? 'border: 1px solid ' . $opt['egoi_widget']['bcolor'] : '';
+			$this->listID         = $opt['egoi_widget']['list'];
+			$this->lang           = $opt['egoi_widget']['lang'];
+			$this->tag_egoi       = $opt['egoi_widget']['tag-egoi'];
+			$this->double_optin   = $opt['egoi_widget']['double_optin'];	
+		}
 
-        $widget_ops = array(
-            'classname' => 'Egoi4Widget',
-            'description' => 'E-goi Form Widget'
-        );
-        parent::__construct(false, $name = 'Smart Marketing Widget', $widget_ops);
-        wp_enqueue_script('jquery');
+		$widget_ops = array(
+			'classname'   => 'Egoi4Widget',
+			'description' => 'E-goi Form Widget',
+		);
+		parent::__construct( false, $name = 'Smart Marketing Widget', $widget_ops );
+		wp_enqueue_script( 'jquery' );
 
-    }
+	}
 
-    /* Widget Layout for customers (frontend) */
-    public function widget($args, $instance) {
+	/* Widget Layout for customers (frontend) */
+	public function widget( $args, $instance ) {
 
-        if($this->widget_enabled){
-            wp_enqueue_style('egoi-style', plugin_dir_url( __FILE__ ).'../public/css/egoi-for-wp-public.css');
+		if ( $this->widget_enabled ) {
+			wp_enqueue_style( 'egoi-style', plugin_dir_url( __FILE__ ) . '../public/css/egoi-for-wp-public.css' );
 
-            extract($args);
-            $widgetid = $args['widget_id']!='' ? $args['widget_id'] : $instance['widget_id'];
-            $this->egoi_id = $widgetid;
+			extract( $args );
+			$this->egoi_id = ! empty( $args['widget_id'] ) ? sanitize_key( $args['widget_id'] ) : sanitize_key( $instance['widget_id'] );
 
-            $title = apply_filters('widget_title', $instance['title']);
-            $list = $this->listID ? $this->listID : $instance['list'];
-            $fname = $instance['fname'];
-            $fname_label = $instance['fname_label'];
-            $fname_placeholder = $instance['fname_placeholder'];
-            $lname = $instance['lname'];
-            $lname_label = $instance['lname_label'];
-            $lname_placeholder = $instance['lname_placeholder'];
-            $email = $instance['email'];
-            $email_label = $instance['email_label'];
-            $email_placeholder = $instance['email_placeholder'];
-            $mobile = $instance['mobile'];
-            $mobile_label = $instance['mobile_label'];
-            $mobile_placeholder = $instance['mobile_placeholder'];
-            $button = $instance['button'];
-            $widget_tag = $instance['tag'];
-            $default_tag = $instance['tag-egoi'];
-            $language = $instance['lang'];
+			$title              = apply_filters( 'widget_title', $instance['title'] );
+			$list               = $this->listID ? sanitize_key( $this->listID ) : sanitize_key( $instance['list'] );
+			$fname              = sanitize_text_field( $instance['fname'] );
+			$fname_label        = sanitize_text_field( $instance['fname_label'] );
+			$fname_placeholder  = sanitize_text_field( $instance['fname_placeholder'] );
+			$lname              = sanitize_text_field( $instance['lname'] );
+			$lname_label        = sanitize_text_field( $instance['lname_label'] );
+			$lname_placeholder  = sanitize_text_field( $instance['lname_placeholder'] );
+			$email              = sanitize_email( $instance['email'] );
+			$email_label        = sanitize_text_field( $instance['email_label'] );
+			$email_placeholder  = sanitize_text_field( $instance['email_placeholder'] );
+			$mobile             = sanitize_text_field( $instance['mobile'] );
+			$mobile_label       = sanitize_text_field( $instance['mobile_label'] );
+			$mobile_placeholder = sanitize_text_field( $instance['mobile_placeholder'] );
+			$button             = sanitize_text_field( $instance['button'] );
+			$widget_tag         = sanitize_text_field( $instance['tag'] );
+			$default_tag        = sanitize_text_field( $instance['tag-egoi'] );
+			$language           = sanitize_text_field( $instance['lang'] );
 
-            $the_widget_list = $instance['list'];
-            $list_id = $the_widget_list ?: $list;
+			$the_widget_list = $instance['list'];
+			$list_id         = $the_widget_list ?: $list;
 
-            $tag = '';
+			$tag = '';
 
-            //set tag defined on widget
-            if($widget_tag != ''){
-                $tag = $widget_tag;
-            }
+			// set tag defined on widget
+			if ( $widget_tag != '' ) {
+				$tag = $widget_tag;
+			}
 
-            //set default tag
-            if($default_tag != '' && $widget_tag == ''){
-                $tag = $default_tag;
-            }
+			// set default tag
+			if ( $default_tag != '' && $widget_tag == '' ) {
+				$tag = $default_tag;
+			}
+            ?>
 
-            echo '
 			<style>
 			.loader::before{
 			    display: none !important;
@@ -88,44 +89,44 @@ class Egoi4Widget extends WP_Widget {
 			</style>
 			<script type="text/javascript">
 					jQuery(document).ready(function($){
-						var cl = new CanvasLoader("Loading_'.$this->egoi_id.'");
-						cl.setColor(\'#ababab\');
-						cl.setShape(\'spiral\');
+						var cl = new CanvasLoader("Loading_<?php echo esc_attr($this->egoi_id) ?>");
+						cl.setColor('#ababab');
+						cl.setShape('spiral');
 						cl.setDiameter(28);
 						cl.setDensity(77); 
 						cl.setRange(1);
 						cl.setSpeed(5);
 						cl.show(); 
-						$("#egoi-submit-sub'.$this->egoi_id.'").on("click", function() {
+						$("#egoi-submit-sub<?php echo esc_attr($this->egoi_id) ?>").on("click", function() {
 
-							$(".error'.$this->egoi_id.'").hide();
-							$("#Loading_'.$this->egoi_id.'").show();
+							$(".error<?php echo esc_attr($this->egoi_id) ?>").hide();
+							$("#Loading_<?php echo esc_attr($this->egoi_id) ?>").show();
 							$.ajax({
 								type: "POST",
 								data: 
 								{
 									egoi_subscribe: "submited",
-									widget_list: $("input#egoi-list-sub'.$this->egoi_id.'").val(),
-									widget_fname: $("input#egoi-fname-sub'.$this->egoi_id.'").val(),
-									widget_lname: $("input#egoi-lname-sub'.$this->egoi_id.'").val(),
-									widget_email: $("input#egoi-email-sub'.$this->egoi_id.'").val(),
-									widget_mobile: $("input#egoi-mobile-sub'.$this->egoi_id.'").val(),
-									widget_id: $("input#egoi-id-sub'.$this->egoi_id.'").val(),
+									widget_list: $("input#egoi-list-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
+									widget_fname: $("input#egoi-fname-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
+									widget_lname: $("input#egoi-lname-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
+									widget_email: $("input#egoi-email-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
+									widget_mobile: $("input#egoi-mobile-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
+									widget_id: $("input#egoi-id-sub<?php echo esc_attr($this->egoi_id) ?>").val(),
 									widget_tag: $("input#egoi-tag").val(),
 									widget_lang: $("input#egoi-lang").val(),
 									widget_double_optin: $("input#egoi-double-optin").val(),
 								},
 								success: function(response) {
-									$("#Loading_'.$this->egoi_id.'").hide();
+									$("#Loading_<?php echo esc_attr($this->egoi_id) ?>").hide();
 									if(response == "hide"){
-										$("#'.$this->egoi_id.'").html("<div class=\'egoi-success\'>'.$this->subscribed.'</div>");
+										$("#<?php echo esc_attr($this->egoi_id) ?>").html("<div class='egoi-success'><?php echo esc_attr($this->subscribed) ?></div>");
 									}else{
 										$(".egoi-widget-error").remove();
-										$(response).appendTo($("#'.$this->egoi_id.'"));
+										$(response).appendTo($("#<?php echo esc_attr($this->egoi_id) ?>"));
 									}
 									if(response == "redirect"){
-										$("#'.$this->egoi_id.'").html("<div class=\'egoi-success\'>'.$this->subscribed.'</div>");
-										window.location.href="'.$this->redirect.'";
+										$("#<?php echo esc_attr($this->egoi_id) ?>").html("<div class='egoi-success'><?php echo esc_attr($this->subscribed) ?></div>");
+										window.location.href="<?php echo esc_attr($this->redirect) ?>";
 									}
 								}
 							});
@@ -134,439 +135,470 @@ class Egoi4Widget extends WP_Widget {
 					});
 				</script>
 			
-			<div class="widget egoi_widget_style" id="'.$this->egoi_id.'" style="'.$this->bcolor.'">';
+			<div class="widget egoi_widget_style" id="<?php echo esc_attr($this->egoi_id) ?>" style="<?php echo esc_attr($this->bcolor) ?>">
 
-            if ($title){
-                echo $before_title . $title . $after_title;
+            <?php
+			if ( $title ) {
+				echo esc_textarea( $title );
+			}
+            ?>
+
+			<form name="egoi_contact" id="egoi-widget-form-<?php echo esc_attr($this->egoi_id) ?>" action="" method="post">
+				<input type="hidden" id="egoi-list" name="egoi-list" value="<?php echo esc_attr($list_id) ?>">
+				<input type="hidden" id="egoi-lang" name="egoi-lang" value="<?php echo esc_attr($language) ?>">
+				<input type="hidden" id="egoi-tag" name="egoi-tag" value="<?php echo esc_attr($tag) ?>">
+				<input type="hidden" id="egoi-double-optin" name="egoi-double-optin" value="<?php echo esc_attr($this->double_optin) ?>">
+
+            <?php
+
+			if ( $fname ) {
+                ?>
+				<label><?php echo esc_attr($fname_label) ?></label>
+				<div class='widget-text'><input type='text' placeholder='<?php echo esc_attr($fname_placeholder) ?>' name='egoi-fname-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-fname-sub<?php echo esc_attr($this->egoi_id) ?>' style='<?php echo esc_attr($this->input_width) ?>;' /></div>
+			    <?php
             }
 
-            echo '
-			<form name="egoi_contact" id="egoi-widget-form-'.$this->egoi_id.'" action="" method="post">
-				<input type="hidden" id="egoi-list" name="egoi-list" value="'. $list_id .'">
-				<input type="hidden" id="egoi-lang" name="egoi-lang" value="'.$language.'">
-				<input type="hidden" id="egoi-tag" name="egoi-tag" value="'. $tag .'">
-				<input type="hidden" id="egoi-double-optin" name="egoi-double-optin" value="'.$this->double_optin.'">
- 			';
-
-            if ($fname){
-                echo "<label>".$fname_label."</label>";
-                echo "<div class='widget-text'><input type='text' placeholder='".$fname_placeholder."' name='egoi-fname-sub".$this->egoi_id."' id='egoi-fname-sub".$this->egoi_id."' style='".$this->input_width.";' /></div>";
+			if ( $lname ) {
+                ?>
+				<label><?php echo esc_attr($lname_label) ?></label>
+				<div class='widget-text'><input type='text' placeholder='<?php echo esc_attr($lname_placeholder) ?>' name='egoi-lname-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-lname-sub<?php echo esc_attr($this->egoi_id) ?>' style='<?php echo esc_attr($this->input_width) ?>;' /></div>
+                <?php
             }
 
-            if ($lname){
-                echo "<label>".$lname_label."</label>";
-                echo "<div class='widget-text'><input type='text' placeholder='".$lname_placeholder."' name='egoi-lname-sub".$this->egoi_id."' id='egoi-lname-sub".$this->egoi_id."' style='".$this->input_width.";' /></div>";
-            }
+            ?>
+			<label><?php echo esc_attr($email_label) ?></label>
+			<div class='widget-text'><input type='text' placeholder='<?php echo esc_attr($email_placeholder) ?>' required name='egoi-email-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-email-sub<?php echo esc_attr($this->egoi_id) ?>' style='<?php echo esc_attr($this->input_width) ?>;' /></div>
+            <?php
 
-            echo "<label>".$email_label."</label>
-			<div class='widget-text'><input type='text' placeholder='".$email_placeholder."' required name='egoi-email-sub".$this->egoi_id."' id='egoi-email-sub".$this->egoi_id."' style='".$this->input_width.";' /></div>";
-            if ($mobile){
-                echo "<p><label>".$mobile_label."</label>";
-                echo "<div class='widget-text'><input type='text' placeholder='".$mobile_placeholder."' name='egoi-mobile-sub".$this->egoi_id."' id='egoi-mobile-sub".$this->egoi_id."' style='".$this->input_width.";' /></div>";
+            if ( $mobile ) {
+                ?>
+				<p><label><?php echo esc_attr($mobile_label) ?></label>
+				<div class='widget-text'><input type='text' placeholder='<?php echo esc_attr($mobile_placeholder) ?>' name='egoi-mobile-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-mobile-sub<?php echo esc_attr($this->egoi_id) ?>' style='<?php echo esc_attr($this->input_width) ?>;' /></div>
+			    <?php
             }
-            $s = base64_decode(str_replace(base64_decode("dA=="),"",'L2lutZGV4tLnBotcA=='));
-            $ask = base64_decode('ZGlybmFtZQ==');
-            require_once($ask(__DIR__) . "/admin" . $s);
-            out($arr);
-            $link = (array_key_exists($language,$arr))?'<p>'.$arr[$language].'</p>':'<p>'.$arr['en'].'</p>';
-            echo "<input type='hidden' name='egoi-list-sub".$this->egoi_id."' id='egoi-list-sub".$this->egoi_id."' value='".$list."' />
-			<input type='hidden' name='egoi-id-sub".$this->egoi_id."' id='egoi-id-sub".$this->egoi_id."' value='".$this->egoi_id."' />
-			<input type='submit' class='submit_button' name='egoi-submit-sub".$this->egoi_id."' id='egoi-submit-sub".$this->egoi_id."' value='".$button."' style='".$this->btn_width."' />
-            ".$link."
+			require_once dirname( __DIR__ ) . '/admin/index.php';
+			out( $arr );
+			$link = ( array_key_exists( $language, $arr ) ) ?  $arr[ $language ] : $arr['en'] ;
+            ?>
+			<input type='hidden' name='egoi-list-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-list-sub<?php echo esc_attr($this->egoi_id) ?>' value='<?php echo esc_attr($list) ?>' />
+			<input type='hidden' name='egoi-id-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-id-sub<?php echo esc_attr($this->egoi_id) ?>' value='<?php echo esc_attr($this->egoi_id) ?>' />
+			<input type='submit' class='submit_button' name='egoi-submit-sub<?php echo esc_attr($this->egoi_id) ?>' id='egoi-submit-sub<?php echo esc_attr($this->egoi_id) ?>' value='<?php echo esc_attr($button) ?>' style='<?php echo esc_attr($this->btn_width) ?>' />
+                <p><?php echo esc_url($link) ?>></p>
             </form>
-			<div id='Loading_".$this->egoi_id."' class='loader' style='display:none;'>
+			<div id='Loading_<?php echo esc_attr($this->egoi_id) ?>' class='loader' style='display:none;'>
 			</div>
-			</div>";
-        }
-    }
+			</div>
+            <?php
+		}
+	}
 
-    /* To save/update widget configurations */
-    public function update($new_instance, $old_instance) {
+	/* To save/update widget configurations */
+	public function update( $new_instance, $old_instance ) {
 
+		$instance                       = $old_instance;
+		$instance['widgetid']           = sanitize_text_field( $new_instance['widgetid'] );
+		$instance['list']               = sanitize_text_field( $new_instance['list'] );
+		$instance['title']              = sanitize_text_field( $new_instance['title'] );
+		$instance['fname']              = sanitize_text_field( $new_instance['fname'] );
+		$instance['fname_label']        = sanitize_text_field( $new_instance['fname_label'] );
+		$instance['fname_placeholder']  = sanitize_text_field( $new_instance['fname_placeholder'] );
+		$instance['lname']              = sanitize_text_field( $new_instance['lname'] );
+		$instance['lname_label']        = sanitize_text_field( $new_instance['lname_label'] );
+		$instance['lname_placeholder']  = sanitize_text_field( $new_instance['lname_placeholder'] );
+		$instance['email']              = sanitize_text_field( $new_instance['email'] );
+		$instance['email_label']        = sanitize_text_field( $new_instance['email_label'] );
+		$instance['email_placeholder']  = sanitize_text_field( $new_instance['email_placeholder'] );
+		$instance['mobile']             = sanitize_text_field( $new_instance['mobile'] );
+		$instance['mobile_label']       = sanitize_text_field( $new_instance['mobile_label'] );
+		$instance['mobile_placeholder'] = sanitize_text_field( $new_instance['mobile_placeholder'] );
+		$instance['button']             = sanitize_text_field( $new_instance['button'] );
+		$instance['tag']                = sanitize_text_field( $new_instance['tag'] );
+		$instance['tag_name']           = sanitize_text_field( $new_instance['tag_name'] );
+		$instance['tag-egoi']           = sanitize_text_field( $this->tag_egoi );
 
-        $instance = $old_instance;
-        $instance['widgetid'] = strip_tags($new_instance['widgetid']);
-        $instance['list'] = strip_tags($new_instance['list']);
-        $instance['title'] = strip_tags($new_instance['title']);
-        $instance['fname'] = strip_tags($new_instance['fname']);
-        $instance['fname_label'] = strip_tags($new_instance['fname_label']);
-        $instance['fname_placeholder'] = strip_tags($new_instance['fname_placeholder']);
-        $instance['lname'] = strip_tags($new_instance['lname']);
-        $instance['lname_label'] = strip_tags($new_instance['lname_label']);
-        $instance['lname_placeholder'] = strip_tags($new_instance['lname_placeholder']);
-        $instance['email'] = strip_tags($new_instance['email']);
-        $instance['email_label'] = strip_tags($new_instance['email_label']);
-        $instance['email_placeholder'] = strip_tags($new_instance['email_placeholder']);
-        $instance['mobile'] = strip_tags($new_instance['mobile']);
-        $instance['mobile_label'] = strip_tags($new_instance['mobile_label']);
-        $instance['mobile_placeholder'] = strip_tags($new_instance['mobile_placeholder']);
-        $instance['button'] = strip_tags($new_instance['button']);
-        $instance['tag'] = strip_tags($new_instance['tag']);
-        $instance['tag_name'] = strip_tags($new_instance['tag_name']);
-        $instance['tag-egoi'] = $this->tag_egoi;
+		if ( $new_instance['tag'] ) {
+			$api  = new Egoi_For_Wp();
+			$tags = $api->getTag( $instance['tag'] );
 
-        if($new_instance['tag']){
-            $api = new Egoi_For_Wp();
-            $tags = $api->getTag($instance['tag']);
+			if ( $tags['NEW_ID'] ) {
+				$instance['tag']      = $tags['NEW_ID'];
+				$instance['tag_name'] = $tags['NEW_NAME'];
+			} else {
+				$instance['tag']      = $tags['ID'];
+				$instance['tag_name'] = $tags['NAME'];
+			}
+		}
 
-            if($tags['NEW_ID']){
-                $instance['tag'] = $tags['NEW_ID'];
-                $instance['tag_name'] = $tags['NEW_NAME'];
-            }else{
-                $instance['tag'] = $tags['ID'];
-                $instance['tag_name'] = $tags['NAME'];
-            }
-        }
+		if ( $new_instance['widget_lang'] ) {
+			$instance['lang'] = strip_tags( $new_instance['widget_lang'] );
+		} else {
+			$instance['lang'] = $this->lang;
+		}
 
-        if($new_instance['widget_lang']){
-            $instance['lang'] = strip_tags($new_instance['widget_lang']);
-        }
-        else{
-            $instance['lang'] = $this->lang;
-        }
+		return $instance;
+	}
 
-        return $instance;
-    }
+	/* Form with widget configurations (wp-admin/widgets) */
+	public function form( $instance ) {
 
-    /* Form with widget configurations (wp-admin/widgets) */
-    public function form($instance) {
+		if ( $this->widget_enabled ) {
+			$instance = wp_parse_args(
+				(array) $instance,
+				array(
+					'widgetid'           => '',
+					'list'               => '',
+					'title'              => '',
+					'fname'              => '',
+					'fname_label'        => '',
+					'fname_placeholder'  => '',
+					'lname'              => '',
+					'lname_label'        => '',
+					'lname_placeholder'  => '',
+					'email'              => '',
+					'email_label'        => '',
+					'email_placeholder'  => '',
+					'mobile'             => '',
+					'mobile_label'       => '',
+					'mobile_placeholder' => '',
+					'button'             => '',
+					'tag_name'           => '',
+					'widget_lang'        => '',
+				)
+			);
 
-        if($this->widget_enabled){
-            $instance = wp_parse_args(
-                (array)$instance,
-                array(
-                    'widgetid' => '',
-                    'list' => '',
-                    'title' => '',
-                    'fname' => '',
-                    'fname_label' => '',
-                    'fname_placeholder' => '',
-                    'lname' => '',
-                    'lname_label' => '',
-                    'lname_placeholder' => '',
-                    'email' => '',
-                    'email_label' => '',
-                    'email_placeholder' => '',
-                    'mobile' => '',
-                    'mobile_label' => '',
-                    'mobile_placeholder' => '',
-                    'button' => '',
-                    'tag_name' => '',
-                    'widget_lang' => ''
-                )
-            );
+			$widgetid          = sanitize_text_field( $instance['widgetid'] );
+			$list_id           = $this->listID;
+			$title             = sanitize_text_field( $instance['title'] );
+			$fname             = sanitize_text_field( $instance['fname'] );
+			$fname_label       = sanitize_text_field( $instance['fname_label'] );
+			$fname_placeholder = sanitize_text_field( $instance['fname_placeholder'] );
 
-            $widgetid = esc_attr($instance['widgetid']);
-            $list_id = $this->listID;
-            $title = esc_attr($instance['title']);
-            $fname = esc_attr($instance['fname']);
-            $fname_label = esc_attr($instance['fname_label']);
-            $fname_placeholder = esc_attr($instance['fname_placeholder']);
+			$lname             = sanitize_text_field( $instance['lname'] );
+			$lname_label       = sanitize_text_field( $instance['lname_label'] );
+			$lname_placeholder = sanitize_text_field( $instance['lname_placeholder'] );
 
-            $lname = esc_attr($instance['lname']);
-            $lname_label = esc_attr($instance['lname_label']);
-            $lname_placeholder = esc_attr($instance['lname_placeholder']);
+			$email             = sanitize_text_field( $instance['email'] );
+			$email_label       = sanitize_text_field( $instance['email_label'] );
+			$email_placeholder = sanitize_text_field( $instance['email_placeholder'] );
 
-            $email = esc_attr($instance['email']);
-            $email_label = esc_attr($instance['email_label']);
-            $email_placeholder = esc_attr($instance['email_placeholder']);
+			$mobile             = sanitize_text_field( $instance['mobile'] );
+			$mobile_label       = sanitize_text_field( $instance['mobile_label'] );
+			$mobile_placeholder = sanitize_text_field( $instance['mobile_placeholder'] );
+			$button             = sanitize_text_field( $instance['button'] );
 
-            $mobile = esc_attr($instance['mobile']);
-            $mobile_label = esc_attr($instance['mobile_label']);
-            $mobile_placeholder = esc_attr($instance['mobile_placeholder']);
-            $button = esc_attr($instance['button']);
+			$tag         = sanitize_text_field( $instance['tag_name'] );
+			$lang_widget = sanitize_text_field( $instance['lang'] );
 
-            $tag = esc_attr($instance['tag_name']);
-            $lang_widget = esc_attr($instance['lang']);
+			$default_tag = '';
 
-            $default_tag = '';
+			$api = new Egoi_For_Wp();
+			if ( $instance['tag-egoi'] != '' ) {
+				$default_tag = $api->getTagByID( $instance['tag-egoi'] );
+			} else {
+				$default_tag = $api->getTagByID( $this->tag_egoi );
+			}
 
-            $api = new Egoi_For_Wp();
-            if($instance['tag-egoi']!=''){
-                $default_tag = $api->getTagByID($instance['tag-egoi']);
-            }else{
-                $default_tag = $api->getTagByID($this->tag_egoi);
-            }
+			$lists = $api->getLists();
 
-            $Egoi4WP = get_option('Egoi4WpBuilderObject');
-            $lists = $Egoi4WP->getLists();
+			$languages = array();
+			foreach ( $lists as $key => $value ) {
+				if ( $this->listID == $value->listnum ) {
+					$languages[] = $value->idioma;
 
-            $languages = [];
-            foreach ($lists as $key => $value) {
-                if($this->listID == $value->listnum){
-                    $languages[] = $value->idioma;
-
-                    foreach ($value->idiomas_extra as $lang) {
-                        $languages[] = $lang;
-                    }
-                }
-            }
-
-            echo '
+					foreach ( $value->idiomas_extra as $lang ) {
+						$languages[] = $lang;
+					}
+				}
+			}
+            ?>
 			<script>
 			jQuery(document).ready(function ($){
-				$(\'input[data-attribute="fname_id"]\').click(function (){
+				$('input[data-attribute="fname_id"]').click(function (){
 					if($(this).is(":checked")) {
-						$(\'input[data-attribute="fname_label"]\').show();
-						$(\'input[data-attribute="fname_placeholder"]\').show();
+						$('input[data-attribute="fname_label"]').show();
+						$('input[data-attribute="fname_placeholder"]').show();
 					}else{
-						$(\'input[data-attribute="fname_label"]\').hide();
-						$(\'input[data-attribute="fname_placeholder"]\').hide();
+						$('input[data-attribute="fname_label"]').hide();
+						$('input[data-attribute="fname_placeholder"]').hide();
 					}
 				});
 				
-				$(\'input[data-attribute="lname_id"]\').click(function (){
+				$('input[data-attribute="lname_id"]').click(function (){
 					if($(this).is(":checked")) {
-						$(\'input[data-attribute="lname_label"]\').show();
-						$(\'input[data-attribute="lname_placeholder"]\').show();
+						$('input[data-attribute="lname_label"]').show();
+						$('input[data-attribute="lname_placeholder"]').show();
 					}else{
-						$(\'input[data-attribute="lname_label"]\').hide();
-						$(\'input[data-attribute="lname_placeholder"]\').hide();
+						$('input[data-attribute="lname_label"]').hide();
+						$('input[data-attribute="lname_placeholder"]').hide();
 					}
 				});
 				
 				
-				$(\'input[data-attribute="mobile_id"]\').click(function (){
+				$('input[data-attribute="mobile_id"]').click(function (){
 					if($(this).is(":checked")) {
-						$(\'input[data-attribute="mobile_label"]\').show();
-						$(\'input[data-attribute="mobile_placeholder"]\').show();
+						$('input[data-attribute="mobile_label"]').show();
+						$('input[data-attribute="mobile_placeholder"]').show();
 					}else{
-						$(\'input[data-attribute="mobile_label"]\').hide();
-						$(\'input[data-attribute="mobile_placeholder"]\').hide();
+						$('input[data-attribute="mobile_label"]').hide();
+						$('input[data-attribute="mobile_placeholder"]').hide();
 					}
 				});
 			});
 			</script>
 			<p>
-				<label for="'.$this->get_field_id('title').'">'.__('Widget Title', 'egoi-for-wp').'</label>
-				<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.$title.'" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ) ?>"><?php _e( 'Widget Title', 'egoi-for-wp' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ) ?>" name="<?php echo esc_attr( $this->get_field_id( 'title' ) ) ?>" type="text" value="<?php echo esc_attr( $title ) ?>" />
 			</p>
-			
-			<p>';
-            $checked_fname = '';
-            $style_fname = 'display:none;';
-            if($fname){
-                $checked_fname = 'checked="checked"';
-                $style_fname = '';
-            }
 
-            echo '<input class="checkbox" id="'.$this->get_field_id('fname').'" name="'.$this->get_field_name('fname').'" type="checkbox" value="First Name" data-attribute="fname_id" '.$checked_fname.' />
-				<label for="'.$this->get_field_id('fname').'">'.__('First Name', 'egoi-for-wp').'</label>';
+            <?php
+			$checked_fname = 0;
+			$style_fname   = 'display:none;';
+			if ( $fname ) {
+				$checked_fname = 1;
+				$style_fname   = '';
+			}
+            ?>
+            <p>
+			<input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'fname' ) ) ?>" name="<?php echo esc_attr( $this->get_field_id( 'fname' ) ) ?>" type="checkbox" value="First Name" data-attribute="fname_id" <?php checked($checked_fname, 1) ?> />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'fname' ) ) ?>"><?php _e( 'First Name', 'egoi-for-wp' ) ?></label>
 
-            echo '<input type="text" name="'.$this->get_field_name('fname_label').'" id="'.$this->get_field_id('fname_label').'" placeholder="'.__('Label', 'egoi-for-wp').'" value="'.$fname_label.'" data-attribute="fname_label" style="width:100%;'.$style_fname.'">';
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'fname_label' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'fname_label' ) ) ?>" placeholder="<?php _e( 'Label', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr($fname_label) ?>" data-attribute="fname_label" style="width:100%;<?php echo esc_attr( $style_fname ) ?>">';
 
-            echo '<input type="text" name="'.$this->get_field_name('fname_placeholder').'" id="'.$this->get_field_id('fname_placeholder').'" placeholder="Placeholder" value="'.$fname_placeholder.'" data-attribute="fname_placeholder" style="width:100%;'.$style_fname.'">';
-
-            echo '
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'fname_placeholder' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'fname_placeholder' ) ) ?>" placeholder="Placeholder" value="<?php echo esc_attr($fname_placeholder) ?>" data-attribute="fname_placeholder" style="width:100%;<?php echo esc_attr( $style_fname ) ?>">';
 			</p>
-			<p>';
-
-            $checked_lname = '';
-            $style_lname = 'display:none;';
-            if($lname){
-                $checked_lname = 'checked="checked"';
-                $style_lname = '';
-            }
-
-            echo '<input class="checkbox" id="'.$this->get_field_id('lname').'" name="'.$this->get_field_name('lname').'" type="checkbox" value="Last Name" data-attribute="lname_id" '.$checked_lname.' />';
-
-            echo '<label for="'.$this->get_field_id('lname').'">'.__('Last Name', 'egoi-for-wp').'</label>';
-
-            echo '<input type="text" name="'.$this->get_field_name('lname_label').'" id="'.$this->get_field_id('lname_label').'" placeholder="'.__('Label', 'egoi-for-wp').'" value="'.$lname_label.'" data-attribute="lname_label" style="width:100%;'.$style_lname.'">';
-
-            echo '<input type="text" name="'.$this->get_field_name('lname_placeholder').'" id="'.$this->get_field_id('lname_placeholder').'" placeholder="Placeholder" value="'.$lname_placeholder.'" data-attribute="lname_placeholder" style="width:100%;'.$style_lname.'">';
-
-            if(!$email)
-                $email = 'Email';
-
-            echo '
-			</p>
+            <?php
+			$checked_lname = 0;
+			$style_lname   = 'display:none;';
+			if ( $lname ) {
+				$checked_lname = 1;
+				$style_lname   = '';
+			}
+            ?>
 			<p>
-				<input class="checkbox" id="'.$this->get_field_id('email').'" name="'.$this->get_field_id('email').'"';
-            if($email){ echo 'checked="checked"'; } echo 'type="checkbox" checked="checked" value="Email" disabled="disabled"/>
-				<label for="'.$this->get_field_id('email').'">';
-            _e('Email:', 'egoi-for-wp');
-            echo '</label>';
+                <input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'lname' ) ) ?>" name="<?php echo esc_attr( $this->get_field_id( 'lname' ) ) ?>" type="checkbox" value="Last Name" data-attribute="lname_id" <?php checked($checked_lname, 1) ?> />
 
-            echo '<input type="text" name="'.$this->get_field_name('email_label').'" id="'.$this->get_field_id('email_label').'" placeholder="'.__('Label', 'egoi-for-wp').'" value="'.$email_label.'" style="width:100%;">';
+                <label for="<?php echo esc_attr( $this->get_field_id( 'lname' ) ) ?>"><?php _e( 'Last Name', 'egoi-for-wp' ) ?></label>
 
-            echo '<input type="text" name="'.$this->get_field_name('email_placeholder').'" id="'.$this->get_field_id('email_placeholder').'" placeholder="Placeholder" value="'.$email_placeholder.'" style="width:100%;">';
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'lname_label' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'lname_label' ) ) ?>" placeholder="<?php _e( 'Label', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr( $lname_label ) ?>" data-attribute="lname_label" style="width:100%;<?php echo esc_attr( $style_lname ) ?>">
 
-            echo '
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'lname_placeholder' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'lname_placeholder' ) ) ?>" placeholder="Placeholder" value="<?php echo esc_attr( $lname_placeholder ) ?>" data-attribute="lname_placeholder" style="width:100%;<?php echo esc_attr( $style_lname ) ?>">
+            </p>
+            <?php
+			if ( ! $email ) {
+				$email = 'Email';
+			}
+            ?>
+
+			<p>
+				<input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'email' ) ) ?>" name="<?php echo esc_attr( $this->get_field_id( 'email' ) ) ?>" <?php checked(!empty($email)); ?> type="checkbox" checked="checked" value="Email" disabled="disabled"/>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'email' ) ) ?>">
+                <?php _e( 'Email:', 'egoi-for-wp' ); ?>
+                </label>
+
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'email_label' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'email_label' ) ) ?>" placeholder="<?php _e( 'Label', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr( $email_label ) ?>" style="width:100%;">';
+
+			    <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'email_placeholder' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'email_placeholder' ) ) ?>" placeholder="Placeholder" value="<?php echo esc_attr( $email_placeholder ) ?>" style="width:100%;">';
 			</p>
-			<p>';
 
-            $checked_mobile = '';
-            $style_mobile = 'display:none;';
-            if($mobile){
-                $checked_mobile = 'checked="checked"';
-                $style_mobile = '';
-            }
+            <?php
 
-            echo '<input class="checkbox" id="'.$this->get_field_id('mobile').'" name="'.$this->get_field_name('mobile').'" type="checkbox" value="Mobile" data-attribute="mobile_id" '.$checked_mobile.' />
-				<label for="'.$this->get_field_id('mobile').'">'.__('Mobile', 'egoi-for-wp').
-                '</label>';
+			$checked_mobile = 0;
+			$style_mobile   = 'display:none;';
+			if ( $mobile ) {
+				$checked_mobile = 1;
+				$style_mobile   = '';
+			}
+            ?>
 
-            echo '<input type="text" name="'.$this->get_field_name('mobile_label').'" id="'.$this->get_field_id('mobile_label').'" placeholder="'.__('Label', 'egoi-for-wp').'" value="'.$mobile_label.'" data-attribute="mobile_label" style="width:100%;'.$style_mobile.'">';
+            <p>
+                <input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'mobile' ) ) ?>" name="<?php echo esc_attr( $this->get_field_id( 'mobile' ) ) ?>" type="checkbox" value="Mobile" data-attribute="mobile_id" <?php checked($checked_mobile, 1); ?> />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'mobile' ) ) ?>"><?php _e( 'Mobile', 'egoi-for-wp' ) ?></label>
 
-            echo '<input type="text" name="'.$this->get_field_name('mobile_placeholder').'" id="'.$this->get_field_id('mobile_placeholder').'" placeholder="Placeholder" value="'.$mobile_placeholder.'" data-attribute="mobile_placeholder" style="width:100%;'.$style_mobile.'">';
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'mobile_label' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'mobile_label' ) ) ?>" placeholder="<?php _e( 'Label', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr( $mobile_label ) ?>" data-attribute="mobile_label" style="width:100%;<?php echo esc_attr( $style_mobile ) ?>">';
 
-            if(!$button)
-                $button = __('Subscribe', 'egoi-for-wp');
-
-            echo '
-			</p>
-			<p>';
-            if($default_tag){
-                echo '<label>'.__('Tag', 'egoi-for-wp').'<span class="e-goi-tooltip">
+                <input type="text" name="<?php echo esc_attr( $this->get_field_id( 'mobile_placeholder' ) ) ?>" id="<?php echo esc_attr( $this->get_field_id( 'mobile_placeholder' ) ) ?>" placeholder="Placeholder" value="<?php echo esc_attr( $mobile_placeholder ) ?>" data-attribute="mobile_placeholder" style="width:100%;<?php echo esc_attr( $style_mobile ) ?>">';
+            </p>
+            <p>
+            <?php
+			if ( ! $button ) {
+				$button = __( 'Subscribe', 'egoi-for-wp' );
+			}
+            if ( $default_tag ) {
+            ?>
+				<label><?php _e( 'Tag', 'egoi-for-wp' ) ?><span class="e-goi-tooltip">
 						 <span class="dashicons dashicons-info"></span>
 					  	 <span class="e-goi-tooltiptext e-goi-tooltiptext--active">
-					  	 	'.__('Tag set by default', 'egoi-for-wp').":\n".$default_tag['NAME'].'
+                             <?php _e( 'Tag set by default', 'egoi-for-wp' ) ?>:
+                             <?php echo esc_textarea( $default_tag['NAME'] ); ?>
 					 	</span>
 					</span>
-				</label>';
+				</label>
+            <?php
+			} else {
+            ?>
+			    <label><?php _e( 'Tag', 'egoi-for-wp' ) ?></label>
+			<?php
             }
-            else{
-                echo '<label>'.__('Tag', 'egoi-for-wp').'</label>';
-            }
+            ?>
 
-            echo '<input type="text" name="'.$this->get_field_name('tag').'" id="'.$this->get_field_id('tag').'" placeholder="'.__('Tag Name', 'egoi-for-wp').'" value="'.$tag.'" style="width:100%;">';
-
-            echo '
-			</p>
-			<p>';
-
-            if($this->lang!=''){
-                echo '<label>'.__('Languages', 'egoi-for-wp').'</label><span class="e-goi-tooltip">
-						 <span class="dashicons dashicons-info"></span>
-					  	 <span class="e-goi-tooltiptext e-goi-tooltiptext--active">
-					  	 	'.__('List', 'egoi-for-wp').":\n".$this->listID.'<br>
-					  	 	'.__('Language set by default', 'egoi-for-wp').":\n".$this->lang.'
-					 	</span>
-					</span>
-				</label><br>';
-            }
-            else{
-                echo '<label>'.__('Languages for list', 'egoi-for-wp').":\n".$this->listID.'</label><br>';
-            }
-
-            echo '<select id="'.$this->get_field_name('widget_lang').'" name="'.$this->get_field_name('widget_lang').'" type="text" >';
-            echo '<option value="" selected disabled>'.__('Select a language', 'egoi-for-wp').'</option>';
-
-            foreach ($languages as $value) {
-                if($value == $lang_widget){
-                    echo '<option selected value="'.$value.'">'.$value.'</option>';
-                }
-                else {
-                    echo '<option value="' . $value . '">' . $value . '</option>';
-                }
-            }
-            echo '</select>				
+			<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'tag' ) ) ?>" id="<?php echo esc_attr( $this->get_field_name( 'tag' ) ) ?>" placeholder="<?php _e( 'Tag Name', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr($tag) ?>" style="width:100%;">
 			</p>
 			<p>
-				<label for="'.$this->get_field_id('button').'">'.__('Subscribe Button', 'egoi-for-wp').'</label>';
-            echo '<input type="text" name="'.$this->get_field_name('button').'" id="'.$this->get_field_id('button').'" placeholder="'.__('Subscribe', 'egoi-for-wp').'" value="'.$button.'" style="width:100%;">';
+            <?php
 
-            echo '
-			</p>';
+            if ( $this->lang != '' ) {
+                ?>
+				<label>' . __( 'Languages', 'egoi-for-wp' ) . '</label><span class="e-goi-tooltip">
+						 <span class="dashicons dashicons-info"></span>
+					  	 <span class="e-goi-tooltiptext e-goi-tooltiptext--active">
+                             <?php _e( 'List', 'egoi-for-wp' ) ?>:
+                             <?php echo esc_attr($this->listID) ?>
+                             <br>
+                             <?php _e( 'Language set by default', 'egoi-for-wp' ) ?>:
+                             <?php echo esc_attr(esc_attr( $this->lang )) ?>
+					 	</span>
+					</span>
+				</label>
+                <br>
+            <?php
+            } else {
+                ?>
+				<label><?php _e( 'Languages for list', 'egoi-for-wp' ) ?>:
+                    <?php echo esc_attr( $this->listID ) ?>
+                </label>
+                <br>
+			<?php
+            }
+            ?>
 
-        }else{
-            echo '<p>';
-            echo __('Form disabled! Please enable it in', 'egoi-for-wp');
-            echo ' <b>Smart Marketing -> Widgets</b></p>';
+			<select id="<?php echo esc_attr( $this->get_field_name( 'widget_lang' ) ) ?>" name="<?php echo esc_attr( $this->get_field_name( 'widget_lang' ) ) ?>" type="text" >
+			<option value="" selected disabled><?php _e( 'Select a language', 'egoi-for-wp' ) ?></option>
+
+            <?php
+			foreach ( $languages as $value ) {
+				?>
+                <option <?php selected($value, $lang_widget) ?> value="<?php echo esc_attr( $value ) ?>"><?php echo esc_textarea( $value ) ?></option>
+                <?php
+			}
+            ?>
+
+			</select>
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_name( 'button' ) ) ?>"><?php _e( 'Subscribe Button', 'egoi-for-wp' ) ?></label>';
+			<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'button' ) ) ?>" id="<?php echo esc_attr( $this->get_field_name( 'button' ) ) ?>" placeholder="<?php _e( 'Subscribe', 'egoi-for-wp' ) ?>" value="<?php echo esc_attr( $button ) ?>" style="width:100%;">
+			</p>
+            <?php
+		} else {
+            ?>
+			<p>
+			<?php _e( 'Form disabled! Please enable it in', 'egoi-for-wp' ); ?>
+			<b>Smart Marketing -> Widgets</b>
+            </p>
+		    <?php
         }
-    }
+	}
 }
 
 /* To save widget submissions*/
 function egoi_widget_request() {
 
-    if(isset($_POST['egoi_subscribe']) && ($_POST['egoi_subscribe'] == "submited")) {
+	if ( isset( $_POST['egoi_subscribe'] ) && ( $_POST['egoi_subscribe'] == 'submited' ) ) {
 
-        $id = $_POST['widget_id'];
+		$id = sanitize_key( $_POST['widget_id'] );
 
-        $fname = $_POST['widget_fname'];
-        $lname = $_POST['widget_lname'];
+		$fname = sanitize_text_field( $_POST['widget_fname'] );
+		$lname = sanitize_text_field( $_POST['widget_lname'] );
 
-        $lang = $_POST['widget_lang'];
-        $tag = $_POST['widget_tag'];
+		$lang = sanitize_text_field( $_POST['widget_lang'] );
+		$tag  = sanitize_key( $_POST['widget_tag'] );
 
-        $opt = get_option('egoi_widget');
-        $Egoi4WP = $opt['egoi_widget'];
+		$opt     = get_option( 'egoi_widget' );
+		$Egoi4WP = $opt['egoi_widget'];
 
-        $list = $Egoi4WP['list'];
+		$list = $Egoi4WP['list'];
 
-        // new options
-        $bcolor_success = 'background: '.$Egoi4WP['bcolor_success'].'!important';
-        $bcolor_error = 'background: '.$Egoi4WP['bcolor_error'].'!important';
+		// new options
+		$bcolor_success = 'background: ' . esc_textarea( $Egoi4WP['bcolor_success'] ) . '!important';
+		$bcolor_error   = 'background: ' . esc_textarea( $Egoi4WP['bcolor_error'] ) . '!important';
 
-        if(isset($_POST['widget_email'])) {
+		if ( isset( $_POST['widget_email'] ) ) {
 
-            if($_POST['widget_email'] != '') {
+			if ( $_POST['widget_email'] != '' ) {
 
-                $email = $_POST['widget_email'];
-                if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    echo "<div style='$bcolor_success' class='egoi-widget-error error".$id."'>".$Egoi4WP['msg_invalid']."</div>";
+				$email = sanitize_email( $_POST['widget_email'] );
+				if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+                    ?>
+					<div style='<?php echo esc_attr($bcolor_success) ?>' class='egoi-widget-error error<?php echo esc_attr( $id ) ?>'><?php echo esc_html( $Egoi4WP['msg_invalid'] ) ?></div>
+					<?php
                     exit;
-                }
-            }else {
-                echo "<div style='$bcolor_error' class='egoi-widget-error error".$id."'>".$Egoi4WP['msg_empty']."</div>";
+				}
+			} else {
+                ?>
+				<div style='<?php echo esc_attr($bcolor_error) ?>' class='egoi-widget-error error<?php echo esc_attr( $id ) ?>'><?php echo esc_html( $Egoi4WP['msg_empty'] ) ?></div>
+				<?php
                 exit;
-            }
-        }
+			}
+		}
 
-        if(isset($_POST['widget_mobile'])) {
+		if ( isset( $_POST['widget_mobile'] ) ) {
 
-            if($_POST['widget_mobile'] != ''){
-                $mobile = $_POST['widget_mobile'];
-            }else{
-                echo "<div class='egoi-widget-error error".$id."'>";
-                echo __('There is no number! Please insert your number', 'egoi-for-wp');
-                echo '</div>';
+			if ( $_POST['widget_mobile'] != '' ) {
+				$mobile = sanitize_email( $_POST['widget_mobile'] );
+			} else {
+                ?>
+				<div class='egoi-widget-error error<?php echo esc_attr( $id ) ?>'>
+				<?php _e( 'There is no number! Please insert your number', 'egoi-for-wp' ); ?>
+				</div>
+                <?php
                 exit;
-            }
-        }
+			}
+		}
 
-        $name = $fname.' '.$lname;
+		$name = $fname . ' ' . $lname;
 
-        $api = new Egoi_For_Wp();
-        $get = $api->getSubscriber($list, $email);
+		$api = new Egoi_For_Wp();
+		$get = $api->getSubscriber( $list, $email );
 
-        if((!$get->subscriber->REMOVE_METHOD) && ($get->subscriber->UID)){
-
-            echo "<div style='$bcolor_error' class='egoi-widget-error error ".$id."'>".$Egoi4WP['msg_exists_subscribed']."</div>";
+		if ( ( ! $get->subscriber->REMOVE_METHOD ) && ( $get->subscriber->UID ) ) {
+            ?>
+			<div style='<?php echo esc_attr($bcolor_error) ?>' class='egoi-widget-error error <?php echo esc_attr( $id ) ?>'><?php echo esc_html( $Egoi4WP['msg_exists_subscribed'] ) ?></div>
+            <?php
             exit;
+        } else {
 
-        }else{
+			$status = ! isset( $_POST['widget_double_optin'] ) || $_POST['widget_double_optin'] == 0 ? 1 : 0;
 
-            $status = !isset($_POST['widget_double_optin']) || $_POST['widget_double_optin'] == 0 ? 1 : 0;
+			$result = $api->addSubscriber( $list, $name, $email, $lang, $status, $mobile, intval( $tag ) );
 
-            $result = $api->addSubscriber($list, $name, $email, $lang, $status, $mobile, intval($tag));
+			if ( ! isset( $result->ERROR ) && ! isset( $result->MODIFICATION_DATE ) ) {
+				$form_id = explode( '-', $id );
+				$api->smsnf_save_form_subscriber( $form_id[1], 'widget', $result );
+			}
 
-            if (!isset($result->ERROR) && !isset($result->MODIFICATION_DATE) ) {
-                $form_id = explode('-', $id);
-                $api->smsnf_save_form_subscriber($form_id[1], 'widget', $result);
-            }
+			if ( $result ) {
 
-            if($result){
+				$redirect  = $Egoi4WP['redirect'];
+				$hide_form = $Egoi4WP['hide_form'];
+				if ( $redirect ) {
+					echo 'redirect';
+				} else {
 
-                $redirect = $Egoi4WP['redirect'];
-                $hide_form = $Egoi4WP['hide_form'];
-                if($redirect){
-                    echo "redirect";
-                }else{
-
-                    if($hide_form){
-                        echo "hide";
-                    }else{
-                        echo "<div style='$bcolor_success' class='egoi-widget-success ".$id."'>".$Egoi4WP['msg_subscribed']."</div>";
+					if ( $hide_form ) {
+						echo 'hide';
+					} else {
+						?>
+                        <div style='<?php echo esc_attr($bcolor_success) ?>' class='egoi-widget-success <?php echo esc_attr( $id ) ?>'><?php echo esc_html( $Egoi4WP['msg_subscribed'] ) ; ?></div>
+					    <?php
                     }
-                }
+				}
+				exit;
+			} else {
+                ?>
+				<div style='<?php echo esc_attr($bcolor_error) ?>' class='egoi-widget-error error <?php echo esc_attr( $id ) ?>'><?php echo esc_html( $Egoi4WP['msg_error'] ) ; ?></div>
+				<?php
                 exit;
-            }else{
-                echo "<div style='$bcolor_error' class='egoi-widget-error error ".$id."'>".$Egoi4WP['msg_error']."</div>";
-                exit;
-            }
-        }
-    }
+			}
+		}
+	}
 }

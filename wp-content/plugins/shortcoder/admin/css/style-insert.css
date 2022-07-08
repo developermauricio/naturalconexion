@@ -126,6 +126,8 @@ p .button {
     cursor: pointer;
     position: relative;
     box-shadow: 0 1px 5px -3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: nowrap;
 }
 .sc_head:hover {
     background: lightyellow;
@@ -138,11 +140,25 @@ p .button {
     margin-right: 10px;
     transition: transform 0.8s;
 }
+.sc_head p{
+    white-space: nowrap;
+    display: inline-block;
+    margin: 0 10px 0 15px;
+    color: #666;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sc_head:hover .sc_tools{
+    background: lightyellow;
+}
+
 .sc_tools{
     position: absolute;
     top: 10px;
     right: 10px;
     display: none;
+    background: #fff;
 }
 .sc_tools .button{
     margin-left: 10px;
@@ -202,7 +218,7 @@ p .button {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: #ffffe2;
     padding: 15px 20px;
     border-top: 1px solid #dfdfdf;
     box-shadow: 0 -2px 6px -5px #7d7d7d6e;

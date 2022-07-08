@@ -117,14 +117,6 @@ function h5vp_support_page_callback()
 //  Free Plugin List
 //-------------------------------------------------//
 
-require_once ABSPATH . "wp-admin/includes/plugin-install.php";
-
-function h5vp_free_plugin_loaded(){
-    wp_enqueue_script('plugin-install');
-    wp_enqueue_script('updates');
-}
-add_action('init', 'h5vp_free_plugin_loaded');
-//$table->display();
 if (!class_exists('BPlugins_Free_plugins')) {
     class BPlugins_Free_plugins
     {

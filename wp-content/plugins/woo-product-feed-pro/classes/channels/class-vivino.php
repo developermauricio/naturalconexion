@@ -40,8 +40,8 @@ class WooSEA_vivino {
 					"format" => "required",
 				),
 				"Inventory Count" => array(
-					"name" => "inventory_count",
-					"feed_name" => "inventory_count",
+					"name" => "inventory-count",
+					"feed_name" => "inventory-count",
 					"format" => "required",
 					"woo_suggest" => "quantity",
 				),

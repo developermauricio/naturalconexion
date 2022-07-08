@@ -1,8 +1,8 @@
 # WP Super Cache #
 * Contributors: donncha, automattic
 * Tags: performance, caching, wp-cache, wp-super-cache, cache
-* Tested up to: 5.8.1
-* Stable tag: 1.7.4
+* Tested up to: 6.0
+* Stable tag: 1.7.9
 * Requires at least: 3.1
 * Requires PHP: 5.2.4
 * License: GPLv2 or later
@@ -268,6 +268,35 @@ Your theme is probably responsive which means it resizes the page to suit whatev
 
 
 ## Changelog ##
+
+### 1.7.9 ###
+* Fix nonces used by "Delete Cache" button and remove JS from it on the frontend admin bar.
+* Define the constant WPSCDISABLEDELETEBUTTON to disable the "Delete Cache" button in the admin bar.
+
+### 1.7.8 ###
+* Change the admin bar "Delete Cache" button into an AJAX link #808 #810
+* Fix link to log file in custom WordPress structure #807
+* Add an auto updating preload message. #811 #816
+* Use REQUEST_URI instead of GET to check GET status. #813
+* Add commonWP and disclaimer to "recommended links" #812
+* Hide warnings in case files deleted #814
+* Remove the GET param when removing tracking params #818
+* Check that post is private to unpublish it and clear cache 2249e58e6f585d936c0993e9d18e6382fa976a66
+* Check $gc_flag was opened before closing it. #819
+
+### 1.7.7 ###
+* Fixes to settings page
+
+### 1.7.6 ###
+* Fix for PHP < 7.3
+
+### 1.7.5 ###
+* Move the text of the settings pages into separate files. #791
+* Allow editors to delete all the cache files. #793
+* Only clear the cache from the current site, not the whole network (admin bar link). #794
+* Check $cache_path is somewhat sane. #797
+* realpath returns false if directory not found. #798
+* Don't reject bots for new installs. They "preload pages" too. #800
 
 ### 1.7.4 ###
 * Make config file path configurable, props @sebastianpopp #755
@@ -767,4 +796,4 @@ Your theme is probably responsive which means it resizes the page to suit whatev
 
 
 ## Upgrade Notice ##
-Security and new feature release. Security issue is very difficult to perform but you should upgrade.
+Misc fixes

@@ -16,7 +16,7 @@ class Loco_admin_file_DiffController extends Loco_admin_file_BaseController {
             $path = $pofile->getPath();
             $action = 'restore:'.$path;
             // set up view now in case of late failure
-            $fields = new Loco_mvc_HiddenFields( array() );
+            $fields = new Loco_mvc_HiddenFields( [] );
             $fields->setNonce($action);
             $this->set( 'hidden', $fields );
             // attempt rollback if valid nonce posted back with backup path
@@ -73,14 +73,14 @@ class Loco_admin_file_DiffController extends Loco_admin_file_BaseController {
         $info = Loco_mvc_FileParams::create($file);
         $info['mtime'] = $file->modified();
         $this->set( 'master', $info );
-        $this->set( 'title', sprintf( __('Restore %s','loco-translate'), $info->name ) );        
+        $this->setFileTitle( $file, __('Restore %s','loco-translate') );
         
         $enabled = Loco_data_Settings::get()->num_backups;
         $this->set( 'enabled', $enabled );
 
-        $files = array();
+        $files = [];
         $wp_content = loco_constant('WP_CONTENT_DIR');
-        $paths = array( $file->getRelativePath($wp_content) );
+        $paths = [ $file->getRelativePath($wp_content) ];
         
         $podate = 'pot' === $file->extension() ? 'POT-Creation-Date' : 'PO-Revision-Date'; 
         $backups = new Loco_fs_Revisions($file);
@@ -126,12 +126,12 @@ class Loco_admin_file_DiffController extends Loco_admin_file_BaseController {
         $this->prepareFsConnect( 'update', $this->get('path') );
         
         // prepare revision arguments for JavaScript
-        $this->set( 'js', new Loco_mvc_ViewParams( array(
+        $this->set( 'js', new Loco_mvc_ViewParams( [
             'paths' => $paths,
-            'nonces' => array (
+            'nonces' =>  [
                 'diff' => wp_create_nonce('diff'),
-            )
-        ) ) );
+            ]
+        ] ) );
        
         $this->enqueueScript('podiff');
         return $this->view('admin/file/diff', compact('files','backups') );

@@ -78,29 +78,55 @@ private function get_dynamic_attributes(){
 private function get_custom_attributes() {
 	global $wpdb;
      	$list = array();
-     	
-      $sql = "SELECT meta.meta_id, meta.meta_key as name, meta.meta_value as type FROM " . $wpdb->prefix . "postmeta" . " AS meta, " . $wpdb->prefix . "posts" . " AS posts WHERE meta.post_id = posts.id AND posts.post_type LIKE '%product%' AND meta.meta_key NOT LIKE 'pyre%' AND meta.meta_key NOT LIKE 'sbg_%' AND meta.meta_key NOT LIKE 'rp_%' GROUP BY meta.meta_key ORDER BY meta.meta_key ASC;";
 
-//      	$sql = "SELECT 
-//			meta.meta_id, 
-//			meta.meta_key as name, 
-//			meta.meta_value as type 
-//		FROM " . $wpdb->prefix . "postmeta" . " AS meta, " . $wpdb->prefix . "posts" . " AS posts 
-//		WHERE 
-//			meta.post_id = posts.id AND 
-//			posts.post_type LIKE 'product_%' 
-//			GROUP BY meta.meta_key
-//			ORDER BY meta.meta_key ASC;";
-	$data = $wpdb->get_results($sql);
+	if ( ! function_exists( 'woosea_get_meta_keys_for_post_type' ) ) :
+
+    		function woosea_get_meta_keys_for_post_type( $post_type, $sample_size = 'modified' ) {
+        		$meta_keys = array();
+        		$posts     = get_posts( array( 'post_type' => $post_type, 'limit' => $sample_size ) );
+
+        		foreach ( $posts as $post ) {
+            			$post_meta_keys = get_post_custom_keys( $post->ID );
+            			$meta_keys      = array_merge( $meta_keys, $post_meta_keys );
+        		}
+
+        		// Use array_unique to remove duplicate meta_keys that we received from all posts
+        		// Use array_values to reset the index of the array
+        		return array_values( array_unique( $meta_keys ) );
+    		}
+	endif;
+
+	$post_type = "product";
+	$data = woosea_get_meta_keys_for_post_type($post_type);	
 
       	if (count($data)) {
-     		foreach ($data as $key => $value) {
-			if (!preg_match("/_product_attributes/i",$value->name)){
-				$value_display = str_replace("_", " ",$value->name);
-                    		$list["custom_attributes_" . $value->name] = ucfirst($value_display);
-            		} else {
-				$sql = "SELECT meta.meta_id, meta.meta_key as name, meta.meta_value as type FROM " . $wpdb->prefix . "postmeta" . " AS meta, " . $wpdb->prefix . "posts" . " AS posts WHERE meta.post_id = posts.id AND posts.post_type LIKE '%product%' AND meta.meta_key='_product_attributes';";
-				$data = $wpdb->get_results($sql);
+
+		foreach ($data as $key => $value) {
+			if (!preg_match("/_product_attributes/i",$value)){
+				$value_display = str_replace("_", " ",$value);
+                    		$list["custom_attributes_" . $value] = ucfirst($value_display);
+			} else {
+                                $data = @$wpdb->get_results(
+//                                      $wpdb->prepare("
+//                                              SELECT 
+//                                              meta.meta_id, 
+//                                              meta.meta_value AS type 
+//                                              FROM {$wpdb->prefix}postmeta AS meta,
+//                                              {$wpdb->prefix}posts AS posts 
+//                                              WHERE meta.post_id = posts.id 
+//                                              AND posts.post_type LIKE '%product%' 
+//                                              AND meta.meta_key='_product_attributes' AND meta.meta_value NOT LIKE \"%{}\";")
+
+                                        $wpdb->prepare("
+                                                SELECT
+                                                meta.meta_id,
+                                                meta.meta_value AS type
+                                                FROM {$wpdb->prefix}postmeta AS meta,
+                                                {$wpdb->prefix}posts AS posts
+                                                WHERE meta.post_id = posts.id 
+                                                AND posts.post_type LIKE '%s' 
+                                                AND meta.meta_key='_product_attributes' AND meta.meta_value NOT LIKE \"%{}\"", array( '%product%' ))
+                                );
       				if (count($data)) {
      					foreach ($data as $key => $value) {
 						$product_attr = unserialize($value->type);
@@ -163,7 +189,6 @@ public function get_mapping_attributes_dropdown() {
      		 * Create dropdown with product attributes
      		 */
 		$dropdown = "<option></option>";
-
                 $custom_attributes = $this->get_custom_attributes();
 
 		if ( class_exists( 'All_in_One_SEO_Pack' ) ) {
@@ -190,6 +215,7 @@ public function get_mapping_attributes_dropdown() {
 	}
 
 	public function get_special_attributes_clean(){
+		
                 $custom_attributes = $this->get_custom_attributes();
 		return $custom_attributes;
 	}
@@ -240,11 +266,17 @@ public function get_mapping_attributes_dropdown() {
 			"vivino_price" => "Pinterest / TikTok / Vivino price",
 			"vivino_sale_price" => "Pinterest / TikTok / Vivino sale price",
 			"vivino_regular_price" => "Pinterest / TikTok / Vivino regular price",
+			"vivino_net_price" => "Pinterest / TikTok / Vivino price excl. VAT",
+			"vivino_net_regular_price" => "Pinterest / TikTok / Vivino regular price excl. VAT",
+			"vivino_net_sale_price" => "Pinterest / TikTok / Vivino sale price excl. VAT",
 			"non_geo_wcml_price" => "Non GEO WCML price",
 			"mm_min_price" => "Mix & Match minimum price",
 			"mm_min_regular_price" => "Mix & Match minimum regular price",
 			"mm_max_price" => "Mix & Match maximum price",
 			"mm_max_regular_price" => "Mix & Match maximum regular price",
+                        "separator_price" => "Separator price",
+                        "separator_regular_price" => "Separator regular price",
+                        "separator_sale_price" => "Separator sale price",		
 			"discount_percentage" => "Discount percentage",
 			"link" => "Link",
 			"link_no_tracking" => "Link without parameters",
@@ -273,6 +305,8 @@ public function get_mapping_attributes_dropdown() {
 			"region_id" => "Region Id",
 			"stock_status" => "Stock Status WooCommerce",
             		"quantity" => "Quantity [Stock]",
+			"virtual" => "Virtual",
+			"downloadable" => "Downloadable",
 			"product_type" => "Product Type",
 			"content_type" => "Content Type",
                         "exclude_from_catalog" => "Excluded from catalog",
@@ -361,7 +395,7 @@ public function get_mapping_attributes_dropdown() {
 
                 /**
                  * Create dropdown with custom attributes
-                 */
+		 */
                 $custom_attributes = $this->get_custom_attributes();
 
                 if ( class_exists( 'All_in_One_SEO_Pack' ) ) {
@@ -474,7 +508,9 @@ public function get_mapping_attributes_dropdown() {
 			"region_id" => "Region Id",
 			"stock_status" => "Stock Status WooCommerce",
 			"quantity" => "Quantity [Stock]",
-                        "price" => "Price",
+			"virtual" => "Virtual",
+                        "downloadable" => "Downloadable",
+			"price" => "Price",
                         "regular_price" => "Regular price",
                         "sale_price" => "Sale price",
                         "net_price" => "Price excl. VAT",
@@ -498,11 +534,17 @@ public function get_mapping_attributes_dropdown() {
 			"vivino_price" => "Pinterest / TikTok / Vivino price",
 			"vivino_sale_price" => "Pinterest / TikTok / Vivino sale price",
                         "vivino_regular_price" => "Pinterest / TikTok / Vivino regular price",
+                        "vivino_net_price" => "Pinterest / TikTok / Vivino price excl. VAT",
+                        "vivino_net_regular_price" => "Pinterest / TikTok / Vivino regular price excl. VAT",
+                        "vivino_net_sale_price" => "Pinterest / TikTok / Vivino sale price excl. VAT",
 			"non_geo_wcml_price" => "Non GEO WCML price",
 			"mm_min_price" => "Mix & Match minimum price",
                         "mm_min_regular_price" => "Mix & Match minimum regular price",
                         "mm_max_price" => "Mix & Match maximum price",
                         "mm_max_regular_price" => "Mix & Match maximum regular price",
+		       	"separator_price" => "Separator price",
+                        "separator_regular_price" => "Separator regular price",
+                        "separator_sale_price" => "Separator sale price",
 			"discount_percentage" => "Discount percentage",
 			"item_group_id" => "Item group ID",
                         "weight" => "Weight",
@@ -564,17 +606,15 @@ public function get_mapping_attributes_dropdown() {
 			$attributes = array_merge($attributes, $dynamic_attributes);
 		}
 
-                if(is_array($this->get_custom_attributes())){
-			$custom_attributes = $this->get_custom_attributes();
+		$custom_attributes = $this->get_custom_attributes();
 
-                	if ( class_exists( 'All_in_One_SEO_Pack' ) ) {
-                        	$custom_attributes['custom_attributes__aioseop_title'] = "All in one seo pack title";
-                        	$custom_attributes['custom_attributes__aioseop_description'] = "All in one seo pack description";
-                	}
-
-			array_walk($custom_attributes, function(&$value, $key) { $value .= ' (Custom attribute)';});
-			$attributes = array_merge($attributes, $custom_attributes);
+                if ( class_exists( 'All_in_One_SEO_Pack' ) ) {
+                       	$custom_attributes['custom_attributes__aioseop_title'] = "All in one seo pack title";
+                       	$custom_attributes['custom_attributes__aioseop_description'] = "All in one seo pack description";
                 }
+
+		array_walk($custom_attributes, function(&$value, $key) { $value .= ' (Custom attribute)';});
+		$attributes = array_merge($attributes, $custom_attributes);
 
 		$attributes = array_merge($attributes, $static);
 
