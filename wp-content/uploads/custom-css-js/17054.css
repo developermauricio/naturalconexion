@@ -1,5 +1,9 @@
 <!-- start Simple Custom CSS and JS -->
 <style type="text/css">
+ul.list-details-footer {
+    display: none;
+}
+
 div#sliderJuernes {
     margin-top: -40px;
 }

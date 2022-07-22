@@ -5,13 +5,26 @@
     <link>https://naturalconexion.com</link>
     <description>WooCommerce Product Feed PRO - This product feed is created with the Product Feed PRO for WooCommerce plugin from AdTribes.io. For all your support questions check out our FAQ on https://www.adtribes.io or e-mail to: support@adtribes.io </description>
     <item>
+      <g:id>21076</g:id>
+      <g:title>Crema Serum Antiedad 60 GR Y Crema Hidratante Nutritiva Uva 60 gr</g:title>
+      <g:description>Ingredientes principales: Aceite de Argán. Extracto de Manzanilla. Aloe Vera. Extracto de Manzanilla. Semillas de Uva. Germen de Trigo. Vitamina E. Colágeno. Elastina.</g:description>
+      <g:link>https://naturalconexion.com/product/crema-serum-antiedad-60-gr-y-crema-hidratante-nutritiva-uva-60-gr/</g:link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-12-at-11.39.45-AM-1.jpeg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>COP 91000.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
+      <g:condition>New</g:condition>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
       <g:id>20258</g:id>
       <g:title>Que papá se reconcilie con su piel</g:title>
       <g:description>Ingredientes principales: Caléndula. Manzanilla. Aloe vera. Manteca de Karité. Pepino. Germen de Trigo. Aceite de Oliva. Dióxido de Titanio. (Pantalla física. Con certificación orgánica para cosmética natural)</g:description>
       <g:link>https://naturalconexion.com/product/que-papa-se-reconcilie-con-su-piel/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/05/91-1.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 61965.00</g:price>
+      <g:price>COP 84900.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -192,7 +205,7 @@
       <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
       <g:link>https://naturalconexion.com/product/serum-facial-con-vitamina-c/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 185000.00</g:price>
       <g:google_product_category>8452</g:google_product_category>
       <g:product_type>Kit especiales||Facial</g:product_type>
@@ -283,9 +296,9 @@
       <g:link>https://naturalconexion.com/product/crema-serum-antiedad-60-gr/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/09/47.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 75000.00</g:price>
-      <g:google_product_category>2526</g:google_product_category>
-      <g:product_type>Facial</g:product_type>
+      <g:price>COP 56250.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -429,18 +442,6 @@
       <g:price>COP 15000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
-      <g:id>14633</g:id>
-      <g:title>Dúo Perfecto</g:title>
-      <g:link>https://naturalconexion.com/product/exfoliante-manzanilla-120-gr-y-mascarilla-de-avena-120-gr/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/07/101.jpg.png</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 30000.00</g:price>
-      <g:google_product_category>8452</g:google_product_category>
-      <g:product_type>Kit especiales||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1065,9 +1066,9 @@
       <g:link>https://naturalconexion.com/product/crema-facial-hidratante-de-uva/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_FACIAL_UVA.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 55000.00</g:price>
-      <g:google_product_category>2526</g:google_product_category>
-      <g:product_type>Facial</g:product_type>
+      <g:price>COP 41250.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1314,9 +1315,9 @@
       <g:link>https://naturalconexion.com/product/nutritiva-de-coco/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/06.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 28000.00</g:price>
-      <g:google_product_category>469</g:google_product_category>
-      <g:product_type>Productos veganos||Capilar</g:product_type>
+      <g:price>COP 25200.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Productos veganos||Ofertas||Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1378,7 +1379,7 @@
       <g:description>Ingredientes principales: Extracto Caléndula. Extracto de ortiga. Extracto de Manzanilla. Extracto de sauco y pepino. Extracto de almendras y ajonjolí. Extracto de ortiga. Bisabolol.</g:description>
       <g:link>https://naturalconexion.com/product/leche-de-ortiga-y-venadillo/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/leche-de-ortiga.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>COP 46000.00</g:price>
       <g:google_product_category>474</g:google_product_category>
       <g:product_type>Corporal</g:product_type>
@@ -1546,7 +1547,7 @@
       <g:title>Crema Nutritiva Capilar Chocolister Cacao Claro 500ML</g:title>
       <g:description>Ingredientes: Cacao. Linaza. San Joaquín. Aguacate. Jojoba. Germen de trigo.</g:description>
       <g:link>https://naturalconexion.com/product/chocolister-cabello-claro/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/05.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/03.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 45500.00</g:price>
       <g:google_product_category>469</g:google_product_category>
@@ -1559,7 +1560,7 @@
       <g:title>Crema Nutritiva Capilar Chocolister Cacao Oscuro.</g:title>
       <g:description>Ingredientes principales: Cacao. Linaza. San Joaquín. Aguacate. Jojoba. Germen de trigo.</g:description>
       <g:link>https://naturalconexion.com/product/chocolister-cabello-oscuro/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/03.jpg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/05.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 45500.00</g:price>
       <g:google_product_category>469</g:google_product_category>
@@ -1640,9 +1641,9 @@
       <g:link>https://naturalconexion.com/product/shampoo-de-coco-y-almendras/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/09.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 28000.00</g:price>
-      <g:google_product_category>469</g:google_product_category>
-      <g:product_type>Productos veganos||Capilar</g:product_type>
+      <g:price>COP 25200.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Productos veganos||Ofertas||Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>

@@ -157,9 +157,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/02/73.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>12504</g:item_group_id>
-        <g:custom_label_1>aloevera</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Bonos de regalo &gt; Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>aloevera</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -210,6 +210,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/04/82.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>13115</g:item_group_id>
+        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal</g:product_type>
     </item>
@@ -267,24 +268,6 @@
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-25.png]]></g:additional_image_link>
     </item>
     <item>
-        <g:id>14633</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[         Exfoliante Manzanilla 120 gr: Activa la belleza de tu piel incluyendo, en tu rutina de cuidado, nuestra Crema Limpiadora Exfoliante con suave complejo de microgránulos de semillas, germen de trigo y extracto de manzanilla, que penetran los poros, ayudando a remover las impurezas, purificando tu piel y dejándola radiante, sedosa y suave.  Mascarilla de Avena 120 gr: ¡Es momento de una sesión de spa en tu hogar! Regálate un momento de conexión contigo y la naturaleza, disfruta de nuestra Mascarilla de acción profunda que remueve impurezas dejando la piel radiante, suave y sedosa. Previene el envejecimiento prematuro, atenúa las arrugas y devuélvele suavidad y tersura a tu rostro. Ideal para todo tipo de piel.  Ingredientes principales:   Manzanilla. Caléndula. Aceite de Oliva. Aceite de semillas de uva. Aceite de argán. Semillas de mora. Semillas de uva. Harina de arroz.  ¿Cómo se usa? Aplicar el producto sobre la piel limpia con movimientos circulares, realizando suaves masajes durante dos minutos, luego enjuagar con abundante agua. Realizar este proceso una vez a la semana o cada 15 días.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Activa la belleza natural de tu piel. ¡Pídelo ya!   ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>14633</g:mpn>
-        <g:title>Dúo Perfecto</g:title>
-        <g:short_description><![CDATA[      ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>30000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/exfoliante-manzanilla-120-gr-y-mascarilla-de-avena-120-gr/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/07/101.jpg.png]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>14633</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial &gt; Kit especiales</g:product_type>
-    </item>
-    <item>
         <g:id>14953</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[        ¡Es momento de una sesión de spa en tu hogar! Regálate un momento de conexión contigo y la naturaleza. Disfruta de nuestra Mascarilla Facual de acción profunda, que hidrata, nutre y limpia, dejando la piel radiante, suave y sedosa. Ideal para pieles delicadas y/o secas.   Ingredientes principales:   Caléndula Manzanilla Aloe Vera Sachi Inchi Arroz   ¿Cómo se usa?  Aplicar una fina capa en el cuello y el rostro, con suaves masajes circulares. Dejar actuar entre 15-30 minutos. Enjugar con abundante agua.  Nuestros productos:   No contamina el agua Son 100% biodegradable Agroecológicos Naturales No contienen parabenos No son testados en animales  Devuelve la vida a tu piel ¡Pídelo ya! ]]></g:description>
@@ -298,9 +281,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/07/33-1.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>14953</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
     </item>
     <item>
         <g:id>15495</g:id>
@@ -389,9 +372,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>15867</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>favoritos</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>favoritos</g:custom_label_1>
     </item>
     <item>
         <g:id>15962</g:id>
@@ -425,9 +408,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>16030</g:item_group_id>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -443,9 +426,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>16030</g:item_group_id>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.135 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -464,9 +447,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>16030</g:item_group_id>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.074 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -486,9 +469,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/09/35.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>16033</g:item_group_id>
-        <g:custom_label_1>linea facial manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -527,9 +510,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/09/16.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>16039</g:item_group_id>
-        <g:custom_label_1>gel gel pronto alivio</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>gel gel pronto alivio</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.278 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -549,9 +532,11 @@
         <g:link><![CDATA[https://naturalconexion.com/product/crema-serum-antiedad-60-gr/]]></g:link>
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/09/47.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:sale_price>56250 COP</g:sale_price>
         <g:item_group_id>16042</g:item_group_id>
+        <g:custom_label_0>on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
+        <g:product_type>Facial &gt; Ofertas</g:product_type>
     </item>
     <item>
         <g:id>16045</g:id>
@@ -663,6 +648,25 @@
         <g:product_type>Facial</g:product_type>
     </item>
     <item>
+        <g:id>17269</g:id>
+        <g:inventory>5</g:inventory>
+        <g:description><![CDATA[        ]]></g:description>
+        <g:condition>new</g:condition>
+        <g:mpn>17269</g:mpn>
+        <g:title>Kit Sérum Facial Con Vitamina C Mayakú</g:title>
+        <g:short_description><![CDATA[  ]]></g:short_description>
+        <g:availability>in stock</g:availability>
+        <g:price>185000 COP</g:price>
+        <g:link><![CDATA[https://naturalconexion.com/product/serum-facial-con-vitamina-c/]]></g:link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg]]></g:image_link>
+        <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:item_group_id>17269</g:item_group_id>
+        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Anti-Aging Skin Care Kits</g:google_product_category>
+        <g:product_type>Facial &gt; Kit especiales</g:product_type>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg]]></g:additional_image_link>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
+    </item>
+    <item>
         <g:id>17297</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[        ]]></g:description>
@@ -676,6 +680,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2022-01-24-at-10.56.44-AM.jpeg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>17297</g:item_group_id>
+        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Ofertas</g:product_type>
     </item>
@@ -694,10 +699,10 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:sale_price>25200 COP</g:sale_price>
         <g:item_group_id>17383</g:item_group_id>
-        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
+        <g:custom_label_0>on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Ofertas</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:shipping_weight>0.32 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -717,7 +722,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/24.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>17427</g:item_group_id>
-        <g:custom_label_0>recent-product top-30-days</g:custom_label_0>
+        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
@@ -741,9 +746,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>17602</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:shipping_weight>0.035 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -764,9 +769,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>17809</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>lanzamiento serum 15</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Anti-Aging Skin Care Kits</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>lanzamiento serum 15</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg]]></g:additional_image_link>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
@@ -807,6 +812,30 @@
         <g:product_type>Facial &gt; Kit especiales</g:product_type>
     </item>
     <item>
+        <g:id>18385</g:id>
+        <g:inventory>5</g:inventory>
+        <g:description><![CDATA[                  Nuestro Desodorante Natural de Dama, cambio de imagen, pero sigue siendo la misma fórmula.   «RECUERDA DEJARNOS EN LAS OBSERVACIONES CUANTOS QUIERES DE DAMA O DE CABALLERO» ¡Protégete de naturalmente! La línea de Desodorantes Naturales de Natural Conexion, está elaborada con ingredientes bio-activos derivados de la salvia, el tomillo, el romero y el laurel que, por sus propiedades, evitan la generación del mal olor a causa del sudor. No mancha la piel, no contiene alcohol etílico, ni compuestos antitranspirantes, permitiendo que la piel respire naturalmente.  Ingredientes principales:   Salvia.   Caléndula.   Manzanilla. Lavanda. Piedra Lumbre.   ¿Cómo se usa?  Aplicar una fina capa en la axila, sobre la piel limpia y seca.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables.   Agroecológico.   Naturales. No contienen parabenos. No son testados en animales.  ¡Conoce el poder natural! Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya! ]]></g:description>
+        <g:condition>new</g:condition>
+        <g:mpn>18385</g:mpn>
+        <g:title>Desodorante Natural Compra 6 y te Obsequiamos 1</g:title>
+        <g:short_description><![CDATA[       ]]></g:short_description>
+        <g:availability>in stock</g:availability>
+        <g:price>119400 COP</g:price>
+        <g:link><![CDATA[https://naturalconexion.com/product/desodorante-natural-compra-6-y-te-obsequiamos-1/]]></g:link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-07-21-at-9.30.17-AM.jpeg]]></g:image_link>
+        <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:item_group_id>18385</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
+        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
+        <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>calendula favoritos</g:custom_label_1>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
+        <g:shipping_weight>0.068 kg</g:shipping_weight>
+        <g:shipping_length>1 cm</g:shipping_length>
+        <g:shipping_height>50 cm</g:shipping_height>
+        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
+    </item>
+    <item>
         <g:id>18449</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[        Hidrata y protege naturalmente. Tratamiento formulado con extracto natural de romero, ortiga, quina y aloe vera, cuyos ingredientes activos favorecen la regeneración del folículo piloso, estimulando el crecimiento, evitando la caída y dándole un aspecto revitalizado. Además de estos compuestos estimulantes, contiene otros extractos vegetales que fortalecen, reparan, humectan, nutren y acondicionan la fibra capilar. Ideal para el crecimiento del cabello.  Ingredientes principales:  Extracto de Romero. Extracto de Ortiga. Extracto de Quina. Extracto de Aloe vera. Extracto de Lino. Extracto de San Joaquín.   ¿Cómo se usa?  Humedezca muy bien el cabello, aplique el shampoo y realice suaves masajes en forma circular hasta hacer espuma. Enjuague con abundante agua, procurando no dejar residuos  Ingredientes principales   Extracto Natural de Romero. Ortiga. Quina. Áloe Vera.   ¿Cómo lo uso?  Aplícalo con suaves masajes sobre el cabello húmedo hasta que salga espuma. Enjuágalo con abundante agua.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Déjate envolver por la magia de la belleza natural Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya! ]]></g:description>
@@ -821,9 +850,10 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>18449</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>ortiga quina</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>ortiga quina</g:custom_label_1>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/01/DSC09743-scaled.jpg]]></g:additional_image_link>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -860,9 +890,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>19643</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -880,9 +910,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>19912</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>lanzamiento mango</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>lanzamiento mango</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -900,9 +930,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>20023</g:item_group_id>
         <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:custom_label_1>mango</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>mango</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -937,16 +967,34 @@
         <g:title>Que papá se reconcilie con su piel</g:title>
         <g:short_description><![CDATA[      ]]></g:short_description>
         <g:availability>in stock</g:availability>
-        <g:price>72900 COP</g:price>
+        <g:price>84900 COP</g:price>
         <g:link><![CDATA[https://naturalconexion.com/product/que-papa-se-reconcilie-con-su-piel/]]></g:link>
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/05/91-1.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:sale_price>61965 COP</g:sale_price>
         <g:item_group_id>20258</g:item_group_id>
-        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
-        <g:custom_label_1>favoritos</g:custom_label_1>
+        <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>favoritos</g:custom_label_1>
+    </item>
+    <item>
+        <g:id>21076</g:id>
+        <g:inventory>5</g:inventory>
+        <g:description><![CDATA[        Su fórmula está diseñada para estimular la producción de fibras de colágeno y elastina, actuando como factor antienvejecimiento. Ayuda a renovar los tejidos atenuando las líneas de expresión, manteniendo y prolongando el aspecto joven de la piel, devolviendo su elasticidad, firmeza y lozanía. ¡Prolonga el aspecto joven de tu piel!   Ingredientes principales:   Germen de trigo. Uva. Argán. Maracuyá. Jojoba. Oliva. Aguacate. Vitamina E. Colágeno. Elastina.   ¿Cómo se usa?  Aplicar el Serum Antiedad en el día y en la noche, después de limpiar y tonificar la piel. Posteriormente, aplicar la Crema Hidratante Nutritiva.  Nuestros productos:   No contamina el agua Son 100% biodegradable Agroecológicos Naturales No contienen parabenos No son testados en animales  Devuelve la vida a tu piel ¡Pídelo ya! ]]></g:description>
+        <g:condition>new</g:condition>
+        <g:mpn>21076</g:mpn>
+        <g:title>Crema Serum Antiedad 60 GR Y Crema Hidratante Nutritiva Uva 60 gr</g:title>
+        <g:short_description><![CDATA[      ]]></g:short_description>
+        <g:availability>in stock</g:availability>
+        <g:price>130000 COP</g:price>
+        <g:link><![CDATA[https://naturalconexion.com/product/crema-serum-antiedad-60-gr-y-crema-hidratante-nutritiva-uva-60-gr/]]></g:link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-12-at-11.39.45-AM-1.jpeg]]></g:image_link>
+        <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:sale_price>91000 COP</g:sale_price>
+        <g:item_group_id>21076</g:item_group_id>
+        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
+        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
+        <g:product_type>Facial &gt; Ofertas</g:product_type>
     </item>
     <item>
         <g:id>7426</g:id>
@@ -963,9 +1011,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7426</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>calendula favoritos</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>calendula favoritos</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.068 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -987,9 +1035,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7429</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.107 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1033,9 +1081,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7431</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
     </item>
     <item>
         <g:id>7433</g:id>
@@ -1050,9 +1098,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7431</g:item_group_id>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:shipping_weight>0.012 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1070,9 +1118,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7431</g:item_group_id>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:shipping_weight>0.012 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1090,9 +1138,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7431</g:item_group_id>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
         <g:shipping_weight>0.012 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1111,9 +1159,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/04.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7439</g:item_group_id>
-        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar</g:product_type>
+        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.543 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1134,9 +1182,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/10.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7440</g:item_group_id>
-        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1152,10 +1200,12 @@
         <g:link><![CDATA[https://naturalconexion.com/product/shampoo-de-coco-y-almendras/]]></g:link>
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/09.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:sale_price>25200 COP</g:sale_price>
         <g:item_group_id>7443</g:item_group_id>
-        <g:custom_label_1>almendras</g:custom_label_1>
+        <g:custom_label_0>on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:product_type>Capilar &gt; Ofertas &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>almendras</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1174,9 +1224,9 @@
         <g:sale_price>25200 COP</g:sale_price>
         <g:item_group_id>7445</g:item_group_id>
         <g:custom_label_0>on-sale</g:custom_label_0>
-        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Ofertas</g:product_type>
+        <g:custom_label_1>manzanilla</g:custom_label_1>
         <g:shipping_weight>0.32 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1197,9 +1247,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7446</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>ortiga quina</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>ortiga quina</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1216,9 +1266,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/53.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7451</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.125 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1238,9 +1288,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/53.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7451</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>1 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1261,9 +1311,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7469</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>calendula</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>calendula</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.068 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1281,12 +1331,12 @@
         <g:availability>in stock</g:availability>
         <g:price>45500 COP</g:price>
         <g:link><![CDATA[https://naturalconexion.com/product/chocolister-cabello-claro/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/05.jpg]]></g:image_link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/03.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7470</g:item_group_id>
-        <g:custom_label_1>cacao</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>cacao</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>41000 kg</g:shipping_weight>
     </item>
@@ -1301,12 +1351,12 @@
         <g:availability>in stock</g:availability>
         <g:price>45500 COP</g:price>
         <g:link><![CDATA[https://naturalconexion.com/product/chocolister-cabello-oscuro/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/03.jpg]]></g:image_link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/05.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7473</g:item_group_id>
-        <g:custom_label_1>cacao</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>cacao</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1323,9 +1373,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/64.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7477</g:item_group_id>
-        <g:custom_label_1>almendras</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal</g:product_type>
+        <g:custom_label_1>almendras</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.303 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1388,10 +1438,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/51.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7483</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:shipping_weight>0.035 kg</g:shipping_weight>
         <g:shipping_length>3.1 cm</g:shipping_length>
         <g:shipping_height>10.5 cm</g:shipping_height>
@@ -1411,9 +1460,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/48.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7485</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:shipping_weight>0.035 kg</g:shipping_weight>
         <g:shipping_length>3.1 cm</g:shipping_length>
         <g:shipping_height>10.5 cm</g:shipping_height>
@@ -1434,9 +1483,9 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7486</g:item_group_id>
         <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>calendula linea facial manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>calendula linea facial manzanilla</g:custom_label_1>
         <g:shipping_weight>0.074 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1512,9 +1561,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Gel-Pronto-Alivio-60-gr.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7503</g:item_group_id>
-        <g:custom_label_1>gel gel pronto alivio</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>gel gel pronto alivio</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.278 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1535,9 +1584,10 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/19.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7504</g:item_group_id>
-        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
+        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.341 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1558,9 +1608,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/61.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7513</g:item_group_id>
-        <g:custom_label_1>calendula linea facial manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>calendula linea facial manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.28 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1581,9 +1631,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/62.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7514</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.28 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1604,32 +1654,14 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/TE-VERDE.jpeg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7515</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.28 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
         <g:product_dimensions>1:1:1:cm</g:product_dimensions>
-    </item>
-    <item>
-        <g:id>7518</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestra crema hidratante contiene ingredientes activos naturales que calman, nutren, hidratan, regeneran y protegen la piel. Solo para uso externo.  Ingredientes principales:   Extracto Caléndula. Extracto de ortiga. Extracto de Manzanilla. Extracto de sauco y pepino. Extracto de almendras y ajonjolí. Extracto de ortiga. Bisabolol.   ¿Cómo se usa?  Aplicar varias veces al día sobre la zona deseada, haciendo masajes hasta que se absorba totalmente.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Conoce el poder de lo natural! Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7518</g:mpn>
-        <g:title>Crema Hidratante Nutritiva Ortiga y Venadillo 250 ml</g:title>
-        <g:short_description><![CDATA[Nuestra crema hidratante contiene ingredientes activos naturales que calman, nutren, hidratan, regeneran y protegen la piel. Solo para uso externo.  Ingredientes principales:   Extracto Caléndula. Extracto de ortiga. Extracto de Manzanilla. Extracto de sauco y pepino. Extracto de almendras y ajonjolí. Extracto de ortiga. Bisabolol.   ¿Cómo se usa?  Aplicar varias veces al día sobre la zona deseada, haciendo masajes hasta que se absorba totalmente.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Conoce el poder de lo natural! Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya! ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>46000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/leche-de-ortiga-y-venadillo/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/leche-de-ortiga.jpg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7518</g:item_group_id>
-        <g:custom_label_1>ortiga</g:custom_label_1>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Corporal</g:product_type>
     </item>
     <item>
         <g:id>7533</g:id>
@@ -1668,11 +1700,12 @@
         <g:link><![CDATA[https://naturalconexion.com/product/nutritiva-de-coco/]]></g:link>
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/06.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:sale_price>25200 COP</g:sale_price>
         <g:item_group_id>7534</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:custom_label_1>almendras</g:custom_label_1>
+        <g:custom_label_0>on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:product_type>Capilar &gt; Ofertas &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>almendras</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.32 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1715,9 +1748,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/55.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7541</g:item_group_id>
-        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.144 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -1738,9 +1771,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/02.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7542</g:item_group_id>
-        <g:custom_label_1>ortiga quina</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>ortiga quina</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1833,7 +1866,6 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/tonico-te-verde.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7569</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
@@ -1918,9 +1950,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/exfoliante-avena.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7576</g:item_group_id>
-        <g:custom_label_1>linea facial manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>linea facial manzanilla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -1937,9 +1969,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/46.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7579</g:item_group_id>
-        <g:custom_label_1>aloevera calendula</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>aloevera calendula</g:custom_label_1>
         <g:shipping_weight>0.135 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -1981,9 +2013,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/87.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7597</g:item_group_id>
-        <g:custom_label_1>kit capilar</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Kit especiales &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>kit capilar</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.68 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -2004,9 +2036,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/32.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7604</g:item_group_id>
-        <g:custom_label_1>aloevera</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
+        <g:custom_label_1>aloevera</g:custom_label_1>
         <g:shipping_weight>0.06 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -2025,9 +2057,11 @@
         <g:link><![CDATA[https://naturalconexion.com/product/crema-facial-hidratante-de-uva/]]></g:link>
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/CREMA_FACIAL_UVA.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:sale_price>41250 COP</g:sale_price>
         <g:item_group_id>7605</g:item_group_id>
+        <g:custom_label_0>on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
+        <g:product_type>Facial &gt; Ofertas</g:product_type>
         <g:shipping_weight>0.06 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -2047,9 +2081,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/58.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7606</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.25 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -2092,9 +2126,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/MASCARILLA_UVA.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7612</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.12 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -2115,9 +2149,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/14.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7617</g:item_group_id>
-        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>cebolla</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.28 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -2138,9 +2172,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/18.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7618</g:item_group_id>
-        <g:custom_label_1>avena</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Facial</g:product_type>
+        <g:custom_label_1>avena</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
         <g:shipping_weight>0.3 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
@@ -2161,9 +2195,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/43.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7619</g:item_group_id>
-        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal</g:product_type>
+        <g:custom_label_1>calendula manzanilla</g:custom_label_1>
         <g:shipping_weight>0.03 kg</g:shipping_weight>
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
@@ -2281,9 +2315,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/DSC09726.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7672</g:item_group_id>
-        <g:custom_label_1>hierbabuena</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>hierbabuena</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2338,9 +2372,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/17.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7680</g:item_group_id>
-        <g:custom_label_1>jabon de drago</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>jabon de drago</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2357,9 +2391,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Kit_14_Mesa-de-trabajo-1.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7683</g:item_group_id>
-        <g:custom_label_1>kit kit relajación kits</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Kit especiales &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>kit kit relajación kits</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2376,9 +2410,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/11.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7684</g:item_group_id>
-        <g:custom_label_1>ortiga</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>ortiga</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2395,9 +2429,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/55.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7685</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
     </item>
     <item>
         <g:id>7687</g:id>
@@ -2468,9 +2502,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/86.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7697</g:item_group_id>
-        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>linea facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2487,9 +2521,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/102.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7698</g:item_group_id>
-        <g:custom_label_1>kit facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>kit facial</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2506,9 +2540,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/23.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7700</g:item_group_id>
-        <g:custom_label_1>mango</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Productos veganos</g:product_type>
+        <g:custom_label_1>mango</g:custom_label_1>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
@@ -2525,9 +2559,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/91.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7706</g:item_group_id>
-        <g:custom_label_1>favoritos kit facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Corporal &gt; Facial &gt; Kit especiales</g:product_type>
+        <g:custom_label_1>favoritos kit facial</g:custom_label_1>
     </item>
     <item>
         <g:id>7707</g:id>
@@ -2543,9 +2577,9 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Kit-Humectacion-Piel-Grasa-1.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7707</g:item_group_id>
-        <g:custom_label_1>kit facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales</g:product_type>
+        <g:custom_label_1>kit facial</g:custom_label_1>
     </item>
     <item>
         <g:id>7710</g:id>
