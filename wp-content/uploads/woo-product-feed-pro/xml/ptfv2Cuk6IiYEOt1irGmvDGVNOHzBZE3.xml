@@ -205,7 +205,7 @@
       <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
       <g:link>https://naturalconexion.com/product/serum-facial-con-vitamina-c/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>COP 185000.00</g:price>
       <g:google_product_category>8452</g:google_product_category>
       <g:product_type>Kit especiales||Facial</g:product_type>
@@ -1653,7 +1653,7 @@
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Calendula+y+manzanilla</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>backorder</g:availability>
       <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
@@ -1667,7 +1667,7 @@
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Frutos+rojos</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>backorder</g:availability>
       <g:price>COP 10000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
@@ -1681,7 +1681,7 @@
       <g:description>Ingredientes principales: Caléndula. Oliva. Manzanilla. Cera de Abejas. Variedades:</g:description>
       <g:link>https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Menta</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>backorder</g:availability>
       <g:price>COP 9500.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>

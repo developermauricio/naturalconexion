@@ -72,6 +72,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/05/Protector-Solar-15-gr-x3.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>13665</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales</g:product_type>
     </item>
@@ -89,6 +90,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/06/Kit-Poder-Natural-.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>14012</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Kit especiales</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/04/KIT-HUMECTACION-PIEL-MIXTA-25.png]]></g:additional_image_link>
@@ -147,26 +149,6 @@
         <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Kit especiales</g:product_type>
-    </item>
-    <item>
-        <g:id>17269</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[        ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>17269</g:mpn>
-        <g:title>Kit Sérum Facial Con Vitamina C Mayakú</g:title>
-        <g:short_description><![CDATA[  ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>185000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/serum-facial-con-vitamina-c/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>17269</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Anti-Aging Skin Care Kits</g:google_product_category>
-        <g:product_type>Facial &gt; Kit especiales</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg]]></g:additional_image_link>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
     </item>
     <item>
         <g:id>17297</g:id>
@@ -247,30 +229,6 @@
         <g:product_type>Facial &gt; Kit especiales</g:product_type>
     </item>
     <item>
-        <g:id>18385</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[                  Nuestro Desodorante Natural de Dama, cambio de imagen, pero sigue siendo la misma fórmula.   «RECUERDA DEJARNOS EN LAS OBSERVACIONES CUANTOS QUIERES DE DAMA O DE CABALLERO» ¡Protégete de naturalmente! La línea de Desodorantes Naturales de Natural Conexion, está elaborada con ingredientes bio-activos derivados de la salvia, el tomillo, el romero y el laurel que, por sus propiedades, evitan la generación del mal olor a causa del sudor. No mancha la piel, no contiene alcohol etílico, ni compuestos antitranspirantes, permitiendo que la piel respire naturalmente.  Ingredientes principales:   Salvia.   Caléndula.   Manzanilla. Lavanda. Piedra Lumbre.   ¿Cómo se usa?  Aplicar una fina capa en la axila, sobre la piel limpia y seca.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables.   Agroecológico.   Naturales. No contienen parabenos. No son testados en animales.  ¡Conoce el poder natural! Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya! ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>18385</g:mpn>
-        <g:title>Desodorante Natural Compra 6 y te Obsequiamos 1</g:title>
-        <g:short_description><![CDATA[       ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>119400 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/desodorante-natural-compra-6-y-te-obsequiamos-1/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-07-21-at-9.30.17-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>18385</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-        <g:custom_label_1>calendula favoritos</g:custom_label_1>
-        <g:shipping_weight>0.068 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
-    </item>
-    <item>
         <g:id>18696</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[  ¡Ya nuestra nueva edición está en casa!    Ritual Box 10 años para todos desde hoy.    DISPONIBLE  Nuestra edición especial la hicimos para ellas, inspirada en dos mujeres campesinas, que aman el campo y buscaron superarse, para regresar y ayudar a dignificar esta labor de una forma justa. Porqué hace más de diez años que empezaron a cultivar este sueño que ahora se llama Natural Conexion, a ellas toda nuestra gratitud, porque generan empleo, porque han dignificado la labor en el campo y porque cuidan el medio ambiente con su gran proyecto de cosméticos naturales. CONTIENE: – Leche Desmaquilladora 250 gr – Tónico Facial 120 ml – Protector Solar 30 gr – Protector Labial 5 gr – Aromaset (Aromatizante para espacios con cera de soya) OBSEQUIO. – Cupón de descuento para su recompra, aplican T&C. Cada producto que compras en Natural Conexion, está pensado de una forma consciente, para que sea amigable con tu salud, el medio ambiente y sobre todo que toda su cadena productiva tenga un pago justo desde nuestros productores de plantas, hasta la transformación y comercialización del mismo. Una oportunidad para cuidarte sin remordimientos. En nuestro Kit Box Aniversario, tenemos dos opciones para ti. Recuerda que puedes elegirlo de acuerdo a tu necesidad:   Opción 1: Para piel mixta o grasa   1. Leche Limpiadora de Caléndula 2.Tónico de Té Verde 3 Protector Solar 30 gr 4. Protector Labial Caléndula 5 gr 5. Aromaset   Opción dos: para piel seca o normal   1. Leche Limpiadora de Arroz 2.Tónico de Rosas 3 Protector Solar 30 gr 4. Protector Labial Caléndula 5 gr 5. Aromaset   ¡RECUERDA COLOCAR EN LAS OBSERVACIONES CUAL DESEAS ABQUIRIR!   ]]></g:description>
@@ -344,7 +302,7 @@
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:sale_price>91000 COP</g:sale_price>
         <g:item_group_id>21076</g:item_group_id>
-        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
+        <g:custom_label_0>recent-product top-30-days on-sale</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
         <g:product_type>Facial &gt; Ofertas</g:product_type>
     </item>

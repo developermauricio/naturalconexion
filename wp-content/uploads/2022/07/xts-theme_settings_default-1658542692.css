@@ -1,5 +1,5 @@
 .wd-popup.wd-promo-popup{
-	background-color:#ffffff;
+	background-color:#111111;
 	background-repeat:no-repeat;
 	background-size:contain;
 	background-position:left center;
@@ -12,7 +12,7 @@
 }
 
 .footer-container{
-	background-color:#fcfcfc;
+	background-color:#ffffff;
 }
 
 :root{
@@ -22,34 +22,34 @@
 --wd-text-font-size:14px;
 }
 :root{
---wd-title-font:"Lato", Arial, Helvetica, sans-serif;
+--wd-title-font:"Poppins", Arial, Helvetica, sans-serif;
 --wd-title-font-weight:600;
 --wd-title-color:#242424;
 }
 :root{
---wd-entities-title-font:"Lato", Arial, Helvetica, sans-serif;
---wd-entities-title-font-weight:700;
+--wd-entities-title-font:"Poppins", Arial, Helvetica, sans-serif;
+--wd-entities-title-font-weight:500;
 --wd-entities-title-color:#333333;
 --wd-entities-title-color-hover:rgb(51 51 51 / 65%);
 }
 :root{
---wd-alternative-font:Verdana, Geneva, sans-serif;
+--wd-alternative-font:"Lato", Arial, Helvetica, sans-serif;
 }
 :root{
---wd-widget-title-font:"Lato", Arial, Helvetica, sans-serif;
+--wd-widget-title-font:"Poppins", Arial, Helvetica, sans-serif;
 --wd-widget-title-font-weight:600;
 --wd-widget-title-transform:uppercase;
 --wd-widget-title-color:#333;
 --wd-widget-title-font-size:16px;
 }
 :root{
---wd-header-el-font:"Montserrat", Arial, Helvetica, sans-serif;
+--wd-header-el-font:"Lato", Arial, Helvetica, sans-serif;
 --wd-header-el-font-weight:700;
 --wd-header-el-transform:uppercase;
 --wd-header-el-font-size:13px;
 }
 :root{
---wd-primary-color:#378030;
+--wd-primary-color:#83b735;
 }
 :root{
 --wd-alternative-color:#fbbc34;
@@ -65,13 +65,13 @@
 --btn-default-bgcolor-hover:#efefef;
 }
 :root{
---btn-shop-bgcolor:#378030;
+--btn-shop-bgcolor:#83b735;
 }
 :root{
---btn-shop-bgcolor-hover:#a2cf95;
+--btn-shop-bgcolor-hover:#74a32f;
 }
 :root{
---btn-accent-bgcolor:#378030;
+--btn-accent-bgcolor:#83b735;
 }
 :root{
 --btn-accent-bgcolor-hover:#74a32f;
@@ -93,7 +93,7 @@
 	
 			--wd-form-brd-radius: 0px;
 	
-	--wd-form-brd-width: 1px;
+	--wd-form-brd-width: 2px;
 
 	--btn-default-color: #333;
 	--btn-default-color-hover: #333;
@@ -109,11 +109,6 @@
 		--btn-default-box-shadow-active: none;
 		--btn-default-bottom: 0px;
 	
-			--btn-shop-brd-radius: 0.001px;
-		--btn-shop-box-shadow: none;
-		--btn-shop-box-shadow-hover: none;
-		--btn-shop-box-shadow-active: none;
-		--btn-shop-bottom: 0px;
 	
 			--btn-accent-brd-radius: 0px;
 		--btn-accent-box-shadow: none;
@@ -122,6 +117,10 @@
 		--btn-accent-bottom: 0px;
 	
 	
+			--btn-shop-bottom-active: -1px;
+		--btn-shop-brd-radius: 0.001px;
+		--btn-shop-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .15);
+		--btn-shop-box-shadow-hover: inset 0 -2px 0 rgba(0, 0, 0, .15);
 	
 	
 	
@@ -165,7 +164,7 @@ div.wd-popup.popup-quick-view {
 
 /* Shop popup */
 div.wd-popup.wd-promo-popup {
-	max-width: 660px;
+	max-width: 800px;
 }
 
 /* Age verify */
@@ -175,11 +174,11 @@ div.wd-popup.wd-age-verify {
 
 /* Header Banner */
 .header-banner {
-	height: 60px;
+	height: 40px;
 }
 
 body.header-banner-display .website-wrapper {
-	margin-top:60px;
+	margin-top:40px;
 }
 
 /* Tablet */
@@ -195,7 +194,7 @@ body.header-banner-display .website-wrapper {
 }
 
 .woodmart-woocommerce-layered-nav .wd-scroll-content {
-	max-height: 280px;
+	max-height: 223px;
 }
 		
 @font-face {
@@ -205,97 +204,3 @@ body.header-banner-display .website-wrapper {
 	src: url("//naturalconexion.com/wp-content/themes/woodmart/fonts/woodmart-font.woff2?v=6.2.4") format("woff2");
 }
 
-/* estilos para el baner de la tienda */
-@media (min-width: 1200px) {
-	.nav-shop {
-    padding-top: 10rem !important;
-	}
-}
-
-/* estilos banner publicidad tienda */
-#banner-publicidad-tienda {
-    display: none;
-}
-#titulo-tienda {
-    margin-top: -40px;
-}
-
-/* estilos banner del blog */
-.entry-header {
-    padding-top: 12rem;
-}
-
-/* estilos boton de distribuidores */
-.button.btn-distributor {
-    background: #c8891d;
-}
-.button.btn-distributor:hover {
-    background: #c8891d;
-}
-
-/* Estilos de testimonios */
-.testimonial.column.textos-testimonios-inicio {
-    border: 1px solid #fff;
-		background: #ffffff9e;
-		min-height: 305px;
-		padding: 1rem 2.5rem;
-		border-radius: 5px;
-}
-.textos-testimonios-inicio .testimonial-content {
-    text-align: justify;
-}
-.textos-testimonios-inicio .testimonial-content footer {
-    text-align: center;
-}
-
-/* Estilos para el reproductor de video */
-.plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded="true"] {
-    background: transparent;
-}
-.plyr__control.plyr__tab-focus {
-    box-shadow: 0 0 0 0 rgba(0,0,0,.5);
-}
-.plyr__controls button {
-    background: transparent;
-	  color: white;
-}
-button.plyr__control.plyr__control--overlaid {
-    display: none !important;
-}
-.plyr__controls {
-    padding: 0px 10px 0px !important;
-    background: #00000085 !important;
-}
-
-.plyr--full-ui input[type="range"].plyr__tab-focus::-moz-range-track {
-    box-shadow: 0 0 0 0 rgba(0,0,0,.5);
-}
-.plyr--full-ui input[type="range"] {
-    color: #378030;
-}
-.plyr__controls__item.plyr__control.plyr__tab-focus {
-    display: none;
-}
-
-.text-merlenny .info-box-inner{
-	text-align: justify;
-}
-.text-luz-dary .info-box-inner{
-	text-align: justify;
-}
-
-.send-register {
-	background: #378030;
-	color: #fff;
-}
-
-.send-register:hover {
-	color: #fff;
-}
-
-/* Estilos producto agotado */
-.product-label.out-of-stock {
-    background-color: rgb(187 99 23);
-    color: #fff;
-    font-weight: 500;
-}

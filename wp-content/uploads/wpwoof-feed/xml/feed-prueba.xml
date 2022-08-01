@@ -648,25 +648,6 @@
         <g:product_type>Facial</g:product_type>
     </item>
     <item>
-        <g:id>17269</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[        ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>17269</g:mpn>
-        <g:title>Kit Sérum Facial Con Vitamina C Mayakú</g:title>
-        <g:short_description><![CDATA[  ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>185000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/serum-facial-con-vitamina-c/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>17269</g:item_group_id>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Anti-Aging Skin Care Kits</g:google_product_category>
-        <g:product_type>Facial &gt; Kit especiales</g:product_type>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Caja.jpg]]></g:additional_image_link>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-    </item>
-    <item>
         <g:id>17297</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[        ]]></g:description>
@@ -722,7 +703,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2021/11/24.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>17427</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
+        <g:custom_label_0>recent-product top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
         <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
@@ -810,30 +791,6 @@
         <g:custom_label_0>recent-product</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial &gt; Kit especiales</g:product_type>
-    </item>
-    <item>
-        <g:id>18385</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[                  Nuestro Desodorante Natural de Dama, cambio de imagen, pero sigue siendo la misma fórmula.   «RECUERDA DEJARNOS EN LAS OBSERVACIONES CUANTOS QUIERES DE DAMA O DE CABALLERO» ¡Protégete de naturalmente! La línea de Desodorantes Naturales de Natural Conexion, está elaborada con ingredientes bio-activos derivados de la salvia, el tomillo, el romero y el laurel que, por sus propiedades, evitan la generación del mal olor a causa del sudor. No mancha la piel, no contiene alcohol etílico, ni compuestos antitranspirantes, permitiendo que la piel respire naturalmente.  Ingredientes principales:   Salvia.   Caléndula.   Manzanilla. Lavanda. Piedra Lumbre.   ¿Cómo se usa?  Aplicar una fina capa en la axila, sobre la piel limpia y seca.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables.   Agroecológico.   Naturales. No contienen parabenos. No son testados en animales.  ¡Conoce el poder natural! Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya! ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>18385</g:mpn>
-        <g:title>Desodorante Natural Compra 6 y te Obsequiamos 1</g:title>
-        <g:short_description><![CDATA[       ]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>119400 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/desodorante-natural-compra-6-y-te-obsequiamos-1/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-07-21-at-9.30.17-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>18385</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Corporal &gt; Ofertas &gt; Productos veganos</g:product_type>
-        <g:custom_label_1>calendula favoritos</g:custom_label_1>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
-        <g:shipping_weight>0.068 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
         <g:id>18449</g:id>
@@ -1067,85 +1024,6 @@
         <g:product_dimensions>1:1:1:cm</g:product_dimensions>
     </item>
     <item>
-        <g:id>7431</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados. La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.  Ingredientes principales:   Caléndula. Oliva. Manzanilla. Cera de Abejas.   Variedades:   Hidratante y Protector para Labios Frutos Rojos. Hidratante y Protector para Labios Menta. Hidratante y Protector para Labios Caléndula y Manzanilla.   ¿Cómo se usa?  Aplicar una capa fina en los labios, varias veces al día.  Precaución:  No exponer el producto a temperaturas extremas.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Disfruta de tu belleza natural!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7431</g:mpn>
-        <g:title>Hidratante y Protector para Labios 5 gr</g:title>
-        <g:short_description><![CDATA[Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados. La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.  Ingredientes principales:   Caléndula. Oliva. Manzanilla. Cera de Abejas.   Variedades:   Hidratante y Protector para Labios Frutos Rojos. Hidratante y Protector para Labios Menta. Hidratante y Protector para Labios Caléndula y Manzanilla.   ¿Cómo se usa?  Aplicar una capa fina en los labios, varias v]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>9500 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/protectores-labiales/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7431</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
-    </item>
-    <item>
-        <g:id>7433</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados. La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.  Ingredientes principales:   Caléndula. Oliva. Manzanilla. Cera de Abejas.   Variedades:   Hidratante y Protector para Labios Frutos Rojos. Hidratante y Protector para Labios Menta. Hidratante y Protector para Labios Caléndula y Manzanilla.   ¿Cómo se usa?  Aplicar una capa fina en los labios, varias veces al día.  Precaución:  No exponer el producto a temperaturas extremas.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Disfruta de tu belleza natural!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7433</g:mpn>
-        <g:title>Hidratante y Protector para Labios 5 gr</g:title>
-        <g:availability>in stock</g:availability>
-        <g:price>10000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Calendula+y+manzanilla]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7431</g:item_group_id>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
-        <g:shipping_weight>0.012 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-    </item>
-    <item>
-        <g:id>7435</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados. La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.  Ingredientes principales:   Caléndula. Oliva. Manzanilla. Cera de Abejas.   Variedades:   Hidratante y Protector para Labios Frutos Rojos. Hidratante y Protector para Labios Menta. Hidratante y Protector para Labios Caléndula y Manzanilla.   ¿Cómo se usa?  Aplicar una capa fina en los labios, varias veces al día.  Precaución:  No exponer el producto a temperaturas extremas.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Disfruta de tu belleza natural!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7435</g:mpn>
-        <g:title>Hidratante y Protector para Labios 5 gr</g:title>
-        <g:availability>in stock</g:availability>
-        <g:price>10000 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Frutos+rojos]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7431</g:item_group_id>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
-        <g:shipping_weight>0.012 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-    </item>
-    <item>
-        <g:id>7437</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[Nuestros Hidratantes y Protectores Labiales, están hechos a base de ingredientes naturales como la caléndula, la manzanilla, la cera de abejas y el aceite de oliva. La combinación de estos ingredientes, forman una barrera que te protege de los agentes externos como el sol, el viento y la polución; aportando hidratación y nutrición, además de regenerar los labios secos y agrietados. La perfecta combinación de ingredientes naturales que cuidan, hidratan, nutren, protegen y regeneran tus labios. Solo para uso externo.  Ingredientes principales:   Caléndula. Oliva. Manzanilla. Cera de Abejas.   Variedades:   Hidratante y Protector para Labios Frutos Rojos. Hidratante y Protector para Labios Menta. Hidratante y Protector para Labios Caléndula y Manzanilla.   ¿Cómo se usa?  Aplicar una capa fina en los labios, varias veces al día.  Precaución:  No exponer el producto a temperaturas extremas.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  ¡Disfruta de tu belleza natural!         ]]></g:description>
-        <g:condition>new</g:condition>
-        <g:mpn>7437</g:mpn>
-        <g:title>Hidratante y Protector para Labios 5 gr</g:title>
-        <g:availability>in stock</g:availability>
-        <g:price>9500 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/protectores-labiales/?attribute_sabores=Menta]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/41.jpg.png]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>7431</g:item_group_id>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
-        <g:product_type>Facial</g:product_type>
-        <g:custom_label_1>cacao hierbabuena linea facial</g:custom_label_1>
-        <g:shipping_weight>0.012 kg</g:shipping_weight>
-        <g:shipping_length>1 cm</g:shipping_length>
-        <g:shipping_height>50 cm</g:shipping_height>
-    </item>
-    <item>
         <g:id>7439</g:id>
         <g:inventory>5</g:inventory>
         <g:description><![CDATA[Es un tratamiento capilar formulado con extracto de cebolla, aceite de aguacate, aceite de jojoba, hibiscus y linaza, ingredientes activos que humectan, nutren, acondicionan, fortalecen y reparan a profundidad la fibra capilar dándole un aspecto revitalizado. Previene la caída del cabello y protege el color del cabello natural o tinturado.  Ingredientes principales:   Cebolla. Linaza. Aceite de Jojoba. Extracto de Hibiscus.   ¿Cómo se usa?  Utilizar después de haber aplicado el shampoo, para devolver la textura y suavidad al cabello. Dejar actuar por unos minutos y enjuagar.  Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!         ]]></g:description>
@@ -1246,7 +1124,6 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/07.jpg]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7446</g:item_group_id>
-        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Capilar &gt; Productos veganos</g:product_type>
         <g:custom_label_1>ortiga quina</g:custom_label_1>
@@ -2036,6 +1913,7 @@
         <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/32.jpg.png]]></g:image_link>
         <g:brand><![CDATA[Natural Conexión]]></g:brand>
         <g:item_group_id>7604</g:item_group_id>
+        <g:custom_label_0>top-30-days</g:custom_label_0>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics</g:google_product_category>
         <g:product_type>Facial</g:product_type>
         <g:custom_label_1>aloevera</g:custom_label_1>
