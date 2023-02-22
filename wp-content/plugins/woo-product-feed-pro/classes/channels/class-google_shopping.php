@@ -476,6 +476,11 @@ class WooSEA_google_shopping {
 					"feed_name" => "g:mobile_pickup_link_template",
 					"format" => "optional",
 				),
+				"Link template" => array(
+					"name" => "link_template",
+					"feed_name" => "g:link_template",
+					"format" => "optional",
+				),
 				"Seller name" => array(
 					"name" => "seller_name",
 					"feed_name" => "g:seller_name",
@@ -509,6 +514,16 @@ class WooSEA_google_shopping {
 				"Format" => array(
 					"name" => "format",
 					"feed_name" => "g:format",
+					"format" => "optional",
+				),
+				"Release date" => array(
+					"name" => "release_date",
+					"feed_name" => "g:release_date",
+					"format" => "optional",
+				),
+				"Rich product content" => array(
+					"name" => "rich_product_content",
+					"feed_name" => "g:rich_product_content",
 					"format" => "optional",
 				),
 				"Product line" => array(

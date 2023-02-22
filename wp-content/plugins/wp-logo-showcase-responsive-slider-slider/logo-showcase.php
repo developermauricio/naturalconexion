@@ -6,10 +6,10 @@
  * Author: WP OnlineSupport, Essential Plugin
  * Text Domain: wp-logo-showcase-responsive-slider-slider
  * Domain Path: /languages/
- * Version: 3.1.4
+ * Version: 3.2.2
  * Author URI: https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-slider/
  *
- * @package WordPress
+ * @package WP Logo Showcase Responsive Slider
  * @author WP OnlineSupport
  */
 
@@ -17,45 +17,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if( !defined( 'WPLS_VERSION' ) ) {
-	define( 'WPLS_VERSION', '3.1.4' ); // Version of plugin
+if( ! defined( 'WPLS_VERSION' ) ) {
+	define( 'WPLS_VERSION', '3.2.2' ); // Version of plugin
 }
-if( !defined( 'WPLS_NAME' ) ) {
+
+if( ! defined( 'WPLS_NAME' ) ) {
 	define( 'WPLS_NAME', 'Logo Showcase Responsive Slider' ); // Plugin name
 }
-if( !defined( 'WPLS_DIR' ) ) {
+
+if( ! defined( 'WPLS_DIR' ) ) {
 	define( 'WPLS_DIR', dirname( __FILE__ ) ); // Plugin dir
 }
-if( !defined( 'WPLS_URL' ) ) {
+
+if( ! defined( 'WPLS_URL' ) ) {
 	define( 'WPLS_URL', plugin_dir_url( __FILE__ ) ); // Plugin url
 }
-if( !defined( 'WPLS_POST_TYPE' ) ) {
+
+if( ! defined( 'WPLS_POST_TYPE' ) ) {
 	define( 'WPLS_POST_TYPE', 'logoshowcase' ); // Plugin Post Type
 }
-if( !defined( 'WPLS_CAT_TYPE' ) ) {
+
+if( ! defined( 'WPLS_CAT_TYPE' ) ) {
 	define( 'WPLS_CAT_TYPE', 'wplss_logo_showcase_cat' ); // Plugin Post Type
 }
-if( !defined( 'WPLS_META_PREFIX' ) ) {
+
+if( ! defined( 'WPLS_META_PREFIX' ) ) {
 	define( 'WPLS_META_PREFIX', '_wpls_' ); // Plugin metabox prefix
 }
 
-if(!defined( 'WPLS_PLUGIN_BUNDLE_LINK' ) ) {
+if( ! defined( 'WPLS_PLUGIN_BUNDLE_LINK' ) ) {
 	define('WPLS_PLUGIN_BUNDLE_LINK','https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Logoshowcase&utm_campaign=Welcome-Screen'); // Plugin link
 }
 
-if(!defined( 'WPLS_PLUGIN_LINK_UNLOCK' ) ) {
+if( ! defined( 'WPLS_PLUGIN_LINK_UNLOCK' ) ) {
 	define('WPLS_PLUGIN_LINK_UNLOCK','https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-slider/?utm_source=WP&utm_medium=Logoshowcase&utm_campaign=Features-PRO#wpos-epb'); // Plugin link
 }
 
-if(!defined( 'WPLS_PLUGIN_LINK_UPGRADE' ) ) {
-	define('WPLS_PLUGIN_LINK_UPGRADE','https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-slider/?utm_source=WP&utm_medium=Logoshowcase&utm_campaign=Upgrade-PRO#wpos-epb'); // Plugin Check link
+if( ! defined( 'WPLS_PLUGIN_LINK_UPGRADE' ) ) {
+	define('WPLS_PLUGIN_LINK_UPGRADE','https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Logoshowcase&utm_campaign=Upgrade-PRO#wpos-epb'); // Plugin Check link
 }
 
-if(!defined( 'WPLS_PLUGIN_LINK_HOWITWORK' ) ) {
+if( ! defined( 'WPLS_PLUGIN_LINK_HOWITWORK' ) ) {
 	define('WPLS_PLUGIN_LINK_HOWITWORK','https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-slider/?utm_source=WP&utm_medium=Logoshowcase&utm_campaign=How-It-Work#wpos-epb'); // Plugin Check link
 }
 
-if(!defined( 'WPLS_SITE_LINK' ) ) {
+if( ! defined( 'WPLS_SITE_LINK' ) ) {
 	define('WPLS_SITE_LINK','https://www.essentialplugin.com'); // Plugin link
 }
 
@@ -63,7 +69,6 @@ if(!defined( 'WPLS_SITE_LINK' ) ) {
  * Load Text Domain
  * This gets the plugin ready for translation
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.0.0
  */
 function wpls_load_textdomain() {
@@ -99,20 +104,16 @@ add_action('plugins_loaded', 'wpls_load_textdomain');
 
 /**
  * Activation Hook
- * 
  * Register plugin activation hook.
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.0.0
  */
 register_activation_hook( __FILE__, 'wpls_install' );
 
 /**
  * Deactivation Hook
- * 
  * Register plugin deactivation hook.
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.0.0
  */
 register_deactivation_hook( __FILE__, 'wpls_uninstall');
@@ -121,7 +122,6 @@ register_deactivation_hook( __FILE__, 'wpls_uninstall');
  * Plugin Activation Function
  * Does the initial setup, sets the default values for the plugin options
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.0.0
  */
 function wpls_install() {
@@ -137,16 +137,12 @@ function wpls_install() {
 	if( is_plugin_active('wp-logo-showcase-responsive-slider-pro/logo-showcase.php') ){
 		add_action('update_option_active_plugins', 'wpls_deactivate_free_version');
 	}
-
-	// Add option for solutions & features
-	add_option( 'wpls_sf_optin', true );
 }
 
 /**
  * Plugin Deactivation Function
  * Delete  plugin options
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.0.0
  */
 function wpls_uninstall() {
@@ -158,7 +154,6 @@ function wpls_uninstall() {
 /**
  * Deactivate free plugin
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.2.4
  */
 function wpls_deactivate_free_version() {
@@ -168,29 +163,37 @@ function wpls_deactivate_free_version() {
 /**
  * Function to display admin notice of activated plugin.
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 1.2.4
  */
 function wpls_admin_notice() {
-	
+
 	global $pagenow;
 
+	// If not plugin screen
+	if( 'plugins.php' != $pagenow ) {
+		return;
+	}
+
+	// Check Lite Version
 	$dir = ABSPATH . 'wp-content/plugins/wp-logo-showcase-responsive-slider-pro/logo-showcase.php';
+
+	if( ! file_exists( $dir ) ) {
+		return;
+	}
 
 	$notice_link        = add_query_arg( array('message' => 'wpls-plugin-notice'), admin_url('plugins.php') );
 	$notice_transient   = get_transient( 'wpls_install_notice' );
-	
-	// If Free plugin is active and PRO plugin exist
-	if( $notice_transient == false && $pagenow == 'plugins.php' && file_exists( $dir ) && current_user_can( 'install_plugins' ) ) {        
-				echo '<div class="updated notice" style="position:relative;">
+
+	// If free plugin exist
+	if( $notice_transient == false && current_user_can( 'install_plugins' ) ) {
+			echo '<div class="updated notice" style="position:relative;">
 					<p>
-						<strong>'.sprintf( __('Thank you for activating %s', 'wp-logo-showcase-responsive-slider-slider'), 'WP Logo Showcase Responsive Slider').'</strong>.<br/>
-						'.sprintf( __('It looks like you had PRO version %s of this plugin activated. To avoid conflicts the extra version has been deactivated and we recommend you delete it.', 'wp-logo-showcase-responsive-slider-slider'), '<strong>(<em>WP Logo Showcase Responsive Slider Pro</em>)</strong>' ).'
+						<strong>'.sprintf( esc_html__('Thank you for activating %s', 'wp-logo-showcase-responsive-slider-slider'), 'WP Logo Showcase Responsive Slider').'</strong>.<br/>
+						'.sprintf( esc_html__('It looks like you had PRO version %s of this plugin activated. To avoid conflicts the extra version has been deactivated and we recommend you delete it.', 'wp-logo-showcase-responsive-slider-slider'), '<strong>(<em>WP Logo Showcase Responsive Slider Pro</em>)</strong>' ).'
 					</p>
 					<a href="'.esc_url( $notice_link ).'" class="notice-dismiss" style="text-decoration:none;"></a>
 				</div>';
 	}
-
 }
 
 // Action to display notice

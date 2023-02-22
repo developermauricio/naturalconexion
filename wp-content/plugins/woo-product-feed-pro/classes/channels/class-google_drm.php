@@ -69,6 +69,12 @@ class WooSEA_google_drm {
 					"format" => "optional",
 					"woo_suggest" => "sale_price",
 				),
+				"Sale price effective date" => array(
+					"name" => "Sale price effective date",
+					"feed_name" => "Sale price effective date",
+					"format" => "optional",
+					"woo_suggest" => "sale_price_effective_date",
+				),
 				"Contextual keywords" => array(
 					"name" => "Contextual keywords",
 					"feed_name" => "Contextual keywords",

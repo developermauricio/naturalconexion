@@ -4,11 +4,12 @@ var FieldModel;
 (function( $ ) {
 
 	 FormFieldsView = (function() {
-		function FormFieldsView(unselectedFields, selectedFields, unselectedFieldsContainer, selectedFieldsContainer) {
+		function FormFieldsView(unselectedFields, selectedFields, unselectedFieldsContainer, selectedFieldsContainer, readOnly = false) {
 			var _this = this;
 			this.unselectedFieldsContainer = unselectedFieldsContainer;
 			this.selectedFieldsContainer = selectedFieldsContainer;
 			this.unselectedFields = unselectedFields;
+			this.readOnly = readOnly;
 			this.selectedFields = [];
 
 			this.getIndexOfCustom = function(elem, index, arrayOfElements) {
@@ -84,7 +85,7 @@ var FieldModel;
 			html += ' <div class="accordion-content field-settings">';
 
 			var checkedRequired = field.settings.required || field.readonly ? "checked" : "";
-			var readonly = field.readonly ? "disabled='disabled'" : "";
+			var readonly = field.readonly || this.readOnly ? "disabled='disabled'" : "";
 			var label = field.settings.label != undefined ? field.settings.label : field.name;
 			html += field.readonly ? '		<input type="hidden" name="fields['+field.name+'][settings][required]" value="required">' : '';
 			html += '		<div class="dplr_input_section horizontal">';
@@ -93,22 +94,22 @@ var FieldModel;
 			html += '		</div>';
 			html += '		<div class="dplr_input_section horizontal">';
 			html += '			<label for="fields['+field.name+'][settings][label]">'+ObjStr.LabelToShow+'</label>';
-			html += '   	<input class="setting-required" type="text" name="fields['+field.name+'][settings][label]" value="'+label+'"><br>';
+			html += '   	<input class="setting-required" type="text" name="fields['+field.name+'][settings][label]" value="'+label+'" '+(this.readOnly?'disabled':'')+'><br>';
 			html += '		</div>';
 			html += '		<div class="dplr_input_section horizontal">';
 			html += '			<label for="fields['+field.name+'][settings][description]">'+ObjStr.Description+'</label>';
-			html += '   	<textarea name="fields['+field.name+'][settings][description]">'+field.settings.description+'</textarea><br>';
+			html += '   	<textarea name="fields['+field.name+'][settings][description]" '+(this.readOnly?'disabled':'')+'>'+field.settings.description+'</textarea><br>';
 			html += '		</div>';
 			if ($.inArray(field.type, ['boolean', 'gender', 'date']) == -1) {
 				html += '		<div class="dplr_input_section horizontal">';
 				html += '			<label for="fields['+field.name+'][settings][placeholder]">'+ObjStr.Placeholder+'</label>';
-				html += '   	<input type="text" name="fields['+field.name+'][settings][placeholder]" value="'+field.settings.placeholder+'">';
+				html += '   	<input type="text" name="fields['+field.name+'][settings][placeholder]" value="'+field.settings.placeholder+'" '+(this.readOnly?'disabled':'')+'>';
 				html += '		</div>';
 			}
 			if (field.type === "string") {
 				html += '		<div class="dplr_input_section horizontal">';
 				html += '			<label for="fields['+field.name+'][settings][text_lines]">'+ObjStr.TextType+'</label>';
-			html += '				<select name="fields['+field.name+'][settings][text_lines]">'
+			html += '				<select name="fields['+field.name+'][settings][text_lines]" '+(this.readOnly?'disabled':'')+'>'
 				html += field.settings.text_lines == "single" ? '				<option selected="selected" value="single">'+ObjStr.OneSingleLine+'</option>' : '				<option value="single">'+ObjStr.OneSingleLine+'</option>';
 				html += field.settings.text_lines == "multi" ? '   		<option selected="selected" value="multi">'+ObjStr.MultipleLines+'</option>' : '   		<option value="multi">'+ObjStr.MultipleLines+'</option>';
 				html += '			</select>';

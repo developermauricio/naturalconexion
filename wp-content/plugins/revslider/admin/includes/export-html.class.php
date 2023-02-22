@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -18,6 +18,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 	public $path_assets_raw_vid	= 'assets';
 	public $export_real		= true;
 	
+	public $slider_output	= false;
 	public $slider_html		= '';
 	public $export_font		= '';
 	public $export_scripts	= '';
@@ -64,17 +65,22 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			$slider->init_by_id($slider_id);
 		}
 		
+		if($slider->get_param('pakps', false) === true && $this->_truefalse(get_option('revslider-valid', 'false')) === false){
+			echo __('Wrong request!', 'revslider');
+			exit;
+		}
+
 		$this->slider_title	= $slider->get_title();
 		$this->slider_alias	= $slider->get_alias();
 		
 		$this->layouttype	= $slider->get_param('layouttype');
 		
-		$output = new RevSliderOutput();
+		$this->slider_output = new RevSliderOutput();
 		
 		ob_start();
-		$output->set_slider_id($slider_id);
-		$output->set_markup_export(true);
-		$output->add_slider_base();
+		$this->slider_output->set_slider_id($slider_id);
+		$this->slider_output->set_markup_export(true);
+		$this->slider_output->add_slider_base();
 
 		$this->slider_html = ob_get_contents();
 		ob_clean();
@@ -122,6 +128,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 	 **/
 	public function replace_export_html_urls(){
 		$added				= array();
+		$replace			= array();
 		$upload_dir			= $this->get_upload_path();
 		$upload_dir_multi	= wp_upload_dir();
 		$cont_url			= $this->get_val($upload_dir_multi, 'baseurl');
@@ -132,14 +139,15 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 		if(defined('WHITEBOARD_PLUGIN_URL')){
 			$search[] = WHITEBOARD_PLUGIN_URL;
 		}
-		
 		$search	= apply_filters('revslider_html_export_replace_urls', $search);
+		$replace = apply_filters('revslider_html_export_path_replace_urls', $replace);
+		
 		if(!empty($search)){
 			foreach($search as $s){
 				$s = $this->remove_http($s);
 				
 				preg_match_all("/(\"|')".str_replace('/', '\/', $s)."\S+(\"|')/", $this->slider_html, $_files);
-				
+
 				if(!empty($_files) && isset($_files[0]) && !empty($_files[0])){
 					//go through all files, check for existance and add to the zip file
 					foreach($_files[0] as $_file){
@@ -234,6 +242,24 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 									$add = '/';
 								}
 							}
+							if(!empty($replace)){
+								foreach($replace as $_path){
+									if(is_file($_path.$_file)){
+										$mf = str_replace('//', '/', $_path.$_file);
+
+										//we need to be special with svg files
+										$__file = basename($_file);
+										
+										if(!$this->usepcl){
+											$this->zip->addFile($mf, $use_path_raw.'/'.$__file);
+										}else{
+											$v_list = $this->pclzip->add($mf, PCLZIP_OPT_REMOVE_PATH, str_replace(basename($mf), '', $mf), PCLZIP_OPT_ADD_PATH, $use_path_raw.'/');
+										}
+										$remove = true;
+										$add = '/';
+									}
+								}
+							}
 						}
 
 						if($remove == true){
@@ -252,7 +278,20 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 		if($this->export_real){ //only include if real export
 			//add common files to the zip
 			if(!$this->usepcl){
-				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/rs6.min.js', 'js/rs6.min.js');
+				if(!file_exists(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js')){
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.main.js', 'js/rs6.main.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.actions.js', 'js/rs6.actions.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.carousel.js', 'js/rs6.carousel.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.layeranimation.js', 'js/rs6.layeranimation.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.navigation.js', 'js/rs6.navigation.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.panzoom.js', 'js/rs6.panzoom.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.parallax.js', 'js/rs6.parallax.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.slideanims.js', 'js/rs6.slideanims.js');
+					//$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/libs/three.min.js', 'js/three.min.js');
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/dev/rs6.video.js', 'js/rs6.video.js');
+				}else{
+					$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/rs6.min.js', 'js/rs6.min.js');
+				}
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/js/rbtools.min.js', 'js/rbtools.min.js');
 				
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/css/rs6.css', 'css/rs6.css');
@@ -270,13 +309,27 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.svg', 'fonts/font-awesome/fonts/fontawesome-webfont.svg');
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.ttf', 'fonts/font-awesome/fonts/fontawesome-webfont.ttf');
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff', 'fonts/font-awesome/fonts/fontawesome-webfont.woff');
+				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2', 'fonts/font-awesome/fonts/fontawesome-webfont.woff2');
 				
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/revicons/revicons.eot', 'fonts/revicons/revicons.eot');
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/revicons/revicons.svg', 'fonts/revicons/revicons.svg');
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/revicons/revicons.ttf', 'fonts/revicons/revicons.ttf');
 				$this->zip->addFile(RS_PLUGIN_PATH.'/public/assets/fonts/revicons/revicons.woff', 'fonts/revicons/revicons.woff');
 			}else{
-				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+				if(!file_exists(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js')){
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.main.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.actions.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.carousel.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.layeranimation.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.navigation.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.panzoom.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.parallax.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.slideanims.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					//$this->pclzip->add(RS_PLUGIN_PATH.'/public/assets/js/libs/three.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/dev/rs6.video.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+				}else{
+					$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
+				}
 				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/js/rbtools.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
 				
 				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/css/rs6.css', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
@@ -300,6 +353,8 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/fonts/revicons/revicons.ttf', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/');
 				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/fonts/revicons/revicons.woff', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/');
 			}
+
+			$this->slider_html = apply_filters('revslider_export_html_file_inclusion', $this->slider_html, $this);
 			
 			$notice_text = __('Using this data is only allowed with a valid licence of the jQuery Slider Revolution Plugin, which can be found at: https://www.themepunch.com/links/slider_revolution_jquery', 'revslider');
 			
@@ -402,7 +457,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 
 			<!-- LOAD JQUERY LIBRARY -->
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
 			
 			<!-- LOADING FONTS AND ICONS -->
 			<?php echo $this->export_font; ?>
@@ -421,7 +476,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				
 				if($static_css !== ''){
 					$css = RevSliderGlobals::instance()->get('RevSliderCssParser');
-					echo '<style type="text/css">';
+					echo '<style>';
 					echo $css->compress_css($static_css);
 					echo '</style>'."\n";
 				}
@@ -433,7 +488,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				<link rel="stylesheet" type="text/css" href="<?php echo $this->path_css; ?>navigation.css">
 				
 				<!-- FONT AND STYLE FOR BASIC DOCUMENTS, NO NEED FOR FURTHER USAGE IN YOUR PROJECTS-->
-				<link href="http://fonts.googleapis.com/css?family=Roboto%3A700%2C300" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
+				<link href="https://fonts.googleapis.com/css?family=Roboto%3A700%2C300" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
 				<link rel="stylesheet" type="text/css" href="../../assets/css/noneed.css">
 				<?php
 			}
@@ -442,10 +497,32 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			<?php
 			RevSliderFront::add_waiting_script();
 			?>
-			<script type="text/javascript" src="<?php echo $this->path_js; ?>rbtools.min.js"></script>
-			<script type="text/javascript" src="<?php echo $this->path_js; ?>rs6.min.js"></script>
+			<script src="<?php echo $this->path_js; ?>rbtools.min.js"></script>
+			<?php
+			if(!file_exists(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js')){
+				?>
+				<script src="<?php echo $this->path_js; ?>rs6.main.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.actions.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.carousel.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.layeranimation.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.navigation.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.panzoom.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.parallax.js"></script>
+				<script src="<?php echo $this->path_js; ?>rs6.slideanims.js"></script>
+				<!--script src="<?php echo $this->path_js; ?>three.min.js"></script-->
+				<script src="<?php echo $this->path_js; ?>rs6.video.js"></script>
+				<?php
+			}else{
+				?>
+				<script src="<?php echo $this->path_js; ?>rs6.min.js"></script>
+				<?php
+			}
+			?>
 			
 			<?php echo RevSliderFront::js_set_start_size(); ?>
+
+			<?php do_action('revslider_export_html_write_header', $this); ?>
+
 		</head>
 		
 		<body>
@@ -502,7 +579,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			<article class="small-history bottom-history">
 				<i class="fa-icon-question tp-headicon"></i>
 				<h2 class="textaligncenter" style="margin-bottom:25px;">Find the Documentation ?</h2>
-				<p>We would always recommend to use our<a target="_blank" rel="noopener" href="https://www.themepunch.com/revsliderjquery-doc/slider-revolution-jquery-5-x-documentation/"> online documentation</a> however you can find also our embeded local documentation zipped in the Documentation folder. Online Documentation and FAQ Page is regulary updated. You will find More examples, Visit us also at <a href="http://themepunch.com">http://themepunch.com</a> ! </p>
+				<p>We would always recommend to use our<a target="_blank" rel="noopener" href="https://www.themepunch.com/revsliderjquery-doc/slider-revolution-jquery-5-x-documentation/"> online documentation</a> however you can find also our embeded local documentation zipped in the Documentation folder. Online Documentation and FAQ Page is regulary updated. You will find More examples, Visit us also at <a href="https://themepunch.com">https://themepunch.com</a> ! </p>
 				<div class="tp-smallinfo">Learn how to build your Slider!</div>
 			</article>
 
@@ -535,10 +612,12 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 		if(!empty($rs_css_collection)){
 			$custom_css = implode("\n".RS_T2, $rs_css_collection);
 			$css = RevSliderGlobals::instance()->get('RevSliderCssParser');
-			echo '<style type="text/css">';
+			echo '<style>';
 			echo $css->compress_css($custom_css);
 			echo '</style>'."\n";
 		}
+
+		do_action('revslider_export_html_write_footer', $this);
 		?>
 		</body>
 		<?php
@@ -579,7 +658,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 					<div class="clearfix"></div>
 				</div>
 			</footer>
-			<script type="text/javascript" src="../../assets/warning.js"></script>
+			<script src="../../assets/warning.js"></script>
 			<?php
 		}
 		?>

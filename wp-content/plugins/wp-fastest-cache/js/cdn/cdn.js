@@ -38,17 +38,10 @@ var WpfcCDN = {
 				self.click_event_add_new_keyword_button();
 				self.add_new_keyword_keypress();
 
-				if(self.id == "other" || self.id == "photon" || self.id == "cloudflare"){
+				if(self.id == "other" || self.id == "cloudflare"){
 					self.show_page("next");
 					self.hide_button("back");
 
-					if(self.id == "photon"){
-						jQuery("div.wpfc-checkbox-list label[for^='file-type']").each(function(i, e){
-							if(!jQuery(e).attr("for").match(/jpg|jpeg|gif|png/i)){
-								jQuery(e).remove();
-							}
-						})
-					}
 				}
 				
 			});

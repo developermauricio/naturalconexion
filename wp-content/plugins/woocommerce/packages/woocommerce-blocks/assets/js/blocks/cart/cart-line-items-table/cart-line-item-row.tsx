@@ -114,12 +114,8 @@ const CartLineItemRow = forwardRef< HTMLTableRowElement, CartLineItemRowProps >(
 			extensions,
 		} = lineItem;
 
-		const {
-			quantity,
-			setItemQuantity,
-			removeItem,
-			isPendingDelete,
-		} = useStoreCartItemQuantity( lineItem );
+		const { quantity, setItemQuantity, removeItem, isPendingDelete } =
+			useStoreCartItemQuantity( lineItem );
 		const { dispatchStoreEvent } = useStoreEvents();
 
 		// Prepare props to pass to the __experimentalApplyCheckoutFilter filter.
@@ -150,9 +146,8 @@ const CartLineItemRow = forwardRef< HTMLTableRowElement, CartLineItemRowProps >(
 			amount: parseInt( prices.raw_prices.price, 10 ),
 			precision: prices.raw_prices.precision,
 		} );
-		const saleAmountSingle = regularAmountSingle.subtract(
-			purchaseAmountSingle
-		);
+		const saleAmountSingle =
+			regularAmountSingle.subtract( purchaseAmountSingle );
 		const saleAmount = saleAmountSingle.multiply( quantity );
 		const totalsCurrency = getCurrencyFromPriceResponse( totals );
 		let lineSubtotal = parseInt( totals.line_subtotal, 10 );
@@ -198,6 +193,13 @@ const CartLineItemRow = forwardRef< HTMLTableRowElement, CartLineItemRowProps >(
 			extensions,
 			arg,
 			validation: productPriceValidation,
+		} );
+
+		const showRemoveItemLink = __experimentalApplyCheckoutFilter( {
+			filterName: 'showRemoveItemLink',
+			defaultValue: true,
+			extensions,
+			arg,
 		} );
 
 		return (
@@ -306,33 +308,38 @@ const CartLineItemRow = forwardRef< HTMLTableRowElement, CartLineItemRowProps >(
 										itemName={ name }
 									/>
 								) }
-							<button
-								className="wc-block-cart-item__remove-link"
-								onClick={ () => {
-									onRemove();
-									removeItem();
-									dispatchStoreEvent( 'cart-remove-item', {
-										product: lineItem,
-										quantity,
-									} );
-									speak(
-										sprintf(
-											/* translators: %s refers to the item name in the cart. */
-											__(
-												'%s has been removed from your cart.',
-												'woo-gutenberg-products-block'
-											),
-											name
-										)
-									);
-								} }
-								disabled={ isPendingDelete }
-							>
-								{ __(
-									'Remove item',
-									'woo-gutenberg-products-block'
-								) }
-							</button>
+							{ showRemoveItemLink && (
+								<button
+									className="wc-block-cart-item__remove-link"
+									onClick={ () => {
+										onRemove();
+										removeItem();
+										dispatchStoreEvent(
+											'cart-remove-item',
+											{
+												product: lineItem,
+												quantity,
+											}
+										);
+										speak(
+											sprintf(
+												/* translators: %s refers to the item name in the cart. */
+												__(
+													'%s has been removed from your cart.',
+													'woo-gutenberg-products-block'
+												),
+												name
+											)
+										);
+									} }
+									disabled={ isPendingDelete }
+								>
+									{ __(
+										'Remove item',
+										'woo-gutenberg-products-block'
+									) }
+								</button>
+							) }
 						</div>
 					</div>
 				</td>

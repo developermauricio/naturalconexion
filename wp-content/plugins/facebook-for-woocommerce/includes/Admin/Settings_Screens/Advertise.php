@@ -9,23 +9,21 @@
  * @package FacebookCommerce
  */
 
-namespace SkyVerge\WooCommerce\Facebook\Admin\Settings_Screens;
+namespace WooCommerce\Facebook\Admin\Settings_Screens;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\Facebook\Admin;
-use SkyVerge\WooCommerce\Facebook\Locale;
-use SkyVerge\WooCommerce\PluginFramework\v5_10_0;
+use WooCommerce\Facebook\API;
+use WooCommerce\Facebook\Locale;
+use WooCommerce\Facebook\Admin\Abstract_Settings_Screen;
 
 /**
  * The Advertise settings screen object.
  */
-class Advertise extends Admin\Abstract_Settings_Screen {
-
+class Advertise extends Abstract_Settings_Screen {
 
 	/** @var string screen ID */
 	const ID = 'advertise';
-
 
 	/**
 	 * Advertise settings constructor.
@@ -33,7 +31,6 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 	 * @since 2.2.0
 	 */
 	public function __construct() {
-
 		$this->id    = self::ID;
 		$this->label = __( 'Advertise', 'facebook-for-woocommerce' );
 		$this->title = __( 'Advertise', 'facebook-for-woocommerce' );
@@ -48,9 +45,7 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 	 * @since 2.2.0
 	 */
 	private function add_hooks() {
-
 		add_action( 'admin_head', array( $this, 'output_scripts' ) );
-
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 
@@ -63,11 +58,9 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 	 * @since 2.2.0
 	 */
 	public function enqueue_assets() {
-
 		if ( ! $this->is_current_screen_page() ) {
 			return;
 		}
-
 		wp_enqueue_style( 'wc-facebook-admin-advertise-settings', facebook_for_woocommerce()->get_plugin_url() . '/assets/css/admin/facebook-for-woocommerce-advertise.css', array(), \WC_Facebookcommerce::VERSION );
 	}
 
@@ -80,9 +73,7 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 	 * @since 2.1.0-dev.1
 	 */
 	public function output_scripts() {
-
 		$connection_handler = facebook_for_woocommerce()->get_connection_handler();
-
 		if ( ! $connection_handler || ! $connection_handler->is_connected() || ! $this->is_current_screen_page() ) {
 			return;
 		}
@@ -94,7 +85,7 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 					appId            : '<?php echo esc_js( $connection_handler->get_client_id() ); ?>',
 					autoLogAppEvents : true,
 					xfbml            : true,
-					version          : 'v8.0', // Note: This expires on November 1 2022
+					version          : '<?php echo esc_js( API::API_VERSION )?>',
 				} );
 			};
 		</script>
@@ -238,9 +229,6 @@ class Advertise extends Admin\Abstract_Settings_Screen {
 	 * @return array
 	 */
 	public function get_settings() {
-
 		return array();
 	}
-
-
 }

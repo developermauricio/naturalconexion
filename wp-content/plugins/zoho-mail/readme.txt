@@ -3,9 +3,9 @@ Contributors: Zoho Mail
 Tags: mail,mailer,phpmailer,wp_mail,email,zoho,zoho mail
 Donate link: none
 Requires at least: 4.8
-Tested up to: 5.9.3
+Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 1.4.8
+Stable tag: 1.4.9
 License: BSD
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,7 +140,8 @@ In case, you are not sure on how to proceed with the Zoho Mail plugin, feel free
 * bug fix for cc emailid
 = 1.4.8 =
 * jp DC support added, domain param changed for clearer ux.
-
+= 1.4.9 =
+* Wordpress 6.1 update.
 
 == Upgrade Notice ==
 none

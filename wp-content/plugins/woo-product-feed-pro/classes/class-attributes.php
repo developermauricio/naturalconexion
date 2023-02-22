@@ -82,12 +82,21 @@ private function get_custom_attributes() {
 	if ( ! function_exists( 'woosea_get_meta_keys_for_post_type' ) ) :
 
     		function woosea_get_meta_keys_for_post_type( $post_type, $sample_size = 'modified' ) {
-        		$meta_keys = array();
-        		$posts     = get_posts( array( 'post_type' => $post_type, 'limit' => $sample_size ) );
+			$meta_keys = array();
 
-        		foreach ( $posts as $post ) {
-            			$post_meta_keys = get_post_custom_keys( $post->ID );
-            			$meta_keys      = array_merge( $meta_keys, $post_meta_keys );
+                	$add_woosea_basic = get_option ('add_woosea_basic');
+			if($add_woosea_basic == "yes"){
+        			$posts     = get_posts( array( 'post_type' => $post_type, 'limit' => $sample_size ) );
+			} else {	
+				$posts     = get_posts( array( 'post_type' => $post_type, 'numberposts' => -1 ) );
+			}
+
+			foreach ( $posts as $post ) {
+				$post_meta_keys = get_post_custom_keys( $post->ID );
+				if(empty($post_meta_keys)){
+					$post_meta_keys = array();
+				}
+				$meta_keys      = array_merge( $meta_keys, $post_meta_keys );
         		}
 
         		// Use array_unique to remove duplicate meta_keys that we received from all posts
@@ -231,6 +240,7 @@ public function get_mapping_attributes_dropdown() {
 			"sku_item_group_id" => "SKU_ITEM_GROUP_ID (Facebook)",
 			"wc_post_id_product_id" => "Wc_post_id_product_id (Facebook)",
 			"title" => "Product name",
+			"title_slug" => "Product name slug",
 			"title_hyphen" => "Product name hyphen",
 			"mother_title" => "Product name parent product",
 			"mother_title_hyphen" => "Product name parent product hyphen",
@@ -302,6 +312,11 @@ public function get_mapping_attributes_dropdown() {
 			"condition" => "Condition",
 			"purchase_note" => "Purchase note",
 			"availability" => "Availability",
+			"availability_date_plus1week" => "Availability date + 1 week",
+			"availability_date_plus2week" => "Availability date + 2 weeks",
+			"availability_date_plus3week" => "Availability date + 3 weeks",
+			"availability_date_plus4week" => "Availability date + 4 weeks",
+			"availability_date_plus5week" => "Availability date + 5 weeks",
 			"region_id" => "Region Id",
 			"stock_status" => "Stock Status WooCommerce",
             		"quantity" => "Quantity [Stock]",
@@ -458,7 +473,8 @@ public function get_mapping_attributes_dropdown() {
 			"sku_item_group_id" => "SKU_ITEM_GROUP_ID (Facebook)",
 			"wc_post_id_product_id" => "Wc_post_id_product_id (Facebook)",
                         "title" => "Product name",
-                        "title_hyphen" => "Product name hyphen",
+			"title_slug" => "Product name slug",
+			"title_hyphen" => "Product name hyphen",
                         "mother_title" => "Product name parent product",
                         "mother_title_hyphen" => "Product name parent product hyphen",
 			"title_lc" => "Product name lowercase",
@@ -505,6 +521,11 @@ public function get_mapping_attributes_dropdown() {
 			"condition" => "Condition",
 			"purchase_note" => "Purchase note",
 			"availability" => "Availability",
+		        "availability_date_plus1week" => "Availability date + 1 week",
+                        "availability_date_plus2week" => "Availability date + 2 weeks",
+                        "availability_date_plus3week" => "Availability date + 3 weeks",
+                        "availability_date_plus4week" => "Availability date + 4 weeks",
+                        "availability_date_plus5week" => "Availability date + 5 weeks",	
 			"region_id" => "Region Id",
 			"stock_status" => "Stock Status WooCommerce",
 			"quantity" => "Quantity [Stock]",

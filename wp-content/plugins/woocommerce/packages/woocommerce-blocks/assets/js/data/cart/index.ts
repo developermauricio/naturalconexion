@@ -16,6 +16,10 @@ import { controls as sharedControls } from '../shared-controls';
 import { controls } from './controls';
 import type { SelectFromMap, DispatchFromMap } from '../mapped-types';
 import { pushChanges } from './push-changes';
+import {
+	updatePaymentMethods,
+	debouncedUpdatePaymentMethods,
+} from './update-payment-methods';
 
 const registeredStore = registerStore< State >( STORE_KEY, {
 	reducer,
@@ -28,15 +32,29 @@ const registeredStore = registerStore< State >( STORE_KEY, {
 
 registeredStore.subscribe( pushChanges );
 
+// First we will run the updatePaymentMethods function without any debounce to ensure payment methods are ready as soon
+// as the cart is loaded. After that, we will unsubscribe this function and instead run the
+// debouncedUpdatePaymentMethods function on subsequent cart updates.
+const unsubscribeUpdatePaymentMethods = registeredStore.subscribe( async () => {
+	const didActionDispatch = await updatePaymentMethods();
+	if ( didActionDispatch ) {
+		// The function we're currently in will unsubscribe itself. When we reach this line, this will be the last time
+		// this function is called.
+		unsubscribeUpdatePaymentMethods();
+		// Resubscribe, but with the debounced version of updatePaymentMethods.
+		registeredStore.subscribe( debouncedUpdatePaymentMethods );
+	}
+} );
+
 export const CART_STORE_KEY = STORE_KEY;
 
 declare module '@wordpress/data' {
 	function dispatch(
 		key: typeof CART_STORE_KEY
 	): DispatchFromMap< typeof actions >;
-	function select(
-		key: typeof CART_STORE_KEY
-	): SelectFromMap< typeof selectors > & {
+	function select( key: typeof CART_STORE_KEY ): SelectFromMap<
+		typeof selectors
+	> & {
 		hasFinishedResolution: ( selector: string ) => boolean;
 	};
 }

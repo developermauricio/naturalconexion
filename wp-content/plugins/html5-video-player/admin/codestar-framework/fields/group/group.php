@@ -17,28 +17,34 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
     public function render() {
 
       $args = wp_parse_args( $this->field, array(
-        'max'                    => 0,
-        'min'                    => 0,
-        'fields'                 => array(),
-        'button_title'           => esc_html__( 'Add New', 'csf' ),
-        'accordion_title_prefix' => '',
-        'accordion_title_number' => false,
-        'accordion_title_auto'   => true,
+        'max'                       => 0,
+        'min'                       => 0,
+        'fields'                    => array(),
+        'button_title'              => esc_html__( 'Add New', 'csf' ),
+        'accordion_title_prefix'    => '',
+        'accordion_title_number'    => false,
+        'accordion_title_auto'      => true,
+        'accordion_title_by'        => array(),
+        'accordion_title_by_prefix' => ' ',
       ) );
 
-      $title_prefix = ( ! empty( $args['accordion_title_prefix'] ) ) ? $args['accordion_title_prefix'] : '';
-      $title_number = ( ! empty( $args['accordion_title_number'] ) ) ? true : false;
-      $title_auto   = ( ! empty( $args['accordion_title_auto'] ) ) ? true : false;
+      $title_prefix    = ( ! empty( $args['accordion_title_prefix'] ) ) ? $args['accordion_title_prefix'] : '';
+      $title_number    = ( ! empty( $args['accordion_title_number'] ) ) ? true : false;
+      $title_auto      = ( ! empty( $args['accordion_title_auto'] ) ) ? true : false;
+      $title_first     = ( isset( $this->field['fields'][0]['id'] ) ) ? $this->field['fields'][0]['id'] : $this->field['fields'][1]['id'];
+      $title_by        = ( is_array( $args['accordion_title_by'] ) ) ? $args['accordion_title_by'] : (array) $args['accordion_title_by'];
+      $title_by        = ( empty( $title_by ) ) ? array( $title_first ) : $title_by;
+      $title_by_prefix = ( ! empty( $args['accordion_title_by_prefix'] ) ) ? $args['accordion_title_by_prefix'] : '';
 
-      if ( ! empty( $this->parent ) && preg_match( '/'. preg_quote( '['. $this->field['id'] .']' ) .'/', $this->parent ) ) {
+      if ( preg_match( '/'. preg_quote( '['. $this->field['id'] .']' ) .'/', $this->unique ) ) {
 
-        echo '<div class="csf-notice csf-notice-danger">'. esc_html__( 'Error: Nested field id can not be same with another nested field id.', 'csf' ) .'</div>';
+        echo '<div class="csf-notice csf-notice-danger">'. esc_html__( 'Error: Field ID conflict.', 'csf' ) .'</div>';
 
       } else {
 
         echo $this->field_before();
 
-        echo '<div class="csf-cloneable-item csf-cloneable-hidden">';
+        echo '<div class="csf-cloneable-item csf-cloneable-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
 
           echo '<div class="csf-cloneable-helper">';
           echo '<i class="csf-cloneable-sort fas fa-arrows-alt"></i>';
@@ -57,17 +63,17 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
           echo '<div class="csf-cloneable-content">';
           foreach ( $this->field['fields'] as $field ) {
 
-            $field_parent  = $this->parent .'['. $this->field['id'] .']';
             $field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
+            $field_unique  = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .'][0]' : $this->field['id'] .'[0]';
 
-            CSF::field( $field, $field_default, '_nonce', 'field/group', $field_parent );
+            CSF::field( $field, $field_default, '___'. $field_unique, 'field/group' );
 
           }
           echo '</div>';
 
         echo '</div>';
 
-        echo '<div class="csf-cloneable-wrapper csf-data-wrapper" data-title-number="'. esc_attr( $title_number ) .'" data-unique-id="'. esc_attr( $this->unique ) .'" data-field-id="['. esc_attr( $this->field['id'] ) .']" data-max="'. esc_attr( $args['max'] ) .'" data-min="'. esc_attr( $args['min'] ) .'">';
+        echo '<div class="csf-cloneable-wrapper csf-data-wrapper" data-title-by="'. esc_attr( json_encode( $title_by ) ) .'" data-title-by-prefix="'. esc_attr( $title_by_prefix ) .'" data-title-number="'. esc_attr( $title_number ) .'" data-field-id="['. esc_attr( $this->field['id'] ) .']" data-max="'. esc_attr( $args['max'] ) .'" data-min="'. esc_attr( $args['min'] ) .'">';
 
         if ( ! empty( $this->value ) ) {
 
@@ -75,9 +81,23 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
           foreach ( $this->value as $value ) {
 
-            $first_id    = ( isset( $this->field['fields'][0]['id'] ) ) ? $this->field['fields'][0]['id'] : '';
-            $first_value = ( isset( $value[$first_id] ) ) ? $value[$first_id] : '';
-            $first_value = ( is_array( $first_value ) ) ? reset( $first_value ) : $first_value;
+            $title = '';
+
+            if ( ! empty( $title_by ) ) {
+
+              $titles = array();
+
+              foreach ( $title_by as $title_key ) {
+                if ( isset( $value[ $title_key ] ) ) {
+                  $titles[] = $value[ $title_key ];
+                }
+              }
+
+              $title = join( $title_by_prefix, $titles );
+
+            }
+
+            $title = ( is_array( $title ) ) ? reset( $title ) : $title;
 
             echo '<div class="csf-cloneable-item">';
 
@@ -91,7 +111,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
               echo '<span class="csf-cloneable-text">';
               echo ( $title_number ) ? '<span class="csf-cloneable-title-number">'. esc_attr( $num+1 ) .'.</span>' : '';
               echo ( $title_prefix ) ? '<span class="csf-cloneable-title-prefix">'. esc_attr( $title_prefix ) .'</span>' : '';
-              echo ( $title_auto ) ? '<span class="csf-cloneable-value">' . esc_attr( $first_value ) .'</span>' : '';
+              echo ( $title_auto ) ? '<span class="csf-cloneable-value">' . esc_attr( $title ) .'</span>' : '';
               echo '</span>';
               echo '</h4>';
 
@@ -99,11 +119,10 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
               foreach ( $this->field['fields'] as $field ) {
 
-                $field_parent  = $this->parent .'['. $this->field['id'] .']';
                 $field_unique = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .']['. $num .']' : $this->field['id'] .'['. $num .']';
                 $field_value  = ( isset( $field['id'] ) && isset( $value[$field['id']] ) ) ? $value[$field['id']] : '';
 
-                CSF::field( $field, $field_value, $field_unique, 'field/group', $field_parent );
+                CSF::field( $field, $field_value, $field_unique, 'field/group' );
 
               }
 
@@ -119,10 +138,9 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
         echo '</div>';
 
-        echo '<div class="csf-cloneable-alert csf-cloneable-max">'. esc_html__( 'You can not add more than', 'csf' ) .' '. esc_attr( $args['max'] ) .'</div>';
-        echo '<div class="csf-cloneable-alert csf-cloneable-min">'. esc_html__( 'You can not remove less than', 'csf' ) .' '. esc_attr( $args['min'] ) .'</div>';
-
-        echo '<a href="#" class="button button-primary csf-cloneable-add">'. wp_kses_post( $args['button_title'] ) .'</a>';
+        echo '<div class="csf-cloneable-alert csf-cloneable-max">'. esc_html__( 'You cannot add more.', 'csf' ) .'</div>';
+        echo '<div class="csf-cloneable-alert csf-cloneable-min">'. esc_html__( 'You cannot remove more.', 'csf' ) .'</div>';
+        echo '<a href="#" class="button button-primary csf-cloneable-add">'. $args['button_title'] .'</a>';
 
         echo $this->field_after();
 

@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -34,7 +34,8 @@ $rs_new_addon_counter	 = get_option('rs-addons-counter', false);
 $rs_new_addon_counter	 = ($rs_new_addon_counter === false) ? count($rs_addons) : $rs_new_addon_counter;
 $rs_new_temp_counter	 = get_option('rs-templates-counter', false);
 if($rs_new_temp_counter === false){
-	$_rs_tmplts			 = get_option('rs-templates', array());
+	$_rs_tmplts			 = get_option('rs-templates', false);
+	$_rs_tmplts			 = (!is_array($_rs_tmplts)) ? json_decode($_rs_tmplts, true) : $_rs_tmplts;
 	$rs_new_temp_counter = (isset($_rs_tmplts['slider'])) ? count($_rs_tmplts['slider']) : $rs_new_temp_counter;
 }
 $rs_global_sizes		 = array(
@@ -43,14 +44,15 @@ $rs_global_sizes		 = array(
 	't' => $rsaf->get_val($rs_global_settings, array('size', 'tablet'), '778'),
 	'm' => $rsaf->get_val($rs_global_settings, array('size', 'mobile'), '480')
 );
-$rs_show_updated = get_option('rs_cache_overlay', RS_REVISION);
+$rs_show_updated = get_option('rs_cache_overlay', '1.0.0');
 if(version_compare(RS_REVISION, $rs_show_updated, '>')){
     update_option('rs_cache_overlay', RS_REVISION);
 }
+$rs_show_deregister_popup = $rsaf->_truefalse(get_option('revslider-deregister-popup', 'false'));
 
 ?>
 <!-- GLOBAL VARIABLES -->
-<script type="text/javascript">
+<script>
 	window.RVS = window.RVS === undefined ? {F:{}, C:{}, ENV:{}, LIB:{}, V:{}, S:{}, DOC:jQuery(document), WIN:jQuery(window)} : window.RVS;
 	
 	RVS.LIB.ADDONS			= RVS.LIB.ADDONS === undefined ? {} : RVS.LIB.ADDONS;	
@@ -60,14 +62,13 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 	RVS.LIB.COLOR_PRESETS	= <?php echo (!empty($rs_color_picker_presets)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_color_picker_presets) .')' : '{}'; ?>;
 
 	RVS.ENV.addOns_to_update = <?php echo (!empty($rs_addon_update)) ? 'JSON.parse('.$rsaf->json_encode_client_side($rs_addon_update).')' : '{}'; ?>;
-	RVS.ENV.activated		= '<?php echo ($rs_valid) == 'true' ? 'true' : 'false'; ?>';
-	RVS.ENV.activated		= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : false;
+	RVS.ENV.activated		= <?php echo ($rsaf->_truefalse($rs_valid) === true) ? 'true' : 'false'; ?>;
 	RVS.ENV.nonce			= '<?php echo wp_create_nonce('revslider_actions'); ?>';
 	RVS.ENV.plugin_dir		= 'revslider';
-	RVS.ENV.slug_path		= '<?php echo RS_PLUGIN_SLUG_PATH; ?>';
-	RVS.ENV.slug			= '<?php echo RS_PLUGIN_SLUG; ?>';
-	RVS.ENV.plugin_url		= '<?php echo RS_PLUGIN_URL; ?>';
-	RVS.ENV.wp_plugin_url 	= '<?php echo WP_PLUGIN_URL . "/"; ?>';
+	RVS.ENV.slug_path		= '<?php echo str_replace(array("\n", "\r"), '', RS_PLUGIN_SLUG_PATH); ?>';
+	RVS.ENV.slug			= '<?php echo str_replace(array("\n", "\r"), '', RS_PLUGIN_SLUG); ?>';
+	RVS.ENV.plugin_url		= '<?php echo str_replace(array("\n", "\r"), '', RS_PLUGIN_URL); ?>';
+	RVS.ENV.wp_plugin_url 	= '<?php echo str_replace(array("\n", "\r"), '', WP_PLUGIN_URL) . "/"; ?>';
 	RVS.ENV.admin_url		= '<?php echo admin_url('admin.php?page=revslider'); ?>';
 	RVS.ENV.revision		= '<?php echo RS_REVISION; ?>';
 	RVS.ENV.updated			= <?php echo (version_compare(RS_REVISION, $rs_show_updated, '>')) ? 'true' : 'false'; ?>;
@@ -85,8 +86,9 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 		<?php
 		if(RevSliderWooCommerce::woo_exists()){
 			$wc = new WC_Product(0);
-		?>wc_full_price:		'<?php echo wc_price('99') . $wc->get_price_suffix(); ?>',
-		wc_price:			'<?php echo strip_tags(wc_price('99') . $wc->get_price_suffix()); ?>',
+			$wc_price_suffix = str_replace(array("\n", "\r"), '', $wc->get_price_suffix());
+		?>wc_full_price:		'<?php echo wc_price('99') . $wc_price_suffix; ?>',
+		wc_price:			'<?php echo strip_tags(wc_price('99') . $wc_price_suffix); ?>',
 		wc_price_no_cur:	'<?php echo strip_tags(wc_price('99')); ?>',
 		wc_categories:		'shoes, socks',
 		wc_tags:			'comfort, health',
@@ -109,6 +111,7 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 	RVS.ENV.selling			= <?php echo ($rsaf->get_addition('selling') === true) ? 'true' : 'false'; ?>;
 	RVS.ENV.newAddonsAmount = '<?php echo $rs_new_addon_counter; ?>';
 	RVS.ENV.newTemplatesAmount = '<?php echo $rs_new_temp_counter; ?>';
+	RVS.ENV.deregisterPopup	= <?php echo ($rs_show_deregister_popup) ? 'true' : 'false'; ?>;
 	
 	<?php
 	if($rs_slider_update_needed == true){

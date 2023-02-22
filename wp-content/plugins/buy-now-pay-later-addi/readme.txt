@@ -6,7 +6,7 @@ Tags: comments, spam
 Requires at least: 5.2
 Tested up to: 6.0
 Requires PHP: 7.0
-Stable tag: 1.5.3
+Stable tag: 1.5.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,29 @@ Nota: Para garantizar que recibes correctamente la respuesta por parte de ADDI, 
 3. El nuevo método de pago se mostrará en el checkout de tu sitio!.
 
 == Changelog ==
+= 1.5.11 2022-11-24 =
+* Fixed visual issues for the widget and checkout.
+
+= 1.5.10 2022-11-17 =
+* Fixed visual issues with the new template.
+
+= 1.5.9 2022-11-01 =
+* Added the new templates for Addi Flex.
+
+= 1.5.8 2022-08-12 =
+* Fixed some styling issues.
+
+= 1.5.7 2022-08-10 =
+* Fixed an issue for the display of the items price when including taxes.
+
+= 1.5.6 2022-07-18 =
+* Fixed PHP for some allies
+
+= 1.5.5 2022-07-18 =
+* Fixed callbacks issues with the ADDI API
+
+= 1.5.4 2022-07-11 =
+* Fixed some compatibility issues
 
 = 1.5.3 2022-06-16 =
 * Updated the template for "Día sin IVA"

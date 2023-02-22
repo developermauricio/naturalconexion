@@ -36,7 +36,7 @@ class DPLR_Form_Shortcode{
         if ($encontrado == true) {
             return ob_get_clean();
         } else {
-            return "El id del form está mal " . $atts['id'] . " " . $atts['txt'];
+            return "El id del form está mal " . $atts['id'] . (isset($atts['txt']) ? " " . $atts['txt'] : '');
         }
     }
 }

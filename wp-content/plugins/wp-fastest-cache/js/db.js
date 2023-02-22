@@ -17,6 +17,36 @@ var WpfcDB = {
     	});
 
     	self.click_event_for_warnings();
+    	self.click_event_for_auto_cleanup();
+	},
+	click_event_for_auto_cleanup: function(){
+		jQuery("#wpfc-auto-cleanup-option").change(function(){
+			let status = jQuery(this).val();
+			let nonce = jQuery("#wpfc-auto-cleanup-nonce").val();
+
+			jQuery("#revert-loader-toolbar").show();
+
+			jQuery.ajax({
+				type: 'POST', 
+				url: ajaxurl,
+				dataType : "json",
+				data : {"action": "wpfc_db_set_auto_cleanup", "status" : status, "nonce" : nonce},
+				cache: false, 
+				success: function(data){
+					if(typeof data.status != "undefined"){
+						jQuery("#wpfc-auto-cleanup-option").val(data.status);
+					}else{
+						jQuery("#wpfc-auto-cleanup-option").val("off");
+					}
+
+					jQuery("#revert-loader-toolbar").hide();
+					
+					console.log(data);
+				}
+			});
+
+
+		});
 	},
 	click_event_for_warnings: function(){
 		var self = this;

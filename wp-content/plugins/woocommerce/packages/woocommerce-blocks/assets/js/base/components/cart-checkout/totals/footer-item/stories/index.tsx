@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import { allSettings } from '@woocommerce/settings';
 import { Currency } from '@woocommerce/types';
 
@@ -21,8 +21,7 @@ const NZD: Currency = {
 };
 
 export default {
-	title:
-		'WooCommerce Blocks/@base-components/cart-checkout/totals/FooterItem',
+	title: 'WooCommerce Blocks/@base-components/cart-checkout/totals/FooterItem',
 	component: FooterItem,
 	args: {
 		currency: NZD,

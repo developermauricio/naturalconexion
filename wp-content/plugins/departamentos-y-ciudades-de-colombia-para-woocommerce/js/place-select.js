@@ -56,14 +56,14 @@
   }
 
   // Select2 Enhancement if it exists
-  if ( $().select2 ) {
+  if ( $().selectWoo ) {
     var wc_city_select_select2 = function() {
       $( 'select.city_select:visible' ).each( function() {
         var select2_args = $.extend({
           placeholderOption: 'first',
           width: '100%'
         }, getEnhancedSelectFormatString() );
-        $( this ).select2( select2_args );
+        $( this ).selectWoo( select2_args );
       });
     };
 
@@ -86,7 +86,7 @@
   });
 
     elBodyDPWoo.on( 'change', 'select.state_select, #calc_shipping_state', function() {
-    var $container = $( this ).closest( 'div' );
+    var $container = $( this ).closest( 'div.woocommerce-billing-fields, div.woocommerce-shipping-fields, form.woocommerce-shipping-calculator' );
     var country = $container.find( '#billing_country, #shipping_country, #calc_shipping_country' ).val();
     var state = $( this ).val();
 

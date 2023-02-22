@@ -9,7 +9,7 @@
  * @package FacebookCommerce
  */
 
-namespace SkyVerge\WooCommerce\Facebook;
+namespace WooCommerce\Facebook;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -23,23 +23,6 @@ class Commerce {
 
 	/** @var string option that stores the plugin-level fallback Google product category ID */
 	const OPTION_GOOGLE_PRODUCT_CATEGORY_ID = 'wc_facebook_google_product_category_id';
-
-
-	/** @var Commerce\Orders the orders handler */
-	protected $orders;
-
-
-	/**
-	 * Commerce handler constructor.
-	 *
-	 * @since 2.1.0
-	 */
-	public function __construct() {
-
-		require_once __DIR__ . '/Commerce/Orders.php';
-
-		$this->orders = new Commerce\Orders();
-	}
 
 
 	/**
@@ -127,19 +110,4 @@ class Commerce {
 		 */
 		return (bool) apply_filters( 'wc_facebook_commerce_is_connected', $connected, $this );
 	}
-
-
-	/**
-	 * Gets the orders handler instance.
-	 *
-	 * @since 2.1.0
-	 *
-	 * @return \SkyVerge\WooCommerce\Facebook\Commerce\Orders
-	 */
-	public function get_orders_handler() {
-
-		return $this->orders;
-	}
-
-
 }

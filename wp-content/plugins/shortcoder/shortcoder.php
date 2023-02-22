@@ -4,13 +4,13 @@ Plugin Name: Shortcoder
 Plugin URI: https://www.aakashweb.com/wordpress-plugins/shortcoder/
 Description: Shortcoder plugin allows to create a custom shortcodes for HTML, JavaScript and other snippets. Now the shortcodes can be used in posts/pages and the snippet will be replaced in place.
 Author: Aakash Chakravarthy
-Version: 5.8
+Version: 6.1
 Author URI: https://www.aakashweb.com/
 Text Domain: shortcoder
 Domain Path: /languages
 */
 
-define( 'SC_VERSION', '5.8' );
+define( 'SC_VERSION', '6.1' );
 define( 'SC_PATH', plugin_dir_path( __FILE__ ) ); // All have trailing slash
 define( 'SC_URL', plugin_dir_url( __FILE__ ) );
 define( 'SC_ADMIN_URL', trailingslashit( plugin_dir_url( __FILE__ ) . 'admin' ) );
@@ -23,13 +23,13 @@ final class Shortcoder{
 
     static public $shortcodes = array();
 
+    static public $current_shortcode = false;
+
     public static function init(){
         
         // Include the required
         self::includes();
 
-        add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ) );
-        
         add_shortcode( 'sc', array( __CLASS__, 'execute_shortcode' ) );
         
     }
@@ -65,6 +65,12 @@ final class Shortcoder{
             return $shortcode;
         }
 
+        // Prevent same shortcode nested loop
+        if( self::$current_shortcode == $shortcode[ 'name' ] ){
+            return '';
+        }
+        self::$current_shortcode = $shortcode[ 'name' ];
+
         $sc_content = $shortcode[ 'content' ];
         $sc_settings = $shortcode[ 'settings' ];
 
@@ -78,7 +84,9 @@ final class Shortcoder{
         }
 
         $sc_content = apply_filters( 'sc_mod_output', $sc_content, $atts, $sc_settings, $enclosed_content );
-        do_action( 'sc_do_after', $sc_content, $atts, $sc_settings );
+        do_action( 'sc_do_after', $shortcode, $atts );
+
+        self::$current_shortcode = false;
 
         return $sc_content;
 
@@ -100,6 +108,7 @@ final class Shortcoder{
         foreach( $shortcode_posts as $index => $post ){
             $shortcodes[ $post->post_name ] = array(
                 'id' => $post->ID,
+                'name' => $post->post_name,
                 'content' => $post->post_content,
                 'settings' => self::get_sc_settings( $post->ID )
             );
@@ -113,22 +122,22 @@ final class Shortcoder{
 
     public static function default_sc_settings(){
 
-        return array(
+        return apply_filters( 'sc_mod_sc_settings', array(
             '_sc_description' => '',
             '_sc_disable_sc' => 'no',
             '_sc_disable_admin' => 'no',
             '_sc_editor' => '',
             '_sc_allowed_devices' => 'all'
-        );
+        ));
 
     }
 
     public static function default_settings(){
 
-        return array(
+        return apply_filters( 'sc_mod_settings', array(
             'default_editor' => 'code',
             'default_content' => ''
-        );
+        ));
 
     }
 
@@ -403,12 +412,6 @@ final class Shortcoder{
             }
         }
         return $result;
-    }
-
-    public static function load_text_domain(){
-
-        load_plugin_textdomain( 'shortcoder', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
-
     }
 
 }

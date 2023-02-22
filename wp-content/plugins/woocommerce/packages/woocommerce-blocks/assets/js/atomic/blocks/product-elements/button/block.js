@@ -8,6 +8,12 @@ import {
 	useStoreEvents,
 	useStoreAddToCart,
 } from '@woocommerce/base-context/hooks';
+import {
+	useBorderProps,
+	useColorProps,
+	useTypographyProps,
+	useSpacingProps,
+} from '@woocommerce/base-hooks';
 import { decodeEntities } from '@wordpress/html-entities';
 import { CART_URL } from '@woocommerce/block-settings';
 import { getSetting } from '@woocommerce/settings';
@@ -21,12 +27,6 @@ import { withProductDataContext } from '@woocommerce/shared-hocs';
  * Internal dependencies
  */
 import './style.scss';
-import {
-	useBorderProps,
-	useColorProps,
-	useTypographyProps,
-	useSpacingProps,
-} from '../../../../hooks/style-attributes';
 
 /**
  * Product Button Block Component.
@@ -35,7 +35,7 @@ import {
  * @param {string} [props.className] CSS Class name for the component.
  * @return {*} The component.
  */
-const Block = ( props ) => {
+export const Block = ( props ) => {
 	const { className } = props;
 
 	const { parentClassName } = useInnerBlockLayoutContext();
@@ -52,7 +52,8 @@ const Block = ( props ) => {
 				'wp-block-button',
 				'wc-block-components-product-button',
 				{
-					[ `${ parentClassName }__product-add-to-cart` ]: parentClassName,
+					[ `${ parentClassName }__product-add-to-cart` ]:
+						parentClassName,
 				}
 			) }
 		>
@@ -142,8 +143,8 @@ const AddToCartButton = ( {
 			} );
 		};
 	} else {
-		buttonProps.onClick = () => {
-			addToCart();
+		buttonProps.onClick = async () => {
+			await addToCart();
 			dispatchStoreEvent( 'cart-add-item', {
 				product,
 			} );
@@ -161,6 +162,7 @@ const AddToCartButton = ( {
 			aria-label={ buttonAriaLabel }
 			className={ classnames(
 				'wp-block-button__link',
+				'wp-element-button',
 				'add_to_cart_button',
 				'wc-block-components-product-button__button',
 				colorStyles.className,
@@ -205,6 +207,7 @@ const AddToCartButtonPlaceholder = ( {
 		<button
 			className={ classnames(
 				'wp-block-button__link',
+				'wp-element-button',
 				'add_to_cart_button',
 				'wc-block-components-product-button__button',
 				'wc-block-components-product-button__button--placeholder',

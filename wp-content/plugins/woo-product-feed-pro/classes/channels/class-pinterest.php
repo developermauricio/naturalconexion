@@ -293,6 +293,16 @@ class WooSEA_pinterest {
 					"feed_name" => "g:excluded_destination",
 					"format" => "optional",
 				),
+				"Checkout enabled" => array(
+					"name" => "checkout_enabled",
+					"feed_name" => "g:checkout_enabled",
+					"format" => "optional",
+				),
+				"Ad link" => array(
+					"name" => "ad_link",
+					"feed_name" => "g:ad_link",
+					"format" => "optional",
+				),
 			),
 			"Shipping" => array(
 				"Shipping" => array(
@@ -335,6 +345,16 @@ class WooSEA_pinterest {
 					"feed_name" => "g:max_handling_time",
 					"format" => "optional",
 				),
+				"Free shipping label" => array(
+					"name" => "free_shipping_label",
+					"feed_name" => "g:free_shipping_label",
+					"format" => "optional",
+				),
+				"Free shipping limit" => array(
+					"name" => "free_shipping_limit",
+					"feed_name" => "g:free_shipping_limit",
+					"format" => "optional",
+				),
 			),
 			"Tax" => array(
 				"Tax" => array(
@@ -348,6 +368,34 @@ class WooSEA_pinterest {
 					"format" => "optional",
 				),
 			),
+			"Optional product characteristics" => array(
+				"Alt text" => array(
+					"name" => "alt_text",
+					"feed_name" => "g:alt_text",
+					"format" => "optional",
+				),
+				"Size system" => array(
+					"name" => "size_system",
+					"feed_name" => "g:size_system",
+					"format" => "optional",
+				),
+				"Size type" => array(
+					"name" => "size_type",
+					"feed_name" => "g:size_type",
+					"format" => "optional",
+				),
+				"Variant names" => array(
+					"name" => "variant_names",
+					"feed_name" => "g:variant_names",
+					"format" => "optional",
+				),
+				"Variant values" => array(
+					"name" => "variant_values",
+					"feed_name" => "g:variant_values",
+					"format" => "optional",
+				),
+			),
+
 		);
 		return $pinterest;
 	}

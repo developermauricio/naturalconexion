@@ -18,6 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+use Automattic\WooCommerce\Internal\Admin\Marketing;
 use Automattic\WooCommerce\Internal\AssignDefaultCategory;
 use Automattic\WooCommerce\Internal\ProductAttributesLookup\DataRegenerator;
 use Automattic\WooCommerce\Internal\ProductAttributesLookup\LookupDataStore;
@@ -2429,4 +2430,44 @@ function wc_update_651_approved_download_directories() {
 	// 6.5.0. Let's give that another try.
 	$directory_sync->init_hooks();
 	$directory_sync->init_feature( true, false );
+}
+
+/**
+ * Purges the comments count cache after 6.7.0 split reviews from the comments page.
+ */
+function wc_update_670_purge_comments_count_cache() {
+	if ( ! is_callable( 'WC_Comments::delete_comments_count_cache' ) ) {
+		return;
+	}
+
+	WC_Comments::delete_comments_count_cache();
+}
+/**
+ * Remove unnecessary foreign keys.
+ *
+ * @return void
+ */
+function wc_update_700_remove_download_log_fk() {
+	global $wpdb;
+
+	$results = $wpdb->get_results(
+		"SELECT CONSTRAINT_NAME
+		FROM information_schema.TABLE_CONSTRAINTS
+		WHERE CONSTRAINT_SCHEMA = '{$wpdb->dbname}'
+		AND CONSTRAINT_TYPE = 'FOREIGN KEY'
+		AND TABLE_NAME = '{$wpdb->prefix}wc_download_log'"
+	);
+
+	if ( $results ) {
+		foreach ( $results as $fk ) {
+			$wpdb->query( "ALTER TABLE {$wpdb->prefix}wc_download_log DROP FOREIGN KEY {$fk->CONSTRAINT_NAME}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		}
+	}
+}
+
+/**
+ * Remove the transient data for recommended marketing extensions.
+ */
+function wc_update_700_remove_recommended_marketing_plugins_transient() {
+	delete_transient( Marketing::RECOMMENDED_PLUGINS_TRANSIENT );
 }

@@ -1,0 +1,24 @@
+
+Dec 15, 2022 14.54.35: Uncaught Error: Class 'MailChimp_WooCommerce' not found in /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/bootstrap.php:1203
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/bootstrap.php(1212): run_mailchimp_woocommerce()
+#1 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): mailchimp_on_all_plugins_loaded()
+#2 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#3 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#4 /home/forge/naturalconexion.com/wp-settings.php(480): do_action()
+#5 /home/forge/naturalconexion.com/wp-config.php(93): require_once('/home/forge/nat...')
+#6 /home/forge/naturalconexion.com/wp-load.php(50): require_once('/home/forge/nat...')
+#7 /home/forge/naturalconexion.com/wp-admin/admin-ajax.php(22): require_once('/home/forge/nat...')
+#8 {main}
+  thrown
+
+Dec 15, 2022 14.54.35: Uncaught Error: Class 'MailChimp_WooCommerce_Admin' not found in /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/includes/class-mailchimp-woocommerce.php:230
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/includes/class-mailchimp-woocommerce.php(128): MailChimp_WooCommerce->define_admin_hooks()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/bootstrap.php(1203): MailChimp_WooCommerce->__construct()
+#2 /home/forge/naturalconexion.com/wp-content/plugins/mailchimp-for-woocommerce/bootstrap.php(1212): run_mailchimp_woocommerce()
+#3 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): mailchimp_on_all_plugins_loaded()
+#4 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#5 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /home/forge/naturalconexion.com/wp-settings.php(480): do_action()
+#7 /home/forge/naturalconexion.

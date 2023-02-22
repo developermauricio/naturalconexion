@@ -5,7 +5,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 if(!defined('ABSPATH')) exit();
 ?>
@@ -276,15 +276,15 @@ if(!defined('ABSPATH')) exit();
 				</div>
 			</div>
 			<!-- LAYER VIDEO POSTER CONTENT  -->
-			<div id="form_layercontent_content_videooverlay" class="form_inner open _shfv_ _shfa_">
+			<div id="form_layercontent_content_videooverlay" class="form_inner open _shfv_">
 				<div class="form_inner_header"><i class="material-icons">filter_hdr</i><?php _e('Overlay', 'revslider');?></div>
 				<div class="collapsable">
 					<div class="_nsfa_">
 						<!-- SLIDE VIDEO OVERLAY -->
 							<label_a><?php _e('Overlay', 'revslider');?></label_a><select data-evt="updateslidebasic" id="layer_dotted_overlay" class="dottedoverlay layerinput tos2 nosearchbox easyinit callEvent" data-r="media.dotted"></select>
 							<label_a><?php _e('Size', 'revslider');?></label_a><input data-numeric="true" data-allowed="none" data-min="0"  data-r="media.dottedSize" data-evt="drawBGOverlay"  type="text"  class="layerinput valueduekeyboard  easyinit callEvent" placeholder="none" >
-							<label_a><?php _e('Color 1', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 1" data-evt="updateslidebasic" name="layervideooverlaycolor_a" id="layervideooverlaycolor_a" class="my-color-field layerinput easyinit" data-visible="true" data-r="media.dottedColorA" value="transparent">
-							<label_a><?php _e('Color 2', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 2" data-evt="updateslidebasic" name="layervideooverlaycolor_b" id="layervideooverlaycolor_b" class="my-color-field layerinput easyinit" data-visible="true" data-r="media.dottedColorB" value="transparent">						
+							<label_a><?php _e('Color 1', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 1" data-evt="updateslidebasic" name="layervideooverlaycolor_a" id="layervideooverlaycolor_a" class="my-color-field layerinput easyinit" data-visible="true" data-mode="single" data-r="media.dottedColorA" value="transparent">
+							<label_a><?php _e('Color 2', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 2" data-evt="updateslidebasic" name="layervideooverlaycolor_b" id="layervideooverlaycolor_b" class="my-color-field layerinput easyinit" data-visible="true" data-mode="single" data-r="media.dottedColorB" value="transparent">						
 					</div>
 				</div>
 			</div>
@@ -461,14 +461,14 @@ if(!defined('ABSPATH')) exit();
 						</div>
 					</row>
 
-					<div class="_nsfc_ _nsfr_ _nsft_ _nsfa_ _nsfb_ _nsfsvg_">
+					<div class="_nsfc_ _nsfr_ _nsft_ _nsfa_ _nsfb_ _nsfsvg_ _nsftbsic_">
 						<label_a><?php _e('Size Presets', 'revslider');?></label_a><select id="layer_covermode" data-enable=".layersize_wrap " data-disable=".layersize_*val*" class="layerinput tos2 nosearchbox easyinit callEvent" data-updateviaevt="true" data-evt="layerSizePreset" data-r="size.covermode"><option value="custom" selected="selected"><?php _e('Custom Size', 'revslider');?></option><option value="fullwidth"><?php _e('Full Width', 'revslider');?></option><option value="fullheight"><?php _e('Full Height', 'revslider');?></option><option value="cover"><?php _e('Stretch', 'revslider');?></option><option value="cover-proportional"><?php _e('Cover', 'revslider');?></option></select>
 					</div>
 					<div class="_nflic_ _nvojcm_">
 						<label_a><?php _e('Layer Align', 'revslider');?></label_a>
 						<div class="radiooption">
-							<div><input name="layer_within_align" class="layerinput easyinit" data-r="behavior.baseAlign" type="radio" value="grid"><label_sub><?php _e('Layer Area', 'revslider');?></label_sub></div>
-							<div><input name="layer_within_align" class="layerinput easyinit" data-r="behavior.baseAlign" type="radio" value="slide"><label_sub><?php _e('Scene', 'revslider');?></label_sub></div>
+							<div><input name="layer_within_align" class="layerinput easyinit" data-r="behavior.baseAlign" data-evt="layerAlignChanged" type="radio" value="grid"><label_sub><?php _e('Layer Area', 'revslider');?></label_sub></div>
+							<div><input name="layer_within_align" class="layerinput easyinit" data-r="behavior.baseAlign" data-evt="layerAlignChanged" type="radio" value="slide"><label_sub><?php _e('Scene', 'revslider');?></label_sub></div>
 						</div>
 					</div>
 				</div>
@@ -534,7 +534,7 @@ if(!defined('ABSPATH')) exit();
 			</div>
 			<!-- LAYER STYLE FONT -->
 			<div id="form_layerstyle_font" class="form_inner open _shft_">
-				<div class="form_inner_header"><i class="material-icons">title</i><?php _e('Font & Icon', 'revslider');?></div>
+				<div id="flf_font_icon" class="form_inner_header"><i class="material-icons">title</i><?php _e('Font & Icon', 'revslider');?></div>
 				<div class="collapsable">
 
 					<row class="directrow __idle__">
@@ -579,7 +579,9 @@ if(!defined('ABSPATH')) exit();
 						<div class="svglayer_simplecoloring">
 							<div class="div15"></div>
 							<div><label_a><?php _e('SVG Color', 'revslider');?></label_a><input type="text" data-editing="SVG Color" data-mode="single" name="layerSVGColor" id="layerSVGColor" class="my-color-field layerinput easyinit" data-visible="true" data-r="idle.svg.color.#size#.v" value="transparent"></div>
+							<div class="div5"></div>
 							<div><label_a><?php _e('Stroke Color', 'revslider');?></label_a><input type="text" data-editing="Stroke Color" data-mode="single" name="layerStrokeColor" id="layerStrokeColor" class="my-color-field layerinput easyinit" data-visible="true" data-r="idle.svg.strokeColor" value="transparent"></div>
+							<div class="div15"></div>
 							<row class="directrow">
 								<onelong><label_icon class="ui_strokewidth"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-allowed="px"  data-numeric="true" data-r="idle.svg.strokeWidth" data-min="-1" data-max="500" type="text"></onelong>
 								<oneshort><label_icon class="ui_strokedasharray"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-r="idle.svg.strokeDashArray" type="text"></oneshort>
@@ -588,6 +590,7 @@ if(!defined('ABSPATH')) exit();
 								<onelong><label_icon class="ui_strokedashoffset"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-allowed="px"  data-numeric="true" data-r="idle.svg.strokeDashOffset" data-min="0" data-max="500" type="text"></onelong>
 								<oneshort></oneshort>
 							</row>
+							<div class="div25"></div>
 							<longoption><label_a><?php _e('Style All Elements', 'revslider');?></label_a><input type="checkbox" class="easyinit layerinput" data-evt="SvgSelectAllChanged" data-r="idle.svg.styleAll"></longoption>
 						</div>
 					</div>
@@ -752,6 +755,12 @@ if(!defined('ABSPATH')) exit();
 						<onelong><label_icon class="ui_rotatez"></label_icon><input  class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="deg" data-r="idle.rotationZ" data-min="-3600" data-max="3600" type="text"></onelong>
 						<oneshort><label_icon class="ui_opacity"></label_icon><input  class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="" data-r="idle.opacity" data-min="0" data-max="1" data-steps="0.05" type="text"></oneshort>
 					</row>
+					<label_a><?php _e('iOS Fix by', 'revslider');?></label_a><select  class="layerinput tos2 nosearchbox easyinit" data-r="idle.filtersIOSFix">
+						<option value="d"><?php _e('Default', 'revslider');?></option>									
+						<option value="z"><?php _e('z', 'revslider');?></option>
+						<option value="x"><?php _e('x', 'revslider');?></option>
+						<option value="r"><?php _e('Rotation', 'revslider');?></option>							
+					</select>
 					
 				</div>
 			</div><!-- END OF BOX SHADOW SETTING -->
@@ -1000,7 +1009,7 @@ if(!defined('ABSPATH')) exit();
 			<div class="form_inner open">
 				<div class="form_inner_header"><i class="material-icons">mouse</i><?php _e('Hover', 'revslider');?></div>
 				<div class="collapsable">
-					<label_a><?php _e('Cursor', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" id="layer_css_cursor" data-r="idle.cursor"><option value="auto" selected="selected">Auto</option><option value="default">Default</option><option value="crosshair">Crosshair</option><option value="pointer">Pointer</option><option value="move">Move</option><option value="text">Text</option><option value="wait">Wait</option><option value="help">Help</option><option value="zoom-in">Zoom-in</option><option value="zoom-out">Zoom-out</option></select><span class="linebreak"></span>
+					<label_a><?php _e('Cursor', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" id="layer_css_cursor" data-r="idle.cursor"><option value="auto" selected="selected">Auto</option><option value="default">Default</option><option value="crosshair">Crosshair</option><option value="pointer">Pointer</option><option value="move">Move</option><option value="text">Text</option><option value="wait">Wait</option><option value="help">Help</option><option value="zoom-in">Zoom-in</option><option value="zoom-out">Zoom-out</option><option value="none">None</option></select><span class="linebreak"></span>
 					<label_a><?php _e('Pointer Event', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" id="layer_css_pointerevent" data-r="hover.pointerEvents"><option value="auto" selected="selected">Auto</option><option value="none">None</option></select>
 					<label_a><?php _e('Animation', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" id="layer_use_hover" data-r="hover.usehover" data-show=".copyhoversettings*val*" data-hide=".copyhoversettings" data-showprio="show" id="layer_usehover" class="layerinput easyinit" data-evt="copyhoversettings" data-evtparam="checkiffirst" data-r="hover.usehover"><option value="true"><?php _e('Enabled', 'revslider');?></option><option value="desktop"><?php _e('Only on Desktop', 'revslider');?></option><option value="false"><?php _e('Disabled', 'revslider');?></option></select></onelong>					
 				</div>
@@ -1292,8 +1301,10 @@ if(!defined('ABSPATH')) exit();
 							<row>
 								<onelong class="_ltsel_main_filter"><label_icon class="ui_grayscale"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="%" data-min="0" data-max="100" data-r="#frame#.filter.grayscale" type="text"></onelong>
 								<oneshort class="_ltsel_main_filter"><label_icon class="ui_brightness"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="%" data-min="0" data-max="10000" data-r="#frame#.filter.brightness" type="text"></oneshort>
-							</row>								
+							</row>															
+							
 							<longoption class="_ltsel_main_filter"><label_a><?php _e('Set Filters on Mask', 'revslider');?></label_a><input type="checkbox" class="layerinput easyinit" data-r="timeline.filtersOnMask"/></longoption>
+							
 							
 							<div class="div15"></div>
 							<div class="form_inner_header innerwrap_breakout"><i class="material-icons">settings_brightness</i><?php _e('Layer Back-Drop Filter', 'revslider');?></div>

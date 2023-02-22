@@ -32,7 +32,7 @@ class EnqueueAssets{
 
         wp_localize_script( 'h5vp-public', 'h5vp', [
             'pauseOther' => (boolean) isset($option['h5vp_pause_other_player']) ? $option['h5vp_pause_other_player'] : false,
-        ] );
+        ]);
     }
 
     /**

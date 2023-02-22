@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
  
 if(!defined('ABSPATH')) exit();
@@ -214,7 +214,7 @@ class RevSliderWpml extends RevSliderFunctions {
 				'image'	=> $this->getFlagUrl($code)
 			);
 		}
-		echo '<script type="text/javascript">';
+		echo '<script>';
 		echo 'var RS_WPML_LANGS = JSON.parse(\''.json_encode($use_langs).'\');';
 		echo '</script>';
 	}

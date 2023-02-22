@@ -476,6 +476,15 @@
   display: block !important;
 }
 
+.dplr_settings form #error-message {
+  display: none;
+  padding: 10px 20px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  font-size: 15px;
+}
+
 .dplr_settings form label {
   font-size: 13px;
   font-weight: bold;
@@ -509,7 +518,7 @@
 
 .dplr_settings form .dplr_input_section label {
   color: #333;
-  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .dplr_settings form .dplr_input_section label span.req, .dplr_settings form .dplr_input_section label span.hlp {
@@ -1448,6 +1457,18 @@
 
 .doppler_page_doppler_forms_main .ui-dialog-titlebar span.ui-dialog-title {
   font-size: 14px;
+}
+
+.form_orientation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 15px;
+  padding-left: 10px;
 }
 
 /*

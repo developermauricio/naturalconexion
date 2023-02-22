@@ -249,7 +249,7 @@ class ProductSchema extends AbstractSchema {
 				],
 			],
 			'attributes'          => [
-				'description' => __( 'List of attributes assigned to the product/variation that are visible or used for variations.', 'woocommerce' ),
+				'description' => __( 'List of attributes (taxonomy terms) assigned to the product. For variable products, these are mapped to variations (see the `variations` field).', 'woocommerce' ),
 				'type'        => 'array',
 				'context'     => [ 'view', 'edit' ],
 				'items'       => [
@@ -518,7 +518,14 @@ class ProductSchema extends AbstractSchema {
 	 */
 	protected function get_low_stock_remaining( \WC_Product $product ) {
 		$remaining_stock = $this->get_remaining_stock( $product );
+		$stock_format    = get_option( 'woocommerce_stock_format' );
 
+		// Don't show the low stock badge if the settings doesn't allow it.
+		if ( 'no_amount' === $stock_format ) {
+			return null;
+		}
+
+		// Show the low stock badge if the remaining stock is below or equal to the threshold.
 		if ( ! is_null( $remaining_stock ) && $remaining_stock <= wc_get_low_stock_amount( $product ) ) {
 			return max( $remaining_stock, 0 );
 		}

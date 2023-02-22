@@ -5,9 +5,9 @@ var Wpfc_New_Dialog = {
 	clone: "",
 	current_page_number: 1,
 	total_page_number: 0,
-	interval : false,
+	interval : {},
 	enable_button: function(button_type){
-		clearInterval(this.interval);
+		clearInterval(this.interval[this.id]);
 
 		let self = this;
 		let modal = jQuery("#" + self.id);
@@ -27,12 +27,15 @@ var Wpfc_New_Dialog = {
 
 		button.text(text + ".");
 
-		self.interval = setInterval(function(){
+		self.interval[self.id] = setInterval(function(){
+			if(jQuery("#" + self.id).length === 0){
+				clearInterval(self.interval);
+			}
+
 			text = button.text();
 			dot = text.match(/\./g);
 
-			console.log(dot);
-			console.log(button);
+			console.log(self.interval);
 
 			if(dot){
 				if(dot.length < 3){

@@ -1,4 +1,4 @@
-a:2:{s:4:"time";i:1659445410;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:11825;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-12-01 10:40:44";s:13:"post_date_gmt";s:19:"2020-12-01 15:40:44";s:12:"post_content";s:323:"<b>Ingredientes principales:</b>
+a:2:{s:4:"time";i:1665939133;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:11825;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-12-01 10:40:44";s:13:"post_date_gmt";s:19:"2020-12-01 15:40:44";s:12:"post_content";s:323:"<b>Ingredientes principales:</b>
 <ul>
  	<li>Aceite de Semilla de Uva.</li>
  	<li>Caléndula.</li>
@@ -40,4 +40,4 @@ a:2:{s:4:"time";i:1659445410;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:11825;s:11
 </ul>
 Extraemos de la naturaleza todos sus beneficios para brindarte bienestar.
 
-Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:19:"kit-belleza-natural";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-06-29 15:48:01";s:17:"post_modified_gmt";s:19:"2022-06-29 20:48:01";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:59:"https://naturalconexion.com/?post_type=product&#038;p=11825";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}
+Lo llevaremos hasta la puerta de tu casa.  ¡Adquiérelo ya!";s:11:"post_status";s:5:"trash";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:28:"kit-belleza-natural__trashed";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-09-15 09:15:14";s:17:"post_modified_gmt";s:19:"2022-09-15 14:15:14";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:59:"https://naturalconexion.com/?post_type=product&#038;p=11825";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

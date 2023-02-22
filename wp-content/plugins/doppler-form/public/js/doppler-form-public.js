@@ -7,6 +7,7 @@
 			dateElement.datepicker({
 				'dateFormat': 'dd/mm/yy',
 				'altFormat': 'yy-mm-dd',
+				'yearRange': '-100:+0',
 				'changeMonth': true,
       			'changeYear': true,
 				'altField': 'input[name="fields-'+elementName+'"]'
@@ -26,6 +27,7 @@
 			var s = $(this).find("button[name='submit']");
 			var m = $(this).find(".msg-data-sending");
 			var l = $(this).find("input[name='list_id']");
+			var d = $(this).find("input[name='form_id']");
 			var e = $(this).find("input[name='EMAIL']");
 			var honey =  $(this).find("input[name='secondary-dplrEmail']");
 			var thankyou = $(this).find("input[name='thankyou']");
@@ -36,6 +38,7 @@
 
 			var subscriber = {},
 			list_id = l.val();
+			let form_id = d.val();
 			subscriber.email = e.val();
 			subscriber.hp = honey.val();
 			subscriber.fields = [];
@@ -58,7 +61,12 @@
 			});
 			
 			$.post(dplr_obj_vars.ajax_url,
-				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
+				{
+					"action": 'submit_form', 
+					"subscriber": subscriber, 
+					"list_id": list_id,
+					"form_id": form_id
+				},
 				function(res) {
 					if(thankyou.length !== 0){
 						window.location.href = thankyou.val();

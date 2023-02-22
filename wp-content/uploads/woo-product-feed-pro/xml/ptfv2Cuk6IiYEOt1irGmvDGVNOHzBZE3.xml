@@ -5,19 +5,6 @@
     <link>https://naturalconexion.com</link>
     <description>WooCommerce Product Feed PRO - This product feed is created with the Product Feed PRO for WooCommerce plugin from AdTribes.io. For all your support questions check out our FAQ on https://www.adtribes.io or e-mail to: support@adtribes.io </description>
     <item>
-      <g:id>21076</g:id>
-      <g:title>Crema Serum Antiedad 60 GR Y Crema Hidratante Nutritiva Uva 60 gr</g:title>
-      <g:description>Ingredientes principales: Aceite de Argán. Extracto de Manzanilla. Aloe Vera. Extracto de Manzanilla. Semillas de Uva. Germen de Trigo. Vitamina E. Colágeno. Elastina.</g:description>
-      <g:link>https://naturalconexion.com/product/crema-serum-antiedad-60-gr-y-crema-hidratante-nutritiva-uva-60-gr/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-12-at-11.39.45-AM-1.jpeg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 91000.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas||Facial</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
       <g:id>20258</g:id>
       <g:title>Que papá se reconcilie con su piel</g:title>
       <g:description>Ingredientes principales: Caléndula. Manzanilla. Aloe vera. Manteca de Karité. Pepino. Germen de Trigo. Aceite de Oliva. Dióxido de Titanio. (Pantalla física. Con certificación orgánica para cosmética natural)</g:description>
@@ -51,8 +38,8 @@
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/05/78.png</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 15000.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -64,8 +51,8 @@
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2022/04/20.png</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 35000.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -136,14 +123,14 @@
     </item>
     <item>
       <g:id>17809</g:id>
-      <g:title>Sérum Facial Con Vitamina C Mayaku</g:title>
+      <g:title>Sérum Facial Con Vitamina C Mayaku Obsequio Protector Labial de Menta</g:title>
       <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
       <g:link>https://naturalconexion.com/product/serum-facial-con-vitamina-c-mayaku/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/12/88.png</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/12/PROMO-01.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 120000.00</g:price>
-      <g:google_product_category>2526</g:google_product_category>
-      <g:product_type>Facial</g:product_type>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -153,7 +140,7 @@
       <g:description>Ingredientes principales: Manzanilla. Germen de trigo. Aloe vera. Jojoba. Argán. Aguacate. Colágeno. Elastina. Vitamina E.</g:description>
       <g:link>https://naturalconexion.com/product/contorno-de-ojos-de-germen-de-trigo-30gr/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/12/50.png</g:image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>COP 40000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
@@ -180,18 +167,18 @@
       <g:link>https://naturalconexion.com/product/crema-nutritiva-capilar-germen-de-trigo-280-ml/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/01.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 25200.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas||Capilar</g:product_type>
+      <g:price>COP 28000.00</g:price>
+      <g:google_product_category>486</g:google_product_category>
+      <g:product_type>Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>17297</g:id>
-      <g:title>Protector Solar con Extractos Botánicos/SPT 50+ Todo tipo de piel 80 ml Obsequio 2 Protectores Solares 15 gr</g:title>
+      <g:title>Protector Solar con Extractos Botánicos/SPT 50+ Todo tipo de piel 80 ml Obsequio 1 Protectores Solares 30 gr</g:title>
       <g:description>Ingredientes principales: Caléndula. Manzanilla. Aloe vera. Manteca de Karité. Pepino. Germen de Trigo. Aceite de Oliva. Dióxido de Titanio. (Pantalla física, con certificación orgánica para cosmética natural)</g:description>
       <g:link>https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spt-50-todo-tipo-de-piel/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/WhatsApp-Image-2022-01-24-at-10.56.44-AM.jpeg</g:image_link>
+      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/PROMO-02.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 99800.00</g:price>
       <g:google_product_category>491</g:google_product_category>
@@ -205,7 +192,7 @@
       <g:description>Ingredientes principales: Vitamina C. Aceite de chia. Acido Hialuronico. Hidro sol de Pepino. Aloe Vera. Semilla de tara.</g:description>
       <g:link>https://naturalconexion.com/product/serum-facial-con-vitamina-c/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/11/Formato-Tienda-Kit-Mayaku-1.jpg</g:image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>COP 185000.00</g:price>
       <g:google_product_category>8452</g:google_product_category>
       <g:product_type>Kit especiales||Facial</g:product_type>
@@ -290,19 +277,6 @@
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
-      <g:id>16042</g:id>
-      <g:title>Crema Serum Antiedad 60 GR</g:title>
-      <g:description>Ingredientes principales: Aceite de Argán. Extracto de Manzanilla. Aloe Vera. Extracto de Manzanilla. Semillas de Uva. Germen de Trigo. Vitamina E. Colágeno. Elastina.</g:description>
-      <g:link>https://naturalconexion.com/product/crema-serum-antiedad-60-gr/</g:link>
-      <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/09/47.png</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>COP 56250.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas||Facial</g:product_type>
-      <g:condition>New</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
       <g:id>16039</g:id>
       <g:title>Gel con Extractos Botánicos y Minerales Pronto Alivio 250 ML</g:title>
       <g:description>Ingredientes principales: Pronto Alivio. Aloe vera. Eucalipto. Menta. Árnica. Caléndula. Ortiga. Manzanilla.</g:description>
@@ -335,9 +309,9 @@
       <g:link>https://naturalconexion.com/product/crema-limpiadora-exfoliante-manzanilla-miel-y-germen-de-trigo-60-gr/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2021/09/35.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 15000.00</g:price>
-      <g:google_product_category>2526</g:google_product_category>
-      <g:product_type>Facial</g:product_type>
+      <g:price>COP 13500.00</g:price>
+      <g:google_product_category>491</g:google_product_category>
+      <g:product_type>Ofertas||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -873,8 +847,8 @@
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/DSC09720.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>COP 30000.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -885,9 +859,9 @@
       <g:link>https://naturalconexion.com/product/aceite-esencial-de-canela/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/Aceite-esencial-Canela-1.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 25500.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:price>COP 30000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -988,9 +962,9 @@
       <g:link>https://naturalconexion.com/product/aceite-esencial-romero/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/DSC09724.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 31500.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Corporal</g:product_type>
+      <g:price>COP 35000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Corporal</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1053,7 +1027,7 @@
       <g:link>https://naturalconexion.com/product/crema-facial-confrey-y-pepino/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/32.jpg.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 35000.00</g:price>
+      <g:price>COP 38000.00</g:price>
       <g:google_product_category>2526</g:google_product_category>
       <g:product_type>Facial</g:product_type>
       <g:condition>New</g:condition>
@@ -1302,9 +1276,9 @@
       <g:link>https://naturalconexion.com/product/mascarilla-de-papaya/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/27.jpg.png</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 13500.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Facial</g:product_type>
+      <g:price>COP 15000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Facial</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1315,9 +1289,9 @@
       <g:link>https://naturalconexion.com/product/nutritiva-de-coco/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/06.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 25200.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Capilar</g:product_type>
+      <g:price>COP 28000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1575,9 +1549,9 @@
       <g:link>https://naturalconexion.com/product/shampoo-de-manzanilla-miel-y-germen-de-trigo/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/08.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 25200.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Ofertas||Capilar</g:product_type>
+      <g:price>COP 28000.00</g:price>
+      <g:google_product_category>486</g:google_product_category>
+      <g:product_type>Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
@@ -1641,9 +1615,9 @@
       <g:link>https://naturalconexion.com/product/shampoo-de-coco-y-almendras/</g:link>
       <g:image_link>https://naturalconexion.com/wp-content/uploads/2020/09/09.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>COP 25200.00</g:price>
-      <g:google_product_category>491</g:google_product_category>
-      <g:product_type>Productos veganos||Ofertas||Capilar</g:product_type>
+      <g:price>COP 28000.00</g:price>
+      <g:google_product_category>469</g:google_product_category>
+      <g:product_type>Productos veganos||Capilar</g:product_type>
       <g:condition>New</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
     </item>

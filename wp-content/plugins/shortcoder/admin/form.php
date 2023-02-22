@@ -6,7 +6,7 @@ class SC_Admin_Form{
 
     public static function table( $rows = array(), $print = false, $class = '' ){
         
-        $html = '<table class="form-table ' . $class . '">';
+        $html = '<table class="form-table ' . esc_attr( $class ) . '">';
         
         foreach( $rows as $row ){
             $html .= '<tr ' . ( isset( $row[2] ) ? $row[2] : '' ) . '>';
@@ -35,7 +35,7 @@ class SC_Admin_Form{
             'class' => '',
             'value' => '',
             'list' => array(),
-            'type' => '',
+            'type' => 'text',
             'required' => '',
             'placeholder' => '',
             'rows' => '',
@@ -52,6 +52,7 @@ class SC_Admin_Form{
         }
         
         $params = Shortcoder::set_defaults( $params, $default_props );
+        $params = self::clean_attr( $params );
         $field_html = '';
 
         extract( $params, EXTR_SKIP );
@@ -60,19 +61,19 @@ class SC_Admin_Form{
 
         switch( $field_type ){
             case 'text':
-                $field_html = "<input type='text' class='$class' $id_attr name='$name' value='$value' placeholder='$placeholder' " . ( $required ? "required='$required'" : "" ) . "  $custom />";
+                $field_html = "<input type='$type' class='$class' $id_attr name='$name' value='$value' placeholder='$placeholder' " . ( $required ? "required='$required'" : "" ) . " $custom />";
             break;
             
             case 'select':
                 $field_html .= "<select name='$name' class='$class' $id_attr $custom>";
                 foreach( $list as $k => $v ){
-                    $field_html .= "<option value='$k' " . selected( $value, $k, false ) . ">$v</option>";
+                    $field_html .= "<option value='$k'" . selected( $value, $k, false ) . ">$v</option>";
                 }
                 $field_html .= "</select>";
             break;
 
             case 'textarea':
-                $field_html .= "<textarea $id_attr name='$name' class='$class' placeholder='$placeholder' rows='$rows' cols='$cols' $custom>" . esc_textarea( $value ) . "</textarea>";
+                $field_html .= "<textarea $id_attr name='$name' class='$class' placeholder='$placeholder' rows='$rows' cols='$cols' $custom>$value</textarea>";
             break;
 
             case 'checkbox':
@@ -96,6 +97,24 @@ class SC_Admin_Form{
         
         return $field_html;
         
+    }
+
+    public static function clean_attr( $a ){
+        
+        foreach( $a as $k=>$v ){
+            if( is_array( $v ) ){
+                $a[ $k ] = self::clean_attr( $v );
+            }else{
+                
+                if( in_array( $k, array( 'custom', 'tooltip', 'helper', 'before_text', 'after_text' ) ) ){
+                    $a[ $k ] = wp_kses_post( $v );
+                }else{
+                    $a[ $k ] = esc_attr( $v );
+                }
+            }
+        }
+        
+        return $a;
     }
 
 }

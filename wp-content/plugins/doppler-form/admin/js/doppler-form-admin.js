@@ -215,10 +215,12 @@ $(document).ready(function(){
 		var o = $('.dplr-toggle-thankyou:checked').val();
 		if(o === 'yes'){
 			$('.dplr_thankyou_url input').attr('required','required');
+			$('.dplr_thankyou_url input').removeAttr('disabled');
 			$('.dplr_thankyou_url').css('display','inline');
 			$('.dplr_confirmation_message').val('').css('display','none');
 		}else{
 			$('.dplr_thankyou_url input').removeAttr('required');
+			$('.dplr_thankyou_url input').attr('disabled','disabled');
 			$('.dplr_thankyou_url').val('').css('display','none');
 			$('.dplr_confirmation_message').css('display','inline');
 		}
@@ -502,4 +504,77 @@ function generateErrorMsg(body){
 	else 
 		typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
 	return err;
+}
+
+function validateEmailContent(e){
+
+  var content = '';
+
+  if(!tinyMCE.activeEditor) jQuery('.wp-editor-wrap .switch-tmce').trigger('click');
+
+  if(!tinyMCE.activeEditor) {
+  	content = document.getElementById('content').value;
+  } else {
+  	content = tinyMCE.activeEditor.getContent();
+  }
+
+  content = content.replace('href="[[[ConfirmationLink]]]"', "href=[[[ConfirmationLink]]]");
+  content = content.replace('href="http://[[[ConfirmationLink]]]"', "href=[[[ConfirmationLink]]]");
+
+  if(!tinyMCE.activeEditor) {
+  	tinyMCE.activeEditor.setContent(content);
+  } else {
+  	document.getElementById('content').value = content;
+  }
+
+  if(document.getElementById("settings[form_doble_optin]").value === 'yes'){
+    if(
+      !content.includes("href=[[[ConfirmationLink]]]")
+    ){
+      // display div con mensaje de error
+      document.getElementById("error-message").style.display = "block";
+      // cancelar el submit del formulario
+      e.preventDefault();
+    }
+    else{
+      document.getElementById("error-message").style.display = "none";
+    }
+  }
+}
+
+function hideShowConfigLandingOrURL(){
+  if(document.getElementById("mostrar_landing").checked){
+    document.getElementById("div_landing_page").style.display = "block";
+    document.getElementById("div_url_destino").style.display = "none";
+  }
+  else{
+    if(!document.getElementById("mostrar_url").checked){
+      document.getElementById("div_landing_page").style.display = "none";
+      document.getElementById("div_url_destino").style.display = "none";
+    }
+    else{
+      document.getElementById("div_landing_page").style.display = "none";
+      document.getElementById("div_url_destino").style.display = "block";
+    }
+  }
+}
+
+// remove quote marks from ConfirmationLink href.
+function removeQuoteMarksFromConfirmationLink(){
+
+  if(!tinyMCE.activeEditor) jQuery('.wp-editor-wrap .switch-tmce').trigger('click');
+
+  if(!tinyMCE.activeEditor) {
+  	var content = document.getElementById('content').value;
+  	if(content.includes("href=\"[[[ConfirmationLink]]]\"")){
+		content = content.replace("href=\"[[[ConfirmationLink]]]\"", "href=[[[ConfirmationLink]]]");
+		document.getElementById('content').value = content;
+	}
+  } else {
+	var content = tinyMCE.activeEditor.getContent();
+	if(content.includes("href=\"[[[ConfirmationLink]]]\"")){
+		content = content.replace("href=\"[[[ConfirmationLink]]]\"", "href=[[[ConfirmationLink]]]");
+		tinyMCE.activeEditor.setContent(content);
+	}
+  }
 }

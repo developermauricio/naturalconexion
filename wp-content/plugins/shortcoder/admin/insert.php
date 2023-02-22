@@ -13,19 +13,19 @@
 <div class="sc_menu">
     <input type="search" class="sc_search" placeholder="Search ..." />
     <div class="top_btns">
-        <a href="<?php echo admin_url( 'post-new.php?post_type=shortcoder' ); ?>" target="_blank" class="button">Create shortcode</a>
+        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=shortcoder' ) ); ?>" target="_blank" class="button">Create shortcode</a>
         <span class="promo_link">
 <?php
     $promo_links = array(
-        array('super-rss-reader/?utm_source=wp-socializer&utm_medium=insert&utm_campaign=srr-pro', 'Super RSS Reader', 'super-rss-reader.png'),
-        array('ultimate-floating-widgets/?utm_source=wp-socializer&utm_medium=insert&utm_campaign=ufw-pro', 'Ultimate Floating Widgets', 'ultimate-floating-widgets.png'),
-        array('announcer/?utm_source=wp-socializer&utm_medium=sidebar&utm_campaign=announcer-pro', 'Announcer', 'announcer.png'),
+        array('super-rss-reader/?utm_source=shortcoder&utm_medium=insert&utm_campaign=srr-pro', 'Super RSS Reader', 'super-rss-reader.png'),
+        array('ultimate-floating-widgets/?utm_source=shortcoder&utm_medium=insert&utm_campaign=ufw-pro', 'Ultimate Floating Widgets', 'ultimate-floating-widgets.png'),
+        array('announcer/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=announcer-pro', 'Announcer', 'announcer.png'),
     );
     $promo_link_id = array_rand( $promo_links, 1 );
     $promo_link = $promo_links[$promo_link_id ];
 ?>
             <a class="button" href="https://www.aakashweb.com/wordpress-plugins/<?php echo $promo_link[0]; ?>" target="_blank"><i>Check out: </i> <?php echo $promo_link[1]; ?></a>
-            <span><img src="<?php echo SC_ADMIN_URL . '/images/' . $promo_link[2]; ?>" /></span>
+            <span><img src="<?php echo esc_url( SC_ADMIN_URL . '/images/' . $promo_link[2] ); ?>" /></span>
         </span>
     </div>
 </div>
@@ -36,7 +36,7 @@
 $shortcodes = Shortcoder::get_shortcodes();
 
 if( empty( $shortcodes ) ){
-    echo '<p class="sc_note">No shortcodes are created, go ahead create one in <a href="' . admin_url( 'post-new.php?post_type=' . SC_POST_TYPE ) . '" target="_blank">shortcoder admin page</a>.</p>';
+    echo '<p class="sc_note">No shortcodes are created, go ahead create one in <a href="' . esc_url( admin_url( 'post-new.php?post_type=' . SC_POST_TYPE ) ) . '" target="_blank">shortcoder admin page</a>.</p>';
 }else{
 
     foreach( $shortcodes as $name => $options ){
@@ -69,21 +69,21 @@ if( empty( $shortcodes ) ){
         echo '<div class="sc_wrap" data-name="' . esc_attr( $name ) . '" data-id="' . esc_attr( $id ) . '" data-enclosed="' . $enclosed_sc . '">';
             echo '<div class="sc_head">';
                 echo '<img src="' . SC_ADMIN_URL . '/images/arrow.svg" width="16" />';
-                echo '<h3>' . $settings[ '_sc_title' ] . '</h3>';
+                echo '<h3>' . esc_html( $settings[ '_sc_title' ] ) . '</h3>';
                 echo '<p>' . esc_html( $settings[ '_sc_description' ] ) . '</p>';
                 echo '<div class="sc_tools">';
                     if( current_user_can( 'edit_post', $id ) ){
-                        echo '<a href="' . admin_url( 'post.php?action=edit&post=' . $id ) . '" class="button" target="_blank">' . __( 'View', 'shortcoder' ) . '</a>';
+                        echo '<a href="' . esc_url( admin_url( 'post.php?action=edit&post=' . $id ) ) . '" class="button" target="_blank">' . esc_html__( 'View', 'shortcoder' ) . '</a>';
                     }
-                    echo '<button class="button sc_copy">' . __( 'Copy', 'shortcoder' ) . '</button>';
-                    echo '<button class="button sc_insert">' . __( 'Insert', 'shortcoder' ) . '</button>';
+                    echo '<button class="button sc_copy">' . esc_html__( 'Copy', 'shortcoder' ) . '</button>';
+                    echo '<button class="button sc_insert">' . esc_html__( 'Insert', 'shortcoder' ) . '</button>';
                 echo '</div>';
             echo '</div>';
 
             echo '<div class="sc_options">';
 
             if( !empty( $params ) ){
-                echo '<h4>' . __( 'Available parameters', 'shortcoder' ) . ': </h4>';
+                echo '<h4>' . esc_html__( 'Available parameters', 'shortcoder' ) . ': </h4>';
                 echo '<div class="sc_params_wrap">';
                 $temp = array();
 
@@ -91,20 +91,20 @@ if( empty( $shortcodes ) ){
                     $cleaned = str_replace( '%', '', $v );
                     if( !in_array( $cleaned, $temp ) ){
                         array_push( $temp, $cleaned );
-                        echo '<label>' . $cleaned . ': <input type="text" class="sc_param" data-param="' . $cleaned . '"/></label> ';
+                        echo '<label>' . esc_html( $cleaned ) . ': <input type="text" class="sc_param" data-param="' . esc_attr( $cleaned ) . '"/></label> ';
                     }
                 }
 
                 echo '</div>';
 
             }else{
-                echo '<p>' . __( 'No parameters present in this shortcode', 'shortcoder' ) . '</p>';
+                echo '<p>' . esc_html__( 'No parameters present in this shortcode', 'shortcoder' ) . '</p>';
             }
 
             echo '<div class="sc_foot">';
-                echo '<button class="sc_insert button button-primary">' . __( 'Insert shortcode', 'shortcoder' ) . '</button>';
+                echo '<button class="sc_insert button button-primary">' . esc_html__( 'Insert shortcode', 'shortcoder' ) . '</button>';
                 if( $enclosed_sc == 'true' ){
-                    echo '<span>' . __( 'Has enclosed content parameter', 'shortcoder' ) . '</span>';
+                    echo '<span>' . esc_html__( 'Has enclosed content parameter', 'shortcoder' ) . '</span>';
                 }
             echo '</div>';
 
@@ -112,7 +112,7 @@ if( empty( $shortcodes ) ){
         echo '</div>';
     }
 
-    echo '<p class="sc_note sc_search_none">' . __( 'No shortcodes match search term !', 'shortcoder' ) . '</p>';
+    echo '<p class="sc_note sc_search_none">' . esc_html__( 'No shortcodes match search term !', 'shortcoder' ) . '</p>';
 
 }
 

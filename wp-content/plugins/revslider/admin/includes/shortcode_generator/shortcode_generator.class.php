@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -18,7 +18,8 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 
 		// only add scripts if native WordPress editor, Gutenberg or Visual Composer
 		// Elementor has its own hooks for adding scripts
-		if($action === 'edit' || $pagenow === 'post-new.php' || $f->get_val($_GET, 'vc_action', '') === 'vc_inline'){
+		
+		if($action === 'edit' || $pagenow === 'post-new.php' || $pagenow === 'widgets.php' || $f->get_val($_GET, 'vc_action', '') === 'vc_inline'){
 			self::add_scripts();
 		}
 
@@ -35,7 +36,6 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 	}
 
 	public static function add_scripts($elementor = false, $divi = false){
-
 		$f = RevSliderGlobals::instance()->get('RevSliderFunctions');
 		$action = $f->get_val($_GET, 'action');
 		if($elementor && $action !== 'elementor') return;
@@ -49,11 +49,11 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		if(!current_user_can('edit_posts') && !current_user_can('edit_pages')) return;
 		if(!$elementor && !$divi){
 			//verify the post type
-			global $typenow;
+			global $typenow, $pagenow;
 
 			$post_types = get_post_types();
 			if(empty($post_types) || !is_array($post_types)) $post_types = array('post', 'page');
-			if(!in_array($typenow, $post_types)) return;
+			if(!in_array($typenow, $post_types) && $pagenow !== 'widgets.php') return;
 
 			$current_screen = get_current_screen();
 
@@ -213,7 +213,11 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			'ihavepurchasecode' => __('I have a Purchase Code', 'revslider'),
 			'ihavelicensekey' => __('I have a License Key', 'revslider'),
 			'enterlicensekey' => __('Enter License Key', 'revslider'),
-			'enterpurchasecode' => __('Enter Purchase Code', 'revslider')
+			'enterpurchasecode' => __('Enter Purchase Code', 'revslider'),
+			'premium_template' => __('PREMIUM TEMPLATE', 'revslider'),
+			'rs_premium_content' => __('This is a Premium template from the Slider Revolution <a target="_blank" rel="noopener" href="https://www.sliderrevolution.com/examples/">template library</a>. It can only be used on this website with a <a target="_blank" rel="noopener" href="https://www.sliderrevolution.com/manual/quick-setup-register-your-plugin/?utm_source=admin&utm_medium=button&utm_campaign=srusers&utm_content=registermanual">registered license key</a>.', 'revslider'),
+			'premium' => __('Premium', 'revslider'),
+			'premiumunlock' => __('REGISTER LICENSE TO UNLOCK', 'revslider')
 
 		));
 
@@ -230,7 +234,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		$rs_color_picker_presets = RSColorpicker::get_color_presets();
 		
 		?>
-		<script type="text/javascript">
+		<script>
             var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?>';
 			window.RVS = window.RVS === undefined ? {F:{}, C:{}, ENV:{}, LIB:{}, V:{}, S:{}} : window.RVS;
 			RVS.LIB.OBJ = RVS.LIB.OBJ===undefined ? {} : RVS.LIB.OBJ;
@@ -243,8 +247,8 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			RVS.ENV.ajax_url	= '<?php echo esc_js( admin_url( 'admin-ajax.php') ); ?>';
 			RVS.ENV.admin_url	= '<?php echo admin_url('admin.php?page=revslider'); ?>';
 			RVS.ENV.nonce		= '<?php echo wp_create_nonce('revslider_actions'); ?>';
-			RVS.ENV.activated	= '<?php echo (get_option('revslider-valid', 'false')) == 'true' ? 'true' : 'true'; ?>';
-			RVS.ENV.activated	= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : true;
+			RVS.ENV.activated	= '<?php echo (get_option('revslider-valid', 'false')) == 'true' ? 'true' : 'false'; ?>';
+			RVS.ENV.activated	= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : false;
 			RVS.ENV.selling		= <?php echo ($rsaf->get_addition('selling') === true) ? 'true' : 'false'; ?>;
 			RVS.LIB.COLOR_PRESETS	= <?php echo (!empty($rs_color_picker_presets)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_color_picker_presets) .')' : '{}'; ?>;
 			

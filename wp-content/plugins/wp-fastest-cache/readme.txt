@@ -1,10 +1,10 @@
 === WP Fastest Cache ===
 Contributors: emrevona
 Donate link: http://profiles.wordpress.org/emrevona/
-Tags: cache, caching, performance, wp-cache, total cache, super cache, cdn
+Tags: cache, Optimize, performance, wp-cache, core web vitals
 Requires at least: 3.3
-Tested up to: 6.0
-Stable tag: 1.0.2
+Tested up to: 6.1
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,12 @@ The free version is enough to speed up your site but in the premium version ther
 11. Google Fonts Async
 12. Lazy Load - Defer offscreen images. Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive
 
+<h4>Information</h4>
+
+It is very inconvenient to use multiple caching plugins at the same time. That's why you need to disable plugins such as LiteSpeed Cache, WP-Optimize, W3 Total Cache, WP Super Cache, SiteGround Optimizer, Breeze while using WP Fastest Cache.
+
+WP Fastest Cache is compatible with most popular plugins such as Contact Form 7, Yoast SEO, Elementor Website Builder, Classic Editor, Akismet Spam Protection, WooCommerce, Contact Form by WPForms, Really Simple SSL, All-in-One WP Migration, Yoast Duplicate Post, Wordfence Security – Firewall & Malware Scan, WordPress Importer, UpdraftPlus WordPress Backup Plugin, MonsterInsights, All in One SEO, WP Mail SMTP by WPForms.
+
 <h4>Supported languages: </h4>
 
 * 中文 (by suifengtec)
@@ -124,6 +130,38 @@ The free version is enough to speed up your site but in the premium version ther
 18. Database Cleanup
 
 == Changelog ==
+
+= 1.0.9 =
+* to improve the style of exclude feature wizard
+* to fix hiding the toolbar when logged in
+* to fix PHP Notice: Undefined offset: -1 in js-utilities.php on line 67
+* to fix PHP Fatal error: Uncaught Error: Non-static method cannot be called statically in clearing-specific-pages.php on line 58
+
+= 1.0.8 =
+* to stop showing the "DONOTCACHEPAGE is defined as TRUE" comment in the footer for the ajax requests
+* <strong>[FEATURE]</strong> Clearing Specific Pages [<a target="_blank" href="https://www.wpfastestcache.com/features/clear-cache-of-specific-urls-when-updating-or-posting/">Details</a>]
+* to fix the site url on the exclude page
+* to fix PHP Notice:  Function WP_User_Query::query was called incorrectly. User queries should not be run before the plugins_loaded hook
+
+= 1.0.7 =
+* <strong>[FEATURE]</strong> Clearing Specific Pages (BETA) [<a target="_blank" href="https://www.wpfastestcache.com/features/clear-cache-of-specific-urls-when-updating-or-posting/">Details</a>]
+* to add last-modified header when cache is served via php
+
+= 1.0.6 =
+* to serve sources via cdn for excluded pages if cdn is enabled
+* to fix PHP Notice: Undefined offset: -1 in js-utilities.php  on line 48
+
+= 1.0.5 =
+* to fix E_NOTICE: Undefined variable: path in wpFastestCache.php on line 2142
+* to add excluding feature for Buffer Callback Filter [<a target="_blank" href="https://www.wpfastestcache.com/tutorial/buffer-callback-filter/#exclude">Details</a>]
+
+= 1.0.4 =
+* to add avif extensions for cdn
+* to add WPFC_SERVE_ONLY_VIA_CACHE [<a target="_blank" href="https://www.wpfastestcache.com/tutorial/how-to-serve-cache-only-via-php/">Details</a>]
+
+= 1.0.3 =
+* Photon will no longer be supported [<a target="_blank" href="https://www.wpfastestcache.com/blog/photon-will-no-longer-be-supported/">Details</a>]
+* to exclude category url for preload if any error occurs
 
 = 1.0.2 =
 * to add WP-CLI command for clearing cache of a post [<a target="_blank" href="https://www.wpfastestcache.com/features/wp-cli-commands/">Details</a>]
@@ -341,26 +379,8 @@ Yes, it is compatible with Adsense 100%.
 = Is this plugin compatible with CloudFlare? =
 Yes, it is but you need to read the details. <a href="http://www.wpfastestcache.com/tutorial/wp-fastest-cache-cloudflarecloudfront/">Click</a>
 
-= Is this plugin compatible with WP-Polls? =
-Yes, it is compatible with WP-Polls 100%.
-
-= Is this plugin compatible with Bulletproof Security? =
-Yes, it is compatible with Bulletproof Security 100%.
-
-= Is this plugin compatible with Wordfence Security? =
-Yes, it is compatible with Wordfence Security 100%.
-
 = Is this plugin compatible with qTranslate? =
 Yes, it is compatible with qTranslate 100%.
-
-= Is this plugin compatible with WPtouch Mobile? =
-Yes, it is compatible with WPtouch Mobile.
-
-= Is this plugin compatible with WP-PostRatings? =
-Yes, it is compatible with WP-PostRatings.
-
-= Is this plugin compatible with AdRotate? =
-No, it is NOT compatible with AdRotate.
 
 = Is this plugin compatible with WP Hide & Security Enhancer? =
 Yes, it is compatible with WP Hide & Security Enhancer.
@@ -368,11 +388,9 @@ Yes, it is compatible with WP Hide & Security Enhancer.
 = Is this plugin compatible with WP-PostViews? =
 Yes, it is compatible with WP-PostViews. The current post views appear on the admin panel. The visitors cannot see the current post views. The developer of WP-PostViews needs to fix this issue.
 
-= Is this plugin compatible with MobilePress? =
-No, it is NOT compatible with MobilePress. We advise WPtouch Mobile.
-
 = Is this plugin compatible with WooCommerce Themes? =
 Yes, it is compatible with WooCommerce Themes 100%.
+
 
 == Upgrade notice ==
 ....

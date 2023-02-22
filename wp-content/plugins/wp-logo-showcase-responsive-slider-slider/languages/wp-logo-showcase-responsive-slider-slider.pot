@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Logo Showcase Responsive Slider\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 07:20+0000\n"
+"POT-Creation-Date: 2022-09-22 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,23 +15,23 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.1; wp-5.4"
 
-#: includes/admin/settings/how-it-work.php:186
+#: includes/admin/settings/premium.php:224
+msgid "1 Year"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:173
 msgid "100% Multi language"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:166
+#: includes/admin/settings/how-it-work.php:153
 msgid "15+ predefined template for logo showcase."
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:33
-msgid "15+. In lite version only one design."
-msgstr ""
-
-#: includes/admin/settings/how-it-work.php:174
+#: includes/admin/settings/how-it-work.php:161
 msgid "2 Widgets- Slider and Grid view."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:167
+#: includes/admin/settings/how-it-work.php:154
 msgid "3 shortcodes [logoshowcase], [logo_grid] and [logo_filter]"
 msgstr ""
 
@@ -41,106 +41,215 @@ msgid ""
 "Slider and Center layout."
 msgstr ""
 
-#: includes/wpls-post-types.php:18
+#: includes/admin/settings/premium.php:94
+msgid "Add extra power to the shortcode"
+msgstr ""
+
+#: includes/admin/settings/premium.php:146
+msgid "Add lazyload support for image."
+msgstr ""
+
+#: includes/wpls-post-types.php:23
 msgid "Add New"
 msgstr ""
 
-#: includes/wpls-post-types.php:67
+#: includes/wpls-post-types.php:74
 msgid "Add New Category"
 msgstr ""
 
-#: includes/wpls-post-types.php:19
+#: includes/wpls-post-types.php:24
 msgid "Add New Logo Showcase"
 msgstr ""
 
-#: includes/wpls-post-types.php:62
+#: includes/wpls-post-types.php:69
 msgid "All Category"
 msgstr ""
 
-#: includes/wpls-post-types.php:22
+#: includes/wpls-post-types.php:27
 msgid "All Logo Showcase"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:68
+#: includes/admin/settings/how-it-work.php:69
 msgid "All Shortcodes"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:69
+#: includes/admin/settings/premium.php:124
+msgid "Animation"
+msgstr ""
+
+#: includes/admin/settings/premium.php:129
+msgid "Animation Type"
+msgstr ""
+
+#: includes/admin/settings/premium.php:66
+#: includes/admin/settings/premium.php:77
+msgid "Annual"
+msgstr ""
+
+#: includes/admin/settings/premium.php:135
+msgid "Arrange your desired slides with your desired order and display"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:68
 msgid "Arrange your desired slides with your desired order and display."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:131
-msgid "Boost Design"
+#: includes/admin/settings/premium.php:217
+msgid "Automatic Update"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:130
-msgid "Boost design and best solution for your website."
+#: includes/admin/settings/premium.php:161
+msgid "Bevear Builder Support"
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:161
+#: includes/admin/class-wpls-admin.php:91
+msgid "Bundle Deal"
+msgstr ""
+
+#: includes/admin/class-wpls-admin.php:91
+msgid "Bundle Deal - Logo Showcase Responsive Slider"
+msgstr ""
+
+#: includes/admin/settings/premium.php:67
+#: includes/admin/settings/premium.php:78
+msgid "Buy Now"
+msgstr ""
+
+#: includes/admin/class-wpls-admin.php:206
 msgid "Category Shortcode"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:81
+#: includes/admin/settings/premium.php:104
+msgid "Center Mode"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:82
 msgid "Check Documentation"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:184
-msgid "Custom CSS option"
+#: includes/admin/settings/how-it-work.php:90
+msgid "Check Free Demo"
 msgstr ""
 
-#: includes/wpls-functions.php:83
-msgid "Design 1"
+#: includes/admin/settings/premium.php:66
+#: includes/admin/settings/premium.php:77
+msgid "Choose best pricing in"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:30
-msgid "Designs"
-msgstr ""
-
-#: includes/admin/settings/how-it-work.php:177
-msgid "Display logo showcase categories wise."
-msgstr ""
-
-#: includes/admin/settings/how-it-work.php:169
-msgid "Display logo showcase in a grid view."
-msgstr ""
-
-#: includes/admin/settings/how-it-work.php:172
-msgid "Display logo showcase in center mode view"
+#: includes/admin/settings/premium.php:53
+msgid "Compare \"Logo Showcase Responsive Slider\" Free VS Pro"
 msgstr ""
 
 #: includes/admin/settings/how-it-work.php:171
+msgid "Custom CSS option"
+msgstr ""
+
+#: includes/wpls-post-types.php:109
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/wpls-post-types.php:108
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/admin/settings/premium.php:66
+#: includes/admin/settings/premium.php:77
+msgid "deal"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:87
+msgid "Demo"
+msgstr ""
+
+#: includes/wpls-functions.php:104
+msgid "Design 1"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:29
+#: includes/admin/settings/premium.php:84
+msgid "Designs"
+msgstr ""
+
+#: includes/admin/settings/premium.php:84
+msgid "Designs that make your website better"
+msgstr ""
+
+#: includes/admin/settings/premium.php:202
+msgid "Display logo according to date, title and etc"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:164
+msgid "Display logo showcase categories wise."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:156
+msgid "Display logo showcase in a grid view."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:159
+msgid "Display logo showcase in center mode view"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:158
 msgid "Display logo showcase in slider view"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:170
+#: includes/admin/settings/premium.php:114
+msgid "Display logo title"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:157
 msgid "Display logo with filtration."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:175
+#: includes/admin/settings/how-it-work.php:162
 msgid "Display Logo with title and description"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:181
-msgid ""
-"Divi Page Builder Native Support.<span class=\"wpos-new-feature\">New</span>"
+#: includes/admin/settings/premium.php:187
+msgid "Display logos for Particular Categories"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:87
+#: includes/admin/settings/premium.php:187
+msgid "Display only logos with particular category"
+msgstr ""
+
+#: includes/admin/settings/premium.php:104
+msgid "Display slider with center mode."
+msgstr ""
+
+#: includes/admin/settings/premium.php:171
+msgid "Divi Page Builder Native Support"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:168
+msgid "Divi Page Builder Native Support."
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:86
 msgid ""
 "Do not display the logos & Do not display the logos for particular "
 "categories."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:78
+#: includes/admin/settings/premium.php:197
+msgid "Do not display the logos for particular categories"
+msgstr ""
+
+#: includes/admin/settings/premium.php:192
+msgid "Do not display the logos you want"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:79
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:168
+#: includes/admin/settings/how-it-work.php:155
 msgid "Drag & Drop order change"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:66
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:65
+#: includes/admin/settings/premium.php:135
 msgid "Drag & Drop Slide Order Change"
 msgstr ""
 
@@ -150,123 +259,160 @@ msgid ""
 "Also added Gutenberg block support."
 msgstr ""
 
-#: includes/wpls-post-types.php:65
+#: includes/wpls-post-types.php:72
 msgid "Edit Category"
 msgstr ""
 
-#: includes/wpls-post-types.php:20
+#: includes/wpls-post-types.php:25
 msgid "Edit Logo Showcase"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:60
+#: includes/admin/settings/premium.php:156
+msgid "Elementor Page Builder Support"
+msgstr ""
+
+#: includes/admin/settings/premium.php:124
+#: includes/admin/settings/premium.php:129
+msgid "Enable animation effect on logo"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:59
+#: includes/admin/settings/premium.php:119
 msgid "Enable tooltip on logo."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:149
+#: includes/admin/settings/how-it-work.php:136
 #, php-format
 msgid ""
 "Enjoyed this plugin? You can help by rate this plugin <a href=\"%s\" "
 "target=\"_blank\">5 stars!"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:50
+#: includes/admin/metabox/wpls-post-setting-metabox.php:48
 msgid ""
 "Enter external URL of logo. If you don not want to use an image from your "
 "media gallery, you can set an URL for logo image here."
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:28
-msgid "Enter link url for logo. i.e https://www.essentialplugin.com/"
+#: includes/admin/metabox/wpls-post-setting-metabox.php:27
+msgid "Enter link URL for logo. i.e."
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:39
+#: includes/admin/metabox/wpls-post-setting-metabox.php:37
 msgid "Enter logo description using default wordpress content editor."
 msgstr ""
 
-#: includes/admin/settings/premium.php:15
-msgid "Essential Plugin Bundle"
+#: includes/admin/supports/gutenberg-block.php:164
+msgid "Essential Plugin Blocks"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:84
+#: includes/admin/settings/premium.php:192
+msgid "Exclude Logos"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:83
 msgid "Exclude Logos and Exclude Some Categories"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:185
+#: includes/admin/settings/premium.php:197
+msgid "Exclude Some Categories"
+msgstr ""
+
+#: includes/admin/settings/premium.php:62
+msgid "Free"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:172
 msgid "Fully responsive"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:182
-msgid ""
-"Fusion Page Builder (Avada) native support. <span class=\"wpos-new-feature\">"
-"New</span>"
+#: includes/admin/settings/premium.php:176
+msgid "Fusion Page Builder (Avada) native support"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:188
-msgid ""
-"Gain access to <strong>Logo Showcase Responsive Slider</strong> included in "
-"<br /><strong>Essential Plugin Bundle"
+#: includes/admin/settings/how-it-work.php:169
+msgid "Fusion Page Builder (Avada) native support."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:42
-msgid "Getting Started with Logo Showcase"
+#: includes/admin/settings/how-it-work.php:175
+msgid "Gain access to"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:189
-msgid "Go Premium "
+#: includes/admin/settings/premium.php:217
+msgid "Get automatic  plugin updates"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:78
+#: includes/admin/settings/premium.php:222
+msgid "Get support for plugin"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:43
+msgid "Getting Started"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:176
+msgid "Grab Logo Showcase Now"
+msgstr ""
+
+#: includes/admin/settings/premium.php:151
+msgid "Gutenberg Block Supports"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:77
 msgid ""
 "Gutenberg Block, Elementor, Bevear Builder, SiteOrigin, Divi, Visual "
 "Composer and Fusion Page Builder Support"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:94
+#: includes/admin/settings/how-it-work.php:103
 msgid "Gutenberg Support"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:180
-msgid ""
-"Gutenberg, Elementor, Beaver and SiteOrigin Page Builder Support. <span "
-"class=\"wpos-new-feature\">New</span>"
+#: includes/admin/settings/how-it-work.php:167
+msgid "Gutenberg, Elementor, Beaver and SiteOrigin Page Builder Support."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:145
+#: includes/admin/settings/how-it-work.php:132
 msgid "Help to improve this plugin!"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:102
+#: includes/admin/settings/how-it-work.php:111
 msgid "How it Work"
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:103
-#: includes/admin/settings/how-it-work.php:24
+#: includes/admin/class-wpls-admin.php:82
+#: includes/admin/settings/how-it-work.php:25
 msgid "How It Works"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:34
+#: includes/admin/settings/how-it-work.php:35
 msgid "How It Works - Display and shortcode"
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:103
+#: includes/admin/class-wpls-admin.php:82
 msgid "How it works, our plugins and offers"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:56
+#: includes/admin/settings/how-it-work.php:57
 msgid "How Shortcode Works"
 msgstr ""
 
-#. Author URI of the plugin
-msgid "https://www.essentialplugin.com/"
-msgstr ""
-
 #. URI of the plugin
+#. Author URI of the plugin
 msgid ""
 "https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-"
 "slider/"
 msgstr ""
 
-#: logo-showcase.php:171
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:32
+msgid "In lite version only one design."
+msgstr ""
+
+#: includes/admin/settings/premium.php:141
+msgid "Infinite scroll control"
+msgstr ""
+
+#: logo-showcase.php:192
 #, php-format
 msgid ""
 "It looks like you had PRO version %s of this plugin activated. To avoid "
@@ -278,234 +424,382 @@ msgstr ""
 msgid "Layouts"
 msgstr ""
 
-#: includes/wpls-post-types.php:69
+#: includes/admin/settings/premium.php:146
+msgid "Lazyload Support"
+msgstr ""
+
+#: includes/admin/settings/premium.php:66
+#: includes/admin/settings/premium.php:77
+#: includes/admin/settings/premium.php:218
+#: includes/admin/settings/premium.php:219
+msgid "Lifetime"
+msgstr ""
+
+#: includes/admin/settings/premium.php:223
+msgid "Limited"
+msgstr ""
+
+#: includes/wpls-post-types.php:66 includes/wpls-post-types.php:67
+#: includes/wpls-post-types.php:76
 msgid "Logo Category"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:34
+#: includes/admin/metabox/wpls-post-setting-metabox.php:33
 msgid "Logo Description"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:46
+#: includes/wpls-post-types.php:34
+msgid "Logo Image"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox.php:44
 msgid "Logo Image URL"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:24
+#: includes/admin/metabox/wpls-post-setting-metabox.php:23
 msgid "Logo Link"
 msgstr ""
 
-#: includes/wpls-post-types.php:16 includes/wpls-post-types.php:17
-#: includes/wpls-post-types.php:31
+#: includes/admin/settings/premium.php:202
+msgid "Logo Order / Order By Parameters"
+msgstr ""
+
+#: includes/wpls-post-types.php:21 includes/wpls-post-types.php:22
+#: includes/wpls-post-types.php:33
 msgid "Logo Showcase"
 msgstr ""
 
-#: includes/admin/settings/premium.php:15
-msgid "Logo Showcase Responsive Slider with "
+#: includes/wpls-post-types.php:117
+msgid "Logo Showcase draft updated."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:73
+#: includes/admin/settings/how-it-work.php:148
+msgid "Logo Showcase Premium Features"
+msgstr ""
+
+#: includes/wpls-post-types.php:112
+msgid "Logo Showcase published."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:175
+#: includes/admin/settings/premium.php:15
+msgid "Logo Showcase Responsive Slider"
+msgstr ""
+
+#: includes/wpls-post-types.php:111
+#, php-format
+msgid "Logo Showcase restored to revision from %s"
+msgstr ""
+
+#: includes/wpls-post-types.php:113
+msgid "Logo Showcase saved."
+msgstr ""
+
+#: includes/wpls-post-types.php:115
+#, php-format
+msgid "Logo Showcase scheduled for: <strong>%1$s</strong>."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:74
 msgid ""
-"Logo Showcase Slider limit -1 to display all logos, by defualt display only "
+"Logo Showcase Slider limit -1 to display all logos, by default display only "
 "15 logos."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:71
+#: includes/admin/settings/how-it-work.php:72
 msgid "Logo Showcase Slider Shortcode"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:72
+#: includes/admin/settings/how-it-work.php:73
 msgid "Logo Showcase Slider with center mode Shortcode"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:173
+#: includes/wpls-post-types.php:114
+msgid "Logo Showcase submitted."
+msgstr ""
+
+#: includes/wpls-post-types.php:107 includes/wpls-post-types.php:110
+msgid "Logo Showcase updated."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:160
 msgid "Logo Showcase With Ticker Mode"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:183
+#: includes/admin/settings/how-it-work.php:170
 msgid ""
 "Logo Showcase with tool-tip with 5 tool-tip theme and various parameters."
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:46
+#: includes/admin/settings/premium.php:141
+msgid "Loop Control for slider"
+msgstr ""
+
+#: includes/admin/class-wpls-admin.php:140
 msgid "More Premium - Settings"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:122
-msgid "Need Support & Solutions?"
+#: includes/admin/settings/premium.php:207
+msgid "Multiple Slider Parameters"
 msgstr ""
 
-#: includes/wpls-post-types.php:68
+#: includes/wpls-post-types.php:75
 msgid "New Category Name"
 msgstr ""
 
-#: includes/wpls-post-types.php:21
+#: includes/wpls-post-types.php:26
 msgid "New Logo Showcase"
 msgstr ""
 
-#: includes/wpls-post-types.php:25
+#: includes/wpls-post-types.php:30
 msgid "No Logo Showcase found"
 msgstr ""
 
-#: includes/wpls-post-types.php:26
+#: includes/wpls-post-types.php:31
 msgid "No Logo Showcase found in Trash"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:75
+#: includes/admin/settings/premium.php:114
+msgid "Option Show/Hide Title"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:74
 msgid "Page Builder Support"
 msgstr ""
 
-#: includes/wpls-post-types.php:63
+#: includes/wpls-post-types.php:70
 msgid "Parent Category"
 msgstr ""
 
-#: includes/wpls-post-types.php:64
+#: includes/wpls-post-types.php:71
 msgid "Parent Category:"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:51
+#: includes/admin/settings/premium.php:109
+msgid ""
+"Play with all shortcode parameters with preview panel. No documentation "
+"required!!"
+msgstr ""
+
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:50
 msgid ""
 "Play with all shortcode parameters with preview panel. No documentation "
 "required."
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:34
-#: includes/admin/metabox/wpls-post-setting-metabox.php:46
+#: includes/admin/settings/premium.php:65
+msgid "Premium"
+msgstr ""
+
 #: includes/admin/metabox/wpls-post-setting-metabox-pro.php:20
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:30
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:39
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:48
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:57
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:66
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:75
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:84
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:29
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:38
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:47
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:56
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:65
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:74
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:83
+#: includes/admin/metabox/wpls-post-setting-metabox.php:33
+#: includes/admin/metabox/wpls-post-setting-metabox.php:44
 msgid "PRO"
 msgstr ""
 
-#: includes/wpls-post-types.php:29
+#: includes/wpls-post-types.php:36
 msgid "Remove logo image"
 msgstr ""
 
-#: includes/wpls-post-types.php:61
+#: includes/wpls-post-types.php:68
 msgid "Search Category"
 msgstr ""
 
-#: includes/wpls-post-types.php:24
+#: includes/wpls-post-types.php:29
 msgid "Search Logo Showcase"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:178
+#: includes/admin/settings/how-it-work.php:165
 msgid "Set image size for logo among WordPress image size."
 msgstr ""
 
-#: includes/wpls-post-types.php:27 includes/wpls-post-types.php:28
-msgid "Set logo image"
+#: includes/wpls-post-types.php:35
+msgid "Set Logo Image"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:48
-msgid "Shortcode Generator "
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:47
+#: includes/admin/settings/premium.php:109
+msgid "Shortcode Generator"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:176
+#: includes/admin/settings/premium.php:94
+msgid "Shortcode Parameters"
+msgstr ""
+
+#: includes/admin/settings/premium.php:89
+msgid "Shortcode provide output to the front-end side"
+msgstr ""
+
+#: includes/admin/settings/premium.php:89
+msgid "Shortcodes"
+msgstr ""
+
+#: includes/admin/settings/premium.php:166
+msgid "SiteOrigin Page Builder Support"
+msgstr ""
+
+#: includes/admin/settings/premium.php:207
+msgid "Slider parameters like autoplay, number of slide, sider dots and etc."
+msgstr ""
+
+#: includes/admin/settings/premium.php:212
+msgid "Slider RTL Support"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:163
 msgid "Slider RTL support."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:60
-msgid "Step-1. Create a page like Logoshose OR add the shortcode in any page."
+#: includes/admin/settings/premium.php:212
+msgid "Slider supports for RTL website"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:46
-msgid "Step-1. Go to \"Logo Showcase --> Add New\"."
+#: includes/admin/class-wpls-admin.php:85
+msgid "Solutions & Features"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:106
-msgid "Step-1. Go to the Gutenberg editor of your page."
+#: includes/admin/class-wpls-admin.php:85
+msgid "Solutions & Features - Logo Showcase Responsive Slider"
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:61
+msgid ""
+"Step-1. Create a page like Logo Showcase OR add the shortcode in any page."
 msgstr ""
 
 #: includes/admin/settings/how-it-work.php:47
+msgid "Step-1. Go to \"Logo Showcase --> Add New\"."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:115
+msgid "Step-1. Go to the Gutenberg editor of your page."
+msgstr ""
+
+#: includes/admin/settings/how-it-work.php:48
 msgid ""
 "Step-2. Add Logo title, logo link to redirect(if need) and logo image under "
 "featured image section."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:61
+#: includes/admin/settings/how-it-work.php:62
 msgid "Step-2. Put below shortcode as per your need."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:107
-msgid "Step-2. Search \"logoshowcase\" keyword in the gutenberg block list."
+#: includes/admin/settings/how-it-work.php:116
+msgid "Step-2. Search \"logoshowcase\" keyword in the Gutenberg block list."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:108
+#: includes/admin/settings/how-it-work.php:117
 msgid ""
 "Step-3. Add any block of logoshowcase and you will find its relative options "
 "on the right end side."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:48
+#: includes/admin/settings/how-it-work.php:49
 msgid ""
 "Step-3. Display multiple logo showcase, create categories under \"Logo "
 "Showcase --> category\" and create categories."
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:49
+#: includes/admin/settings/how-it-work.php:50
 msgid ""
 "Step-4. Assign logo showcase post to respective categories and use the "
 "category shortcode under \"Logo Showcase --> category\""
 msgstr ""
 
-#: logo-showcase.php:170
+#: includes/admin/settings/premium.php:222
+msgid "Support"
+msgstr ""
+
+#: logo-showcase.php:191
 #, php-format
 msgid "Thank you for activating %s"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:57
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:56
+#: includes/admin/settings/premium.php:119
 msgid "Tooltip"
 msgstr ""
 
-#: includes/wpls-post-types.php:66
+#: includes/wpls-post-types.php:73
 msgid "Update Category"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox.php:40
-#: includes/admin/metabox/wpls-post-setting-metabox.php:51
-#, php-format
-msgid ""
-"Upgrade to <a href=\"%s\" target=\"_blank\">Premium Version</a> to get this "
-"option."
+#: includes/admin/class-wpls-admin.php:88
+msgid "Upgrade To PRO"
+msgstr ""
+
+#: includes/admin/class-wpls-admin.php:88
+msgid "Upgrade To PRO - Logo Showcase Responsive Slider"
+msgstr ""
+
+#: includes/wpls-post-types.php:37
+msgid "Use as logo image"
+msgstr ""
+
+#: includes/admin/settings/premium.php:161
+msgid "Use this plugin with Bevear Builder easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:171
+msgid "Use this plugin with Divi Builder easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:156
+msgid "Use this plugin with Elementor easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:176
+msgid "Use this plugin with Fusion( Avada ) Builder easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:151
+msgid "Use this plugin with Gutenberg easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:166
+msgid "Use this plugin with SiteOrigin easily"
+msgstr ""
+
+#: includes/admin/settings/premium.php:181
+msgid "Use this plugin with Visual Composer easily"
 msgstr ""
 
 #: includes/admin/metabox/wpls-post-setting-metabox-pro.php:14
 #, php-format
 msgid ""
-"Upgrade to <a href=\"%s\" target=\"_blank\">Pro Version</a> with Essential "
-"Plugin Bundle to boost your website design."
+"Utilize these <a href=\"%s\" target=\"_blank\">Premium Features</a> to get "
+"best of this plugin with  Annual or Lifetime bundle deal."
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:106
-msgid "Upgrade to PRO"
+#: includes/admin/metabox/wpls-post-setting-metabox.php:38
+#: includes/admin/metabox/wpls-post-setting-metabox.php:49
+#, php-format
+msgid ""
+"Utilize this <a href=\"%s\" target=\"_blank\">Premium Features</a> to get "
+"best of this plugin with  Annual or Lifetime bundle deal."
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:106
-msgid "Upgrade to PRO - Logo Showcase Responsive Slider"
-msgstr ""
-
-#: includes/admin/settings/how-it-work.php:161
-msgid "Upgrate to Pro"
-msgstr ""
-
-#: includes/wpls-post-types.php:23
+#: includes/wpls-post-types.php:28
 msgid "View Logo Showcase"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:190
-msgid "View PRO Demo "
+#: includes/admin/settings/premium.php:181
+msgid "Visual Composer Page Builder Supports"
 msgstr ""
 
-#: includes/admin/settings/how-it-work.php:179
+#: includes/admin/settings/how-it-work.php:166
 msgid "Visual Composer support."
 msgstr ""
 
-#: includes/admin/class-wpls-admin.php:45
+#: includes/admin/class-wpls-admin.php:137
 msgid "WP Logo Showcase Responsive Slider - Settings"
 msgstr ""
 
@@ -517,14 +811,12 @@ msgstr ""
 msgid "WP OnlineSupport, Essential Plugin"
 msgstr ""
 
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:39
-msgid "WP Templating Features "
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:38
+#: includes/admin/settings/premium.php:99
+msgid "WP Templating Features"
 msgstr ""
 
-#: includes/admin/supports/gutenberg-block.php:166
-msgid "WPOS Blocks"
-msgstr ""
-
-#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:42
+#: includes/admin/metabox/wpls-post-setting-metabox-pro.php:41
+#: includes/admin/settings/premium.php:99
 msgid "You can modify plugin html/designs in your current theme."
 msgstr ""

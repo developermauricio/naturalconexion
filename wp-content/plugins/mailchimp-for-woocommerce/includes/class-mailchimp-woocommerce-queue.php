@@ -71,11 +71,13 @@ class MailChimp_WooCommerce_Queue
      *
      * @param object $job
      * @param int    $delay
+     * @return void
      */
     public function release( $job, $delay = 0 )
     {
         if ($job->attempts >= $this->max_tries) {
-            return $this->failed($job);
+            $this->failed($job);
+	        return;
         }
 
         global $wpdb;
@@ -88,11 +90,9 @@ class MailChimp_WooCommerce_Queue
         ), array('id' => $job->id));
     }
 
-    /**
-     * Failed
-     *
-     * @param stdClass $job
-     */
+	/**
+	 * @param $job
+	 */
     protected function failed($job)
     {
         global $wpdb;
@@ -218,7 +218,7 @@ class MailChimp_WooCommerce_Queue
                 MailChimp_WooCommerce_Activator::create_queue_tables();
                 return true;
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             mailchimp_error_trace($e, 'trying to create queue tables');
         }
         return false;

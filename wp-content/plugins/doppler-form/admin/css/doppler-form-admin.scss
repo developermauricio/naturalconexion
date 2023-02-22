@@ -26,6 +26,13 @@
   }
 
 }
+
+.form_orientation{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding-left: 10px;
+}
 /*
 .dplr_settings {
   width: 100%;

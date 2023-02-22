@@ -227,8 +227,17 @@ function wpos_anylc_plugin_activation( $plugin, $network_activation ) {
 		$optin_status 	= isset( $opt_in_data['status'] ) ? $opt_in_data['status'] : -1;
 
 		if( $optin_status == -1 ) {
+			
 			$redirect_link = add_query_arg( array('page' => $wpos_analytics_module[ $plugin ]['slug']), admin_url('admin.php') );
 			update_option( 'wpos_anylc_redirect', $redirect_link );
+
+		} elseif( ! empty( $wpos_analytics_module[ $plugin ]['redirect_page'] ) ) {
+
+			$redirect_page	= $wpos_analytics_module[ $plugin ]['redirect_page'];
+			$pos 			= strpos( $redirect_page, '?post_type' );
+			$redirect_link 	= ( $pos !== false ) ? admin_url( $redirect_page ) : add_query_arg( array( 'page' => $redirect_page ), admin_url('admin.php') );
+
+			update_option( 'wpos_anylc_redirect', $redirect_link );	
 		}
 	}
 }

@@ -1,0 +1,73 @@
+2023-02-11T12:43:19+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id de6d89a963945a65f90d5aa051ab4d14
+2023-02-11T12:44:13+00:00 NOTICE abandoned_cart.success :: email: nausoro3@hotmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=de6d89a963945a65f90d5aa051ab4d14
+2023-02-11T12:44:13+00:00 NOTICE cart.member.updated :: Updated nausoro3@hotmail.com subscriber status to subscribed and language to es
+2023-02-11T14:44:40+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 8a17c1b56f570b56deb3a83c37fa5e8a
+2023-02-11T14:44:45+00:00 NOTICE abandoned_cart.success :: email: gerenciaxue1888@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=8a17c1b56f570b56deb3a83c37fa5e8a
+2023-02-11T14:44:45+00:00 NOTICE cart.member.updated :: Updated gerenciaxue1888@gmail.com subscriber status to transactional and language to es
+2023-02-11T14:45:08+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23276
+2023-02-11T14:45:11+00:00 NOTICE debug :: Order ID 23276 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-80-ml/
+        )
+
+)
+
+2023-02-11T14:46:58+00:00 NOTICE order.member.updated :: Updated gerenciaxue1888@gmail.com subscriber status to transactional and language to es
+2023-02-11T14:46:58+00:00 NOTICE order_submit.success :: addStoreOrder :: #23276 :: email: gerenciaxue1888@gmail.com :: landing site https://naturalconexion.com/product/protector-solar-con-extractos-botanicos-spf-50-todo-tipo-de-piel-80-ml/ :: abandoned cart deleted [8a17c1b56f570b56deb3a83c37fa5e8a]
+2023-02-11T16:51:54+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id f0a07da469f2fdee1ea69d2f66510507
+2023-02-11T16:52:06+00:00 NOTICE abandoned_cart.success :: email: dianajcb@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=f0a07da469f2fdee1ea69d2f66510507
+2023-02-11T16:52:06+00:00 NOTICE cart.member.updated :: Updated dianajcb@gmail.com subscriber status to transactional and language to es
+2023-02-11T16:53:28+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id f0a07da469f2fdee1ea69d2f66510507
+2023-02-11T16:54:24+00:00 NOTICE abandoned_cart.success :: email: dianajcb@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=f0a07da469f2fdee1ea69d2f66510507
+2023-02-11T16:55:29+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23277
+2023-02-11T16:57:08+00:00 NOTICE order_submit :: #23277 has a financial status of pending and was skipped.
+2023-02-11T18:36:54+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 8527f71564096c55a3ba7bfbbea911a0
+2023-02-11T18:36:56+00:00 NOTICE abandoned_cart.success :: email: lauramilena.tr@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=8527f71564096c55a3ba7bfbbea911a0
+2023-02-11T18:36:57+00:00 NOTICE cart.member.updated :: Updated lauramilena.tr@gmail.com subscriber status to subscribed and language to es
+2023-02-11T18:37:10+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23278
+2023-02-11T18:39:47+00:00 NOTICE order_submit :: #23278 has a financial status of pending and was skipped.
+2023-02-11T18:39:59+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23278
+2023-02-11T18:40:02+00:00 NOTICE debug :: Order ID 23278 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php
+        )
+
+)
+
+2023-02-11T18:41:56+00:00 NOTICE order.member.updated :: Updated lauramilena.tr@gmail.com subscriber status to subscribed and language to 
+2023-02-11T18:41:56+00:00 NOTICE order_submit.success :: addStoreOrder :: #23278 :: email: lauramilena.tr@gmail.com :: landing site https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php :: abandoned cart deleted [8527f71564096c55a3ba7bfbbea911a0]
+2023-02-11T18:51:29+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23277
+2023-02-11T18:51:29+00:00 NOTICE debug :: Order ID 23277 was pending and is now cancelled :: Array
+(
+    [new_order] => 
+    [tracking] => 
+)
+
+2023-02-11T18:53:07+00:00 NOTICE order_submit :: #23277 has a financial status of cancelled and was skipped.
+2023-02-11T19:12:27+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id abb4e4ef4421a8024836125e7e4122f4
+2023-02-11T19:12:48+00:00 NOTICE abandoned_cart.success :: email: paolapalacio0615@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=abb4e4ef4421a8024836125e7e4122f4
+2023-02-11T19:12:48+00:00 NOTICE cart.member.updated :: Updated paolapalacio0615@gmail.com subscriber status to subscribed and language to es
+2023-02-11T19:13:01+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23279
+2023-02-11T19:14:43+00:00 NOTICE order_submit :: #23279 has a financial status of pending and was skipped.
+2023-02-11T19:17:13+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 23279
+2023-02-11T19:17:15+00:00 NOTICE debug :: Order ID 23279 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php
+        )
+
+)
+
+2023-02-11T19:18:50+00:00 NOTICE order.member.updated :: Updated paolapalacio0615@gmail.com subscriber status to subscribed and language to 
+2023-02-11T19:18:50+00:00 NOTICE order_submit.success :: addStoreOrder :: #23279 :: email: paolapalacio0615@gmail.com :: landing site https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php :: abandoned cart deleted [abb4e4ef4421a8024836125e7e4122f4]

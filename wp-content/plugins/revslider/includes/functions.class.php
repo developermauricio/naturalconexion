@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
  
 if(!defined('ABSPATH')) exit();
@@ -1036,7 +1036,7 @@ class RevSliderFunctions extends RevSliderData {
 					}
 					
 					if(!empty($weights) && is_array($weights)){
-						$ret .= '<style type="text/css">';
+						$ret .= '<style>';
 						foreach($weights as $weight){
 							$style	 = (strpos($weight, 'italic') !== false) ? 'italic' : 'normal';
 							$_weight = str_replace('italic', '', $weight);
@@ -1046,6 +1046,7 @@ class RevSliderFunctions extends RevSliderData {
   font-family: '".$f_family."';
   font-style: ".$style.";
   font-weight: ".$_weight.";
+  font-display: swap;
   src: local('".$f_family."'), local('".$f_family."'), url(".$base_url.'/revslider/gfonts/'. $font_name . '/' . $font_name . '-' . $weight . '.woff2'.") format('woff2');
 }";
 						}
@@ -1056,7 +1057,7 @@ class RevSliderFunctions extends RevSliderData {
 			
 		}else{
 			$url = $this->modify_fonts_url('https://fonts.googleapis.com/css?family=');
-			$ret .= ($tcf !== '') ? '<link href="'.$url.$tcf.'" rel="stylesheet" property="stylesheet" media="all" type="text/css" >'."\n" : '';
+			$ret .= ($tcf !== '') ? '<link href="'.$url.$tcf.'&display=swap" rel="stylesheet" property="stylesheet" media="all" type="text/css" >'."\n" : '';
 			$ret .= ($tcf2 !== '') ? html_entity_decode(stripslashes($tcf2)) : '';
 		}
 		
@@ -1286,7 +1287,7 @@ class RevSliderFunctions extends RevSliderData {
 		foreach($base_transitions as $m => $bt){
 			if(!is_string($m) || $m === 'random' || $m === 'custom' || ($main !== 'all' && $main !== $m)) continue;
 			foreach($bt as $g => $_bt){
-				if(is_array($_bt) && $g !== 'icon' && (empty($grp) || isset($grp[$g]))){
+				if(is_array($_bt) && $g !== 'icon' && (empty($grp) || in_array($g, $grp))){
 					foreach($_bt as $e => $__bt){
 						$items[] = $e;
 					}

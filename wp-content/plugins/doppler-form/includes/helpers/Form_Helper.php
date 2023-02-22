@@ -26,11 +26,12 @@ class DPLR_Form_helper
     $form = $context['form'];
     $fields = isset($context['fields']) ? $context['fields'] : [];
     $form_class = isset($context['classes']) ? implode(" ", $context['classes']) : "";
+    $form_orientation_horizontal = isset($form->settings["form_orientation"]) && $form->settings["form_orientation"] === 'horizontal';
 
     ?>
     <form class="dplr_form <?php echo $form_class; ?>">
 		<?php
-		if($form->settings["form_orientation"] === 'horizontal'):
+		if($form_orientation_horizontal):
 		?>
 			<div style="display:flex; gap: 10px;">
 		<?php
@@ -41,11 +42,12 @@ class DPLR_Form_helper
 		endif;
 		?>
 		<input type="hidden" name="list_id" value="<?php echo $form->list_id; ?>">
+		<input type="hidden" name="form_id" value="<?php echo $form->id; ?>">
 			<?php 
 			foreach ($fields as $field) {
 				$label = isset($field->settings['label']) ? $field->settings['label'] : $field->name;
 
-				if($form->settings["form_orientation"] === 'horizontal' &&
+				if($form_orientation_horizontal &&
 				$field->type !== "permission"):
 				?>
 					<div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>"
@@ -60,7 +62,7 @@ class DPLR_Form_helper
 				?>
 					<?php if($label!==''): ?>
 						<?php
-						if($form->settings["form_orientation"] === 'horizontal'):
+						if($form_orientation_horizontal):
 							// if($field->type === 'permission'):
 							// ?>
 								<!-- <label for="<?php //echo $field->name; ?>" >
@@ -83,17 +85,17 @@ class DPLR_Form_helper
 							endif;
 						endif; 
 					endif;
-					if( ($form->settings["form_orientation"] === 'horizontal' && 
+					if( ($form_orientation_horizontal && 
 					$field->type !== 'permission') ||
-					($form->settings["form_orientation"] === 'vertical') ):
-						echo self::printInput($field, $form, $label);
+					(!$form_orientation_horizontal) ):
+						echo self::printInput($field, $form, $label, $form_orientation_horizontal);
 					endif;
 					?>
 				</div>
 			<?php 
 			}
-			if($form->settings["form_orientation"] === 'vertical'):
-				if($form->settings['use_consent_field']==='yes'){
+			if(!$form_orientation_horizontal):
+				if(isset($form->settings['use_consent_field']) && $form->settings['use_consent_field']==='yes'){
 				?>
 				<div class="input-field" style="order:999; text-align: left;" required>
 					<input type="checkbox" name="fields-CONSENT" value="true"
@@ -109,7 +111,7 @@ class DPLR_Form_helper
 				</div>
 				<?php
 				}
-				if($form->settings['use_thankyou_page']==='yes'){
+				if(isset($form->settings['use_thankyou_page']) && $form->settings['use_thankyou_page']==='yes'){
 				?>
 					<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
 					<?php
@@ -132,7 +134,7 @@ class DPLR_Form_helper
 
 			$buttom_color = '';
 
-			if($form->settings['change_button_bg']==='yes'){
+			if(isset($form->settings['change_button_bg']) && $form->settings['change_button_bg']==='yes'){
 				$buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
 			}
 			
@@ -147,7 +149,7 @@ class DPLR_Form_helper
 		</div>
 		<?php
 
-		if($form->settings["form_orientation"] === 'horizontal'):
+		if($form_orientation_horizontal):
 			foreach ($fields as $field) {
 				if($field->type === "permission"):
 					?>
@@ -155,7 +157,7 @@ class DPLR_Form_helper
 						<?php // echo $field->settings["label"]; ?>
 					</label> -->
 					<?php
-					echo self::printInput($field, $form, $label);
+					echo self::printInput($field, $form, $label, $form_orientation_horizontal);
 				endif;
 			}
 			if($form->settings['use_consent_field']==='yes'){
@@ -185,13 +187,13 @@ class DPLR_Form_helper
     <?php
   }
 
-  private static function printInput($input, $form, $label) {
+  private static function printInput($input, $form, $label, $form_orientation_horizontal) {
 
 		$required = isset($input->settings["required"]) ? "required" : "";
     	switch ($input->type) {
 		case 'string':
-			if ($input->settings['text_lines'] == 'single') {
-				if($form->settings["form_orientation"] === 'horizontal'):
+			if (isset($input->settings['text_lines']) && $input->settings['text_lines'] == 'single') {
+				if($form_orientation_horizontal):
 				?>
 					<input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->name) ? $input->name : ''; ?>" maxlength="150"/>
 				<?php
@@ -208,7 +210,7 @@ class DPLR_Form_helper
 			break;
 		case 'number':?>
 			<?php
-			if($form->settings["form_orientation"] === 'horizontal'):
+			if($form_orientation_horizontal):
 			?>
 				<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="27"/>
 				<?php
@@ -220,7 +222,7 @@ class DPLR_Form_helper
 			break;
 		case 'phone':?>
 			<?php
-			if($form->settings["form_orientation"] === 'horizontal'):
+			if($form_orientation_horizontal):
 			?>
 				<input <?=$required?> type="tel" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo $label?>" maxlength="150"/>
 				<?php
@@ -255,7 +257,7 @@ class DPLR_Form_helper
 		case 'email':
 			?>
 			<?php
-			if($form->settings["form_orientation"] === 'horizontal'):
+			if($form_orientation_horizontal):
 			?>
 				<input <?=$required?> type="email" 
 				oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" 
@@ -280,7 +282,7 @@ class DPLR_Form_helper
 		case 'date':
 			?>
 			<?php
-			if($form->settings["form_orientation"] === 'horizontal'):
+			if($form_orientation_horizontal):
 			?>
 				<input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date" maxlength="150" placeholder="<?php echo $label ?>">
 				<input type="hidden" name="fields-<?php echo $input->name; ?>" value="">

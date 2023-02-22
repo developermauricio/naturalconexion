@@ -1,6 +1,6 @@
 <?php
 /**
-  * Gives the page details for the services
+  * Gives the page details for WordPress parameters
   * 
   */
 
@@ -174,7 +174,7 @@ class Shortcoder_Metadata{
                 'short_url' => wp_get_shortlink( $id ),
                 
                 'post_id' => $id,
-                'post_excerpt' => self::excerpt( 100 ),
+                'post_excerpt' => self::excerpt(),
                 'post_comments_count' => get_comments_number( $id ),
                 'post_image' => self::post_image( $id ),
                 'post_author' => get_the_author(),
@@ -193,7 +193,7 @@ class Shortcoder_Metadata{
         
     }
     
-    public static function excerpt( $length = 250 ){
+    public static function excerpt(){
         
         global $post;
         
@@ -201,10 +201,7 @@ class Shortcoder_Metadata{
             return '';
         }
         
-        $excerpt = $post->post_excerpt; // using $post->post_excerpt instead of get_the_excerpt as the_content filter loses shortcode formatting
-        
-        $excerpt_text = ( empty( $excerpt ) ) ? strip_tags( strip_shortcodes( $post->post_content ) ) : $excerpt;
-        return substr( $excerpt_text, 0, $length );
+        return $post->post_excerpt;
         
     }
     

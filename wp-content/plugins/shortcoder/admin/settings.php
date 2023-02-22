@@ -72,7 +72,7 @@ class SC_Admin_Settings{
         echo SC_Admin_Form::table($fields);
 
         wp_nonce_field( 'sc_settings_nonce' );
-        echo '<p><button type="submit" class="button button-primary">Save settings</button></p>';
+        echo '<p><button type="submit" class="button button-primary">' . esc_html__( 'Save settings', 'shortcoder' ) . '</button></p>';
         echo '</form>';
 
         echo '</div>';
@@ -92,7 +92,13 @@ class SC_Admin_Settings{
 
             foreach( $defaults as $field => $default ){
                 $form_field = 'sc_' . $field;
-                $values[ $field ] = isset( $p[ $form_field ] ) ? ( $p[ $form_field ] ) : $default;
+                $value = isset( $p[ $form_field ] ) ? $p[ $form_field ] : $default;
+
+                if( in_array( $field, array( 'default_content' ) ) ){
+                    $values[ $field ] = current_user_can( 'unfiltered_html' ) ? $value : wp_kses_post( $value );
+                }else{
+                    $values[ $field ] = sanitize_text_field( $value );
+                }
             }
 
             update_option( 'sc_settings', $values );
@@ -105,7 +111,7 @@ class SC_Admin_Settings{
     public static function print_notice( $msg = '', $type = 'success' ){
 
         if( $msg != '' ){
-            echo '<div class="notice notice-' . $type . ' is-dismissible"><p>' . $msg . '</p></div>';
+            echo '<div class="notice notice-' . esc_attr( $type ) . ' is-dismissible"><p>' . wp_kses_post( $msg ) . '</p></div>';
         }
 
     }

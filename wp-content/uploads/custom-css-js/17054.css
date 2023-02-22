@@ -1,7 +1,14 @@
 <!-- start Simple Custom CSS and JS -->
 <style type="text/css">
+.text-bold-subtitle-black{
+	font-weight: bold !important;
+}
 ul.list-details-footer {
     display: none;
+}
+
+div.parrafo h4 {
+    text-align: justify;
 }
 
 div#sliderJuernes {
@@ -87,14 +94,28 @@ li.meta-author span.fn:before {
 	justify-content: center;
 	padding-top: 4rem;
 }
+.text-nuestros-origenes{
+	font-size: 1.1rem;
+	text-align: justify;
+}
 
+/*.post-22023 .vc_column-inner{
+  background-image: url(/wp-content/uploads/2022/10/favio-fondo-scaled.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;	
+}*/
 
 /**************************  
 	Estilos para movil  
 ***************************/
-@media (max-width: 767.98px) { 
+@media (max-width:767px)  and (min-width:320px){
+	.text-nuestros-origenes{
+		font-size: 1rem;
+	}
+
 	  .title-landing h4 {
-		font-size: 1.1rem !important;
+		font-size: 2.2rem !important;
 	  }
 	  .title2-landing h1 {
 		font-size: 1rem !important;
@@ -103,9 +124,24 @@ li.meta-author span.fn:before {
 		justify-content: left;
 		padding-top: 0;
 	}
+	
+	.page-id-7096 .row{
+		margin-top: -1rem !important;
+	}
+	#rev_slider_88_4_forcefullwidth{
+		margin-bottom: -5rem !important;
+	}
+	#rev_slider_88_4_wrapper{
+		margin-top: -1rem !important;
+	}
 }
  
-
+.cat-item .count{
+	display: none !important
+}
+.input-contact{
+	width: 100% !important
+}
 /******************************  
 	Estilos para escritrio 
 *******************************

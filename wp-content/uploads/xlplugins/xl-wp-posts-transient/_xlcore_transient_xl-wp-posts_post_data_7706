@@ -1,4 +1,4 @@
-a:2:{s:4:"time";i:1659452693;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7706;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-09-04 22:24:19";s:13:"post_date_gmt";s:19:"2020-09-05 03:24:19";s:12:"post_content";s:1169:"<b>Ingredientes principales:</b>
+a:2:{s:4:"time";i:1677127164;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7706;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2020-09-04 22:24:19";s:13:"post_date_gmt";s:19:"2020-09-05 03:24:19";s:12:"post_content";s:1169:"<b>Ingredientes principales:</b>
 <ul>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Aceite de coco.</span></li>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">Caléndula.</span></li>
@@ -64,4 +64,4 @@ a:2:{s:4:"time";i:1659452693;s:5:"value";O:7:"WP_Post":24:{s:2:"ID";i:7706;s:11:
  	<li style="font-weight: 400;"><span style="font-weight: 400;">No contienen parabenos.  </span></li>
  	<li style="font-weight: 400;"><span style="font-weight: 400;">No son testados en animales.</span></li>
 </ul>
-<span style="font-weight: 400;">Lo llevaremos hasta la puerta de tu casa. ¡Adquiérelo ya!</span>";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:13:"kit-econativa";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2022-07-23 09:03:24";s:17:"post_modified_gmt";s:19:"2022-07-23 14:03:24";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:60:"https://jjllorente.com/product/import-placeholder-for-23083/";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}
+<span style="font-weight: 400;">Lo llevaremos hasta la puerta de tu casa. ¡Adquiérelo ya!</span>";s:11:"post_status";s:5:"draft";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:13:"kit-econativa";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2023-01-31 09:15:25";s:17:"post_modified_gmt";s:19:"2023-01-31 14:15:25";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:60:"https://jjllorente.com/product/import-placeholder-for-23083/";s:10:"menu_order";i:0;s:9:"post_type";s:7:"product";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

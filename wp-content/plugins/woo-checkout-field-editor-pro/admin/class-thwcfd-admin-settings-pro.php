@@ -44,9 +44,10 @@ class THWCFD_Admin_Settings_Pro extends THWCFD_Admin_Settings{
 		    <h2>Key Features of WooCommerce Checkout Field Editor Pro</h2>
 		    <p><b>Checkout Field Editor For WooCommerce</b> plugin comes with several advanced features that let you create an organized checkout page. With these premium features, bring your checkout page to its next level.</p>
 		    <ul class="feature-list star-list">
-		        <li>17 Custom Checkout Field Types</li>
+		        <li>24 Custom Checkout Field Types</li>
 		        <li>Custom section which can be placed at 15 different positions on the checkout page</li>
 		        <li>Display fields conditionally</li>
+		        <li>Address autofill suggestion</li>
 		        <li>Display sections conditionally</li>
 		        <li>Price fields with a set of price types</li>
 		        <li>Custom validations</li>
@@ -86,10 +87,17 @@ class THWCFD_Admin_Settings_Pro extends THWCFD_Admin_Settings{
 		            <li>Checkbox</li>
 		            <li>Checkbox Group</li>
 		            <li>Date picker</li>
+		            <li>Datetime local</li>
+		            <li>Date</li>
 		            <li>Time picker</li>
+		            <li>Time</li>
+		            <li>Month</li>
+		            <li>Week</li>
 		            <li>File Upload</li>
 		            <li>Heading</li>
+		            <li>Paragraph</li>
 		            <li>Label</li>
+		            <li>URL</li>
 		        </ul>
 		    </div>
 		    <div class="th-flexbox-child th-nice-box">
@@ -125,7 +133,10 @@ class THWCFD_Admin_Settings_Pro extends THWCFD_Admin_Settings{
 		            <li>User Roles</li>
 		            <li>Product</li>
 		            <li>Product Variation</li>
+		            <li>Product type</li>
 		            <li>Product Category</li>
+		            <li>Shipping Class</li>
+		            <li>Shipping Weight</li>
 		            <li>Based on other field values</li>
 		        </ul>
 		    </div>

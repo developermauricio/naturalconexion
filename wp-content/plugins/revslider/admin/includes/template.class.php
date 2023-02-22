@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -28,7 +28,8 @@ class RevSliderTemplate extends RevSliderFunctions {
 		$return	= false;
 		$uid	= $this->clear_uid($uid);
 		$uid	= esc_attr($uid);
-		$code	= '073e077f-b600-41e4-8b74-767431910d31';
+		$code	= (get_option('revslider-valid', 'false') == 'false') ? '' : get_option('revslider-code', '');
+		
 		$upload_dir = wp_upload_dir(); // Set upload folder
 		// Check folder permission and define file location
 		if(wp_mkdir_p($upload_dir['basedir'].$this->templates_path)){ //check here to not flood the server
@@ -111,7 +112,7 @@ class RevSliderTemplate extends RevSliderFunctions {
 			update_option('revslider-templates-check', time());
 
 			$hash = ($force === true) ? '' : get_option('revslider-templates-hash', '');
-			$code = '073e077f-b600-41e4-8b74-767431910d31';
+			$code = (get_option('revslider-valid', 'false') == 'false') ? '' : get_option('revslider-code', '');
 			$data = array(
 				'code'		=> urlencode($code),
 				'shop_version' => urlencode(self::SHOP_VERSION),
@@ -142,10 +143,11 @@ class RevSliderTemplate extends RevSliderFunctions {
 	 */
 	private function update_template_list(){
 		$new = get_option('rs-templates-new', false);
-		$cur = get_option('rs-templates', array());
-		
+		$cur = get_option('rs-templates', false);
+		$cur = (!is_array($cur)) ? json_decode($cur, true) : $cur;
+
 		$counter = 0;
-		
+
 		if($new !== false && !empty($new) && is_array($new)){
 			if(empty($cur)){
 				$cur = $new;
@@ -201,7 +203,8 @@ class RevSliderTemplate extends RevSliderFunctions {
 					$cur['slides'] = $new['slides']; // push always all slides
 				}
 			}
-			
+
+			$cur = json_encode($cur);
 			update_option('rs-templates', $cur, false);
 			update_option('rs-templates-new', false, false);
 			
@@ -217,9 +220,10 @@ class RevSliderTemplate extends RevSliderFunctions {
 	 * @since: 5.0.5
 	 */
 	public function remove_is_new($uid){
-		$cur = get_option('rs-templates', array());
+		$cur = get_option('rs-templates', false);
+		$cur = (!is_array($cur)) ? json_decode($cur, true) : $cur;
 		
-		if(isset($cur['slider']) && is_array($cur['slider'])){
+		if(is_array($cur) && isset($cur['slider']) && is_array($cur['slider'])){
 			foreach($cur['slider'] as $ck => $c){
 				if($c['uid'] == $uid){
 					unset($cur['slider'][$ck]['is_new']);
@@ -228,6 +232,7 @@ class RevSliderTemplate extends RevSliderFunctions {
 			}
 		}
 		
+		$cur = json_encode($cur);
 		update_option('rs-templates', $cur, false);
 	}
 	
@@ -239,7 +244,9 @@ class RevSliderTemplate extends RevSliderFunctions {
 	 */
 	private function _update_images($img = false){
 		$rslb	= RevSliderGlobals::instance()->get('RevSliderLoadBalancer');
-		$templates = get_option('rs-templates', array());
+		$templates = get_option('rs-templates', false);
+		$templates = (!is_array($templates)) ? json_decode($templates, true) : $templates;
+
 		$chk	= $this->check_curl_connection();
 		$curl	= ($chk) ? new WP_Http_Curl() : false;
 		$url	= $rslb->get_url('templates', 0, true);
@@ -356,6 +363,7 @@ class RevSliderTemplate extends RevSliderFunctions {
 			}
 		}
 		
+		$templates = json_encode($templates);
 		update_option('rs-templates', $templates, false); //remove the push_image
 	}
 	
@@ -517,8 +525,9 @@ class RevSliderTemplate extends RevSliderFunctions {
 	 */
 	public function get_tp_template_default_slides($slider_alias){
 		
-		$templates	= get_option('rs-templates', array());
-		$slides		= (isset($templates['slides']) && !empty($templates['slides'])) ? $templates['slides'] : array();
+		$templates	= get_option('rs-templates', false);
+		$templates	= (!is_array($templates)) ? json_decode($templates, true) : $templates;
+		$slides		= (is_array($templates) && isset($templates['slides']) && !empty($templates['slides'])) ? $templates['slides'] : array();
 		
 		return (isset($slides[$slider_alias])) ? $slides[$slider_alias] : array();
 	}
@@ -597,7 +606,8 @@ class RevSliderTemplate extends RevSliderFunctions {
 		//add themepunch default Sliders here
 		$sliders = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix . RevSliderFront::TABLE_SLIDER ." WHERE type = 'template'", ARRAY_A);
 		
-		$defaults = get_option('rs-templates', array());
+		$defaults = get_option('rs-templates', false);
+		$defaults = (!is_array($defaults)) ? json_decode($defaults, true) : $defaults;
 		$defaults = $this->get_val($defaults, 'slider', array());
 		
 		if(!empty($sliders) && !empty($defaults)){
@@ -893,7 +903,8 @@ class RevSliderTemplate extends RevSliderFunctions {
 	public function get_template_categories(){
 		$cat = array();
 		
-		$defaults = get_option('rs-templates', array());
+		$defaults = get_option('rs-templates', false);
+		$defaults = (!is_array($defaults)) ? json_decode($defaults, true) : $defaults;
 		$defaults = $this->get_val($defaults, 'slider', array());
 		
 		if(!empty($defaults)){
@@ -917,7 +928,8 @@ class RevSliderTemplate extends RevSliderFunctions {
 	 * get the slide thumbnail
 	 **/
 	public function get_slide_image_by_uid($uid, $slidenumber){
-		$defaults	= get_option('rs-templates', array());
+		$defaults	= get_option('rs-templates', false);
+		$defaults	= (!is_array($defaults)) ? json_decode($defaults, true) : $defaults;
 		$sliders	= $this->get_val($defaults, 'slider', array());
 		$slides		= $this->get_val($defaults, 'slides', array());
 		$image		= false;

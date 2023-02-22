@@ -42,7 +42,7 @@ class SC_Admin_Tools{
         if( self::is_sc_edit_page() )
             return $plugins;
 
-        $plugins[ 'shortcoder' ] =  SC_ADMIN_URL . '/js/tinymce/editor_plugin.js';
+        $plugins[ 'shortcoder' ] = SC_ADMIN_URL . '/js/tinymce/editor_plugin.js';
         return $plugins;
 
     }

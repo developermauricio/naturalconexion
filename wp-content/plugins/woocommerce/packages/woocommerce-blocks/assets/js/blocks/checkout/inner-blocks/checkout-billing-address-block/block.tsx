@@ -35,13 +35,14 @@ const Block = ( {
 } ): JSX.Element => {
 	const {
 		defaultAddressFields,
-		billingData,
-		setBillingData,
+		billingAddress,
+		setBillingAddress,
+		setShippingAddress,
 		setBillingPhone,
 	} = useCheckoutAddress();
 	const { dispatchCheckoutEvent } = useStoreEvents();
 	const { isEditor } = useEditorContext();
-
+	const { forcedBillingAddress } = useCheckoutAddress();
 	// Clears data if fields are hidden.
 	useEffect( () => {
 		if ( ! showPhoneField ) {
@@ -73,10 +74,13 @@ const Block = ( {
 				id="billing"
 				type="billing"
 				onChange={ ( values: Partial< BillingAddress > ) => {
-					setBillingData( values );
+					setBillingAddress( values );
+					if ( forcedBillingAddress ) {
+						setShippingAddress( values );
+					}
 					dispatchCheckoutEvent( 'set-billing-address' );
 				} }
-				values={ billingData }
+				values={ billingAddress }
 				fields={
 					Object.keys(
 						defaultAddressFields
@@ -87,7 +91,7 @@ const Block = ( {
 			{ showPhoneField && (
 				<PhoneNumber
 					isRequired={ requirePhoneField }
-					value={ billingData.phone }
+					value={ billingAddress.phone }
 					onChange={ ( value ) => {
 						setBillingPhone( value );
 						dispatchCheckoutEvent( 'set-phone-number', {

@@ -14,6 +14,9 @@ if(!class_exists('THWCFD_Utils')):
 
 class THWCFD_Utils {	
 	const OPTION_KEY_ADVANCED_SETTINGS = 'thwcfd_advanced_settings';
+	const OPTION_KEY_BILLING_FIELDS = 'wc_fields_billing';
+	const OPTION_KEY_SHIPPING_FIELDS = 'wc_fields_shipping';
+	const OPTION_KEY_ADDITIONAL_FIELDS = 'wc_fields_additional';
 
 	public function __construct() {
 		

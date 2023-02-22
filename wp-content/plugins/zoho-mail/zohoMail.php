@@ -2,7 +2,7 @@
 //require_once('wp-load.php');
 /*
 Plugin Name: Zoho Mail
-Version: 1.4.8
+Version: 1.4.9
 Plugin URI: http://mail.zoho.com
 Author: Zoho Mail
 Author URI: https://www.zoho.com/mail/

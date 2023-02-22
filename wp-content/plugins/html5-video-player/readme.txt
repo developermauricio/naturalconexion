@@ -2,9 +2,9 @@
 Contributors: abuhayat,shehabulislam
 Tags: HTML5 video player, plyr, video, video player, mp4 Player 
 Donate link: https://gum.co/wpdonate
-Requires at least: 5.0
-Tested up to: 6.0
-Stable tag: 2.5.6
+Requires at least: 5.1
+Tested up to: 6.0.2
+Stable tag: 2.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,13 +12,13 @@ A Simple, accessible, Easy to Use & fully Customizable video player that work pe
 
 == Description ==
 
-Play various video files in WordPress. A Simple, accessible, Easy Use & fully Customizable video player that works on all devices. You can Play/embed awesome video players in posts, pages, widget areas as well as template files. It has tons of options that fit your video player needs. 
+Play various video files in wordpress. A Simple, accessible, Easy to Use & fully Customizable video player that works in all devices. You can Play / embed awesome video player in posts, pages, widget areas as well as templete files. It has tons of options that fit your video player needs. 
 
 
 **[Live Demo](https://links.bplugins.com/h5vp "Demo")**
 **[Buy The Pro](https://wpvideoplayer.com/buy-now/ "Buy Pro version")** 
 
-= How to use ? =
+= How to use it? =
 Here is a quick tutorial.
 
 https://www.youtube.com/watch?v=dLU67e708fg
@@ -132,6 +132,12 @@ If you find a conflict between our plugin and a third-party plugin, please let u
 3. UI
 
 == Changelog ==
+
+= 2.5.8 - 29/09/2022 = 
+* issue fixed: autoplay on mobile
+
+= 2.5.7 - 22/08/2022 = 
+* Codestar framework updated
 
 = 2.5.6 - 16/04/2022 = 
 * added an option to pause other players on play video

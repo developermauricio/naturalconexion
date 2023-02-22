@@ -5,7 +5,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
  
 if(!defined('ABSPATH')) exit();
@@ -244,8 +244,8 @@ if ($wpml->wpml_exists()) {
 						<!-- SLIDE VIDEO OVERLAY -->
 						<label_a><?php _e('Overlay', 'revslider');?></label_a><select data-evt="updateslidebasic" id="sl_vid_overlay" class="dottedoverlay slideinput tos2 nosearchbox easyinit callEvent" data-r="bg.video.dottedOverlay"></select>
 						<label_a><?php _e('Overlay Size', 'revslider');?></label_a><input data-numeric="true" data-allowed="none" data-min="0"  data-r="bg.video.dottedOverlaySize" data-evt="drawBGOverlay"  type="text"  class="slideinput valueduekeyboard  easyinit callEvent" placeholder="none" >
-						<label_a><?php _e('O. Color 1', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 1" data-evt="updateslidebasic" name="slidebgoverlaycolor_a" id="slideoverlaybgcolor_a" class="my-color-field slideinput easyinit" data-visible="true" data-r="bg.video.dottedColorA" value="transparent">
-						<label_a><?php _e('O. Color 2', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 2" data-evt="updateslidebasic" name="slidebgoverlaycolor_b" id="slideoverlaybgcolor_b" class="my-color-field slideinput easyinit" data-visible="true" data-r="bg.video.dottedColorB" value="transparent">
+						<label_a><?php _e('O. Color 1', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 1" data-evt="updateslidebasic" name="slidebgoverlaycolor_a" id="slideoverlaybgcolor_a" class="my-color-field slideinput easyinit" data-visible="true" data-mode="single" data-r="bg.video.dottedColorA" value="transparent">
+						<label_a><?php _e('O. Color 2', 'revslider');?></label_a><input type="text" data-editing="Video Overlay Color 2" data-evt="updateslidebasic" name="slidebgoverlaycolor_b" id="slideoverlaybgcolor_b" class="my-color-field slideinput easyinit" data-visible="true" data-mode="single" data-r="bg.video.dottedColorB" value="transparent">
 					</div>
 				</div>
 			</div><!-- END OF SOURCE SETTINGS -->			
@@ -342,7 +342,7 @@ if ($wpml->wpml_exists()) {
 				<div class="form_inner_header"><i class="material-icons">blur_on</i><?php _e('Filters', 'revslider');?></div>
 				<!--<div class="form_intoaccordion" data-trigger="#sl_fbg_l1_3"><i class="material-icons">arrow_drop_down</i></div>-->
 				<div class="collapsable">
-					<label_a><?php _e('BG Filter', 'revslider');?></label_a><select data-theme="dark" id="slide_bg_filter" class="slideinput tos2 nosearchbox easyinit" data-evtparam="double" data-show=".*val*_warning" data-hide=".filter_warning" data-evt="updateslidebasic" data-unselect=".filter_selector" data-select="#filter_*val*"  data-r="bg.mediaFilter">
+					<label_a><?php _e('BG Filter', 'revslider');?></label_a><select data-theme="dark" id="slide_bg_filter" class="slideinput tos2 nosearchbox easyinit" data-evtparam="double" data-show=".*val*_warning" data-hide=".filter_warning" data-evt="updateslidebasicmediafilter" data-unselect=".filter_selector" data-select="#filter_*val*"  data-r="bg.mediaFilter">
 								<option value="none">No Filter</option>
 									<option value="_1977">1977</option>
 									<option value="aden">Aden</option>
@@ -395,6 +395,8 @@ if ($wpml->wpml_exists()) {
 						<labelhalf><i class="material-icons vmi">sms_failed</i></labelhalf>
 						<contenthalf><div class="function_info"><?php _e('The Filter may not work with HTML5 Videos in Internet Explorer and Edge Browsers', 'revslider');?></div></contenthalf>
 					</row>
+					
+					
 					
 				</div><!-- END OF COLLAPSABLE -->
 			</div><!-- END OF FILTER SETTINGS -->
@@ -580,8 +582,7 @@ if ($wpml->wpml_exists()) {
 					<div id="slide3d_transsettings" class="group_transsettings" style="display:none">
 						<div id="sltrans_3d_wrap">
 							<div id="sltrans_in_3d_wrap">																
-								<div id="sltrans_3d_sets">
-									<div class="div25"></div>
+								<div id="sltrans_3d_sets">									
 									<label_a><?php _e('3D Effect', 'revslider');?></label_a><select id="sltrans_3d_effect" class="slideinput tos2 nosearchbox easyinit callEvent" data-showprio="show" data-show="._3DST_*val*_SHOW" data-hide="._3DST_ALL"  data-evt="updateSlideAnimation" data-evtparam="tocustom"  data-r="slideChange.d3.f" data-theme="dark">
 										<option value="none"><?php _e('None', 'revslider');?></option>
 										<option value="cube"><?php _e('Cube', 'revslider');?></option>
@@ -801,6 +802,10 @@ if ($wpml->wpml_exists()) {
 						<label_a><?php _e('Sensibility', 'revslider');?></label_a><select data-theme="dark" id="slide_seo_z" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.z">
 							<option value="front"><?php _e('Over Layers (Front)', 'revslider');?></option>
 							<option value="back"><?php _e('Behind Layers (Back)', 'revslider');?></option>
+						</select>
+						<label_a><?php _e('Tag', 'revslider');?></label_a><select data-theme="dark" id="slide_tag_type" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.tag">
+							<option value="l"><?php _e('&lt;RS-LAYER&gt;', 'revslider');?></option>
+							<option value="a"><?php _e('&lt;A&gt;', 'revslider');?></option>
 						</select>
 					</div>
 				</div>

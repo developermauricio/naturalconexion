@@ -5,6 +5,8 @@
 
 namespace Automattic\WooCommerce\Internal\Admin\RemoteFreeExtensions;
 
+use Automattic\WooCommerce\Admin\Features\PaymentGatewaySuggestions\DefaultPaymentGateways;
+
 defined( 'ABSPATH' ) || exit;
 
 
@@ -36,6 +38,8 @@ class DefaultFreeExtensions {
 				'plugins' => [
 					self::get_plugin( 'mailpoet' ),
 					self::get_plugin( 'google-listings-and-ads' ),
+					self::get_plugin( 'facebook-for-woocommerce' ),
+					self::get_plugin( 'tiktok-for-business:alt' ),
 				],
 			],
 			[
@@ -53,6 +57,7 @@ class DefaultFreeExtensions {
 				'plugins' => [
 					self::get_plugin( 'google-listings-and-ads:alt' ),
 					self::get_plugin( 'tiktok-for-business' ),
+					self::get_plugin( 'facebook-for-woocommerce:alt' ),
 					self::get_plugin( 'pinterest-for-woocommerce' ),
 				],
 			],
@@ -100,12 +105,26 @@ class DefaultFreeExtensions {
 				'manage_url'     => 'admin.php?page=wc-admin&path=%2Fgoogle%2Fstart',
 				'is_built_by_wc' => true,
 			],
+			'facebook-for-woocommerce'          => [
+				'name'           => __( 'Facebook for WooCommerce', 'woocommerce' ),
+				'description'    => __( 'List products and create ads on Facebook and Instagram with <a href="https://woocommerce.com/products/facebook/">Facebook for WooCommerce</a>', 'woocommerce' ),
+				'image_url'      => plugins_url( '/assets/images/onboarding/facebook.png', WC_PLUGIN_FILE ),
+				'manage_url'     => 'admin.php?page=wc-facebook',
+				'is_built_by_wc' => false,
+			],
+			'facebook-for-woocommerce:alt'      => [
+				'name'           => __( 'Facebook for WooCommerce', 'woocommerce' ),
+				'description'    => __( 'List products and create ads on Facebook and Instagram.', 'woocommerce' ),
+				'image_url'      => plugins_url( '/assets/images/onboarding/facebook.png', WC_PLUGIN_FILE ),
+				'manage_url'     => 'admin.php?page=wc-facebook',
+				'is_built_by_wc' => false,
+			],
 			'pinterest-for-woocommerce'         => [
 				'name'           => __( 'Pinterest for WooCommerce', 'woocommerce' ),
 				'description'    => __( 'Get your products in front of Pinterest users searching for ideas and things to buy. Get started with Pinterest and make your entire product catalog browsable.', 'woocommerce' ),
 				'image_url'      => plugins_url( '/assets/images/onboarding/pinterest.png', WC_PLUGIN_FILE ),
 				'manage_url'     => 'admin.php?page=wc-admin&path=%2Fpinterest%2Flanding',
-				'is_built_by_wc' => false,
+				'is_built_by_wc' => true,
 			],
 			'mailpoet'                          => [
 				'name'           => __( 'MailPoet', 'woocommerce' ),
@@ -235,34 +254,8 @@ class DefaultFreeExtensions {
 								'operation' => '=',
 							],
 						],
-						[
-							'type'         => 'option',
-							'transformers' => [
-								[
-									'use'       => 'dot_notation',
-									'arguments' => [
-										'path' => 'industry',
-									],
-								],
-								[
-									'use'       => 'array_column',
-									'arguments' => [
-										'key' => 'slug',
-									],
-								],
-								[
-									'use'       => 'array_search',
-									'arguments' => [
-										'value' => 'cbd-other-hemp-derived-products',
-									],
-								],
-							],
-							'option_name'  => 'woocommerce_onboarding_profile',
-							'value'        => 'cbd-other-hemp-derived-products',
-							'default'      => '',
-							'operation'    => '!=',
-						],
 					],
+					DefaultPaymentGateways::get_rules_for_cbd( false ),
 				],
 				'is_built_by_wc' => true,
 			],
@@ -307,7 +300,7 @@ class DefaultFreeExtensions {
 									],
 									'option_name'  => 'woocommerce_onboarding_profile',
 									'value'        => 1,
-									'default'      => '',
+									'default'      => array(),
 									'operation'    => '!=',
 								],
 							],
@@ -462,11 +455,12 @@ class DefaultFreeExtensions {
 				'manage_url'     => 'admin.php?page=mailpoet-newsletters',
 				'is_built_by_wc' => true,
 			],
-			'tiktok-for-business'                            => [
+			'tiktok-for-business'               => [
 				'name'           => __( 'TikTok for WooCommerce', 'woocommerce' ),
 				'image_url'      => plugins_url( '/assets/images/onboarding/tiktok.svg', WC_PLUGIN_FILE ),
 				'description'    =>
 					__( 'Grow your online sales by promoting your products on TikTok to over one billion monthly active users around the world.', 'woocommerce' ),
+				'manage_url'     => 'admin.php?page=tiktok',
 				'is_visible'     => [
 					[
 						'type'     => 'or',
@@ -674,6 +668,18 @@ class DefaultFreeExtensions {
 						],
 					],
 				],
+				'is_built_by_wc' => false,
+			],
+			'tiktok-for-business:alt'               => [
+				'name'           => __( 'TikTok for WooCommerce', 'woocommerce' ),
+				'image_url'      => plugins_url( '/assets/images/onboarding/tiktok.svg', WC_PLUGIN_FILE ),
+				'description'    => sprintf(
+					/* translators: 1: opening product link tag. 2: closing link tag */
+					__( 'Create ad campaigns and reach one billion global users with %1$sTikTok for WooCommerce%2$s', 'woocommerce' ),
+					'<a href="https://woocommerce.com/products/tiktok-for-woocommerce" target="_blank">',
+					'</a>'
+				),
+				'manage_url'     => 'admin.php?page=tiktok',
 				'is_built_by_wc' => false,
 			],
 		);

@@ -2,7 +2,7 @@
 ?>
 <div class="addi-description__container4x">
         <?php if($discount): ?>
-            `<div class="addi-header-discount --4x">
+            <div class="addi-header-discount --4x">
                   <div class="addi-header-discount__badge">
                     <svg class="addi-header-discount__icon" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0.5C0.447716 0.5 0 0.947715 0 1.5V4.5C0 5.05228 0.474524 5.47927 0.958973 5.74447C1.57933 6.08406 2 6.74289 2 7.5C2 8.25711 1.57933 8.91594 0.958974 9.25553C0.474524 9.52073 0 9.94771 0 10.5V13.5C0 14.0523 0.447715 14.5 1 14.5H17C17.5523 14.5 18 14.0523 18 13.5V10.5C18 9.94771 17.5255 9.52073 17.041 9.25553C16.4207 8.91594 16 8.25711 16 7.5C16 6.74289 16.4207 6.08406 17.041 5.74447C17.5255 5.47927 18 5.05228 18 4.5V1.5C18 0.947715 17.5523 0.5 17 0.5H1ZM8.632 5.52554C8.632 6.75283 7.84374 7.57103 6.79604 7.57103C5.76831 7.57103 5 6.74286 5 5.54549C5 4.3182 5.77829 3.5 6.816 3.5C7.85371 3.5 8.632 4.3182 8.632 5.52554ZM7.44462 10.6443H6.37697L8.92136 6.91248L11.0766 3.61974H12.1542L9.58989 7.35152L7.44462 10.6443ZM6.80602 4.44791C6.35701 4.44791 6.07763 4.87697 6.07763 5.52554C6.07763 6.15415 6.35701 6.60316 6.82598 6.60316C7.27499 6.60316 7.55437 6.17411 7.55437 5.53552C7.55437 4.89692 7.28497 4.44791 6.80602 4.44791ZM9.90919 8.73846C9.90919 7.52114 10.6775 6.69297 11.7152 6.69297C12.7629 6.69297 13.5312 7.51116 13.5312 8.7185C13.5312 9.9458 12.7429 10.764 11.7052 10.764C10.6675 10.764 9.90919 9.9458 9.90919 8.73846ZM11.7252 9.80611C12.1742 9.80611 12.4636 9.37705 12.4636 8.73846C12.4636 8.08989 12.1842 7.64088 11.7152 7.64088C11.2662 7.64088 10.9768 8.07991 10.9768 8.7185C10.9768 9.3571 11.2562 9.80611 11.7252 9.80611Z" fill="#FFF"/>
@@ -29,8 +29,6 @@
             </div>
           </div>
           
-          <strong  class="addi-title__strong">Como você pode pagar:</strong>
-        
           <div class="addi-payment__container">
             <div class="addi-payment__header">
               <div >
@@ -42,30 +40,30 @@
                 <span class="addi-payment__label">1+3x sem juros!</span>
               </div>
             </div>
-        
-          <div class="addi-step-parcelas">
-            <div class="addi-step__container">
+
+          <div class="addi-step-parcelas selector">
+            <div class="addi-step__container selector">
               <div class="addi-step-active__number">1</div>
               <div class="addi-step">
                 <p class="addi-step-active__name">hoje</p>
                 <p class="addi-step__price">R$<?php echo $installments; ?></p>
               </div>
             </div>
-            <div class="addi-step__container">
+            <div class="addi-step__container selector">
               <div class="addi-step-inactive__number two">2</div>
               <div class="addi-step">
                 <p class="addi-step-inactive__name">em 1 mês</p>
                 <p class="addi-step__price">R$<?php echo $installments; ?></p>
               </div>
             </div>
-            <div class="addi-step__container">
+            <div class="addi-step__container selector">
               <div class="addi-step-inactive__number three">3</div>
               <div class="addi-step">
                 <p class="addi-step-inactive__name">em 2 meses</p>
                 <p class="addi-step__price">R$<?php echo $installments; ?></p>
               </div>
             </div>
-            <div class="addi-step__container">
+            <div class="addi-step__container selector">
               <div class="addi-step-inactive__number four">4</div>
               <div class="addi-step">
                 <p class="addi-step-inactive__name">em 3 meses</p>
@@ -73,11 +71,14 @@
               </div>
             </div>
           </div>
-            <p class="addi-info-message addi-internal-message">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.99992 13.6667C3.31802 13.6667 0.333252 10.6819 0.333252 7.00004C0.333252 3.31814 3.31802 0.333374 6.99992 0.333374C10.6818 0.333374 13.6666 3.31814 13.6666 7.00004C13.6625 10.6803 10.6801 13.6627 6.99992 13.6667ZM1.66659 7.11471C1.69813 10.0489 4.09399 12.4064 7.02828 12.3907C9.96257 12.3749 12.3329 9.9917 12.3329 7.05737C12.3329 4.12304 9.96257 1.73989 7.02828 1.72404C4.09399 1.70835 1.69813 4.06588 1.66659 7.00004V7.11471ZM8.33325 10.3334H6.33325V7.66671H5.66659V6.33337H7.66659V9.00004H8.33325V10.3334ZM7.66659 5.00004H6.33325V3.66671H7.66659V5.00004Z" fill="#3C6AF0"/>
-              </svg>
-                A primeira parcela será paga hoje
+
+          </div>
+          <div>
+              <p class="addi-info-message addi-internal-message">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.99992 13.6667C3.31802 13.6667 0.333252 10.6819 0.333252 7.00004C0.333252 3.31814 3.31802 0.333374 6.99992 0.333374C10.6818 0.333374 13.6666 3.31814 13.6666 7.00004C13.6625 10.6803 10.6801 13.6627 6.99992 13.6667ZM1.66659 7.11471C1.69813 10.0489 4.09399 12.4064 7.02828 12.3907C9.96257 12.3749 12.3329 9.9917 12.3329 7.05737C12.3329 4.12304 9.96257 1.73989 7.02828 1.72404C4.09399 1.70835 1.69813 4.06588 1.66659 7.00004V7.11471ZM8.33325 10.3334H6.33325V7.66671H5.66659V6.33337H7.66659V9.00004H8.33325V10.3334ZM7.66659 5.00004H6.33325V3.66671H7.66659V5.00004Z" fill="#3C6AF0"/>
+                  </svg>
+                    A primeira parcela será paga hoje
               </p>
           </div>
         

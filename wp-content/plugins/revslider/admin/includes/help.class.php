@@ -2,7 +2,7 @@
 /**
 * @author    ThemePunch <info@themepunch.com>
 * @link      https://www.themepunch.com/
-* @copyright 2019 ThemePunch
+* @copyright 2022 ThemePunch
 */
 if(!defined('ABSPATH')) exit();
 
@@ -2089,6 +2089,19 @@ class RevSliderHelp {
 									$m => "#module_settings_trigger, #gst_sl_3", 
 									$st => '#form_slidergeneral_caroussel', 
 									$f => "#sr_ca_inf"
+								)
+							),
+							'stopOnClick' => array(
+								$t => __("Stop Progress On Click", 'revsliderhelp'),
+								$h => "carousel.stopOnClick",
+								$k => array("carousel", "stop", "scroll", "stop on click"),
+								$d => __("Autorotate progress will get stopped if user clicks on slider", 'revsliderhelp'),
+								$a => $u . "carousel-settings/",
+								$hl => array(
+									$dp => array(array($p => 'settings.type', $v => 'carousel', $o => 'slider_layout_type_carousel')), 
+									$m => "#module_settings_trigger, #gst_sl_3", 
+									$st => '#form_slidergeneral_caroussel', 
+									$f => "#sr_ca_socl"
 								)
 							),
 							'layers_visible' => array(
@@ -4796,6 +4809,45 @@ class RevSliderHelp {
 								$m => "#module_navigation_trigger, #gst_nav_9", 
 								$st => '#form_nav_mousescroll', 
 								$f => "*[name='sr_reversemousenavigation'][value='reverse']"
+							)
+						),
+						'target' => array(
+							$t => __("Scroll Target", 'revsliderhelp'),
+							$h => "nav.mouse.target",
+							$k => array("mouse scroll", "scroll", "mouse", "scroll target", "target"),
+							$d => __("Choose the page target object which scrolls in your theme so its scroll position can be animated while snapping", 'revsliderhelp'),
+							$a => $u . "keyboard-arrows-mouse-wheel/",
+							$hl => array(
+								$dp => array(array($p => 'settings.type', $v => 'standard::carousel', $o => 'slider_layout_type_standard')),
+								$m => "#module_navigation_trigger, #gst_nav_9", 
+								$st => '#form_nav_mousescroll', 
+								$f => "*[name='sr_targetmousenavigation']"
+							)
+						),
+						'threshold' => array(
+							$t => __("Snap Threshold", 'revsliderhelp'),
+							$h => "nav.mouse.threshold",
+							$k => array("mouse scroll", "scroll", "mouse", "scroll snap", "snap threshold"),
+							$d => __("Sets the threshold within which slider will snap into position while scrolling, threshold is calculated based on slider's distance from top and bottom", 'revsliderhelp'),
+							$a => $u . "keyboard-arrows-mouse-wheel/",
+							$hl => array(
+								$dp => array(array($p => 'settings.type', $v => 'standard::carousel', $o => 'slider_layout_type_standard')),
+								$m => "#module_navigation_trigger, #gst_nav_9", 
+								$st => '#form_nav_mousescroll', 
+								$f => "#wheelsnapthreshold"
+							)
+						),
+						'viewport' => array(
+							$t => __("In ViewPort (%)", 'revsliderhelp'),
+							$h => "nav.mouse.viewport",
+							$k => array("mouse scroll", "scroll", "mouse", "scroll viewport"),
+							$d => __("Determines how much % of slider should be visible when slider should change slide on scroll", 'revsliderhelp'),
+							$a => $u . "keyboard-arrows-mouse-wheel/",
+							$hl => array(
+								$dp => array(array($p => 'settings.type', $v => 'standard::carousel', $o => 'slider_layout_type_standard')),
+								$m => "#module_navigation_trigger, #gst_nav_9", 
+								$st => '#form_nav_mousescroll', 
+								$f => "#wheelifvisible"
 							)
 						)
 					)

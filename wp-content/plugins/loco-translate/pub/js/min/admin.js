@@ -1536,9 +1536,9 @@ c.style["-ms-scroll-snap-type"] = "mandatory", c.style["-ms-scroll-chaining"] = 
 },
 scroll: function(a, b, d) {
 x();
-var f = c.scrollLeft, m = a > f ? 1 : -1, v = Math[1 === m ? "min" : "max"], g = Math.round(16 * b * m);
+var f = c.scrollLeft, v = a > f ? 1 : -1, m = Math[1 === v ? "min" : "max"], g = Math.round(16 * b * v);
 return r = q.require("$48", "fps.js").loop(function(b) {
-b && (f = Math.max(0, v(a, f + g)), c.scrollLeft = f, a === f && (x(), d && d(f)));
+b && (f = Math.max(0, m(a, f + g)), c.scrollLeft = f, a === f && (x(), d && d(f)));
 }, c);
 }
 };
@@ -2681,10 +2681,10 @@ c.exists = function() {
 return this === m[this.id];
 };
 c.clear = function() {
-for (var a = this.el, b = this.cells, d = this.field, c = this.body, g = this.nav, h = this.length || 0; 0 !== h--; ) delete m[b[h].destroy().id];
+for (var a = this.el, b = this.cells, d = this.field, c = this.body, v = this.nav, g = this.length || 0; 0 !== g--; ) delete m[b[g].destroy().id];
 this.cells = [];
 this.length = 0;
-g && (a.removeChild(g), this.nav = null);
+v && (a.removeChild(v), this.nav = null);
 c && (d && (n.ie() && k(c).triggerHandler("blur"), d.destroy(), this.field = null), 
 this.table && (this.table = null), a === c.parentNode && a.removeChild(c));
 this.body = a.appendChild(f.el("", "wg-body"));
@@ -3262,14 +3262,21 @@ r.fire("poTab", [ c ]);
 M && p(b, 0);
 }
 function p(c, f) {
-c.on(d, function(b, d, g) {
-a.translate(d, f);
+function h() {
+n = null;
 r.validate(a);
-r.setTrgMeta(a, f, c) && c.redraw();
+var b = a.errors(f).join(" ");
+e !== b && (e = b, r.setTrgMeta(a, f, c) && c.redraw());
+}
+var n, e = a.errors(f).join(" ");
+c.on(d, function(b, d, c) {
+n && (clearTimeout(n), n = null);
+a.translate(d, f);
 0 === f && r.updateListCell(a, "target");
 a.fuzzy(f) ? r.fuzzy(!1, a, f) : r.unsave(a, f);
-"" === d ? (r.fire("poEmpty", [ !0, a, f ]), r.setStatus(a, f)) : "" === g && (r.fire("poEmpty", [ !1, a, f ]), 
+"" === d ? (r.fire("poEmpty", [ !0, a, f ]), r.setStatus(a, f)) : "" === c && (r.fire("poEmpty", [ !1, a, f ]), 
 r.setStatus(a, f));
+n = setTimeout(h, e ? 300 : 1e3);
 }).on(g, function() {
 r.dict && r.rebuildSearch();
 r.fire(b, [ a ]);
@@ -5003,7 +5010,7 @@ k("#loco-admin.wrap table.wp-list-table").each(function(e, c) {
 q.require("$20", "tables.js").init(c);
 });
 D.validate = function(e) {
-return "2.6.2" !== (/^\d+\.\d+\.\d+/.exec(e && e[0] || "") && RegExp.lastMatch) ? (D.notices.warn("admin.js is the wrong version (2.6.2). Please empty all relevant caches and reload this page."), 
+return "2.6.3" !== (/^\d+\.\d+\.\d+/.exec(e && e[0] || "") && RegExp.lastMatch) ? (D.notices.warn("admin.js is the wrong version (2.6.3). Please empty all relevant caches and reload this page."), 
 !1) : !0;
 };
 })(window, document, window.jQuery);

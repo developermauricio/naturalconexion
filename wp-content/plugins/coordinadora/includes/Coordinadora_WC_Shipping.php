@@ -83,12 +83,19 @@ class Coordinadora_WC_Shipping
         $response = wp_remote_post($url_carrier, $args);
 
         $this->addLog("Respuesta cálculo de envío $title:");
-        $this->addLog($response['response']);
-        $this->addLog($response['body']);
 
-        if (is_wp_error($response) || $response['response']['code'] !== 201 || $response['body'] == 'false') {
+        if (is_wp_error($response)) {
+            $error_message = $response->get_error_message();
+            $this->addLog($error_message);
             return false;
         }
+
+        if ($response['response']['code'] !== 201 || $response['body'] == 'false') {
+            return false;
+        }
+
+        $this->addLog($response['response']);
+        $this->addLog($response['body']);
 
         $rate = array(
             'label'   => $title,

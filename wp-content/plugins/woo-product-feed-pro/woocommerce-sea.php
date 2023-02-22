@@ -1,23 +1,23 @@
 <?php
 /**
  * Plugin Name: Product Feed PRO for WooCommerce
- * Version:     11.6.7
+ * Version:     12.0.9
  * Plugin URI:  https://www.adtribes.io/support/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=woosea_product_feed_pro
  * Description: Configure and maintain your WooCommerce product feeds for Google Shopping, Catalog managers, Remarketing, Bing, Skroutz, Yandex, Comparison shopping websites and over a 100 channels more.
  * Author:      AdTribes.io
  * Plugin URI:  https://wwww.adtribes.io/pro-vs-elite/
  * Author URI:  https://www.adtribes.io
- * Developer:   Joris Verwater, Eva van Gelooven
+ * Developer:   Joris Verwater
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 4.5
- * Tested up to: 6.0
+ * Tested up to: 6.1
  *
  * Text Domain: woo-product-feed-pro
  * Domain Path: /languages
  *
  * WC requires at least: 4.4
- * WC tested up to: 6.6
+ * WC tested up to: 7.2
  *
  * Product Feed PRO for WooCommerce is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,7 +48,7 @@ if (!defined('ABSPATH')) {
  * Plugin versionnumber, please do not override.
  * Define some constants
  */
-define( 'WOOCOMMERCESEA_PLUGIN_VERSION', '11.6.7' );
+define( 'WOOCOMMERCESEA_PLUGIN_VERSION', '12.0.9' );
 define( 'WOOCOMMERCESEA_PLUGIN_NAME', 'woocommerce-product-feed-pro' );
 define( 'WOOCOMMERCESEA_PLUGIN_NAME_SHORT', 'woo-product-feed-pro' );
 
@@ -71,15 +71,19 @@ if ( ! defined( 'WOOCOMMERCESEA_PLUGIN_URL' ) ) {
 /**
  * Enqueue css assets
  */
-function woosea_styles() {
-        wp_register_style( 'woosea_admin-css', plugins_url( '/css/woosea_admin.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
-        wp_enqueue_style( 'woosea_admin-css' );
+function woosea_styles($hook) {
 
-        wp_register_style( 'woosea_jquery_ui-css', plugins_url( '/css/jquery-ui.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
-        wp_enqueue_style( 'woosea_jquery_ui-css' );
+        // Only register and enqueue CSS scripts from within the plugin itself
+        if (preg_match("/product-feed-pro/i",$hook)){
+        	wp_register_style( 'woosea_admin-css', plugins_url( '/css/woosea_admin.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
+        	wp_enqueue_style( 'woosea_admin-css' );
 
-        wp_register_style( 'woosea_jquery_typeahead-css', plugins_url( '/css/jquery.typeahead.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
-        wp_enqueue_style( 'woosea_jquery_typeahead-css' );
+        	wp_register_style( 'woosea_jquery_ui-css', plugins_url( '/css/jquery-ui.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
+        	wp_enqueue_style( 'woosea_jquery_ui-css' );
+
+        	wp_register_style( 'woosea_jquery_typeahead-css', plugins_url( '/css/jquery.typeahead.css', __FILE__ ), '',WOOCOMMERCESEA_PLUGIN_VERSION );
+		wp_enqueue_style( 'woosea_jquery_typeahead-css' );
+	}
 }
 add_action( 'admin_enqueue_scripts' , 'woosea_styles' );
 
@@ -169,10 +173,9 @@ function woosea_plugin_action_links($links, $file) {
     	if ($file == $this_plugin) {
 		$host = '';
 		if (!empty($_SERVER['HTTP_HOST'])) {
-  			$host = $_SERVER['HTTP_HOST'];
+			$host = $_SERVER['HTTP_HOST'];
+			$host = sanitize_text_field($_SERVER['HTTP_HOST']);
 		}
-
-		$host = sanitize_text_field($_SERVER['HTTP_HOST']);
         	$plugin_links[] = '<a href="https://adtribes.io/support/?utm_source='.$host.'&utm_medium=pluginpage&utm_campaign=support" target="_blank">Support</a>';
         	$plugin_links[] = '<a href="https://adtribes.io/tutorials/?utm_source='.$host.'&utm_medium=pluginpage&utm_campaign=tutorials" target="_blank">Tutorials</a>';
         	$plugin_links[] = '<a href="https://adtribes.io/pro-vs-elite/?utm_source='.$host.'&utm_medium=pluginpage&utm_campaign=go elite" target="_blank" style="color:green;"><b>Go Elite</b></a>';
@@ -257,6 +260,9 @@ function woosea_add_facebook_pixel( $product = null ){
 			$fb_capi_data["event_time"] = time();
 			$fb_capi_data["event_id"] = $event_id;
 			$fb_capi_data["user_data"]["client_ip_address"] = WC_Geolocation::get_ip_address();
+			if(!isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+				$_SERVER['HTTP_USER_AGENT'] = "Unknown";	
+			}	
 			$fb_capi_data["user_data"]["client_user_agent"] = sanitize_text_field($_SERVER['HTTP_USER_AGENT']);
 			$fb_capi_data["action_source"] = "website";	
 			$fb_capi_data["event_source_url"] = sanitize_text_field(home_url($_SERVER['REQUEST_URI']));
@@ -1240,7 +1246,10 @@ function woosea_product_delete_meta_price( $product = null ) {
 			$mpn = get_post_meta( $product_id, '_woosea_mpn', true );
 	
 			// Get product condition
-			$condition = ucfirst( get_post_meta( $product_id, '_woosea_condition', true ) );
+			$first_condition = get_post_meta( $product_id, '_woosea_condition', true );
+			if(is_string($first_condition)){
+				$condition = ucfirst( $first_condition );
+			}
 
 			if(!$condition){
 				$json_condition = "NewCondition";
@@ -1615,10 +1624,12 @@ function woosea_product_fix_structured_data( $product = null ) {
                         	$product_variations = new WC_Product_Variation( $child_val );
                              	$variations = array_filter($product_variations->get_variation_attributes());
 				$from_url = str_replace("\\","",sanitize_text_field($_GET),$i);
-                            	$intersect = array_intersect($from_url, $variations);
-                              	if($variations == $intersect){
-                                	$variation_id = $child_val;
-                             	}
+				if(is_array($from_url)){
+					$intersect = array_intersect($from_url, $variations);
+                              		if($variations == $intersect){
+                                		$variation_id = $child_val;
+					}
+				}
                     	}
 
             		if(isset($variation_id )){
@@ -2032,7 +2043,7 @@ function woosea_project_delete(){
 		unset($feed_config[$found_key]);
 		
 		# Update cron
-		update_option('cron_projects', $feed_config);
+		update_option('cron_projects', $feed_config, 'no');
 
 		# Remove project file
 		@unlink($file);
@@ -2067,7 +2078,7 @@ function woosea_project_cancel(){
 			wp_schedule_single_event( time() + 60, 'woosea_update_project_stats', array($val['project_hash']) );
 		}
 	}		
-	update_option( 'cron_projects', $feed_config);	
+	update_option( 'cron_projects', $feed_config, 'no');	
 }
 add_action( 'wp_ajax_woosea_project_cancel', 'woosea_project_cancel' );
 
@@ -2151,7 +2162,7 @@ function woosea_project_copy(){
 			$new_key = $max_key+1;
                         $add_project[$new_key] = $val;
                         array_push($feed_config, $add_project[$new_key]);
-			update_option( 'cron_projects', $feed_config);
+			update_option( 'cron_projects', $feed_config, 'no');
 			
 			// Do not start processing, user wants to make changes to the copied project
 			$copy_status = "true";
@@ -2218,7 +2229,7 @@ function woosea_add_attributes() {
 				$extra_attributes = array(
 					$attribute_value => $attribute_name
 				);
-				update_option ( 'woosea_extra_attributes', $extra_attributes, 'yes');
+				update_option ( 'woosea_extra_attributes', $extra_attributes, 'no');
 			}
 	        } else {
 			$extra_attributes = get_option( 'woosea_extra_attributes' );
@@ -2228,13 +2239,13 @@ function woosea_add_attributes() {
 						$attribute_value => $attribute_name
 					);
 					$extra_attributes = array_merge ($extra_attributes, $add_attribute);	
-					update_option ( 'woosea_extra_attributes', $extra_attributes, 'yes');
+					update_option ( 'woosea_extra_attributes', $extra_attributes, 'no');
 				}
 			} else {
 				if($active == "false"){
 					// remove from extra attributes array	
 					$extra_attributes = array_diff($extra_attributes, array($attribute_value => $attribute_name));	
-					update_option ( 'woosea_extra_attributes', $extra_attributes, 'yes');
+					update_option ( 'woosea_extra_attributes', $extra_attributes, 'no');
 				}
 			}
 		}	
@@ -2277,7 +2288,7 @@ function woosea_project_status() {
 	}
 
 	// Update cron with new project status
-        update_option( 'cron_projects', $feed_config);
+        update_option( 'cron_projects', $feed_config, 'no');
 }
 add_action( 'wp_ajax_woosea_project_status', 'woosea_project_status' );
 
@@ -2490,8 +2501,7 @@ function woosea_remove_free_shipping (){
 add_action( 'wp_ajax_woosea_remove_free_shipping', 'woosea_remove_free_shipping' );
 
 /**
- * This function enables the setting to use
- * logging
+ * This function enables the setting to use logging
  */
 function woosea_add_woosea_logging (){
         $user = wp_get_current_user();
@@ -2508,6 +2518,25 @@ function woosea_add_woosea_logging (){
 	}
 }
 add_action( 'wp_ajax_woosea_add_woosea_logging', 'woosea_add_woosea_logging' );
+
+/**
+ * This function enables the setting to use only the basic attributes in drop-downs
+ */
+function woosea_add_woosea_basic (){
+        $user = wp_get_current_user();
+        $allowed_roles = array( 'administrator' );
+
+        if ( array_intersect( $allowed_roles, $user->roles ) ) {
+        	$status = sanitize_text_field($_POST['status']);
+
+		if ($status == "off"){
+			update_option( 'add_woosea_basic', 'no', 'yes');
+		} else {
+			update_option( 'add_woosea_basic', 'yes', 'yes');
+		}
+	}
+}
+add_action( 'wp_ajax_woosea_add_woosea_basic', 'woosea_add_woosea_basic' );
 
 /**
  * This function enables the setting to add CDATA to title and descriptions
@@ -4545,7 +4574,7 @@ function woosea_last_updated($project_hash){
 		}
 	}
 
-	update_option( 'cron_projects', $feed_config);
+	update_option( 'cron_projects', $feed_config, 'no');
 	return $last_updated;
 }
 
@@ -4665,12 +4694,12 @@ function woosea_on_product_save( $product_id ) {
 					$diff['product_id'] = $product_id;
 				} else {
 					// Enable the product changed flag
-			        	update_option('woosea_allow_update', 'yes');
+			        	update_option('woosea_allow_update', 'no');
 				}
 				delete_option('product_changes');
 			} else {
 				// Enable the product changed flag
-				update_option('woosea_allow_update', 'yes');
+				update_option('woosea_allow_update', 'no');
 			}
 		}
 	}

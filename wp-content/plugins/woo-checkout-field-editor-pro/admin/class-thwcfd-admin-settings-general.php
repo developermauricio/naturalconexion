@@ -377,8 +377,8 @@ class THWCFD_Admin_Settings_General extends THWCFD_Admin_Settings{
 			$field['validate'] = array('number');
 
 		}else if($type === 'checkbox'){
-			if(isset($posted['i_checked'])){
-				$field['default'] = 1;
+			if(isset($posted['i_default'])){
+				$field['default'] = sanitize_text_field($posted['i_default']);
 			}else{
 				$field['default'] = '';
 			}

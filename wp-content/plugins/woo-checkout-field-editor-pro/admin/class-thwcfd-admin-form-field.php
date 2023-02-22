@@ -459,6 +459,7 @@ class THWCFD_Admin_Form_Field extends THWCFD_Admin_Form{
             <?php
 			$this->render_form_elm_row($this->field_props['label']);
 			$this->render_form_elm_row($this->field_props['class']);
+			$this->render_form_elm_row($this->field_props['default']);
 
 			$this->render_form_elm_row_cb($this->field_props['checked']);
 			$this->render_form_elm_row_cb($this->field_props['required']);

@@ -1,5 +1,4 @@
 <?php
-// phpcs:ignoreFile
 /**
  * Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
  *
@@ -9,22 +8,20 @@
  * @package FacebookCommerce
  */
 
-namespace SkyVerge\WooCommerce\Facebook\API;
+namespace WooCommerce\Facebook\API;
 
-defined( 'ABSPATH' ) or exit;
+use WooCommerce\Facebook\Framework\Api\JSONResponse;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_10_0 as Framework;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Base API response object
  *
  * @since 2.0.0
  */
-class Response extends Framework\SV_WC_API_JSON_Response {
-
+class Response extends JSONResponse {
 
 	use Traits\Rate_Limited_Response;
-
 
 	/**
 	 * Gets the response ID.
@@ -34,7 +31,6 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return string
 	 */
 	public function get_id() {
-
 		return $this->id;
 	}
 
@@ -49,7 +45,6 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return boolean
 	 */
 	public function has_api_error() {
-
 		return (bool) $this->error;
 	}
 
@@ -62,8 +57,7 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return string|null
 	 */
 	public function get_api_error_type() {
-
-		return isset( $this->error->type ) ? $this->error->type : null;
+		return $this->error['type'] ?? null;
 	}
 
 
@@ -75,8 +69,7 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return string|null
 	 */
 	public function get_api_error_message() {
-
-		return isset( $this->error->message ) ? $this->error->message : null;
+		return $this->error['message'] ?? null;
 	}
 
 
@@ -88,8 +81,7 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return int|null
 	 */
 	public function get_api_error_code() {
-
-		return isset( $this->error->code ) ? (int) $this->error->code : null;
+		return $this->error['code'] ?? null;
 	}
 
 
@@ -101,9 +93,6 @@ class Response extends Framework\SV_WC_API_JSON_Response {
 	 * @return string|null
 	 */
 	public function get_user_error_message() {
-
-		return isset( $this->error->error_user_msg ) ? $this->error->error_user_msg : null;
+		return $this->error['error_user_msg'] ?? null;
 	}
-
-
 }

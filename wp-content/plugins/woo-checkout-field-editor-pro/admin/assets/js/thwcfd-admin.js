@@ -1051,19 +1051,40 @@ var thwcfd_settings = (function($, window, document) {
 			row.find(".f_enabled").val(enabled);
 	  	});	
 	}
+	function widgetPopUp() {
+		var x = document.getElementById("myDIV");
+    	var y = document.getElementById("myWidget");
+    	var th_animation=document.getElementById("th_quick_border_animation")
+    	var th_arrow = document.getElementById("th_arrow_head");
 
-	$( document ).on( 'click', '.thpladmin-notice .notice-dismiss', function() {
-		var wrapper = $(this).closest('div.thpladmin-notice');
-		var nonce = wrapper.data("nonce");
-		var data = {
-			thwcfd_review_nonce: nonce,
-			action: 'hide_thwcfd_admin_notice',
-		};
-		$.post( ajaxurl, data, function() {
+    	if (x.style.display === "none" || !x.style.display) {
+        	x.style.display = "block";
+//         	y.style.background = "#D34156";
+        	th_arrow.style="transform:rotate(-12.5deg);";
+        	th_animation.style="box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);";
+        	th_animation.style.animation='none';
+    	} else {
+        	x.style.display = "none";
+//         	y.style.background = "#000000";
+        	th_arrow.style="transform:rotate(45deg);"
+        	th_animation.style.animation='pulse 1.5s infinite';
+    	}
+	}
+	function widgetClose() {
+    	var z = document.getElementById("myDIV");
+	    var za = document.getElementById("myWidget");
+		var th_animation=document.getElementById("th_quick_border_animation")
+	    var th_arrow = document.getElementById("th_arrow_head");
+	    z.style.display = "none";
+		th_arrow.style="transform:rotate(45deg);"
+	    th_animation.style.animation='pulse 1.5s infinite';
+	//     za.style.background = "black";
+	}
 
-		});
-	});   				
+
 	return {
+		thwcfdwidgetPopUp : widgetPopUp,
+		thwcfdwidgetClose : widgetClose,
 		selectAllFields : select_all_fields,
 		removeSelectedFields : remove_selected_fields,
 		enableDisableSelectedFields : enable_disable_selected_fields,
@@ -1084,4 +1105,12 @@ function thwcfdEnableSelectedFields(){
 
 function thwcfdDisableSelectedFields(){
 	thwcfd_settings.enableDisableSelectedFields(0);
+}
+
+function thwcfdwidgetPopUp(){
+	thwcfd_settings.thwcfdwidgetPopUp();
+}
+
+function thwcfdwidgetClose() {
+	thwcfd_settings.thwcfdwidgetClose();
 }

@@ -9,11 +9,11 @@
  * @package FacebookCommerce
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-use SkyVerge\WooCommerce\Facebook\Events\Normalizer;
+use WooCommerce\Facebook\Events\AAMSettings;
+use WooCommerce\Facebook\Events\Normalizer;
+use WooCommerce\Facebook\Framework\Api\Exception as ApiException;
 
 if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 
@@ -34,7 +34,6 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		const FB_VARIANT_GENDER  = 'gender';
 
 		public static $ems        = null;
-		public static $fbgraph    = null;
 		public static $store_name = null;
 
 		public static $validGenderArray =
@@ -87,16 +86,16 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		 * from WooCommerce
 		 *
 		 * @access public
-		 * @param WC_Product $woo_product
+		 * @param WC_Product|WC_Facebook_Product $woo_product
 		 * @return string
 		 */
 		public static function get_fb_retailer_id( $woo_product ) {
 			$woo_id = $woo_product->get_id();
 
 			/*
-			 * Call $woo_product->get_id() instead of ->id to account for Variable
-			 * products, which have their own variant_ids.
-			 */
+			* Call $woo_product->get_id() instead of ->id to account for Variable
+			* products, which have their own variant_ids.
+			*/
 			$fb_retailer_id = $woo_product->get_sku() ?
 				$woo_product->get_sku() . '_' . $woo_id :
 				self::FB_RETAILER_ID_PREFIX . $woo_id;
@@ -165,7 +164,24 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		 * @return string
 		 */
 		public static function clean_string( $string ) {
-			$string = do_shortcode( $string );
+
+			/**
+			 * Filters whether the shortcodes should be applied for a string when syncing a product or be stripped out.
+			 *
+			 * @since 2.6.19
+			 *
+			 * @param bool   $apply_shortcodes Shortcodes are applied if set to `true` and stripped out if set to `false`.
+			 * @param string $string           String to clean up.
+			 */
+			$apply_shortcodes = apply_filters( 'wc_facebook_string_apply_shortcodes', false, $string );
+			if ( $apply_shortcodes ) {
+				// Apply active shortcodes
+				$string = do_shortcode( $string );
+			} else {
+				// Strip out active shortcodes
+				$string = strip_shortcodes( $string );
+			}
+
 			$string = str_replace( array( '&amp%3B', '&amp;' ), '&', $string );
 			$string = str_replace( array( "\r", '&nbsp;', "\t" ), ' ', $string );
 			$string = wp_strip_all_tags( $string, false ); // true == remove line breaks
@@ -177,11 +193,11 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		 * an array with a single woo ID for simple products.
 		 *
 		 * @access public
-		 * @param WC_Product $woo_product
+		 * @param WC_Product|WC_Facebook_Product $woo_product
 		 * @return array
 		 */
 		public static function get_product_array( $woo_product ) {
-			$result = array();
+			$result = [];
 			if ( self::is_variable_type( $woo_product->get_type() ) ) {
 				foreach ( $woo_product->get_children() as $item_id ) {
 					array_push( $result, $item_id );
@@ -227,7 +243,7 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 			$current_user = wp_get_current_user();
 			if ( 0 === $current_user->ID || $aam_settings == null || ! $aam_settings->get_enable_automatic_matching() ) {
 				// User not logged in or pixel not configured with automatic advance matching
-				return array();
+				return [];
 			} else {
 				// Keys documented in
 				// https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching
@@ -268,7 +284,7 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		 */
 		public static function fblog(
 		$message,
-		$object = array(),
+		$object = [],
 		$error = false,
 		$ems = '' ) {
 			if ( $error ) {
@@ -283,11 +299,12 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 			);
 			$ems     = $ems ?: self::$ems;
 			if ( $ems ) {
-				self::$fbgraph->log(
-					$ems,
-					$message,
-					$error
-				);
+				try {
+					facebook_for_woocommerce()->get_api()->log($ems, $message, $error);
+				} catch ( ApiException $e ) {
+					$message = sprintf( 'There was an error trying to log: %s', $e->getMessage() );
+					facebook_for_woocommerce()->log( $message );
+				}
 			} else {
 				error_log(
 					'external merchant setting is null, something wrong here: ' .
@@ -299,19 +316,15 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 		/**
 		 * Utility function for development Tip Events logging.
 		 */
-		public static function tip_events_log(
-		$tip_id,
-		$channel_id,
-		$event,
-		$ems = '' ) {
-
+		public static function tip_events_log( $tip_id, $channel_id, $event, $ems = '' ) {
 			$ems = $ems ?: self::$ems;
 			if ( $ems ) {
-				self::$fbgraph->log_tip_event(
-					$tip_id,
-					$channel_id,
-					$event
-				);
+				try {
+					facebook_for_woocommerce()->get_api()->log_tip_event($tip_id, $channel_id, $event);
+				} catch ( ApiException $e ) {
+					$message = sprintf( 'There was an error while logging tip events: %s', $e->getMessage() );
+					facebook_for_woocommerce()->log( $message );
+				}
 			} else {
 				error_log( 'external merchant setting is null' );
 			}
@@ -329,7 +342,7 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 			if ( ! current_user_can( 'manage_woocommerce' ) ) {
 				self::log(
 					'Non manage_woocommerce user attempting to' . $action_text . '!',
-					array(),
+					[],
 					true
 				);
 				if ( $die ) {
@@ -365,8 +378,8 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 					array(
 						'key'     => $product_group_id,
 						'compare' => $compare_condition,
-					) : array()
-					  ),
+					) : []
+					),
 				),
 				'post_status'    => 'publish',
 				'post_type'      => $post_type,
@@ -479,7 +492,7 @@ if ( ! class_exists( 'WC_Facebookcommerce_Utils' ) ) :
 			* Collect all parent products.
 			* Exclude variations which parents are not 'publish'.
 			*/
-			$parent_product_ids = array();
+			$parent_product_ids = [];
 			foreach ( $variation_products as $post_id => $parent_id ) {
 				/*
 				* Keep track of all parents to remove them from the list of products to sync.

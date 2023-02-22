@@ -1,6 +1,7 @@
 <div class="wpfc-checkbox-list">
 	<?php
 		$types = array("aac",
+                        "avif",
                         "css",
                         "eot",
                         "gif",

@@ -19,7 +19,7 @@ class THWCFD_Public_Checkout {
 	}
 
 	public function enqueue_styles_and_scripts() {
-		if(is_checkout()){
+		if(is_checkout() || is_wc_endpoint_url('edit-address')){
 			$in_footer = apply_filters( 'thwcfd_enqueue_script_in_footer', true );
 			$deps = array('jquery', 'selectWoo');
 			
@@ -50,7 +50,7 @@ class THWCFD_Public_Checkout {
 		add_filter('woocommerce_billing_fields', array($this, 'billing_fields'), $hp_billing_fields, 2);
 		add_filter('woocommerce_shipping_fields', array($this, 'shipping_fields'), $hp_shipping_fields, 2);
 		add_filter('woocommerce_checkout_fields', array($this, 'checkout_fields'), $hp_checkout_fields);
-
+		// add_filter('woocommerce_address_to_edit',array($this,'woo_address_to_edit'), 1000, 2);
 		add_action('woocommerce_after_checkout_validation', array($this, 'checkout_fields_validation'), 10, 2);
 		add_action('woocommerce_checkout_update_order_meta', array($this, 'checkout_update_order_meta'), 10, 2);
 
@@ -58,6 +58,7 @@ class THWCFD_Public_Checkout {
 		add_action('woocommerce_order_details_after_order_table', array($this, 'order_details_after_customer_details'), 20, 1);
 
 		add_filter('woocommerce_form_field_checkboxgroup', array($this, 'woo_form_field'), 10, 4);
+		add_filter('woocommerce_form_field_checkbox', array($this, 'woo_form_field'), 10, 4);
 		add_filter('woocommerce_form_field_datetime_local', array($this, 'woo_form_field'), 10, 4);
 		add_filter('woocommerce_form_field_date', array($this, 'woo_form_field'), 10, 4);
 		add_filter('woocommerce_form_field_time', array($this, 'woo_form_field'), 10, 4);
@@ -176,16 +177,69 @@ class THWCFD_Public_Checkout {
 	
 	public function billing_fields($fields, $country){
 		if(is_wc_endpoint_url('edit-address')){
+			$fields = $this->prepare_address_fields(get_option('wc_fields_billing'), $country, $fields, 'billing');
+			foreach ($fields as $key => $field) {
+				$value = get_user_meta(get_current_user_id(), $key , true);
+				if(isset($value) && !empty($value)){
+					$field['value'] = $value;
+				}else{
+					if(isset($field['default'])){
+						$field['value'] = $field['default'];
+					}else{
+						$field['value'] = '';
+					}
+				}
+				$fields[$key] = $field;
+			}
 			return $fields;
 		}else{
+			
 			return $this->prepare_address_fields(get_option('wc_fields_billing'), $country, $fields, 'billing');
+			
 		}
 	}
 
+	// public function woo_address_to_edit($address, $load_address = 'billing'){
+	// 	$fields_test = THWCFD_Utils::get_checkout_fields();
+	// 	$fields = THWCFD_Utils::get_fields($load_address);
+	// 	foreach ($fields as $key => $field) {
+	// 		$value = get_user_meta(get_current_user_id(), $key , true);
+	// 		if(isset($value) && !empty($value)){
+	// 			$field['value'] = $value;
+	// 		}else{
+	// 			if(isset($field['default'])){
+	// 				$field['value'] = $field['default'];
+	// 			}else{
+	// 				$field['value'] = '';
+	// 			}
+				
+	// 		}
+	// 		$fields[$key] = $field;
+	// 	}
+	// 	if(is_account_page()){
+	// 		return $fields;
+	// 	}
+	// }
+
 	public function shipping_fields($fields, $country){
 		if(is_wc_endpoint_url('edit-address')){
+			$fields = $this->prepare_address_fields(get_option('wc_fields_shipping'), $country, $fields, 'shipping');
+			foreach ($fields as $key => $field) {
+				$value = get_user_meta(get_current_user_id(), $key , true);
+				if(isset($value) && !empty($value)){
+					$field['value'] = $value;
+				}else{
+					if(isset($field['default'])){
+						$field['value'] = $field['default'];
+					}else{
+						$field['value'] = '';
+					}
+				}
+				$fields[$key] = $field;
+			}
 			return $fields;
 		}else{
+			
 			return $this->prepare_address_fields(get_option('wc_fields_shipping'), $country, $fields, 'shipping');
 		}
 	}
@@ -211,7 +265,6 @@ class THWCFD_Public_Checkout {
 		if(isset($fields['order']) && !is_array($fields['order'])){
 			unset($fields['order']);
 		}
-		
 		return $fields;
 	}
 
@@ -243,7 +296,7 @@ class THWCFD_Public_Checkout {
 					}
 				}
 			}
-
+			
 			$fieldset = $this->prepare_checkout_fields($fieldset, $original_fieldset);
 			return $fieldset;
 		}else {
@@ -327,7 +380,7 @@ class THWCFD_Public_Checkout {
 				}else{
 					unset($fields[$name]);
 				}
-			}								
+			}
 			return $fields;
 		}else {
 			return $original_fields;
@@ -433,10 +486,16 @@ class THWCFD_Public_Checkout {
 						if(!empty($submitted_options)){
 							$value  = implode(",", $submitted_options);
 						}
-					}else{
+					}else if($type == 'checkbox'){
 						$value =  isset($posted[$name]) ? sanitize_text_field($posted[$name]) : '';
+						if($value){
+							$value = !empty($field['default']) ? $field['default'] : $value;
+						}else{
+							$value = apply_filters('thwcfd_checkbox_field_off_value', $value , $name);
+						}
+					}else{
+						$value =  isset($posted[$name]) ? sanitize_text_field($posted[$name]) : '';						
 					}
-
 					if($value){
 						$result = update_post_meta($order_id, $name, $value);
 					}
@@ -556,6 +615,9 @@ class THWCFD_Public_Checkout {
 
 	public function woo_form_field($field, $key, $args, $value = null){
 
+		if(is_admin()){
+			return $field;
+		}
 		$field = '';
 
 		if ( $args['required'] ) {
@@ -628,8 +690,20 @@ class THWCFD_Public_Checkout {
 
 			break;
 
-			case 'checkboxgroup':
+			case 'checkbox' :
+				$field = '';
+				if(isset($args['checked']) && $args['checked']){
+					$value = 1;
+				}else{
+					$value = 0;
+				}
+				$default_value = !empty($args['default']) ? esc_attr($args['default']) : 1; 
 
+				$field .= '<label class="checkbox ' . implode( ' ', $args['label_class'] ) . '" ' . implode( ' ', $custom_attributes ) . '>
+						<input type="' . esc_attr( $args['type'] ) . '" class="input-checkbox ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" value="'.$default_value.'" ' . checked( $value, 1, false ) . ' /> ' . $args['label'] . $required . '</label>';
+			break;
+
+			case 'checkboxgroup':
 				$field = '';
 
 				$value = is_array($value) ? $value : array_map('trim', (array) explode(',', $value));
@@ -644,11 +718,9 @@ class THWCFD_Public_Checkout {
 
 					$field .= '</span>';
 				}
-
 			break;
 
 			case 'datetime_local':
-
 				$field = '';
 
 				$field .= '<input type="datetime-local" name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key ) . '" value="' . esc_attr( $value) . '" />';
@@ -712,7 +784,6 @@ class THWCFD_Public_Checkout {
 			$container_id = esc_attr($args['id']) . '_field';
 			$field = sprintf($field_container, $container_class, $container_id, $field_html);
 		}
-
 		return $field;
 	}
 

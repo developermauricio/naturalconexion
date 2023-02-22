@@ -3,7 +3,7 @@
  * @package RevSliderExtension
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.sliderrevolution.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
  
 if(!defined('ABSPATH')) exit();
@@ -137,7 +137,7 @@ class RevSliderExtension {
 	 */
 	public function add_eg_additional_inline_javascript(){
 		?>
-		<script type="text/javascript">
+		<script>
 			var ajaxRevslider;
 			function rsCustomAjaxContentLoadingFunction() {
 				// CUSTOM AJAX CONTENT LOADING FUNCTION

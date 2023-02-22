@@ -2,15 +2,18 @@
 
 /**
  * @package Coordinadora
- * @version 1.1.9
+ * @version 1.1.14
  */
 /*
 Plugin Name: Coordinadora
 Plugin URI: https://www.coordinadora.com/portafolio-de-servicios/
 Description: Plugin Oficial para la integración con Coordinadora.
 Author: Coordinadora
-Version: 1.1.9
+Version: 1.1.14
 Author URI: http://www.coordinadora.com
+
+WC requires at least: 6.0
+WC tested up to: 7.1.0
 */
 
 // Exit if accessed directly
@@ -76,6 +79,8 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
   }
 
   add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'plugin_action_links');
+
+  add_action('woocommerce_order_status_processing', 'Coordinadora_WP_Dashboard::notify', 10, 3);
 } else {
   echo '<h1>WooCommerce debe estar activado.</h1>';
 }

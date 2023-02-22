@@ -113,6 +113,18 @@ class Doppler_Service
                 )
               )
             ),
+            'post-doble-optin' => array(
+              'route'       => 'lists/:listId/subscribers/doble-optin/:templateId',
+              'httpMethod'  => 'post',
+              'parameters'  => array(
+                'listId' => array(
+                  'on_query_string' => false,
+                ),
+                'templateId' => array(
+                  'on_query_string' => false,
+                )
+              )
+            ),
             'get' => array(
               'route'       => 'lists/:listId/subscribers',
               'httpmethod'  => 'get',
@@ -194,13 +206,22 @@ class Doppler_Service
       $url.='?'.implode('&',$query);
     }
 
-    $headers=array(
-            "Accept" => "application/json",
-            "Content-Type" => "application/json",
-            "X-Doppler-Subscriber-Origin" => $this->get_origin(),
-            "Authorization" => "token ". $this->config["credentials"]["api_key"]
-             );
-             
+    if(is_string($body)){
+      $headers=array(
+        "Accept" => "text/html",
+        "Content-Type" => "text/html",
+        "Authorization" => "token ". $this->config["credentials"]["api_key"]
+      );
+    }
+    else{
+      $headers=array(
+        "Accept" => "application/json",
+        "Content-Type" => "application/json",
+        "X-Doppler-Subscriber-Origin" => $this->get_origin(),
+        "Authorization" => "token ". $this->config["credentials"]["api_key"]
+      );
+    }
+    
     $response = "";
 
     try{
@@ -217,6 +238,14 @@ class Doppler_Service
               'headers'=>$headers,
               'timeout' => 40,
               'body'=> json_encode($body)
+            ));
+            break;
+        case 'put':  
+            $response = wp_remote_request($url, array(
+              'method' => 'PUT',
+              'headers' => $headers,
+              'timeout' => 40,
+              'body'=> $body
             ));
             break;
         case 'delete':
@@ -265,6 +294,24 @@ class Doppler_Service
 
   function getResource( $resourceName ) {
     return $this->resources[ $resourceName ];
+  }
+
+  function pluginLogger($data, $method) {
+    $upload_dir = wp_upload_dir();
+    $upload_dir = $upload_dir['basedir'];
+    if ( is_array( $data ) ) { 
+      $data = json_encode( $data );
+    } 
+    $file  = $upload_dir . '/logs/' . $method. date('_d_m_Y') . '.log';
+    $dirname = dirname($file);
+    if (!is_dir($dirname))
+    {
+        mkdir($dirname, 0755, true);
+    }
+    $file  = fopen( $file, 'a' );
+    $bytes = fwrite( $file, current_time( 'mysql' ) . " - " . $data . "\n\n" ); 
+    fclose( $file ); 
+    return $bytes;
   }
 
   function throwConnectionErr($msg) {
@@ -332,7 +379,7 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
   
       $method = $this->methods['get'];
       return json_decode($this->service->call($method, array("listId" => $listId))['body']);
-    
+
     }
 
     /**
@@ -424,6 +471,11 @@ if( ! class_exists( 'Doppler_Service_Subscribers' ) ) :
     public function addSubscriber( $listId, $subscriber ){
       $method = $this->methods['post'];
       return $this->service->call( $method, array( 'listId' => $listId ),  $subscriber );
+    }
+
+    public function addSubscriberDobleOptIn( $listId, $subscriber ){
+      $method = $this->methods['post-doble-optin'];
+      return $this->service->call( $method, array( 'listId' => $listId, 'templateId' => $subscriber["form_plantilla_id"]),  $subscriber );
     }
 
     public function importSubscribers($listId, $subscribers){

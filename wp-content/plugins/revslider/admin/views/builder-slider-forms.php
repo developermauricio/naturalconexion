@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -73,7 +73,7 @@ $api = 'revapi'; // . $slider_id;
 			<!-- MODULE TITLE AND ALIAS AND SHORTCODE SETTINGS-->
 			<div class="form_inner">
 				<div class="form_inner_header"><i class="material-icons">title</i><?php _e('Module Naming', 'revslider');?></div>
-				<div class="collapsable" style="display:block !important">
+				<div id="" class="collapsable" style="display:block !important">
 					<label_a><?php _e('Title', 'revslider');?></label_a><input type="text" id="sr_title" class="sliderinput easyinit" data-r="title" placeholder="<?php _e('Enter a Module name', 'revslider')?>"/><span class="linebreak"></span>
 					<label_a><?php _e('Alias', 'revslider');?></label_a><input type="text" id="sr_alias" data-evt="updateShortCode" class="sliderinput easyinit" data-r="alias" placeholder="<?php _e('enter-a-module-name', 'revslider')?>"/><span class="linebreak"></span>
 					<label_a id="rs_shortcode_label"><?php _e('Shortcode', 'revslider');?></label_a><input readonly type="text" id="sr_shortcode" class="sliderinput easyinit" data-r="shortcode"/><span class="linebreak"></span>
@@ -83,6 +83,7 @@ $api = 'revapi'; // . $slider_id;
 						<labelhalf><i class="material-icons vmi">sms_failed</i></labelhalf>
 						<contenthalf><div class="function_info"><?php _e('Place the shortcode on the page or post where you want to show this module.', 'revslider');?></div></contenthalf>
 					</row>
+					<div id="rs_premium"></div>
 				</div><!-- END OF COLLAPSABLE-->
 			</div><!--END OF MODULE TITLE AND ALIAS AND SHORTCODE SETTINGS -->
 		</div>
@@ -142,7 +143,23 @@ $api = 'revapi'; // . $slider_id;
 			<div id="form_slidergeneral_general_as_modal" class="form_inner">
 				<div class="form_inner_header"><i class="material-icons">picture_in_picture</i><?php _e('Slider as Modal', 'revslider');?></div>
 				<div class="collapsable" style="display:block !important">
+					<longoption>
+						<label_a><?php _e('Page Scroll', 'revslider');?></label_a>
+						<input type="checkbox"  id="sr_allowpagescroll" class="sliderinput easyinit"  data-r="modal.allowPageScroll" />						
+					</longoption>
+					<longoption>
+							<label_a><?php _e('Use Cover', 'revslider');?></label_a><input type="checkbox"  id="sr_usemodalcover" class="sliderinput easyinit"  data-r="modal.cover" data-showhide=".slider_modal_coversettings" data-showhidedep="true"/>
+							
+						</longoption>					
+
+					<div class="slider_modal_coversettings">
+						<div class="div5"></div>
+						<label_a><?php _e('Cover Color', 'revslider');?></label_a><input type="text" data-editing="Modal Background Color" name="slidermodalcolor" id="slidermodalcolor" class="my-color-field sliderinput easyinit" data-visible="true" data-mode="single" data-r="modal.coverColor" value="rgba(0,0,0,0.5)">						
+					</div>
+					<div class="div10"></div>
 					<div class="modalaligns">
+						
+						<div class="div10"></div>
 						<!-- LAYER ALIGN ICON BASED SETTINGS-->
 						<select style="display:none !important" id="modal_pos_halign" data-unselect=".modal_hor_selector" data-select="#modal_hor_*val*" class="sliderinput easyinit" data-responsive="true" data-r="modal.horizontal" data-triggerinp="#modal_pos_x" data-triggerinpval="0"><option value="left"><?php _e('Left', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="right"><?php _e('Right', 'revslider');?></option></select>
 						<select style="display:none !important" id="modal_pos_valign" data-unselect=".modal_ver_selector" data-select="#modal_ver_*val*" class="sliderinput easyinit" data-responsive="true" data-r="modal.vertical" data-triggerinp="#modal_pos_y" data-triggerinpval="0"><option value="top"><?php _e('Top', 'revslider');?></option><option value="middle"><?php _e('Center', 'revslider');?></option><option value="bottom"><?php _e('Bottom', 'revslider');?></option></select>
@@ -152,16 +169,8 @@ $api = 'revapi'; // . $slider_id;
 							<oneshort class="lp10"><label_icon class="triggerselect ui_topalign modal_ver_selector" data-select="#modal_pos_valign" data-val="top" id="modal_ver_top"></label_icon><label_icon class="triggerselect ui_middlealign modal_ver_selector" data-select="#modal_pos_valign" data-val="middle" id="modal_ver_middle"></label_icon><label_icon class="triggerselect ui_bottomalign modal_ver_selector" data-select="#modal_pos_valign" data-val="bottom" id="modal_ver_bottom"></label_icon></oneshort>
 						</row>
 					</div>
-					<row class="direktrow">
-						<onelong><label_a><?php _e('Use Cover', 'revslider');?></label_a><input type="checkbox"  id="sr_usemodalcover" class="sliderinput easyinit"  data-r="modal.cover" data-showhide=".slider_modal_coversettings" data-showhidedep="true"/></onelong>
-						<oneshort></oneshort>
-					</row>
-
-					<div class="slider_modal_coversettings">
-						<div class="div5"></div>
-						<label_a><?php _e('Cover Color', 'revslider');?></label_a><input type="text" data-editing="Modal Background Color" name="slidermodalcolor" id="slidermodalcolor" class="my-color-field sliderinput easyinit" data-visible="true" data-mode="single" data-r="modal.coverColor" value="rgba(0,0,0,0.5)">						
-					</div>
 					<div class="div10"></div>
+					
 					<label_a><?php _e('General Speed', 'revslider');?></label_a><input type="text" id="sr_modal_fadespeed" class="sliderinput easyinit" data-numeric="true" data-allowed="ms" data-min="300" data-max="3000" data-r="modal.coverSpeed"/><span class="linebreak"></span>
 					<div class="div10"></div>
 					<label_a><?php _e('Body Class', 'revslider');?></label_a><input type="text" id="sr_modalbodyclass" class="sliderinput easyinit" data-r="modal.bodyclass"/><span class="linebreak"></span>
@@ -223,7 +232,7 @@ $api = 'revapi'; // . $slider_id;
 				<div class="form_inner_header"><i class="material-icons">devices</i><?php _e('Layer Area Size', 'revslider');?></div>
 				<div id="slbpoints_overall" class="collapsable">
 
-					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices">desktop_mac</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_desktop">1240px</div></label_a></row>
+					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices">desktop_mac</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_desktop">1240</div></label_a></row>
 					<row class="direktrow">
 						<onelong><label_icon class="ui_width"></label_icon><input data-numeric="true" id="sr_size_width_d" data-r="size.width.d" data-screen="d" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"></onelong>
 						<oneshort><label_icon class="ui_height"></label_icon><input data-numeric="true"  id="sr_size_height_d" data-r="size.height.d" data-screen="d" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"><div class="fake_on_button"><div class="fake_on_button_inner"><div class="fake_onff_on">On</div></div></div></oneshort>
@@ -231,7 +240,7 @@ $api = 'revapi'; // . $slider_id;
 					<div class="div10"></div>
 
 					<div id="rs-laptop-breakpoint">
-						<row style="margin-bottom:5px"><label_a id="rs-laptop-label"><i class="material-icons bpdevices" style="transform: scale(0.9);">laptop</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_notebook">1240px</div></label_a></row>
+						<row style="margin-bottom:5px"><label_a id="rs-laptop-label"><i class="material-icons bpdevices" style="transform: scale(0.9);">laptop</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_notebook">1240</div></label_a></row>
 						<row class="direktrow">
 							<onelong><label_icon class="ui_width"></label_icon><input data-numeric="true" id="sr_size_width_n" data-r="size.width.n" data-screen="n" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"></onelong>
 							<oneshort><label_icon class="ui_height"></label_icon><input data-numeric="true"  id="sr_size_height_n" data-r="size.height.n" data-screen="n" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"><input type="checkbox" id="sr_custom_n" class="sliderinput easyinit" data-evt="device_area_availibity" data-r="size.custom.n"></oneshort>
@@ -239,7 +248,7 @@ $api = 'revapi'; // . $slider_id;
 					</div>
 
 					<div class="div10"></div>
-					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices" style="transform: scale(0.8);">tablet_android</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_tablet">1240px</div></label_a></row>
+					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices" style="transform: scale(0.8);">tablet_android</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_tablet">1240</div></label_a></row>
 					<row class="direktrow">
 						<onelong><label_icon class="ui_width"></label_icon><input data-numeric="true" id="sr_size_width_t" data-r="size.width.t" data-screen="t" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"></onelong>
 						<oneshort><label_icon class="ui_height"></label_icon><input data-numeric="true"  id="sr_size_height_t" data-r="size.height.t" data-screen="t" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"><input type="checkbox" id="sr_custom_t" class="sliderinput easyinit" data-evt="device_area_availibity" data-r="size.custom.t"></oneshort>
@@ -247,7 +256,7 @@ $api = 'revapi'; // . $slider_id;
 
 
 					<div class="div10"></div>
-					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices" style="transform: scale(0.7);">phone_iphone</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_mobile">1240px</div></label_a></row>
+					<row style="margin-bottom:5px"><label_a><i class="material-icons bpdevices" style="transform: scale(0.7);">phone_iphone</i><?php _e('Browser Width', 'revslider');?> <div class="global_size_miniinfo" id="global_size_mobile">1240</div></label_a></row>
 					<row class="direktrow">
 						<onelong><label_icon class="ui_width"></label_icon><input data-numeric="true" id="sr_size_width_m" data-r="size.width.m" data-screen="t" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"></onelong>
 						<oneshort><label_icon class="ui_height"></label_icon><input data-numeric="true"  id="sr_size_height_m" data-r="size.height.m" data-screen="t" data-evt="device_area_dimension_update" type="text"  class="sliderinput valueduekeyboard easyinit"><input type="checkbox" id="sr_custom_m" class="sliderinput easyinit" data-evt="device_area_availibity" data-r="size.custom.m"></oneshort>
@@ -318,8 +327,8 @@ $api = 'revapi'; // . $slider_id;
 						<!-- SLIDER OVERLAY -->
 						<label_a><?php _e('Overlay', 'revslider');?></label_a><select data-evt="drawBGOverlay" id="sr_overlay" class="dottedoverlay sliderinput tos2 nosearchbox easyinit callEvent" data-r="layout.bg.dottedOverlay"></select>
 						<label_a><?php _e('Size', 'revslider');?></label_a><input data-numeric="true" data-allowed="none" data-min="0"  data-r="layout.bg.dottedOverlaySize" data-evt="drawBGOverlay"  type="text"  class="sliderinput valueduekeyboard  easyinit callEvent" placeholder="none" >
-						<label_a><?php _e('Color 1', 'revslider');?></label_a><input type="text" data-editing="Background Overlay Color 1" data-evt="drawBGOverlay" name="sliderbgoverlaycolor_a" id="slideroverlaybgcolor_a" class="my-color-field sliderinput easyinit" data-visible="true" data-r="layout.bg.dottedColorA" value="transparent">
-						<label_a><?php _e('Color 2', 'revslider');?></label_a><input type="text" data-editing="Background Overlay Color 2" data-evt="drawBGOverlay" name="sliderbgoverlaycolor_b" id="slideroverlaybgcolor_b" class="my-color-field sliderinput easyinit" data-visible="true" data-r="layout.bg.dottedColorB" value="transparent">
+						<label_a><?php _e('Color 1', 'revslider');?></label_a><input type="text" data-editing="Background Overlay Color 1" data-evt="drawBGOverlay" name="sliderbgoverlaycolor_a" id="slideroverlaybgcolor_a" class="my-color-field sliderinput easyinit" data-visible="true" data-mode="single" data-r="layout.bg.dottedColorA" value="transparent">
+						<label_a><?php _e('Color 2', 'revslider');?></label_a><input type="text" data-editing="Background Overlay Color 2" data-evt="drawBGOverlay" name="sliderbgoverlaycolor_b" id="slideroverlaybgcolor_b" class="my-color-field sliderinput easyinit" data-visible="true" data-mode="single" data-r="layout.bg.dottedColorB" value="transparent">
 				</div>
 			</div>
 
@@ -436,13 +445,14 @@ $api = 'revapi'; // . $slider_id;
 					<div class="justifywall"><longoption><label_a><?php _e('Max Width 100%', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_justi_maxwidth" class="sliderinput easyinit"  data-r="carousel.justifyMaxWidth"/></longoption></div>
 					<longoption><label_a><?php _e('Snap to X Alignment', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_snap" class="sliderinput easyinit"  data-r="carousel.snap"/></longoption>
 					<longoption><label_a><?php _e('Infinity Scroll', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_inf" class="sliderinput easyinit" data-evt="" data-r="carousel.infinity"/></longoption>
+					<longoption><label_a><?php _e('Stop on click', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_socl" class="sliderinput easyinit" data-evt="" data-r="carousel.stopOnClick"/></longoption>
 					<div class="div20"></div>
 					<label_a><?php _e('Visible Layers', 'revslider');?></label_a><select id="sr_ca_showAllLayers" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.showAllLayers" data-show="._lavoc_*val*" data-hide="._lavoc_" data-showprio="show"><option value="false"><?php _e('If Slide in Focus', 'revslider');?></option><option value="all"><?php _e('Always on all Slide', 'revslider');?></option><option value="individual"><?php _e('Set by Layer Visibility', 'revslider');?></option></select>
-					<div class="div20"></div>
+					<div class="div20"></div>					
+					<row class="directrow">
+						<onelong><label_a><?php _e('Max. Visible', 'revslider');?></label_a><select data-change="sr_ca_stretch" data-changeto='false' data-changewhennot="1" data-evt="updatesliderlayout" id="sr_ca_mitems" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.maxItems" ><option value="1">1</option><option value="3">3</option><option value="5">5</option><option value="7">7</option><option value="9">9</option><option value="11">11</option><option value="13">13</option><option value="15">15</option><option value="17">17</option></select></onelong>
+					</row>
 					<div class="nojustifywall">
-						<row class="directrow">
-							<onelong><label_a><?php _e('Max. Visible', 'revslider');?></label_a><select data-change="sr_ca_stretch" data-changeto='false' data-changewhennot="1" data-evt="updatesliderlayout" id="sr_ca_mitems" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.maxItems" ><option value="1">1</option><option value="3">3</option><option value="5">5</option><option value="7">7</option><option value="9">9</option><option value="11">11</option><option value="13">13</option><option value="15">15</option><option value="17">17</option></select></onelong>
-						</row>
 						<label_a><?php _e('Stretch Slides', 'revslider');?></label_a><input type="checkbox"  data-evt="updatesliderlayout" id="sr_ca_stretch" data-change="sr_ca_mitems" data-changeto="1" data-changewhen='true' class="sliderinput easyinit" data-evt="" data-r="carousel.stretch"/><span class="linebreak"></span>
 					</div>
 					<row class="directrow">
@@ -549,7 +559,7 @@ $api = 'revapi'; // . $slider_id;
 						<div style="display:none"  class="form_intoaccordion" data-trigger="#slr_fsc_l2"><i class="material-icons">arrow_drop_down</i></div>
 						<div class="collapsable">
 							<div id="post_subtype_settings_wrapper">
-								<label_a><?php _e('Fetch By', 'revslider');?></label_a><select id="post_fetch_type" name="post_fetch_type" class="sliderinput tos2 nosearchbox easyinit" data-r="source.post.fetchType" data-show=".fetch_ .*val*_" data-hide=".fetch_ .dep_">
+								<label_a><?php _e('Fetch By', 'revslider');?></label_a><select id="post_fetch_type" name="post_fetch_type" class="sliderinput tos2 nosearchbox easyinit" data-r="source.post.fetchType" data-show=".fetch_ .*val*_, ._show_*val*" data-hide=".fetch_ .dep_, ._*val*_hide">
 									<option value="cat_tag"><?php _e('Categories & Tags', 'revslider');?></option>
 									<option value="related"><?php _e('Related', 'revslider');?></option>
 									<option value="popular"><?php _e('Popular', 'revslider');?></option>
@@ -566,7 +576,7 @@ if (!empty($post_type)) {
 }
 ?>
 									</select><span class="linebreak"></span>
-									<label_a><?php _e('Categories:', 'revslider');?></label_a><select id="post_category" name="post_category" multiple class="sliderinput tos2 nosearchbox easyinit" data-r="source.post.category"></select><span class="linebreak"></span>
+									<div class="_show_cat_tag _show_related _show_popular _show_recent _next_prev_hide "><label_a><?php _e('Categories:', 'revslider');?></label_a><select id="post_category" name="post_category" multiple class="sliderinput tos2 nosearchbox easyinit" data-r="source.post.category"></select><span class="linebreak"></span></div>
 								</div>
 							</div>
 							<div id="specificpost_subtype_settings_wrapper">
@@ -1131,6 +1141,7 @@ if ($wpml->wpml_exists()) {
 								<div class="div20"></div>
 								<div class="fixedscrollonoff">
 									<longoption><label_a><?php _e('Fix during Scroll', 'revslider');?></label_a><input type="checkbox"  id="sr_sbt_ge_fix_enabled" class="sliderinput easyinit"  data-setclasson="timeline" data-class="fixedscrollon" data-evt="updateFixedScrollRange" data-showhide=".all_sbt_fix_dependencies" data-showhidedep="true"  data-r="scrolltimeline.fixed"/></longoption>
+									<longoption><label_a style="overflow:visible"><?php _e('Pull Content, dyn. Bottom Margin', 'revslider');?></label_a><input type="checkbox"  id="sr_sbt_ge_pull_content" class="sliderinput easyinit" data-r="scrolltimeline.pullcontent"/></longoption>
 								</div>
 								<div class="fixedscrollsettings">
 									<div class="all_sbt_fix_dependencies">

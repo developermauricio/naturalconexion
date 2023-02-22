@@ -2,21 +2,21 @@
 Contributors: vaakash
 Author URI: https://www.aakashweb.com/
 Plugin URI: https://www.aakashweb.com/wordpress-plugins/shortcoder/
-Tags: shortcode, html, javascript, shortcodes, snippets, posts, pages, widgets, insert, adsense, ads, code
+Tags: shortcode, html, javascript, shortcodes, snippets, posts, pages, widgets, insert, adsense, ads, code, elementor, WPBakery
 Donate link: https://www.paypal.me/vaakash/
 License: GPLv2 or later
 Requires PHP: 5.3
 Requires at least: 4.9.0
-Tested up to: 6.0
-Stable tag: 5.8
+Tested up to: 6.1
+Stable tag: 6.1
 
-Create custom "Shortcodes" easily for HTML, JavaScript snippets and use the shortcodes within posts, pages & widgets.
+Create custom "Shortcodes" easily for HTML, JavaScript, CSS code snippets and use the shortcodes within posts, pages & widgets
 
 
 
 ## Description
 
-Shortcoder plugin allows to create a custom shortcodes for HTML, JavaScript and other snippets. Now the shortcodes can be used in posts/pages and the snippet will be replaced in place.
+Shortcoder plugin allows to create a custom shortcodes for HTML, JavaScript, CSS and other code snippets. Now the shortcodes can be used in posts/pages and the snippet will be replaced in place.
 
 ### ✍ Create shortcodes easily
 1. Give a name for the shortcode
@@ -49,18 +49,30 @@ Similarly shortcodes can be created for frequently used snippets.
 
 You can also add [custom parameters](https://www.aakashweb.com/docs/shortcoder/) (like `%%id%%`) inside the snippets, and change it's value like `[sc name="youtube" id="GrlRADfvjII"]` when using them.
 
-### Using in block editor
+### 🧱 Using in block editor
 
 Though shortcodes can be used in **any** place manually, Shortcoder provides below options to select and insert the shortcodes created easily when working with the block editor.
 
 * Shortcoder block
 * Toolbar button to select and insert shortcodes inline (under "more")
 
+### 💎 Upgrade to PRO
+
+Shortcoder also provides a [PRO version](https://www.aakashweb.com/wordpress-plugins/shortcoder/) which has additional features to further enhance the experience. Below features are offered in the PRO version.
+
+* **Custom editor** - Edit Shortcode content using block editor or page builder plugins like Elementor and WPBakery.
+* **Revisions** - Revisions support for Shortcode content.
+* **Locate shortcode** - Search posts and pages where a shortcode is used.
+* **Extra code** - Include extra code to the footer when a shortcode is used in a page.
+
+[Get started with Shortcoder - PRO](https://www.aakashweb.com/wordpress-plugins/shortcoder/)
+
 ### Links
 
 * [Documentation](https://www.aakashweb.com/docs/shortcoder/)
 * [FAQs](https://www.aakashweb.com/docs/shortcoder/faq/)
 * [Support forum/Report bugs](https://www.aakashweb.com/forum/)
+* [PRO features](https://www.aakashweb.com/wordpress-plugins/shortcoder/#pro)
 
 
 
@@ -76,15 +88,15 @@ Though shortcodes can be used in **any** place manually, Shortcoder provides bel
 
 Please visit the [plugin documentation page](https://www.aakashweb.com/docs/shortcoder/) for complete list of FAQs.
 
-### What are the allowed characters for shortcode name ?
+### What are the allowed characters for shortcode name?
 
 Allowed characters are alphabets, numbers, hyphens and underscores.
 
-### My shortcode is not working in my page builder !
+### My shortcode is not working in my page builder!
 
 Please check with your page builder plugin to confirm if the block/place/area where the shortcode is being used can execute shortcodes. If yes, then shortcode should work fine just like regular WordPress shortcodes.
 
-### My shortcode is not working !
+### My shortcode is not working!
 
 Please check the following if you notice that the shortcode content is not printed or when the output is not as expected.
 
@@ -92,9 +104,13 @@ Please check the following if you notice that the shortcode content is not print
 * If shortcode is printed but the output is not as expected, please try the shortcode content in an isolated environment and confirm if the shortcode content is working correctly as expected. Sometimes it might be external factors like theme, other plugin might conflict with the shortcode content being used.
 * There is a known limitation in shortcodes API when there is a combination of unclosed and closed shortcodes. Please refer [this document](https://codex.wordpress.org/Shortcode_API#Unclosed_Shortcodes) for more information.
 
-### Can I insert PHP code in shortcode content ?
+### Can I insert PHP code in shortcode content?
 
 No, right now the plugin supports only HTML, Javascript and CSS as shortcode content.
+
+### Can I use block editor or page builders like Elementor, WPBakery to create shortcode?
+
+Yes, this feature is available in the PRO version. You can upgrade to the [PRO version](https://www.aakashweb.com/wordpress-plugins/shortcoder/) to design using custom editor and create shortcode for that.
 
 
 
@@ -113,6 +129,18 @@ No, right now the plugin supports only HTML, Javascript and CSS as shortcode con
 
 
 ## Changelog
+
+### 6.1
+* New: Enhancements to shortcode edit screen meta boxes.
+* Fix: HTML is escaped in the editor sometimes.
+* Fix: Support for WordPress 6.1
+
+### 6.0
+* New: PRO version is introduced.
+* New: Prevent same shortcode nested loop.
+* New: New actions and filters introduced.
+* Fix: Post excerpt shortcode parameter now prints full post excerpt.
+* Fix: Enhancements to input and output data sanitization.
 
 ### 5.8
 * New: Option to set description for the shortcode.

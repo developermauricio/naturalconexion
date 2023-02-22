@@ -81,6 +81,14 @@ class THWCFD_Admin_Settings_Themehigh_Plugins extends THWCFD_Admin_Settings{
 				'featured' => true,				
 			),
 			array(
+				'title' => 'Order Delivery Date And Time',
+				'image' => 'order-delivery.gif',
+				'content' => "Order Delivery | Pickup Date and Time Planner allows you to plan your store's delivery and pickup, as well as pre-set specific days and holidays.",
+				'slug' => 'order-delivery-date-and-time',
+				'file' => 'order-delivery-date-and-time.php',		
+				'featured' => true,				
+			),
+			array(
 				'title' => 'Variation Swatches for WooCommerce',
 				'image' => 'variation-swatches.png',
 				'content' => 'Variation Swatches for Woocommerce plugin lets you display the variable product attributes as attractive swatches of different types.',

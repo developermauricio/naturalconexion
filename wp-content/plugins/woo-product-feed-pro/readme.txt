@@ -4,8 +4,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: Google Shopping Feed, Facebook feed, Facebook catalog feed, WooCommerce Product Feed, Product Feed, Bing Shopping Feed, Bing Product Feed, Google Merchant Feed, Skroutz, Google Product Feed, Pinterest, Idealo, Pixels, Conversion API
 Requires at least: 4.5
-Tested up to: 6.0
-Stable tag: 11.6.7
+Tested up to: 6.1
+Stable tag: 12.0.9
 
 == Description ==
 
@@ -107,9 +107,6 @@ Our plugin supports the Aelia Currency Switcher
 = Polylang support (Elite version) =
 Our plugin supports Polylang
 
-= TranslatePress support (Elite version) =
-Our plugin supports TranslatePress - beta
-
 = Google Shopping product feed tutorial =
 [youtube https://www.youtube.com/watch?v=2XzxwKDufGw]
 
@@ -126,7 +123,6 @@ Our plugin supports TranslatePress - beta
 * Supports WCML, WooCommerce Multilingual
 * Supports Aelia Currency Switcher
 * Supports Polylang
-* Supports TranslatePress
 * Intuitive interface;
 * Supports product variations / variables;
 * Scheduled product feed refreshes: daily, twice-daily or every hour;
@@ -160,7 +156,6 @@ Some of the above mentioned feature can only be used by users who upgraded to th
 * WPML / WCML support
 * Aelia currency switcher support
 * Polylang support
-* TranslatePress support
 * Addition of the extra fields on your product edit pages
 * Data manipulation feature
 * WooCommerce structured data bug fix
@@ -344,6 +339,138 @@ Questions left or unanswered? Please do not hesitate to contact us at support@ad
 8. Set the basic configurations for your product feed
 
 === Changelog ===
+
+= 12.0.9 (2022-12-14) =
+* Checked for compatibility with WooCommerce 7.2
+
+= 12.0.8 (2022-12-13) =
+* Fixed an issue with Skroutz feeds getting stuck
+
+= 12.0.7 (2022-12-11) =
+* Fixed a shipping costs issue for Idealo feeds where the first product had no shipping costs in the feed
+
+= 12.0.6 (2022-12-11) =
+* Added some nonce checks to plugin setting changes
+
+= 12.0.5 (2022-12-07) =
+* Fixed a tax calculation issue for Portugal and Slovakia
+
+= 12.0.4 (2022-12-02) =
+* Solved an undefined variable PHP warning for the sz_attribute variable
+
+= 12.0.3 (2022-11-23) =
+* Solved a PHP Fatal error when trying to retrieve the woosea_condition string
+
+= 12.0.2 (2022-11-21) =
+* Added the sale_price_effective_date field to the Google DRM feed template
+
+= 12.0.1 (2022-11-20) =
+* Fixed an issue with the sale_price_effective_date which was empty
+
+= 12.0.0 (2022-11-15) =
+* Added a created timestamp to Skroutz XML feeds
+* Fixed an issue that resulted in a fatal error, added is array check
+* Fixed an issue that resulted in PHP warnings when browsers do not set a HTTP USER AGENT
+
+= 11.9.9 (2022-11-09) =
+* Checked for compatibility with WooCommerce 7.1
+* jQuery CSS no longer enqueued on the WP-admin dashboard
+
+= 11.9.8 (2022-11-04) =
+* Added support for PHP 8.1
+* Checked for compatibility with Wordpress 6.1
+
+= 11.9.7 (2022-11-02) =
+* Changed function string to is_string
+
+= 11.9.6 (2022-10-28) =
+* Solved an issue where a string was used in a multiply formula and caused a fatal error
+
+= 11.9.5 (2022-10-20) =
+* Solved a PHP warning for yoast attributes
+
+= 11.9.4 (2022-10-19) =
+* Solved a PHP warning for an undefined variable
+
+= 11.9.3 (2022-10-15) =
+* Solved a fatal array merge error
+
+= 11.9.2 (2022-10-14) =
+* Removed some autoloading on wp_options
+* Checked for compatibility with WooCommerce 7.0
+
+= 11.9.1 (2022-10-14) =
+* Fixed an issue with shipping costs formula calculations
+
+= 11.9.0 (2022-10-10) =
+* Fixed an issue with review names not getting retrieved and showing warnings in the logs
+* Fixed an issue where a data variable was not an integer and showed warnings in the logs
+
+= 11.8.9 (2022-10-07) =
+* Firstname and first character of an users lastname are now being used in Google review feeds
+
+= 11.8.8 (2022-10-01) =
+* Added a htmlspecialchars call on review names
+
+= 11.8.7 (2022-09-07) =
+* Added the rich product content field to the Google Shopping template
+
+= 11.8.6 (2022-09-06) =
+* Added the release date field to the Google Shopping template
+
+= 11.8.5 (2022-09-02) =
+* Changed the update_option for cron_projects to non autoload
+
+= 11.8.4 (2022-08-17) =
+* Added an option to enable/disable returning of only basic attributes in the field mapping and rules and filters drop-downs
+
+= 11.8.3 (2022-08-15) =
+* Fixed an issue where not all (externally created) attributes or metafields where showing in the field mapping drop-downs
+
+= 11.8.2 (2022-08-13) =
+* When the availability date field mapping has been added it will only be added to products that are on backorder. Not to any other products.
+
+= 11.8.1 (2022-08-11) =
+* Added 5 attributes to create availability dates in the future for products that are on backorder
+
+= 11.8.0 (2022-08-10) =
+* Checked for compatibility with WooCommerce 6.8.0
+
+= 11.7.9 (2022-08-08) =
+* Fixed an issue where shipping class costs where not calculated properly
+
+= 11.7.8 (2022-08-05) =
+* Added additional field for the Pinterest template
+
+= 11.7.7 (2022-08-01) =
+* Removed currency from Zbozi shipping costs
+
+= 11.7.6 (2022-07-31) =
+* Added the link_template field for Google Shopping feeds
+
+= 11.7.5 (2022-07-23) =
+* Fixed an issue with VAT that was not being added for bundled products
+
+= 11.7.4 (2022-07-22) =
+* Checked for compatibility with WooCommerce 6.7.0
+
+= 11.7.3 (2022-07-15) =
+* Solved an issue with Uncaught TypeError: array_intersect()
+
+= 11.7.2 (2022-07-14) =
+* Replaced substr with mb_substr for the product descriptions
+
+= 11.7.1 (2022-07-05) =
+* Solved an Call to a member function addChild() on null for Skroutz feeds
+
+= 11.7.0 (2022-07-04) =
+* Removed the htaccess file for the TXT feed directory
+
+= 11.6.9 (2022-06-30) =
+* Added the product title slug attribute
+
+= 11.6.8 (2022-06-30) =
+* Fixed an issues with the XML version of the Google Local Product Inventory feed where the g: was missing for the field names
 
 = 11.6.7 (2022-06-21) =
 * Fixed an issue when a non-string was added as a key to the product data array
@@ -3733,6 +3860,138 @@ Questions left or unanswered? Please do not hesitate to contact us at support@ad
 * Strip HTML from the (short) description attributes
 
 == Upgrade Notice ==
+
+= 12.0.9 =
+Checked for compatibility with WooCommerce 7.2
+
+= 12.0.8 =
+Fixed an issue with Skroutz feeds getting stuck
+
+= 12.0.7 =
+Fixed a shipping costs issue for Idealo feeds where the first product had no shipping costs in the feed
+
+= 12.0.6 =
+Added some nonce checks to plugin setting changes
+
+= 12.0.5 =
+Fixed a tax calculation issue for Portugal and Slovakia
+
+= 12.0.4 =
+Solved an undefined variable PHP warning for the sz_attribute variable
+
+= 12.0.3 =
+Solved a PHP Fatal error when trying to retrieve the woosea_condition string
+
+= 12.0.2 =
+Added the sale_price_effective_date field to the Google DRM feed template
+
+= 12.0.1 =
+Fixed an issue with the sale_price_effective_date which was empty
+
+= 12.0.0 =
+* Added a created timestamp to Skroutz XML feeds
+* Fixed an issue that resulted in a fatal error, added is array check
+* Fixed an issue that resulted in PHP warnings when browsers do not set a HTTP USER AGENT
+
+= 11.9.9 =
+Checked for compatibility with WooCommerce 7.1
+jQuery CSS no longer enqueued on the WP-admin dashboard
+
+= 11.9.8 =
+Added support for PHP 8.1
+Checked for compatibility with Wordpress 6.1
+
+= 11.9.7 =
+Changed function string to is_string
+
+= 11.9.6 =
+Solved an issue where a string was used in a multiply formula and caused a fatal error
+
+= 11.9.5 =
+Solved a PHP warning for yoast attributes
+
+= 11.9.4 =
+Solved a PHP warning for an undefined variable
+
+= 11.9.3 =
+Solved a fatal array merge error
+
+= 11.9.2 =
+Removed some autoloading on wp_options
+Checked for compatibility with WooCommerce 7.0
+
+= 11.9.1 =
+Fixed an issue with shipping costs formula calculations
+
+= 11.9.0 =
+Fixed an issue with review names not getting retrieved and showing warnings in the logs
+Fixed an issue where a data variable was not an integer and showed warnings in the logs
+
+= 11.8.9 =
+Firstname and first character of an users lastname are now being used in Google review feeds
+
+= 11.8.8 =
+Added a htmlspecialchars call on review names
+
+= 11.8.7 =
+Added the rich product content field to the Google Shopping template
+
+= 11.8.6 =
+Added the release date field to the Google Shopping template
+
+= 11.8.5 =
+Changed the update_option for cron_projects to non autoload
+
+= 11.8.4 =
+Added an option to enable/disable returning of only basic attributes in the field mapping and rules and filters drop-downs
+
+= 11.8.3 =
+Fixed an issue where not all (externally created) attributes or metafields where showing in the field mapping drop-downs
+
+= 11.8.2 =
+When the availability date field mapping has been added it will only be added to products that are on backorder. Not to any other products.
+
+= 11.8.1 =
+Added 5 attributes to create availability dates in the future for products that are on backorder
+
+= 11.8.0 =
+Checked for compatibility with WooCommerce 6.8.0
+
+= 11.7.9 =
+Fixed an issue where shipping class costs where not calculated properly
+
+= 11.7.8 =
+Added additional field for the Pinterest template
+
+= 11.7.7 =
+Removed currency from Zbozi shipping costs
+
+= 11.7.6 =
+Added the link_template field for Google Shopping feeds
+
+= 11.7.5 =
+Fixed an issue with VAT that was not being added for bundled products
+
+= 11.7.4 =
+Checked for compatibility with WooCommerce 6.7.0
+
+= 11.7.3 =
+Solved an issue with Uncaught TypeError: array_intersect()
+
+= 11.7.2 =
+Replaced substr with mb_substr for the product descriptions
+
+= 11.7.1 =
+Solved an Call to a member function addChild() on null for Skroutz feeds
+
+= 11.7.0 =
+Removed the htaccess file for the TXT feed directory
+
+= 11.6.9 =
+Added the product title slug attribute
+
+= 11.6.8 =
+Fixed an issues with the XML version of the Google Local Product Inventory feed where the g: was missing for the field names
 
 = 11.6.7 =
 Fixed an issue when a non-string was added as a key to the product data array

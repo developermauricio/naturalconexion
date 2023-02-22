@@ -4,7 +4,8 @@ use Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface;
 use Automattic\WooCommerce\Blocks\Package;
 use Automattic\WooCommerce\Blocks\Domain\Services\ExtendRestApi;
 use Automattic\WooCommerce\Blocks\StoreApi\Schemas\CheckoutSchema;
-use Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry;
+use Automattic\WooCommerce\StoreApi\StoreApi;
+use Automattic\WooCommerce\StoreApi\Schemas\ExtendSchema;
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -26,7 +27,7 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
 	}
 
 	/**
-	 * When called invokes any initialization/setup for the integration.
+	 * @throws Exception
 	 */
 	public function initialize()
     {
@@ -40,6 +41,9 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
         //add_action('woocommerce_blocks_checkout_order_processed', [$this, 'order_processed'], 10, 2);
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function register_frontend_scripts()
     {
 		$script_path       = '/build/newsletter-block-frontend.js';
@@ -69,6 +73,7 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
 			'mailchimp-woocommerce', // text domain
 			dirname(dirname( __FILE__ )) . '/languages'
 		);
+		return true;
 	}
 
     public function register_editor_scripts()
@@ -155,21 +160,27 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
 	/**
 	 * This allows dynamic (JS) blocks to access attributes in the frontend.
 	 *
-	 * @param string[] $allowed_blocks
+	 * @param $allowed_blocks
+	 *
+	 * @return mixed
 	 */
 	public function add_attributes_to_frontend_blocks( $allowed_blocks )
     {
+    	if (!is_array($allowed_blocks)) {
+    		$allowed_blocks = (array) $allowed_blocks;
+	    }
 		$allowed_blocks[] = 'woocommerce/mailchimp-newsletter-subscription';
 		return $allowed_blocks;
 	}
 
 	/**
-	 * Add schema Store API to support posted data.
+	 * @throws Exception
 	 */
 	public function extend_store_api()
     {
         /** @var ExtendRestApi $extend */
-		$extend = Package::container()->get(ExtendRestApi::class);
+        /** @var ExtendSchema $extend */
+		$extend = class_exists('Automattic\WooCommerce\StoreApi\Schemas\ExtendSchema') ? StoreApi::container()->get(ExtendSchema::class) : Package::container()->get(ExtendRestApi::class);
 
 		$extend->register_endpoint_data(
 			array(
@@ -184,7 +195,7 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
 							'arg_options' => array(
 								'validate_callback' => function( $value ) {
 									if ( ! is_bool( $value ) ) {
-										return new \WP_Error( 'api-error', 'value of type ' . gettype( $value ) . ' was posted to the newsletter optin callback' );
+										return new WP_Error( 'api-error', 'value of type ' . gettype( $value ) . ' was posted to the newsletter optin callback' );
 									}
 									return true;
 								},
@@ -206,15 +217,19 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
 		);
 	}
 
-    /**
-     * Store guest info when they submit email from Store API.
-     *
-     * The guest email, first name and last name are captured.
-     *
-     * @see \Automattic\WooCommerce\Blocks\StoreApi\Routes\CartUpdateCustomer
-     *
-     * @param \WC_Order $order
-     */
+	/**
+	 * Store guest info when they submit email from Store API.
+	 *
+	 * The guest email, first name and last name are captured.
+	 *
+	 * @see \Automattic\WooCommerce\Blocks\StoreApi\Routes\CartUpdateCustomer
+	 *
+	 * @param WC_Order|WC_Order_Refund $order
+	 *
+	 * @throws MailChimp_WooCommerce_Error
+	 * @throws MailChimp_WooCommerce_RateLimitError
+	 * @throws MailChimp_WooCommerce_ServerError
+	 */
     public function capture_from_store_api($order)
     {
         if ($order->get_status() !== 'checkout-draft' ||
@@ -234,7 +249,7 @@ class Mailchimp_Woocommerce_Newsletter_Blocks_Integration implements Integration
     }
 
     /**
-     * @param \WC_Order $order
+     * @param WC_Order $order
      * @param $request
      */
     public function order_processed($order, $request)

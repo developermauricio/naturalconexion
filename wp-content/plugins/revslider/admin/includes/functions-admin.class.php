@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
  
 if(!defined('ABSPATH')) exit();
@@ -384,15 +384,22 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	public function add_notices(){
 		$_n = array();
 		$notices = (array)get_option('revslider-notices', false);
+		$rs_valid = $this->_truefalse(get_option('revslider-valid', 'false'));
 		
 		if(!empty($notices) && is_array($notices)){
 			$n_discarted = get_option('revslider-notices-dc', array());
-			
 			foreach($notices as $notice){
-				//check if global or just on plugin related pages
-				if($notice->version === true || !in_array($notice->code, $n_discarted) && version_compare($notice->version, RS_REVISION, '>=')){
-					$_n[] = $notice;
+				if(in_array($notice->code, $n_discarted)) continue;
+				if(isset($notice->version) && version_compare($notice->version, RS_REVISION, '<=')) continue;
+				if(isset($notice->registered)){ //if this is set, only show the notice if the plugin state is the same
+					$registered = $this->_truefalse($notice->registered);
+					if($registered !== $rs_valid) continue;
 				}
+				if(isset($notice->show_until) && $notice->show_until !== '0000-00-00 00:00:00'){
+					if(strtotime($notice->show_until) < time()) continue;
+				}
+
+				$_n[] = $notice;
 			}
 		}
 		
@@ -738,7 +745,10 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'addonsmustbeupdated' => __('AddOns Outdated. Please Update', 'revslider'),
 			'notRegistered' => __('Plugin is not Registered', 'revslider'),
 			'notRegNoPremium' => __('Register to unlock Premium Features', 'revslider'),
-			'notRegNoAll' => __('Register to Unlock all Features', 'revslider'),
+			'notRegNoAll' => __('Register Plugin to unlock all features', 'revslider'),
+			'needsd' => __('Needs:', 'revslider'),
+			'fixMissingAddons' => __('Fix not Installed Addons', 'revslider'),
+			'fix' => __('Fix', 'revslider'),
 			'notRegNoAddOns' => __('Register to unlock AddOns', 'revslider'),
 			'notRegNoSupport' => __('Register to unlock Support', 'revslider'),
 			'notRegNoLibrary' => __('Register to unlock Library', 'revslider'),
@@ -836,6 +846,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'layeraction_link' => __('Simple Link', 'revslider'),
 			'layeraction_callback' => __('Call Back', 'revslider'),
 			'layeraction_modal' => __('Open Slider Modal', 'revslider'),
+			'layeraction_getAccelerationPermission' => __('iOS Gyroscope Permission', 'revslider'),
 			'layeraction_scroll_under' => __('Scroll below Slider', 'revslider'),
 			'layeraction_scrollto' => __('Scroll To ID', 'revslider'),
 			'layeraction_jumpto' => __('Jump to Slide', 'revslider'),
@@ -1056,7 +1067,8 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'active_sr_tmp_obl' => __('Template & Object Library', 'revslider'),
 			'active_sr_inst_upd' => __('Instant Updates', 'revslider'),
 			'active_sr_one_on_one' => __('1on1 Support', 'revslider'),			
-			'parallaxsettoenabled' => __('Parallax is now generally Enabled', 'revslider'),
+			'parallaxsettoenabled' => __('Parallax is now generally Enabled', 'revslider'),			
+			'filtertransitionissuepre' => __('Some slide transitions do not support filters. If problems occur, please try a different slide transition / filter pairing', 'revslider'),
 			'CORSERROR' => __('External Media can not be used  for WEBGL Transitions due CORS Policy issues', 'revslider'),
 			'CORSWARNING' => __('Slider Revolution has successfully re-requested image to rectify above CORS error.', 'revslider'),
 			'timelinescrollsettoenabled' => __('Scroll Based Timeline is now generally Enabled', 'revslider'),
@@ -1065,7 +1077,11 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'leaving' => __('Changes that you made may not be saved.', 'revslider'),
 			'sliderasmodal' => __('Add Slider as Modal', 'revslider'),
 			'register_to_unlock' => __('Register to unlock all Premium Features', 'revslider'),
-			'premium_features_unlocked' => __('All Premium Features unlocked', 'revslider'),
+			'premium_features_unlocked' => __('All Premium Features unlocked', 'revslider'),			
+			'premium_template' => __('PREMIUM TEMPLATE', 'revslider'),
+			'rs_premium_content' => __('This is a Premium template from the Slider Revolution <a target="_blank" rel="noopener" href="https://www.sliderrevolution.com/examples/">template library</a>. It can only be used on this website with a <a target="_blank" rel="noopener" href="https://www.sliderrevolution.com/manual/quick-setup-register-your-plugin/?utm_source=admin&utm_medium=button&utm_campaign=srusers&utm_content=registermanual">registered license key</a>.', 'revslider'),
+			'premium' => __('Premium', 'revslider'),
+			'premiumunlock' => __('REGISTER LICENSE TO UNLOCK', 'revslider'),
 			'tryagainlater' => __('Please try again later', 'revslider'),
 			'quickcontenteditor' => __('Quick Content Editor', 'revslider'),
 			'module' => __('Module', 'revslider'),
@@ -1412,8 +1428,14 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 		if(!is_admin()) return false;
 
 		global $pagenow;
+		global $wp_version;
 
-		return in_array($pagenow, array('post.php', 'post-new.php'));
+		if(version_compare($wp_version, '5.8', '>=')){
+			return in_array($pagenow, array('post.php', 'post-new.php', 'widgets.php'));
+		}
+		else{
+			return in_array($pagenow, array('post.php', 'post-new.php'));
+		}
 	}
 	
 }

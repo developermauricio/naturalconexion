@@ -13,7 +13,7 @@ if ( ! function_exists( 'csf_get_icons' ) ) {
     $nonce = ( ! empty( $_POST[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'nonce' ] ) ) : '';
 
     if ( ! wp_verify_nonce( $nonce, 'csf_icon_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Nonce verification has failed. Please try again.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
     }
 
     ob_start();
@@ -38,7 +38,7 @@ if ( ! function_exists( 'csf_get_icons' ) ) {
 
     } else {
 
-      echo '<div class="csf-text-error">'. esc_html__( 'No data provided by developer', 'csf' ) .'</div>';
+      echo '<div class="csf-error-text">'. esc_html__( 'No data available.', 'csf' ) .'</div>';
 
     }
 
@@ -65,11 +65,11 @@ if ( ! function_exists( 'csf_export' ) ) {
     $unique = ( ! empty( $_GET[ 'unique' ] ) ) ? sanitize_text_field( wp_unslash( $_GET[ 'unique' ] ) ) : '';
 
     if ( ! wp_verify_nonce( $nonce, 'csf_backup_nonce' ) ) {
-      die( esc_html__( 'Error: Nonce verification has failed. Please try again.', 'csf' ) );
+      die( esc_html__( 'Error: Invalid nonce verification.', 'csf' ) );
     }
 
     if ( empty( $unique ) ) {
-      die( esc_html__( 'Error: Options unique id could not valid.', 'csf' ) );
+      die( esc_html__( 'Error: Invalid key.', 'csf' ) );
     }
 
     // Export
@@ -103,15 +103,15 @@ if ( ! function_exists( 'csf_import_ajax' ) ) {
     $data   = ( ! empty( $_POST[ 'data' ] ) ) ? wp_kses_post_deep( json_decode( wp_unslash( trim( $_POST[ 'data' ] ) ), true ) ) : array();
 
     if ( ! wp_verify_nonce( $nonce, 'csf_backup_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Nonce verification has failed. Please try again.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
     }
 
     if ( empty( $unique ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Options unique id could not valid.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'csf' ) ) );
     }
 
     if ( empty( $data ) || ! is_array( $data ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Import data could not valid.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'csf' ) ) );
     }
 
     // Success
@@ -138,7 +138,7 @@ if ( ! function_exists( 'csf_reset_ajax' ) ) {
     $unique = ( ! empty( $_POST[ 'unique' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'unique' ] ) ) : '';
 
     if ( ! wp_verify_nonce( $nonce, 'csf_backup_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Nonce verification has failed. Please try again.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
     }
 
     // Success
@@ -167,17 +167,17 @@ if ( ! function_exists( 'csf_chosen_ajax' ) ) {
     $query = ( ! empty( $_POST[ 'query_args' ] ) ) ? wp_kses_post_deep( $_POST[ 'query_args' ] ) : array();
 
     if ( ! wp_verify_nonce( $nonce, 'csf_chosen_ajax_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Nonce verification has failed. Please try again.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
     }
 
     if ( empty( $type ) || empty( $term ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Missing request arguments.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'csf' ) ) );
     }
 
     $capability = apply_filters( 'csf_chosen_ajax_capability', 'manage_options' );
 
     if ( ! current_user_can( $capability ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'You do not have required permissions to access.', 'csf' ) ) );
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'csf' ) ) );
     }
 
     // Success
@@ -187,41 +187,4 @@ if ( ! function_exists( 'csf_chosen_ajax' ) ) {
 
   }
   add_action( 'wp_ajax_csf-chosen', 'csf_chosen_ajax' );
-}
-
-/**
- *
- * Set icons for wp dialog
- *
- * @since 1.0.0
- * @version 1.0.0
- *
- */
-if ( ! function_exists( 'csf_set_icons' ) ) {
-  function csf_set_icons() {
-    ?>
-    <div id="csf-modal-icon" class="csf-modal csf-modal-icon">
-      <div class="csf-modal-table">
-        <div class="csf-modal-table-cell">
-          <div class="csf-modal-overlay"></div>
-          <div class="csf-modal-inner">
-            <div class="csf-modal-title">
-              <?php esc_html_e( 'Add Icon', 'csf' ); ?>
-              <div class="csf-modal-close csf-icon-close"></div>
-            </div>
-            <div class="csf-modal-header csf-text-center">
-              <input type="text" placeholder="<?php esc_html_e( 'Search a Icon...', 'csf' ); ?>" class="csf-icon-search" />
-            </div>
-            <div class="csf-modal-content">
-              <div class="csf-modal-loading"><div class="csf-loading"></div></div>
-              <div class="csf-modal-load"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <?php
-  }
-  add_action( 'admin_footer', 'csf_set_icons' );
-  add_action( 'customize_controls_print_footer_scripts', 'csf_set_icons' );
 }

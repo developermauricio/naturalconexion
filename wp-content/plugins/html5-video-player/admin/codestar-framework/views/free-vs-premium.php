@@ -25,6 +25,11 @@
       <td><i class="fas fa-check-circle"></i></td>
     </tr>
     <tr>
+      <td>Nav Menu Option Framework</td>
+      <td><i class="fas fa-times-circle"></i></td>
+      <td><i class="fas fa-check-circle"></i></td>
+    </tr>
+    <tr>
       <td>Taxonomy Option Framework</td>
       <td><i class="fas fa-times-circle"></i></td>
       <td><i class="fas fa-check-circle"></i></td>
@@ -40,12 +45,12 @@
       <td><i class="fas fa-check-circle"></i></td>
     </tr>
     <tr>
-      <td>Comment Metabox Framework</td>
+      <td>Comment Option Framework</td>
       <td><i class="fas fa-times-circle"></i></td>
       <td><i class="fas fa-check-circle"></i></td>
     </tr>
     <tr>
-      <td>Shortcode Generate Framework</td>
+      <td>Shortcode Option Framework</td>
       <td><i class="fas fa-times-circle"></i></td>
       <td><i class="fas fa-check-circle"></i></td>
     </tr>

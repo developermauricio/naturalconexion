@@ -25,7 +25,7 @@ $(document).ready(function(){
                 add_top_import_export_btn();
             }
 
-            add_top_coffee_btn();
+            add_top_pro_btn();
         }
 
         $('.sc_params_list').appendTo('body');
@@ -130,9 +130,9 @@ $(document).ready(function(){
         $('.sc_params_list').hide();
     }
 
-    var add_top_coffee_btn = function(){
+    var add_top_pro_btn = function(){
 
-        $('#screen-meta-links').prepend('<div class="screen-meta-toggle cfe_top_link"><a class="show-settings button" href="https://www.paypal.me/vaakash/" target="_blank">Buy me a Coffee</a></div>');
+        $('#screen-meta-links').prepend('<div class="screen-meta-toggle pro_top_link"><a class="show-settings button" href="https://www.aakashweb.com/wordpress-plugins/shortcoder/?utm_source=admin&utm_medium=top&utm_campaign=sc-pro#pro" target="_blank">Upgrade to PRO <span class="dashicons dashicons-plus"></span></a></div>');
 
     }
 
@@ -143,18 +143,6 @@ $(document).ready(function(){
         $('#screen-meta').append('<div id="import-export-tab" class="hidden"></div>');
 
         $('#ie_content > div').appendTo('#import-export-tab');
-
-    }
-
-    var show_promo_slide = function(){
-
-        var slides = $('.promo_slide').length;
-        
-        if(!slides){
-            return;
-        }
-        var rand_slide = Math.floor(Math.random() * slides);
-        sc_current_slide(rand_slide);
 
     }
 
@@ -305,32 +293,3 @@ $(document).ready(function(){
 
 });
 })( jQuery );
-
-var promo_slide_index = 1;
-
-function sc_next_promo_slide(n, event) {
-    event.preventDefault();
-    sc_promo_slide(promo_slide_index += n);
-}
-
-function sc_current_slide(n) {
-    sc_promo_slide(promo_slide_index = n);
-}
-
-function sc_promo_slide(n) {
-    var slides = document.getElementsByClassName('promo_slide');
-    if(slides.length == 0){
-        return;
-    }
-    var i;
-    if (n > slides.length) {
-        promo_slide_index = 1
-    }
-    if (n < 1) {
-        promo_slide_index = slides.length
-    }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
-    slides[promo_slide_index - 1].style.display = 'block';
-}

@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2019 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -10,11 +10,12 @@ if(!defined('ABSPATH')) exit();
 
 $system_config	= $rsaf->get_system_requirements();
 $current_user	= wp_get_current_user();
-$revslider_valid = 'true';
+$revslider_valid = get_option('revslider-valid', 'false');
+$show_trustpilot = $rsaf->_truefalse(get_option('revslider-trustpilot', 'true'));
 $latest_version	= get_option('revslider-latest-version', RS_REVISION);
 $stable_version	= get_option('revslider-stable-version', '4.2');
-$latest_version	= (version_compare($latest_version, $stable_version, '<')) ? $stable_version : $latest_version;
-$code			= '073e077f-b600-41e4-8b74-767431910d31';
+$latest_version	= ($revslider_valid !== 'true' && version_compare($latest_version, $stable_version, '<')) ? $stable_version : $latest_version;
+$code			= get_option('revslider-code', '');
 $time			= date('H');
 $timezone		= date('e');/* Set the $timezone variable to become the current timezone */
 $hi				= __('Good Evening ', 'revslider');
@@ -127,7 +128,14 @@ $rs_languages	= $rsaf->get_available_languages();
 		</div>
 	</div>
 
-	<div class="div150"></div>
+	<div class="div100"></div>
+	<!--Show Trustpilot Message-->	
+	<div id="register_trustpilot_wrap" data-state="<?php echo ($show_trustpilot) ? '' : 'closed'; ?>">
+		<div class="pli_left"><a id="trustpilotlink" class="purplesmallbutton" href="https://www.trustpilot.com/evaluate/sliderrevolution.com" target="_blank" rel="noopener"><?php _e('Review us on', 'revslider');?><span class="rs_trustpilot_bg"></span></a></div>
+		<div class="pli_right"><h3 class="pli_title"><?php _e('Thank you for using Slider Revolution!', 'revslider');?><span class="thicon"></span></h3></div>
+		<div id="trust_closer"><i class="material-icons">close</i></div>
+	</div>
+
 	<!-- PLUGIN INFORMATIONS -->	
 	<div id="plugin_activation_row" class="plugin_inforow">
 		<!-- PLUGIN UPDATE -->
@@ -177,11 +185,11 @@ $rs_languages	= $rsaf->get_available_languages();
 				</div><!--				
 				--><div class="featurebox">
 					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php _e('Register to Unlock', 'revslider');?></div>
-					<?php require_once(RS_PLUGIN_PATH . 'admin/views/features/object_library.php'); ?>
+					<?php require_once(RS_PLUGIN_PATH . 'admin/views/features/add_ons.php'); ?>					
 				</div><!--				
 				--><div class="featurebox">
 					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php _e('Register to Unlock', 'revslider');?></div>
-					<?php require_once(RS_PLUGIN_PATH . 'admin/views/features/add_ons.php'); ?>
+					<?php require_once(RS_PLUGIN_PATH . 'admin/views/features/object_library.php'); ?>
 				</div><!--							
 				--><div class="featurebox">
 					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php _e('Register to Unlock', 'revslider');?></div>
@@ -225,7 +233,7 @@ $rs_languages	= $rsaf->get_available_languages();
 	</div>
 </div>
 
-<script type="text/javascript">
+<script>
 	window.sliderLibrary = JSON.parse(<?php echo $rsaf->json_encode_client_side(array('sliders' => $rs_od)); ?>);
 	window.rs_system = JSON.parse(<?php echo $rsaf->json_encode_client_side($system_config); ?>);
 	var rvs_f_initOverView_Once = false;

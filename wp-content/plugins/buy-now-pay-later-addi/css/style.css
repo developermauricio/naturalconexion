@@ -1,3 +1,156 @@
+/*Fonts*/
+@font-face {
+  font-family: Inter;
+  src: url(https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Thin.ttf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Mallory;
+  src: url(https://s3.amazonaws.com/statics.addi.com/fonts/mallory/Mallory_Medium.ttf);
+  font-style: normal;
+}
+
+
+/* Colors */
+
+/**
+ * ADDI - UI-Foundation
+ * Do not edit directly
+ * Generated on Mon, 08 Nov 2021 13:02:23 GMT
+ */
+
+:root {
+  --color-addi-primary-active: rgb(60, 106, 240);
+  --color-addi-primary-hover: rgb(10, 57, 196);
+  --color-addi-primary-inactive: rgb(204, 221, 255);
+  --color-addi-feedback-success: rgb(0, 190, 122);
+  --color-addi-feedback-warning: rgb(239, 200, 0);
+  --color-addi-feedback-error: rgb(250, 77, 75);
+  --color-addi-feedback-info: rgb(133, 169, 255);
+  --color-addi-font-primary: rgb(24, 24, 31);
+  --color-addi-font-secondary: rgb(77, 82, 92);
+  --color-addi-font-strong: rgb(116, 119, 122);
+  --color-addi-font-hint: rgb(201, 205, 209);
+  --color-addi-font-disable: rgb(235, 236, 237);
+  --color-addi-font-over-dark: rgb(255, 255, 255);
+  --color-addi-font-action: rgb(60, 106, 240);
+  --color-addi-font-success: rgb(1, 128, 82);
+  --color-addi-font-error: rgb(204, 31, 31);
+  --color-addi-background-white: rgb(255, 255, 255);
+  --color-addi-background-soft: rgb(250, 250, 250);
+  --color-addi-background-medium: rgb(235, 236, 237);
+  --color-addi-background-hint: rgb(201, 205, 209);
+  --color-addi-background-strong: rgb(116, 119, 122);
+  --color-addi-comp-one-lighten4: rgb(250, 229, 255);
+  --color-addi-comp-one-lighten3: rgb(247, 214, 255);
+  --color-addi-comp-one-lighten2: rgb(236, 193, 247);
+  --color-addi-comp-one-lighten1: rgb(221, 169, 235);
+  --color-addi-comp-one-base: rgb(195, 143, 208);
+  --color-addi-comp-one-darken1: rgb(168, 113, 189);
+  --color-addi-comp-one-darken2: rgb(139, 90, 163);
+  --color-addi-comp-one-darken3: rgb(105, 58, 132);
+  --color-addi-comp-one-darken4: rgb(70, 34, 102);
+  --color-addi-comp-one-darken5: rgb(41, 10, 76);
+  --color-addi-comp-two-lighten5: rgb(255, 253, 235);
+  --color-addi-comp-two-lighten4: rgb(255, 251, 214);
+  --color-addi-comp-two-lighten3: rgb(255, 245, 173);
+  --color-addi-comp-two-lighten2: rgb(255, 239, 138);
+  --color-addi-comp-two-lighten1: rgb(250, 223, 70);
+  --color-addi-comp-two-base: rgb(239, 200, 0);
+  --color-addi-comp-two-darken1: rgb(227, 185, 0);
+  --color-addi-comp-two-darken2: rgb(184, 141, 0);
+  --color-addi-comp-two-darken3: rgb(133, 99, 7);
+  --color-addi-comp-two-darken4: rgb(92, 63, 6);
+  --color-addi-comp-three-lighten5: rgb(235, 255, 239);
+  --color-addi-comp-three-lighten4: rgb(212, 252, 231);
+  --color-addi-comp-three-lighten3: rgb(166, 237, 199);
+  --color-addi-comp-three-lighten2: rgb(67, 224, 146);
+  --color-addi-comp-three-lighten1: rgb(0, 190, 122);
+  --color-addi-comp-three-base: rgb(1, 128, 82);
+  --color-addi-comp-three-darken1: rgb(9, 112, 75);
+  --color-addi-comp-three-darken2: rgb(11, 82, 56);
+  --color-addi-comp-three-darken3: rgb(20, 51, 40);
+  --color-addi-comp-three-darken4: rgb(12, 31, 24);
+  --color-addi-comp-four-lighten5: rgb(255, 242, 242);
+  --color-addi-comp-four-lighten4: rgb(255, 211, 209);
+  --color-addi-comp-four-lighten3: rgb(255, 167, 166);
+  --color-addi-comp-four-lighten2: rgb(250, 77, 75);
+  --color-addi-comp-four-lighten1: rgb(219, 44, 44);
+  --color-addi-comp-four-base: rgb(204, 31, 31);
+  --color-addi-comp-four-darken1: rgb(184, 22, 25);
+  --color-addi-comp-four-darken2: rgb(163, 23, 23);
+  --color-addi-comp-four-darken3: rgb(143, 24, 29);
+  --color-addi-comp-four-darken4: rgb(122, 24, 31);
+  --color-addi-comp-four-accent-lighten2: rgb(248, 186, 173);
+  --color-addi-comp-five-lighten4: rgb(235, 242, 255);
+  --color-addi-comp-five-lighten3: rgb(204, 221, 255);
+  --color-addi-comp-five-lighten2: rgb(133, 169, 255);
+  --color-addi-comp-five-lighten1: rgb(78, 126, 255);
+  --color-addi-comp-five-base: rgb(60, 106, 240);
+  --color-addi-comp-five-darken1: rgb(32, 79, 214);
+  --color-addi-comp-five-darken2: rgb(10, 57, 196);
+  --color-addi-comp-five-darken3: rgb(15, 53, 163);
+  --color-addi-comp-five-darken4: rgb(11, 35, 92);
+  --color-addi-comp-five-darken5: rgb(9, 26, 66);
+  --color-addi-gray-lighten5: rgb(255, 255, 255);
+  --color-addi-gray-lighten4: rgb(250, 250, 250);
+  --color-addi-gray-lighten3: rgb(235, 236, 237);
+  --color-addi-gray-lighten2: rgb(201, 205, 209);
+  --color-addi-gray-lighten1: rgb(116, 119, 122);
+  --color-addi-gray-base: rgb(77, 82, 92);
+  --color-addi-gray-darken1: rgb(51, 53, 61);
+  --color-addi-gray-darken2: rgb(38, 38, 46);
+  --color-addi-gray-darken3: rgb(24, 24, 31);
+  --color-addi-gray-darken4: rgb(7, 8, 10);
+  --color-addi-black: rgb(24, 24, 31);
+  --color-addi-white: rgb(255, 255, 255);
+}
+
+/* Fonts */
+
+:root {
+  --font-addi-family-primary-name: Mallory;
+  --font-addi-family-primary-url-regular: https://s3.amazonaws.com/statics.addi.com/fonts/mallory/Mallory_Book.ttf;
+  --font-addi-family-primary-url-italic: https://s3.amazonaws.com/statics.addi.com/fonts/mallory/Mallory_Book_Italic.ttf;
+  --font-addi-family-primary-url-bold: https://s3.amazonaws.com/statics.addi.com/fonts/mallory/Mallory_Bold.ttf;
+  --font-addi-family-primary-url-bold-italic: https://s3.amazonaws.com/statics.addi.com/fonts/mallory/Mallory_Bold_Italic.ttf;
+  --font-addi-family-secondary-name: Inter;
+  --font-addi-family-secondary-url-regular: https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Regular.ttf;
+  --font-addi-family-secondary-url-italic: https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Italic.woff2;
+  --font-addi-family-secondary-url-bold: https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-Bold.ttf;
+  --font-addi-family-secondary-url-bold-italic: https://s3.amazonaws.com/statics.addi.com/fonts/inter/Inter-BoldItalic.woff2;
+  --font-addi-weight-thin: 100;
+  --font-addi-weight-extra-light: 200;
+  --font-addi-weight-light: 300;
+  --font-addi-weight-regular: 400;
+  --font-addi-weight-medium: 500;
+  --font-addi-weight-semi-bold: 600;
+  --font-addi-weight-bold: 700;
+  --font-addi-weight-extra-bold: 800;
+  --font-addi-weight-black: 900;
+  --font-addi-format-web-open-font-format: woff;
+  --font-addi-format-web-open-font-format2: woff2;
+  --font-addi-format-true-type: truetype;
+  --font-addi-format-open-type: opentype;
+  --font-addi-format-embedded-open-type: embedded-opentype;
+  --font-addi-format-svg: svg;
+}
+
 addi-widget > addi-banner > div.addi-banner-co {
   /*padding: 5vh 0 10vh 0;*/
   margin:12px 0;
@@ -18,10 +171,15 @@ margin-top: -7px;
 max-height: 20px;
 }
 
+li.wc_payment_method.payment_method_addi > label[for=payment_method_addi] > img {
+  width: 65px;
+  height: 25px;
+}
+
 /*li.wc_payment_method.payment_method_addi > div.payment_box.payment_method_addi {
-  border: 1px solid #C9CDD1;
-  box-sizing: border-box;
-  border-radius: 8px;
+border: 1px solid #C9CDD1;
+box-sizing: border-box;
+border-radius: 8px;
 }*/
 
 li.wc_payment_method.payment_method_addi > div.payment_box.payment_method_addi > div.desc_header {
@@ -452,9 +610,16 @@ cursor:not-allowed !important;
   padding: 0 8px;
   width: auto;
   min-height: 37px;
-  border: 1px solid #CCDDFF;
   border-radius: 4px;
   background-color: #FFFFFF;
+}
+
+.addi-step__container:first-child {
+  border: 1px solid #CCDDFF;
+}
+
+.addi-step__container.selector {
+  border: none;
 }
 
 .addi-step {
@@ -609,7 +774,7 @@ cursor:not-allowed !important;
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 2px 0
+  margin: 6px 0 !important;
 }
 
 .addi-payment__description {
@@ -644,7 +809,157 @@ cursor:not-allowed !important;
   margin-bottom: 15px
 }
 
+p
+
 .addi-description__paragraph {
   margin-top: 15px !important;
   font-size: 14px;
+}
+
+.addi-payment__badge {
+  display: flex;
+  align-items: center;
+  background: var(--color-addi-comp-three-lighten5);
+  border-radius: 4px;
+  padding: 2px 8px;
+  height: min-content;
+}
+
+/*Colombia styles*/
+
+.addi-co-description-block {
+  border-radius: 8px;
+  border: 1px solid #EBECED;
+  padding: 8px;
+  box-sizing: border-box;
+  background-color: white;
+  display: inline-flex;
+}
+
+.addi-co-description-block.with-margin {
+  margin-top: 10px;x
+}
+
+.addi-co-description-header {
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.addi-co-description-detail {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.addi_description_container.flex {
+  background-color: white;
+  border: 1px solid #DCDCDC;
+  border-radius: 8px;
+  min-width: 260px;
+}
+
+/* Addi flex */
+.flex-header, .bnpl-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-header .logo, .bnpl-header .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.flex-header .logo img {
+  width: 78px;
+  height: 28px;
+}
+
+.bnpl-header .logo img{
+  margin-bottom: 11px;
+  width: 100%;
+  max-height: none !important;
+  max-width: 270px;
+}
+
+.flex-header .title {
+  font-family: 'Mallory';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 124%;
+  letter-spacing: -0.01em;
+  color: #18181F;
+  margin-bottom: 10px;
+}
+
+.addi-co-description-block.flex {
+  border-radius: 0;
+  border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 148%;
+  padding-left: 0;
+}
+
+.addi-co-description-block.flex img {
+  margin-right: 10px;
+}
+
+.addi-co-description-footer {
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 148%;
+  color: #4D525C;
+}
+
+.discount-container-flex {
+  align-items: center;
+  padding: 4px 8px;
+  width: 125px;
+  height: 22px;
+  right: 15.5px;
+  top: 24px;
+  background: #EBFFEF;
+  border-radius: 4px;
+}
+
+.discount-container-flex .discount-label-flex {
+  font-family: 'Inter';
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 120%;
+  color: #018052;
+}
+
+.constraint-container-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 10px;
+  background: #FFF2F2;
+  border: 1px solid #FA4D4B;
+  border-radius: 4px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 148%;
+  color: #4D525C;
+}
+
+/* Widget*/
+
+.addi-banner-co-info__addi-logo, .addi-banner-br-info__addi-logo  {
+  max-width: 30px !important;
 }

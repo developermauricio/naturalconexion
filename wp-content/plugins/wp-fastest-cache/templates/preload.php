@@ -96,11 +96,14 @@
 					<label style="float:left;margin-left:8px;padding-top:4px;"><?php _e('pages per minute', 'wp-fastest-cache'); ?></label>
 				</div>
 
-				<div class="wiz-input-cont" style="width: 94% !important;margin-bottom: 0px !important;">
+				<div class="wiz-input-cont" style="width: 94% !important;margin-bottom: 15px !important;">
 					<label class="mc-input-label" style="margin-right: 5px;"><input type="checkbox" <?php echo $wpFastestCachePreload_restart; ?> id="wpFastestCachePreload_restart" name="wpFastestCachePreload_restart"></label>
 					<label for="wpFastestCachePreload_restart"><?php _e('Restart After Completed', 'wp-fastest-cache'); ?></label>
 					<a style="margin-left:5px;" target="_blank" href="http://www.wpfastestcache.com/features/restart-preload-after-completed/"><img src="<?php echo plugins_url("wp-fastest-cache/images/info.png"); ?>"></a>
 				</div>
+
+				<p class="wpfc-bottom-note" style="margin-bottom: 5px;"><a target="_blank" href="https://www.wpfastestcache.com/features/manually-preload-with-cron-jobs/">Please Read: How to Speed Up The Preload Feature</a></p>
+
 
 				<input type="hidden" value="<?php echo $wpFastestCachePreload_order; ?>" id="wpFastestCachePreload_order" name="wpFastestCachePreload_order">
 

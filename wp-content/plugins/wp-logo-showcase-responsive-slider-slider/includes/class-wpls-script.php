@@ -16,53 +16,45 @@ class Wpls_Script {
 
 	function __construct() {
 
-		// Action to add style in backend
+		// Action to add style and script in backend
 		add_action( 'admin_enqueue_scripts', array($this, 'wpls_admin_style_script') );
 
-		// Action to add style at front side
-		add_action( 'wp_enqueue_scripts', array($this, 'wpls_logoshowcase_style_css' ));
-	
-		// Action to add script at front side
-		add_action( 'wp_enqueue_scripts', array($this, 'wpls_logoshowcase_script') );
-
+		// Action to add style and script at front side
+		add_action( 'wp_enqueue_scripts', array($this, 'wpls_logoshowcase_style_script') );
 	}
 
 	/**
 	 * Enqueue admin styles
 	 * 
-	 * @package WP Logo Showcase Responsive Slider
 	 * @since 2.7.2
 	 */
-	function wpls_register_admin_assets(){
+	function wpls_register_admin_assets() {
 
 		/* Styles */
 		// Registring admin css
-		wp_register_style( 'wpls-admin-style', WPLS_URL.'assets/css/logo-showcase-admin.css', array(), WPLS_VERSION );
+		wp_register_style( 'wpls-admin-style', WPLS_URL.'assets/css/wpls-admin.css', array(), WPLS_VERSION );
+
 
 		/* Scripts */
 		// Registring admin script
 		wp_register_script( 'wpls-admin-script', WPLS_URL.'assets/js/wpls-admin.js', array('jquery'), WPLS_VERSION, true );
-
 	}
 
 	/**
 	 * Enqueue admin styles
 	 * 
-	 * @package WP Logo Showcase Responsive Slider
 	 * @since 2.5
 	 */
 	function wpls_admin_style_script( $hook ) {
 
 		$this->wpls_register_admin_assets();
 
-		global $typenow, $wp_version;
-
-		$new_ui = $wp_version >= '3.5' ? '1' : '0'; // Check wordpress version for older scripts
+		global $typenow;
 
 		// Taking pages array
 		$pages_arr = array( WPLS_POST_TYPE );
 
-		if( in_array($typenow, $pages_arr) ) {
+		if( in_array( $typenow, $pages_arr ) ) {
 			wp_enqueue_style( 'wpls-admin-style' );
 		}
 
@@ -72,35 +64,33 @@ class Wpls_Script {
 	}
 
 	/**
-	 * Function to add style at front side
+	 * Function to add style and script at front side
 	 * 
-	 * @package WP Logo Showcase Responsive Slider
 	 * @since 1.0.0
 	 */
-	function wpls_logoshowcase_style_css() {
-		// Registring and enqueing slick slider css
-		if( !wp_style_is( 'wpos-slick-style', 'registered' ) ) {
-			wp_register_style( 'wpos-slick-style', WPLS_URL.'assets/css/slick.css', array(), WPLS_VERSION );
-			wp_enqueue_style( 'wpos-slick-style' );
-		}
-
-		wp_register_style( 'logo_showcase_style', WPLS_URL.'assets/css/logo-showcase.css', array(), WPLS_VERSION );
-		wp_enqueue_style( 'logo_showcase_style');
-
-	}
-
-	/**
-	 * Function to add style at front side
-	 * 
-	 * @package WP Logo Showcase Responsive Slider
-	 * @since 1.0.0
-	 */
-	function wpls_logoshowcase_script(){
-
+	function wpls_logoshowcase_style_script() {
+		
 		global $post;
 
+		// Determine Elementor Preview Screen
+		// Check elementor preview is there
+		$elementor_preview = ( defined('ELEMENTOR_PLUGIN_BASE') && isset( $_GET['elementor-preview'] ) && $post->ID == (int) $_GET['elementor-preview'] ) ? 1 : 0;
+
+		/* Style */
+		// Registring and enqueing slick slider css
+		if( ! wp_style_is( 'wpos-slick-style', 'registered' ) ) {
+			wp_register_style( 'wpos-slick-style', WPLS_URL.'assets/css/slick.css', array(), WPLS_VERSION );
+		}
+
+		wp_register_style( 'wpls-public-style', WPLS_URL.'assets/css/wpls-public.css', array(), WPLS_VERSION );
+
+		wp_enqueue_style( 'wpos-slick-style' );
+		wp_enqueue_style( 'wpls-public-style');
+
+
+		/* Scripts */
 		// Registring slick slider js
-		if( !wp_script_is( 'wpos-slick-jquery', 'registered' ) ) {
+		if( ! wp_script_is( 'wpos-slick-jquery', 'registered' ) ) {
 			wp_register_script( 'wpos-slick-jquery', WPLS_URL.'assets/js/slick.min.js', array('jquery'), WPLS_VERSION, true );
 		}
 
@@ -109,9 +99,10 @@ class Wpls_Script {
 
 		wp_register_script( 'wpls-public-js', WPLS_URL.'assets/js/wpls-public.js', array('jquery'), WPLS_VERSION, true );		
 		wp_localize_script( 'wpls-public-js', 'Wpls', array(
-															'is_mobile' =>	(wp_is_mobile()) ? 1 : 0,
-															'is_rtl' 	=>	(is_rtl()) ? 1 : 0,
-															'is_avada' 	=> (class_exists( 'FusionBuilder' ))	? 1 : 0,
+														'elementor_preview'	=> $elementor_preview,
+														'is_mobile'			=> (wp_is_mobile()) ? 1 : 0,
+														'is_rtl' 			=> (is_rtl()) ? 1 : 0,
+														'is_avada'			=> (class_exists( 'FusionBuilder' )) ? 1 : 0,
 		));
 
 		// Enqueue Script for Elementor Preview
@@ -128,6 +119,7 @@ class Wpls_Script {
 			$this->wpls_register_admin_assets();
 
 			wp_enqueue_style( 'wpls-admin-style');
+
 			wp_enqueue_script( 'wpls-admin-script' );
 			wp_enqueue_script( 'wpos-slick-jquery' );
 			wp_enqueue_script( 'wpls-public-js' );
@@ -141,7 +133,7 @@ class Wpls_Script {
 		}
 
 		// Enqueue Admin Style for Fusion Page Builder
-		if( class_exists( 'FusionBuilder' ) && (( isset( $_GET['builder'] ) && $_GET['builder'] == 'true' ) ) ) {
+		if( class_exists( 'FusionBuilder' ) && (( isset( $_GET['builder'] ) && $_GET['builder'] == 'true' )) ) {
 			$this->wpls_register_admin_assets();
 
 			wp_enqueue_style( 'wpls-admin-style');

@@ -16,9 +16,9 @@ function wpls_register_guten_block() {
 	wp_register_script( 'wpls-free-block-js', WPLS_URL.'assets/js/blocks.build.js', array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components' ), WPLS_VERSION, true );
 
 	wp_localize_script( 'wpls-free-block-js', 'Wplsf_Block', array(
-																'pro_demo_link' => 'https://demo.wponlinesupport.com/prodemo/pro-logo-showcase-responsive-slider/',
-																'free_demo_link' => 'https://demo.wponlinesupport.com/logo-slider-plugin-demo/',
-																'pro_link' => WPLS_PLUGIN_LINK_UNLOCK,
+																'pro_demo_link'		=> 'https://demo.essentialplugin.com/prodemo/pro-logo-showcase-responsive-slider/',
+																'free_demo_link'	=> 'https://demo.essentialplugin.com/logo-slider-plugin-demo/',
+																'pro_link'			=> WPLS_PLUGIN_LINK_UNLOCK,
 															));
 
 	// Register block and explicit attributes for grid
@@ -134,7 +134,6 @@ add_action( 'init', 'wpls_register_guten_block' );
  * @uses {wp-i18n} to internationalize the block's text.
  * @uses {wp-editor} for WP editor styles.
  * 
- * @package WP Logo Showcase Responsive Slider
  * @since 2.5
  */
 function wpls_editor_assets() {
@@ -153,17 +152,16 @@ add_action( 'enqueue_block_editor_assets', 'wpls_editor_assets' );
 /**
  * Adds an extra category to the block inserter
  *
- * @package WP Logo Showcase Responsive Slider
  * @since 2.5
  */
 function wpls_add_block_category( $categories ) {
 
 	$guten_cats = wp_list_pluck( $categories, 'slug' );
 
-	if( ! in_array( 'wpos_guten_block', $guten_cats ) ) {
+	if( ! in_array( 'essp_guten_block', $guten_cats ) ) {
 		$categories[] = array(
-							'slug'	=> 'wpos_guten_block',
-							'title'	=> esc_html__('WPOS Blocks', 'wp-logo-showcase-responsive-slider-slider'),
+							'slug'	=> 'essp_guten_block',
+							'title'	=> esc_html__('Essential Plugin Blocks', 'wp-logo-showcase-responsive-slider-slider'),
 							'icon'	=> null,
 						);
 	}

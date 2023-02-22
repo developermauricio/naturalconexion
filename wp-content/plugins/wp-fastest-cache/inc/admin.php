@@ -680,6 +680,10 @@
 				$this->deleteCache();
 			}
 
+			if(defined("WPFC_SERVE_ONLY_VIA_CACHE") && WPFC_SERVE_ONLY_VIA_CACHE){
+				$htaccess = preg_replace("/#\s?BEGIN\s?WpFastestCache.*?#\s?END\s?WpFastestCache/s", "", $htaccess);
+			}
+
 			return $htaccess;
 		}
 
@@ -1617,6 +1621,33 @@
 					    			echo "WpFcTimeout.init();";
 					    		} ?>
 				    	</script>
+
+
+
+				    	<div class="exclude_section_clear" style=" margin-left: 3%; width: 95%; margin-bottom: 12px; margin-top: 0;"><div></div></div>
+
+				    	<h2 style="padding-bottom:10px;padding-left:20px;float:left;"><?php _e("Clearing Specific Pages", "wp-fastest-cache"); ?></h2>
+
+				    	<div style="float:left;margin-top:-37px;padding-left:628px;">
+				    		<button type="button" <?php echo $disable_wp_cron;?> class="wpfc-add-new-csp-button wpfc-dialog-buttons" style="display: inline-block;padding: 4px 10px;">
+				    			<span><?php _e("Add New Rule", "wp-fastest-cache"); ?></span>
+							</button>
+				    	</div>
+
+				    	<div class="wpfc-csp-list" style="display: block;width:98%;float:left;">
+
+				    	</div>
+
+				    	<?php
+				    		include(WPFC_MAIN_PATH."templates/clearing_specific_pages.php");
+				    	?>
+
+
+
+
+
+
+
 				    </div>
 
 
@@ -1693,31 +1724,24 @@
 				    				<h1 style="float:left;" id="just-h1"><?php _e("Just", "wp-fastest-cache"); ?></h1><h1><span style="margin-left:5px;" id="wpfc-premium-price"><?php echo $premium_price; ?></span></h1>
 				    				<p><?php _e("The download button will be available after paid. You can buy the premium version now.", "wp-fastest-cache"); ?></p>
 
-				    				<?php if(!preg_match("/Caiu\s*Na/i", get_bloginfo("name")) && !preg_match("/(caiuna|escort|porn)/i", $_SERVER["HTTP_HOST"])){ ?>
-					    				<?php if(class_exists("WpFastestCachePowerfulHtml")){ ?>
-						    					<button id="wpfc-buy-premium-button" type="submit" class="wpfc-btn primaryDisableCta" style="width:200px;">
-							    					<span><?php _e("Purchased", "wp-fastest-cache"); ?></span>
+				    				<?php if(class_exists("WpFastestCachePowerfulHtml")){ ?>
+					    					<button id="wpfc-buy-premium-button" type="submit" class="wpfc-btn primaryDisableCta" style="width:200px;">
+						    					<span><?php _e("Purchased", "wp-fastest-cache"); ?></span>
+						    				</button>
+					    				<?php }else{ ?>
+
+					    			
+					    					<form action="<?php echo $premium_buy_link; ?>" method="post">
+						    					<input type="hidden" name="ip" value="<?php echo $_SERVER["REMOTE_ADDR"]; ?>">
+						    					<input type="hidden" name="wpfclang" value="<?php echo isset($this->options->wpFastestCacheLanguage) ? esc_attr($this->options->wpFastestCacheLanguage) : ""; ?>">
+						    					<input type="hidden" name="bloglang" value="<?php echo get_bloginfo('language'); ?>">
+						    					<input type="hidden" name="hostname" value="<?php echo str_replace(array("http://", "www."), "", $_SERVER["HTTP_HOST"]); ?>">
+							    				<button id="wpfc-buy-premium-button" type="submit" class="wpfc-btn primaryCta" style="width:200px;">
+							    					<span><?php _e("Buy", "wp-fastest-cache"); ?></span>
 							    				</button>
-						    				<?php }else{ ?>
+						    				</form>
+					    				
 
-						    					<?php //if(is_multisite()){ ?>
-						    					<?php if(false){ ?>
-						    						<button id="wpfc-buy-premium-button" type="submit" class="wpfc-btn primaryCta" style="width:200px;background-color:red;border-color:red;">
-						    							<span>Not Available<br>for<br>Multi-Site</span>
-						    						</button>
-						    					<?php }else{ ?>
-							    					<form action="<?php echo $premium_buy_link; ?>" method="post">
-								    					<input type="hidden" name="ip" value="<?php echo $_SERVER["REMOTE_ADDR"]; ?>">
-								    					<input type="hidden" name="wpfclang" value="<?php echo isset($this->options->wpFastestCacheLanguage) ? esc_attr($this->options->wpFastestCacheLanguage) : ""; ?>">
-								    					<input type="hidden" name="bloglang" value="<?php echo get_bloginfo('language'); ?>">
-								    					<input type="hidden" name="hostname" value="<?php echo str_replace(array("http://", "www."), "", $_SERVER["HTTP_HOST"]); ?>">
-									    				<button id="wpfc-buy-premium-button" type="submit" class="wpfc-btn primaryCta" style="width:200px;">
-									    					<span><?php _e("Buy", "wp-fastest-cache"); ?></span>
-									    				</button>
-								    				</form>
-						    					<?php } ?>
-
-						    			<?php } ?>
 					    			<?php } ?>
 
 
@@ -1948,15 +1972,6 @@
 				    				<div class="meta"></div>
 				    			</div>
 
-				    			<div wpfc-cdn-name="photon" class="int-item int-item-left">
-				    				<img src="<?php echo plugins_url("wp-fastest-cache/images/photoncdn.png"); ?>" />
-				    				<div class="app">
-				    					<div style="font-weight:bold;font-size:14px;">CDN by Photon</div>
-				    					<p>Wordpress Content Delivery Network Services</p>
-				    				</div>
-				    				<div class="meta"></div>
-				    			</div>
-
 
 				    			<div wpfc-cdn-name="cloudflare" class="int-item">
 				    				<img style="border-radius:50px;" src="<?php echo plugins_url("wp-fastest-cache/images/cloudflare.png"); ?>" />
@@ -2043,7 +2058,14 @@
 				    </div>
 
 				    <div class="tab8" style="padding-left:20px;">
-				    	<h2 style="padding-bottom:10px;"><?php _e("Database Cleanup", "wp-fastest-cache"); ?></h2>
+				    	<h2 style="padding-bottom:10px;display: inline-block;float: left;width: 48%;"><?php _e("Database Cleanup", "wp-fastest-cache"); ?></h2>
+
+				    	<?php
+				    		if(file_exists(WPFC_WP_PLUGIN_DIR."/wp-fastest-cache-premium/pro/templates/db-auto-cleanup.php")){
+				    			include_once WPFC_WP_PLUGIN_DIR."/wp-fastest-cache-premium/pro/templates/db-auto-cleanup.php";
+				    		}
+				    	?>
+
 				    	<div>
 
 			    		<?php if(!$this->isPluginActive("wp-fastest-cache-premium/wpFastestCachePremium.php")){ ?>
@@ -2053,6 +2075,11 @@
 				    				}
 				    				div.tab8 .integration-page{
 				    					opacity: 0.3 !important;
+				    					pointer-events: none !important;
+				    				}
+				    				select#wpfc-auto-cleanup-option{
+				    					opacity: 0.3 !important;
+				    					pointer-events: none !important;
 				    				}
 				    			</style>
 				    			

@@ -29,14 +29,14 @@ class SC_Admin_Edit{
         $settings = Shortcoder::get_sc_settings( $post->ID );
 
         echo '<div id="sc_name">';
-        echo '<input type="text" class="widefat" title="' . __( 'Name of the shortcode. Allowed characters are alphabets, numbers, hyphens and underscore.', 'shortcoder' ) . '" value="' . $post->post_name . '" name="post_name" id="post_name" pattern="[a-zA-z0-9\-_]+" required placeholder="' . __( 'Enter shortcode name', 'shortcoder' ) . '" />';
+        echo '<input type="text" class="widefat" title="' . esc_attr__( 'Name of the shortcode. Allowed characters are alphabets, numbers, hyphens and underscore.', 'shortcoder' ) . '" value="' . esc_attr( $post->post_name ) . '" name="post_name" id="post_name" pattern="[a-zA-z0-9\-_]+" required placeholder="' . esc_attr__( 'Enter shortcode name', 'shortcoder' ) . '" />';
         echo '</div>';
 
         echo '<div id="edit-slug-box">';
-        echo '<strong>' . __( 'Your shortcode', 'shortcoder' ) . ': </strong>';
-        echo '<code class="sc_preview_text">' . Shortcoder::get_sc_tag( $post->ID ) . '</code>';
-        echo '<span id="edit-slug-buttons"><button type="button" class="sc_copy button button-small"><span class="dashicons dashicons-yes"></span> ' . __( 'Copy', 'shortcoder' ) . '</button></span>';
-        echo '<a href="#sc_mb_settings" class="sc_settings_link">' . __( 'Settings', 'shortcoder' ) . '</a>';
+        echo '<strong>' . esc_html__( 'Your shortcode', 'shortcoder' ) . ': </strong>';
+        echo '<code class="sc_preview_text">' . esc_html( Shortcoder::get_sc_tag( $post->ID ) ) . '</code>';
+        echo '<span id="edit-slug-buttons"><button type="button" class="sc_copy button button-small"><span class="dashicons dashicons-yes"></span> ' . esc_html__( 'Copy', 'shortcoder' ) . '</button></span>';
+        echo '<a href="#sc_mb_settings" class="sc_settings_link">' . esc_html__( 'Settings', 'shortcoder' ) . '</a>';
         echo '</div>';
 
         // Editor
@@ -51,9 +51,9 @@ class SC_Admin_Edit{
 
         add_meta_box( 'sc_mb_settings', __( 'Shortcode settings', 'shortcoder' ), array( __CLASS__, 'settings_form' ), SC_POST_TYPE, 'normal', 'default' );
 
-        add_meta_box( 'sc_mb_links', __( 'WordPress News', 'shortcoder' ), array( __CLASS__, 'feedback' ), SC_POST_TYPE, 'side', 'default' );
+        add_meta_box( 'sc_mb_more_plugins', __( 'Support', 'shortcoder' ), array( __CLASS__, 'more_plugins' ), SC_POST_TYPE, 'side', 'default' );
 
-        add_meta_box( 'sc_mb_more_plugins', __( 'More plugins from us', 'shortcoder' ), array( __CLASS__, 'more_plugins' ), SC_POST_TYPE, 'side', 'default' );
+        add_meta_box( 'sc_mb_links', __( 'WordPress News', 'shortcoder' ), array( __CLASS__, 'feedback' ), SC_POST_TYPE, 'side', 'default' );
 
         remove_meta_box( 'slugdiv', SC_POST_TYPE, 'normal' );
 
@@ -118,7 +118,7 @@ class SC_Admin_Edit{
 
         );
 
-        echo SC_Admin_Form::table($fields);
+        echo SC_Admin_Form::table( apply_filters( 'sc_mod_sc_settings_fields', $fields, $settings ) );
 
     }
 
@@ -135,11 +135,16 @@ class SC_Admin_Edit{
         }
 
         $default_settings = Shortcoder::default_sc_settings();
+        $skip_sanitize = array();
 
         foreach( $default_settings as $key => $val ){
 
             if( array_key_exists( $key, $_POST ) ){
-                $val = sanitize_text_field( $_POST[ $key ] );
+                if( in_array( $key, $skip_sanitize ) ){
+                    $val = current_user_can( 'unfiltered_html' ) ? $_POST[ $key ] : wp_kses_post( $_POST[ $key ] );
+                }else{
+                    $val = sanitize_text_field( $_POST[ $key ] );
+                }
                 update_post_meta( $post_id, $key, $val );
             }
 
@@ -153,13 +158,13 @@ class SC_Admin_Edit{
             return $post;
         }
 
-        $post_title = trim( $post[ 'post_title' ] );
+        $post_title = sanitize_text_field( $post[ 'post_title' ] );
         if( empty( $post_title ) ){
-            $post[ 'post_title' ] = $post[ 'post_name' ];
+            $post[ 'post_title' ] = sanitize_text_field( $post[ 'post_name' ] );
         }
 
         if( $_POST && isset( $_POST[ 'sc_content' ] ) ){
-            $post[ 'post_content' ] = $_POST[ 'sc_content' ];
+            $post[ 'post_content' ] = current_user_can( 'unfiltered_html' ) ? $_POST[ 'sc_content' ] : wp_kses_post( $_POST[ 'sc_content' ] );
         }
 
         return $post;
@@ -174,18 +179,18 @@ class SC_Admin_Edit{
             $settings[ '_sc_editor' ] = $general_settings[ 'default_editor' ];
         }
 
-        $list = array(
+        $list = apply_filters( 'sc_mod_editors', array(
             'text' => __( 'Text editor', 'shortcoder' ),
             'visual' => __( 'Visual editor', 'shortcoder' ),
             'code' => __( 'Code editor', 'shortcoder' )
-        );
+        ));
 
         $editor = ( isset( $g[ 'editor' ] ) && array_key_exists( $g[ 'editor' ], $list ) ) ? $g[ 'editor' ] : $settings[ '_sc_editor' ];
 
-        $switch = '<span class="sc_editor_list sc_editor_icon_' . $editor . '">';
-        $switch .= '<select name="_sc_editor" class="sc_editor" title="' . __( 'Switch editor', 'shortcoder' ) . '">';
+        $switch = '<span class="sc_editor_list sc_editor_icon_' . esc_attr( $editor ) . '">';
+        $switch .= '<select name="_sc_editor" class="sc_editor" title="' . esc_attr__( 'Switch editor', 'shortcoder' ) . '">';
         foreach( $list as $id => $name ){
-            $switch .= '<option value="' . $id . '" ' . selected( $editor, $id, false ) . '>' . $name . '</option>';
+            $switch .= '<option value="' . esc_attr( $id ) . '" ' . selected( $editor, $id, false ) . '>' . esc_html( $name ) . '</option>';
         }
         $switch .= '</select>';
         $switch .= '</span>';
@@ -203,27 +208,37 @@ class SC_Admin_Edit{
 
         echo '<div class="hidden">';
         echo '<div class="sc_editor_toolbar">';
-        echo '<button class="button button-primary sc_insert_param"><span class="dashicons dashicons-plus"></span>' . __( 'Insert shortcode parameters', 'shortcoder' ) . '<span class="dashicons dashicons-arrow-down"></span></button>';
+        echo '<button class="button button-primary sc_insert_param"><span class="dashicons dashicons-plus"></span>' . esc_html__( 'Insert shortcode parameters', 'shortcoder' ) . '<span class="dashicons dashicons-arrow-down"></span></button>';
         echo $editor[ 'switch_html' ];
         echo '</div>';
         echo '</div>';
 
+        $post_data = get_post( $post->ID );
+        $post_content = $post_data->post_content;
+
         if( SC_Admin::is_edit_page( 'new' ) ){
             $general_settings = Shortcoder::get_settings();
-            $post->post_content = $general_settings[ 'default_content' ];
+            $post_content = $general_settings[ 'default_content' ];
         }
 
         if( $editor[ 'active' ] == 'code' ){
             echo '<div class="sc_cm_menu"></div>';
-            $content = user_can_richedit() ? esc_textarea( $post->post_content ) : $post->post_content;
-            echo '<textarea name="sc_content" id="sc_content" class="sc_cm_content">' . $content . '</textarea>';
-        }else{
-            wp_editor( $post->post_content, 'sc_content', array(
+            echo '<textarea name="sc_content" id="sc_content" class="sc_cm_content">' . esc_textarea( $post_content ) . '</textarea>';
+        }
+
+        if( in_array( $editor[ 'active' ], array( 'text', 'visual' ) ) ){
+            wp_editor( $post_content, 'sc_content', array(
                 'wpautop'=> false,
                 'textarea_rows'=> 20,
                 'tinymce' => ( $editor[ 'active' ] == 'visual' )
             ));
         }
+
+        if( !current_user_can( 'unfiltered_html' ) ){
+            echo '<div class="notice notice-info"><p>' . esc_html__( 'Note: Your user role does not permit saving unrestricted HTML. Some tags and attributes will be removed before saving the content.', 'shortcoder' ) . '</p></div>';
+        }
+
+        do_action( 'sc_do_after_editor', $post, $settings, $editor );
 
     }
 
@@ -262,33 +277,33 @@ class SC_Admin_Edit{
         echo '<ul class="sc_params_list">';
 
         foreach( $sc_wp_params as $group => $group_info ){
-            echo '<li><span class="dashicons dashicons-' . $group_info['icon'] . '"></span>';
-            echo $group_info[ 'name' ];
+            echo '<li><span class="dashicons dashicons-' . esc_attr( $group_info['icon'] ) . '"></span>';
+            echo esc_html( $group_info[ 'name' ] );
             echo '<ul class="sc_wp_params">';
             foreach( $group_info[ 'params' ] as $param_id => $param_name ){
-                echo '<li data-id="' . $param_id . '">' . $param_name . '</li>';
+                echo '<li data-id="' . esc_attr( $param_id ) . '">' . esc_html( $param_name ) . '</li>';
             }
             echo '</ul></li>';
         }
 
-        echo '<li><span class="dashicons dashicons-list-view"></span>' . __( 'Custom parameter', 'shortcoder' ) . '<ul>';
+        echo '<li><span class="dashicons dashicons-list-view"></span>' . esc_html__( 'Custom parameter', 'shortcoder' ) . '<ul>';
         echo '<li class="sc_params_form">';
-            echo '<p>' . __( 'Insert parameters in content and replace them with custom values when using the shortcode.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/custom-parameters/" target="_blank" title="' . __( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
-            echo '<h4>' . __( 'Enter custom parameter name', 'shortcoder' ) . '</h4>';
+            echo '<p>' . esc_html__( 'Insert parameters in content and replace them with custom values when using the shortcode.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/custom-parameters/" target="_blank" title="' . esc_attr__( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
+            echo '<h4>' . esc_html__( 'Enter custom parameter name', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cp_box widefat" pattern="[a-zA-Z0-9_-]+"/>';
-            echo '<h4>' . __( 'Default value', 'shortcoder' ) . '</h4>';
+            echo '<h4>' . esc_html__( 'Default value', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cp_default widefat"/>';
-            echo '<button class="button sc_cp_btn">' . __( 'Insert parameter', 'shortcoder' ) . '</button>';
-            echo '<p class="sc_cp_info"><small>' . __( 'Only alphabets, numbers, underscores and hyphens are allowed. Custom parameters are case insensitive', 'shortcoder' ) . '</small></p></li>';
+            echo '<button class="button sc_cp_btn">' . esc_html__( 'Insert parameter', 'shortcoder' ) . '</button>';
+            echo '<p class="sc_cp_info"><small>' . esc_html__( 'Only alphabets, numbers, underscores and hyphens are allowed. Custom parameters are case insensitive', 'shortcoder' ) . '</small></p></li>';
         echo '</ul></li>';
 
-        echo '<li><span class="dashicons dashicons-screenoptions"></span>' . __( 'Custom Fields', 'shortcoder' ) . '<ul>';
+        echo '<li><span class="dashicons dashicons-screenoptions"></span>' . esc_html__( 'Custom Fields', 'shortcoder' ) . '<ul>';
         echo '<li class="sc_params_form">';
-            echo '<p>' . __( 'Pull a custom field value of the current post and display it inside the shortcode content.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/shortcode-parameters/#custom-fields" target="_blank" title="' . __( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
-            echo '<h4>' . __( 'Enter custom field name', 'shortcoder' ) . '</h4>';
+            echo '<p>' . esc_html__( 'Pull a custom field value of the current post and display it inside the shortcode content.', 'shortcoder' ) . '<a href="https://www.aakashweb.com/docs/shortcoder/shortcode-parameters/#custom-fields" target="_blank" title="' . esc_attr__( 'More information', 'shortcoder' ) . '"><span class="dashicons dashicons-info"></span></a></p>';
+            echo '<h4>' . esc_html__( 'Enter custom field name', 'shortcoder' ) . '</h4>';
             echo '<input type="text" class="sc_cf_box widefat" pattern="[a-zA-Z0-9_-]+"/>';
-            echo '<button class="button sc_cf_btn">' . __( 'Insert custom field', 'shortcoder' ) . '</button>';
-            echo '<p class="sc_cf_info"><small>' . __( 'Only alphabets, numbers, underscore and hyphens are allowed. Cannot be empty.', 'shortcoder' ) . '</small></p></li>';
+            echo '<button class="button sc_cf_btn">' . esc_html__( 'Insert custom field', 'shortcoder' ) . '</button>';
+            echo '<p class="sc_cf_info"><small>' . esc_html__( 'Only alphabets, numbers, underscore and hyphens are allowed. Cannot be empty.', 'shortcoder' ) . '</small></p></li>';
         echo '</ul></li>';
 
         echo '</ul>';
@@ -307,15 +322,10 @@ class SC_Admin_Edit{
         echo '<p>Get updates on the WordPress plugins, tips and tricks to enhance your WordPress experience. No spam.</p>';
 
         echo '<div class="subscribe_form" data-action="https://aakashweb.us19.list-manage.com/subscribe/post-json?u=b7023581458d048107298247e&id=ef5ab3c5c4&c=">
-        <input type="text" value="' . get_option( 'admin_email' ) . '" class="subscribe_email_box" placeholder="Your email address">
+        <input type="text" value="' . esc_attr( get_option( 'admin_email' ) ) . '" class="subscribe_email_box" placeholder="Your email address">
         <p class="subscribe_confirm">Thanks for subscribing !</p>
         <button class="button subscribe_btn"><span class="dashicons dashicons-email"></span> Subscribe</button>
         </div>';
-
-        echo '<p>';
-        echo '<a href="https://twitter.com/intent/follow?screen_name=aakashweb" target="_blank" class="button twitter_btn"><span class="dashicons dashicons-twitter"></span> Follow us on Twitter</a>';
-        echo '<a href="https://www.facebook.com/aakashweb/" target="_blank" class="button facebook_btn"><span class="dashicons dashicons-facebook-alt"></span> on Facebook</a>';
-        echo '</p>';
 
         echo '</div>';
     }
@@ -323,29 +333,22 @@ class SC_Admin_Edit{
     public static function more_plugins( $post ){
 
         echo '<div class="feedback">';
-        echo '<div class="promo_slides">';
-        echo '<div class="promo_slide">';
-        echo '<a class="side_banner" href="https://www.aakashweb.com/wordpress-plugins/super-rss-reader/?utm_source=wp-socializer&utm_medium=sidebar&utm_campaign=srr-pro" target="_blank"><img src="' . SC_ADMIN_URL . 'images/super-rss-reader.png" /></a>';
-        echo '</div>';
 
-        echo '<div class="promo_slide">';
-        echo '<a class="side_banner" href="https://www.aakashweb.com/wordpress-plugins/ultimate-floating-widgets/?utm_source=wp-socializer&utm_medium=sidebar&utm_campaign=ufw-pro" target="_blank"><img src="' . SC_ADMIN_URL . 'images/ultimate-floating-widgets.png" /></a>';
-        echo '</div>';
+        echo '<ul>';
+            echo '<li><a href="https://twitter.com/intent/follow?screen_name=aakashweb" target="_blank"><span class="dashicons dashicons-twitter"></span> Follow on Twitter</a></li>';
+            echo '<li><a href="https://www.facebook.com/aakashweb/" target="_blank"><span class="dashicons dashicons-facebook-alt"></span> Follow on Facebook</a></li>';
+            echo '<li><a href="https://www.aakashweb.com/forum/discuss/wordpress-plugins/shortcoder/" target="_blank"><span class="dashicons dashicons-format-chat"></span> Support Forum</a></li>';
+            echo '<li><a href="https://wordpress.org/support/plugin/shortcoder/reviews/?rate=5#new-post" target="_blank"><span class="dashicons dashicons-star-filled"></span> Rate plugin</a></li>';
+        echo '</ul>';
 
-        echo '<div class="promo_slide">';
-        echo '<a class="side_banner" href="https://www.aakashweb.com/wordpress-plugins/announcer/?utm_source=wp-socializer&utm_medium=sidebar&utm_campaign=announcer-pro" target="_blank"><img src="' . SC_ADMIN_URL . 'images/announcer.png" /></a>';
-        echo '</div>';
-        echo '</div>';
-
-        echo '<p class="promo_btns">
-        <a href="#" onclick="sc_next_promo_slide(-1, event)" class="promo_btn"><span class="dashicons dashicons-arrow-left-alt2"></span> Prev</a>
-        <a href="#" onclick="sc_next_promo_slide(1, event)" class="promo_btn right">Next <span class="dashicons dashicons-arrow-right-alt2"></span></a>
-        </p>';
-
-        echo '<p>';
-        echo '<a href="https://wordpress.org/support/plugin/shortcoder/reviews/?rate=5#new-post" target="_blank" class="button"><span class="dashicons dashicons-star-filled"></span> Rate this plugin</a>';
-        echo '<a href="https://www.aakashweb.com/forum/discuss/wordpress-plugins/shortcoder/" target="_blank" class="button"><span class="dashicons dashicons-format-chat"></span> Support forum</a>';
-        echo '</p>';
+        echo '<h3>More WordPress plugins from us</h3>';
+        echo '<ul>';
+            echo '<li><a href="https://www.aakashweb.com/wordpress-plugins/super-rss-reader/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=srr-pro" target="_blank">Super RSS Reader</a> - Display RSS feeds</li>';
+            echo '<li><a href="https://www.aakashweb.com/wordpress-plugins/announcer/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=announcer-pro" target="_blank">Announcer</a> - Add notification message bars easily</li>';
+            echo '<li><a href="https://www.aakashweb.com/wordpress-plugins/ultimate-floating-widgets/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=ufw-pro" target="_blank">Ultimate Floating Widget</a> - Create floating sidebar popup and add widgets inside</li>';
+            echo '<li><a href="https://www.aakashweb.com/wordpress-plugins/wp-socializer/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=wpsr-pro" target="_blank">WP Socializer</a> - Add beautiful social media share icons</li>';
+            echo '<li><a href="https://www.aakashweb.com/wordpress-plugins/?utm_source=shortcoder&utm_medium=sidebar&utm_campaign=aw" target="_blank">More</a> <span class="dashicons dashicons-arrow-right-alt"></span></li>';
+        echo '</ul>';
 
         echo '</div>';
 

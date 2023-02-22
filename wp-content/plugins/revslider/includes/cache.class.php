@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      https://www.themepunch.com/
- * @copyright 2021 ThemePunch
+ * @copyright 2022 ThemePunch
  */
 
 if(!defined('ABSPATH')) exit();
@@ -56,8 +56,8 @@ class RevSliderCache extends RevSliderFunctions {
 		
 		$sid = intval($sid);
 		if($sid > 0){
-			$return = $wpdb->query("DELETE FROM ". $wpdb->prefix . 'options' ." WHERE `option_name` LIKE '_transient_revslider_slider_".$sid."%'");
-			$wpdb->query("DELETE FROM ". $wpdb->prefix . 'options' ." WHERE `option_name` LIKE '_transient_timeout_revslider_slider_".$sid."%'");
+			$return = $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . 'options' ." WHERE `option_name` LIKE '_transient_revslider_slider_%d%%'", $sid));
+			$wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . 'options' ." WHERE `option_name` LIKE '_transient_timeout_revslider_slider_%d%%'", $sid));
 		}
 		
 		return $return;
@@ -172,7 +172,7 @@ class RevSliderCache extends RevSliderFunctions {
 		if(is_array($html)){
 			if(!empty($html)){
 				usort($html, array($this, 'sort_by_priority'));
-				echo (current_filter() === 'wp_print_footer_scripts') ? '<script type="text/javascript">'."\n" : '';
+				echo (current_filter() === 'wp_print_footer_scripts') ? '<script>'."\n" : '';
 				foreach($html as $echo){
 					echo $this->get_val($echo, 'html');
 				}

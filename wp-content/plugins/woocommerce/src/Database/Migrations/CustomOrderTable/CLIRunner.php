@@ -58,6 +58,7 @@ class CLIRunner {
 	public function register_commands() {
 		WP_CLI::add_command( 'wc cot count_unmigrated', array( $this, 'count_unmigrated' ) );
 		WP_CLI::add_command( 'wc cot migrate', array( $this, 'migrate' ) );
+		WP_CLI::add_command( 'wc cot sync', array( $this, 'sync' ) );
 		WP_CLI::add_command( 'wc cot verify_cot_data', array( $this, 'verify_cot_data' ) );
 	}
 
@@ -121,8 +122,13 @@ class CLIRunner {
 		if ( isset( $assoc_args['log'] ) && $assoc_args['log'] ) {
 			WP_CLI::log(
 				sprintf(
-					/* Translators: %1$d is the number of orders to be migrated. */
-					_n( 'There is %1$d order to be migrated.', 'There are %1$d orders to be migrated.', $order_count, 'woocommerce' ),
+					/* Translators: %1$d is the number of orders to be synced. */
+					_n(
+						'There is %1$d order to be synced.',
+						'There are %1$d orders to be synced.',
+						$order_count,
+						'woocommerce'
+					),
 					$order_count
 				)
 			);
@@ -132,7 +138,7 @@ class CLIRunner {
 	}
 
 	/**
-	 * Migrate order data to the custom orders table.
+	 * Sync order data between the custom order tables and the core WordPress post tables.
 	 *
 	 * ## OPTIONS
 	 *
@@ -144,26 +150,22 @@ class CLIRunner {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     wp wc cot migrate --batch-size=500
+	 *     wp wc cot sync --batch-size=500
 	 *
 	 * @param array $args Positional arguments passed to the command.
 	 * @param array $assoc_args Associative arguments (options) passed to the command.
 	 */
-	public function migrate( $args = array(), $assoc_args = array() ) {
+	public function sync( $args = array(), $assoc_args = array() ) {
 		$this->log_production_warning();
 		if ( ! $this->is_enabled() ) {
 			return;
-		}
-
-		if ( $this->synchronizer->custom_orders_table_is_authoritative() ) {
-			return WP_CLI::error( __( 'Migration is not yet supported when custom tables are authoritative. Switch to post tables as authoritative source if you are testing.', 'woocommerce' ) );
 		}
 
 		$order_count = $this->count_unmigrated();
 
 		// Abort if there are no orders to migrate.
 		if ( ! $order_count ) {
-			return WP_CLI::warning( __( 'There are no orders to migrate, aborting.', 'woocommerce' ) );
+			return WP_CLI::warning( __( 'There are no orders to sync, aborting.', 'woocommerce' ) );
 		}
 
 		$assoc_args  = wp_parse_args(
@@ -173,7 +175,7 @@ class CLIRunner {
 			)
 		);
 		$batch_size  = ( (int) $assoc_args['batch-size'] ) === 0 ? 500 : (int) $assoc_args['batch-size'];
-		$progress    = WP_CLI\Utils\make_progress_bar( 'Order Data Migration', $order_count / $batch_size );
+		$progress    = WP_CLI\Utils\make_progress_bar( 'Order Data Sync', $order_count / $batch_size );
 		$processed   = 0;
 		$batch_count = 1;
 		$total_time  = 0;
@@ -182,24 +184,24 @@ class CLIRunner {
 
 			WP_CLI::debug(
 				sprintf(
-					/* Translators: %1$d is the batch number, %2$d is the batch size. */
+					/* Translators: %1$d is the batch number and %2$d is the batch size. */
 					__( 'Beginning batch #%1$d (%2$d orders/batch).', 'woocommerce' ),
 					$batch_count,
 					$batch_size
 				)
 			);
 			$batch_start_time = microtime( true );
-			$order_ids        = $this->synchronizer->get_ids_of_orders_pending_sync( $this->synchronizer::ID_TYPE_MISSING_IN_ORDERS_TABLE, $batch_size );
+			$order_ids        = $this->synchronizer->get_next_batch_to_process( $batch_size );
 			if ( count( $order_ids ) ) {
-				$this->post_to_cot_migrator->migrate_orders( $order_ids );
+				$this->synchronizer->process_batch( $order_ids );
 			}
 			$processed       += count( $order_ids );
 			$batch_total_time = microtime( true ) - $batch_start_time;
 
 			WP_CLI::debug(
 				sprintf(
-					// Translators: %1$d is the batch number, %2$f is time taken to process batch.
-					__( 'Batch %1$d (%2$d orders) completed in %3$f seconds', 'woocommerce' ),
+					// Translators: %1$d is the batch number, %2$d is the number of processed orders and %3$d is the execution time in seconds.
+					__( 'Batch %1$d (%2$d orders) completed in %3$d seconds', 'woocommerce' ),
 					$batch_count,
 					count( $order_ids ),
 					$batch_total_time
@@ -222,15 +224,20 @@ class CLIRunner {
 
 		// Issue a warning if no orders were migrated.
 		if ( ! $processed ) {
-			return WP_CLI::warning( __( 'No orders were migrated.', 'woocommerce' ) );
+			return WP_CLI::warning( __( 'No orders were synced.', 'woocommerce' ) );
 		}
 
-		WP_CLI::log( __( 'Migration completed.', 'woocommerce' ) );
+		WP_CLI::log( __( 'Sync completed.', 'woocommerce' ) );
 
 		return WP_CLI::success(
 			sprintf(
-				/* Translators: %1$d is the number of migrated orders. */
-				_n( '%1$d order was migrated, in %2$f seconds', '%1$d orders were migrated in %2$f seconds', $processed, 'woocommerce' ),
+				/* Translators: %1$d is the number of migrated orders and %2$d is the execution time in seconds. */
+				_n(
+					'%1$d order was synced in %2$d seconds.',
+					'%1$d orders were synced in %2$d seconds.',
+					$processed,
+					'woocommerce'
+				),
 				$processed,
 				$total_time
 			)
@@ -259,8 +266,9 @@ class CLIRunner {
 	 * @param array $args Positional arguments passed to the command.
 	 * @param array $assoc_args Associative arguments (options) passed to the command.
 	 */
-	public function backfill( $args = array(), $assoc_args = array() ) {
-		return WP_CLI::error( __( 'Error: Backfill is not implemented yet.', 'woocommerce' ) );
+	public function migrate( $args = array(), $assoc_args = array() ) {
+		$this->log_production_warning();
+		WP_CLI::log( __( 'Migrate command is deprecated. Please use `sync` instead.', 'woocommerce' ) );
 	}
 
 	/**
@@ -346,8 +354,8 @@ class CLIRunner {
 
 			WP_CLI::debug(
 				sprintf(
-				// Translators: %1$d is the batch number, %2$f is time taken to process batch.
-					__( 'Batch %1$d (%2$d orders) completed in %3$f seconds', 'woocommerce' ),
+					/* Translators: %1$d is the batch number, %2$d is time taken to process batch. */
+					__( 'Batch %1$d (%2$d orders) completed in %3$d seconds.', 'woocommerce' ),
 					$batch_count,
 					count( $order_ids ),
 					$batch_total_time
@@ -368,8 +376,13 @@ class CLIRunner {
 		if ( 0 === count( $failed_ids ) ) {
 			return WP_CLI::success(
 				sprintf(
-					/* Translators: %1$d is the number of migrated orders and %2$f is time taken */
-					_n( '%1$d order was verified, in %2$f seconds', '%1$d orders were verified in %2$f seconds', $processed, 'woocommerce' ),
+					/* Translators: %1$d is the number of migrated orders and %2$d is time taken. */
+					_n(
+						'%1$d order was verified in %2$d seconds.',
+						'%1$d orders were verified in %2$d seconds.',
+						$processed,
+						'woocommerce'
+					),
 					$processed,
 					$total_time
 				)
@@ -379,12 +392,29 @@ class CLIRunner {
 
 			return WP_CLI::error(
 				sprintf(
-					/* Translators: %1$d is the number of migrated orders, %2$f is time taken, %3$d is number of errors and$4%s is formatted array of order ids. */
-					_n( '%1$d order was verified, in %2$f seconds. %3$f error(s) found: %4$s', '%1$d orders were verified in %2$f seconds Please review above errros. %3$d error(s) found %4$s. Please review above errors.', $processed, 'woocommerce' ),
-					$processed,
-					$total_time,
-					count( $failed_ids ),
-					$errors
+					'%1$s %2$s',
+					sprintf(
+						/* Translators: %1$d is the number of migrated orders and %2$d is the execution time in seconds. */
+						_n(
+							'%1$d order was verified in %2$d seconds.',
+							'%1$d orders were verified in %2$d seconds.',
+							$processed,
+							'woocommerce'
+						),
+						$processed,
+						$total_time
+					),
+					sprintf(
+						/* Translators: %1$d is number of errors and %2$s is the formatted array of order IDs. */
+						_n(
+							'%1$d error found: %2$s. Please review the error above.',
+							'%1$d errors found: %2$s. Please review the errors above.',
+							count( $failed_ids ),
+							'woocommerce'
+						),
+						count( $failed_ids ),
+						$errors
+					)
 				)
 			);
 		}
@@ -412,7 +442,12 @@ class CLIRunner {
 			WP_CLI::log(
 				sprintf(
 					/* Translators: %1$d is the number of orders to be verified. */
-					_n( 'There is %1$d order to be verified.', 'There are %1$d orders to be verified.', $order_count, 'woocommerce' ),
+					_n(
+						'There is %1$d order to be verified.',
+						'There are %1$d orders to be verified.',
+						$order_count,
+						'woocommerce'
+					),
 					$order_count
 				)
 			);

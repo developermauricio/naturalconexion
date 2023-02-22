@@ -119,6 +119,9 @@ if ( ! class_exists( 'Bsf_Custom_Fonts_Render' ) ) :
 			// add Custom Font list into Astra customizer.
 			add_filter( 'astra_system_fonts', array( $this, 'add_custom_fonts_astra_customizer' ) );
 
+			// add Custom Font list into Spectra editor.
+			add_filter( 'spectra_system_fonts', array( $this, 'add_custom_fonts_spectra' ) );
+
 			// Beaver builder theme customizer, beaver buidler page builder.
 			add_filter( 'fl_theme_system_fonts', array( $this, 'bb_custom_fonts' ) );
 			add_filter( 'fl_builder_font_families_system', array( $this, 'bb_custom_fonts' ) );
@@ -225,6 +228,16 @@ if ( ! class_exists( 'Bsf_Custom_Fonts_Render' ) ) :
 			if ( is_admin() && ! is_customize_preview() ) {
 				add_action( 'enqueue_block_assets', array( $this, 'add_style' ) );
 			}
+			add_action( 'enqueue_block_editor_assets', array( $this, 'enque_data' ) );
+		}
+
+		/**
+		 * Enqueue iFrame Preview Script.
+		 *
+		 * @since 1.3.7
+		 */
+		public function enque_data() {
+			wp_enqueue_script( 'bsf-custom-block-js', BSF_CUSTOM_FONTS_URI . 'assets/js/custom-fonts-preview.js', array(), BSF_CUSTOM_FONTS_VER, true );
 		}
 
 		/**
@@ -239,7 +252,7 @@ if ( ! class_exists( 'Bsf_Custom_Fonts_Render' ) ) :
 					$this->render_font_css( $load_font_name );
 				}
 				?>
-				<style type="text/css">
+				<style type="text/css" id="cst_font_data">
 					<?php echo wp_strip_all_tags( $this->font_css ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</style>
 				<?php
@@ -267,6 +280,32 @@ if ( ! class_exists( 'Bsf_Custom_Fonts_Render' ) ) :
 				$fonts_arr[ $font ] = array(
 					'fallback' => $values['font_fallback'] ? $values['font_fallback'] : 'Helvetica, Arial, sans-serif',
 					'weights'  => $custom_fonts_weights,
+				);
+			}
+
+			return $fonts_arr;
+		}
+
+		/**
+		 * Add Custom Font list into Spectra editor.
+		 *
+		 * @since  1.3.6
+		 * @param string $fonts_arr Array of System Fonts.
+		 * @return array $fonts_arr modified array with Custom Fonts.
+		 */
+		public function add_custom_fonts_spectra( $fonts_arr ) {
+
+			$fonts = Bsf_Custom_Fonts_Taxonomy::get_fonts();
+
+			foreach ( $fonts as $font => $values ) {
+				$custom_fonts_weights = array( 'Default' );
+				foreach ( $values as $key => $value ) {
+					if ( strpos( $key, 'weight' ) !== false ) {
+						array_push( $custom_fonts_weights, $value );
+					}
+				}
+				$fonts_arr[ $font ] = array(
+					'weight' => $custom_fonts_weights,
 				);
 			}
 

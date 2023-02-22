@@ -279,7 +279,8 @@
     font-weight: normal;
 }
 .sc_changelog h3 {
-    font-size: 1.75em;
+    font-size: 1.5em;
+    font-weight: normal;
 }
 .sc_changelog p, .sc_changelog ul{
     font-size: 1.25em;
@@ -290,28 +291,22 @@
     padding-left: 1.5em;
 }
 
-/** Coffee - Top link **/
-.cfe_top_link{
+/** PRO - Top link **/
+.pro_top_link{
     float: left;
     position: relative;
 }
-#screen-meta-links .cfe_top_link a.show-settings{
-    padding-right: 35px !important;
+#screen-meta-links .pro_top_link a.show-settings{
     background: #fff !important;
 }
-.cfe_top_link a:after{
+.pro_top_link a:after{
     display: none !important;
 }
-.cfe_top_link a:before{
-    content: '';
-    display: block;
-    position: absolute;
-    background: url('../images/coffee.svg') no-repeat;
-    background-size: 100%;
-    width: 20px;
-    height: 24px;
-    right: 10px;
-    top: 5px;
+.pro_top_link .dashicons {
+    font-size: 14px;
+    margin: 6px 5px 0 0;
+    height: 14px;
+    color: #ff8c29;
 }
 
 /** Feedback **/
@@ -320,17 +315,26 @@
 }
 .feedback ul li{
     margin: 0;
-    padding: 12px;
+    padding: 10px;
     border-bottom: 1px solid #eee;
 }
 .feedback ul li:last-child{
     border-bottom: none;
+}
+.feedback li .dashicons {
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    margin: 3px 5px 0 0;
 }
 .feedback a{
     text-decoration: none;
 }
 .feedback a:hover{
     text-decoration: underline;
+}
+.feedback a:hover .dashicons{
+    text-decoration: none;
 }
 .feedback .button{
     display: block;
@@ -349,34 +353,9 @@
 .feedback > *:last-child{
     margin-bottom: 0;
 }
-.feedback .twitter_btn.button{
-    background: #1b95e0;
-    color: #fff;
-    border-color: transparent;
-}
-.feedback .facebook_btn.button{
-    background: #4080ff;
-    color: #fff;
-    border-color: transparent;
-}
-.promo_slides > .promo_slide{
-    display: none;
-}
-.promo_slides > .promo_slide:first-child{
-    display: block;
-}
-.promo_slide img {
-    width: 100%;
-    border-radius: 5px;
-    margin: 7px 0 0 0;
-}
-.promo_btn{
-    text-decoration: none;
-}
-.promo_btns{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.feedback h3 {
+    font-size: 1.125em;
+    margin: 1em 0 1em 0.5em;
 }
 
 .stars {

@@ -104,17 +104,41 @@ class DPLR_Doppler_Form_Public {
 	}
 
 	public function submit_form() {
-		
-		$options = get_option('dplr_settings');
-		$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]); 
-		
-		$subscriber_resource = $this->doppler_service->getResource('subscribers');
 
-		$subscriber = $_POST['subscriber'];
+		$this->doppler_service->pluginLogger(array( 'action' => 'init submit_form', 'data' => $_POST), 'submit_form');
 
-		if(isset($subscriber['hp']) && $subscriber['hp']==''){
-			unset($subscriber['hp']);
-			$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
+		try
+		{
+
+			$options = get_option('dplr_settings');
+			$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+
+			$subscriber_resource = $this->doppler_service->getResource('subscribers');
+
+			$subscriber = $_POST['subscriber'];
+			$form_id = $_POST['form_id'];
+
+			// traer la plantilla a utilizar en el mail.
+			$form = DPLR_Form_Model::get($form_id, true);
+			$subscriber["form_doble_optin"] = $form->settings["form_doble_optin"];
+			// $form->settings["form_plantilla_id"] cuando se crea el formulario es NULL. Por ende hasta que no se actualiza con algun cambio luego de haberlo creado, no funciona el envio de email, porque al ser null el template, el endpoint tira error porque le falta ese parametro obligatorio.
+			$subscriber["form_plantilla_id"] = $form->settings["form_plantilla_id"];
+
+			if(isset($subscriber['hp']) && $subscriber['hp']==''){
+				unset($subscriber['hp']);
+				$a = 10/0;
+				if($form->settings["form_doble_optin"] === "yes"){
+					$result = $subscriber_resource->addSubscriberDobleOptIn($_POST['list_id'], $subscriber);
+				}
+				else{
+					$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
+				}
+				$this->doppler_service->pluginLogger(array('action' => 'result submit_form', 'data' => $result), 'submit_form');
+			}
+			$this->doppler_service->pluginLogger(array( 'action' => 'finish submit_form'), 'submit_form');
+		}
+		catch(\Exception $err) {
+			$this->doppler_service->pluginLogger(array( 'action' => 'error submit_form', 'data' => $err), 'submit_form_error');
 		}
 
 	}

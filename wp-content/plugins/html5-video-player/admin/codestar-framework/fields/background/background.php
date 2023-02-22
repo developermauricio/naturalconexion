@@ -31,9 +31,15 @@ if ( ! class_exists( 'CSF_Field_background' ) ) {
         'background_gradient_direction' => true,
         'background_image_preview'      => true,
         'background_auto_attributes'    => false,
+        'compact'                       => false,
         'background_image_library'      => 'image',
-        'background_image_placeholder'  => esc_html__( 'No background selected', 'csf' ),
+        'background_image_placeholder'  => esc_html__( 'Not selected', 'csf' ),
       ) );
+
+      if ( $args['compact'] ) {
+        $args['background_color']           = false;
+        $args['background_auto_attributes'] = true;
+      }
 
       $default_value                    = array(
         'background-color'              => '',
@@ -212,6 +218,7 @@ if ( ! class_exists( 'CSF_Field_background' ) ) {
             ''        => esc_html__( 'Background Size', 'csf' ),
             'cover'   => esc_html__( 'Cover', 'csf' ),
             'contain' => esc_html__( 'Contain', 'csf' ),
+            'auto'    => esc_html__( 'Auto', 'csf' ),
           ),
         ), $this->value['background-size'], $this->field_name(), 'field/background' );
 
@@ -298,6 +305,7 @@ if ( ! class_exists( 'CSF_Field_background' ) ) {
       if ( $background_color && $background_gd_color ) {
         $gd_direction   = ( $background_gd_direction ) ? $background_gd_direction .',' : '';
         $bg_image[] = 'linear-gradient('. $gd_direction . $background_color .','. $background_gd_color .')';
+        unset( $this->value['background-color'] );
       }
 
       if ( $background_image ) {

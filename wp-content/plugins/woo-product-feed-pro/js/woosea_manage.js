@@ -38,7 +38,6 @@ jQuery(function($) {
 		});
 	}
 
-	//$(".dismiss-review-notification").click(function(){
 	$(".dismiss-review-notification").on('click', function(){
 	        jQuery.ajax({
                 	method: "POST",
@@ -50,7 +49,6 @@ jQuery(function($) {
 
 	});
 
-	//$(".get_elite").click(function(e){
 	$(".get_elite").on('click', function(e){
 		if(e.target.tagName === 'A') return; // clicking on links should not close the div notice
 
@@ -63,7 +61,6 @@ jQuery(function($) {
                 })
 	});
 
-	//$(".get_elite_activate").click(function(e){
 	$(".get_elite_activate").on('click', function(e){
 		if(e.target.tagName === 'A') return; // clicking on links should not close the div notice
 
@@ -76,10 +73,7 @@ jQuery(function($) {
                 })
 	});
 
-//   	$("td[colspan=8]").find("div").parents("tr").hide();
    	$("td[id=manage_inline]").find("div").parents("tr").hide();
-
-	//$('.checkbox-field').change(function(index, obj){
 	$('.checkbox-field').on('change', function(index, obj){
                 var csrfToken = $('#csrfToken').val();
 
@@ -93,7 +87,7 @@ jQuery(function($) {
                	         	url: ajaxurl,
                         	data: { 
 					'action': 'woosea_add_attributes', 
-					'security': csfrToken,
+					'security': csrfToken,
 					'attribute_name': attribute_name, 
 					'attribute_value': attribute_value, 
 					'active': attribute_status 
@@ -128,202 +122,226 @@ jQuery(function($) {
 		}
 	});
 
-	// Check if user would like to enable product data manipulation support
-	$('#add_manipulation_support').on('change', function(){ // on change of state
-   		if(this.checked){
-
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_manipulation', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_manipulation', 'status': "off" }
-                	})
-		}
-	})	
-
-	// Check if user would like to enable WPML support
-	$('#add_wpml_support').on('change', function(){ // on change of state
-   		if(this.checked){
-
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_wpml', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_wpml', 'status': "off" }
-                	})
-		}
-	})	
-
-	// Check if user would like to enable Aelia Currency Switcher support
-	$('#add_aelia_support').on('change', function(){ // on change of state
-   		if(this.checked){
-
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_aelia', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_aelia', 'status': "off" }
-                	})
-		}
-	})	
-
 	// Check if user would like to use mother image for variations
 	$('#add_mother_image').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_mother_image', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_add_mother_image', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_mother_image', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_add_mother_image', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like to add all country shipping costs
 	$('#add_all_shipping').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_all_shipping', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_add_all_shipping', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_all_shipping', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_add_all_shipping', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like the plugin to respect free shipping class
 	$('#free_shipping').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_free_shipping', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_free_shipping', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_free_shipping', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_free_shipping', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like the plugin to respect free shipping class
 	$('#local_pickup_shipping').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_local_pickup_shipping', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_local_pickup_shipping', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_local_pickup_shipping', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_local_pickup_shipping', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like the plugin to remove the free shipping class
 	$('#remove_free_shipping').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_remove_free_shipping', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_remove_free_shipping', 
+					'security': nonce,	
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_remove_free_shipping', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_remove_free_shipping', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like to enable debug logging
 	$('#add_woosea_logging').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_woosea_logging', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_add_woosea_logging', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_woosea_logging', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_add_woosea_logging', 
+					'security': nonce,
+					'status': "off" 
+				}
+                	})
+		}
+	})	
+
+	// Check if user would like to enable only basis attributes in drop-downs
+	$('#add_woosea_basic').on('change', function(){ // on change of state
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
+			// Checkbox is on
+                	jQuery.ajax({
+                        	method: "POST",
+                        	url: ajaxurl,
+                        	data: { 
+					'action': 'woosea_add_woosea_basic', 
+					'security': nonce,
+					'status': "on" 
+				}
+                	})
+		} else {
+			// Checkbox is off
+                	jQuery.ajax({
+                        	method: "POST",
+                        	url: ajaxurl,
+                        	data: { 
+					'action': 'woosea_add_woosea_basic', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
 
 	// Check if user would like to enable addition of CDATA
 	$('#add_woosea_cdata').on('change', function(){ // on change of state
-   		if(this.checked){
-
+		var nonce = $('#_wpnonce').val();
+		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_woosea_cdata', 'status': "on" }
+                        	data: { 
+					'action': 'woosea_add_woosea_cdata', 
+					'security': nonce,
+					'status': "on" 
+				}
                 	})
 		} else {
 			// Checkbox is off
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_woosea_cdata', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_add_woosea_cdata', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 		}
 	})	
@@ -342,10 +360,8 @@ jQuery(function($) {
 
 	// Check if user would like to add a Facebook Pixel to their website
 	$('#add_facebook_pixel').on('change', function(){ // on change of state
-		var nonce = $('#add_facebook_pixel').val();
-
+		var nonce = $('#_wpnonce').val();
    		if(this.checked){
-
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
@@ -384,10 +400,8 @@ jQuery(function($) {
 
 	// Check if user would like to enable the Facebook Conversion API
 	$('#add_facebook_capi').on('change', function(){ // on change of state
-		var nonce = $('#add_facebook_capi').val();
-
+		var nonce = $('#_wpnonce').val();
    		if(this.checked){
-
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
@@ -462,7 +476,7 @@ jQuery(function($) {
 
         // Save Batch Size
         jQuery("#save_batch_size").on('click',function(){
-		var nonce = $('#nonce_batch').val();
+		var nonce = $('#_wpnonce').val();
 		var batch_size = $('#batch_size').val();
 	        var re = /^[0-9]*$/;
                 
@@ -491,10 +505,8 @@ jQuery(function($) {
 
 	// Check if user would like to enable Dynamic Remarketing
 	$('#add_remarketing').on('change', function(){ // on change of state
-                var nonce = $('#add_remarketing').val();
-
+		var nonce = $('#_wpnonce').val();
 		if(this.checked){
-
 			// Checkbox is on
                 	jQuery.ajax({
                         	method: "POST",
@@ -533,7 +545,7 @@ jQuery(function($) {
 
         // Save Google Dynamic Remarketing pixel ID
         jQuery("#save_conversion_id").on('click',function(){
-                var nonce = $('#nonce_adwords_conversion_id').val();
+		var nonce = $('#_wpnonce').val();
 		var adwords_conversion_id = $('#adwords_conv_id').val();
 	        var re = /^[0-9,-]*$/;
                 
@@ -562,7 +574,7 @@ jQuery(function($) {
 
         // Save Facebook Pixel ID
         jQuery("#save_facebook_pixel_id").on('click',function(){
-	        var nonce = $('#nonce_facebook_pixel_id').val();
+		var nonce = $('#_wpnonce').val();
 		var facebook_pixel_id = $('#fb_pixel_id').val();
 	        var re = /^[0-9]*$/;
 		var woosea_valid_facebook_pixel_id=re.test(facebook_pixel_id);
@@ -591,7 +603,7 @@ jQuery(function($) {
 
         // Save Facebook Conversion API token
         jQuery("#save_facebook_capi_token").on('click',function(){
-	        var nonce = $('#nonce_facebook_capi_id').val();
+	        var nonce = $('#_wpnonce').val();
 		var facebook_capi_token = $('#fb_capi_token').val();
 	        var re = /^[0-9A-Za-z]*$/;
 		var woosea_valid_facebook_capi_token=re.test(facebook_capi_token);
@@ -618,66 +630,6 @@ jQuery(function($) {
                 }	
 	})
 
-	// Check if user would like to add attributes
-	$('#add_identifiers').on('change', function(){ // on change of state
-   		if(this.checked){
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_identifiers', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_identifiers', 'status': "off" }
-                	})
-		}
-	})	
-
-	// Check if user would like to fix the WooCommerce structured data bug
-	$('#fix_json_ld').on('change', function(){ // on change of state
-
-   		if(this.checked){
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_enable_structured_data', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_enable_structured_data', 'status': "off" }
-                	})
-		}
-	})	
-
-	// Check if user wants to display structured data prices excluding VAT
-	$('#no_structured_vat').on('change', function(){ // on change of state
-
-   		if(this.checked){
-			// Checkbox is on
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_structured_vat', 'status': "on" }
-                	})
-		} else {
-			// Checkbox is off
-                	jQuery.ajax({
-                        	method: "POST",
-                        	url: ajaxurl,
-                        	data: { 'action': 'woosea_structured_vat', 'status': "off" }
-                	})
-		}
-	})	
-
-//	$(".actions").delegate("span", "click", function() {
 	$(".actions").on("click", "span", function() {
    		var id=$(this).attr('id');
 		var idsplit = id.split('_');

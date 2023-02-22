@@ -1,4 +1,26 @@
 == Changelog ==
+= 2.7.6 =
+* deprecated ExtendRestAPI filling logs
+* update action scheduler version
+* fix for saving profile unsubscribes
+= 2.7.5 =
+* fix admin subscription status checkbox flow
+* remove support flag on plugin uninstall
+= 2.7.4 =
+* wiki article for webhook setup issues
+* new filter for my account newsletter field with wiki
+* add filter for products to be pushed or not
+* add filter for orders to be pushed or not
+= 2.7.3 =
+* updates for WPCS recommendations
+= 2.7.2 =
+* fix for mailchimp account creation credentials
+* updates to PHP warning handling
+* patches bug related to WPScan
+= 2.7.1 =
+* Fixes the outgoing IP address defaults
+* Fixes webhook creation on plugin install
+* Enhancements to the support tool
 = 2.7 =
 * adds support for WooCommerce Checkout block
 * adds support for the tracking url from Mailchimp API
