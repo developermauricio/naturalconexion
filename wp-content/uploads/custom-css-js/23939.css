@@ -1,0 +1,20 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Añade aquí tu código CSS.
+
+Por ejemplo:
+.ejemplo {
+    color: red;
+}
+
+Para mejorar tu conocimiento sobre CSS knowledge echa un vistazo a http://www.w3schools.com/css/css_syntax.asp
+
+Fin del comentario */ 
+
+.footer-2023 .list-menu-footer {
+	padding-top: 0rem !important
+}
+.footer-2023 .list-menu-footer li .fas {
+	color: #54b086f7 !important
+}</style>
+<!-- end Simple Custom CSS and JS -->

@@ -1,0 +1,82 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Añade aquí tu código CSS.
+
+Por ejemplo:
+.ejemplo {
+    color: red;
+}
+
+Para mejorar tu conocimiento sobre CSS knowledge echa un vistazo a http://www.w3schools.com/css/css_syntax.asp
+
+Fin del comentario */ 
+
+.inicio-new-section-formulas-ancestrales .wpb_single_image img{
+	max-width: 100% !important;
+}
+.inicio-new-section-formulas-ancestrales .vc_custom_1680020772867{
+	/*padding 0px !important*/
+}
+.inicio-new-section-formulas-ancestrales .woodmart-button-wrapper{
+	padding: 0px 30px 20px !important;
+}
+.inicio-new-section-formulas-ancestrales .item-inicio-formulas-ancestrales{
+	/*padding: 20px !important*/
+}
+
+.inicio-new-section-formulas-ancestrales .item-mobile-inicio-formulas-ancestrales{
+	/*padding: 20px !important*/
+	flex-basis: 50%;
+max-width: 50%;
+    
+}
+
+.inicio-new-section-formulas-ancestrales .item-mobile-derecha-inicio-formulas-ancestrales{
+	/*padding: 20px !important*/
+	margin-top:-307px;
+	margin-left:200px;
+max-width: 50%;
+    
+}
+
+.inicio-new-section-formulas-ancestrales .vc_column-inner{
+	background: #fff !important;
+	padding-top: 0px !important;
+	padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+#row-testimonios .textos-testimonios-inicio{
+	background-color: #f1a693 !important;
+    color: #ffffff !important;
+	border-radius: 20px !important;
+}
+#row-testimonios .textos-testimonios-inicio .testimonial-content footer{
+	color: #ffffff !important;
+	margin-bottom: 10px !important;
+}
+#row-testimonios .testimonial-content{
+	padding-bottom: 1.5rem !important;
+	padding: 0px 15px 1.5rem 15px !important;
+}
+
+#row-testimonios .owl-carousel .owl-stage-outer{
+	overflow: unset !important;
+}
+#row-testimonios .testimonial-avatar{
+	margin-top: -41px !important;
+}
+#row-testimonios .owl-item:after{
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  border-radius: 7px;
+  left: 48%;
+  margin-left: -9px;
+  width: 37px;
+  height: 37px;
+  background: #f1a693;
+  transform: rotate(45deg);
+}
+
+</style>
+<!-- end Simple Custom CSS and JS -->

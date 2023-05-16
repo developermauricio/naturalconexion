@@ -1,5 +1,9 @@
 <!-- start Simple Custom CSS and JS -->
 <style type="text/css">
+.botonesfondo{
+	background-color:#ffffff !important;
+}
+
 .text-bold-subtitle-black{
 	font-weight: bold !important;
 }
@@ -94,6 +98,15 @@ li.meta-author span.fn:before {
 	justify-content: center;
 	padding-top: 4rem;
 }
+
+.list-menu-footer-nuevo-diseno {
+	display: flex;
+	justify-content: center;
+	
+}
+
+
+
 .text-nuestros-origenes{
 	font-size: 1.1rem;
 	text-align: justify;
@@ -141,6 +154,16 @@ li.meta-author span.fn:before {
 }
 .input-contact{
 	width: 100% !important
+}
+.wd-rs-643324906dcef{
+	background-color:#fafafa !important
+}
+
+@media (min-width: 992px) { 
+	.ocultarescritorio{display:none}
+}
+@media (max-width: 992px) { 
+	.ocultarmobile{display:none}
 }
 /******************************  
 	Estilos para escritrio 
