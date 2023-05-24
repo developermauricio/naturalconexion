@@ -67,7 +67,7 @@
 	                    jQuery.ajax({
 	                      type: 'POST',
 	                      url: ajaxurl,
-	                      data: {"action": "wpfc_preload_single_save_settings", "is_enable": jQuery(this).val()},
+	                      data: {"action": "wpfc_preload_single_save_settings", "is_enable": jQuery(this).val(), "nonce" : wpfc_nonce},
 	                      dataType: "json",
 	                      cache: false, 
 	                      success: function(data){
@@ -256,7 +256,7 @@
 			        		jQuery.ajax({
 								type: 'GET',
 								url: ajaxurl,
-								data: {"action": "wpfc_preload_single", "url": url, "user_agent": user_agent},
+								data: {"action": "wpfc_preload_single", "url": url, "user_agent": user_agent, "nonce" : wpfc_nonce},
 								dataType: "html",
 								timeout: 10000,
 								cache: false, 

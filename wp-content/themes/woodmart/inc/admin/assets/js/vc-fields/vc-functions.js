@@ -2,6 +2,8 @@
 	var $panel = $('#vc_ui-panel-edit-element');
 	// Dependency.
 	$panel.on('vcPanel.shown', function() {
+		$panel.find('.wpb_edit_form_elements').addClass('xts-loaded');
+
 		var $fieldValue = $('.vc_shortcode-param .wpb_vc_param_value');
 
 		$fieldValue.on('change', function() {
@@ -17,14 +19,49 @@
 			var value = $this.val();
 
 			$('.vc_shortcode-param').each(function() {
-				var param = $(this).data('param_settings');
+				var $this = $(this);
+				var param = $this.data('param_settings');
 
 				if (param.wd_dependency) {
 					if (param.wd_dependency.element === name) {
 						if (param.wd_dependency.value[0] === value) {
-							$(this).show();
+							$this.show();
+							if ($this.parents('.wd-typography-wrapper')) {
+								$this.parents('.wd-typography-wrapper').show();
+							}
 						} else {
-							$(this).hide();
+							$this.hide();
+							if ($this.parents('.wd-typography-wrapper')) {
+								$this.parents('.wd-typography-wrapper').hide();
+							}
+						}
+					}
+				}
+
+				if (param.dependency) {
+					if (param.dependency.element === name) {
+						if ('undefined' !== typeof param.dependency.value) {
+							if (param.dependency.value.includes(value)) {
+								if ($this.parents('.wd-typography-wrapper')) {
+									$this.parents('.wd-typography-wrapper').removeClass('vc_dependent-hidden');
+								}
+							} else {
+								if ($this.parents('.wd-typography-wrapper')) {
+									$this.parents('.wd-typography-wrapper').addClass('vc_dependent-hidden');
+								}
+							}
+						}
+
+						if ('undefined' !== typeof param.dependency.value_not_equal_to) {
+							if (param.dependency.value_not_equal_to.includes(value)) {
+								if ($this.parents('.wd-typography-wrapper')) {
+									$this.parents('.wd-typography-wrapper').addClass('vc_dependent-hidden');
+								}
+							} else {
+								if ($this.parents('.wd-typography-wrapper')) {
+									$this.parents('.wd-typography-wrapper').removeClass('vc_dependent-hidden');
+								}
+							}
 						}
 					}
 				}
@@ -69,25 +106,53 @@
 			var settings = $this.data('param_settings');
 
 			if (typeof settings != 'undefined' && typeof settings.hint != 'undefined') {
-				$this.find('.wpb_element_label').addClass('woodmart-with-hint').append('<div class="woodmart-hint">?<div class="woodmart-hint-content">' + settings.hint + '</div></div>');
+				$this.find('.wpb_element_label').addClass('xts-with-hint').append('<div class="xts-hint"><div class="xts-tooltip">' + settings.hint + '</div></div>');
 			}
 		});
 
-		$panel.find('.woodmart-hint').on('hover mouseover', function() {
+		$panel.find('.xts-tooltip').on('hover mouseover', function() {
 			var $hint = $(this);
 
-			$hint.removeClass('woodmart-hint-right woodmart-hint-left');
+			$hint.removeClass('xts-right xts-left');
 
-			var hintPos = $hint.offset().left + $hint.find('.woodmart-hint-content').outerWidth();
-			var panelPos = $panel.offset().left + $panel.find('.vc_edit_form_elements').width();
+			var hintPos = $hint.parent().offset().left - $panel.offset().left + $hint.outerWidth();
+			var panelPos = $panel.find('.vc_ui-panel-content-container').width();
 
-			if (hintPos > panelPos) {
-				$hint.addClass('woodmart-hint-right');
+			if (hintPos < panelPos) {
+				$hint.addClass('xts-right');
 			} else {
-				$hint.addClass('woodmart-hint-left');
+				$hint.addClass('xts-left');
 			}
 		});
 
 	});
+
+	setTimeout( function () {
+		$('#vc_add-new-element, #vc_no-content-add-element, #vc_not-empty-add-element, .vc_controls .vc_control[data-vc-control="add"]').on('click', function () {
+			if ( ! woodmartConfig.wd_layout_type ) {
+				return;
+			}
+
+			var $panel = $('#vc_ui-panel-add-element');
+
+			if ($panel.hasClass('vc_active')){
+				return;
+			}
+
+			var $tab = $('.xts-wpb-tab-title.xts-layout-' + woodmartConfig.wd_layout_type).parent();
+			$panel.css('opacity', '0');
+
+			setTimeout(function () {
+				if ( 'none' !== $tab.parent('li').css('display') ) {
+					$tab.trigger('click');
+					$panel.find('#vc_elements_name_filter').trigger('focus');
+				}
+			}, 10);
+
+			setTimeout(function () {
+				$panel.css('opacity', '1');
+			}, 350);
+		});
+	}, 1000);
 
 })(jQuery);

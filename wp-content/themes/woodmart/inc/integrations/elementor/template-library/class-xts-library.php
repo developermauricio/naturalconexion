@@ -46,7 +46,6 @@ class XTS_Library {
 	 */
 	public function register_templates_source() {
 		Plugin::instance()->templates_manager->register_source( 'XTS\Elementor\XTS_Library_Source' );
-
 	}
 
 	/**

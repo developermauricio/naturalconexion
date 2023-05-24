@@ -10,7 +10,7 @@ Options::add_field(
 		'type'         => 'typography',
 		'section'      => 'typography_section',
 		'name'         => esc_html__( 'Text font', 'woodmart' ),
-		'description'  => esc_html__( 'Set you typography options for body, paragraphs.', 'woodmart' ),
+		'description'  => esc_html__( 'Set general font for site content. This font will also be applied to other typography options if they are not set.', 'woodmart' ),
 		'selector_var' => array(
 			'font-family' => '--wd-text-font',
 			'font-size'   => '--wd-text-font-size',
@@ -38,7 +38,7 @@ Options::add_field(
 		'type'           => 'typography',
 		'section'        => 'typography_section',
 		'name'           => esc_html__( 'Title font', 'woodmart' ),
-		'description'    => esc_html__( 'Set you typography options for titles, post names.', 'woodmart' ),
+		'description'    => esc_html__( 'Set typography for titles (h1, h2, h3, h4, h5, h6).', 'woodmart' ),
 		'selector_var'   => array(
 			'font-family'    => '--wd-title-font',
 			'font-weight'    => '--wd-title-font-weight',
@@ -57,7 +57,7 @@ Options::add_field(
 		'text-transform' => true,
 		'font-size'      => false,
 		'tags'           => 'typography',
-		'priority'       => 10,
+		'priority'       => 20,
 	)
 );
 
@@ -67,7 +67,7 @@ Options::add_field(
 		'type'           => 'typography',
 		'section'        => 'typography_section',
 		'name'           => esc_html__( 'Entities names font', 'woodmart' ),
-		'description'    => esc_html__( 'Titles for posts, products, categories and pages', 'woodmart' ),
+		'description'    => esc_html__( 'Set titles for posts, products, categories and projects.', 'woodmart' ),
 		'selector_var'   => array(
 			'font-family'    => '--wd-entities-title-font',
 			'font-weight'    => '--wd-entities-title-font-weight',
@@ -91,7 +91,7 @@ Options::add_field(
 		'text-transform' => true,
 		'font-size'      => false,
 		'tags'           => 'typography',
-		'priority'       => 20,
+		'priority'       => 30,
 	)
 );
 
@@ -101,7 +101,7 @@ Options::add_field(
 		'type'         => 'typography',
 		'section'      => 'typography_section',
 		'name'         => esc_html__( 'Secondary font', 'woodmart' ),
-		'description'  => esc_html__( 'Use for secondary titles (use CSS class "font-alt" or "title-alt")', 'woodmart' ),
+		'description'  => esc_html__( 'Typography for page builder elements options where "Secondary font" was chosen or used custom CSS class "font-alt".', 'woodmart' ),
 		'selector_var' => array(
 			'font-family' => '--wd-alternative-font',
 			'font-style'  => '--wd-alternative-font-style',
@@ -116,7 +116,7 @@ Options::add_field(
 		'font-size'    => false,
 		'color'        => false,
 		'tags'         => 'typography',
-		'priority'     => 30,
+		'priority'     => 40,
 	)
 );
 
@@ -126,7 +126,7 @@ Options::add_field(
 		'type'           => 'typography',
 		'section'        => 'typography_section',
 		'name'           => esc_html__( 'Widget titles font', 'woodmart' ),
-		'description'    => esc_html__( 'Typography options for titles for widgets in your sidebars.', 'woodmart' ),
+		'description'    => esc_html__( 'Typography options for widget titles.', 'woodmart' ),
 		'selector_var'   => array(
 			'font-family'    => '--wd-widget-title-font',
 			'font-weight'    => '--wd-widget-title-font-weight',
@@ -147,7 +147,7 @@ Options::add_field(
 		'text-transform' => true,
 		'line-height'    => false,
 		'tags'           => 'typography',
-		'priority'       => 40,
+		'priority'       => 50,
 	)
 );
 
@@ -157,7 +157,7 @@ Options::add_field(
 		'type'           => 'typography',
 		'section'        => 'typography_section',
 		'name'           => esc_html__( 'Header font', 'woodmart' ),
-		'description'    => esc_html__( 'This option will change typography for your header text elements.', 'woodmart' ),
+		'description'    => esc_html__( 'Typography options for site header elements.', 'woodmart' ),
 		'selector_var'   => array(
 			'font-family'    => '--wd-header-el-font',
 			'font-weight'    => '--wd-header-el-font-weight',
@@ -177,7 +177,7 @@ Options::add_field(
 		'line-height'    => false,
 		'color'          => false,
 		'tags'           => 'typography',
-		'priority'       => 50,
+		'priority'       => 60,
 	)
 );
 
@@ -200,21 +200,36 @@ Options::add_field(
 			)
 		),
 		'section'  => 'typography_section',
-		'priority' => 60,
+		'priority' => 70,
 	)
 );
 
 /**
- * Typekit fonts.
+ * Advanced typography.
  */
 Options::add_field(
 	array(
-		'id'       => 'typekit_notice',
+		'id'             => 'advanced_typography',
+		'type'           => 'typography',
+		'name'           => 'Advanced typography',
+		'section'        => 'advanced_typography_section',
+		'selectors'      => '',
+		'callback'       => 'woodmart_get_theme_settings_selectors_array',
+		'color-hover'    => true,
+		'text-transform' => true,
+		'priority'       => 10,
+		'class'          => 'xts-hide-field-title',
+	)
+);
+
+Options::add_field(
+	array(
+		'id'       => 'advanced_typography_notice',
 		'type'     => 'notice',
 		'style'    => 'info',
 		'name'     => '',
 		'content'  => wp_kses(
-			__( 'To use your Typekit font, you need to create an account on the <a href="https://typekit.com/" target="_blank"><u>service</u></a> and obtain your key ID here. Then, you need to enter all custom fonts you will use separated with coma. After this, save Theme Settings and reload this page to be able to select your fonts in the list under the Theme Settings -> Typography section.', 'woodmart' ),
+			__( 'Here you can change the typography settings for individual site elements regardless of basic settings. For example, change the font size for the price, set the color for mobile menu links, increase post titles font size, change breadcrumbs color, etc. Using “Custom selector” option allows you to write your own CSS selector and apply any font rules to it.', 'woodmart' ),
 			array(
 				'a'      => array(
 					'href'   => true,
@@ -225,33 +240,10 @@ Options::add_field(
 				'u'      => array(),
 			)
 		),
-		'section'  => 'typekit_section',
-		'priority' => 10,
+		'section'  => 'advanced_typography_section',
+		'priority' => 20,
 	)
 );
-
-Options::add_field(
-	array(
-		'id'          => 'typekit_id',
-		'name'        => esc_html__( 'Typekit Kit ID', 'woodmart' ),
-		'description' => esc_html__( 'Enter your ', 'woodmart' ) . '<a target="_blank" href="https://typekit.com/account/kits">Typekit Kit ID</a>.',
-		'type'        => 'text_input',
-		'section'     => 'typekit_section',
-		'priority'    => 20,
-	)
-);
-
-Options::add_field(
-	array(
-		'id'          => 'typekit_fonts',
-		'name'        => esc_html__( 'Typekit Typekit Font Face', 'woodmart' ),
-		'description' => esc_html__( 'Example: futura-pt, lato', 'woodmart' ),
-		'type'        => 'text_input',
-		'section'     => 'typekit_section',
-		'priority'    => 30,
-	)
-);
-
 
 /**
  * Custom Fonts.
@@ -261,7 +253,6 @@ Options::add_field(
 		'id'       => 'multi_custom_fonts_notice',
 		'type'     => 'notice',
 		'style'    => 'info',
-		'name'     => '',
 		'content'  => wp_kses(
 			__(
 				'In this section you can upload your custom fonts files. To ensure the best compatibility in all browsers you would better upload your fonts in all available formats. 
@@ -286,25 +277,106 @@ Options::add_field(
 	array(
 		'id'       => 'multi_custom_fonts',
 		'type'     => 'custom_fonts',
+		'name'     => 'Custom fonts',
 		'section'  => 'custom_fonts_section',
-		'name'     => esc_html__( 'Advanced typography', 'woodmart' ),
 		'fonts'    => apply_filters( 'woodmart_custom_fonts_type', array( 'woff', 'woff2' ) ),
 		'priority' => 20,
+		'class'    => 'xts-hide-field-title',
 	)
 );
 
 /**
- * Advanced typography.
+ * Icons Fonts.
  */
 Options::add_field(
 	array(
-		'id'             => 'advanced_typography',
-		'type'           => 'typography',
-		'section'        => 'advanced_typography_section',
-		'name'           => esc_html__( 'Advanced typography', 'woodmart' ),
-		'selectors'      => woodmart_get_config( 'typography-selectors' ),
-		'color-hover'    => true,
-		'text-transform' => true,
-		'priority'       => 10,
+		'id'       => 'icon_font',
+		'type'     => 'icons_font',
+		'name'     => esc_html__( 'Icon fonts', 'woodmart' ),
+		'section'  => 'icons_fonts_section',
+		'options'  => array(
+			'font'   => array(
+				'1' => array(
+					'name'  => esc_html__( 'Icon font 1', 'woodmart' ),
+					'value' => '1',
+				),
+				'2' => array(
+					'name'  => esc_html__( 'Icon font 2', 'woodmart' ),
+					'value' => '2',
+				),
+				'3' => array(
+					'name'  => esc_html__( 'Icon font 3', 'woodmart' ),
+					'value' => '3',
+				),
+			),
+			'weight' => array(
+				'300' => array(
+					'name'  => esc_html__( 'Light', 'woodmart' ),
+					'value' => '300',
+				),
+				'400' => array(
+					'name'  => esc_html__( 'Regular', 'woodmart' ),
+					'value' => '400',
+				),
+				'700' => array(
+					'name'  => esc_html__( 'Bold', 'woodmart' ),
+					'value' => '700',
+				),
+			),
+		),
+		'default'  => array(
+			'font'   => '1',
+			'weight' => '400',
+		),
+		'class'    => 'xts-hide-field-title',
+		'priority' => 10,
+	)
+);
+
+/**
+ * Typekit fonts.
+ */
+Options::add_field(
+	array(
+		'id'       => 'typekit_notice',
+		'type'     => 'notice',
+		'style'    => 'info',
+		'name'     => '',
+		'content'  => wp_kses(
+			__( 'To use your Adobe font, you need to create an account on the <a href="https://fonts.adobe.com/" target="_blank"><u>service</u></a> and obtain your key ID here. Then, you need to enter all custom fonts you will use separated with coma. After this, save Theme Settings and reload this page to be able to select your fonts in the list under the Theme Settings -> Typography section.', 'woodmart' ),
+			array(
+				'a'      => array(
+					'href'   => true,
+					'target' => true,
+				),
+				'br'     => array(),
+				'strong' => array(),
+				'u'      => array(),
+			)
+		),
+		'section'  => 'typekit_section',
+		'priority' => 10,
+	)
+);
+
+Options::add_field(
+	array(
+		'id'          => 'typekit_id',
+		'name'        => esc_html__( 'Adobe project IDs', 'woodmart' ),
+		'description' => esc_html__( 'Enter your ', 'woodmart' ) . '<a target="_blank" href="https://fonts.adobe.com/my_fonts#web_projects-section">Adobe project IDs</a> separate with coma: tpm3one, qny2aiv.',
+		'type'        => 'text_input',
+		'section'     => 'typekit_section',
+		'priority'    => 20,
+	)
+);
+
+Options::add_field(
+	array(
+		'id'          => 'typekit_fonts',
+		'name'        => esc_html__( 'Adobe font face', 'woodmart' ),
+		'description' => esc_html__( 'Example: futura-pt, lato', 'woodmart' ),
+		'type'        => 'text_input',
+		'section'     => 'typekit_section',
+		'priority'    => 30,
 	)
 );

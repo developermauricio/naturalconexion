@@ -3,7 +3,7 @@ Contributors: rnzo, chimpmatic
 Donate link: https://bit.ly/2HdTzmO
 Tags: mailchimp, newsletter, email, marketing, contact form 7, chimpmatic, mailchimp tags, mailchimp audiences
 Requires at least: 4.9
-Tested up to: 6.0
+Tested up to: 6.2
 Stable tag: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,26 @@ Do you have questions or issues with Contact Form 7 Mailchimp Extension? Use the
 
 For more information, see [Releases](https://chimpmatic.com/faqs).
 
+= 0.5.68 =
+
+* Updated compatibility for PHP 7.2, 7.3, 7.4, 8.0 & 8.1
+
+= 0.5.67 =
+
+* Corrected CSS bug
+
+= 0.5.66 =
+
+* Bug fixes
+
+= 0.5.65 =
+
+* Fixed debug log cleaner, and removed other bugs
+
+= 0.5.63 =
+
+* Updated compatibility with PHP 8, and removed some bugs
+
 = 0.5.62 =
 
 * Version bump
@@ -125,8 +145,7 @@ For more information, see [Releases](https://chimpmatic.com/faqs).
 
 = 0.5.12 =
 
-* Changed subscription model - More more unsubscribed
-
+* Changed subscription model
 
 = 0.5.10 =
 

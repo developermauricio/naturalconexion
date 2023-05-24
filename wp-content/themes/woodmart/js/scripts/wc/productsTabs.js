@@ -12,9 +12,9 @@
 		var process = false;
 
 		$('.wd-products-tabs').each(function() {
-			var $this  = $(this),
-			    $inner = $this.find('.wd-tab-content'),
-			    cache  = [];
+			var $this  = $(this);
+			var $inner = $this.find('.wd-tab-content-wrapper');
+			var cache  = [];
 
 			if ($inner.find('.owl-carousel').length < 1) {
 				cache[0] = {
@@ -29,7 +29,7 @@
 				    atts  = $this.data('atts'),
 				    index = $this.index();
 
-				if (process || $this.hasClass('active-tab-title')) {
+				if (process || $this.hasClass('wd-active')) {
 					return;
 				}
 				process = true;
@@ -49,53 +49,21 @@
 				});
 			});
 
-			var $nav     = $this.find('.tabs-navigation-wrapper'),
-			    $subList = $nav.find('ul'),
-			    time     = 300;
-
-			$nav.on('click', '.open-title-menu', function() {
-					var $btn = $(this);
-
-					if ($subList.hasClass('list-shown')) {
-						$btn.removeClass('toggle-active');
-						$subList.stop().slideUp(time).removeClass('list-shown');
-					} else {
-						$btn.addClass('toggle-active');
-						$subList.addClass('list-shown');
-						setTimeout(function() {
-							woodmartThemeModule.$body.one('click', function(e) {
-								var target = e.target;
-
-								if (!$(target).is('.tabs-navigation-wrapper') && !$(target).parents().is('.tabs-navigation-wrapper')) {
-									$btn.removeClass('toggle-active');
-									$subList.removeClass('list-shown');
-									return false;
-								}
-							});
-						}, 10);
-					}
-				})
-				.on('click', 'li', function() {
-					var $btn = $nav.find('.open-title-menu'),
-					    text = $(this).text();
-
-					if ($subList.hasClass('list-shown')) {
-						$btn.removeClass('toggle-active').text(text);
-						$subList.removeClass('list-shown');
-					}
-				});
+			setTimeout(function() {
+				$this.addClass( 'wd-inited' );
+			}, 200);
 		});
 
 		var loadTab = function(atts, index, holder, btn, cache, callback) {
-			btn.parent().find('.active-tab-title').removeClass('active-tab-title');
-			btn.addClass('active-tab-title');
+			btn.parent().find('.wd-active').removeClass('wd-active');
+			btn.addClass('wd-active');
 
 			if (cache[index]) {
 				holder.addClass('loading');
 				setTimeout(function() {
+					process = false;
 					callback(cache[index]);
 					holder.removeClass('loading');
-					process = false;
 				}, 300);
 				return;
 			}
@@ -112,6 +80,7 @@
 				dataType: 'json',
 				method  : 'POST',
 				success : function(data) {
+					process = false;
 					cache[index] = data;
 					callback(data);
 				},

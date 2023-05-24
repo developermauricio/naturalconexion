@@ -45,7 +45,7 @@ if ( $type == 'nivo' ) {
 } else if ( $type == 'owl-carousel' ) {
 	$el_start = '<div class="owl-carousel-item">';
 	$el_end = '</div>';
-	$slides_wrap_start = '<div class="owl-carousel owl-items-carousel">';
+	$slides_wrap_start = '<div class="owl-carousel wd-owl owl-items-carousel">';
 	$slides_wrap_end = '</div>';
 }
 

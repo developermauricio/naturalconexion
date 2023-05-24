@@ -13,7 +13,7 @@
 				$productWrapper = $form.parents('.product-quick-view');
 			}
 
-			if ($productWrapper.hasClass('product-type-external') || $productWrapper.hasClass('product-type-zakeke') || $productWrapper.hasClass('product-type-gift-card')) {
+			if ($productWrapper.hasClass('product-type-external') || $productWrapper.hasClass('product-type-zakeke') || $productWrapper.hasClass('product-type-gift-card') || 'undefined' !== typeof e.originalEvent && $(e.originalEvent.submitter).hasClass('wd-buy-now-btn')) {
 				return;
 			}
 
@@ -86,7 +86,7 @@
 							$noticeWrapper.append(response.notices);
 							$thisbutton.addClass('not-added');
 						} else {
-							if (woodmart_settings.add_to_cart_action === 'widget') {
+							if ('undefined' !== typeof $.fn.magnificPopup && woodmart_settings.add_to_cart_action === 'widget') {
 								$.magnificPopup.close();
 							}
 
@@ -106,6 +106,21 @@
 				},
 				complete: function() { }
 			});
+		});
+
+		woodmartThemeModule.$body.on('click', '.variations_form .wd-buy-now-btn', function(e) {
+			var $this = $(this);
+			var $addToCartBtn = $this.siblings('.single_add_to_cart_button');
+
+			if ( 'undefined' !== typeof wc_add_to_cart_variation_params && $addToCartBtn.hasClass('disabled') ) {
+				e.preventDefault();
+
+				if ($addToCartBtn.hasClass('wc-variation-is-unavailable') ) {
+					alert( wc_add_to_cart_variation_params.i18n_unavailable_text );
+				} else if ( $addToCartBtn.hasClass('wc-variation-selection-needed') ) {
+					alert( wc_add_to_cart_variation_params.i18n_make_a_selection_text );
+				}
+			}
 		});
 	};
 

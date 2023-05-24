@@ -32,6 +32,10 @@ if ( ! class_exists( 'WOODMART_User_Panel_Widget' ) ) {
 		// Output function
 
 		function widget( $args, $instance )	{
+			if ( $this->is_widget_preview() ) {
+				return;
+			}
+
 			extract($args);
 
 			echo wp_kses_post( $before_widget );

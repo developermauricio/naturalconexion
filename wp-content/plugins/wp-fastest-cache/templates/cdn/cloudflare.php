@@ -31,8 +31,8 @@
 					    <p class="wpfc-bottom-note" style="margin-bottom:-10px;"><a target="_blank" href="https://www.maxcdn.com/one/tutorial/implementing-cdn-on-wordpress-with-wp-fastest-cache/">Note: Please read How to Integrate MaxCDN into WP Fastest Cache</a></p>
 					</div>
 					<div wpfc-cdn-page="2" class="wiz-cont" style="display:none">
-						<h1>Enter API Keys</h1>		
-						<p>Please enter your <strong>API Key</strong> below to to access Cloudflare APIs.</p>
+						<h1>Enter API Token</h1>		
+						<p>Please enter your <strong>API Token</strong> below to to access Cloudflare APIs.</p>
 						<div class="wiz-input-cont" style="display: none;">
 							<label class="mc-input-label" for="cdn-url" style="padding-right: 19px;">Email:</label><input type="text" name="" value="wpfc" class="api-key" id="cdn-url">
 					    	<label class="wiz-error-msg"></label>

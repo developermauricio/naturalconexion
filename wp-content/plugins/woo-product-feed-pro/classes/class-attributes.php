@@ -116,16 +116,6 @@ private function get_custom_attributes() {
                     		$list["custom_attributes_" . $value] = ucfirst($value_display);
 			} else {
                                 $data = @$wpdb->get_results(
-//                                      $wpdb->prepare("
-//                                              SELECT 
-//                                              meta.meta_id, 
-//                                              meta.meta_value AS type 
-//                                              FROM {$wpdb->prefix}postmeta AS meta,
-//                                              {$wpdb->prefix}posts AS posts 
-//                                              WHERE meta.post_id = posts.id 
-//                                              AND posts.post_type LIKE '%product%' 
-//                                              AND meta.meta_key='_product_attributes' AND meta.meta_value NOT LIKE \"%{}\";")
-
                                         $wpdb->prepare("
                                                 SELECT
                                                 meta.meta_id,
@@ -317,11 +307,15 @@ public function get_mapping_attributes_dropdown() {
 			"availability_date_plus3week" => "Availability date + 3 weeks",
 			"availability_date_plus4week" => "Availability date + 4 weeks",
 			"availability_date_plus5week" => "Availability date + 5 weeks",
+			"availability_date_plus6week" => "Availability date + 6 weeks",
+			"availability_date_plus7week" => "Availability date + 7 weeks",
+			"availability_date_plus8week" => "Availability date + 8 weeks",
 			"region_id" => "Region Id",
 			"stock_status" => "Stock Status WooCommerce",
             		"quantity" => "Quantity [Stock]",
 			"virtual" => "Virtual",
 			"downloadable" => "Downloadable",
+			"publication_date" => "Feed publication date and time",
 			"product_type" => "Product Type",
 			"content_type" => "Content Type",
                         "exclude_from_catalog" => "Excluded from catalog",
@@ -359,7 +353,8 @@ public function get_mapping_attributes_dropdown() {
             		"image_7" => "Additional image 7",
             		"image_8" => "Additional image 8",
             		"image_9" => "Additional image 9",
-            		"image_10" => "Additional image 10",
+			"image_10" => "Additional image 10",
+			"non_local_image" => "Non local image",
 			"all_images" => "All images (comma separated)",
 			"all_gallery_images" => "All gallery images (comma separated)",
 			"all_images_kogan" => "All images Kogan (pipe separated)",
@@ -492,7 +487,8 @@ public function get_mapping_attributes_dropdown() {
 			"image" => "Main image",
                         "image_all" => "Main image simple and variations",
 			"feature_image" => "Feature image",
-                        "product_type" => "Product Type",
+			"non_local_image" => "Non local image",
+			"product_type" => "Product Type",
                         "content_type" => "Content Type",
 			"exclude_from_catalog" => "Excluded from catalog",
                         "exclude_from_search" => "Excluded from search",
@@ -530,7 +526,8 @@ public function get_mapping_attributes_dropdown() {
 			"stock_status" => "Stock Status WooCommerce",
 			"quantity" => "Quantity [Stock]",
 			"virtual" => "Virtual",
-                        "downloadable" => "Downloadable",
+			"downloadable" => "Downloadable",
+			"publication_date" => "Feed publication date and time",
 			"price" => "Price",
                         "regular_price" => "Regular price",
                         "sale_price" => "Sale price",
@@ -598,7 +595,8 @@ public function get_mapping_attributes_dropdown() {
             		"image_7" => "Additional image 7",
             		"image_8" => "Additional image 8",
             		"image_9" => "Additional image 9",
-            		"image_10" => "Additional image 10",
+			"image_10" => "Additional image 10",
+			"non_local_image" => "Non local image",
                         "all_images" => "All images (comma separated)",
                         "all_gallery_images" => "All gallery images (comma separated)",
 			"all_images_kogan" => "All images Kogan (pipe separated)",

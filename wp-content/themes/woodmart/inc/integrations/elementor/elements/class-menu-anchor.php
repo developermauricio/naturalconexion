@@ -5,6 +5,8 @@
  * @package woodmart
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
@@ -64,7 +66,7 @@ class Menu_Anchor extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'woodmart-elements' ];
+		return [ 'wd-elements' ];
 	}
 
 	/**
@@ -73,7 +75,7 @@ class Menu_Anchor extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab
 		 */
@@ -143,4 +145,4 @@ class Menu_Anchor extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Menu_Anchor() );
+Plugin::instance()->widgets_manager->register( new Menu_Anchor() );

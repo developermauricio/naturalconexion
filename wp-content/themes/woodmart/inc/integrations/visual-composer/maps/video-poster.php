@@ -9,7 +9,11 @@ if( ! function_exists( 'woodmart_add_field_to_video' ) ) {
 	function woodmart_add_field_to_video() {
 
 	    $vc_video_new_params = array(
-	         
+		    array(
+			    'param_name' => 'woodmart_css_id',
+			    'type'       => 'woodmart_css_id',
+			    'group'      => esc_html__( 'Advanced', 'woodmart' ),
+		    ),
 	        array(
 				'type' => 'woodmart_switch',
 				'heading' => esc_html__( 'Add poster to video', 'woodmart' ),
@@ -44,7 +48,40 @@ if( ! function_exists( 'woodmart_add_field_to_video' ) ) {
 				),
 				'edit_field_class' => 'vc_col-sm-6 vc_column',
 				'description' => esc_html__( 'Example: \'thumbnail\', \'medium\', \'large\', \'full\' or enter image size in pixels: \'200x100\'.', 'woodmart' ),
-			),      
+			),
+		    array(
+			    'type'             => 'wd_slider',
+			    'param_name'       => 'play_icon_size',
+			    'heading'          => esc_html__( 'Play icon size', 'woodmart' ),
+			    'group'            => esc_html__( 'Advanced', 'woodmart' ),
+			    'devices'          => array(
+				    'desktop' => array(
+					    'unit' => 'px',
+				    ),
+				    'tablet'  => array(
+					    'unit' => 'px',
+				    ),
+				    'mobile'  => array(
+					    'unit' => 'px',
+				    ),
+			    ),
+			    'range'            => array(
+				    'px' => array(
+					    'min'  => 10,
+					    'max'  => 300,
+					    'step' => 1,
+				    ),
+			    ),
+			    'selectors'        => array(
+				    '{{WRAPPER}} .button-play' => array(
+					    'font-size: {{VALUE}}{{UNIT}};',
+				    ),
+			    ),
+			    'dependency'       => array(
+				    'element' => 'image_poster_switch',
+				    'value'   => array( 'yes' ),
+			    ),
+		    ),
 	     
 	    );
 	     
@@ -58,15 +95,32 @@ if( ! function_exists( 'woodmart_add_field_to_video' ) ) {
 // **********************************************************************//
 if( ! function_exists( 'woodmart_add_video_poster' ) ) {
 	function woodmart_add_video_poster( $output, $obj, $attr ) {
-		if ( isset( $attr['image_poster_switch'] ) && $attr['image_poster_switch'] === 'yes' ) {
+		if ( isset( $attr['image_poster_switch'] ) && $attr['image_poster_switch'] === 'yes' && isset( $attr['poster_image'] ) ) {
 			woodmart_enqueue_js_script( 'video-element' );
-			$image_id = $attr['poster_image'];
-			$image_size = 'full';
-			if ( isset( $attr['img_size'] ) ) $image_size = $attr['img_size'];
-			$image = woodmart_get_image_src( $image_id, $image_size );
+
+			$attr = wp_parse_args(
+				$attr,
+				array(
+					'woodmart_css_id' => uniqid(),
+					'img_size'        => 'full',
+				),
+			);
+
+			$id         = 'wd-rs-' . $attr['woodmart_css_id'];
+			$image_id   = $attr['poster_image'];
+			$image_size = $attr['img_size'];
+			$image      = woodmart_get_image_src( $image_id, $image_size );
+
 			$output = preg_replace_callback('/wpb_video_wrapper.*?>/',
-				function ( $matches ) use( $image ) {
-				   return $matches[0] . '<div class="wd-video-poster-wrapper"><div class="wd-video-poster" style="background-image:url(' . esc_url( $image ) . ')"></div><div class="button-play"></div></div>';
+				function ( $matches ) use( $image, $id ) {
+					ob_start();
+					?>
+						<div id="<?php echo esc_attr( $id ); ?>" class="wd-video-poster-wrapper">
+							<div class="wd-video-poster" style="background-image:url(<?php echo esc_url( $image ) ?>)"></div>
+							<div class="button-play"></div>
+						</div>
+					<?php
+					return $matches[0] .  ob_get_clean();
 				}, $output );
 		}
 		return $output;

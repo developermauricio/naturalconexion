@@ -34,6 +34,8 @@ class Install_Plugins extends Singleton {
 	 * @since 1.0.0
 	 */
 	public function ajax_deactivate_plugin() {
+		check_ajax_referer( 'woodmart_deactivate_plugin_nonce', 'security' );
+
 		$plugins = $this->get_plugins();
 
 		if ( ! $plugins ) {
@@ -81,6 +83,8 @@ class Install_Plugins extends Singleton {
 	 * @since 1.0.0
 	 */
 	public function ajax_check_plugin() {
+		check_ajax_referer( 'woodmart_check_plugins_nonce', 'security' );
+
 		$plugins = $this->get_plugins();
 
 		if ( ! $plugins ) {
@@ -162,6 +166,10 @@ class Install_Plugins extends Singleton {
 
 		$builder = 'elementor';
 
+		if ( woodmart_get_current_page_builder() ) {
+			$builder = woodmart_get_current_page_builder();
+		}
+
 		if ( isset( $_GET['wd_builder'] ) ) { // phpcs:ignore
 			$builder = wp_unslash( $_GET['wd_builder'] ); // phpcs:ignore
 		}
@@ -173,9 +181,9 @@ class Install_Plugins extends Singleton {
 		$order = array(
 			'elementor',
 			'js_composer',
-			'woocommerce',
-			'revslider',
 			'woodmart-core',
+			'revslider',
+			'woocommerce',
 			'contact-form-7',
 			'mailchimp-for-wp',
 			'safe-svg',

@@ -26,6 +26,11 @@ if ( ! function_exists( 'woodmart_shortcode_tabs' ) ) {
 				'woodmart_css_id'           => '',
 				'css'                       => '',
 				'tabs_style'                => 'default',
+				'design'                    => 'default',
+				'title'                     => '',
+				'description'               => '',
+				'image'                     => '',
+				'img_size'                  => '30x30',
 
 				/**
 				 * Tabs Titles.
@@ -53,11 +58,14 @@ if ( ! function_exists( 'woodmart_shortcode_tabs' ) ) {
 
 		$title_id = 'wd-' . $attr['woodmart_css_id'];
 
+		$wrapper_classes .= ' tabs-design-' . $attr['design'];
+		$img_id           = preg_replace( '/[^\d]/', '', $attr['image'] );
+
 		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
 			$wrapper_classes .= ' ' . vc_shortcode_custom_css_class( $attr['css'] );
 		}
 
-		$nav_tabs_wrapper_classes = ' text-' . $attr['tabs_title_alignment'];
+		$nav_tabs_wrapper_classes = '';
 
 		if ( 'inherit' !== $attr['tabs_title_color_scheme'] && 'custom' !== $attr['tabs_title_color_scheme'] ) {
 			$nav_tabs_wrapper_classes .= ' color-scheme-' . $attr['tabs_title_color_scheme'];
@@ -95,80 +103,97 @@ if ( ! function_exists( 'woodmart_shortcode_tabs' ) ) {
 		?>
 
 		<div id="<?php echo esc_attr( $title_id ); ?>" class="wd-tabs wd-wpb<?php echo esc_attr( $wrapper_classes ); ?>">
-			<div class="wd-nav-wrapper wd-nav-tabs-wrapper<?php echo esc_attr( $nav_tabs_wrapper_classes ); ?>">
-				<ul class="wd-nav wd-nav-tabs<?php echo esc_attr( $nav_tabs_classes ); ?>">
-					<?php foreach ( $tabs_data as $data ) : ?>
+			<div class="wd-tabs-header text-<?php echo esc_attr( $attr['tabs_title_alignment'] ); ?>">
+				<?php if ( $attr['title'] ) : ?>
+					<div class="tabs-name title">
 						<?php
-						$data = shortcode_atts(
-							array(
-								/**
-								 * Tab Title.
-								 */
-								'title'               => '',
-
-								/**
-								 * Content.
-								 */
-								'content_type'        => '',
-								'content'             => '',
-								'html_block_id'       => '',
-
-								/***
-								 * Tab Icon.
-								 */
-								'tabs_icon_libraries' => 'fontawesome',
-								'icon_position'       => 'top',
-								'tabs_image'          => '',
-								'tabs_image_size'     => '30x30',
-
-								/***
-								 * Icon libraries.
-								 */
-								'icon_fontawesome'    => '',
-								'icon_openiconic'     => '',
-								'icon_typicons'       => '',
-								'icon_entypo'         => '',
-								'icon_linecons'       => '',
-								'icon_monosocial'     => '',
-								'icon_material'       => '',
-							),
-							$data
-						);
-
-						$tabs_icon_library = '';
-
-						if ( ! empty( $data['tabs_icon_libraries'] ) ) {
-							$tabs_icon_library = $data[ 'icon_' . $data['tabs_icon_libraries'] ];
-							vc_icon_element_fonts_enqueue( $data['tabs_icon_libraries'] );
-						}
-
-						$icon_output = '';
-
-						if ( ! empty( $data['tabs_image'] ) ) {
-							$icon_output = woodmart_display_icon( $data['tabs_image'], $data['tabs_image_size'], 128 ); // phpcs:ignore
-
-							if ( woodmart_is_svg( wp_get_attachment_image_src( $data['tabs_image'] )[0] ) ) {
-								$icon_output = '<div class="img-wrapper">' . woodmart_get_svg_html( $data['tabs_image'], $data['tabs_image_size'] ) . '</div>';
-							}
-						} elseif ( ! empty( $tabs_icon_library ) ) {
-							$icon_output = '<div class="img-wrapper"><i class="' . esc_attr( $tabs_icon_library ) . '"></i></div>';
+						if ( $img_id ) {
+							echo woodmart_display_icon( $img_id, $attr['img_size'], 30 ); //phpcs:ignore
 						}
 						?>
+						<span class="tabs-text"><?php echo wp_kses( $attr['title'], woodmart_get_allowed_html() ); ?></span>
+					</div>
+				<?php endif; ?>
 
-						<li>
-							<a href="#" class="wd-nav-link">
-								<?php if ( ! empty( $icon_output ) ) : ?>
-									<?php echo $icon_output; // phpcs:ignore ?>
-								<?php endif; ?>
-								<span class="nav-link-text wd-tabs-title">
-									<?php echo esc_html( $data['title'] ); ?>
-								</span>
-							</a>
-						</li>
+				<?php if ( $attr['description'] ) : ?>
+					<div class="wd-tabs-desc"><?php echo wp_kses( $attr['description'], woodmart_get_allowed_html() ); ?></div>
+				<?php endif; ?>
 
-					<?php endforeach; ?>
+				<div class="wd-nav-wrapper wd-nav-tabs-wrapper<?php echo esc_attr( $nav_tabs_wrapper_classes ); ?>">
+					<ul class="wd-nav wd-nav-tabs<?php echo esc_attr( $nav_tabs_classes ); ?>">
+						<?php foreach ( $tabs_data as $data ) : ?>
+							<?php
+							$data = shortcode_atts(
+								array(
+									/**
+									 * Tab Title.
+									 */
+									'title'               => '',
 
-				</ul>
+									/**
+									 * Content.
+									 */
+									'content_type'        => '',
+									'content'             => '',
+									'html_block_id'       => '',
+
+									/***
+									 * Tab Icon.
+									 */
+									'tabs_icon_libraries' => 'fontawesome',
+									'icon_position'       => 'top',
+									'tabs_image'          => '',
+									'tabs_image_size'     => '30x30',
+
+									/***
+									 * Icon libraries.
+									 */
+									'icon_fontawesome'    => '',
+									'icon_openiconic'     => '',
+									'icon_typicons'       => '',
+									'icon_entypo'         => '',
+									'icon_linecons'       => '',
+									'icon_monosocial'     => '',
+									'icon_material'       => '',
+								),
+								$data
+							);
+
+							$tabs_icon_library = '';
+
+							if ( ! empty( $data['tabs_icon_libraries'] ) ) {
+								$tabs_icon_library = $data[ 'icon_' . $data['tabs_icon_libraries'] ];
+								vc_icon_element_fonts_enqueue( $data['tabs_icon_libraries'] );
+							}
+
+							$icon_output = '';
+
+							if ( ! empty( $data['tabs_image'] ) ) {
+								$icon_output = woodmart_display_icon( $data['tabs_image'], $data['tabs_image_size'], 128 ); // phpcs:ignore
+
+								if ( woodmart_is_svg( wp_get_attachment_image_src( $data['tabs_image'] )[0] ) ) {
+									$icon_output = '<div class="img-wrapper">' . woodmart_get_svg_html( $data['tabs_image'], $data['tabs_image_size'] ) . '</div>';
+								}
+							} elseif ( ! empty( $tabs_icon_library ) ) {
+								$icon_output = '<div class="img-wrapper"><i class="' . esc_attr( $tabs_icon_library ) . '"></i></div>';
+							}
+							?>
+
+							<li>
+								<a href="#" class="wd-nav-link">
+									<?php if ( ! empty( $icon_output ) ) : ?>
+										<?php echo $icon_output; // phpcs:ignore ?>
+									<?php endif; ?>
+									<span class="nav-link-text wd-tabs-title">
+										<?php echo esc_html( $data['title'] ); ?>
+									</span>
+								</a>
+							</li>
+
+						<?php endforeach; ?>
+
+					</ul>
+				</div>
 			</div>
 
 			<div class="wd-tab-content-wrapper<?php echo esc_attr( $content_classes ); ?>">

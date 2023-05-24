@@ -5,18 +5,14 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_row_divider' ) ) {
-	function woodmart_vc_map_row_divider() {
-		if ( ! shortcode_exists( 'woodmart_row_divider' ) ) {
-			return;
-		}
-
-		vc_map( array(
+if ( ! function_exists( 'woodmart_get_vc_map_row_divider' ) ) {
+	function woodmart_get_vc_map_row_divider() {
+		return array(
 			'name' => esc_html__( 'Section divider', 'woodmart'),
 			'base' => 'woodmart_row_divider',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'Divider for sections', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/section-divider.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/section-divider.svg',
 			'params' => array(
 				array(
 					'type' => 'woodmart_title_divider',
@@ -42,7 +38,7 @@ if( ! function_exists( 'woodmart_vc_map_row_divider' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Button style', 'woodmart' ),
 					'param_name' => 'style',
-				    'value' => array( 
+					'value' => array(
 						esc_html__( 'Waves Small', 'woodmart' ) => 'waves-small',
 						esc_html__( 'Waves Wide', 'woodmart' ) => 'waves-wide',
 						esc_html__( 'Curved Line', 'woodmart' ) => 'curved-line',
@@ -114,7 +110,6 @@ if( ! function_exists( 'woodmart_vc_map_row_divider' ) ) {
 					'hint' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' )
 				),
 			),
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_row_divider' );
 }

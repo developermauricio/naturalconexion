@@ -432,10 +432,11 @@ class WOE_Formatter_PDF extends WOE_Formatter_Plain_Format {
                         if (!empty( array_keys($summary_row) ) && array_filter($summary_row, function ($row) { return $row !== ''; })) {
                             $summary_row = WOE_Formatter::output( $summary_row );
                             $summary_row[array_keys($summary_row)[0]] = $this->settings['global_job_settings']['summary_row_title'];
+                            $summary_row = apply_filters( 'woe_pdf_prepare_row', array_values($summary_row) );
                             if ( $pageBreakOrderLines ) {
-                                $orderRows[] = array( array_values($summary_row), $row_style, $row_height );
+                                $orderRows[] = array( $summary_row, $row_style, $row_height );
                             } else {
-                                $this->pdf->addRow( array_values($summary_row), null, $row_height, $row_style );
+                                $this->pdf->addRow( $summary_row, null, $row_height, $row_style );
                             }
                         }
 

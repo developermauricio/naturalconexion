@@ -68,6 +68,8 @@ class WooSEA_Update_Project {
 	}
 
 	public static function update_project($project_data){
+		check_ajax_referer('woosea_ajax_nonce', 'security');
+		
 		if(!array_key_exists('project_hash', $project_data)){
                 	$upload_dir = wp_upload_dir();
                 	$external_base = $upload_dir['baseurl'];

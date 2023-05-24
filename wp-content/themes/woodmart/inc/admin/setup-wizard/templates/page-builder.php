@@ -10,7 +10,7 @@
 <div class="xts-wizard-content-inner xts-wizard-page-builder">
 
 	<h3>
-		<?php esc_html_e( 'Page Builder Plugin', 'woodmart' ); ?>
+		<?php esc_html_e( 'Page builder plugin', 'woodmart' ); ?>
 	</h3>
 
 	<p>

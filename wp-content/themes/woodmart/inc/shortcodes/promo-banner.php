@@ -9,7 +9,9 @@
 
 if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 	function woodmart_shortcode_promo_banner( $atts, $content ) {
-		$click = $output = $subtitle_class = $title_class = $title_wrap_class = $content_banner = $content_wrap_classes = $inner_class = $btn_wrapper_classes = $banner_image_classes = $class = '';
+		$click = $output = $subtitle_class = $title_class = $content_banner = $content_wrap_classes = $inner_class = $btn_wrapper_classes = $banner_image_classes = $class = $countdown_wrapper_classes = $countdown_timer_classes = '' ;
+
+		$timezone = 'GMT';
 
 		$wrapper_class = apply_filters( 'vc_shortcodes_css_class', '', '', $atts );
 
@@ -20,6 +22,8 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 					'img_size'                   => '800x600',
 					'image_bg_position'          => 'center',
 					'height'                     => 0,
+					'custom_height'              => 'no',
+					'new_height'                 => '',
 					'link'                       => '',
 					'text_alignment'             => 'left',
 					'vertical_alignment'         => 'top',
@@ -29,6 +33,13 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 					'increase_spaces'            => '',
 					'woodmart_color_scheme'      => 'light',
 					'content_width'              => '100',
+
+					// Countdown.
+					'date'                       => '',
+					'countdown_color_scheme'     => 'dark',
+					'countdown_size'             => 'medium',
+					'countdown_style'            => 'standard',
+					'hide_countdown_on_finish'   => 'no',
 
 					// Button
 					'btn_text'                   => '',
@@ -87,14 +98,14 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 		if ( ! $woodmart_css_id ) {
 			$woodmart_css_id = uniqid();
 		}
-		$id = 'wd-' . $woodmart_css_id;
+		$id                 = 'wd-' . $woodmart_css_id;
+		$wrapper_style_attr = '';
 
 		$class .= ' banner-' . $style;
 		$class .= ' banner-hover-' . $hover;
 		$class .= ' color-scheme-' . $woodmart_color_scheme;
 		$class .= ' banner-btn-size-' . $btn_size;
 		$class .= ' banner-btn-style-' . $btn_style;
-		$class .= ' wd-underline-' . $title_decoration_style;
 		$class .= woodmart_get_css_animation( $css_animation );
 
 		$banner_image_classes .= ' wd-bg-position-' . $image_bg_position;
@@ -105,7 +116,6 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 
 		$subtitle_class   .= ' subtitle-style-' . $subtitle_style;
 		$subtitle_class   .= ' ' . woodmart_get_new_size_classes( 'banner', $title_size, 'subtitle' );
-		$title_wrap_class .= woodmart_get_old_classes( ' banner-title-' . $title_size );
 
 		$title_class .= ' wd-font-weight-' . $font_weight;
 		if ( $title_font ) {
@@ -120,11 +130,15 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 
 		$content_banner .= ' text-' . $text_alignment;
 
-		if ( $style == 'content-background' ) {
-			$btn_position          = 'static';
-			$content_wrap_classes .= ' wd-width-' . $content_width;
-		} else {
-			$content_banner .= ' wd-width-' . $content_width;
+		if ( 'content-background' === $style ) {
+			$btn_position = 'static';
+		}
+
+		if ( $content_width && 'custom' !== $content_width && '100' !== $content_width ) {
+			$wrapper_style_attr .= ' style="--wd-max-width: ' . $content_width . '%;"';
+			$class              .= ' wd-width-enabled';
+		} elseif ( 'custom' === $content_width ) {
+			$wrapper_class .= ' wd-width-custom';
 		}
 
 		$content_wrap_classes .= ' wd-items-' . $vertical_alignment;
@@ -169,6 +183,22 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 			$class .= ' cursor-pointer';
 		}
 
+		// Countdown classes.
+		if ( ! empty( $date ) ) {
+			$timezone = apply_filters( 'woodmart_wp_timezone_element', false ) ? get_option( 'timezone_string' ) : 'GMT';
+
+			$countdown_wrapper_classes .= ' wd-countdown-timer';
+			$countdown_wrapper_classes .= ' color-scheme-' . $countdown_color_scheme;
+			$countdown_wrapper_classes .= ' timer-size-' . $countdown_size;
+			$countdown_wrapper_classes .= ' timer-style-' . $countdown_style;
+
+			$countdown_timer_classes .= 'wd-timer';
+
+			woodmart_enqueue_js_library( 'countdown-bundle' );
+			woodmart_enqueue_js_script( 'countdown-element' );
+			woodmart_enqueue_inline_style( 'countdown' );
+		}
+
 		// Button
 		$btn_wrapper_classes .= ( $hide_btn_tablet == 'yes' ) ? ' wd-hide-md-sm' : '';
 		$btn_wrapper_classes .= ( $hide_btn_mobile == 'yes' ) ? ' wd-hide-sm' : '';
@@ -199,22 +229,47 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 
 		$style_attr = '';
 
-		if ( 0 === $height ) {
-			$banner_image_classes .= ' wd-without-height';
-		} else {
-			$style_attr = 'style="height: ' . $height . 'px"';
+		if ( ! $new_height && 'yes' === $custom_height ) {
+			if ( 0 === $height ) {
+				$banner_image_classes .= ' wd-without-height';
+			} else {
+				$style_attr = 'style="height: ' . $height . 'px"';
+			}
 		}
 
 		ob_start();
 
 		woodmart_enqueue_inline_style( 'banner' );
 
+		if ( in_array( $style, array( 'mask', 'shadow' ), true ) ) {
+			woodmart_enqueue_inline_style( 'banner-style-mask-and-shadow' );
+		} elseif ( in_array( $style, array( 'border', 'background' ), true ) ) {
+			woodmart_enqueue_inline_style( 'banner-style-bg-and-border' );
+		} elseif ( 'content-background' === $style ) {
+			woodmart_enqueue_inline_style( 'banner-style-bg-cont' );
+		}
+
+		if ( in_array( $hover, array( 'background', 'border' ), true ) ) {
+			woodmart_enqueue_inline_style( 'banner-hover-bg-and-border' );
+		} elseif ( in_array( $hover, array( 'zoom', 'zoom-reverse' ), true ) ) {
+			woodmart_enqueue_inline_style( 'banner-hover-zoom' );
+		}
+
+		if ( 'hover' === $btn_position ) {
+			woodmart_enqueue_inline_style( 'banner-btn-hover' );
+		}
+
+		if ( isset( $title_decoration_style ) && 'default' !== $title_decoration_style ) {
+			$class .= ' wd-underline-' . $title_decoration_style;
+			woodmart_enqueue_inline_style( 'mod-highlighted-text' );
+		}
+
 		?>
 		<div class="promo-banner-wrapper <?php echo esc_attr( $wrapper_class ); ?>">
-			<div id="<?php echo esc_attr( $id ); ?>" class="promo-banner <?php echo esc_attr( $class ); ?>"
+			<div id="<?php echo esc_attr( $id ); ?>" class="promo-banner <?php echo esc_attr( $class ); ?>"<?php echo wp_kses( $wrapper_style_attr, true ); ?>
 				<?php
 				if ( $link && $attributes['url'] ) {
-					echo 'onclick="' . $onclick . '"';}
+					echo ' onclick="' . $onclick . '"';}
 				?>
 			>
 				<div class="main-wrapp-img">
@@ -224,17 +279,15 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 				</div>
 
 				<div class="wrapper-content-banner wd-fill <?php echo esc_attr( $content_wrap_classes ); ?>">
-					<div class="content-banner<?php echo esc_attr( $content_banner ); ?>">
-						<div class="banner-title-wrap<?php echo esc_attr( $title_wrap_class ); ?>">
-							<?php
+					<div class="content-banner <?php echo esc_attr( $content_banner ); ?>">
+						<?php
 							if ( ! empty( $subtitle ) ) {
 								echo '<div class="banner-subtitle' . esc_attr( $subtitle_class ) . '">' . $subtitle . '</div>';
 							}
 							if ( ! empty( $title ) ) {
 								echo '<' . $title_tag . ' class="banner-title' . esc_attr( $title_class ) . '">' . $title . '</' . $title_tag . '>';
 							}
-							?>
-						</div>
+						?>
 						<?php if ( $content ) : ?>
 							<div class="banner-inner set-cont-mb-s reset-last-child<?php echo esc_attr( $inner_class ); ?>">
 								<?php
@@ -242,17 +295,50 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 								?>
 							</div>
 						<?php endif ?>
+
+						<?php if ( ! empty( $date ) ) : ?>
+							<div class="<?php echo esc_attr( trim( $countdown_wrapper_classes ) ); ?>">
+								<div class="<?php echo esc_attr( $countdown_timer_classes ); ?>" data-end-date="<?php echo esc_attr( $date ); ?>" data-timezone="<?php echo esc_attr( $timezone ); ?>" data-hide-on-finish="<?php echo esc_attr( $hide_countdown_on_finish ); ?>">
+									<span class="countdown-days">
+										0
+										<span>
+											<?php esc_html_e( 'days', 'woodmart' ); ?>
+										</span>
+									</span>
+									<span class="countdown-hours">
+										00
+										<span>
+											<?php esc_html_e( 'hr', 'woodmart' ); ?>
+										</span>
+									</span>
+									<span class="countdown-min">
+										00
+										<span>
+											<?php esc_html_e( 'min', 'woodmart' ); ?>
+										</span>
+									</span>
+									<span class="countdown-sec">
+										00
+										<span>
+											<?php esc_html_e( 'sc', 'woodmart' ); ?>
+										</span>
+									</span>
+								</div>
+							</div>
+						<?php endif ?>
+
 						<?php
 						if ( ! empty( $btn_text ) ) {
 							echo '<div class="banner-btn-wrapper' . esc_attr( $btn_wrapper_classes ) . '">';
 								echo woodmart_shortcode_button(
 									array(
-										'title' => $btn_text,
-										'color' => $btn_color,
-										'style' => $btn_style,
-										'size'  => $btn_size,
-										'align' => $text_alignment,
-										'shape' => $btn_shape,
+										'title'         => $btn_text,
+										'color'         => $btn_color,
+										'style'         => $btn_style,
+										'size'          => $btn_size,
+										'align'         => $text_alignment,
+										'shape'         => $btn_shape,
+										'link_nofollow' => ! empty( $attributes['rel'] ) && 'nofollow' === $attributes['rel'],
 									)
 								);
 							echo '</div>';
@@ -271,7 +357,7 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 				if ( $subtitle_desktop_text_size ) $css .= woodmart_responsive_text_size_css( $id, 'banner-subtitle', $subtitle_desktop_text_size, 'return' );
 
 				if ( $title_tablet_text_size || $subtitle_tablet_text_size ) {
-					$css .= '@media (max-width:1024px){';
+					$css .= '@media (max-width:1199px){';
 					if ( $title_tablet_text_size ) $css .= woodmart_responsive_text_size_css( $id, 'banner-title', $title_tablet_text_size, 'return' );
 					if ( $subtitle_tablet_text_size ) $css .= woodmart_responsive_text_size_css( $id, 'banner-subtitle', $subtitle_tablet_text_size, 'return' );
 					$css .= '}';
@@ -300,19 +386,23 @@ if ( ! function_exists( 'woodmart_shortcode_promo_banner' ) ) {
 
 if ( ! function_exists( 'woodmart_shortcode_banners_carousel' ) ) {
 	function woodmart_shortcode_banners_carousel( $atts = array(), $content = null ) {
-		$output = $class = $autoplay = '';
-		$wrapper_classes = apply_filters( 'vc_shortcodes_css_class', '', '', $atts );
+		$output = $class = $autoplay = $wrapper_classes = '';
 
 		$parsed_atts = shortcode_atts(
 			array_merge(
 				woodmart_get_owl_atts(),
 				array(
-					'slider_spacing'       => 30,
-					'dragEndSpeed'         => 600,
-					'scroll_carousel_init' => 'no',
-					'el_class'             => '',
-					'css'                  => '',
-					'woodmart_css_id'      => '',
+					'slides_per_view'        => 3,
+					'slides_per_view_tablet' => 'auto',
+					'slides_per_view_mobile' => 'auto',
+					'woodmart_css_id'        => uniqid(),
+					'slider_spacing'         => 30,
+					'dragEndSpeed'           => 600,
+					'scroll_carousel_init'   => 'no',
+					'el_class'               => '',
+					'responsive_spacing'     => '',
+					'css'                    => '',
+					'content_height'         => '',
 				)
 			),
 			$atts
@@ -322,9 +412,22 @@ if ( ! function_exists( 'woodmart_shortcode_banners_carousel' ) ) {
 
 		$custom_sizes = apply_filters( 'woodmart_promo_banner_shortcode_custom_sizes', false );
 
+		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$class .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
+		if ( ( 'auto' !== $slides_per_view_tablet && ! empty( $slides_per_view_tablet ) ) || ( 'auto' !== $slides_per_view_mobile && ! empty( $slides_per_view_mobile ) ) ) {
+			$custom_sizes = array(
+				'desktop'          => $slides_per_view,
+				'tablet_landscape' => $slides_per_view_tablet,
+				'tablet'           => $slides_per_view_mobile,
+				'mobile'           => $slides_per_view_mobile,
+			);
+		}
+
 		$class .= ' ' . $el_class;
 		$class .= ' ' . woodmart_owl_items_per_slide( $slides_per_view, array(), false, false, $custom_sizes );
-
+		$class .= ' wd-rs-' . $woodmart_css_id;
 		$carousel_id = 'carousel-' . rand( 100, 999 );
 
 		$parsed_atts['custom_sizes'] = $custom_sizes;
@@ -338,10 +441,6 @@ if ( ! function_exists( 'woodmart_shortcode_banners_carousel' ) ) {
 			$wrapper_classes .= ' disable-owl-mobile';
 		}
 
-		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
-			$wrapper_classes .= ' ' . vc_shortcode_custom_css_class( $css );
-		}
-
 		$wrapper_classes .= ' wd-carousel-spacing-' . $slider_spacing;
 
 		ob_start();
@@ -350,7 +449,7 @@ if ( ! function_exists( 'woodmart_shortcode_banners_carousel' ) ) {
 		?>
 
 			<div id="<?php echo esc_attr( $carousel_id ); ?>" class="wd-carousel-container banners-carousel-wrapper <?php echo esc_attr( $wrapper_classes ); ?>" <?php echo woodmart_get_owl_attributes( $parsed_atts ); ?>>
-				<div class="owl-carousel banners-carousel<?php echo esc_attr( $class ); ?>" >
+				<div class="owl-carousel wd-owl banners-carousel<?php echo esc_attr( $class ); ?>" >
 					<?php echo do_shortcode( $content ); ?>
 				</div>
 			</div>

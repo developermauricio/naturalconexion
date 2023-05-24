@@ -38,7 +38,7 @@
 		?>
 	</p>
 
-	<a href="#" class="xts-btn xts-btn-primary xts-install-child-theme">
+	<a href="#" class="xts-btn xts-color-primary xts-install-child-theme">
 		<?php esc_html_e( 'Install child theme', 'woodmart' ); ?>
 	</a>
 </div>

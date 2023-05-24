@@ -71,12 +71,26 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 									<span class="wd-entities-title">
 										<?php echo $product_name; ?>
 									</span>
-									<?php 
+									<?php if ( woodmart_get_opt( 'show_sku_in_mini_cart' ) ) : ?>
+										<div class="wd-product-sku">
+											<span class="wd-label">
+												<?php esc_html_e( 'SKU:', 'woodmart' ); ?>
+											</span>
+											<span>
+												<?php if ( $_product->get_sku() ) : ?>
+													<?php echo esc_html( $_product->get_sku() ); ?>
+												<?php else : ?>
+													<?php esc_html_e( 'N/A', 'woocommerce' ); ?>
+												<?php endif; ?>
+											</span>
+										</div>
+									<?php endif; ?>
+									<?php
 										echo wc_get_formatted_cart_item_data( $cart_item );
 									?>
 
 									<?php
-									if ( ! $_product->is_sold_individually() && $_product->is_purchasable() && woodmart_get_opt( 'mini_cart_quantity' ) ) {
+									if ( ! $_product->is_sold_individually() && $_product->is_purchasable() && woodmart_get_opt( 'mini_cart_quantity' ) && apply_filters( 'woodmart_show_widget_cart_item_quantity', true, $cart_item_key ) ) {
 										woocommerce_quantity_input(
 											array(
 												'input_value' => $cart_item['quantity'],

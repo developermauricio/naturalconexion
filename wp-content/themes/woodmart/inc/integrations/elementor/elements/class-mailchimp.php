@@ -5,6 +5,8 @@
  * @package xts
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -114,7 +116,7 @@ class Mailchimp extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab
 		 */
@@ -224,6 +226,146 @@ class Mailchimp extends Widget_Base {
 				],
 			]
 		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'color_style_section',
+			[
+				'label' => esc_html__( 'Form', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'form_color',
+			array(
+				'label'     => esc_html__( 'Text color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form' => '--wd-form-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_placeholder_color',
+			array(
+				'label'     => esc_html__( 'Placeholder color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form' => '--wd-form-placeholder-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_brd_color',
+			array(
+				'label'     => esc_html__( 'Border color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form' => '--wd-form-brd-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_brd_color_focus',
+			array(
+				'label'     => esc_html__( 'Border color focus', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form' => '--wd-form-brd-color-focus: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_bg',
+			array(
+				'label'     => esc_html__( 'Background color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form' => '--wd-form-bg: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'button_color_style_section',
+			[
+				'label' => esc_html__( 'Button', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->start_controls_tabs( 'color_tabs' );
+
+		$this->start_controls_tab(
+			'title_idle_color_tab',
+			array(
+				'label' => esc_html__( 'Idle', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'button_text_color',
+			array(
+				'label'     => esc_html__( 'Color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form input[type="submit"]' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_bg_color',
+			array(
+				'label'     => esc_html__( 'Background color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form input[type="submit"]' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'title_hover_color_tab',
+			array(
+				'label' => esc_html__( 'Hover', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'button_text_color_hover',
+			array(
+				'label'     => esc_html__( 'Color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form input[type="submit"]:hover' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_bg_color_hover',
+			array(
+				'label'     => esc_html__( 'Background color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .mc4wp-form input[type="submit"]:hover' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 	}
@@ -264,5 +406,5 @@ class Mailchimp extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Mailchimp() );
+Plugin::instance()->widgets_manager->register( new Mailchimp() );
 

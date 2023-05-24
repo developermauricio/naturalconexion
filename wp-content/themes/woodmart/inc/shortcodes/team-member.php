@@ -9,6 +9,7 @@ if( ! function_exists( 'woodmart_shortcode_team_member' ) ) {
 	function woodmart_shortcode_team_member( $atts, $content = "" ) {
 		$output = $title = $classes = '';
 		extract( shortcode_atts( array(
+			'woodmart_css_id' => '',
 	        'align' => 'left',
 	        'name' => '',
 	        'position' => '',
@@ -25,15 +26,21 @@ if( ! function_exists( 'woodmart_shortcode_team_member' ) ) {
 			'woodmart_color_scheme' => '',
 			'layout' => 'default',
 			'css_animation' => 'none',
-			'el_class' => ''
+			'el_class' => '',
+			'css' => '',
 		), $atts ) );
 
+		$classes  = 'wd-rs-' . $woodmart_css_id;
 		$classes .= ' member-layout-' . $layout;
 		if ( $woodmart_color_scheme ) {
 			$classes .= ' color-scheme-' . $woodmart_color_scheme;
 		}
 		$classes .= woodmart_get_css_animation( $css_animation );
 		$classes .= ( $el_class ) ? ' ' . $el_class : '';
+
+		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$classes .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
 
 		$img_id = preg_replace( '/[^\d]/', '', $image );
 
@@ -77,12 +84,12 @@ if( ! function_exists( 'woodmart_shortcode_team_member' ) ) {
 	            $output .= '</div></div>';
 		    }
 
-	        $output .= '<div class="member-details">';
+	        $output .= '<div class="member-details set-mb-s reset-last-child">';
 	            if($name != ''){
 	                $output .= '<h4 class="member-name">' . ( $name ) . '</h4>';
 	            }
 			    if($position != ''){
-				    $output .= '<span class="member-position">' . ( $position ) . '</span>';
+				    $output .= '<div class="member-position">' . ( $position ) . '</div>';
 			    }
 
 			    if($content){

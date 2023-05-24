@@ -59,7 +59,7 @@
 <?php if ( isset( $_GET['step'] ) && 'welcome' === $_GET['step'] || ! isset( $_GET['step'] ) ) : // phpcs:ignore ?>
 	<img class="xts-wizard-nav-bg-img" src="<?php echo esc_url( $this->get_image_url( 'welcome.png' ) ); ?>" alt="welcome themes">
 <?php else : ?>
-	<a class="xts-wizard-help" href="https://xtemos.com/forums/forum/woodmart-premium-template/" target="_blank">
+	<a class="xts-wizard-help xts-i-alert-info" href="https://xtemos.com/forums/forum/woodmart-premium-template/" target="_blank">
 		<?php esc_html_e( 'Get help', 'woodmart' ); ?>
 	</a>
 <?php endif; ?>

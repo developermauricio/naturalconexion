@@ -411,3 +411,11 @@ msgstr "Erro ao processar o pedido. Documento de identidade inválido. Por favor
 #: addi-gateway.php:2319
 msgid "Error procesando el pedido. Credenciales inválidas. Por favor, inténtalo de nuevo."
 msgstr "Erro ao processar o pedido. Credenciais inválidas. Por favor, tente novamente."
+
+#: class-wc-addi-gateway.php:516
+msgid "Cancelaciones automáticas"
+msgstr "Cancelamentos automáticos"
+
+#: class-wc-addi-gateway.php:517
+msgid "Habilitar cancelaciones automáticas"
+msgstr "Ativar cancelamentos automáticos"

@@ -26,6 +26,10 @@ if ( ! function_exists( 'woodmart_common_before_render' ) ) {
 			woodmart_enqueue_js_library( 'parallax-scroll-bundle' );
 		}
 
+		if ( isset( $settings['_animation'] ) && $settings['_animation'] ) {
+			woodmart_enqueue_inline_style( 'int-el-animations' );
+		}
+
 		if ( isset( $settings['wd_animation'] ) && $settings['wd_animation'] ) {
 			woodmart_enqueue_inline_style( 'animations' );
 			woodmart_enqueue_js_script( 'animations' );

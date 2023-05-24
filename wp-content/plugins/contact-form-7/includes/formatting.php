@@ -9,13 +9,44 @@
  * @return string Text which has been converted into correct paragraph tags.
  */
 function wpcf7_autop( $input, $br = true ) {
+	$placeholders = array();
+
+	// Replace non-HTML embedded elements with placeholders.
+	$input = preg_replace_callback(
+		'/<(math|svg).*?<\/\1>/is',
+		function ( $matches ) use ( &$placeholders ) {
+			$placeholder = sprintf(
+				'<%1$s id="%2$s" />',
+				WPCF7_HTMLFormatter::placeholder_inline,
+				sha1( $matches[0] )
+			);
+
+			list( $placeholder ) =
+				WPCF7_HTMLFormatter::normalize_start_tag( $placeholder );
+
+			$placeholders[$placeholder] = $matches[0];
+
+			return $placeholder;
+		},
+		$input
+	);
+
 	$formatter = new WPCF7_HTMLFormatter( array(
 		'auto_br' => $br,
 	) );
 
 	$chunks = $formatter->separate_into_chunks( $input );
 
-	return $formatter->format( $chunks );
+	$output = $formatter->format( $chunks );
+
+	// Restore from placeholders.
+	$output = str_replace(
+		array_keys( $placeholders ),
+		array_values( $placeholders ),
+		$output
+	);
+
+	return $output;
 }
 
 
@@ -471,4 +502,51 @@ function wpcf7_kses( $input, $context = 'form' ) {
 	);
 
 	return $output;
+}
+
+
+/**
+ * Returns a formatted string of HTML attributes.
+ *
+ * @param array $atts Associative array of attribute name and value pairs.
+ * @return string Formatted HTML attributes.
+ */
+function wpcf7_format_atts( $atts ) {
+	$atts_filtered = array();
+
+	foreach ( $atts as $name => $value ) {
+		$name = strtolower( trim( $name ) );
+
+		if ( ! preg_match( '/^[a-z_:][a-z_:.0-9-]*$/', $name ) ) {
+			continue;
+		}
+
+		static $boolean_attributes = array(
+			'checked', 'disabled', 'multiple', 'readonly', 'required', 'selected',
+		);
+
+		if ( in_array( $name, $boolean_attributes ) and '' === $value ) {
+			$value = false;
+		}
+
+		if ( is_numeric( $value ) ) {
+			$value = (string) $value;
+		}
+
+		if ( null === $value or false === $value ) {
+			unset( $atts_filtered[$name] );
+		} elseif ( true === $value ) {
+			$atts_filtered[$name] = $name; // boolean attribute
+		} elseif ( is_string( $value ) ) {
+			$atts_filtered[$name] = trim( $value );
+		}
+	}
+
+	$output = '';
+
+	foreach ( $atts_filtered as $name => $value ) {
+		$output .= sprintf( ' %1$s="%2$s"', $name, esc_attr( $value ) );
+	}
+
+	return trim( $output );
 }

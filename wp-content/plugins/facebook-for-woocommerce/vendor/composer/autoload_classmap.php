@@ -211,6 +211,7 @@ return array(
     'WooCommerce\\Facebook\\Events\\AAMSettings' => $baseDir . '/includes/Events/AAMSettings.php',
     'WooCommerce\\Facebook\\Events\\Event' => $baseDir . '/includes/Events/Event.php',
     'WooCommerce\\Facebook\\Events\\Normalizer' => $baseDir . '/includes/Events/Normalizer.php',
+    'WooCommerce\\Facebook\\ExternalVersionUpdate\\Update' => $baseDir . '/includes/ExternalVersionUpdate/Update.php',
     'WooCommerce\\Facebook\\Feed\\FeedConfigurationDetection' => $baseDir . '/includes/Feed/FeedConfigurationDetection.php',
     'WooCommerce\\Facebook\\Framework\\AdminMessageHandler' => $baseDir . '/includes/Framework/AdminMessageHandler.php',
     'WooCommerce\\Facebook\\Framework\\AdminNoticeHandler' => $baseDir . '/includes/Framework/AdminNoticeHandler.php',

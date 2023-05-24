@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
 	// Add standard filters
         jQuery(".add-field-manipulation").on('click', function(){
-		var nonce = $('#nonce_manipulation_mapping').val();
+		var nonce = $('#_wpnonce').val();
 		var TrueRowCount = $('#woosea-ajax-table >tbody >tr').length-1;
 		var rowCount = Math.round(new Date().getTime() + (Math.random() * 100));
 		var plusCount = Math.round(new Date().getTime() + (Math.random() * 100));
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
 
         // Add extra fields to existing field manipulations
 	jQuery(".field_extra").on('click', function(){
-		var nonce = $('#nonce_manipulation_mapping').val();
+		var nonce = $('#_wpnonce').val();
 		var className = $(this).attr("class").split(' ')[3];
                 var rowCount = className.split("_")[3];
 		var plusCount = Math.round(new Date().getTime() + (Math.random() * 100));
@@ -67,7 +67,7 @@ jQuery(document).ready(function($) {
 
 	// Add standard filters
         jQuery(".add-filter").on('click',function(){
-		var nonce = $('#nonce_filters_mapping').val();
+		var nonce = $('#_wpnonce').val();
 		// Count amount of rows, used to create the form array field and values
 		var TrueRowCount = $('#woosea-ajax-table >tbody >tr').length-1;
 		var rowCount = Math.round(new Date().getTime() + (Math.random() * 100));
@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
 
 	// Add rules
         jQuery(".add-rule").on('click',function(){
-		var nonce = $('#nonce_filters_mapping').val();
+		var nonce = $('#_wpnonce').val();
 		// Count amount of rows, used to create the form array field and values
                 var TrueRowCount = $('#woosea-ajax-table >tbody >tr').length-1;
                 var rowCount = Math.round(new Date().getTime() + (Math.random() * 100));

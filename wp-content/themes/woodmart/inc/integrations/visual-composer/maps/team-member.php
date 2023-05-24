@@ -5,22 +5,38 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
-	function woodmart_vc_map_team_member() {
-		if ( ! shortcode_exists( 'team_member' ) ) {
-			return;
-		}
+if ( ! function_exists( 'woodmart_get_vc_map_team_member' ) ) {
+	function woodmart_get_vc_map_team_member() {
+		$name_typography = woodmart_get_typography_map(
+			array(
+				'title'    => esc_html__( 'Name typography', 'woodmart' ),
+				'key'      => 'name_typography',
+				'selector' => '{{WRAPPER}}.team-member .member-name',
+			)
+		);
 
-		vc_map( array(
+		$position_typography = woodmart_get_typography_map(
+			array(
+				'title'    => esc_html__( 'Position typography', 'woodmart' ),
+				'key'      => 'position_typography',
+				'selector' => '{{WRAPPER}}.team-member .member-position',
+			)
+		);
+
+		return array(
 			'name' => esc_html__( 'Team Member', 'woodmart' ),
 			'base' => 'team_member',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'Display information about some person', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/team-member.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/team-member.svg',
 			'params' => array(
-				/**	
-				* Image
-				*/
+				array(
+					'type'       => 'woodmart_css_id',
+					'param_name' => 'woodmart_css_id',
+				),
+				/**
+				 * Image
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -44,8 +60,8 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Content
-				*/
+				 * Content
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -60,14 +76,26 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'hint' => esc_html__( 'Enter the person’s name.', 'woodmart' ),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
+				$name_typography['font_family'],
+				$name_typography['font_size'],
+				$name_typography['font_weight'],
+				$name_typography['text_transform'],
+				$name_typography['font_style'],
+				$name_typography['line_height'],
 				array(
 					'type' => 'textfield',
-					'heading' => esc_html__( 'Title', 'woodmart' ),
+					'heading' => esc_html__( 'Position', 'woodmart' ),
 					'param_name' => 'position',
 					'value' => '',
 					'hint' => esc_html__( 'Enter the person’s title or job position. For example: CEO or Senior Developer.', 'woodmart' ),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
+				$position_typography['font_family'],
+				$position_typography['font_size'],
+				$position_typography['font_weight'],
+				$position_typography['text_transform'],
+				$position_typography['font_style'],
+				$position_typography['line_height'],
 				array(
 					'type' => 'textarea_html',
 					'heading' => esc_html__( 'Text', 'woodmart' ),
@@ -75,8 +103,8 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'hint' => esc_html__( 'You can add some member bio here.', 'woodmart' )
 				),
 				/**
-				* Layout
-				*/
+				 * Layout
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -97,7 +125,7 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Align', 'woodmart' ),
 					'param_name' => 'align',
-				    'value' => array( 
+					'value' => array(
 						esc_html__( 'Left', 'woodmart' ) => 'left',
 						esc_html__( 'Center', 'woodmart' ) => 'center',
 						esc_html__( 'Right', 'woodmart' ) => 'right',
@@ -112,8 +140,8 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column title-align',
 				),
 				/**
-				* Social links
-				*/
+				 * Social links
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -151,8 +179,8 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Buttons
-				*/
+				 * Buttons
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -174,7 +202,7 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Social button style', 'woodmart' ),
 					'param_name' => 'style',
-					'value' => array( 
+					'value' => array(
 						esc_html__( 'Default', 'woodmart' ) => '',
 						esc_html__( 'Simple', 'woodmart' ) => 'simple',
 						esc_html__( 'Colored', 'woodmart' ) => 'colored',
@@ -196,7 +224,7 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Social button form', 'woodmart' ),
 					'param_name' => 'form',
-					'value' => array( 
+					'value' => array(
 						esc_html__( 'Circle', 'woodmart' ) => 'circle',
 						esc_html__( 'Square', 'woodmart' ) => 'square'
 					),
@@ -209,8 +237,8 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'edit_field_class' => 'vc_col-xs-12 vc_column social-form',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -233,9 +261,30 @@ if( ! function_exists( 'woodmart_vc_map_team_member' ) ) {
 					'heading' => esc_html__( 'Extra class name', 'woodmart' ),
 					'param_name' => 'el_class',
 					'hint' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' )
-				)
+				),
+				/**
+				 * Design options
+				 */
+				array(
+					'type'       => 'css_editor',
+					'heading'    => esc_html__( 'CSS box', 'woodmart' ),
+					'param_name' => 'css',
+					'group'      => esc_html__( 'Design Options', 'js_composer' ),
+				),
+				woodmart_get_vc_responsive_spacing_map(),
+				/**
+				 * Advanced
+				 */
+
+				// Width option (with dependency Columns option, responsive).
+				woodmart_get_responsive_dependency_width_map( 'responsive_tabs' ),
+				woodmart_get_responsive_dependency_width_map( 'width_desktop' ),
+				woodmart_get_responsive_dependency_width_map( 'custom_width_desktop' ),
+				woodmart_get_responsive_dependency_width_map( 'width_tablet' ),
+				woodmart_get_responsive_dependency_width_map( 'custom_width_tablet' ),
+				woodmart_get_responsive_dependency_width_map( 'width_mobile' ),
+				woodmart_get_responsive_dependency_width_map( 'custom_width_mobile' ),
 			),
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_team_member' );
 }

@@ -77,7 +77,7 @@ class Image extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -113,29 +113,6 @@ class Image extends Widget_Base {
 		);
 
 		$this->add_control(
-			'alignment',
-			array(
-				'label'   => esc_html__( 'Alignment', 'woodmart' ),
-				'type'    => 'wd_buttons',
-				'options' => array(
-					'left'   => array(
-						'title' => esc_html__( 'Left', 'woodmart' ),
-						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/left.jpg',
-					),
-					'center' => array(
-						'title' => esc_html__( 'Center', 'woodmart' ),
-						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/center.jpg',
-					),
-					'right'  => array(
-						'title' => esc_html__( 'Right', 'woodmart' ),
-						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/right.jpg',
-					),
-				),
-				'default' => 'left',
-			)
-		);
-
-		$this->add_control(
 			'on_click_action',
 			array(
 				'label'   => esc_html__( 'Click action', 'woodmart' ),
@@ -162,6 +139,93 @@ class Image extends Widget_Base {
 				),
 				'condition'   => array(
 					'on_click_action' => array( 'link' ),
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * Style tab.
+		 */
+
+		/**
+		 * Design settings.
+		 */
+		$this->start_controls_section(
+			'style_section',
+			[
+				'label' => esc_html__( 'Style', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'alignment',
+			array(
+				'label'   => esc_html__( 'Alignment', 'woodmart' ),
+				'type'    => 'wd_buttons',
+				'options' => array(
+					'left'   => array(
+						'title' => esc_html__( 'Left', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/left.jpg',
+					),
+					'center' => array(
+						'title' => esc_html__( 'Center', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/center.jpg',
+					),
+					'right'  => array(
+						'title' => esc_html__( 'Right', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/align/right.jpg',
+					),
+				),
+				'default' => 'left',
+			)
+		);
+
+		$this->add_control(
+			'rounding_size',
+			array(
+				'label'     => esc_html__( 'Rounding', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'0'      => esc_html__( '0', 'woodmart' ),
+					'5'      => esc_html__( '5', 'woodmart' ),
+					'8'      => esc_html__( '8', 'woodmart' ),
+					'12'     => esc_html__( '12', 'woodmart' ),
+					'custom' => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{VALUE}}px;',
+				),
+			)
+		);
+
+		$this->add_control(
+			'custom_rounding_size',
+			array(
+				'label'      => esc_html__( 'Custom rounding', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( '%', 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 300,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'rounding_size' => array( 'custom' ),
 				),
 			)
 		);
@@ -258,4 +322,4 @@ class Image extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Image() );
+Plugin::instance()->widgets_manager->register( new Image() );

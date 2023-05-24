@@ -10,10 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see        https://docs.woothemes.com/document/template-structure/
- * @author     WooThemes
- * @package    WooCommerce/Templates
- * @version    4.4.0
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @package    WooCommerce\Templates
+ * @version    1.6.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,14 +20,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $is_quick_view = woodmart_loop_prop( 'is_quick_view' );
+
 ?>
 
-<h1 itemprop="name" class="product_title wd-entities-title">
+<h1 class="product_title entry-title wd-entities-title">
 	<?php if ( $is_quick_view ) : ?>
 		<a href="<?php the_permalink(); ?>">
 	<?php endif; ?>
 
-		<?php echo get_the_title(); ?>
+	<?php the_title(); ?>
 
 	<?php if ( $is_quick_view ) : ?>
 		</a>

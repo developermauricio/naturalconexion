@@ -21,7 +21,7 @@
 
 				var $this        = $(this),
 				    $product     = $this.parents('.product').first(),
-				    $content     = $product.find('.quick-shop-form'),
+				    $content     = $product.find('.wd-quick-shop'),
 				    id           = $product.data('id'),
 				    loadingClass = 'btn-loading';
 
@@ -47,19 +47,18 @@
 					},
 					method  : 'get',
 					success : function(data) {
-						$content.append(data);
+						woodmartThemeModule.removeDuplicatedStylesFromHTML(data, function(html) {
+							$content.append(html);
 
-						initVariationForm($product);
-						woodmartThemeModule.$document.trigger('wdQuickShopSuccess');
-					},
-					complete: function() {
-						setTimeout(function() {
+							initVariationForm($product);
+							woodmartThemeModule.$document.trigger('wdQuickShopSuccess');
+
 							$this.removeClass(loadingClass);
 							$product.removeClass('wd-loading-quick-shop');
 							$product.addClass('quick-shop-shown quick-shop-loaded');
 							woodmartThemeModule.$body.trigger('woodmart-quick-view-displayed');
-						}, 100);
-					}
+						});
+					},
 				});
 			})
 			.on('click', '.quick-shop-close', function(e) {
@@ -76,7 +75,7 @@
 		});
 
 		function initVariationForm($product) {
-			$product.find('.variations_form').wc_variation_form().find('.variations select:eq(0)').change();
+			$product.find('.variations_form').wc_variation_form().find('.variations select:eq(0)').trigger('change');
 			$product.find('.variations_form').trigger('wc_variation_form');
 		}
 	};

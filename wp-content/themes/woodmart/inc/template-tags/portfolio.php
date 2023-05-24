@@ -2,7 +2,7 @@
 /**
  * Portfolio templates functions
  *
- * @package woodmart
+ * @package Woodmart
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,6 +43,7 @@ if ( ! function_exists( 'woodmart_get_portfolio_main_loop' ) ) {
 	function woodmart_get_portfolio_main_loop( $fragments = false ) {
 		global $paged, $wp_query;
 
+		$output     = '';
 		$max_page   = $wp_query->max_num_pages;
 		$style      = woodmart_get_opt( 'portoflio_style' );
 		$spacing    = woodmart_get_opt( 'portfolio_spacing' );
@@ -69,12 +70,16 @@ if ( ! function_exists( 'woodmart_get_portfolio_main_loop' ) ) {
 			ob_start();
 		}
 
+		woodmart_enqueue_js_library( 'photoswipe-bundle' );
+		woodmart_enqueue_inline_style( 'photoswipe' );
+		woodmart_enqueue_js_script( 'portfolio-photoswipe' );
+
+		woodmart_enqueue_portfolio_loop_styles( $style );
+
 		?>
 
 		<?php if ( woodmart_get_opt( 'ajax_portfolio' ) && ! $fragments ) : ?>
-			<?php woodmart_enqueue_js_script( 'shop-loader' ); ?>
-			<?php woodmart_enqueue_inline_style( 'sticky-loader' ); ?>
-			<div class="wd-sticky-loader"><span class="wd-loader"></span></div>
+			<?php woodmart_sticky_loader(); ?>
 		<?php endif; ?>
 
 		<?php if ( ! $fragments ) : ?>
@@ -118,14 +123,14 @@ if ( ! function_exists( 'woodmart_get_portfolio_main_loop' ) ) {
 		<?php
 
 		if ( $fragments ) {
-			$output = array(
-				'items'       => $output,
-				'status'      => ( $max_page > $paged ) ? 'have-posts' : 'no-more-posts',
-				'nextPage'    => add_query_arg( 'woo_ajax', '1', next_posts( $max_page, false ) ),
-				'currentPage' => strtok( woodmart_get_current_url(), '?' ),
+			wp_send_json(
+				array(
+					'items'       => $output,
+					'status'      => ( $max_page > $paged ) ? 'have-posts' : 'no-more-posts',
+					'nextPage'    => add_query_arg( 'woo_ajax', '1', next_posts( $max_page, false ) ),
+					'currentPage' => strtok( woodmart_get_current_url(), '?' ),
+				)
 			);
-
-			echo wp_json_encode( $output );
 		}
 	}
 }
@@ -205,3 +210,36 @@ if ( ! function_exists( 'woodmart_portfolio_filters' ) ) {
 	}
 }
 
+if ( ! function_exists( 'woodmart_nav_menu_portfolio_item_classes' ) ) {
+	/**
+	 * Fix active class in nav for portfolio page.
+	 *
+	 * @param array $menu_items Menu items.
+	 *
+	 * @return array
+	 */
+	function woodmart_nav_menu_portfolio_item_classes( $menu_items ) {
+		$portfolio_page = intval( woodmart_get_portfolio_page_id() );
+
+		if ( ! empty( $menu_items ) && is_array( $menu_items ) ) {
+			foreach ( $menu_items as $key => $menu_item ) {
+				$classes = $menu_item->classes;
+				$menu_id = intval( $menu_item->object_id );
+
+				if ( is_post_type_archive( 'portfolio' ) && $portfolio_page === $menu_id && 'page' === $menu_item->object ) {
+					$menu_items[ $key ]->current = true;
+					$classes[]                   = 'current-menu-item';
+					$classes[]                   = 'current_page_item';
+				} elseif ( is_singular( 'portfolio' ) && $portfolio_page === $menu_id ) {
+					$classes[] = 'current_page_parent';
+				}
+
+				$menu_items[ $key ]->classes = array_unique( $classes );
+			}
+		}
+
+		return $menu_items;
+	}
+
+	add_filter( 'wp_nav_menu_objects', 'woodmart_nav_menu_portfolio_item_classes', 20 );
+}

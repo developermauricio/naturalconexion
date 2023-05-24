@@ -2,89 +2,8 @@
 // EXTEND OLD
 // ------------------------------------------ 
 
-%woodmart-admin-header {
-	border-bottom: 3px solid lighten($woodmart-primary-color,20%);
-	background-color: $woodmart-primary-color;
-
-	h1, h2, h3, h4, h5, h6 {
-		color: #FFF;
-	}
-}
-
-%woodmart-admin-footer {
-	background-color: $woodmart-gray-color;
-	font-size: 14px;
-}
-
-%woodmart-admin-btn {
-	padding: 10px 15px;
-	height: auto;
-	border-radius: 0;
-	border-radius: $woodmart-vc-options-border;
-	box-shadow: none;
-	text-transform: uppercase;
-	text-shadow: none;
-	font-weight: 600;
-	font-size: 12px;
-	line-height: 1;
-	-webkit-transition: all .2s ease;
-	transition: all .2s ease;
-
-	&:hover,
-	&:focus,
-	&:active {
-		box-shadow: none;
-	}
-
-	&:active {
-		transform: none;
-	}
-}
-
-%woodmart-admin-btn-primary {
-	border-color: $woodmart-button-color;
-	background-color: $woodmart-button-color;
-	color: #FFF;
-
-	&:hover,
-	&:focus,
-	&:active {
-		border-color: $woodmart-button-color-hover;
-		background-color: $woodmart-button-color-hover;
-		color: #FFF;
-	}
-
-	&[disabled] {
-		border-color: $woodmart-button-color-hover !important;
-		background-color: $woodmart-button-color-hover !important;
-		color: #FFF !important;
-		opacity: .5;
-	}
-}
-
-%woodmart-admin-btn-alternative {
-	border-color: $woodmart-button-alt-color;
-	background-color: $woodmart-button-alt-color;
-	color: #FFF;
-
-	&:hover,
-	&:focus,
-	&:active {
-		border-color: $woodmart-button-alt-color-hover;
-		background-color: $woodmart-button-alt-color-hover;
-		color: #FFF;
-	}
-
-	&[disabled] {
-		border-color: $woodmart-button-alt-color-hover !important;
-		background-color: $woodmart-button-alt-color-hover !important;
-		color: #FFF !important;
-		opacity: .5;
-	}
-}
-
 %woodmart-input-style {
-	border-radius: $woodmart-vc-options-border;
+	border-radius: var(--xts-option-border-radius);
 	box-shadow: none;
 
 	&:hover {
@@ -96,129 +15,68 @@
 	}
 }
 
-%woodmart-colorpicker-style {
-
-	.wp-color-result {
-		margin-right: 0 !important;
-		margin-bottom: 0 !important;
-		padding-left: 34px;
-		height: 35px !important;
-		border-color: #DDD;
-
-		@extend %woodmart-input-style;
-	}
-
-	.wp-color-result-text {
-		border-left-color: #DDD;
-		border-radius: 0;
-		border-top-right-radius: 3px;
-		border-bottom-right-radius: 3px;
-		line-height: 33px;
-	}
-
-	.wp-color-picker {
-		margin-left: 6px !important;
-	}
-
-	.wp-picker-input-wrap {
-
-		.button {
-			height: 35px;
-			box-shadow: none;
-			line-height: 1;
-		}
-	}
-
-	.iris-picker {
-		z-index: 20;
-		margin-top: 12px;
-		border-radius: $woodmart-vc-options-border;
-	}
-}
-
-%woodmart-image-checkmark {
-	content: "\f147";
-	position: absolute;
-	top: -5px;
-	right: -6px;
-	z-index: 15;
-	display: block;
-	padding-top: 1px;
-	padding-right: 4px;
-	padding-left: 2px;
-	border-radius: 50%;
-	background-color: $woodmart-button-color;
-	color: #FFF;
-	text-align: center;
-	font-family: dashicons;
-
-	.rtl & {
-		right: auto;
-		left: -6px;
-	}
-}
-
 // ------------------------------------------------------------------------------------------------
 // EXTENDS
 // ------------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------------
+// BUTTONS
+// ------------------------------------------------------------------------------------------------
+
+// ------------------------------------------
+// GENERAL
+// ------------------------------------------
 
 // @extend %xts-button;
 
 %xts-button {
 	display: inline-flex;
 	align-items: center;
-	box-sizing: border-box;
+	justify-content: center;
+	// box-sizing: border-box;
 	padding: 0 15px;
-	height: $xts-option-input-height;
+	height: var(--xts-input-height);
 	outline: none !important;
 	border: none;
-	background-color: $xts-button-color-default;
+	// background-color: var(--xts-btn-grey-color);
 	box-shadow: none;
-	color: #444;
+	vertical-align: middle;
+	// color: #444;
 	text-decoration: none;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	white-space: nowrap;
 	font-weight: 600;
 	font-size: 12px;
-	// line-height: $xts-option-input-height;
+	// line-height: var(--xts-input-height);
 	line-height: 1;
-	transition: .2s all ease-in-out;
+	transition: .2s all ease-in-out !important;
 	transform: none;
 
 	&:hover {
-		background-color: $xts-button-color-default-hover;
+		// background-color: var(--xts-btn-grey-color-hover);
 		cursor: pointer;
 	}
 
 	&:hover,
 	&:focus {
 		box-shadow: none;
-		color: #444;
 	}
 }
+
+// ------------------------------------------
+// BUTTON PRIMARY
+// ------------------------------------------
 
 // @extend %xts-button-primary;
 
 %xts-button-primary {
-	background-color: $xts-color-primary;
-	color: #FFF;
+	background-color: var(--xts-btn-primay-color);
+	color: #FFF !important;
 
-	&:hover,
-	&:focus {
-		color: #FFF;
-	}
-}
-
-// @extend %xts-button-alternative;
-
-%xts-button-alternative {
-	background-color: $xts-color-alternative;
-	color: #FFF;
-
-	&:hover,
-	&:focus {
-		color: #FFF;
-	}
+	// &:hover,
+	// &:focus {
+	// 	color: #FFF !important;
+	// }
 }
 
 // @extend %xts-button-primary-hover;
@@ -226,8 +84,24 @@
 %xts-button-primary-hover {
 
 	&:hover {
-		background-color: $xts-button-color-primary-hover;
+		background-color: var(--xts-btn-primary-color-hover);
 	}
+}
+
+// ------------------------------------------
+// BUTTON ALTERNATIVE
+// ------------------------------------------
+
+// @extend %xts-button-alternative;
+
+%xts-button-alternative {
+	background-color: var(--xts-btn-secondary-color);
+	color: #FFF !important;
+
+	// &:hover,
+	// &:focus {
+	// 	color: #FFF !important;
+	// }
 }
 
 // @extend %xts-button-alternative-hover;
@@ -235,42 +109,202 @@
 %xts-button-alternative-hover {
 
 	&:hover {
-		background-color: $xts-button-color-alternative-hover;
+		background-color: var(--xts-btn-secondary-color-hover);
 	}
 }
 
-// @extend %xts-buttons-side-rounded;
+// ------------------------------------------
+// BUTTON DEFAULT
+// ------------------------------------------
 
-%xts-buttons-side-rounded {
+// @extend %xts-button-default;
 
-	&:first-child {
-		border-top-left-radius: $xts-option-border-radius;
-		border-bottom-left-radius: $xts-option-border-radius;
-	}
+%xts-button-default {
+	background-color: var(--xts-btn-grey-color);
+	color: #444 !important;
 
-	&:last-child {
-		border-top-right-radius: $xts-option-border-radius;
-		border-bottom-right-radius: $xts-option-border-radius;
-	}
+	// &:hover,
+	// &:focus {
+	// 	color: #444 !important;
+	// }
+}
 
-	.rtl & {
+// @extend %xts-button-default-hover;
 
-		&:first-child {
-			border-top-left-radius: 0;
-			border-top-right-radius: $xts-option-border-radius;
-			border-bottom-right-radius: $xts-option-border-radius;
-			border-bottom-left-radius: 0;
+%xts-button-default-hover {
 
-		}
-
-		&:last-child {
-			border-top-left-radius: $xts-option-border-radius;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			border-bottom-left-radius: $xts-option-border-radius;
-		}
+	&:hover {
+		background-color: var(--xts-btn-grey-color-hover);
 	}
 }
+
+// ------------------------------------------
+// BUTTON WARNINNG
+// ------------------------------------------
+
+// @extend %xts-button-warning;
+
+%xts-button-warning {
+	background-color: var(--xts-btn-warning-color);
+	color: #FFF !important;
+
+	// &:hover,
+	// &:focus {
+	// 	color: #FFF !important;
+	// }
+}
+
+// @extend %xts-button-warning-hover;
+
+%xts-button-warning-hover {
+
+	&:hover {
+		background-color: var(--xts-btn-warning-color-hover);
+	}
+}
+
+// ------------------------------------------
+// BUTTON WHITE
+// ------------------------------------------
+
+// @extend %xts-button-white;
+
+%xts-button-white {
+	background-color: #FFF;
+	color: #4E4E4E !important;
+
+	// &:hover,
+	// &:focus {
+	// 	color: #FFF !important;
+	// }
+}
+
+// @extend %xts-button-white-hover;
+
+%xts-button-white-hover {
+
+	&:hover {
+		background-color: #FFF;
+		color: #000 !important;
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+// BUTTONS BORDERED
+// ------------------------------------------------------------------------------------------------
+
+// @extend %xts-bordered-button;
+
+%xts-bordered-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	// box-sizing: border-box;
+	padding: 0 15px;
+	height: var(--xts-input-height);
+	outline: none !important;
+	border-width: 1px;
+	border-style: solid;
+	box-shadow: none;
+	vertical-align: middle;
+	// color: #444;
+	// text-decoration: none;
+	// text-transform: uppercase;
+	white-space: nowrap;
+	font-weight: 600;
+	font-size: 12px;
+	// line-height: var(--xts-input-height);
+	line-height: 1;
+	cursor: pointer;
+	transition: .2s all ease-in-out;
+	transform: none;
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+// ------------------------------------------
+// BUTTON BORDERED PRIMARY
+// ------------------------------------------
+
+// @extend %xts-bordered-button-primary;
+
+%xts-bordered-button-primary {
+	border-color: var(--xts-btn-primay-color);
+	color: var(--xts-btn-primay-color) !important;
+
+	&:hover,
+	&:focus {
+		border-color: var(--xts-btn-primary-color-hover);
+		// background-color: var(--xts-btn-primary-color-hover);
+		background-color: #F7F7F7;
+		color: var(--xts-btn-primay-color) !important;
+	}
+}
+
+// ------------------------------------------
+// BUTTON BORDERED DEFAULT
+// ------------------------------------------
+
+// @extend %xts-bordered-button-default;
+
+%xts-bordered-button-default {
+	border-color: var(--xts-btn-grey-color);
+	// color: var(--xts-btn-primay-color) !important;
+	color: #4E4E4E !important;
+
+	&:hover,
+	&:focus {
+		border-color: var(--xts-btn-grey-color-hover);
+		// background-color: var(--xts-btn-grey-color-hover);
+		background-color: #F7F7F7;
+		color: #444 !important;
+	}
+}
+
+// ------------------------------------------
+// BUTTON BORDERED WARNINNG
+// ------------------------------------------
+
+// @extend %xts-bordered-button-warning;
+
+%xts-bordered-button-warning {
+	border-color: var(--xts-btn-warning-color);
+	color: var(--xts-btn-warning-color) !important;
+
+	&:hover,
+	&:focus {
+		border-color: var(--xts-btn-warning-color-hover);
+		// background-color: var(--xts-btn-warning-color-hover);
+		background-color: #F7F7F7;
+		color: var(--xts-btn-warning-color) !important;
+	}
+}
+
+
+// ------------------------------------------
+// BUTTON BORDERED WHITE
+// ------------------------------------------
+
+// @extend %xts-bordered-button-white;
+
+%xts-bordered-button-white {
+	border-color: #FFF;
+	color: #FFF !important;
+
+	&:hover,
+	&:focus {
+		border-color: #FFF;
+		background-color: #FFF;
+		color: #444 !important;
+	}
+}
+
+// ------------------------------------------
+// BUTTONS SHAPE
+// ------------------------------------------
 
 // @extend %xts-js-loading-fadein;
 
@@ -288,105 +322,114 @@
 	left: 0;
 }
 
-// @extend %xts-bordered-button;
+// ------------------------------------------------------------------------------------------------
+// BUTTONS INLINE
+// ------------------------------------------------------------------------------------------------
 
-%xts-bordered-button {
+// @extend %xts-inline-button;
+
+%xts-inline-button {
 	display: inline-flex;
 	align-items: center;
-	box-sizing: border-box;
-	padding: 0 15px;
-	height: $xts-option-input-height;
-	outline: none !important;
-	border: 2px solid $xts-button-color-default;
-	box-shadow: none;
-	// color: #444;
-	color: #4E4E4E;
+	padding: 0;
+	width: auto !important;
+	border: 0;
+	background-color: transparent;
+	box-shadow: none !important;
+	color: #101010;
 	text-decoration: none;
-	text-transform: uppercase;
-	white-space: nowrap;
+	// text-transform: uppercase;
 	font-weight: 600;
-	font-size: 12px;
-	// line-height: $xts-option-input-height;
-	line-height: 1;
-	transition: .2s all ease-in-out;
-	transform: none;
-
-	&:hover {
-		border-color: $xts-button-color-default-hover;
-		background-color: $xts-button-color-default-hover;
-		cursor: pointer;
-	}
+	cursor: pointer;
+	transition: all .2s ease-in-out !important;
 
 	&:hover,
 	&:focus {
-		box-shadow: none;
-		color: #444;
+		outline: none;
+		box-shadow: none !important;
+		color: inherit;
+		opacity: .8;
+	}
+
+	&:before {
+		position: relative;
+		bottom: -1px;
+		vertical-align: middle;
+
+		margin-inline-end: 5px;
 	}
 }
 
-// @extend %xts-bordered-button-primary;
+// ------------------------------------------
+// BUTTONS INLINE PRIMARY
+// ------------------------------------------
 
-%xts-bordered-button-primary {
-	border-color: $xts-color-primary;
-	color: darken($xts-color-primary, 10%);
+// @extend %xts-inline-button-primary;
 
-	&:hover,
-	&:focus {
-		border-color: $xts-color-primary;
-		background-color: $xts-color-primary;
-		color: #FFF;
-	}
+%xts-inline-button-primary {
+	color: var(--xts-primary-color);
 }
 
+// ------------------------------------------
+// BUTTONS INLINE WARNING
+// ------------------------------------------
 
-// @extend %xts-bordered-button-white;
+// @extend %xts-inline-button-warning;
 
-%xts-bordered-button-white {
-	border-color: #FFF;
-	color: #FFF;
-
-	&:hover,
-	&:focus {
-		border-color: #FFF;
-		background-color: #FFF;
-		color: #444;
-	}
+%xts-inline-button-warning {
+	color: var(--xts-btn-warning-color);
 }
 
 // ------------------------------------------------------------------------------------------------
 // CSS CHECKBOXES
 // ------------------------------------------------------------------------------------------------
 
-// @extend %xts-checkbox;
-
 %xts-checkbox {
 
 	input[type=checkbox] {
 		position: relative;
-		box-sizing: border-box;
-		margin-top: 0;
-		margin-right: 5px;
-		margin-bottom: 0;
-		margin-left: 0;
-		// margin-bottom: -4px;
-		width: 18px;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		width: 18px !important;
 		height: 18px;
-		border: 2px solid #C5C5C5;
+		border: 1px solid #C5C5C5;
 		border-radius: 3px;
-		// box-shadow: none;
-		box-shadow: 0 0 5px transparent;
-		-webkit-transition: all .15s ease-out;
+		box-shadow: none !important;
 		transition: all .15s ease-out;
 
+		margin-inline-end: 5px !important;
+		margin-inline-start: 0 !important;
+
 		&:checked {
-			border: 2px solid $woodmart-button-color;
-			background-color: $woodmart-button-color;
+			border: 1px solid var(--xts-btn-primay-color);
+			background-color: var(--xts-btn-primay-color);
 
 			&:before {
 				opacity: 1;
-				-webkit-transform: scale(1);
 				transform: scale(1);
+
+				@include font-icon($xts-icon-validation-check);
 			}
+		}
+
+		&:before {
+			position: absolute;
+			top: 2px;
+			display: block;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			color: #FFF;
+			font-weight: 400;
+			font-size: 10px;
+			line-height: 19px;
+			opacity: 0;
+			transition: all .15s ease-out;
+			transform: scale(.5);
+
+			inset-inline-start: 2px;
+
+			// @include font-icon($xts-icon-validation-check);
 		}
 
 		&:disabled {
@@ -400,138 +443,95 @@
 		}
 
 		&:hover:not(:disabled) {
-			border: 2px solid $woodmart-button-color;
-			box-shadow: 0 0 5px rgba(0,0,0,.15);
-		}
-
-		&:before {
-			// content: "\f147";
-			// position: absolute;
-			// top: 1px;
-			// left: 0;
-			// display: inline-block;
-			// height: 18px;
-			// color: #FFF;
-			// font-family: dashicons;
-			// line-height: 19px;
-			// opacity: 0;
-			// -webkit-transition: all .15s ease-out;
-			// transition: all .15s ease-out;
-			// -webkit-transform: scale(.5);
-			// transform: scale(.5);
-			content: "\f147";
-			position: absolute;
-			top: -1px;
-			left: -1px;
-			display: block;
-			margin: 0;
-			width: 100%;
-			height: 100%;
-			color: #FFF;
-			font-weight: 400;
-			font-family: dashicons;
-			line-height: 19px;
-			opacity: 0;
-			-webkit-transition: all .15s ease-out;
-			transition: all .15s ease-out;
-			-webkit-transform: scale(.5);
-			transform: scale(.5);;
+			border: 1px solid var(--xts-btn-primay-color);
 		}
 
 		+ label {
 			user-select: none;
 		}
-
-		.rtl & {
-			margin-right: 0;
-			margin-left: 5px;
-
-			&:before {
-				right: 0;
-				left: auto;
-			}
-		}
 	}
 }
 
 // ------------------------------------------------------------------------------------------------
-// DEVICES TABS
+// MIXINS
 // ------------------------------------------------------------------------------------------------
 
-// @extend %xts-devices-tabs;
+//------------------------------------------
+// SIMPLE LOADER
+// -----------------------------------------
 
-%xts-devices-tabs {
-	display: inline-flex;
-	align-items: center;
-	color: #333;
+
+// @include loader;
+
+@mixin loader($size: 18px, $b-width: 1px, $color-loader: #BBB, $color-border: #000) {
+	content: "";
+	display: inline-block;
+	width: $size;
+	height: $size;
+	border: $b-width solid $color-loader;
+	border-left-color: $color-border;
+	border-radius: 50%;
 	vertical-align: middle;
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 13px;
-	line-height: 1;
-	cursor: pointer;
-	transition: all .25s ease-in-out;
+}
 
-	&:hover {
-		color: #333;
+// @include act-loader;
 
-		&:not(.xts-active) {
-			opacity: .6;
-		}
-	}
+@mixin act-loader {
+	animation: woodmart_rotate 450ms infinite linear;
+}
 
-	&.xts-active {
-		color: $xts-color-alternative;
+//------------------------------------------
+// BACKGROUND LOADER
+// -----------------------------------------
 
-		&:before {
-			color: inherit;
-		}
-	}
+// @include xts-bg-loader;
 
+@mixin xts-bg-loader($bg-color: rgba(255,255,255,.8)) {
 
-	&:not(:last-child) {
-		margin-right: 7px;
+	&:before,
+	&:after {
+		position: absolute;
+		z-index: $z-layer-10;
+		visibility: hidden;
+		opacity: 0;
+
+		// visibility: visible;
+		// opacity: 1;
+		// transition: .4s all ease;
+		// pointer-events: none;
 	}
 
 	&:before {
-		margin-right: 5px;
-		color: #BFBFBF;
-		font-weight: 400;
-		font-size: 15px;
-		font-family: "dashicons";
-
-		.rtl & {
-			margin-right: 0;
-			margin-left: 5px;
-		}
+		content: "";
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: var(--xts-brd-radius);
+		background-color: $bg-color;
 	}
 
-	&[data-value="desktop"] {
+	&:after {
+		top: calc(50% - 18px);
+		right: calc(50% - 18px);
 
-		&:before {
-			content: "\f472";
-		}
+		@include loader(36px,1px,rgba(255,255,255,.15));
+	}
+}
+
+// @include xts-act-bg-loader;
+
+@mixin xts-act-bg-loader {
+
+	&:before,
+	&:after {
+		visibility: visible;
+		opacity: 1;
+		transition: .4s all ease;
 	}
 
-	&[data-value="landscape"] {
 
-		&:before {
-			transform: rotate(90deg) translateX(1px) scale(1, -1);
-		}
-	}
-
-	&[data-value="tablet"],
-	&[data-value="landscape"] {
-
-		&:before {
-			content: "\f471";
-		}
-	}
-
-	&[data-value="mobile"] {
-
-		&:before {
-			content: "\f470";
-		}
+	&:after {
+		@include act-loader;
 	}
 }

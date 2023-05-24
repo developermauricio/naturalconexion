@@ -104,7 +104,7 @@ class WOE_Formatter_Xml extends WOE_Formatter {
 		//format it!
 		$dom                              = dom_import_simplexml( $xml );
 		$dom->ownerDocument->formatOutput = ( $this->mode == 'preview' || $this->settings['preview_format'] );
-		$output_flags                     = ! empty( $this->settings['self_closing_tags'] ) ? null : LIBXML_NOEMPTYTAG;
+		$output_flags                     = ! empty( $this->settings['self_closing_tags'] ) ? 0 : LIBXML_NOEMPTYTAG;
 		$xml                              = $dom->ownerDocument->saveXML( $dom->ownerDocument->documentElement,
 			$output_flags );
 

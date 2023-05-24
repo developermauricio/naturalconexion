@@ -7,9 +7,16 @@ $blog_design = woodmart_loop_prop( 'blog_design' );
 $classes[]   = 'blog-post-loop';
 $classes[]   = 'post-slide';
 $classes[]   = 'blog-design-' . $blog_design;
+$blog_style  = woodmart_get_opt( 'blog_style', 'shadow' );
 
-if ( 'meta-image' !== $blog_design ) {
-	$classes[] = 'blog-style-' . woodmart_get_opt( 'blog_style' );
+if ( 'shadow' === $blog_style ) {
+	$classes[] = 'blog-style-bg';
+
+	if ( woodmart_get_opt( 'blog_with_shadow', true ) ) {
+		$classes[] = 'wd-add-shadow';
+	}
+} else {
+	$classes[] = 'blog-style-' . $blog_style;
 }
 
 if ( ! get_the_title() ) {

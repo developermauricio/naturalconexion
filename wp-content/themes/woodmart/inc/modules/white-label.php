@@ -2,14 +2,10 @@
 
 if ( ! function_exists( 'woodmart_white_label' ) ) {
 	function woodmart_white_label() {
-		if ( ! woodmart_get_opt( 'white_label' ) || ( ! woodmart_get_opt( 'white_label_options_logo' ) && ! woodmart_get_opt( 'white_label_appearance_screenshot' ) ) ) {
+		if ( ! woodmart_get_opt( 'white_label' ) ) {
 			return;
 		}
 
-		add_filter( 'woodmart_header_builder_admin_footer_links', '__return_false' );
-		add_filter( 'woodmart_dashboard_links', '__return_false' );
-
-		$icon_data       = woodmart_get_opt( 'white_label_options_logo' );
 		$screenshot_data = woodmart_get_opt( 'white_label_appearance_screenshot' );
 		?>
 
@@ -24,7 +20,7 @@ if ( ! function_exists( 'woodmart_white_label' ) ) {
 			}
 
             .theme[aria-describedby="woodmart-action woodmart-name"] .theme-screenshot, .theme[aria-describedby="woodmart-child-action woodmart-child-name"] .theme-screenshot, .wd-woodmart-theme .screenshot, .theme[data-slug="woodmart"] .theme-screenshot, .theme[data-slug="woodmart-child"] .theme-screenshot {
-				background-image: url(<?php echo esc_url( wp_get_attachment_image_url( $screenshot_data['id'] ) ); ?>) !important;
+				background-image: url(<?php echo esc_url( wp_get_attachment_image_url( $screenshot_data['id'], 'full' ) ); ?>) !important;
 				background-repeat: no-repeat !important;
 				background-position: center center !important;
 				background-size: contain !important;
@@ -53,15 +49,33 @@ if ( ! function_exists( 'woodmart_white_label' ) ) {
 				margin-left: 5px;
 			}
 			<?php endif; ?>
-
-			<?php if ( $icon_data['id'] ) : ?>
-			.xts-options-theme-name:before {
-				background-image: url(<?php echo esc_url( wp_get_attachment_image_url( $icon_data['id'] ) ); ?>) !important;
-			}
-			<?php endif; ?>
 		</style>
 		<?php
 	}
 
 	add_filter( 'admin_print_styles', 'woodmart_white_label', -100 );
+}
+
+if ( ! function_exists( 'woodmart_white_label_add_body_class' ) ) {
+	/**
+	 * Add body classes.
+	 *
+	 * @param array $classes Body classes.
+	 * @return array
+	 */
+	function woodmart_white_label_add_body_class( $classes ) {
+		if ( ! woodmart_get_opt( 'white_label' ) || ! is_user_logged_in() ) {
+			return $classes;
+		}
+
+		$white_label_logo = woodmart_get_opt( 'white_label_sidebar_icon_logo', array( 'url' => '' ) );
+
+		if ( ! empty( $white_label_logo['url'] ) ) {
+			$classes[] = 'wd-white-label-img';
+		}
+
+		return $classes;
+	}
+
+	add_filter( 'body_class', 'woodmart_white_label_add_body_class' );
 }

@@ -6,155 +6,200 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if ( ! function_exists( 'woodmart_vc_shortcode_info_box' ) ) {
-	function woodmart_vc_shortcode_info_box() {
-		if ( ! shortcode_exists( 'woodmart_info_box_carousel' ) ) {
-			return;
-		}
-
-		vc_map( woodmart_get_woodmart_info_box_shortcode_args() );
-
-		vc_map(
-			array(
-				'name'                    => esc_html__( 'Information box carousel', 'woodmart' ),
-				'base'                    => 'woodmart_info_box_carousel',
-				'as_parent'               => array( 'only' => 'woodmart_info_box' ),
-				'content_element'         => true,
-				'show_settings_on_create' => true,
-				'category'                => esc_html__( 'Theme elements', 'woodmart' ),
-				'description'             => esc_html__( 'Show your brief information as a carousel', 'woodmart' ),
-				'icon'                    => WOODMART_ASSETS . '/images/vc-icon/infobox-slider.svg',
-				'params'                  => array(
-					array(
-						'type'       => 'woodmart_css_id',
-						'param_name' => 'woodmart_css_id',
-					),
-					/**
-					* Slider
-					*/
-					array(
-						'type'       => 'woodmart_title_divider',
-						'holder'     => 'div',
-						'title'      => esc_html__( 'Slider', 'woodmart' ),
-						'param_name' => 'slider_divider',
-					),
-					array(
-						'type'             => 'woodmart_slider',
-						'heading'          => esc_html__( 'Slides per view', 'woodmart' ),
-						'param_name'       => 'slides_per_view',
-						'min'              => '1',
-						'max'              => '8',
-						'step'             => '1',
-						'default'          => '3',
-						'units'            => '',
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-						'hint'             => esc_html__( 'Set numbers of slides you want to display at the same time on slider\'s container for carousel mode.', 'woodmart' ),
-					),
-					array(
-						'type'             => 'dropdown',
-						'heading'          => esc_html__( 'Slider spacing', 'woodmart' ),
-						'param_name'       => 'slider_spacing',
-						'value'            => array(
-							30,
-							20,
-							10,
-							6,
-							2,
-							0,
-						),
-						'hint'             => esc_html__( 'Set the interval numbers that you want to display between slider items.', 'woodmart' ),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'type'             => 'woodmart_switch',
-						'heading'          => esc_html__( 'Slider autoplay', 'woodmart' ),
-						'param_name'       => 'autoplay',
-						'hint'             => esc_html__( 'Enables autoplay mode.', 'woodmart' ),
-						'true_state'       => 'yes',
-						'false_state'      => 'no',
-						'default'          => 'no',
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'type'             => 'textfield',
-						'heading'          => esc_html__( 'Slider speed', 'woodmart' ),
-						'param_name'       => 'speed',
-						'value'            => '5000',
-						'hint'             => esc_html__( 'Duration of animation between slides (in ms)', 'woodmart' ),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'type'             => 'woodmart_switch',
-						'heading'          => esc_html__( 'Hide pagination control', 'woodmart' ),
-						'param_name'       => 'hide_pagination_control',
-						'hint'             => esc_html__( 'If "YES" pagination control will be removed', 'woodmart' ),
-						'true_state'       => 'yes',
-						'false_state'      => 'no',
-						'default'          => 'no',
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'type'             => 'woodmart_switch',
-						'heading'          => esc_html__( 'Hide prev/next buttons', 'woodmart' ),
-						'param_name'       => 'hide_prev_next_buttons',
-						'hint'             => esc_html__( 'If "YES" prev/next control will be removed', 'woodmart' ),
-						'true_state'       => 'yes',
-						'false_state'      => 'no',
-						'default'          => 'no',
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					/**
-					* Extra
-					*/
-					array(
-						'type'       => 'woodmart_title_divider',
-						'holder'     => 'div',
-						'title'      => esc_html__( 'Extra options', 'woodmart' ),
-						'param_name' => 'extra_divider',
-					),
-					array(
-						'type'             => 'woodmart_switch',
-						'heading'          => esc_html__( 'Init carousel on scroll', 'woodmart' ),
-						'hint'             => esc_html__( 'This option allows you to init carousel script only when visitor scroll the page to the slider. Useful for performance optimization.', 'woodmart' ),
-						'param_name'       => 'scroll_carousel_init',
-						'true_state'       => 'yes',
-						'false_state'      => 'no',
-						'default'          => 'no',
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-						'dependency'       => array(
-							'element' => 'view',
-							'value'   => array( 'carousel' ),
-						),
-					),
-					array(
-						'type'       => 'textfield',
-						'heading'    => esc_html__( 'Extra class name', 'woodmart' ),
-						'param_name' => 'el_class',
-						'hint'       => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' ),
-					),
-					array(
-						'type'       => 'css_editor',
-						'heading'    => esc_html__( 'CSS box', 'woodmart' ),
-						'param_name' => 'css',
-						'group'      => esc_html__( 'Design Options', 'js_composer' ),
-					),
-					function_exists( 'woodmart_get_vc_responsive_spacing_map' ) ? woodmart_get_vc_responsive_spacing_map() : '',
+if ( ! function_exists( 'woodmart_get_vc_map_info_box_carousel' ) ) {
+	function woodmart_get_vc_map_info_box_carousel() {
+		return array(
+			'name'                    => esc_html__( 'Information box carousel', 'woodmart' ),
+			'base'                    => 'woodmart_info_box_carousel',
+			'as_parent'               => array( 'only' => 'woodmart_info_box' ),
+			'content_element'         => true,
+			'show_settings_on_create' => true,
+			'category'                => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ? woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
+			'description'             => esc_html__( 'Show your brief information as a carousel', 'woodmart' ),
+			'icon'                    => WOODMART_ASSETS . '/images/vc-icon/infobox-slider.svg',
+			'params'                  => array(
+				array(
+					'type'       => 'woodmart_css_id',
+					'param_name' => 'woodmart_css_id',
 				),
-				'js_view'                 => 'VcColumnView',
-			)
+				/**
+				 * Slider
+				 */
+				array(
+					'type'       => 'woodmart_title_divider',
+					'holder'     => 'div',
+					'title'      => esc_html__( 'Slider', 'woodmart' ),
+					'param_name' => 'slider_divider',
+				),
+				array(
+					'type'             => 'woodmart_button_set',
+					'heading'          => esc_html__( 'Slides per view', 'woodmart' ),
+					'hint'             => esc_html__( 'Set numbers of slides you want to display at the same time on slider\'s container for carousel mode.', 'woodmart' ),
+					'param_name'       => 'slides_per_view_tabs',
+					'tabs'             => true,
+					'value'            => array(
+						esc_html__( 'Desktop', 'woodmart' ) => 'desktop',
+						esc_html__( 'Tablet', 'woodmart' ) => 'tablet',
+						esc_html__( 'Mobile', 'woodmart' ) => 'mobile',
+					),
+					'default'          => 'desktop',
+					'edit_field_class' => 'wd-res-control wd-custom-width vc_col-sm-12 vc_column',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'slides_per_view',
+					'value'            => array(
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+						'7' => '7',
+						'8' => '8',
+					),
+					'std'              => '3',
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'desktop' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'slides_per_view_tablet',
+					'value'            => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+						'7' => '7',
+						'8' => '8',
+					),
+					'std'              => 'auto',
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'tablet' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'slides_per_view_mobile',
+					'value'            => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+						'7' => '7',
+						'8' => '8',
+					),
+					'std'              => 'auto',
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'mobile' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type'             => 'dropdown',
+					'heading'          => esc_html__( 'Slider spacing', 'woodmart' ),
+					'param_name'       => 'slider_spacing',
+					'value'            => array(
+						30,
+						20,
+						10,
+						6,
+						2,
+						0,
+					),
+					'hint'             => esc_html__( 'Set the interval numbers that you want to display between slider items.', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'type'             => 'woodmart_switch',
+					'heading'          => esc_html__( 'Slider autoplay', 'woodmart' ),
+					'param_name'       => 'autoplay',
+					'hint'             => esc_html__( 'Enables autoplay mode.', 'woodmart' ),
+					'true_state'       => 'yes',
+					'false_state'      => 'no',
+					'default'          => 'no',
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'type'             => 'textfield',
+					'heading'          => esc_html__( 'Slider speed', 'woodmart' ),
+					'param_name'       => 'speed',
+					'value'            => '5000',
+					'hint'             => esc_html__( 'Duration of animation between slides (in ms)', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'type'             => 'woodmart_switch',
+					'heading'          => esc_html__( 'Hide pagination control', 'woodmart' ),
+					'param_name'       => 'hide_pagination_control',
+					'hint'             => esc_html__( 'If "YES" pagination control will be removed', 'woodmart' ),
+					'true_state'       => 'yes',
+					'false_state'      => 'no',
+					'default'          => 'no',
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'type'             => 'woodmart_switch',
+					'heading'          => esc_html__( 'Hide prev/next buttons', 'woodmart' ),
+					'param_name'       => 'hide_prev_next_buttons',
+					'hint'             => esc_html__( 'If "YES" prev/next control will be removed', 'woodmart' ),
+					'true_state'       => 'yes',
+					'false_state'      => 'no',
+					'default'          => 'no',
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				/**
+				 * Extra
+				 */
+				array(
+					'type'       => 'woodmart_title_divider',
+					'holder'     => 'div',
+					'title'      => esc_html__( 'Extra options', 'woodmart' ),
+					'param_name' => 'extra_divider',
+				),
+				array(
+					'type'             => 'woodmart_switch',
+					'heading'          => esc_html__( 'Init carousel on scroll', 'woodmart' ),
+					'hint'             => esc_html__( 'This option allows you to init carousel script only when visitor scroll the page to the slider. Useful for performance optimization.', 'woodmart' ),
+					'param_name'       => 'scroll_carousel_init',
+					'true_state'       => 'yes',
+					'false_state'      => 'no',
+					'default'          => 'no',
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+					'dependency'       => array(
+						'element' => 'view',
+						'value'   => array( 'carousel' ),
+					),
+				),
+				array(
+					'type'       => 'textfield',
+					'heading'    => esc_html__( 'Extra class name', 'woodmart' ),
+					'param_name' => 'el_class',
+					'hint'       => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' ),
+				),
+				array(
+					'type'       => 'css_editor',
+					'heading'    => esc_html__( 'CSS box', 'woodmart' ),
+					'param_name' => 'css',
+					'group'      => esc_html__( 'Design Options', 'js_composer' ),
+				),
+				function_exists( 'woodmart_get_vc_responsive_spacing_map' ) ? woodmart_get_vc_responsive_spacing_map() : '',
+			),
+			'js_view'                 => 'VcColumnView',
 		);
-
-		// A must for container functionality, replace Wbc_Item with your base name from mapping for parent container
-		if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
-			class WPBakeryShortCode_woodmart_info_box_carousel extends WPBakeryShortCodesContainer {}
-		}
-
-		// Replace Wbc_Inner_Item with your base name from mapping for nested element
-		if ( class_exists( 'WPBakeryShortCode' ) ) {
-			class WPBakeryShortCode_woodmart_info_box extends WPBakeryShortCode {}
-		}
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_shortcode_info_box' );
 }
 
 if ( ! function_exists( 'woodmart_get_woodmart_info_box_shortcode_args' ) ) {
@@ -163,7 +208,7 @@ if ( ! function_exists( 'woodmart_get_woodmart_info_box_shortcode_args' ) ) {
 			'name'            => esc_html__( 'Information box', 'woodmart' ),
 			'base'            => 'woodmart_info_box',
 			'content_element' => true,
-			'category'        => esc_html__( 'Theme elements', 'woodmart' ),
+			'category'        => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ? woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
 			'description'     => esc_html__( 'Show some brief information', 'woodmart' ),
 			'icon'            => WOODMART_ASSETS . '/images/vc-icon/information-box.svg',
 			'params'          => woodmart_get_info_box_shortcode_params(),
@@ -177,9 +222,9 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 		$text_font      = woodmart_get_opt( 'text-font' );
 		$primary_font   = woodmart_get_opt( 'primary-font' );
 
-		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary', 'woodmart' );
-		$text_font_title      = isset( $text_font[0] ) ? esc_html__( 'Text', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
-		$primary_font_title   = isset( $primary_font[0] ) ? esc_html__( 'Primary', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Primary', 'woodmart' );
+		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary font', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary font', 'woodmart' );
+		$text_font_title      = isset( $text_font[0] ) ? esc_html__( 'Text font', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
+		$primary_font_title   = isset( $primary_font[0] ) ? esc_html__( 'Title font', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Title font', 'woodmart' );
 
 		return apply_filters(
 			'woodmart_get_info_box_shortcode_params',
@@ -189,8 +234,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'param_name' => 'woodmart_css_id',
 				),
 				/**
-				* Icon
-				*/
+				 * Icon
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -350,8 +395,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'description'      => esc_html__( 'Example: \'thumbnail\', \'medium\', \'large\', \'full\' or enter image size in pixels: \'200x100\'.', 'woodmart' ),
 				),
 				/**
-				* Box style
-				*/
+				 * Box style
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -380,6 +425,78 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 						esc_html__( 'Dark', 'woodmart' )  => 'dark',
 					),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'heading'       => esc_html__( 'Rounding', 'woodmart' ),
+					'type'          => 'wd_select',
+					'param_name'    => 'rounding_size',
+					'style'         => 'select',
+					'selectors'     => array(
+						'{{WRAPPER}}' => array(
+							'--wd-brd-radius: {{VALUE}}px;',
+						),
+					),
+					'devices'       => array(
+						'desktop' => array(
+							'value' => '',
+						),
+					),
+					'value'         => array(
+						esc_html__( 'Inherit', 'woodmart' ) => '',
+						esc_html__( '0', 'woodmart' )      => '0',
+						esc_html__( '5', 'woodmart' )      => '5',
+						esc_html__( '8', 'woodmart' )      => '8',
+						esc_html__( '12', 'woodmart' )     => '12',
+						esc_html__( 'Custom', 'woodmart' ) => 'custom',
+					),
+					'dependency'    => array(
+						'element' => 'icon_type',
+						'value'   => array( 'icon' ),
+					),
+					'generate_zero' => true,
+				),
+				array(
+					'heading'       => esc_html__( 'Custom rounding', 'woodmart' ),
+					'type'          => 'wd_slider',
+					'param_name'    => 'custom_rounding_size',
+					'selectors'     => array(
+						'{{WRAPPER}}' => array(
+							'--wd-brd-radius: {{VALUE}}{{UNIT}};',
+						),
+					),
+					'devices'       => array(
+						'desktop' => array(
+							'value' => '',
+							'unit'  => 'px',
+						),
+					),
+					'range'         => array(
+						'px' => array(
+							'min'  => 0,
+							'max'  => 300,
+							'step' => 1,
+						),
+						'%'  => array(
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						),
+					),
+					'dependency'    => array(
+						'element' => 'rounding_size',
+						'value'   => function_exists( 'woodmart_compress' ) ? woodmart_compress(
+							wp_json_encode(
+								array(
+									'devices' => array(
+										'desktop' => array(
+											'value' => 'custom',
+										),
+									),
+								)
+							)
+						) : '',
+					),
+					'generate_zero' => true,
 				),
 				array(
 					'type'       => 'woodmart_title_divider',
@@ -444,8 +561,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Layout
-				*/
+				 * Layout
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -487,9 +604,30 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'std'          => 'top',
 					'wood_tooltip' => true,
 				),
+				array(
+					'type'         => 'woodmart_image_select',
+					'heading'      => esc_html__( 'Vertical alignment', 'woodmart' ),
+					'param_name'   => 'image_vertical_alignment',
+					'value'        => array(
+						esc_html__( 'Top', 'woodmart' )    => 'top',
+						esc_html__( 'Middle', 'woodmart' ) => 'middle',
+						esc_html__( 'Bottom', 'woodmart' ) => 'bottom',
+					),
+					'images_value' => array(
+						'top'    => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/top.png',
+						'middle' => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/middle.png',
+						'bottom' => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/bottom.png',
+					),
+					'std'          => 'top',
+					'wood_tooltip' => true,
+					'dependency'   => array(
+						'element' => 'image_alignment',
+						'value'   => array( 'left', 'right' ),
+					),
+				),
 				/**
-				* Title
-				*/
+				 * Title
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -566,6 +704,11 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 						esc_html__( 'Extra-Bold 800', 'woodmart' ) => 800,
 						esc_html__( 'Ultra-Bold 900', 'woodmart' ) => 900,
 					),
+					'selectors'   => array(
+						'{{WRAPPER}} .info-box-title' => array(
+							'font-weight: {{VALUE}};',
+						),
+					),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -625,8 +768,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Subtitle
-				*/
+				 * Subtitle
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -670,6 +813,11 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 						esc_html__( 'Extra-Bold 800', 'woodmart' ) => 800,
 						esc_html__( 'Ultra-Bold 900', 'woodmart' ) => 900,
 					),
+					'selectors'   => array(
+						'{{WRAPPER}} .info-box-subtitle' => array(
+							'--wd-font-weight: {{VALUE}};',
+						),
+					),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -703,7 +851,7 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 				),
 				array(
 					'type'             => 'woodmart_dropdown',
-					'heading'          => esc_html__( 'Predefined subtitle color scheme', 'woodmart' ),
+					'heading'          => esc_html__( 'Predefined subtitle color', 'woodmart' ),
 					'param_name'       => 'subtitle_color',
 					'value'            => array(
 						esc_html__( 'Default', 'woodmart' ) => 'default',
@@ -762,8 +910,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Content
-				*/
+				 * Content
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -777,7 +925,6 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'heading'    => esc_html__( 'Brief content', 'woodmart' ),
 					'group'      => esc_html__( 'Content', 'woodmart' ),
 					'param_name' => 'content',
-					'hint'       => esc_html__( 'Add here few words to your banner image.', 'woodmart' ),
 				),
 				array(
 					'type'             => 'woodmart_responsive_size',
@@ -821,8 +968,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Button
-				*/
+				 * Button
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -914,9 +1061,9 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 						esc_html__( 'Round', 'woodmart' )  => 'semi-round',
 					),
 					'images_value'     => array(
-						'rectangle'  => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/rectangle.png',
-						'round'      => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/circle.png',
-						'semi-round' => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/round.png',
+						'rectangle'  => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/rectangle.jpeg',
+						'round'      => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/circle.jpeg',
+						'semi-round' => WOODMART_ASSETS_IMAGES . '/settings/buttons/shape/round.jpeg',
 					),
 					'dependency'       => array(
 						'element'            => 'btn_style',
@@ -927,8 +1074,8 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'edit_field_class' => 'vc_col-xs-12 vc_column button-shape',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -1026,7 +1173,9 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 					'max'              => 1000,
 					'step'             => 1,
 					'selectors'        => array(
-						'{{WRAPPER}}' => 'z-index: {{VALUE}}',
+						'{{WRAPPER}}' => array(
+							'z-index: {{VALUE}}',
+						),
 					),
 					'dependency'       => array(
 						'element' => 'wd_z_index',
@@ -1036,10 +1185,19 @@ if ( ! function_exists( 'woodmart_get_info_box_shortcode_params' ) ) {
 				),
 				function_exists( 'woodmart_get_vc_responsive_visible_map' ) ? woodmart_get_vc_responsive_visible_map( 'responsive_tabs_hide' ) : '',
 				function_exists( 'woodmart_get_vc_responsive_visible_map' ) ? woodmart_get_vc_responsive_visible_map( 'wd_hide_on_desktop' ) : '',
-				function_exists( 'woodmart_get_vc_responsive_visible_map' ) ? woodmart_get_vc_responsive_visible_map( 'wd_hide_on_tablet_landscape' ) : '',
 				function_exists( 'woodmart_get_vc_responsive_visible_map' ) ? woodmart_get_vc_responsive_visible_map( 'wd_hide_on_tablet' ) : '',
 				function_exists( 'woodmart_get_vc_responsive_visible_map' ) ? woodmart_get_vc_responsive_visible_map( 'wd_hide_on_mobile' ) : '',
 			)
 		);
 	}
+}
+
+// A must for container functionality, replace Wbc_Item with your base name from mapping for parent container
+if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
+	class WPBakeryShortCode_woodmart_info_box_carousel extends WPBakeryShortCodesContainer {}
+}
+
+// Replace Wbc_Inner_Item with your base name from mapping for nested element
+if ( class_exists( 'WPBakeryShortCode' ) ) {
+	class WPBakeryShortCode_woodmart_info_box extends WPBakeryShortCode {}
 }

@@ -3,7 +3,7 @@
   Plugin Name: Contact Form 7 MailChimp Extension
   Plugin URI: http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension
 
-  Copyright 2013-2022 Renzo Johnson (email: renzojohnson at gmail.com)
+  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,7 +19,6 @@
   along with this program; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-
 
 .mc-tool-activated {
   background-color: #00be28 !important;
@@ -484,6 +483,108 @@ div#section-holder {
   opacity: 1;
   display: flex;
 }
+
+/* // ==========  Deact popup  ========== */
+.wp-pointer-content {
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(200,215,225,.5), 0 1px 2px #e9eff3;
+}
+
+.wp-pointer-top .wp-pointer-arrow-inner {
+  border-bottom-color: #1a212b;
+}
+
+.wp-pointer-content .wp-pointer-buttons {
+  display: none;
+}
+
+.mce-bye {
+
+}
+
+.mce-bye * {
+  box-sizing: border-box;
+}
+
+#checklist {
+  background: #ffffff;
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+}
+
+
+
+.mce-deactivate-header {
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #1a212b;
+  color: white;
+  font-size: 20px;
+
+}
+
+
+
+.mce-deactivate-header h5 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0.5rem 0.2rem;
+}
+
+
+.mce-deactivate-header p {
+  font-size: 13px;
+}
+
+
+.wp-pointer-content p {
+  padding: 0;
+
+}
+
+
+.mce-deactivate-footer {
+  padding: 10px 20px;
+  text-align: right;
+}
+
+
+.mce-deactivate-list {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+
+.mce-deactivate-list label {
+  display: block;
+  width: 100%;
+  margin: 0.35em 0 0.5em !important;
+}
+
+
+.mce-wraper-pointer{
+  overflow-y: auto;
+  height: 100%;
+  z-index: 100;
+}
+
+
+.mce-separator {
+  display: block;
+  margin: 20px 0 10px;
+
+}
+
+
+.mce-wraper-pointer .regular-text {
+  /* display: none; */
+  width: 100%;
+  margin: 8px 0;
+  /* border: 1px solid blue !important; */
+}
+
+
 
 /* // *======================================================================================================================================================= */
 /* //             Bootstrap 3 Media Queries */

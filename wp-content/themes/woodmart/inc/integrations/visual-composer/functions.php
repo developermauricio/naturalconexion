@@ -13,6 +13,20 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 // Features that add GLOBAL maps to WPB Composer
 // **********************************************************************//
 
+if ( ! function_exists( 'woodmart_vc_map' ) ) {
+	/**
+	 * Register element map.
+	 *
+	 * @param string          $tag Element tag.
+	 * @param callable-string $callback Map callback.
+	 *
+	 * @return void
+	 */
+	function woodmart_vc_map( $tag, $callback ) {
+		vc_lean_map( $tag, $callback );
+	}
+}
+
 if ( ! function_exists( 'woodmart_vc_row_custom_options' ) ) {
 	/**
 	 * Update custom params map to Default Row element in WPBakery.
@@ -21,6 +35,28 @@ if ( ! function_exists( 'woodmart_vc_row_custom_options' ) ) {
 	 */
 	function woodmart_vc_row_custom_options() {
 		$general_options = array(
+			/**
+			 * CSS ID Option.
+			 */
+			array(
+				'type'       => 'woodmart_css_id',
+				'param_name' => 'woodmart_css_id',
+			),
+			array(
+				'type' => 'dropdown',
+				'heading' => esc_html__( 'Row stretch CSS', 'woodmart' ),
+				'param_name' => 'woodmart_stretch_content',
+				'value' => array(
+					esc_html__( 'Default', 'woodmart' ) => '',
+					esc_html__( 'Stretch row', 'woodmart' ) => 'section-stretch',
+					esc_html__( 'Stretch row and content', 'woodmart' ) => 'section-stretch-content',
+					esc_html__( 'Stretch row and content (no paddings)', 'woodmart' ) => 'section-stretch-content-no-pd',
+				),
+				'description' => esc_html__( 'Enable this option instead of native WPBakery one to stretch row with CSS and not with JS.', 'woodmart' ),
+			),
+		);
+
+		$general_options_inner = array(
 			/**
 			 * CSS ID Option.
 			 */
@@ -154,7 +190,9 @@ if ( ! function_exists( 'woodmart_vc_row_custom_options' ) ) {
 				'max'              => 1000,
 				'step'             => 1,
 				'selectors'        => array(
-					'{{WRAPPER}}' => 'z-index: {{VALUE}}',
+					'{{WRAPPER}}' => array(
+						'z-index: {{VALUE}}',
+					),
 				),
 				'dependency'       => array(
 					'element' => 'wd_z_index',
@@ -272,9 +310,8 @@ if ( ! function_exists( 'woodmart_vc_row_custom_options' ) ) {
 		);
 
 		$design_options[] = array(
-			'type'             => 'woodmart_box_shadow',
+			'type'             => 'wd_box_shadow',
 			'param_name'       => 'wd_box_shadow',
-			'heading'          => esc_html__( 'Box shadow', 'woodmart' ),
 			'group'            => esc_html__( 'Design Options', 'js_composer' ),
 			'selectors'        => array(
 				'{{WRAPPER}}' => array(
@@ -299,7 +336,7 @@ if ( ! function_exists( 'woodmart_vc_row_custom_options' ) ) {
 		vc_add_params( 'vc_row', $design_options );
 		vc_add_params( 'vc_row', $advanced_options );
 
-		vc_add_params( 'vc_row_inner', $general_options );
+		vc_add_params( 'vc_row_inner', $general_options_inner );
 		vc_add_params( 'vc_row_inner', $design_options );
 		vc_add_params( 'vc_row_inner', $advanced_options );
 	}
@@ -354,6 +391,10 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 				'true_state'       => 'true',
 				'false_state'      => 'false',
 				'default'          => 'false',
+				'dependency'       => array(
+					'element' => 'wd_column_role',
+					'value'   => array( '' ),
+				),
 				'edit_field_class' => 'vc_col-sm-12 vc_column',
 			),
 			array(
@@ -393,6 +434,10 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 				'true_state'       => 'yes',
 				'false_state'      => 'no',
 				'default'          => 'no',
+				'dependency'       => array(
+					'element' => 'wd_column_role',
+					'value'   => array( '' ),
+				),
 				'edit_field_class' => 'vc_col-sm-12 vc_column',
 			),
 			array(
@@ -429,6 +474,191 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 				'dependency'       => array(
 					'element' => 'wd_collapsible_content_switcher',
 					'value'   => array( 'yes' ),
+				),
+			),
+			array(
+				'type'       => 'wd_colorpicker',
+				'param_name' => 'wd_collapsible_content_fade_out_color',
+				'heading'    => esc_html__( 'Fade out color', 'woodmart' ),
+				'selectors'  => array(
+					'{{WRAPPER}}.wd-collapsible-content:not(.wd-opened) > .vc_column-inner > .wpb_wrapper:after' => array(
+						'color: {{VALUE}};',
+					),
+				),
+				'default'    => array(
+					'value' => '#fff',
+				),
+				'dependency' => array(
+					'element' => 'wd_collapsible_content_switcher',
+					'value'   => array( 'yes' ),
+				),
+			),
+			/** Vertical Alignment */
+			array(
+				'type'             => 'wd_select',
+				'heading'          => esc_html__( 'Vertical alignment', 'woodmart' ),
+				'param_name'       => 'vertical_alignment',
+				'style'            => 'select',
+				'selectors'        => array(
+					'{{WRAPPER}} > .vc_column-inner > .wpb_wrapper' => array(
+						'align-items: {{VALUE}};',
+					),
+				),
+				'devices'          => array(
+					'desktop' => array(
+						'value' => '',
+					),
+					'tablet'  => array(
+						'value' => '',
+					),
+					'mobile'  => array(
+						'value' => '',
+					),
+				),
+				'value'            => array(
+					esc_html__( 'Default', 'woodmart' ) => '',
+					esc_html__( 'Top', 'woodmart' )     => 'flex-start',
+					esc_html__( 'Middle', 'woodmart' )  => 'center',
+					esc_html__( 'Bottom', 'woodmart' )  => 'flex-end',
+				),
+				'edit_field_class' => 'vc_col-sm-12 vc_column',
+			),
+			/** Horizontal Alignment */
+			array(
+				'type'             => 'wd_select',
+				'heading'          => esc_html__( 'Horizontal alignment', 'woodmart' ),
+				'param_name'       => 'horizontal_alignment',
+				'style'            => 'select',
+				'selectors'        => array(
+					'{{WRAPPER}} > .vc_column-inner > .wpb_wrapper' => array(
+						'justify-content: {{VALUE}}',
+					),
+				),
+				'devices'          => array(
+					'desktop' => array(
+						'value' => '',
+					),
+					'tablet'  => array(
+						'value' => '',
+					),
+					'mobile'  => array(
+						'value' => '',
+					),
+				),
+				'value'            => array(
+					esc_html__( 'Default', 'woodmart' ) => '',
+					esc_html__( 'Start', 'woodmart' )   => 'flex-start',
+					esc_html__( 'Center', 'woodmart' )  => 'center',
+					esc_html__( 'End', 'woodmart' )     => 'flex-end',
+					esc_html__( 'Space Between', 'woodmart' ) => 'space-between',
+					esc_html__( 'Space Around', 'woodmart' ) => 'space-around',
+					esc_html__( 'Space Evenly', 'woodmart' ) => 'space-evenly',
+				),
+				'edit_field_class' => 'vc_col-sm-12 vc_column',
+			),
+			/** Off canvas column */
+			array(
+				'type'             => 'dropdown',
+				'heading'          => __( 'Column role for "off-canvas layout"', 'woodmart' ),
+				'description'      => esc_html__( 'You can create your page layout with an off-canvas sidebar. In this case, you need to have two columns: one will be set as the off-canvas sidebar and another as the content. NOTE: you need to also display the Off-canvas button element somewhere in your content column to open the sidebar. Also, you need to enable them on specific devices synchronously.', 'woodmart' ),
+				'param_name'       => 'wd_column_role',
+				'value'            => array(
+					esc_html__( 'None', 'woodmart' ) => '',
+					esc_html__( 'Off canvas column', 'woodmart' ) => 'offcanvas',
+					esc_html__( 'Content column', 'woodmart' ) => 'content',
+				),
+				'edit_field_class' => 'vc_col-sm-12 vc_column',
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Desktop', 'woodmart' ),
+				'param_name'       => 'wd_column_role_offcanvas_desktop',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'offcanvas' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Tablet', 'woodmart' ),
+				'param_name'       => 'wd_column_role_offcanvas_tablet',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'offcanvas' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Mobile', 'woodmart' ),
+				'param_name'       => 'wd_column_role_offcanvas_mobile',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'offcanvas' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Desktop', 'woodmart' ),
+				'param_name'       => 'wd_column_role_content_desktop',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'content' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Tablet', 'woodmart' ),
+				'param_name'       => 'wd_column_role_content_tablet',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'content' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_switch',
+				'heading'          => esc_html__( 'Mobile', 'woodmart' ),
+				'param_name'       => 'wd_column_role_content_mobile',
+				'true_state'       => 'yes',
+				'false_state'      => 'no',
+				'default'          => 'no',
+				'edit_field_class' => 'vc_col-sm-4 vc_column',
+				'wd_dependency'    => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'content' ),
+				),
+			),
+			array(
+				'type'             => 'woodmart_button_set',
+				'heading'          => esc_html__( 'Off canvas alignment', 'woodmart' ),
+				'param_name'       => 'wd_off_canvas_alignment',
+				'value'            => array(
+					esc_html__( 'Left', 'woodmart' )  => 'left',
+					esc_html__( 'Right', 'woodmart' ) => 'right',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+				'dependency'       => array(
+					'element' => 'wd_column_role',
+					'value'   => array( 'offcanvas' ),
 				),
 			),
 		);
@@ -537,9 +767,8 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 				'edit_field_class' => 'vc_col-sm-12 vc_column',
 			),
 			array(
-				'type'             => 'woodmart_box_shadow',
+				'type'             => 'wd_box_shadow',
 				'param_name'       => 'wd_box_shadow',
-				'heading'          => esc_html__( 'Box shadow', 'woodmart' ),
 				'group'            => esc_html__( 'Design Options', 'js_composer' ),
 				'selectors'        => array(
 					'{{WRAPPER}} > .vc_column-inner' => array(
@@ -558,6 +787,14 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 					'spread'     => '0',
 					'color'      => 'rgba(0, 0, 0, .15)',
 				),
+			),
+			/**
+			 * Responsive Spacing Option.
+			 */
+			array(
+				'type'       => 'woodmart_responsive_spacing',
+				'param_name' => 'responsive_spacing',
+				'group'      => esc_html__( 'Design Options', 'js_composer' ),
 			),
 		);
 
@@ -644,21 +881,15 @@ if ( ! function_exists( 'woodmart_vc_column_custom_options' ) ) {
 				'max'              => 1000,
 				'step'             => 1,
 				'selectors'        => array(
-					'{{WRAPPER}}' => 'z-index: {{VALUE}}',
+					'{{WRAPPER}}' => array(
+						'z-index: {{VALUE}}',
+					),
 				),
 				'dependency'       => array(
 					'element' => 'wd_z_index',
 					'value'   => array( 'yes' ),
 				),
 				'edit_field_class' => 'vc_col-sm-12 vc_column',
-			),
-			/**
-			 * Responsive Spacing Option.
-			 */
-			array(
-				'type'       => 'woodmart_responsive_spacing',
-				'param_name' => 'responsive_spacing',
-				'group'      => esc_html__( 'Design Options', 'js_composer' ),
 			),
 		);
 
@@ -690,6 +921,17 @@ if ( ! function_exists( 'woodmart_vc_section_custom_options' ) ) {
 			array(
 				'type'       => 'woodmart_css_id',
 				'param_name' => 'woodmart_css_id',
+			),
+			array(
+				'type'        => 'dropdown',
+				'heading'     => esc_html__( 'Section stretch CSS', 'woodmart' ),
+				'param_name'  => 'woodmart_stretch_content',
+				'value'       => array(
+					esc_html__( 'Default', 'woodmart' ) => '',
+					esc_html__( 'Stretch section', 'woodmart' ) => 'section-stretch',
+					esc_html__( 'Stretch section and content', 'woodmart' ) => 'section-stretch-content',
+				),
+				'description' => esc_html__( 'Enable this option instead of native WPBakery one to stretch section with CSS and not with JS.', 'woodmart' ),
 			),
 		);
 
@@ -817,7 +1059,9 @@ if ( ! function_exists( 'woodmart_vc_section_custom_options' ) ) {
 				'max'              => 1000,
 				'step'             => 1,
 				'selectors'        => array(
-					'{{WRAPPER}}' => 'z-index: {{VALUE}}',
+					'{{WRAPPER}}' => array(
+						'z-index: {{VALUE}}',
+					),
 				),
 				'dependency'       => array(
 					'element' => 'wd_z_index',
@@ -879,9 +1123,8 @@ if ( ! function_exists( 'woodmart_vc_section_custom_options' ) ) {
 			'edit_field_class' => 'vc_col-sm-12 vc_column',
 		);
 		$design_options[] = array(
-			'type'             => 'woodmart_box_shadow',
+			'type'             => 'wd_box_shadow',
 			'param_name'       => 'wd_box_shadow',
-			'heading'          => esc_html__( 'Box shadow', 'woodmart' ),
 			'group'            => esc_html__( 'Design Options', 'js_composer' ),
 			'selectors'        => array(
 				'{{WRAPPER}}' => array(
@@ -931,7 +1174,6 @@ if ( ! function_exists( 'woodmart_vc_empty_space_custom_options' ) ) {
 					esc_html__( 'Large', 'woodmart' )  => 'large',
 					esc_html__( 'Medium', 'woodmart' ) => 'medium',
 					esc_html__( 'Small', 'woodmart' )  => 'small',
-					esc_html__( 'Extra small', 'woodmart' ) => 'extra_small',
 				),
 				'default'          => 'large',
 				'edit_field_class' => 'wd-custom-width vc_col-sm-12 vc_column',
@@ -982,22 +1224,6 @@ if ( ! function_exists( 'woodmart_vc_empty_space_custom_options' ) ) {
 				'wd_dependency'    => array(
 					'element' => 'responsive_tabs',
 					'value'   => array( 'small' ),
-				),
-			),
-			/**
-			 * Hide on extra small.
-			 */
-			array(
-				'type'             => 'woodmart_switch',
-				'param_name'       => 'woodmart_hide_extra_small',
-				'group'            => esc_html__( 'Advanced', 'woodmart' ),
-				'true_state'       => 1,
-				'false_state'      => 0,
-				'default'          => 0,
-				'edit_field_class' => 'vc_col-sm-12 vc_column',
-				'wd_dependency'    => array(
-					'element' => 'responsive_tabs',
-					'value'   => array( 'extra_small' ),
 				),
 			),
 		);
@@ -1116,8 +1342,15 @@ if ( ! function_exists( 'woodmart_contact_form_7_custom_options' ) ) {
 	function woodmart_contact_form_7_custom_options() {
 		$params = array(
 			array(
+				'type'       => 'woodmart_title_divider',
+				'holder'     => 'div',
+				'title'      => esc_html__( 'Style', 'woodmart' ),
+				'param_name' => 'style_divider',
+			),
+
+			array(
 				'type'       => 'dropdown',
-				'heading'    => esc_html__( 'Style', 'woodmart' ),
+				'heading'    => esc_html__( 'Color presets', 'woodmart' ),
 				'param_name' => 'html_class',
 				'value'      => array(
 					esc_html__( 'Default', 'woodmart' ) => '',
@@ -1125,12 +1358,123 @@ if ( ! function_exists( 'woodmart_contact_form_7_custom_options' ) ) {
 				),
 				'std'        => '',
 			),
+
+			array(
+				'type'       => 'woodmart_title_divider',
+				'holder'     => 'div',
+				'title'      => esc_html__( 'Form', 'woodmart' ),
+				'param_name' => 'form_divider',
+				'dependency' => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+			),
+
+			array(
+				'heading'          => esc_html__( 'Text color', 'woodmart' ),
+				'type'             => 'wd_colorpicker',
+				'param_name'       => 'form_color',
+				'selectors'        => array(
+					'form.wpcf7-form' => array(
+						'--wd-form-color: {{VALUE}};',
+					),
+				),
+				'dependency'       => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+			),
+
+			array(
+				'heading'          => esc_html__( 'Placeholder color', 'woodmart' ),
+				'type'             => 'wd_colorpicker',
+				'param_name'       => 'form_placeholder_color',
+				'selectors'        => array(
+					'form.wpcf7-form' => array(
+						'--wd-form-placeholder-color: {{VALUE}};',
+					),
+				),
+				'dependency'       => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+			),
+
+			array(
+				'heading'          => esc_html__( 'Border color', 'woodmart' ),
+				'type'             => 'wd_colorpicker',
+				'param_name'       => 'form_brd_color',
+				'selectors'        => array(
+					'form.wpcf7-form' => array(
+						'--wd-form-brd-color: {{VALUE}};',
+					),
+				),
+				'dependency'       => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+			),
+
+			array(
+				'heading'          => esc_html__( 'Border color focus', 'woodmart' ),
+				'type'             => 'wd_colorpicker',
+				'param_name'       => 'form_brd_color_focus',
+				'selectors'        => array(
+					'form.wpcf7-form' => array(
+						'--wd-form-brd-color-focus: {{VALUE}};',
+					),
+				),
+				'dependency'       => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+			),
+
+			array(
+				'heading'          => esc_html__( 'Background color', 'woodmart' ),
+				'type'             => 'wd_colorpicker',
+				'param_name'       => 'form_bg',
+				'selectors'        => array(
+					'form.wpcf7-form' => array(
+						'--wd-form-bg: {{VALUE}};',
+					),
+				),
+				'dependency'       => array(
+					'element'            => 'html_class',
+					'value_not_equal_to' => 'wd-style-with-bg',
+				),
+				'edit_field_class' => 'vc_col-sm-6 vc_column',
+			),
 		);
 
 		vc_add_params( 'contact-form-7', $params );
 	}
 
 	add_action( 'vc_before_init', 'woodmart_contact_form_7_custom_options' );
+}
+
+if ( ! function_exists( 'woodmart_vc_separator_custom_options' ) ) {
+	/**
+	 * Update custom params map to Default Separator element in WPBakery.
+	 *
+	 * @throws Exception .
+	 */
+	function woodmart_vc_separator_custom_options() {
+		$advanced_options = array(
+			woodmart_get_vc_responsive_visible_map( 'responsive_tabs_hide' ),
+			woodmart_get_vc_responsive_visible_map( 'wd_hide_on_desktop' ),
+			woodmart_get_vc_responsive_visible_map( 'wd_hide_on_tablet' ),
+			woodmart_get_vc_responsive_visible_map( 'wd_hide_on_mobile' ),
+		);
+
+		vc_add_params( 'vc_separator', $advanced_options );
+	}
+
+	add_action( 'vc_before_init', 'woodmart_vc_separator_custom_options' );
 }
 
 // **********************************************************************//
@@ -1155,11 +1499,49 @@ if ( ! function_exists( 'woodmart_vc_extra_classes' ) ) {
 			$class .= ' wd-z-index';
 		}
 
+		if ( 'vc_column' === $base || 'vc_column_inner' === $base ) {
+			if ( ! empty( $atts['vertical_alignment'] ) || ! empty( $atts['horizontal_alignment'] ) ) {
+				$class .= ' wd-enabled-flex';
+			}
+		}
+
+		if ( 'vc_column' === $base && ! empty( $atts['wd_column_role'] ) ) {
+			woodmart_enqueue_inline_style( 'int-wpb-opt-off-canvas-column' );
+
+			if ( isset( $atts['wd_column_role_offcanvas_desktop'] ) && 'yes' === $atts['wd_column_role_offcanvas_desktop'] ) {
+				$class .= ' wd-col-offcanvas-lg';
+			}
+
+			if ( isset( $atts['wd_column_role_offcanvas_tablet'] ) && 'yes' === $atts['wd_column_role_offcanvas_tablet'] ) {
+				$class .= ' wd-col-offcanvas-md-sm';
+			}
+
+			if ( isset( $atts['wd_column_role_offcanvas_mobile'] ) && 'yes' === $atts['wd_column_role_offcanvas_mobile'] ) {
+				$class .= ' wd-col-offcanvas-sm';
+			}
+
+			if ( isset( $atts['wd_column_role_content_desktop'] ) && 'yes' === $atts['wd_column_role_content_desktop'] ) {
+				$class .= ' wd-col-content-lg';
+			}
+
+			if ( isset( $atts['wd_column_role_content_tablet'] ) && 'yes' === $atts['wd_column_role_content_tablet'] ) {
+				$class .= ' wd-col-content-md-sm';
+			}
+
+			if ( isset( $atts['wd_column_role_content_mobile'] ) && 'yes' === $atts['wd_column_role_content_mobile'] ) {
+				$class .= ' wd-col-content-sm';
+			}
+
+			if ( isset( $atts['wd_off_canvas_alignment'] ) && ! empty( $atts['wd_off_canvas_alignment'] ) ) {
+				$class .= ' wd-alignment-' . $atts['wd_off_canvas_alignment'];
+			}
+		}
+
 		if ( ! empty( $atts['woodmart_inline'] ) && 'yes' === $atts['woodmart_inline'] ) {
 			$class .= ' inline-element';
 		}
 		if ( ! empty( $atts['woodmart_color_scheme'] ) && ( 'vc_column' === $base ||
-		'vc_column_inner' === $base || 'vc_empty_space' === $base ) ) {
+		'vc_column_inner' === $base || 'vc_empty_space' === $base || 'vc_column_text' === $base ) ) {
 			$class .= ' color-scheme-' . $atts['woodmart_color_scheme'];
 		}
 		if ( isset( $atts['text_larger'] ) && 'yes' === $atts['text_larger'] ) {
@@ -1199,12 +1581,9 @@ if ( ! function_exists( 'woodmart_vc_extra_classes' ) ) {
 			$class .= ' hidden-lg';
 		}
 		if ( isset( $atts['woodmart_hide_medium'] ) && $atts['woodmart_hide_medium'] ) {
-			$class .= ' hidden-md';
+			$class .= ' hidden-md hidden-sm';
 		}
 		if ( isset( $atts['woodmart_hide_small'] ) && $atts['woodmart_hide_small'] ) {
-			$class .= ' hidden-sm';
-		}
-		if ( isset( $atts['woodmart_hide_extra_small'] ) && $atts['woodmart_hide_extra_small'] ) {
 			$class .= ' hidden-xs';
 		}
 		// Row reverse opt.
@@ -1234,7 +1613,11 @@ if ( ! function_exists( 'woodmart_vc_extra_classes' ) ) {
 			$class .= ' reset-margin-tablet';
 		}
 
-		if ( ! empty( $atts['wd_animation'] ) ) {
+		if ( ! empty( $atts['css_animation'] ) && 'none' !== $atts['css_animation'] ) {
+			woodmart_enqueue_inline_style( 'int-el-animations' );
+		}
+
+		if ( ! empty( $atts['wd_animation'] ) && 'none' !== $atts['wd_animation'] ) {
 			$class .= ' wd-animation-' . $atts['wd_animation'];
 
 			$duration = ! empty( $atts['wd_animation_duration'] ) ? $atts['wd_animation_duration'] : 'normal';
@@ -1253,16 +1636,16 @@ if ( ! function_exists( 'woodmart_vc_extra_classes' ) ) {
 			$class .= ' wd-rs-' . $atts['woodmart_css_id'];
 		}
 
+		if ( ! empty( $atts['woodmart_stretch_content'] ) ) {
+			$class .= ' wd-' . $atts['woodmart_stretch_content'];
+		}
+
 		if ( isset( $atts['wd_hide_on_desktop'] ) && 'yes' === $atts['wd_hide_on_desktop'] ) {
 			$class .= ' hidden-lg';
 		}
 
-		if ( isset( $atts['wd_hide_on_tablet_landscape'] ) && 'yes' === $atts['wd_hide_on_tablet_landscape'] ) {
-			$class .= ' hidden-md';
-		}
-
 		if ( isset( $atts['wd_hide_on_tablet'] ) && 'yes' === $atts['wd_hide_on_tablet'] ) {
-			$class .= ' hidden-sm';
+			$class .= ' hidden-md hidden-sm';
 		}
 
 		if ( isset( $atts['wd_hide_on_mobile'] ) && 'yes' === $atts['wd_hide_on_mobile'] ) {
@@ -1273,6 +1656,13 @@ if ( ! function_exists( 'woodmart_vc_extra_classes' ) ) {
 			woodmart_enqueue_inline_style( 'collapsible-content' );
 
 			$class .= ' wd-collapsible-content';
+		}
+
+		/**
+		 * Single Product Layout.
+		 */
+		if ( ( isset( $atts['width_desktop'] ) && ! empty( $atts['width_desktop'] ) ) || ( isset( $atts['width_tablet'] ) && ! empty( $atts['width_tablet'] ) || ( isset( $atts['width_mobile'] ) && ! empty( $atts['width_mobile'] ) ) ) ) {
+			$class .= ' wd-enabled-width';
 		}
 
 		return $class;
@@ -1330,7 +1720,7 @@ if ( ! function_exists( 'woodmart_get_vc_responsive_visible_map' ) ) {
 			/**
 			 * Responsive Options.
 			 */
-			'responsive_tabs_hide'        => array(
+			'responsive_tabs_hide' => array(
 				'type'             => 'woodmart_button_set',
 				'heading'          => esc_html__( 'Hide element', 'woodmart' ),
 				'param_name'       => 'responsive_tabs_hide',
@@ -1338,14 +1728,13 @@ if ( ! function_exists( 'woodmart_get_vc_responsive_visible_map' ) ) {
 				'tabs'             => true,
 				'value'            => array(
 					esc_html__( 'Desktop', 'woodmart' ) => 'desktop',
-					esc_html__( 'Tablet Landscape', 'woodmart' ) => 'landscape',
 					esc_html__( 'Tablet', 'woodmart' )  => 'tablet',
 					esc_html__( 'Mobile', 'woodmart' )  => 'mobile',
 				),
 				'default'          => 'desktop',
 				'edit_field_class' => 'wd-custom-width vc_col-sm-12 vc_column',
 			),
-			'wd_hide_on_desktop'          => array(
+			'wd_hide_on_desktop'   => array(
 				'type'             => 'woodmart_switch',
 				'param_name'       => 'wd_hide_on_desktop',
 				'group'            => esc_html__( 'Advanced', 'woodmart' ),
@@ -1358,20 +1747,7 @@ if ( ! function_exists( 'woodmart_get_vc_responsive_visible_map' ) ) {
 					'value'   => array( 'desktop' ),
 				),
 			),
-			'wd_hide_on_tablet_landscape' => array(
-				'type'             => 'woodmart_switch',
-				'param_name'       => 'wd_hide_on_tablet_landscape',
-				'group'            => esc_html__( 'Advanced', 'woodmart' ),
-				'true_state'       => 'yes',
-				'false_state'      => 'no',
-				'default'          => 'no',
-				'edit_field_class' => 'vc_col-sm-12 vc_column',
-				'wd_dependency'    => array(
-					'element' => 'responsive_tabs_hide',
-					'value'   => array( 'landscape' ),
-				),
-			),
-			'wd_hide_on_tablet'           => array(
+			'wd_hide_on_tablet'    => array(
 				'type'             => 'woodmart_switch',
 				'param_name'       => 'wd_hide_on_tablet',
 				'group'            => esc_html__( 'Advanced', 'woodmart' ),
@@ -1384,7 +1760,7 @@ if ( ! function_exists( 'woodmart_get_vc_responsive_visible_map' ) ) {
 					'value'   => array( 'tablet' ),
 				),
 			),
-			'wd_hide_on_mobile'           => array(
+			'wd_hide_on_mobile'    => array(
 				'type'             => 'woodmart_switch',
 				'param_name'       => 'wd_hide_on_mobile',
 				'group'            => esc_html__( 'Advanced', 'woodmart' ),
@@ -1548,6 +1924,7 @@ if ( ! function_exists( 'woodmart_get_vc_animation_map' ) ) {
 					esc_html__( 'Slide from left', 'woodmart' ) => 'slide-from-left',
 					esc_html__( 'Slide from right', 'woodmart' ) => 'slide-from-right',
 					esc_html__( 'Slide short from left', 'woodmart' ) => 'slide-short-from-left',
+					esc_html__( 'Slide short from right', 'woodmart' ) => 'slide-short-from-right',
 					esc_html__( 'Flip X bottom', 'woodmart' ) => 'bottom-flip-x',
 					esc_html__( 'Flip X top', 'woodmart' ) => 'top-flip-x',
 					esc_html__( 'Flip Y left', 'woodmart' ) => 'left-flip-y',
@@ -1586,5 +1963,22 @@ if ( ! function_exists( 'woodmart_get_vc_animation_map' ) ) {
 		);
 
 		return array_key_exists( $key, $map ) ? $map[ $key ] : array();
+	}
+}
+
+if ( ! function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ) {
+	/**
+	 * Get tab title category for WPB builder.
+	 *
+	 * @param string $title Title category.
+	 *
+	 * @return string
+	 */
+	function woodmart_get_tab_title_category_for_wpb( $title, $layout = '' ) {
+		if ( $layout ) {
+			$layout = ' xts-layout-' . $layout;
+		}
+
+		return '<span class="xts-wpb-tab-title' . $layout . '">' . $title . '</span>';
 	}
 }

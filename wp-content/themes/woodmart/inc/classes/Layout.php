@@ -7,6 +7,8 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) exit( 'No direct script access allowed'
  * based on theme options and custom metaboxes
  */
 
+use XTS\Modules\Layouts\Main as Builder;
+
 class WOODMART_Layout {
 
 	/**
@@ -108,6 +110,8 @@ class WOODMART_Layout {
 			$this->sidebar_name = 'sidebar-shop';
 		} else if( is_singular( 'product' ) ) {
 			$this->sidebar_name = 'sidebar-product-single';
+		} else if ( is_singular( 'portfolio' ) || is_post_type_archive( 'portfolio' ) || is_tax( 'project-cat' ) ) {
+			$this->sidebar_name = 'portfolio-widgets-area';
 		}
 
 		if( $page_id != 0 ) {
@@ -117,7 +121,6 @@ class WOODMART_Layout {
 		if( $specific != '' && $specific !== 'none' ) {
 			$this->sidebar_name = $specific;
 		}
-
 	}
 
 
@@ -131,18 +134,19 @@ class WOODMART_Layout {
 	}
 
 	/**
-	 * Set CSS class for the content DIV 
-	 * 
+	 * Set CSS class for the content DIV.
 	 */
 	private function _set_content_class() {
-		$cl = 'col-lg-';
-		$size = $this->get_content_col_width();
-		$sidebar_size = $this->get_sidebar_col_width();
+		$cl     = 'col-lg-';
+		$size   = $this->get_content_col_width();
 		$layout = $this->get_page_layout();
 
-		$this->content_class = $cl . $size . ' col-12';
+		$this->content_class  = $cl . $size . ' col-12';
+		$this->content_class .= ( 'full-width' === $layout || 12 === $size ) ? ' col-md-12' : ' col-md-9';
 
-		$this->content_class .= ( $layout == 'full-width' || $size == 12 ) ? ' col-md-12' : ' col-md-9';
+		if ( woodmart_woocommerce_installed() && ( is_checkout() || is_cart() ) ) {
+			$this->content_class .= woodmart_get_builder_status_class();
+		}
 	}
 
 	/**
@@ -238,6 +242,8 @@ class WOODMART_Layout {
 		} else if( is_home() || is_singular( 'post' ) || is_archive() ) {
 			// Get specific sidebar size for Blog Page
 			$this->sidebar_col_width = woodmart_get_opt( 'blog_sidebar_width' );
+		} elseif ( is_singular( 'woodmart_layout' ) ) {
+			$this->sidebar_col_width = 0;
 		}
 
 		if( $specific != '' && $specific != 'default' ) {
@@ -275,7 +281,7 @@ class WOODMART_Layout {
 	 * @return string
 	 */
 	public function get_page_layout() {
-		return $this->page_layout;
+		return apply_filters( 'woodmart_get_page_layout', $this->page_layout );
 	}
 
 	/**
@@ -293,7 +299,7 @@ class WOODMART_Layout {
 		$this->page_layout = 'sidebar-right';
 		$this->page_layout = woodmart_get_opt( 'main_layout' );
 
-		if ( is_singular( 'portfolio' ) || is_post_type_archive( 'portfolio' ) ) {
+		if ( ( is_singular( 'portfolio' ) || is_post_type_archive( 'portfolio' ) || is_tax( 'project-cat' ) ) && ! is_active_sidebar( 'portfolio-widgets-area' ) ) {
 			$this->page_layout = 'full-width';
 		}
 
@@ -366,14 +372,21 @@ class WOODMART_Layout {
      * @return mixed
      */
 	public function get_main_container_class() {
-		$class = 'container';
+		$class              = 'container';
+		$is_product_builder = Builder::get_instance()->has_custom_layout( 'single_product' );
 
 		// Different class for product page
 		if( woodmart_woocommerce_installed() && is_singular( 'product' ) && !get_query_var( 'edit' ) && ( ( function_exists( 'woodmart_elementor_has_location' ) && ! woodmart_elementor_has_location( 'single' ) ) || ! function_exists( 'woodmart_elementor_has_location' ) ) ) {
 			$class = 'container-fluid';
+
+			if ( $is_product_builder && 'enabled' === woodmart_get_opt( 'negative_gap' ) ) {
+				$class = 'container';
+			} elseif ( $is_product_builder && 'disabled' === woodmart_get_opt( 'negative_gap' ) ) {
+				$class = 'container-fluid';
+			}
 		}
 		
-		if ( ( woodmart_tpl2id( 'portfolio.php' ) == woodmart_page_ID() ) && woodmart_get_opt( 'portfolio_full_width' ) ) {
+		if ( ( woodmart_get_portfolio_page_id() == woodmart_page_ID() ) && woodmart_get_opt( 'portfolio_full_width' ) ) {
 			$class = 'container-fluid container-no-gutters';
 		}
 		
@@ -381,8 +394,7 @@ class WOODMART_Layout {
 			$class = 'container-fluid container-no-gutters';
 		}
 
-		return $class;
-
+		return apply_filters( 'woodmart_main_content_classes', $class );
 	}
 
     /**

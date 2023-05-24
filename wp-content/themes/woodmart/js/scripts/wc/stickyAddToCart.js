@@ -1,12 +1,23 @@
 /* global woodmart_settings */
 (function($) {
 	woodmartThemeModule.stickyAddToCart = function() {
-		var $trigger = $('form.cart');
+		var $trigger = $('form.cart, .out-of-stock');
 		var $stickyBtn = $('.wd-sticky-btn');
 
-		if ($stickyBtn.length <= 0 || $trigger.length <= 0 || (woodmartThemeModule.$window.width() <= 768 && $stickyBtn.hasClass('mobile-off'))) {
+		if ($stickyBtn.length <= 0 || $trigger.length <= 0 || (woodmartThemeModule.$window.width() <= 768 && !woodmartThemeModule.$body.hasClass('wd-sticky-btn-on-mb'))) {
 			return;
 		}
+
+		var quantityOverlap = function() {
+			if (woodmartThemeModule.$window.width() <= 768 && woodmartThemeModule.$body.hasClass('wd-sticky-btn-on-mb')) {
+				$stickyBtn.addClass('wd-quantity-overlap');
+			} else {
+				$stickyBtn.removeClass('wd-quantity-overlap');
+			}
+		};
+
+		quantityOverlap();
+		woodmartThemeModule.$window.on('resize', quantityOverlap);
 
 		var summaryOffset = $trigger.offset().top + $trigger.outerHeight();
 		var $scrollToTop = $('.scrollToTop');
@@ -28,11 +39,11 @@
 
 		woodmartThemeModule.$window.on('scroll', stickyAddToCartToggle);
 
-		$('.wd-sticky-add-to-cart').on('click', function(e) {
+		$('.wd-sticky-add-to-cart, .wd-sticky-btn .wd-buy-now-btn').on('click', function(e) {
 			e.preventDefault();
 
 			$('html, body').animate({
-				scrollTop: $('.elementor-widget-woocommerce-product-title,.summary-inner .product_title').offset().top
+				scrollTop: $('.elementor-widget-woocommerce-product-title,.summary-inner .product_title,.elementor-widget-wd_single_product_title, .wd-single-title').offset().top
 			}, 800);
 		});
 

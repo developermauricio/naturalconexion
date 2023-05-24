@@ -1,5 +1,4 @@
 <?php
-// phpcs:ignoreFile
 /**
  * Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
  *
@@ -11,7 +10,7 @@
 
 namespace WooCommerce\Facebook\API\FBE\Configuration\Update;
 
-defined( 'ABSPATH' ) or exit;
+defined( 'ABSPATH' ) || exit;
 
 use WooCommerce\Facebook\API\FBE\Configuration;
 
@@ -51,6 +50,23 @@ class Request extends Configuration\Request {
 		$this->data['messenger_chat'] = array(
 			'enabled' => $configuration->is_enabled(),
 			'domains' => $configuration->get_domains(),
+		);
+	}
+
+	/**
+	 * Sets the plugin version for configuration update request.
+	 *
+	 * @since 3.0.10
+	 *
+	 * @param string $plugin_version current plugin version.
+	 */
+	public function set_plugin_version( string $plugin_version ) {
+
+		$this->data['business_config'] = array(
+			'external_client' =>
+				array(
+					'version_id' => "$plugin_version",
+				),
 		);
 	}
 

@@ -39,7 +39,7 @@ if( ! function_exists( 'woodmart_shortcode_user_panel' )) {
 						<span><?php printf( wp_kses( __('Welcome, <strong>%s</strong>', 'woodmart'), array(
 								'strong' => array()								
 							) ), $user->user_login ) ?></span>
-						<a href="<?php echo esc_url( wp_logout_url( home_url('/') ) ); ?>" class="logout-link btn btn-color-default btn-style-link"><?php esc_html_e('Logout', 'woodmart'); ?></a>
+						<a href="<?php echo esc_url( wp_logout_url( home_url('/') ) ); ?>" class="logout-link btn btn-color-default btn-size-small btn-style-link"><?php esc_html_e('Logout', 'woodmart'); ?></a>
 					</div>
 
 				<?php endif ?>

@@ -9,6 +9,7 @@ Options::add_field(
 	array(
 		'id'          => 'sticky_social',
 		'name'        => esc_html__( 'Sticky social links', 'woodmart' ),
+		'hint'        => '<video data-src="' . WOODMART_TOOLTIP_URL . 'sticky-social-links.mp4" autoplay loop muted></video>',
 		'description' => esc_html__( 'Social buttons will be fixed on the screen when you scroll the page.', 'woodmart' ),
 		'type'        => 'switcher',
 		'section'     => 'social_profiles',
@@ -330,12 +331,13 @@ Options::add_field(
 
 Options::add_field(
 	array(
-		'id'       => 'social_email',
+		'id'       => 'social_email_links',
 		'name'     => esc_html__( 'Email for social links', 'woodmart' ),
 		'type'     => 'switcher',
 		'section'  => 'social_links',
 		'default'  => false,
 		'priority' => 200,
+		'status'   => 'deprecated',
 	)
 );
 

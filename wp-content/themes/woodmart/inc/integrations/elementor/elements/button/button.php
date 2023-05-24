@@ -30,6 +30,11 @@ if ( ! function_exists( 'woodmart_elementor_button_template' ) ) {
 			'full_width'                  => 'no',
 			'align'                       => 'center',
 
+			// Icon.
+			'icon_type'                   => 'icon',
+			'icon_position'               => 'right',
+			'image'                       => '',
+
 			// Colors.
 			'color_scheme'                => 'light',
 			'color_scheme_hover'          => 'light',
@@ -59,7 +64,7 @@ if ( ! function_exists( 'woodmart_elementor_button_template' ) ) {
 
 		$link_classes .= 'btn';
 		$link_classes .= ' btn-style-' . $settings['style'];
-		$link_classes .= ' btn-shape-' . $settings['shape'];
+		$link_classes .= ' btn-style-' . $settings['shape'];
 		$link_classes .= ' btn-size-' . $settings['size'];
 		$link_classes .= $settings['custom_classes'] ? ' ' . $settings['custom_classes'] : '';
 
@@ -88,7 +93,7 @@ if ( ! function_exists( 'woodmart_elementor_button_template' ) ) {
 
 		// Icon settings.
 		$icon_output = '';
-		if ( $settings['icon'] ) {
+		if ( 'icon' === $settings['icon_type'] && $settings['icon'] ) {
 			$link_classes .= ' btn-icon-pos-' . $settings['icon_position'];
 			$icon_output   = woodmart_elementor_get_render_icon(
 				$settings['icon'],
@@ -97,6 +102,17 @@ if ( ! function_exists( 'woodmart_elementor_button_template' ) ) {
 				],
 				'span'
 			);
+		} elseif ( 'image' === $settings['icon_type'] && ! empty( $settings['image'] ) ) {
+			$link_classes .= ' btn-icon-pos-' . $settings['icon_position'];
+			$icon_output   = woodmart_get_image_html( $settings, 'image' );
+
+			if ( woodmart_is_svg( woodmart_get_image_url( $settings['image']['id'], 'image', $settings ) ) ) {
+				if ( 'custom' === $settings['image_size'] && ! empty( $settings['image_custom_dimension'] ) ) {
+					$icon_output = woodmart_get_svg_html( $settings['image']['id'], $settings['image_custom_dimension'] );
+				} else {
+					$icon_output = woodmart_get_svg_html( $settings['image']['id'], $settings['image_size'] );
+				}
+			}
 		}
 
 		// Text classes.

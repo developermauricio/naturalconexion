@@ -4,8 +4,8 @@ Donate link: https://paypal.me/ipprokaev/0usd
 Tags: woocommerce,export,order,xls,csv,xml,woo export lite,export orders,orders export,csv export,xml export,xls export,tsv
 Requires PHP: 5.4.0
 Requires at least: 4.7
-Tested up to: 6.1
-Stable tag: 3.3.3
+Tested up to: 6.2
+Stable tag: 3.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,15 @@ Yes, you can email a request to aprokaev@gmail.com. We intensively develop this 
 6. Select orders to export and use "bulk action".
 
 == Changelog ==
+
+= 3.4.0 - 2023-03-13 =
+* Support High-Performance order storage (COT)
+* Added field "Customer Paid Orders"
+* Fixed bug - filter by paid/completed date ignored DST
+* Fixed bug - role names were not translated in field "User role"
+* Fixed bug - field format was ignored for fields added via  >Setup Fields>Customer>Add Field
+* Fixed bug - capability "edit_themes " was not checked when importing JSON configuration via tab Tools
+* Fixed PHP8 deprecation warnings for JSON,XML formats 
 
 = 3.3.3 - 2022-10-24 =
 * Fixed CSRF vulnerability

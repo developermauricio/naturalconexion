@@ -152,7 +152,7 @@ if ( ! function_exists( 'woodmart_shortcodes_css_data_to_css' ) ) {
 			if ( $size == 'desktop' && $css_value ) {
 				$results .= $css_value;
 			} elseif ( $size == 'tablet' && $css_value ) {
-				$results .= '@media (max-width: 1024px) {' . $css_value . '}';
+				$results .= '@media (max-width: 1199px) {' . $css_value . '}';
 			} elseif ( $size == 'mobile' && $css_value ) {
 				$results .= '@media (max-width: 767px) {' . $css_value . '}';
 			}

@@ -13,6 +13,10 @@
 .typeahead:focus {
 	border: 2px solid #0097CF;
 }
+.typeahead {z-index: 1;}
+	.catmapping td div {
+	position: relative;
+}
 .tt-query {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
@@ -83,7 +87,7 @@
   margin: .5em 0 .75em;
 }
 .woo-product-feed-pro-table tr {
-  background: #f8f8f8;
+//  background: #f8f8f8;
   border: 1px solid #ddd;
   padding: .35em;
 }
@@ -98,6 +102,12 @@
   letter-spacing: .1em;
   text-transform: uppercase;
 }
+
+.promo-box {
+  background-color: #674399;
+  color: #FFFFFF;
+}
+
 
 /* The switch - the box around the slider */
 .woo-product-feed-pro-switch {

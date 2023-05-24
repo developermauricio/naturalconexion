@@ -672,7 +672,7 @@ class WC_Order_Export_Data_Extractor_UI extends WC_Order_Export_Data_Extractor {
 			),
 			'order_currency_symbol' => array(
 				'label'   => __( 'Currency Symbol', 'woo-order-export-lite'),
-				'checker' => 0,
+				'checked' => 0,
 				'format'  => 'string',
 			),
 			'completed_date'    => array(
@@ -751,6 +751,11 @@ class WC_Order_Export_Data_Extractor_UI extends WC_Order_Export_Data_Extractor {
 			),
 			'customer_total_orders' => array(
 				'label'   => __( 'Customer Total Orders', 'woo-order-export-lite' ),
+				'checked' => 0,
+				'format'  => 'number',
+			),
+			'customer_paid_orders' => array(
+				'label'   => __( 'Customer Paid Orders', 'woo-order-export-lite' ),
 				'checked' => 0,
 				'format'  => 'number',
 			),
@@ -1038,12 +1043,12 @@ class WC_Order_Export_Data_Extractor_UI extends WC_Order_Export_Data_Extractor {
 			),
 			'qty'                         => array(
 				'label'   => __( 'Quantity', 'woo-order-export-lite' ),
-				'checked' => 1,
+				'checked' => 0,
 				'format'  => 'number',
 			),
 			'qty_minus_refund'            => array(
 				'label'   => __( 'Quantity (- Refund)', 'woo-order-export-lite' ),
-				'checked' => 0,
+				'checked' => 1,
 				'format'  => 'number',
 			),
 			'item_price'                  => array(

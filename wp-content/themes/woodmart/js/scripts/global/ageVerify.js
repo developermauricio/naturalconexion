@@ -1,6 +1,10 @@
 /* global woodmart_settings */
 (function($) {
 	woodmartThemeModule.ageVerify = function() {
+		if ( typeof Cookies === 'undefined' ) {
+			return;
+		}
+
 		if (woodmart_settings.age_verify !== 'yes' || Cookies.get('woodmart_age_verify') === 'confirmed') {
 			return;
 		}
@@ -28,7 +32,8 @@
 			e.preventDefault();
 			Cookies.set('woodmart_age_verify', 'confirmed', {
 				expires: parseInt(woodmart_settings.age_verify_expires),
-			 	path   : '/'
+			 	path   : '/',
+				secure : woodmart_settings.cookie_secure_param
 			});
 
 			$.magnificPopup.close();

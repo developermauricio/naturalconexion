@@ -99,6 +99,21 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
             return false;
         }
 
+        $order = wc_get_order($woo_order_number);
+		$wordpress_user_id = null;
+
+        if ( $order ) {
+			$wordpress_user_id = $order->get_user_id();
+            $user   = get_user_by( 'ID', $order->get_user_id() );
+            $allowed_roles = array('customer', 'subscriber');
+            $allowed_roles = apply_filters('mailchimp_campaign_user_roles', $allowed_roles );
+
+            if (  $user && count( array_intersect($allowed_roles,  $user->roles) ) === 0 ) {
+                mailchimp_log('order_process', "Order #{$woo_order_number} skipped, user #{$order->get_user_id()} user role is not in the list");
+                return false;
+            }
+        }
+
         $job = new MailChimp_WooCommerce_Transform_Orders();
 
         // set the campaign ID
@@ -140,7 +155,7 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
 
             // transform the order
             $order = $job->transform($order_post);
-            
+
             // don't allow this to happen.
             if ($order->getOriginalWooStatus() === 'checkout-draft') {
                 mailchimp_debug('filter', "Order {$woo_order_number} is in draft status and can not be submitted");
@@ -153,7 +168,7 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                 mailchimp_debug('filter', "order {$woo_order_number} is in {$order->getOriginalWooStatus()} status, and is being skipped for now.");
                 return false;
             }
-            
+
             // see if we need to prevent this order from being submitted.
             $email = $order->getCustomer()->getEmailAddress();
             // see if we have a bad email
@@ -162,15 +177,13 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                 return false;
             }
 
-            $user_email = $order->getCustomer()->getEmailAddress();
             $status = $order->getCustomer()->getOptInStatus();
-            $transient_key = mailchimp_hash_trim_lower($user_email).".mc.status";
+            $transient_key = mailchimp_hash_trim_lower($email).".mc.status";
             $current_status = null;
-            $pulled_member = false;
 
             if (!$status && mailchimp_submit_subscribed_only()) {
                 try {
-                    $subscriber = $api->member(mailchimp_get_list_id(), $user_email);
+                    $subscriber = $api->member(mailchimp_get_list_id(), $email);
                     $current_status = $subscriber['status'];
                     mailchimp_set_transient($transient_key, $current_status);
                     if ($current_status != 'subscribed') {
@@ -199,9 +212,24 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                             $current_status = $subscriber['status'];
                             $pulled_member = true;
                         }
+
                         if ($pulled_member && $current_status != 'archived' && isset($subscriber)) {
-                            $status = !in_array($subscriber['status'], array('unsubscribed', 'transactional'));
+                            $status = !in_array( $subscriber['status'], array('unsubscribed', 'transactional') );
                             $order->getCustomer()->setOptInStatus($status);
+                            if ($subscriber['status'] === 'transactional') {
+                                $new_status = '0';
+                            } else if ($subscriber['status'] === 'subscribed') {
+                                $new_status = '1';
+                            } else {
+                                $new_status = $subscriber['status'];
+                            }
+
+                            // if the wordpress user id is not empty, and the status is subscribed, we can update the
+	                        // subscribed status meta so it reflects the current status of Mailchimp during a sync.
+
+                            if ($wordpress_user_id && $current_status) {
+                                update_user_meta($wordpress_user_id, 'mailchimp_woocommerce_is_subscribed', $new_status);
+	                        }
                         }
                     } catch (Exception $e) {
                         if ($e instanceof MailChimp_WooCommerce_RateLimitError) {
@@ -214,13 +242,13 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                         } catch (Exception $e_doi) {
                             throw $e_doi;
                         }
-                        
+
                         $status = $doi ? false : $should_auto_subscribe;
                         $order->getCustomer()->setOptInStatus($status);
                     }
                 }
             }
-            
+
             // will be the same as the customer id. an md5'd hash of a lowercased email.
             $this->cart_session_id = $order->getCustomer()->getId();
 
@@ -249,7 +277,7 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                 mailchimp_log('validation.gdpr', "Order #{$woo_order_number} is GDPR restricted. Skipping!");
                 return false;
             }
-            
+
             if ($new_order) {
                 // if single sync and
                 // if the order is in failed or cancelled status - and it's brand new, we shouldn't submit it.
@@ -282,13 +310,34 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
 
             $log = "$call :: #{$order->getId()} :: email: {$email}";
 
+            // if we have the saved order meta from previous syncs let's use it.
+            // This should help with reporting after people may have disconnected and reconnected to a new store.
+            if (($saved = get_post_meta($order_post->ID, 'mailchimp_woocommerce_campaign_id', true))) {
+                $this->campaign_id = $saved;
+            }
             // only do this stuff on new orders
             if ($new_order) {
+
+            	// if the campaign ID is empty, let's try to pull the last clicked campaign from Mailchimp.
+	            // but only do this if we're not in a syncing status.
+            	if (empty($this->campaign_id) && !$this->is_full_sync) {
+            		// see if we have a saved version
+		            // pull the last clicked campaign for this email address
+		            $job = new MailChimp_WooCommerce_Pull_Last_Campaign($email);
+		            $this->campaign_id = $job->handle();
+
+		            if (!empty($this->campaign_id)) {
+		            	mailchimp_debug('campaign_id', "Pulled campaign tracking from mailchimp user activity for {$email}");
+		            }
+	            }
+
                 // apply a campaign id if we have one.
                 if (!empty($this->campaign_id)) {
                     try {
                         $order->setCampaignId($this->campaign_id);
                         $log .= ' :: campaign id ' . $this->campaign_id;
+                        // save it for later if we don't have this value.
+	                    update_post_meta($order_post->ID, 'mailchimp_woocommerce_campaign_id', $campaign_id);
                     }
                     catch (Exception $e) {
                         mailchimp_log('single_order_set_campaign_id.error', 'No campaign added to order, with provided ID: '. $this->campaign_id. ' :: '. $e->getMessage(). ' :: in '.$e->getFile().' :: on '.$e->getLine());
@@ -304,29 +353,29 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
 
             if ($this->is_full_sync) {
                 $line_items = $order->items();
-                
+
                 // if we don't have any line items, we need to create the mailchimp product
                 // with a price of 1.00 and we'll use the inventory quantity to adjust correctly.
                 if (empty($line_items) || !count($line_items)) {
-                    
+
                     // this will create an empty product placeholder, or return the pre populated version if already
                     // sent to Mailchimp.
                     $product = $api->createEmptyLineItemProductPlaceholder();
-                    
+
                     $line_item = new MailChimp_WooCommerce_LineItem();
                     $line_item->setId($product->getId());
                     $line_item->setPrice(1);
                     $line_item->setProductId($product->getId());
                     $line_item->setProductVariantId($product->getId());
                     $line_item->setQuantity((int) $order->getOrderTotal());
-                    
+
                     $order->addItem($line_item);
-                    
+
                     mailchimp_log('order_submit.error', "Order {$order->getId()} does not have any line items, so we are using 'empty_line_item_placeholder' instead.");
                 }
             }
-            
-            mailchimp_debug('order_submit', "#{$woo_order_number}", $order->toArray());
+
+            mailchimp_debug('order_submit', " #{$woo_order_number}", $order->toArray());
 
             try {
                 // update or create
@@ -441,7 +490,10 @@ class MailChimp_WooCommerce_Single_Order extends Mailchimp_Woocommerce_Job
                 return false;
             }
             $woo = wc_get_order($order_post);
-            return $this->woo_order_number = $woo->get_order_number();
+            if ( !$woo )
+                mailchimp_log('order_sync.failure', "Order #{$this->id}. Can’t submit order without a valid ID");
+
+            return $this->woo_order_number = $woo ? $woo->get_order_number() : false;
         } catch (Exception $e) {
             $this->woo_order_number = false;
             mailchimp_error('order_sync.failure', mailchimp_error_trace($e, "{$this->id} could not be loaded"));

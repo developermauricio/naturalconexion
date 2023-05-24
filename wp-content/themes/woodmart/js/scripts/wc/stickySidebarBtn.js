@@ -17,9 +17,9 @@
 			var windowScroll = woodmartThemeModule.$window.scrollTop();
 
 			if (btnOffset < windowScroll) {
-				$stickyBtn.addClass('wd-sticky');
+				$stickyBtn.addClass('wd-shown');
 			} else {
-				$stickyBtn.removeClass('wd-sticky');
+				$stickyBtn.removeClass('wd-shown');
 			}
 		};
 

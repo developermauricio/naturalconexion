@@ -33,7 +33,22 @@ max-width: 50%;
 
 .inicio-new-section-formulas-ancestrales .item-mobile-derecha-inicio-formulas-ancestrales{
 	/*padding: 20px !important*/
-	margin-top:-307px;
+	margin-top:-267px;
+	margin-left:200px;
+max-width: 50%;
+    
+}
+
+.item-mobile-inicio-piel{
+	/*padding: 20px !important*/
+	flex-basis: 50%;
+max-width: 50%;
+    
+}
+
+.item-mobile-derecha-inicio-piel{
+	/*padding: 20px !important*/
+	margin-top:-267px;
 	margin-left:200px;
 max-width: 50%;
     

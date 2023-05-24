@@ -5,17 +5,17 @@ msgstr ""
 "Project-Id-Version: Buy Now Pay Later - ADDI 1.4.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/buy-now-pay-later-"
 "addi\n"
+"POT-Creation-Date: 2022-04-19T16:35:24+02:00\n"
+"PO-Revision-Date: 2023-03-08 18:43-0300\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-19T16:35:24+02:00\n"
-"PO-Revision-Date: 2022-04-19 14:40-0500\n"
-"X-Generator: Poedit 3.0\n"
-"X-Domain: buy-now-pay-later-addi\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: pt_BR\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Domain: buy-now-pay-later-addi\n"
 
 #. Plugin Name of the plugin
 msgid "Buy Now Pay Later - ADDI"
@@ -67,7 +67,7 @@ msgstr "PIX parcelado - ADDI."
 
 #: addi-gateway.php:927
 msgid "Paga a cuotas"
-msgstr "PIX parcelado sem juros"
+msgstr "PIX parcelado"
 
 #: addi-gateway.php:1376
 msgid "Tu pago no fue aprobado. Por favor, inténtalo de nuevo."
@@ -482,3 +482,11 @@ msgid ""
 msgstr ""
 "Erro ao processar o pedido. Credenciais inválidas. Por favor, tente "
 "novamente."
+
+#: class-wc-addi-gateway.php:516
+msgid "Cancelaciones automáticas"
+msgstr "Cancelamentos automáticos"
+
+#: class-wc-addi-gateway.php:517
+msgid "Habilitar cancelaciones automáticas"
+msgstr "Ativar cancelamentos automáticos"

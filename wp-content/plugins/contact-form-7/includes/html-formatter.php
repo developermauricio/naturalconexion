@@ -39,7 +39,7 @@ class WPCF7_HTMLFormatter {
 		'address', 'article', 'aside', 'blockquote', 'body', 'caption',
 		'dd', 'details', 'dialog', 'div', 'dt', 'fieldset', 'figcaption',
 		'figure', 'footer', 'form', 'header', 'li', 'main', 'nav',
-		'section', 'template', 'td', 'th',
+		'section', 'td', 'th',
 	);
 
 	/**
@@ -47,24 +47,26 @@ class WPCF7_HTMLFormatter {
 	 * a paragraph element.
 	 */
 	const p_nonparent_elements = array(
-		'colgroup', 'dl', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-		'head', 'hgroup', 'html', 'legend', 'menu', 'ol', 'optgroup',
-		'option', 'pre', 'rp', 'rt', 'style', 'summary', 'table',
-		'tbody', 'tfoot', 'thead', 'title', 'tr', 'ul',
+		'colgroup', 'dl', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head',
+		'hgroup', 'html', 'legend', 'menu', 'ol', 'pre', 'style', 'summary',
+		'table', 'tbody', 'template', 'tfoot', 'thead', 'title', 'tr', 'ul',
 	);
 
 	/**
-	 * HTML elements in the phrasing content category.
+	 * HTML elements in the phrasing content category, plus non-phrasing
+	 * content elements that can be grandchildren of a paragraph element.
 	 */
 	const p_child_elements = array(
 		'a', 'abbr', 'area', 'audio', 'b', 'bdi', 'bdo', 'br', 'button',
 		'canvas', 'cite', 'code', 'data', 'datalist', 'del', 'dfn',
 		'em', 'embed', 'i', 'iframe', 'img', 'input', 'ins', 'kbd',
-		'keygen', 'label', 'link', 'map', 'mark', 'math', 'meta',
+		'keygen', 'label', 'link', 'map', 'mark', 'meta',
 		'meter', 'noscript', 'object', 'output', 'picture', 'progress',
 		'q', 'ruby', 's', 'samp', 'script', 'select', 'slot', 'small',
-		'span', 'strong', 'sub', 'sup', 'svg', 'template', 'textarea',
-		'time', 'u', 'var', 'video', 'wbr', self::placeholder_inline,
+		'span', 'strong', 'sub', 'sup', 'textarea',
+		'time', 'u', 'var', 'video', 'wbr',
+		'optgroup', 'option', 'rp', 'rt', // non-phrasing grandchildren
+		self::placeholder_inline,
 	);
 
 	/**
@@ -77,9 +79,9 @@ class WPCF7_HTMLFormatter {
 		'dt', 'em', 'fieldset', 'figcaption', 'figure', 'footer', 'form',
 		'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'i', 'ins', 'kbd',
 		'label', 'legend', 'li', 'main', 'map', 'mark', 'meter', 'nav',
-		'noscript', 'object', 'output', 'p', 'pre', 'progress', 'q', 'rt',
+		'noscript', 'object', 'output', 'p', 'progress', 'q', 'rt',
 		'ruby', 's', 'samp', 'section', 'slot', 'small', 'span', 'strong',
-		'sub', 'summary', 'sup', 'td', 'template', 'th', 'time', 'u', 'var',
+		'sub', 'summary', 'sup', 'td', 'th', 'time', 'u', 'var',
 		'video',
 	);
 
@@ -279,9 +281,7 @@ class WPCF7_HTMLFormatter {
 		}
 
 		// Close all remaining tags.
-		if ( $this->stacked_elements ) {
-			$this->end_tag( end( $this->stacked_elements ) );
-		}
+		$this->close_all_tags();
 
 		return $this->output;
 	}
@@ -293,53 +293,76 @@ class WPCF7_HTMLFormatter {
 	 * @param string $content Text node content.
 	 */
 	public function append_text( $content ) {
-		if ( $this->is_inside( 'pre' ) ) {
+		if ( $this->is_inside( array( 'pre', 'template' ) ) ) {
 			$this->output .= $content;
+			return;
+		}
 
-		} elseif (
-			$this->is_inside( self::p_child_elements ) or
-			$this->has_parent( self::p_nonparent_elements )
+		if (
+			empty( $this->stacked_elements ) or
+			$this->has_parent( 'p' ) or
+			$this->has_parent( self::p_parent_elements )
 		) {
+			// Close <p> if the content starts with multiple line breaks.
+			if ( preg_match( '/^\s*\n\s*\n\s*/', $content ) ) {
+				$this->end_tag( 'p' );
+			}
+
+			// Split up the contents into paragraphs, separated by double line breaks.
+			$paragraphs = preg_split( '/\s*\n\s*\n\s*/', $content );
+
+			$paragraphs = array_filter( $paragraphs, function ( $paragraph ) {
+				return '' !== trim( $paragraph );
+			} );
+
+			$paragraphs = array_values( $paragraphs );
+
+			if ( $paragraphs ) {
+				if ( $this->is_inside( 'p' ) ) {
+					$paragraph = array_shift( $paragraphs );
+
+					$paragraph = self::normalize_paragraph(
+						$paragraph,
+						$this->options['auto_br']
+					);
+
+					$this->output .= $paragraph;
+				}
+
+				foreach ( $paragraphs as $paragraph ) {
+					$this->start_tag( 'p' );
+
+					$paragraph = ltrim( $paragraph );
+
+					$paragraph = self::normalize_paragraph(
+						$paragraph,
+						$this->options['auto_br']
+					);
+
+					$this->output .= $paragraph;
+				}
+			}
+
+			// Close <p> if the content ends with multiple line breaks.
+			if ( preg_match( '/\s*\n\s*\n\s*$/', $content ) ) {
+				$this->end_tag( 'p' );
+			}
+
+			// Cases where the content is a single line break.
+			if ( preg_match( '/^\s*\n\s*$/', $content ) ) {
+				$auto_br = $this->options['auto_br'] && $this->is_inside( 'p' );
+
+				$content = self::normalize_paragraph( $content, $auto_br );
+
+				$this->output .= $content;
+			}
+		} else {
 			$auto_br = $this->options['auto_br'] &&
 				$this->has_parent( self::br_parent_elements );
 
 			$content = self::normalize_paragraph( $content, $auto_br );
 
 			$this->output .= $content;
-
-		} else {
-			// Split up the contents into paragraphs, separated by double line breaks.
-			$paragraphs = preg_split( '/\n\s*\n/', $content );
-
-			if ( empty( $paragraphs ) ) {
-				return;
-			}
-
-			if ( $this->is_inside( 'p' ) ) {
-				$paragraph = array_shift( $paragraphs );
-
-				$paragraph = self::normalize_paragraph(
-					$paragraph,
-					$this->options['auto_br']
-				);
-
-				$this->output .= $paragraph;
-			}
-
-			foreach ( $paragraphs as $paragraph ) {
-				$this->start_tag( 'p' );
-
-				$paragraph = self::normalize_paragraph(
-					$paragraph,
-					$this->options['auto_br']
-				);
-
-				$this->output .= $paragraph;
-			}
-
-			if ( preg_match( '/\n\s*\n$/', $content ) ) {
-				$this->end_tag( 'p' );
-			}
 		}
 	}
 
@@ -355,12 +378,17 @@ class WPCF7_HTMLFormatter {
 		if ( in_array( $tag_name, self::p_child_elements ) ) {
 			if (
 				! $this->is_inside( 'p' ) and
+				! $this->is_inside( self::p_child_elements ) and
 				! $this->has_parent( self::p_nonparent_elements )
 			) {
 				// Open <p> if it does not exist.
 				$this->start_tag( 'p' );
 			}
-		} else {
+		} elseif (
+			'p' === $tag_name or
+			in_array( $tag_name, self::p_parent_elements ) or
+			in_array( $tag_name, self::p_nonparent_elements )
+		) {
 			// Close <p> if it exists.
 			$this->end_tag( 'p' );
 		}
@@ -374,6 +402,44 @@ class WPCF7_HTMLFormatter {
 		if ( 'li' === $tag_name ) {
 			// Close <li> if closing tag is omitted.
 			$this->end_tag( 'li' );
+		}
+
+		if ( 'optgroup' === $tag_name ) {
+			// Close <option> and <optgroup> if closing tag is omitted.
+			$this->end_tag( 'option' );
+			$this->end_tag( 'optgroup' );
+		}
+
+		if ( 'option' === $tag_name ) {
+			// Close <option> if closing tag is omitted.
+			$this->end_tag( 'option' );
+		}
+
+		if ( 'rp' === $tag_name or 'rt' === $tag_name ) {
+			// Close <rp> and <rt> if closing tag is omitted.
+			$this->end_tag( 'rp' );
+			$this->end_tag( 'rt' );
+		}
+
+		if ( 'td' === $tag_name or 'th' === $tag_name ) {
+			// Close <td> and <th> if closing tag is omitted.
+			$this->end_tag( 'td' );
+			$this->end_tag( 'th' );
+		}
+
+		if ( 'tr' === $tag_name ) {
+			// Close <tr> if closing tag is omitted.
+			$this->end_tag( 'tr' );
+		}
+
+		if ( 'tbody' === $tag_name or 'tfoot' === $tag_name ) {
+			// Close <thead> if closing tag is omitted.
+			$this->end_tag( 'thead' );
+		}
+
+		if ( 'tfoot' === $tag_name ) {
+			// Close <tbody> if closing tag is omitted.
+			$this->end_tag( 'tbody' );
 		}
 
 		if ( ! in_array( $tag_name, self::void_elements ) ) {
@@ -395,7 +461,7 @@ class WPCF7_HTMLFormatter {
 
 
 	/**
-	 * Appends an end tag to the output property.
+	 * Closes an element and its open descendants at a time.
 	 *
 	 * @param string $tag An end tag.
 	 */
@@ -406,29 +472,88 @@ class WPCF7_HTMLFormatter {
 			$tag_name = strtolower( $tag );
 		}
 
-		if ( $this->is_inside( $tag_name ) ) {
-			while ( $element = array_shift( $this->stacked_elements ) ) {
+		$stacked_elements = array_values( $this->stacked_elements );
 
-				if ( ! in_array( $element, self::p_child_elements ) ) {
-					$this->output = rtrim( $this->output ) . "\n";
+		$tag_position = array_search( $tag_name, $stacked_elements );
 
-					if ( $this->options['auto_indent'] ) {
-						$this->output .= self::indent( count( $this->stacked_elements ) );
-					}
-				}
+		if ( false === $tag_position ) {
+			return;
+		}
 
-				$this->output .= sprintf( '</%s>', $element );
+		// Element groups that make up an indirect nesting structure.
+		// Descendant can contain ancestors.
+		static $nesting_families = array(
+			array(
+				'ancestors' => array( 'dl', ),
+				'descendants' => array( 'dd', 'dt', ),
+			),
+			array(
+				'ancestors' => array( 'ol', 'ul', 'menu', ),
+				'descendants' => array( 'li', ),
+			),
+			array(
+				'ancestors' => array( 'table', ),
+				'descendants' => array( 'td', 'th', 'tr', 'thead', 'tbody', 'tfoot', ),
+			),
+		);
 
-				// Remove trailing <p></p>.
-				$this->output = preg_replace(
-					'/<p>\s*<\/p>$/', '', $this->output, 1, $count
+		foreach ( $nesting_families as $family ) {
+			$ancestors = (array) $family['ancestors'];
+			$descendants = (array) $family['descendants'];
+
+			if ( in_array( $tag_name, $descendants ) ) {
+				$intersect = array_intersect(
+					$ancestors,
+					array_slice( $stacked_elements, 0, $tag_position )
 				);
 
-				if ( $count or $element === $tag_name ) {
-					break;
+				if ( $intersect ) { // Ancestor appears after descendant.
+					return;
 				}
 			}
 		}
+
+		while ( $element = array_shift( $this->stacked_elements ) ) {
+			$this->append_end_tag( $element );
+
+			if ( $element === $tag_name ) {
+				break;
+			}
+		}
+	}
+
+
+	/**
+	 * Closes all open tags.
+	 */
+	public function close_all_tags() {
+		while ( $element = array_shift( $this->stacked_elements ) ) {
+			$this->append_end_tag( $element );
+		}
+	}
+
+
+	/**
+	 * Appends an end tag to the output property.
+	 *
+	 * @param string $tag_name Tag name.
+	 */
+	public function append_end_tag( $tag_name ) {
+		if ( ! in_array( $tag_name, self::p_child_elements ) ) {
+			// Remove unnecessary <br />.
+			$this->output = preg_replace( '/\s*<br \/>\s*$/', '', $this->output );
+
+			$this->output = rtrim( $this->output ) . "\n";
+
+			if ( $this->options['auto_indent'] ) {
+				$this->output .= self::indent( count( $this->stacked_elements ) );
+			}
+		}
+
+		$this->output .= sprintf( '</%s>', $tag_name );
+
+		// Remove trailing <p></p>.
+		$this->output = preg_replace( '/<p>\s*<\/p>$/', '', $this->output );
 	}
 
 

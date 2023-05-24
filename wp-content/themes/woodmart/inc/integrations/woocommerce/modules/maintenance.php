@@ -2,15 +2,9 @@
 	exit( 'No direct script access allowed' );
 }
 
-/**
- * ------------------------------------------------------------------------------------------------
- * Maintenance mode
- * ------------------------------------------------------------------------------------------------
- */
-
 if ( ! function_exists( 'woodmart_maintenance_mode' ) ) {
 	function woodmart_maintenance_mode() {
-		if ( ! woodmart_get_opt( 'maintenance_mode' ) || is_user_logged_in() ) {
+		if ( ! woodmart_is_maintenance_active() ) {
 			return;
 		}
 

@@ -31,6 +31,7 @@ if ( ! function_exists( 'woodmart_shortcode_accordion' ) ) {
 				'style'                     => 'default',
 				'state'                     => 'first',
 				'box_shadow'                => '',
+				'hide_top_bottom_border'    => '',
 
 				/**
 				 * Title Settings.
@@ -67,6 +68,10 @@ if ( ! function_exists( 'woodmart_shortcode_accordion' ) ) {
 		}
 
 		$wrapper_classes .= ' wd-style-' . $args['style'];
+
+		if ( 'yes' === $args['hide_top_bottom_border'] ) {
+			$wrapper_classes .= ' wd-border-off';
+		}
 
 		$title_classes  = ' font-' . $args['title_font_family'];
 		$title_classes .= ' wd-fontsize-' . $args['title_font_size'];
@@ -184,7 +189,7 @@ if ( ! function_exists( 'woodmart_shortcode_accordion' ) ) {
 						$icon_output = woodmart_get_svg_html( $shortcode_data[0]['image'], $shortcode_data[0]['image_size'] );
 					}
 				} elseif ( ! empty( $icon_library ) ) {
-					$icon_output = '<div class="img-wrapper"><i class="' . esc_attr( $icon_library ) . '"></i></div>';
+					$icon_output = '<i class="' . esc_attr( $icon_library ) . '"></i>';
 				}
 				?>
 
@@ -192,7 +197,9 @@ if ( ! function_exists( 'woodmart_shortcode_accordion' ) ) {
 					<div class="wd-accordion-title<?php echo esc_attr( $loop_title_classes_wrapper ); ?>" data-accordion-index="<?php echo esc_attr( $index ); ?>">
 						<div class="wd-accordion-title-text">
 							<?php if ( ! empty( $icon_output ) ) : ?>
-								<?php echo $icon_output; // phpcs:ignore ?>
+								<div class="img-wrapper">
+									<?php echo $icon_output; // phpcs:ignore ?>
+								</div>
 							<?php endif; ?>
 							<span>
 								<?php echo esc_html( $shortcode_data[0]['title'] ); ?>

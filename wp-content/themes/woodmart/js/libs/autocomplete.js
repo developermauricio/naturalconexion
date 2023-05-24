@@ -51,6 +51,17 @@
             DOWN: 40
         };
 
+    // This is an auxiliary woodmart function to replace the outdated jquery method.
+    function wdTrim(data) {
+        if ( null == data ) {
+            return '';
+        } else if ( 'string' == typeof data ) {
+            return data.trim();
+        } else {
+            return (data + '').replace( '/^[\\s\uFEFF\xA0]+|[\\s\uFEFF\xA0]+$/g', '' );
+        }
+    }
+
     function Autocomplete(el, options) {
         var noop = function () { },
             that = this,
@@ -86,7 +97,7 @@
                 },
                 paramName: 'query',
                 transformResult: function (response) {
-                    return typeof response === 'string' ? $.parseJSON(response) : response;
+                    return typeof response === 'string' ? JSON.parse(response) : response;
                 },
                 showNoSuggestionNotice: false,
                 noSuggestionNotice: 'No results',
@@ -232,7 +243,7 @@
 
             $.extend(options, suppliedOptions);
 
-            that.isLocal = $.isArray(options.lookup);
+            that.isLocal = Array.isArray(options.lookup);
 
             if (that.isLocal) {
                 options.lookup = that.verifySuggestionsFormat(options.lookup);
@@ -506,7 +517,7 @@
                 return value;
             }
             parts = value.split(delimiter);
-            return $.trim(parts[parts.length - 1]);
+            return wdTrim(parts[parts.length - 1]);
         },
 
         getSuggestionsLocal: function (query) {
@@ -565,7 +576,7 @@
                 response = that.cachedResponse[cacheKey];
             }
 
-            if (response && $.isArray(response.suggestions)) {
+            if (response && Array.isArray(response.suggestions)) {
                 that.suggestions = response.suggestions;
                 that.suggest();
                 options.onSearchComplete.call(that.element, q, response.suggestions);

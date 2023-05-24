@@ -79,6 +79,9 @@ class WOODMART_Pagecssfiles {
 		add_action( 'deactivated_plugin', array( $this, 'delete_all_meta' ), 10 );
 		add_action( 'wp', array( $this, 'set_page_data' ), 10 );
 		add_action( 'wp', array( $this, 'set_page_css_files' ), 20 );
+
+		add_action( 'woocommerce_single_product_summary', 'woodmart_page_css_files_disable', 59 );
+		add_action( 'woocommerce_single_product_summary', 'woodmart_page_css_files_enable', 61 );
 	}
 
 	/**
@@ -108,6 +111,8 @@ class WOODMART_Pagecssfiles {
 		foreach ( $this->options_save as $option ) {
 			delete_option( 'wd_page_css_files_' . $option );
 		}
+
+		wp_cache_flush();
 	}
 
 	/**
@@ -169,7 +174,7 @@ class WOODMART_Pagecssfiles {
 		if ( is_archive() && 'portfolio' === get_post_type() ) {
 			$data = array(
 				'type' => 'post',
-				'id'   => woodmart_tpl2id( 'portfolio.php' ),
+				'id'   => woodmart_get_portfolio_page_id(),
 			);
 		}
 		if ( woodmart_woocommerce_installed() && is_shop() ) {
@@ -230,6 +235,10 @@ class WOODMART_Pagecssfiles {
 			return array();
 		}
 
+		if ( get_option( 'wd_page_css_files_theme_version' ) !== $this->theme_version ) {
+			$this->delete_all_meta();
+		}
+
 		$files = array();
 
 		if ( 'post' === $data['type'] ) {
@@ -260,7 +269,7 @@ class WOODMART_Pagecssfiles {
 		$page_files = $this->page_css_files;
 		$localize   = array();
 
-		if ( woodmart_is_combined_needed( 'combined_css', false ) || ! $page_files ) {
+		if ( woodmart_is_combined_needed( 'combined_css' ) || ! $page_files ) {
 			wp_localize_script( 'woodmart-theme', 'woodmart_page_css', array() );
 
 			return;
@@ -295,17 +304,21 @@ class WOODMART_Pagecssfiles {
 	 * Enqueue page css files.
 	 *
 	 * @param string $key             File slug.
-	 * @param bool   $ignore_combined Ignore combine.
 	 */
 	public function enqueue_style( $key, $ignore_combined = false ) {
-		$config  = woodmart_get_config( 'css-files' );
-		$version = woodmart_get_theme_info( 'Version' );
+		$config         = woodmart_get_config( 'css-files' );
+		$version        = woodmart_get_theme_info( 'Version' );
+		$styles_not_use = woodmart_get_opt( 'styles_not_use' );
 
-		if ( woodmart_is_combined_needed( 'combined_css', false ) && ! $ignore_combined ) {
+		if ( woodmart_is_combined_needed( 'combined_css' ) && ! $ignore_combined || ! isset( $config[ $key ] ) ) {
 			return;
 		}
 
 		foreach ( $config[ $key ] as $file ) {
+			if ( is_array( $styles_not_use ) && in_array( $file['name'], $styles_not_use ) ) {
+				continue;
+			}
+
 			if ( isset( $file['wpb_file'] ) && 'wpb' === woodmart_get_current_page_builder() ) {
 				$file['file'] = $file['wpb_file'];
 			}
@@ -331,10 +344,6 @@ class WOODMART_Pagecssfiles {
 	 */
 	public function save_page_css_files() {
 		$data = $this->page_data;
-
-		if ( get_option( 'wd_page_css_files_theme_version' ) !== $this->theme_version ) {
-			$this->delete_all_meta();
-		}
 
 		if ( $this->page_css_files || ! $this->inline_enqueue_styles ) {
 			return;
@@ -368,13 +377,13 @@ class WOODMART_Pagecssfiles {
 	 * Enqueue inline style by key.
 	 *
 	 * @param string $key             File slug.
-	 * @param bool   $ignore_combined Ignore combine.
 	 */
 	public function enqueue_inline_style( $key, $ignore_combined = false ) {
-		$config     = woodmart_get_config( 'css-files' );
-		$page_files = $this->page_css_files;
+		$config         = woodmart_get_config( 'css-files' );
+		$page_files     = $this->page_css_files;
+		$styles_not_use = woodmart_get_opt( 'styles_not_use' );
 
-		if ( ! isset( $config[ $key ] ) || in_array( $key, $page_files, true ) || ( woodmart_is_combined_needed( 'combined_css', false ) && ! $ignore_combined ) ) {
+		if ( ! isset( $config[ $key ] ) || in_array( $key, $page_files, true ) || ( woodmart_is_combined_needed( 'combined_css' ) && ! $ignore_combined ) || isset( $GLOBALS['wd_page_css_ignore'] ) ) {
 			return;
 		}
 
@@ -387,6 +396,10 @@ class WOODMART_Pagecssfiles {
 				if ( is_array( $this->inline_enqueue_styles ) && in_array( $data['name'], $this->inline_enqueue_styles ) ) { // phpcs:ignore
 					continue;
 				}
+			}
+
+			if ( is_array( $styles_not_use ) && in_array( $data['name'], $styles_not_use ) ) {
+				continue;
 			}
 
 			if ( isset( $data['wpb_file'] ) && 'wpb' === woodmart_get_current_page_builder() ) {

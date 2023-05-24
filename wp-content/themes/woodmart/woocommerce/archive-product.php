@@ -23,7 +23,7 @@
 	}
 
 	if ( ! woodmart_is_woo_ajax() ) {
-		get_header( 'shop' ); 
+		get_header( 'shop' );
 	} else {
 		woodmart_page_top_part();
 	}
@@ -40,7 +40,7 @@
 	do_action( 'woocommerce_sidebar' );
 ?>
 
-<?php 
+<?php
 	/**
 	 * Hook: woocommerce_before_main_content.
 	 *
@@ -53,7 +53,7 @@
 
 <?php do_action( 'woodmart_before_shop_page' ); ?>
 
-<?php 
+<?php
 	if ( $cat_desc_position == 'before' ) {
 		/**
 		 * Hook: woocommerce_archive_description.
@@ -65,10 +65,15 @@
 	}
 ?>
 
+<?php woodmart_enqueue_inline_style( 'woo-shop-predefined' ); ?>
+<?php woodmart_enqueue_inline_style( 'woo-mod-shop-loop-head' ); ?>
+
 <div class="shop-loop-head">
 	<div class="wd-shop-tools<?php echo woodmart_get_old_classes( ' woodmart-woo-breadcrumbs' ); ?>">
 		<?php if ( woodmart_get_opt( 'shop_page_breadcrumbs', '1' ) ) : ?>
-			<?php woodmart_current_breadcrumbs( 'shop' ); ?>
+			<div class="wd-breadcrumbs">
+				<?php woodmart_current_breadcrumbs( 'shop' ); ?>
+			</div>
 		<?php endif; ?>
 
 		<?php woocommerce_result_count(); ?>
@@ -91,23 +96,7 @@
 
 <?php do_action( 'woodmart_shop_filters_area' ); ?>
 
-<div class="wd-active-filters<?php echo woodmart_get_old_classes( ' woodmart-active-filters' ); ?>">
-	<?php 
-
-		do_action( 'woodmart_before_active_filters_widgets' );
-
-		the_widget( 'WC_Widget_Layered_Nav_Filters', array(
-			'title' => ''
-		), array() );
-
-		do_action( 'woodmart_after_active_filters_widgets' );
-
-	?>
-</div>
-
-<?php woodmart_enqueue_js_script( 'shop-loader' ); ?>
-<?php woodmart_enqueue_inline_style( 'sticky-loader' ); ?>
-<div class="wd-sticky-loader"><span class="wd-loader"></span></div>
+<?php woodmart_sticky_loader(); ?>
 
 <?php do_action( 'woodmart_woocommerce_main_loop' ); ?>
 
@@ -123,7 +112,7 @@
 	}
 ?>
 
-<?php 
+<?php
 	/**
 	 * Hook: woocommerce_after_main_content.
 	 *
@@ -132,9 +121,9 @@
 	do_action( 'woocommerce_after_main_content' );
 ?>
 
-<?php 
+<?php
 	if ( ! woodmart_is_woo_ajax() ) {
-		get_footer( 'shop' ); 
+		get_footer( 'shop' );
 	} else {
 		woodmart_page_bottom_part();
 	}

@@ -33,6 +33,7 @@
 	delete_option("WpFastestCacheSVGSIZE");
 	delete_option("WpFastestCacheJSON");
 	delete_option("WpFastestCacheJSONSIZE");
+	delete_option("WpFastestCacheVarnish");
 	delete_option("WpFastestCacheWOFF");
 	delete_option("WpFastestCacheWOFFSIZE");
 	delete_option("WpFastestCacheToolbarSettings");

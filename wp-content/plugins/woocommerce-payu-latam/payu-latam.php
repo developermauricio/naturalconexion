@@ -135,7 +135,7 @@ function woocommerce_payu_latam_gateway() {
 			$order = new WC_Order( $order_id );
 			$currency = get_woocommerce_currency();
 			$amount = number_format(($order -> get_total()),2,'.','');
-			$signature = md5($this -> api_key . '~' . $this -> merchant_id . '~' . $order -> id . '~' . $amount . '~' . $currency );
+			$signature = md5($this -> api_key . '~' . $this -> merchant_id . '~' . $order->id . '~' . $amount . '~' . $currency );
 			$description = "";
 			$products = $order->get_items();
 			foreach($products as $product) {

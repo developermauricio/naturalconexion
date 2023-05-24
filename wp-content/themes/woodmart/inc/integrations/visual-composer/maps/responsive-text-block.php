@@ -5,34 +5,30 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
-	function woodmart_vc_map_responsive_text_block() {
-		if ( ! shortcode_exists( 'woodmart_responsive_text_block' ) ) {
-			return;
-		}
-
+if ( ! function_exists( 'woodmart_get_vc_map_responsive_text_block' ) ) {
+	function woodmart_get_vc_map_responsive_text_block() {
 		$secondary_font = woodmart_get_opt( 'secondary-font' );
 		$primary_font = woodmart_get_opt( 'primary-font' );
 		$text_font = woodmart_get_opt( 'text-font' );
 
-		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary', 'woodmart' );
-		$text_font_title = isset( $text_font[0] ) ? esc_html__( 'Text', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
-		$primary_font_title = isset( $primary_font[0] ) ? esc_html__( 'Primary', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Primary', 'woodmart' );
+		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary font', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary font', 'woodmart' );
+		$text_font_title = isset( $text_font[0] ) ? esc_html__( 'Text font', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
+		$primary_font_title = isset( $primary_font[0] ) ? esc_html__( 'Title font', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Title font', 'woodmart' );
 
-		vc_map( array(
-			'name' => esc_html__( 'Responsive text block (deprecated)', 'woodmart' ),
+		return array(
+			'name' => esc_html__( 'Responsive text block (old)', 'woodmart' ),
 			'base' => 'woodmart_responsive_text_block',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
-			'description' => esc_html__( 'A block of text with responsive text sizes', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/text-blox-res.svg',
+			'category' => woodmart_get_tab_title_category_for_wpb(  esc_html__( 'Theme elements', 'woodmart' ) ),
+			'description' => esc_html__( 'New responsive text block', 'woodmart' ),
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/text-blox-res.svg',
 			'params' => array(
 				array(
 					'type' => 'woodmart_css_id',
 					'param_name' => 'woodmart_css_id'
 				),
 				/**
-				* Text
-				*/
+				 * Text
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -83,7 +79,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 						'element' => 'size',
 						'value' => array( 'custom' ),
 					),
-					'edit_field_class' => 'vc_col-sm-6 vc_column', 
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
 					'type' => 'woodmart_responsive_size',
@@ -98,7 +94,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 						'element' => 'size',
 						'value' => array( 'custom' ),
 					),
-					'edit_field_class' => 'vc_col-sm-6 vc_column', 
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
 					'type' => 'woodmart_empty_space',
@@ -152,8 +148,8 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					),
 				),
 				/**
-				* Layout
-				*/
+				 * Layout
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -164,7 +160,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Text align', 'woodmart' ),
 					'param_name' => 'align',
-				    'value' => array( 
+					'value' => array(
 						esc_html__( 'Left', 'woodmart' ) => 'left',
 						esc_html__( 'Center', 'woodmart' ) => 'center',
 						esc_html__( 'Right', 'woodmart' ) => 'right',
@@ -190,8 +186,8 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -221,8 +217,8 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 				),
 				woodmart_get_vc_responsive_spacing_map(),
 				/**
-				* Custom sizes
-				*/
+				 * Custom sizes
+				 */
 				array(
 					'type' => 'textfield',
 					'heading' => esc_html__( 'Desktop text size ( > 1024px )', 'woodmart' ),
@@ -232,7 +228,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					'dependency' => array(
 						'element' => 'size',
 						'value' => array( 'custom' )
-					) 
+					)
 				),
 				array(
 					'type' => 'textfield',
@@ -243,7 +239,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					'dependency' => array(
 						'element' => 'size',
 						'value' => array( 'custom' )
-					) 	
+					)
 				),
 				array(
 					'type' => 'textfield',
@@ -254,7 +250,7 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 					'dependency' => array(
 						'element' => 'size',
 						'value' => array( 'custom' )
-					) 
+					)
 				),
 				/**
 				 * Advanced.
@@ -263,7 +259,6 @@ if( ! function_exists( 'woodmart_vc_map_responsive_text_block' ) ) {
 				woodmart_get_vc_animation_map( 'wd_animation_delay' ),
 				woodmart_get_vc_animation_map( 'wd_animation_duration' ),
 			),
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_responsive_text_block' );
 }

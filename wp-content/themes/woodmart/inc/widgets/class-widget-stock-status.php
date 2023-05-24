@@ -28,14 +28,21 @@ if ( ! class_exists( 'WOODMART_Stock_Status' ) ) {
 					'id'      => 'instock',
 					'type'    => 'checkbox',
 					'default' => 1,
-					'name'    => esc_html__( 'On Sale filter', 'woodmart' ),
+					'name'    => esc_html__( 'In Stock filter', 'woodmart' ),
 				),
 
 				array(
 					'id'      => 'onsale',
 					'type'    => 'checkbox',
 					'default' => 1,
-					'name'    => esc_html__( 'In Stock filter', 'woodmart' ),
+					'name'    => esc_html__( 'On Sale filter', 'woodmart' ),
+				),
+
+				array(
+					'id'      => 'onbackorder',
+					'type'    => 'checkbox',
+					'default' => 0,
+					'name'    => esc_html__( 'On backorder filter', 'woodmart' ),
 				),
 			);
 
@@ -49,16 +56,28 @@ if ( ! class_exists( 'WOODMART_Stock_Status' ) ) {
 		}
 
 		public function show_in_stock_products( $query ) {
-			$current_stock_status = isset( $_GET['stock_status'] ) ? explode( ',', $_GET['stock_status'] ) : array();
-			if ( in_array( 'instock', $current_stock_status ) ) {
+			$current_stock_status = isset( $_GET['stock_status'] ) ? explode( ',', $_GET['stock_status'] ) : array(); //phpcs:ignore
+
+			if ( in_array( 'instock', $current_stock_status, true ) || in_array( 'onbackorder', $current_stock_status, true ) ) {
 				$meta_query = array(
 					'relation' => 'AND',
-					array(
+				);
+
+				if ( in_array( 'instock', $current_stock_status, true ) ) {
+					$meta_query[] = array(
 						'key'     => '_stock_status',
 						'value'   => 'instock',
 						'compare' => '=',
-					),
-				);
+					);
+				}
+
+				if ( in_array( 'onbackorder', $current_stock_status, true ) ) {
+					$meta_query[] = array(
+						'key'     => '_stock_status',
+						'value'   => 'onbackorder',
+						'compare' => '=',
+					);
+				}
 
 				$query->set( 'meta_query', array_merge( WC()->query->get_meta_query(), $meta_query ) );
 			}
@@ -99,6 +118,10 @@ if ( ! class_exists( 'WOODMART_Stock_Status' ) ) {
 		}
 
 		function widget( $args, $instance ) {
+			if ( $this->is_widget_preview() ) {
+				return;
+			}
+
 			extract( $args );
 
 			echo wp_kses_post( $before_widget );
@@ -113,7 +136,7 @@ if ( ! class_exists( 'WOODMART_Stock_Status' ) ) {
 			<ul>
 				<?php if ( $instance['onsale'] ) : ?>
 					<li>
-						<a href="<?php echo esc_url( $this->get_link( 'onsale' ) ); ?>" class="<?php echo in_array( 'onsale', $current_stock_status ) ? 'wd-active' : ''; ?>">
+						<a href="<?php echo esc_url( $this->get_link( 'onsale' ) ); ?>" class="<?php echo in_array( 'onsale', $current_stock_status, true ) ? 'wd-active' : ''; ?>">
 							<?php esc_html_e( 'On sale', 'woodmart' ); ?>
 						</a>
 					</li>
@@ -121,8 +144,16 @@ if ( ! class_exists( 'WOODMART_Stock_Status' ) ) {
 
 				<?php if ( $instance['instock'] ) : ?>
 					<li>
-						<a href="<?php echo esc_url( $this->get_link( 'instock' ) ); ?>" class="<?php echo in_array( 'instock', $current_stock_status ) ? 'wd-active' : ''; ?>">
+						<a href="<?php echo esc_url( $this->get_link( 'instock' ) ); ?>" class="<?php echo in_array( 'instock', $current_stock_status, true ) ? 'wd-active' : ''; ?>">
 							<?php esc_html_e( 'In stock', 'woodmart' ); ?>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ( isset( $instance['onbackorder'] ) && $instance['onbackorder'] ) : ?>
+					<li>
+						<a href="<?php echo esc_url( $this->get_link( 'onbackorder' ) ); ?>" class="<?php echo in_array( 'onbackorder', $current_stock_status, true ) ? 'wd-active' : ''; ?>">
+							<?php esc_html_e( 'On backorder', 'woodmart' ); ?>
 						</a>
 					</li>
 				<?php endif; ?>

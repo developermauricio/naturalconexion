@@ -113,8 +113,12 @@
 				if(!preg_match("/\.html/i", $_SERVER["REQUEST_URI"])){
 					if($this->is_trailing_slash()){
 						if(!preg_match("/\/$/", $_SERVER["REQUEST_URI"])){
-							if(defined('WPFC_CACHE_QUERYSTRING') && WPFC_CACHE_QUERYSTRING){
+							if(isset($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] && defined('WPFC_CACHE_QUERYSTRING') && WPFC_CACHE_QUERYSTRING){
 							
+							}else if(preg_match("/y(ad|s)?clid\=/i", $this->cacheFilePath)){
+								// yclid
+								// yadclid
+								// ysclid
 							}else if(preg_match("/gclid\=/i", $this->cacheFilePath)){
 								
 							}else if(preg_match("/fbclid\=/i", $this->cacheFilePath)){
@@ -143,6 +147,10 @@
 				$this->cacheFilePath = false;
 			}
 
+			if(preg_match("/\/{2,}/", $this->cacheFilePath)){
+				$this->cacheFilePath = false;
+			}
+
 			if($this->isMobile()){
 				if(isset($this->options->wpFastestCacheMobile)){
 					if(!class_exists("WpFcMobileCache")){
@@ -164,6 +172,15 @@
 				$action = true;
 			}
 
+			//to remove query strings for cache if Yandex parameters are set
+			if(preg_match("/y(ad|s)?clid\=/i", $this->cacheFilePath)){
+				// yclid
+				// yadclid
+				// ysclid
+				
+				$action = true;
+			}
+
 			//to remove query strings for cache if facebook parameters are set
 			if(preg_match("/fbclid\=/i", $this->cacheFilePath)){
 				$action = true;
@@ -180,7 +197,9 @@
 					$this->cacheFilePath = preg_replace("/\/*\?.+/", "", $this->cacheFilePath);
 					$this->cacheFilePath = $this->cacheFilePath."/";
 
-					define('WPFC_CACHE_QUERYSTRING', true);
+					if(!defined('WPFC_CACHE_QUERYSTRING')){
+						define('WPFC_CACHE_QUERYSTRING', true);
+					}
 				}
 			}
 		}
@@ -563,7 +582,15 @@
 				foreach((array)$this->exclude_rules as $key => $value){
 					$value->type = isset($value->type) ? $value->type : "page";
 
-					if($value->prefix == "googleanalytics"){
+					if($value->prefix == "yandexclickid"){
+						if(preg_match("/y(ad|s)?clid\=/i", $request_url)){
+							// yclid
+							// yadclid
+							// ysclid
+							
+							return true;
+						}
+					}else if($value->prefix == "googleanalytics"){
 						if(preg_match("/utm_(source|medium|campaign|content|term)/i", $request_url)){
 							return true;
 						}
@@ -581,6 +608,10 @@
 
 							if(strtolower($value->content) == strtolower($request_url)){
 								return true;	
+							}
+						}else if($value->prefix == "regex"){
+							if(preg_match("/".$value->content."/i", $request_url)){
+								return true;
 							}
 						}else{
 							if($value->prefix == "startwith"){
@@ -774,6 +805,16 @@
 				return $buffer."<!-- permalink_structure ends with slash (/) but REQUEST_URI does not end with slash (/) -->";
 			}else{
 				$content = $buffer;
+
+				if(defined('WPFC_ENABLE_DELAY_JS') && WPFC_ENABLE_DELAY_JS){
+					if(file_exists(WPFC_WP_PLUGIN_DIR."/wp-fastest-cache-premium/pro/library/delay-js.php")){
+						if(!$this->is_amp($content)){
+							include_once WPFC_WP_PLUGIN_DIR."/wp-fastest-cache-premium/pro/library/delay-js.php";
+							$delay = new WpFastestCacheDelayJS($content);
+							$content = $delay->action();
+						}
+					}
+				}
 
 				if(isset($this->options->wpFastestCacheRenderBlocking) && method_exists("WpFastestCachePowerfulHtml", "render_blocking")){
 					if(class_exists("WpFastestCachePowerfulHtml")){

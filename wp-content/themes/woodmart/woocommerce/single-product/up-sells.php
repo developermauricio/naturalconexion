@@ -15,9 +15,9 @@ $position = woodmart_get_opt( 'upsells_position' );
 
 $related_product_view = woodmart_get_opt( 'related_product_view' );
 
-if ( $upsells ) : ?>
+if ( $upsells && 'hide' !== woodmart_get_opt( 'upsells_position' ) ) : ?>
 
-	<?php if ( $position == 'sidebar' ) : ?>
+	<?php if ( 'sidebar' === $position ) : ?>
 	<?php woodmart_enqueue_inline_style( 'widget-product-upsells' ); ?>
 	<div class="upsells-widget widget sidebar-widget">
 
@@ -31,18 +31,22 @@ if ( $upsells ) : ?>
 
 	<div class="upsells-carousel">
 
-		<h3 class="title slider-title"><?php echo esc_html__( 'You may also like&hellip;', 'woocommerce' ); ?></h3>
+		<h3 class="title slider-title"><span><?php echo esc_html__( 'You may also like&hellip;', 'woocommerce' ); ?></span></h3>
 
 		<?php
 			woodmart_enqueue_product_loop_styles( woodmart_get_opt( 'products_hover' ) );
 		if ( $related_product_view == 'slider' ) {
 			$slider_args = array(
-				'slides_per_view'         => ( woodmart_get_opt( 'related_product_columns' ) ) ? woodmart_get_opt( 'related_product_columns' ) : apply_filters( 'woodmart_cross_sells_products_per_view', 4 ),
-				'hide_pagination_control' => false,
-				'img_size'                => 'woocommerce_thumbnail',
-				'products_bordered_grid'  => woodmart_get_opt( 'products_bordered_grid' ),
-				'custom_sizes'            => apply_filters( 'woodmart_cross_sells_custom_sizes', false ),
-				'product_quantity'        => woodmart_get_opt( 'product_quantity' ),
+				'slides_per_view'              => ( woodmart_get_opt( 'related_product_columns' ) ) ? woodmart_get_opt( 'related_product_columns' ) : apply_filters( 'woodmart_cross_sells_products_per_view', 4 ),
+				'hide_pagination_control'      => false,
+				'img_size'                     => 'woocommerce_thumbnail',
+				'products_bordered_grid'       => woodmart_get_opt( 'products_bordered_grid' ),
+				'products_bordered_grid_style' => woodmart_get_opt( 'products_bordered_grid_style' ),
+				'products_with_background'     => woodmart_get_opt( 'products_with_background' ),
+				'products_shadow'              => woodmart_get_opt( 'products_shadow' ),
+				'products_color_scheme'        => woodmart_get_opt( 'products_color_scheme' ),
+				'custom_sizes'                 => apply_filters( 'woodmart_cross_sells_custom_sizes', false ),
+				'product_quantity'             => woodmart_get_opt( 'product_quantity' ),
 			);
 
 			woodmart_set_loop_prop( 'products_view', 'carousel' );

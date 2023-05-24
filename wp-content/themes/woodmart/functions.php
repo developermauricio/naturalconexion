@@ -4,14 +4,6 @@
  * The framework's functions and definitions
  */
 
-/**
- * ------------------------------------------------------------------------------------------------
- * Define constants.
- * ------------------------------------------------------------------------------------------------
- */
-
-use Elementor\Utils;
-
 define( 'WOODMART_THEME_DIR', get_template_directory_uri() );
 define( 'WOODMART_THEMEROOT', get_template_directory() );
 define( 'WOODMART_IMAGES', WOODMART_THEME_DIR . '/images' );
@@ -28,26 +20,18 @@ define( 'WOODMART_API_URL', 'https://xtemos.com/licenses/api/' );
 define( 'WOODMART_DEMO_URL', 'https://woodmart.xtemos.com/' );
 define( 'WOODMART_PLUGINS_URL', WOODMART_DEMO_URL . 'plugins/' );
 define( 'WOODMART_DUMMY_URL', WOODMART_DEMO_URL . 'dummy-content-new/' );
+define( 'WOODMART_TOOLTIP_URL', WOODMART_DEMO_URL . 'theme-settings-tooltips/' );
 define( 'WOODMART_SLUG', 'woodmart' );
-define( 'WOODMART_CORE_VERSION', '1.0.31' );
+define( 'WOODMART_CORE_VERSION', '1.0.39' );
 define( 'WOODMART_WPB_CSS_VERSION', '1.0.2' );
-
-
-/**
- * ------------------------------------------------------------------------------------------------
- * Load all CORE Classes and files
- * ------------------------------------------------------------------------------------------------
- */
 
 if ( ! function_exists( 'woodmart_load_classes' ) ) {
 	function woodmart_load_classes() {
 		$classes = array(
 			'Singleton.php',
-			'Ajaxresponse.php',
 			'Api.php',
 			'Googlefonts.php',
 			'Config.php',
-			'Cssparser.php',
 			'Layout.php',
 			'License.php',
 			'Notices.php',
@@ -70,3 +54,5 @@ if ( ! function_exists( 'woodmart_load_classes' ) ) {
 woodmart_load_classes();
 
 new WOODMART_Theme();
+
+define( 'WOODMART_VERSION', woodmart_get_theme_info( 'Version' ) );

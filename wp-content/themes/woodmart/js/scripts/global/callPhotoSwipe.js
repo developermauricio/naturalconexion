@@ -32,7 +32,17 @@
 					download: true
 				}
 			],
-			closeOnScroll: woodmart_settings.photoswipe_close_on_scroll
+			closeOnScroll: woodmart_settings.photoswipe_close_on_scroll,
+			isClickableElement: function (el) {
+				return el.tagName === 'A' || $(el).hasClass('wd-play-video')|| $(el).hasClass('wd-product-video');
+			},
+			getDoubleTapZoom: function (isMouseClick, item) {
+				if (isMouseClick || 'undefined' !== typeof item.html) {
+					return 1;
+				} else {
+					return item.initialZoomLevel < 0.7 ? 1 : 1.33;
+				}
+			}
 		};
 
 		woodmartThemeModule.$body.find('.pswp').remove();
@@ -41,6 +51,9 @@
 
 		// Initializes and opens PhotoSwipe
 		var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+		woodmartThemeModule.$document.trigger('wdPhotoSwipeBeforeInited', gallery );
+
 		gallery.init();
 	};
 })(jQuery);

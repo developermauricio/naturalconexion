@@ -58,7 +58,7 @@ class Wpls_Script {
 			wp_enqueue_style( 'wpls-admin-style' );
 		}
 
-		if( $hook == WPLS_POST_TYPE.'_page_wpls-designs' ){
+		if( $hook == WPLS_POST_TYPE.'_page_wpls-designs' || $hook == WPLS_POST_TYPE.'_page_wpls-solutions-features'  ){
 			wp_enqueue_script( 'wpls-admin-script' );
 		}
 	}

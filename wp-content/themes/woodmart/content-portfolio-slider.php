@@ -40,8 +40,8 @@ $classes[] = 'portfolio-single';
 
 $cats = wp_get_post_terms( get_the_ID(), 'project-cat' );
 
-if( ! empty( $cats ) ) {
-	foreach ($cats as $key => $cat) {
+if ( ! empty( $cats ) ) {
+	foreach ( $cats as $key => $cat ) {
 		$classes[] = 'proj-cat-' . $cat->slug;
 	}
 }
@@ -54,58 +54,57 @@ if ( 'text-shown' !== $style ) {
 	$info_classes .= ' color-scheme-light';
 }
 
-woodmart_enqueue_js_library( 'photoswipe-bundle' );
-woodmart_enqueue_inline_style( 'photoswipe' );
-woodmart_enqueue_js_script( 'portfolio-photoswipe' );
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<figure class="entry-thumbnail">
+			<figure class="entry-thumbnail color-scheme-light">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="portfolio-thumbnail">
 					<?php echo $img; ?>
 				</a>
-				<a href="<?php echo esc_url( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) ); ?>" class="portfolio-enlarge" data-elementor-open-lightbox="no"><?php esc_html_e('View Large', 'woodmart'); ?></a>
-				<?php if ( woodmart_is_social_link_enable( 'share' ) ): ?>
-					<div class="social-icons-wrapper">
-					<?php if( function_exists( 'woodmart_shortcode_social' ) ) echo woodmart_shortcode_social( array( 'size' => 'small', 'style' => 'default', 'color' => 'light' ) ); ?>
+				<div class="wd-portfolio-btns">
+					<div class="portfolio-enlarge wd-action-btn wd-style-icon wd-enlarge-icon wd-tltp wd-tltp-left">
+						<a href="<?php echo esc_url( wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ) ); ?>" data-elementor-open-lightbox="no"><?php esc_html_e( 'View Large', 'woodmart' ); ?></a>
 					</div>
-				<?php endif ?>
+					<?php if ( woodmart_is_social_link_enable( 'share' ) ) : ?>
+						<div class="social-icons-wrapper wd-action-btn wd-style-icon wd-share-icon wd-tltp <?php echo is_rtl() ? 'wd-tltp-right' : 'wd-tltp-left'; ?>">
+							<a></a>
+							<div class="wd-tooltip-label">
+								<?php
+								if ( function_exists( 'woodmart_shortcode_social' ) ) {
+									echo woodmart_shortcode_social(
+										array(
+											'size'   => 'small',
+											'style'  => 'default',
+											'color'  => 'light',
+										)
+									);}
+								?>
+							</div>
+						</div>
+					<?php endif ?>
+				</div>
 			</figure>
 		<?php endif; ?>
 
 		<div class="portfolio-info<?php echo esc_attr( $info_classes ); ?>">
-			
-			<?php 
+			<?php if ( ! empty( $cats ) ) : ?>
+				<div class="wrap-meta">
+					<ul class="proj-cats-list">
+						<?php foreach ( $cats as $key => $cat ) : ?>
+							<?php $classes[] = 'proj-cat-' . $cat->slug; ?>
+							<li><?php echo esc_html( $cat->name ); ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
 
-				if( ! empty( $cats ) ) {
-					?>
-					<div class="wrap-meta">
-						<ul class="proj-cats-list">
-						<?php
-						foreach ($cats as $key => $cat) {
-							$classes[] = 'proj-cat-' . $cat->slug;
-							// get_term_link( $cat, 'project-cat' ); 
-							?>
-								<li><?php echo esc_html($cat->name); ?></li>
-							<?php
-						}
-						?>
-						</ul>
-					</div>
-					<?php
-				}
-
-			 ?>
-			 
 			<div class="wrap-title">
 				<h3 class="wd-entities-title">
 					<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				</h3>
 			</div>
-		 </div>
-	 </header>
-
-</article><!-- #post -->
+		</div>
+	</header>
+</article>

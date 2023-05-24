@@ -27,48 +27,32 @@
 			}
 		};
 
-		$('.wd-pf-checkboxes li > .pf-value').on('click', function(e) {
-			e.preventDefault();
-			var $this = $(this);
-			var $li = $this.parent();
-			var $widget = $this.parents('.wd-pf-checkboxes');
-			var $mainInput = $widget.find('.result-input');
-			var $results = $widget.find('.wd-pf-results');
+		var sendAjax = function($form) {
+			removeEmptyValues($form);
+			changeFormAction($form);
 
-			var multiSelect = $widget.hasClass('multi_select');
-			var mainInputVal = $mainInput.val();
-			var currentText = $this.data('title');
-			var currentVal = $this.data('val');
-
-			if (multiSelect) {
-				if (!$li.hasClass('pf-active')) {
-					if (mainInputVal === '') {
-						$mainInput.val(currentVal);
-					} else {
-						$mainInput.val(mainInputVal + ',' + currentVal);
-					}
-
-					$results.prepend('<li class="selected-value" data-title="' + currentVal + '">' + currentText + '</li>');
-					$li.addClass('pf-active');
-				} else {
-					removeValue($mainInput, currentVal);
-					$results.find('li[data-title="' + currentVal + '"]').remove();
-					$li.removeClass('pf-active');
-				}
-			} else {
-				if (!$li.hasClass('pf-active')) {
-					$mainInput.val(currentVal);
-					$results.find('.selected-value').remove();
-					$results.prepend('<li class="selected-value" data-title="' + currentVal + '">' + currentText + '</li>');
-					$li.parents('.wd-scroll-content').find('.pf-active').removeClass('pf-active');
-					$li.addClass('pf-active');
-				} else {
-					$mainInput.val('');
-					$results.find('.selected-value').remove();
-					$li.removeClass('pf-active');
-				}
+			if (!woodmartThemeModule.$body.hasClass('woodmart-ajax-shop-on') || typeof ($.fn.pjax) == 'undefined' || !$form.hasClass('with-ajax')) {
+				return;
 			}
-		});
+
+			$.pjax({
+				container: '.main-page-wrapper',
+				timeout  : woodmart_settings.pjax_timeout,
+				url      : $form.attr('action'),
+				data     : $form.serialize(),
+				scrollTo : false,
+				renderCallback: function(context, html, afterRender) {
+					woodmartThemeModule.removeDuplicatedStylesFromHTML(html, function(html) {
+						context.html(html);
+						afterRender();
+						woodmartThemeModule.$document.trigger('wdShopPageInit');
+						woodmartThemeModule.$document.trigger('wood-images-loaded');
+					});
+				}
+			});
+
+			$form.find('.wd-pf-btn button, .filter_price_slider_amount button').prop('disabled', true);
+		}
 
 		//Label clear
 		var $checkboxes = $('.wd-pf-checkboxes');
@@ -87,6 +71,9 @@
 				$slider.slider('values', 1, max);
 				$widget.find('.min_price').val('');
 				$widget.find('.max_price').val('');
+				if ( 0 === $('.wd-product-filters .wd-pf-btn button').length ) {
+					sendAjax( $this.parents('.wd-product-filters') );
+				}
 				woodmartThemeModule.$body.trigger('filter_price_slider_slide', [
 					min,
 					max,
@@ -98,7 +85,12 @@
 			}
 
 			removeValue($mainInput, currentVal);
-			$widget.find('.pf-value[data-val="' + currentVal + '"]').parent().removeClass('pf-active');
+			$widget.find('.pf-value[data-val="' + currentVal + '"]').parent().removeClass('wd-active');
+
+			if ( 0 === $('.wd-product-filters .wd-pf-btn button').length ) {
+				sendAjax( $this.parents('.wd-product-filters') );
+			}
+
 			$this.remove();
 		});
 
@@ -116,9 +108,8 @@
 					return;
 				}
 
-				if (!$this.hasClass('opened')) {
-					$this.addClass('opened');
-					$list.slideDown(100);
+				if (!$this.hasClass('wd-opened')) {
+					$this.addClass('wd-opened');
 					setTimeout(function() {
 						woodmartThemeModule.$document.trigger('wdProductFiltersOpened');
 					}, 300);
@@ -130,29 +121,77 @@
 			woodmartThemeModule.$document.on('click', function(e) {
 				var target = e.target;
 
-				if ($this.hasClass('opened') && (multiSelect && !$(target).is($this) && !$(target).parents().is($this)) || (!multiSelect && !$(target).is($btn) && !$(target).parents().is($btn))) {
+				if ($this.hasClass('wd-opened') && (multiSelect && !$(target).is($this) && !$(target).parents().is($this)) || (!multiSelect && !$(target).is($btn) && !$(target).parents().is($btn))) {
 					close();
 				}
 			});
 
 			var close = function() {
-				$this.removeClass('opened');
-				$list.slideUp(100);
+				$this.removeClass('wd-opened');
 			};
+		});
+
+		$('.wd-pf-checkboxes li > .pf-value').on('click', function(e) {
+			e.preventDefault();
+			var $this = $(this);
+			var $li = $this.parent();
+			var $widget = $this.parents('.wd-pf-checkboxes');
+			var $mainInput = $widget.find('.result-input');
+			var $results = $widget.find('.wd-pf-results');
+
+			var multiSelect = $widget.hasClass('multi_select');
+			var mainInputVal = $mainInput.val();
+			var currentText = $this.data('title');
+			var currentVal = $this.data('val');
+
+			if (multiSelect) {
+				if (!$li.hasClass('wd-active')) {
+					if (mainInputVal === '') {
+						$mainInput.val(currentVal);
+					} else {
+						$mainInput.val(mainInputVal + ',' + currentVal);
+					}
+
+					$results.prepend('<li class="selected-value" data-title="' + currentVal + '">' + currentText + '</li>');
+					$li.addClass('wd-active');
+				} else {
+					removeValue($mainInput, currentVal);
+					$results.find('li[data-title="' + currentVal + '"]').remove();
+					$li.removeClass('wd-active');
+				}
+			} else {
+				if (!$li.hasClass('wd-active')) {
+					$mainInput.val(currentVal);
+					$results.find('.selected-value').remove();
+					$results.prepend('<li class="selected-value" data-title="' + currentVal + '">' + currentText + '</li>');
+					$li.parents('.wd-scroll-content').find('.wd-active').removeClass('wd-active');
+					$li.addClass('wd-active');
+				} else {
+					$mainInput.val('');
+					$results.find('.selected-value').remove();
+					$li.removeClass('wd-active');
+				}
+			}
+
+			if ( 0 === $('.wd-product-filters .wd-pf-btn button').length ) {
+				sendAjax( $this.parents('.wd-product-filters') );
+			}
 		});
 
 		var removeEmptyValues = function($selector) {
 			$selector.find('.wd-pf-checkboxes').each(function() {
 				var $this = $(this);
 
-				if (!$this.find('input[type="hidden"]').val()) {
+				if ( $this.find('input[type="hidden"]').length > 0 && !$this.find('input[type="hidden"]').val()) {
 					$this.find('input[type="hidden"]').remove();
+				} else if ( $this.hasClass('wd-pf-categories') ) {
+					$selector.attr('action', woodmart_settings.shop_url);
 				}
 			});
 		};
 
 		var changeFormAction = function($form) {
-			var activeCat = $form.find('.wd-pf-categories .pf-active .pf-value');
+			var activeCat = $form.find('.wd-pf-categories .wd-active .pf-value');
 
 			if (activeCat.length > 0) {
 				$form.attr('action', activeCat.attr('href'));
@@ -260,37 +299,15 @@
 		});
 
 		//Submit filter form
-		$('.wd-product-filters').one('click', '.wd-pf-btn button', function() {
+		$('.wd-product-filters').one('click', '.wd-pf-btn button, .filter_price_slider_amount button', function() {
 			var $this = $(this);
 			var $form = $this.parents('.wd-product-filters');
-			removeEmptyValues($form);
-			changeFormAction($form);
 
-			if (!woodmartThemeModule.$body.hasClass('woodmart-ajax-shop-on') || typeof ($.fn.pjax) == 'undefined' || !$form.hasClass('with-ajax')) {
-				return;
-			}
-
-			$.pjax({
-				container: '.main-page-wrapper',
-				timeout  : woodmart_settings.pjax_timeout,
-				url      : $form.attr('action'),
-				data     : $form.serialize(),
-				scrollTo : false,
-				renderCallback: function(context, html, afterRender) {
-					woodmartThemeModule.removeDuplicatedStylesFromHTML(html, function(html) {
-						context.html(html);
-						afterRender();
-						woodmartThemeModule.$document.trigger('wdShopPageInit');
-						woodmartThemeModule.$document.trigger('wood-images-loaded');
-					});
-				}
-			});
-
-			$this.prop('disabled', true);
+			sendAjax( $form );
 		});
 
 		//Create labels after ajax
-		$('.wd-pf-checkboxes .pf-active > .pf-value').each(function() {
+		$('.wd-pf-checkboxes .wd-active > .pf-value').each(function() {
 			var $this = $(this);
 			var resultsWrapper = $this.parents('.wd-pf-checkboxes').find('.wd-pf-results');
 
@@ -299,6 +316,10 @@
 	};
 
 	$(document).ready(function() {
+		woodmartThemeModule.productFilters();
+	});
+
+	window.addEventListener('popstate', function() {
 		woodmartThemeModule.productFilters();
 	});
 })(jQuery);

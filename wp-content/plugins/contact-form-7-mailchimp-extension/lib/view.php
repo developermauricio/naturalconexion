@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -30,7 +30,10 @@ function vc_utm() {
   return $utms;
 }
 
+
+
 function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) {
+
   ?>
    <div class="mystery">
 
@@ -210,7 +213,7 @@ function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) 
     </div>
 
 
-    <div id="cme-container" class="cme-container mce-support" style="display:none">
+    <div id="cme-container" class="cme-container mce-support only-one-toogles" style="display:none">
 
         <div class="mailchimp-custom-fields">
           <p>In the following fields, you can use these mail-tags: <?php echo mce_mail_tags(); ?>.</p>
@@ -262,6 +265,3 @@ function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) 
 
 </div>
 <?php echo mce_lateral_banner () ?>
-
-
-

@@ -7,10 +7,15 @@
 			var input = $(this);
 			var qtyVal = input.val();
 			var itemID = input.parents('.woocommerce-mini-cart-item').data('key');
+			var maxValue = input.attr('max');
 			var cart_hash_key = woodmart_settings.cart_hash_key;
 			var fragment_name = woodmart_settings.fragment_name;
 
 			clearTimeout(timeout);
+
+			if (parseInt(qtyVal) > parseInt(maxValue)) {
+				qtyVal = maxValue;
+			}
 
 			timeout = setTimeout(function() {
 				input.parents('.mini_cart_item').addClass('wd-loading');

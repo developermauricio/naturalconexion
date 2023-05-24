@@ -9,72 +9,28 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 	exit( 'No direct script access allowed' );
 }
 
-if ( ! function_exists( 'woodmart_get_slider_data' ) ) {
+if ( ! function_exists( 'woodmart_get_slide_data' ) ) {
 	/**
-	 * Get slider data.
+	 * Get slide data.
 	 */
-	function woodmart_get_slider_data() {
-		$data = array();
-
+	function woodmart_get_slide_data( $id, $title ) {
 		if ( ! is_user_logged_in() ) {
-			return $data;
+			return '';
 		}
 
-		$sliders = get_terms(
-			array(
-				'taxonomy'   => 'woodmart_slider',
-				'hide_empty' => false,
-			)
+		$url = get_edit_post_link( $id );
+
+		if ( 'elementor' === woodmart_get_current_page_builder() ) {
+			$url = str_replace( 'action=edit', 'action=elementor', $url );
+		}
+
+		$data = array(
+			'title' => $title,
+			'url'   => $url,
 		);
 
-		if ( is_wp_error( $sliders ) || ! $sliders ) {
-			return $data;
-		}
-
-		foreach ( $sliders as $slider ) {
-			$data[ $slider->term_id ] = array(
-				'title' => $slider->name,
-				'url'   => get_edit_term_link( $slider->term_id ),
-			);
-
-			$args = array(
-				'posts_per_page' => -1,
-				'post_type'      => 'woodmart_slide',
-				'tax_query'      => array( // phpcs:ignore
-					array(
-						'taxonomy' => 'woodmart_slider',
-						'field'    => 'id',
-						'terms'    => $slider->term_id,
-					),
-				),
-			);
-
-			$slides = get_posts( $args );
-
-			if ( ! $slides ) {
-				continue;
-			}
-
-			foreach ( $slides as $slide ) {
-				$url = get_edit_post_link( $slide->ID );
-
-				if ( 'elementor' === woodmart_get_current_page_builder() ) {
-					$url = str_replace( 'action=edit', 'action=elementor', $url );
-				}
-
-				$data[ $slider->term_id ]['slides'][ $slide->ID ] = array(
-					'title' => $slide->post_title,
-					'url'   => $url,
-				);
-			}
-		}
-
-		wp_localize_script( 'woodmart-theme', 'woodmart_admin_bar_sliders', $data );
-
-		return $data;
+		return ' data-slide=\'' . wp_json_encode( $data ) . '\'';
 	}
-
-	add_action( 'wp_enqueue_scripts', 'woodmart_get_slider_data', 40 );
 }
 
 if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
@@ -130,7 +86,17 @@ if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
 
 		$carousel_id = 'slider-' . $slider_term->term_id;
 
-		$animation = get_term_meta( $slider_term->term_id, 'animation', true );
+		$animation        = get_term_meta( $slider_term->term_id, 'animation', true );
+		$arrows_style     = get_term_meta( $slider_term->term_id, 'arrows_style', true );
+		$pagination_style = get_term_meta( $slider_term->term_id, 'pagination_style', true );
+
+		if ( '' === $pagination_style ) {
+			$pagination_style = 1;
+		}
+
+		if ( '' === $arrows_style ) {
+			$arrows_style = 1;
+		}
 
 		$slide_speed = apply_filters( 'woodmart_slider_sliding_speed', 900 );
 
@@ -144,7 +110,15 @@ if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
 			'content_animation'       => true,
 			'autoheight'              => 'yes',
 			'wrap'                    => 'yes',
+			'library'                 => 'flickity',
 		);
+
+		if ( is_user_logged_in() ) {
+			$slider_atts['slider'] = array(
+				'title' => $slider_term->name,
+				'url'   => get_edit_term_link( $slider_term->term_id, 'woodmart_slider' ),
+			);
+		}
 
 		if ( ! $parsed_atts['elementor'] ) {
 			ob_start();
@@ -156,19 +130,31 @@ if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
 
 		if ( 'fade' === $animation ) {
 			woodmart_enqueue_js_library( 'flickity-fade' );
+		} elseif ( 'distortion' === $animation ) {
+			woodmart_enqueue_inline_style( 'slider-anim-distortion' );
+		}
+
+		if ( $arrows_style ) {
+			woodmart_enqueue_inline_style( 'slider-arrows' );
+		}
+
+		if ( $pagination_style ) {
+			woodmart_enqueue_inline_style( 'slider-dots' );
+			woodmart_enqueue_inline_style( 'slider-dots-style-' . $pagination_style );
 		}
 
 		$first_slide_key = array_key_first( $slides );
 
 		?>
 			<?php woodmart_get_slider_css( $slider_term->term_id, $carousel_id, $slides ); ?>
+
 			<?php if ( woodmart_is_elementor_installed() ) : ?>
 				<?php foreach ( $slides as $slide ) : ?>
 					<?php echo woodmart_elementor_get_content_css( $slide->ID ); // phpcs:ignore ?>
 				<?php endforeach; ?>
 			<?php endif; ?>
 
-			<div id="<?php echo esc_attr( $carousel_id ); ?>" data-id="<?php echo esc_html( $slider_term->term_id ); ?>" class="wd-slider-wrapper<?php echo esc_attr( woodmart_get_slider_class( $slider_term->term_id ) ); ?>" <?php echo 'on' === $stretch_slider && 'wpb' === woodmart_get_current_page_builder() ? 'data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true"' : ''; ?> <?php echo woodmart_get_owl_attributes( $slider_atts ); // phpcs:ignore ?>>
+			<div id="<?php echo esc_attr( $carousel_id ); ?>" data-id="<?php echo esc_html( $slider_term->term_id ); ?>" class="wd-slider-wrapper<?php echo esc_attr( woodmart_get_slider_class( $slider_term->term_id ) ); ?> <?php echo 'on' === $stretch_slider && 'wpb' === woodmart_get_current_page_builder() ? 'wd-section-stretch-content' : ''; ?>" <?php echo woodmart_get_owl_attributes( $slider_atts, true ); // phpcs:ignore ?>>
 				<div class="wd-slider wd-autoplay-animations-off<?php echo esc_attr( $class ); ?>">
 					<?php foreach ( $slides as $key => $slide ) : ?>
 						<?php
@@ -188,7 +174,10 @@ if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
 							woodmart_enqueue_js_script( 'slider-distortion' );
 							$bg_image_desktop      = has_post_thumbnail( $slide->ID ) ? wp_get_attachment_url( get_post_thumbnail_id( $slide->ID ) ) : '';
 							$meta_bg_image_desktop = get_post_meta( $slide->ID, 'bg_image_desktop', true );
-							if ( $meta_bg_image_desktop ) {
+							if ( is_array( $meta_bg_image_desktop ) && ! empty( $meta_bg_image_desktop['url'] ) ) {
+								$meta_bg_image_desktop = $meta_bg_image_desktop['url'];
+							}
+							if ( ! is_array( $meta_bg_image_desktop ) && $meta_bg_image_desktop ) {
 								$bg_image_desktop = $meta_bg_image_desktop;
 							}
 
@@ -209,8 +198,10 @@ if ( ! function_exists( 'woodmart_shortcode_slider' ) ) {
 								$slide_attrs .= ' onclick="window.location.href=\'' . esc_url( $link ) . '\'"';
 							}
 						}
+
+						$slide_attrs .= woodmart_get_slide_data( $slide->ID, $slide->post_title );
 						?>
-						<div id="<?php echo esc_attr( $slide_id ); ?>" class="wd-slide<?php echo esc_attr( $slide_classes ); ?>" data-id="<?php echo esc_html( $slide->ID ); ?>" <?php echo $slide_attrs; // phpcs:ignore ?>>
+						<div id="<?php echo esc_attr( $slide_id ); ?>" class="wd-slide<?php echo esc_attr( $slide_classes ); ?>" <?php echo $slide_attrs; // phpcs:ignore ?>>
 							<?php
 							if ( ! empty( $slide_animation ) && 'none' !== $slide_animation ) {
 								woodmart_enqueue_inline_style( 'animations' );
@@ -296,6 +287,9 @@ if ( ! function_exists( 'woodmart_get_slider_css' ) ) {
 				// Desktop.
 				$bg_image_desktop      = has_post_thumbnail( $slide->ID ) ? wp_get_attachment_url( get_post_thumbnail_id( $slide->ID ) ) : '';
 				$meta_bg_image_desktop = get_post_meta( $slide->ID, 'bg_image_desktop', true );
+				if ( is_array( $meta_bg_image_desktop ) && isset( $meta_bg_image_desktop['url'] ) ) {
+					$meta_bg_image_desktop = $meta_bg_image_desktop['url'];
+				}
 				if ( $meta_bg_image_desktop ) {
 					$bg_image_desktop = $meta_bg_image_desktop;
 				}
@@ -306,16 +300,22 @@ if ( ! function_exists( 'woodmart_get_slider_css' ) ) {
 				$width_desktop               = get_post_meta( $slide->ID, 'content_width', true );
 
 				// Tablet.
-				$width_tablet               = get_post_meta( $slide->ID, 'content_width_tablet', true );
-				$bg_image_tablet            = get_post_meta( $slide->ID, 'bg_image_tablet', true );
+				$width_tablet    = get_post_meta( $slide->ID, 'content_width_tablet', true );
+				$bg_image_tablet = get_post_meta( $slide->ID, 'bg_image_tablet', true );
+				if ( is_array( $bg_image_tablet ) && isset( $bg_image_tablet['url'] ) ) {
+					$bg_image_tablet = $bg_image_tablet['url'];
+				}
 				$bg_image_size_tablet       = get_post_meta( $slide->ID, 'bg_image_size_tablet', true );
 				$bg_image_position_tablet   = get_post_meta( $slide->ID, 'bg_image_position_tablet', true );
 				$bg_image_position_x_tablet = get_post_meta( $slide->ID, 'bg_image_position_x_tablet', true );
 				$bg_image_position_y_tablet = get_post_meta( $slide->ID, 'bg_image_position_y_tablet', true );
 
 				// Mobile.
-				$width_mobile               = get_post_meta( $slide->ID, 'content_width_mobile', true );
-				$bg_image_mobile            = get_post_meta( $slide->ID, 'bg_image_mobile', true );
+				$width_mobile    = get_post_meta( $slide->ID, 'content_width_mobile', true );
+				$bg_image_mobile = get_post_meta( $slide->ID, 'bg_image_mobile', true );
+				if ( is_array( $bg_image_mobile ) && isset( $bg_image_mobile['url'] ) ) {
+					$bg_image_mobile = $bg_image_mobile['url'];
+				}
 				$bg_image_size_mobile       = get_post_meta( $slide->ID, 'bg_image_size_mobile', true );
 				$bg_image_position_mobile   = get_post_meta( $slide->ID, 'bg_image_position_mobile', true );
 				$bg_image_position_x_mobile = get_post_meta( $slide->ID, 'bg_image_position_x_mobile', true );
@@ -357,7 +357,9 @@ if ( ! function_exists( 'woodmart_get_slider_css' ) ) {
 					<?php endif; ?>
 
 					#slide-<?php echo esc_attr( $slide->ID ); ?> .wd-slide-bg {
-						<?php woodmart_maybe_set_css_rule( 'background-size', $bg_image_size_tablet ); ?>
+						<?php if ( 'inherit' !== $bg_image_size_tablet ) : ?>
+							<?php woodmart_maybe_set_css_rule( 'background-size', $bg_image_size_tablet ); ?>
+						<?php endif; ?>
 
 						<?php if ( 'custom' !== $bg_image_position_tablet ) : ?>
 							<?php woodmart_maybe_set_css_rule( 'background-position', $bg_image_position_tablet ); ?>
@@ -381,7 +383,9 @@ if ( ! function_exists( 'woodmart_get_slider_css' ) ) {
 					<?php endif; ?>
 
 					#slide-<?php echo esc_attr( $slide->ID ); ?> .wd-slide-bg {
-						<?php woodmart_maybe_set_css_rule( 'background-size', $bg_image_size_mobile ); ?>
+						<?php if ( 'inherit' !== $bg_image_size_mobile ) : ?>
+							<?php woodmart_maybe_set_css_rule( 'background-size', $bg_image_size_mobile ); ?>
+						<?php endif; ?>
 
 						<?php if ( 'custom' !== $bg_image_position_mobile ) : ?>
 							<?php woodmart_maybe_set_css_rule( 'background-position', $bg_image_position_mobile ); ?>
@@ -441,16 +445,30 @@ if ( ! function_exists( 'woodmart_get_slider_class' ) ) {
 
 		$arrows_style         = get_term_meta( $id, 'arrows_style', true );
 		$pagination_style     = get_term_meta( $id, 'pagination_style', true );
+		$pagination_hr_align  = get_term_meta( $id, 'pagination_horizon_align', true );
 		$pagination_color     = get_term_meta( $id, 'pagination_color', true );
 		$stretch_slider       = get_term_meta( $id, 'stretch_slider', true );
 		$stretch_content      = get_term_meta( $id, 'stretch_content', true );
 		$scroll_carousel_init = get_term_meta( $id, 'scroll_carousel_init', true );
 		$animation            = get_term_meta( $id, 'animation', true );
 
+		if ( ! $pagination_hr_align ) {
+			$pagination_hr_align = 'center';
+		}
+
+		if ( '' === $pagination_style ) {
+			$pagination_style = 1;
+		}
+
+		if ( '' === $arrows_style ) {
+			$arrows_style = 1;
+		}
+
 		$class .= ' arrows-style-' . $arrows_style;
 		$class .= ' pagin-style-' . $pagination_style;
 		$class .= ' pagin-scheme-' . $pagination_color;
 		$class .= ' anim-' . $animation;
+		$class .= ' wd-pagin-hr-' . $pagination_hr_align;
 		$class .= woodmart_get_old_classes( ' woodmart-slider-wrapper' );
 
 		if ( 'on' === $scroll_carousel_init ) {

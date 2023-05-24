@@ -5,22 +5,18 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
-	function woodmart_vc_map_portfolio() {
-		if ( ! shortcode_exists( 'woodmart_portfolio' ) || ! woodmart_get_opt( 'portfolio', '1' ) ) {
-			return;
-		}
-
-		vc_map( array(
+if ( ! function_exists( 'woodmart_get_vc_map_portfolio' ) ) {
+	function woodmart_get_vc_map_portfolio() {
+		return array(
 			'name' => esc_html__( 'Portfolio', 'woodmart' ),
 			'base' => 'woodmart_portfolio',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'Showcase your projects or gallery', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/portfolio.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/portfolio.svg',
 			'params' => array(
 				/**
-				* Layout
-				*/
+				 * Layout
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -46,26 +42,101 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
-					'type' => 'woodmart_slider',
-					'heading' => esc_html__( 'Columns', 'woodmart' ),
-					'param_name' => 'columns',
-					'min' => '2',
-					'max' => '6',
-					'step' => '1',
-					'default' => '3',
-					'units' => '',
+					'type'             => 'woodmart_button_set',
+					'heading'          => esc_html__( 'Columns', 'woodmart' ),
+					'hint' => esc_html__( 'Number of columns in the grid.', 'woodmart' ),
+					'group' => esc_html__( 'Design', 'woodmart' ),
+					'param_name'       => 'columns_tabs',
+					'tabs'             => true,
+					'value'            => array(
+						esc_html__( 'Desktop', 'woodmart' ) => 'desktop',
+						esc_html__( 'Tablet', 'woodmart' ) => 'tablet',
+						esc_html__( 'Mobile', 'woodmart' ) => 'mobile',
+					),
 					'dependency'       => array(
 						'element' => 'layout',
 						'value' => 'grid',
 					),
-					'edit_field_class' => 'vc_col-sm-6 vc_column',
+					'default'          => 'desktop',
+					'edit_field_class' => 'wd-res-control wd-custom-width vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'columns',
+					'group' => esc_html__( 'Design', 'woodmart' ),
+					'value' => array(
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => '3',
+					'dependency'       => array(
+						'element' => 'layout',
+						'value' => 'grid',
+					),
+					'wd_dependency'    => array(
+						'element' => 'columns_tabs',
+						'value'   => array( 'desktop' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'columns_tablet',
+					'group' => esc_html__( 'Design', 'woodmart' ),
+					'value' => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => 'auto',
+					'dependency'       => array(
+						'element' => 'layout',
+						'value' => 'grid',
+					),
+					'wd_dependency'    => array(
+						'element' => 'columns_tabs',
+						'value'   => array( 'tablet' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'columns_mobile',
+					'group' => esc_html__( 'Design', 'woodmart' ),
+					'value' => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => 'auto',
+					'dependency'       => array(
+						'element' => 'layout',
+						'value' => 'grid',
+					),
+					'wd_dependency'    => array(
+						'element' => 'columns_tabs',
+						'value'   => array( 'mobile' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
 				),
 				array(
 					'type' => 'dropdown',
 					'heading' => esc_html__( 'Space between projects', 'woodmart' ),
 					'param_name' => 'spacing',
 					'value' => array(
-	                    0,2,6,10,20,30
+						0,2,6,10,20,30
 					),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
@@ -112,20 +183,90 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					),
 				),
 				array(
-					'type' => 'woodmart_slider',
-					'heading' => esc_html__( 'Slides per view', 'woodmart' ),
-					'param_name' => 'slides_per_view',
-					'min' => '1',
-					'max' => '6',
-					'step' => '1',
-					'default' => '3',
-					'units' => '',
-					'edit_field_class' => 'vc_col-sm-6 vc_column',
+					'type'             => 'woodmart_button_set',
+					'heading'          => esc_html__( 'Slides per view', 'woodmart' ),
 					'hint' => esc_html__( 'Set numbers of slides you want to display at the same time on slider\'s container for carousel mode.', 'woodmart' ),
+					'param_name'       => 'slides_per_view_tabs',
+					'tabs'             => true,
+					'value'            => array(
+						esc_html__( 'Desktop', 'woodmart' ) => 'desktop',
+						esc_html__( 'Tablet', 'woodmart' ) => 'tablet',
+						esc_html__( 'Mobile', 'woodmart' ) => 'mobile',
+					),
+					'dependency'  => array(
+						'element' => 'layout',
+						'value' => array( 'carousel' )
+					),
+					'default'          => 'desktop',
+					'edit_field_class' => 'wd-res-control wd-custom-width vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'slides_per_view',
+					'value' => array(
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => '3',
 					'dependency' => array(
 						'element' => 'layout',
-						'value' => array( 'carousel' ),
+						'value' => array( 'carousel' )
 					),
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'desktop' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'slides_per_view_tablet',
+					'value' => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => 'auto',
+					'dependency' => array(
+						'element' => 'layout',
+						'value' => array( 'carousel' )
+					),
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'tablet' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+				),
+				array(
+					'type' => 'dropdown',
+					'param_name' => 'slides_per_view_mobile',
+					'value' => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+					),
+					'std' => 'auto',
+					'dependency' => array(
+						'element' => 'layout',
+						'value' => array( 'carousel' )
+					),
+					'wd_dependency'    => array(
+						'element' => 'slides_per_view_tabs',
+						'value'   => array( 'mobile' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
 				),
 				array(
 					'type' => 'woodmart_switch',
@@ -224,8 +365,8 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					),
 				),
 				/**
-				* Data settings
-				*/
+				 * Data settings
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -233,10 +374,10 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'param_name' => 'data_divider'
 				),
 				array(
-					'type' => 'dropdown',
+					'type' => 'woodmart_dropdown',
 					'heading' => esc_html__( 'Categories', 'woodmart' ),
 					'param_name' => 'categories',
-					'value' => woodmart_get_projects_cats_array(),
+					'callback' => 'woodmart_get_projects_cats_array',
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -253,11 +394,11 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					),
 					'save_always' => true,
 					'hint' => sprintf( wp_kses(  __( 'Select how to sort retrieved projects. More at %s.', 'woodmart' ), array(
-	                        'a' => array( 
-	                            'href' => array(), 
-	                            'target' => array()
-	                        )
-                    	)), '<a href="http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank">WordPress codex page</a>' ),
+						'a' => array(
+							'href' => array(),
+							'target' => array()
+						)
+					)), '<a href="http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank">WordPress codex page</a>' ),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -271,11 +412,11 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					),
 					'save_always' => true,
 					'hint' => sprintf( wp_kses(  __( 'Designates the ascending or descending order. More at %s.', 'woodmart' ), array(
-	                        'a' => array( 
-	                            'href' => array(), 
-	                            'target' => array()
-	                        )
-                    	)), '<a href="http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank">WordPress codex page</a>' ),
+						'a' => array(
+							'href' => array(),
+							'target' => array()
+						)
+					)), '<a href="http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank">WordPress codex page</a>' ),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -283,11 +424,11 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'heading' => esc_html__( 'Pagination', 'woodmart' ),
 					'param_name' => 'pagination',
 					'value' => array(
-	                    '' => '',
-	                    esc_html__( 'Pagination', 'woodmart' ) => 'pagination',
-	                    wp_kses( __( 'Load more button', 'woodmart' ), 'entities' ) => 'load_more',
-	                    esc_html__( 'Infinit', 'woodmart' ) => 'infinit',
-	                    esc_html__( 'Disable', 'woodmart' ) => 'disable',
+						'' => '',
+						esc_html__( 'Pagination', 'woodmart' ) => 'pagination',
+						wp_kses( __( 'Load more button', 'woodmart' ), 'entities' ) => 'load_more',
+						esc_html__( 'Infinit', 'woodmart' ) => 'infinit',
+						esc_html__( 'Disable', 'woodmart' ) => 'disable',
 					),
 					'dependency'       => array(
 						'element' => 'layout',
@@ -296,8 +437,8 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -309,7 +450,7 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Style', 'woodmart' ),
 					'param_name' => 'style',
-					'value' => array( 
+					'value' => array(
 						esc_html__( 'Inherit from Theme Settings', 'woodmart' ) => 'inherit',
 						esc_html__( 'Show text on mouse over', 'woodmart' ) => 'hover',
 						esc_html__( 'Alternative', 'woodmart' ) => 'hover-inverse',
@@ -335,8 +476,8 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -360,7 +501,6 @@ if( ! function_exists( 'woodmart_vc_map_portfolio' ) ) {
 					'hint' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' )
 				),
 			),
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_portfolio' );
 }

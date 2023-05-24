@@ -29,7 +29,7 @@
 
 			if ($header.hasClass('whb-sticky-real')) {
 				// if no sticky rows
-				if ($firstSticky.length === 0 || $firstSticky[0].offsetHeight < 10) {
+				if ($firstSticky.length === 0 || $firstSticky[0].offsetHeight < 10 || 'undefined' !== typeof elementorFrontend && elementorFrontend.isEditMode()) {
 					return;
 				}
 
@@ -37,7 +37,7 @@
 					paddingTop: headerHeight
 				});
 
-				stickAfter = $firstSticky.offset().top - adminBarHeight;
+				stickAfter = Math.ceil($firstSticky.offset().top) - adminBarHeight;
 			}
 
 			if ($header.hasClass('whb-scroll-slide')) {

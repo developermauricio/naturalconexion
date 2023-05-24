@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 
 	// Add a mapping row to the table for field mappings
 	jQuery(".add-field-mapping").on('click', function(){
-		var nonce = $('#nonce_field_mapping').val();	
+		var nonce = $('#_wpnonce').val();	
 		var channel_hash = $('#channel_hash').val();
 		var prevRow = $("tr.rowCount:last input[type=hidden]").val();
 		var addrow_value = $('#addrow').val();
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
 
 	// Add a mapping row to the table for own mappings
 	jQuery(".add-own-mapping").on('click', function(){
-		var nonce = $('#nonce_field_mapping').val();
+		var nonce = $('#_wpnonce').val();
 		var channel_hash = $('#channel_hash').val();
                 var prevRow = $("tr.rowCount:last input[type=hidden]").val();
 		var addrow_value = $('#addrow').val();

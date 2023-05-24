@@ -3,6 +3,10 @@
 	woodmartThemeModule.promoPopup = function() {
 		var promo_version = woodmart_settings.promo_version;
 
+		if ( typeof Cookies === 'undefined' ) {
+			return;
+		}
+
 		if (woodmartThemeModule.$body.hasClass('page-template-maintenance') || woodmart_settings.enable_popup !== 'yes' || (woodmart_settings.promo_popup_hide_mobile === 'yes' && woodmartThemeModule.windowWidth < 768) || (Cookies.get('woodmart_age_verify') !== 'confirmed' && woodmart_settings.age_verify === 'yes')) {
 			return;
 		}
@@ -25,8 +29,9 @@
 					},
 					close     : function() {
 						Cookies.set('woodmart_popup_' + promo_version, 'shown', {
-							expires: 7,
-							path   : '/'
+							expires: parseInt(woodmart_settings.promo_version_cookie_expires),
+							path   : '/',
+							secure : woodmart_settings.cookie_secure_param
 						});
 					}
 				}
@@ -49,7 +54,8 @@
 
 			Cookies.set('woodmart_shown_pages', pages, {
 				expires: 7,
-				path   : '/'
+				path   : '/',
+				secure : woodmart_settings.cookie_secure_param
 			});
 
 			return false;

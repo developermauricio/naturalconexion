@@ -3,6 +3,8 @@
  * Author area map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Widget_Base;
@@ -73,7 +75,7 @@ class Author_Area extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -317,4 +319,4 @@ class Author_Area extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Author_Area() );
+Plugin::instance()->widgets_manager->register( new Author_Area() );

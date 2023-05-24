@@ -182,8 +182,8 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 
 			$products = array_values(
 				array_map(
-					function( $item ) {
-						return wc_get_product( $item->ID );
+					function( $post ) {
+						return wc_get_product( $post );
 					},
 					$wp_query->posts
 				)
@@ -744,17 +744,17 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 		 */
 		public function set_last_product_added_to_cart_upon_redirect( $redirect, $product = null ) {
 
-			// Bail if the session variable has been set.
-			if ( WC()->session->get( 'facebook_for_woocommerce_last_product_added_to_cart', 0 ) > 0 ) {
+			// Bail if the session variable has been set or WC()->session is null.
+			if ( ! isset( WC()->session ) || WC()->session->get( 'facebook_for_woocommerce_last_product_added_to_cart', 0 ) > 0 ) {
 				return $redirect;
 			}
 
 			$product_id = 0;
 
 			if ( $product instanceof \WC_Product ) {
-				$product_id = $_POST['variation_id'] ?? $product->get_id();
-			} elseif ( isset( $_GET['add-to-cart'] ) && is_numeric( $_GET['add-to-cart'] ) ) {
-				$product_id = $_GET['add-to-cart'];
+				$product_id = isset( $_POST['variation_id'] ) ?  wc_clean( wp_unslash( $_POST['variation_id'] ) ) : $product->get_id();
+			} elseif ( isset( $_GET['add-to-cart'] ) && is_numeric( wc_clean( wp_unslash( $_GET['add-to-cart'] ) ) ) ) {
+				$product_id = wc_clean( wp_unslash( $_GET['add-to-cart'] ) );
 			}
 
 			WC()->session->set( 'facebook_for_woocommerce_last_product_added_to_cart', (int) $product_id );
@@ -817,7 +817,7 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 		 */
 		public function inject_initiate_checkout_event() {
 
-			if ( ! $this->is_pixel_enabled() || WC()->cart->get_cart_contents_count() === 0 || $this->pixel->is_last_event( 'InitiateCheckout' ) ) {
+			if ( ! $this->is_pixel_enabled() || null === WC()->cart || WC()->cart->get_cart_contents_count() === 0 || $this->pixel->is_last_event( 'InitiateCheckout' ) ) {
 				return;
 			}
 
@@ -890,19 +890,19 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 			}
 
 			// use a session flag to ensure an order is tracked with any payment method, also when the order is placed through AJAX
-			$order_placed_session_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_order_placed_' . $order_id;
+			$order_placed_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_order_placed_' . $order_id;
 
 			// use a session flag to ensure a Purchase event is not tracked multiple times
-			$purchase_tracked_session_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_purchase_tracked_' . $order_id;
+			$purchase_tracked_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_purchase_tracked_' . $order_id;
 
 			// when saving the order meta data: add a flag to mark the order tracked
 			if ( 'woocommerce_checkout_update_order_meta' === current_action() ) {
-				WC()->session->set( $order_placed_session_flag, 'yes' );
+				set_transient( $order_placed_flag, 'yes', 15 * MINUTE_IN_SECONDS );
 				return;
 			}
 
 			// bail if by the time we are on the thank you page the meta has not been set or we already tracked a Purchase event
-			if ( 'yes' !== WC()->session->get( $order_placed_session_flag, 'no' ) || 'yes' === WC()->session->get( $purchase_tracked_session_flag, 'no' ) ) {
+			if ( 'yes' !== get_transient( $order_placed_flag ) || 'yes' === get_transient( $purchase_tracked_flag ) ) {
 				return;
 			}
 
@@ -957,7 +957,8 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 			$this->inject_subscribe_event( $order_id );
 
 			// mark the order as tracked
-			WC()->session->set( $purchase_tracked_session_flag, 'yes' );
+			set_transient( $purchase_tracked_flag, 'yes', 15 * MINUTE_IN_SECONDS );
+
 		}
 
 		/**
@@ -987,8 +988,8 @@ if ( ! class_exists( 'WC_Facebookcommerce_EventsTracker' ) ) :
 				return;
 			}
 
-			$order_placed_session_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_order_placed_' . $order->get_id();
-			WC()->session->set( $order_placed_session_flag, 'yes' );
+			$order_placed_flag = '_wc_' . facebook_for_woocommerce()->get_id() . '_order_placed_' . $order->get_id();
+			set_transient( $order_placed_flag, 'yes', 15 * MINUTE_IN_SECONDS );
 
 		}
 

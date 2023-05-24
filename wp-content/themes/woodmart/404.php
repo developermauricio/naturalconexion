@@ -16,7 +16,11 @@ get_header(); ?>
 		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'woodmart' ); ?></p>
 
 		<?php
-			woodmart_search_form();
+		woodmart_search_form(
+			array(
+				'post_type' => apply_filters( 'woodmart_404_search_post_type', 'post' ),
+			)
+		);
 		?>
 	</div><!-- .page-content -->
 

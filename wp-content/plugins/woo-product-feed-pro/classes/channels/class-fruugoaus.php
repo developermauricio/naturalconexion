@@ -80,8 +80,8 @@ class WooSEA_fruugoaus {
 					"format" => "optional",
 				),
 				"VAT Rate" => array(
-					"name" => "VatRate",
-					"feed_name" => "VatRate",
+					"name" => "VATRate",
+					"feed_name" => "VATRate",
 					"format" => "required",
 				),
 				"Image URL 2" => array(

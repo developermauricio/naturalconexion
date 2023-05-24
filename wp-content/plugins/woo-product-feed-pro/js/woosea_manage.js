@@ -17,13 +17,15 @@ jQuery(function($) {
 
   	if (get_value == 'woosea_manage_feed') {
 		jQuery(function($) {
-		//$(document).on('ready',function(){
-                        // Check if feed is processing
-                        
-                        jQuery.ajax({
+                     	var nonce = $('#_wpnonce').val();
+
+			jQuery.ajax({
                                 method: "POST",
                                 url: ajaxurl,
-                                data: { 'action': 'woosea_check_processing' }
+                                data: { 
+					'action': 'woosea_check_processing',
+					'security': nonce,
+				}
                         })
                         .done(function( data ) {
 				if(data.processing == "true"){
@@ -33,16 +35,22 @@ jQuery(function($) {
 				}                      
 			})
                         .fail(function( data ) {
-                                console.log('Failed AJAX Call :( /// Return Data: ' + data);
+                
+				console.log('Failed AJAX Call :( /// Return Data: ' + data);
                         });
 		});
 	}
 
 	$(".dismiss-review-notification").on('click', function(){
-	        jQuery.ajax({
+              	var nonce = $('#_wpnonce').val();
+		
+		jQuery.ajax({
                 	method: "POST",
                         url: ajaxurl,
-                        data: { 'action': 'woosea_review_notification' }
+                        data: { 
+				'action': 'woosea_review_notification',
+				'security': nonce,
+			}
                 })
 
 		$(".review-notification").remove();	
@@ -50,6 +58,8 @@ jQuery(function($) {
 	});
 
 	$(".get_elite").on('click', function(e){
+              	var nonce = $('#_wpnonce').val();
+
 		if(e.target.tagName === 'A') return; // clicking on links should not close the div notice
 
 		$(".get_elite").remove();	
@@ -57,11 +67,16 @@ jQuery(function($) {
 	        jQuery.ajax({
                 	method: "POST",
                         url: ajaxurl,
-                        data: { 'action': 'woosea_getelite_notification' }
+                        data: { 
+				'action': 'woosea_getelite_notification',
+				'security': nonce,
+			}
                 })
 	});
 
 	$(".get_elite_activate").on('click', function(e){
+              	var nonce = $('#_wpnonce').val();
+		
 		if(e.target.tagName === 'A') return; // clicking on links should not close the div notice
 
 		$(".get_elite_activate").remove();	
@@ -69,14 +84,17 @@ jQuery(function($) {
 	        jQuery.ajax({
                 	method: "POST",
                         url: ajaxurl,
-                        data: { 'action': 'woosea_getelite_active_notification' }
+                        data: { 
+				'action': 'woosea_getelite_active_notification', 
+				'security': nonce,
+			}
                 })
 	});
 
    	$("td[id=manage_inline]").find("div").parents("tr").hide();
 	$('.checkbox-field').on('change', function(index, obj){
-                var csrfToken = $('#csrfToken').val();
-
+		var nonce = $('#_wpnonce').val();
+		
 		if(get_value == 'woosea_manage_settings' && tab_value == 'woosea_manage_attributes'){
 			var attribute_value = $(this).val();
 			var attribute_name = $(this).attr('name');
@@ -87,7 +105,7 @@ jQuery(function($) {
                	         	url: ajaxurl,
                         	data: { 
 					'action': 'woosea_add_attributes', 
-					'security': csrfToken,
+					'security': nonce,
 					'attribute_name': attribute_name, 
 					'attribute_value': attribute_value, 
 					'active': attribute_status 
@@ -102,6 +120,7 @@ jQuery(function($) {
                	         	url: ajaxurl,
                         	data: { 
 					'action': 'woosea_project_status', 
+					'security': nonce,
 					'project_hash': project_hash, 
 					'active': project_status 
 				}
@@ -125,6 +144,7 @@ jQuery(function($) {
 	// Check if user would like to use mother image for variations
 	$('#add_mother_image').on('change', function(){ // on change of state
 		var nonce = $('#_wpnonce').val();
+
 		if(this.checked){
 			// Checkbox is on
                 	jQuery.ajax({
@@ -348,12 +368,18 @@ jQuery(function($) {
 
 	// Check if user would like to add a Facebook Pixel to their website
 	$('#woosea_content_ids').on('change', function(){ // on change of state
+		var nonce = $('#_wpnonce').val();
+		
 		var content_ids = $('#woosea_content_ids').val();
 		if(content_ids){
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_facebook_content_ids', 'content_ids': content_ids }
+                        	data: { 
+					'action': 'woosea_facebook_content_ids', 
+					'security': nonce,
+					'content_ids': content_ids 
+				}
                 	})
 		}
 	})
@@ -441,6 +467,7 @@ jQuery(function($) {
 
 	// Check if user would like to change the batch size 
 	$('#add_batch').on('change', function(){ // on change of state
+		var nonce = $('#_wpnonce').val();
    		if(this.checked){
 
                         var popup_dialog = confirm("Are you sure you want to change the batch size?\n\nChanging the batch size could seriously effect the performance of your website. We advise against changing the batch size if you are unsure about its effects!\n\nPlease reach out to support@adtribes.io when you would like to receive some help with this feature.");
@@ -449,7 +476,11 @@ jQuery(function($) {
         	        	jQuery.ajax({
                 	        	method: "POST",
                         		url: ajaxurl,
-                        		data: { 'action': 'woosea_add_batch', 'status': "on" }
+                        		data: { 
+						'action': 'woosea_add_batch', 
+						'security': nonce,
+						'status': "on" 
+					}
                 		})
 				.done(function( data ) {
 					$('#batch').after('<tr id="woosea_batch_size"><td colspan="2"><span>Insert batch size:</span>&nbsp;<input type=\"hidden\" name=\"nonce_batch\" id=\"nonce_batch\" value=\"'+ nonce +'\"><input type="text" class="input-field-medium" id="batch_size" name="batch_size">&nbsp;<input type="submit" id="save_batch_size" value="Save"></td></tr>');	
@@ -463,7 +494,11 @@ jQuery(function($) {
                 	jQuery.ajax({
                         	method: "POST",
                         	url: ajaxurl,
-                        	data: { 'action': 'woosea_add_batch', 'status': "off" }
+                        	data: { 
+					'action': 'woosea_add_batch', 
+					'security': nonce,
+					'status': "off" 
+				}
                 	})
 			.done(function( data ) {
 				$('#woosea_batch_size').remove();	
@@ -548,9 +583,9 @@ jQuery(function($) {
 		var nonce = $('#_wpnonce').val();
 		var adwords_conversion_id = $('#adwords_conv_id').val();
 	        var re = /^[0-9,-]*$/;
-                
 		var woosea_valid_conversion_id=re.test(adwords_conversion_id);
-                // Check for allowed characters
+                
+		// Check for allowed characters
                 if (!woosea_valid_conversion_id){
                         $('.notice').replaceWith("<div class='notice notice-error woosea-notice-conversion is-dismissible'><p>Sorry, only numbers are allowed for your Dynamic Remarketing Conversion tracking ID.</p></div>");
                         // Disable submit button too
@@ -635,6 +670,7 @@ jQuery(function($) {
 		var idsplit = id.split('_');
 		var project_hash = idsplit[1];
 		var action = idsplit[0];		
+ 		var nonce = $('#_wpnonce').val();
 
 		if (action == "gear"){
     			$("tr").not(':first').click(
@@ -646,13 +682,16 @@ jQuery(function($) {
 		}
 
 		if (action == "copy"){
-
 			var popup_dialog = confirm("Are you sure you want to copy this feed?");
 			if (popup_dialog == true){
        			jQuery.ajax({
                 			method: "POST",
                        	 		url: ajaxurl,
-                        		data: { 'action': 'woosea_project_copy', 'project_hash': project_hash }
+                        		data: { 
+						'action': 'woosea_project_copy', 
+						'security': nonce,
+						'project_hash': project_hash 
+					}
                 		})
 
                         	.done(function( data ) {
@@ -670,7 +709,11 @@ jQuery(function($) {
         			jQuery.ajax({
                 			method: "POST",
                        	 		url: ajaxurl,
-                        		data: { 'action': 'woosea_project_delete', 'project_hash': project_hash }
+                        		data: { 
+						'action': 'woosea_project_delete', 
+						'security': nonce,
+						'project_hash': project_hash 
+					}
                 		})
 	
             			$("table tbody").find('input[name="manage_record"]').each(function(){
@@ -689,7 +732,11 @@ jQuery(function($) {
         			jQuery.ajax({
                 			method: "POST",
                        	 		url: ajaxurl,
-                        		data: { 'action': 'woosea_project_cancel', 'project_hash': project_hash }
+                        		data: { 
+						'action': 'woosea_project_cancel', 
+						'security': nonce,
+						'project_hash': project_hash 
+					}
                 		})
 	
 				// Replace status of project to stop processing
@@ -712,7 +759,11 @@ jQuery(function($) {
         			jQuery.ajax({
                 			method: "POST",
                        	 		url: ajaxurl,
-                        		data: { 'action': 'woosea_project_refresh', 'project_hash': project_hash }
+                        		data: { 
+						'action': 'woosea_project_refresh', 
+						'security': nonce,
+						'project_hash': project_hash 
+					}
                 		})
 
 				// Replace status of project to processing
@@ -742,13 +793,18 @@ jQuery(function($) {
 
 	function woosea_check_perc(){
   		// Check if we need to UP the processing percentage
+		var nonce = $('#_wpnonce').val();
 
 		$("table tbody").find('input[name="manage_record"]').each(function(){
        	        	var hash = this.value;
 			jQuery.ajax({
 				method: "POST",
                       	 	url: ajaxurl,
-                       		data: { 'action': 'woosea_project_processing_status', 'project_hash': hash },
+                       		data: { 
+					'action': 'woosea_project_processing_status', 
+					'security': nonce,
+					'project_hash': hash 
+				},
 				success: function(data) {
 	                        	data = JSON.parse( data );
 
@@ -774,7 +830,10 @@ jQuery(function($) {
         	     	jQuery.ajax({
                 		method: "POST",
                        		url: ajaxurl,
-                       		data: { 'action': 'woosea_check_processing' }
+                       		data: { 
+					'action': 'woosea_check_processing', 
+					'security': nonce,
+				}
             	  	})
               		.done(function( data ) {
 				data = JSON.parse( data );

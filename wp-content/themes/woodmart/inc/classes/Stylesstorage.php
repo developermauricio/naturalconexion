@@ -103,13 +103,13 @@ class WOODMART_Stylesstorage {
 	public function get_file_path( $path ) {
 		$uploads = wp_upload_dir();
 
-		return $uploads['basedir'] . $path;
+		return set_url_scheme( $uploads['basedir'] . $path );
 	}
 
 	public function get_file_url( $url ) {
 		$uploads = wp_upload_dir();
 
-		return $uploads['baseurl'] . $url;
+		return set_url_scheme( $uploads['baseurl'] . $url );
 	}
 
 	/**
@@ -119,6 +119,16 @@ class WOODMART_Stylesstorage {
 	 */
 	public function is_css_exists() {
 		return $this->is_css_exists;
+	}
+
+	public function print_styles_inline() {
+		if ( $this->is_file_exists ) {
+			?>
+			<link rel="stylesheet" id="xts-style-<?php echo esc_attr( $this->data_name ); ?>-css" href="<?php echo esc_attr( $this->get_file_url( $this->data['path'] ) ); ?>?ver=<?php echo esc_attr( $this->current_theme_version ); ?>" type="text/css" media="all">  <?php // phpcs:ignore ?>
+			<?php
+		} else {
+			$this->inline_css();
+		}
 	}
 
 	/**
@@ -131,10 +141,6 @@ class WOODMART_Stylesstorage {
 			add_action( 'wp_enqueue_scripts', array( $this, 'file_css' ), 11000 );
 		} else {
 			add_action( 'wp_head', array( $this, 'inline_css' ), 10000 );
-		}
-
-		if ( ! woodmart_get_opt( 'disable_gutenberg_css' ) ) {
-			add_action( 'enqueue_block_editor_assets', array( $this, 'inline_css' ), 10000 );
 		}
 	}
 
@@ -155,9 +161,10 @@ class WOODMART_Stylesstorage {
 	 * @since 1.0.0
 	 */
 	public function inline_css() {
-		if ( $this->css ) {
+		if ( trim( $this->css ) ) {
 			?>
-			<style data-type="wd-style-<?php echo esc_attr( $this->data_name ); ?>">
+			<style id="wd-style-<?php echo esc_attr( $this->data_name ); ?>-css" data-type="wd-style-<?php
+			echo esc_attr( $this->data_name ); ?>">
 				<?php echo $this->css; // phpcs:ignore ?>
 			</style>
 			<?php
@@ -183,7 +190,12 @@ class WOODMART_Stylesstorage {
 	 * @param bool $is_frontend
 	 */
 	public function write( $css, $is_frontend = false ) {
-		if ( ! $css ) {
+		if ( ! trim( $css ) ) {
+			$this->css = $css;
+			$this->update_data(
+				'xts-' . $this->data_name . '-css-data',
+				$css
+			);
 			return;
 		}
 
@@ -316,7 +328,7 @@ class WOODMART_Stylesstorage {
 	 */
 	public function get_file_info( $data_name ) {
 		$uploads = wp_upload_dir();
-		return $uploads['subdir'] . '/' . 'xts-' . $data_name . '-' . time() . '.css';
+		return set_url_scheme( $uploads['subdir'] . '/' . 'xts-' . $data_name . '-' . time() . '.css' );
 	}
 
 	/**

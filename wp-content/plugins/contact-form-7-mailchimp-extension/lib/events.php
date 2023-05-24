@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,14 +18,19 @@
 
 
 
+
 function vc_gaParseCookie() {
 
 	if (isset($_COOKIE['_ga'])) {
+
 		list($version, $domainDepth, $cid1, $cid2) = explode('.', $_COOKIE["_ga"], 4);
 		$contents = array('version' => $version, 'domainDepth' => $domainDepth, 'cid' => $cid1 . '.' . $cid2);
 		$cid = $contents['cid'];
+
 	} else {
+
 		$cid = vc_gaGenerateUUID();
+
 	}
 	return $cid;
 
@@ -68,8 +73,8 @@ function vc_ga_send_pageview($hostname=null, $page=null, $title=null) { //Send P
 		'dp' => $page, //Page "/something"
 		'dt' => $title //Title
 	);
-	return vc_gaSendData($data);
 
+	return vc_gaSendData($data);
 }
 
 
@@ -84,6 +89,6 @@ function vc_ga_send_event($category=null, $action=null, $label=null) { //Send Ev
 		'ea' => $action, //Action (Required)
 		'el' => $label //Label
 	);
-	return vc_gaSendData($data);
 
+	return vc_gaSendData($data);
 }

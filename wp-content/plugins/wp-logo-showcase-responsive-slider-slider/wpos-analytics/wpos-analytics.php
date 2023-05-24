@@ -134,7 +134,7 @@ final class WPOS_Analytics {
  * Use this function like you would a global variable, except without needing
  * to declare the global.
  *
- * Example: <?php $wpos_anylc = WPOS_ANYLC(); ?>
+ * Example: $wpos_anylc = WPOS_ANYLC();
  *
  * @since 1.0
  * @return object The one true Analytics Instance.

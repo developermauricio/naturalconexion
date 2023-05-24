@@ -8,9 +8,17 @@
 
 @import "base/element-icons";
 
-@import "elements/tooltip";
+@import "controls/tooltip";
 
-@import "elements/buttons-set";
+@import "controls/buttons-set";
+
+@import "elements/filters-area";
+
+@import "elements/stock-status";
+
+@import "elements/button";
+
+@import "elements/notices";
 
 // ------------------------------------------------------------------------------------------------
 // ELEMENTOR EDITOR SIDEBAR
@@ -40,14 +48,15 @@
 	-webkit-box-ordinal-group: 2;
 }
 
-#elementor-panel-category-wd-elements {
-	-ms-flex-order: -1;
-	order: -1;
+// #elementor-panel-category-wd-elements {
+// 	-ms-flex-order: -1;
+// 	order: -1;
 
-	-webkit-box-ordinal-group: 1;
-}
+// 	-webkit-box-ordinal-group: 1;
+// }
 
-#elementor-panel-category-wd-elements {
+#elementor-panel-category-favorites,
+div[id*="elementor-panel-category-wd-"] {
 	-ms-flex-order: 0;
 	order: 0;
 
@@ -81,6 +90,19 @@
 			animation: xts-fade-in .3s ease;
 
 			animation-fill-mode: initial;
+		}
+	}
+}
+
+.elementor-control-list_type {
+
+	~ .elementor-control-type-media {
+
+		~ .elementor-control-type-icons {
+
+			.elementor-control-svg-uploader {
+				display: none;
+			}
 		}
 	}
 }
@@ -183,8 +205,8 @@
 		&.anim-distortion {
 
 			.wd-slide-container {
-				pointer-events: auto;
 				opacity: 1;
+				pointer-events: auto;
 			}
 		}
 	}
@@ -202,7 +224,7 @@
 //**** FIX ROW SETTINGS WHEN HEADER IS OVERLAP ****//
 
 .elementor-section--handles-inside > .elementor-element-overlay .elementor-editor-element-settings {
-	display: flex!important;
+	display: flex !important;
 }
 
 //**** HTML BLOCK COLOR SWITCHER ****//
@@ -249,9 +271,32 @@
 
 .elementor-html {
 
-	.wd-sticky-social {
+	.wd-sticky-social,
+	.wd-sticky-nav {
 		display: none;
 	}
+
+	.wd-sticky-nav-enabled {
+		--wd-sticky-nav-w: .001px;
+	}
+}
+
+//**** OFF CANVAS COLUMN ****//
+
+.elementor-editor-active {
+
+	.elementor-column {
+
+		&.wd-side-hidden {
+			z-index: 99999;
+		}
+	}
+}
+
+//**** FIX LAST CHILD WITH ELEMENTOR INLINE EDITING ****//
+
+.reset-last-child .elementor-inline-editing > *:last-child {
+	margin-bottom: 0;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -259,7 +304,7 @@
 // ------------------------------------------------------------------------------------------------
 
 .xts-library-modal-btn {
-	margin-left: 5px;
+	// margin-left: 5px;
 	background-color: #0F4C81;
 	vertical-align: top;
 	font-size: 0 !important;
@@ -275,16 +320,16 @@
 	}
 
 	.rtl & {
-		margin-left: 0;
 		margin-right: 5px;
+		margin-left: 0;
 	}
 }
 
 #xts-library-modal {
 
 	.xts-elementor-template-library-template-name {
-		text-align: right;
 		flex: 1 0 0%;
+		text-align: right;
 	}
 }
 

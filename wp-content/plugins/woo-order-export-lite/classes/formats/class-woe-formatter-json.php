@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WOE_Formatter_Json extends WOE_Formatter {
 	var $prev_added = false;
-	var $formatting_flags = NULL;
+	var $formatting_flags = 0;
 
 	public function __construct(
 		$mode,
@@ -95,7 +95,7 @@ class WOE_Formatter_Json extends WOE_Formatter {
 				$rec_out[ $label ] = $field_value;
 			}
 		}
-
+		
 		$json = json_encode($rec_out, $this->formatting_flags);
 
 		if ( $this->has_output_filter ) {

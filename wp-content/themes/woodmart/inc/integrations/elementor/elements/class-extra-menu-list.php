@@ -3,6 +3,8 @@
  * Extra menu list map
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -73,7 +75,7 @@ class Extra_Menu_List extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab
 		 */
@@ -417,6 +419,7 @@ class Extra_Menu_List extends Widget_Base {
 
 		$link_attrs = woodmart_get_link_attrs( $settings['link'] );
 
+		woodmart_enqueue_inline_style( 'mod-nav-menu-label' );
 		?>
 			<ul <?php echo $this->get_render_attribute_string( 'parent_ul' ); ?>>
 				<li <?php echo $this->get_render_attribute_string( 'parent_li' ); ?>>
@@ -501,4 +504,4 @@ class Extra_Menu_List extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Extra_Menu_List() );
+Plugin::instance()->widgets_manager->register( new Extra_Menu_List() );

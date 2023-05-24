@@ -28,7 +28,7 @@
 								<button class="wpfc-green-button">Create a StackPath Account</button>
 							</a>
 					    </div>
-					    <p class="wpfc-bottom-note" style="margin-bottom:-10px;"><a target="_blank" href="https://www.maxcdn.com/one/tutorial/implementing-cdn-on-wordpress-with-wp-fastest-cache/">Note: Please read How to Integrate StackPath into WP Fastest Cache</a></p>
+					    <p class="wpfc-bottom-note" style="margin-bottom:-10px;"><a target="_blank" href="https://support.stackpath.com/hc/en-us/articles/360001058243-WordPress-with-WP-Fastest-Cache-StackPath-CDN-Setup-Guide">Note: Please read How to Integrate StackPath into WP Fastest Cache</a></p>
 					</div>
 					<div wpfc-cdn-page="2" class="wiz-cont" style="display:none">
 						<h1>Enter CDN Url</h1>		

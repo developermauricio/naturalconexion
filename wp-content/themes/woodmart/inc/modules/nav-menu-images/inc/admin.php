@@ -282,7 +282,7 @@ class Nav_Menu_Images_Admin extends Nav_Menu_Images {
 
     function custom_fields_save($menu_id, $menu_item_db_id, $args ) {
 		//ar($_REQUEST);
-		$fields = array('design', 'width', 'height', 'icon', 'event', 'label', 'label-text', 'block', 'dropdown-ajax', 'colorscheme', 'opanchor');
+		$fields = array( 'design', 'width', 'height', 'icon', 'event', 'label', 'label-text', 'block', 'dropdown-ajax', 'colorscheme', 'opanchor', 'image-type', 'style_aside', 'scroll' );
 		for ($i=0; $i < count($fields); $i++) { 
 			$key = 'menu-item-' . $fields[$i];
 		    if ( isset($_REQUEST[$key]) && isset($_REQUEST[$key][$menu_item_db_id]) && !empty($_REQUEST[$key]) && is_array($_REQUEST[$key]) ) {

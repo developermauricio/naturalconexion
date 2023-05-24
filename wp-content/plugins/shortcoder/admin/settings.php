@@ -65,6 +65,17 @@ class SC_Admin_Settings{
                 'helper' => __( 'The default shortcode content when creating new shortcodes', 'shortcoder' )
             ))),
 
+            array( __( 'Show content in "All shortcodes" page', 'shortcoder' ), SC_Admin_Form::field( 'select', array(
+                'value' => $settings[ 'list_content' ],
+                'name' => 'sc_list_content',
+                'list' => array(
+                    'no' => __( 'Hidden', 'shortcoder' ),
+                    '100' => __( '100 characters', 'shortcoder' ),
+                    '200' => __( '200 characters', 'shortcoder' )
+                ),
+                'helper' => __( 'List the shortcode content in "All shortcodes" page.', 'shortcoder' )
+            ))),
+
         );
 
         echo '<form method="post">';

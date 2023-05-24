@@ -33,10 +33,37 @@ if ( ! function_exists( 'woodmart_size_guide_shortcode' ) ) {
 			return '';
 		}
 
-		$id = apply_filters( 'wpml_object_id', $element_args['id'], 'woodmart_size_guide', true );
+		$id = $element_args['id'];
+
+		if ( 'inherit' === $id ) {
+			global $post;
+
+			$sguide_post_id = get_post_meta( $post->ID, 'woodmart_sguide_select' );
+			if ( ! empty( $sguide_post_id[0] ) && 'none' !== $sguide_post_id[0] ) {
+				$id = $sguide_post_id[0];
+			} else {
+				$terms = wp_get_post_terms( $post->ID, 'product_cat' );
+				if ( $terms ) {
+					foreach ( $terms as $term ) {
+						if ( get_term_meta( $term->term_id, 'woodmart_chosen_sguide', true ) ) {
+							$id = get_term_meta( $term->term_id, 'woodmart_chosen_sguide', true );
+						}
+					}
+				}
+			}
+		}
 
 		$sguide_post = get_post( $id );
-		$size_tables = get_post_meta( $id, 'woodmart_sguide' );
+
+		if ( ! $sguide_post || 'inherit' === $id ) {
+			return '';
+		}
+
+		$size_tables = get_post_meta( $sguide_post->ID, 'woodmart_sguide' );
+
+		if ( ! $size_tables ) {
+			return '';
+		}
 
 		ob_start();
 		?>

@@ -105,10 +105,13 @@
 											    				<option value="startwith"><?php _e("Starts With", "wp-fastest-cache"); ?></option>
 											    				<option value="contain"><?php _e("Contains", "wp-fastest-cache"); ?></option>
 											    				<option value="exact"><?php _e("Is Equal To", "wp-fastest-cache"); ?></option>
+
+											    				<option value="regex">Regular Expression</option>
 										    				</optgroup>
 
 										    				<optgroup label="Special">
 										    					<option value="googleanalytics"><?php _e("has Google Analytics Parameters", "wp-fastest-cache"); ?></option>
+										    					<option value="yandexclickid"><?php _e("has Yandex Click ID Parameters", "wp-fastest-cache"); ?></option>		
 										    					<option value="woocommerce_items_in_cart"><?php _e("has Woocommerce Items in Cart", "wp-fastest-cache"); ?></option>
 										    				</optgroup>
 
@@ -192,7 +195,7 @@
 				var clone_modal_id = "wpfc-modal-exclude-" + new Date().getTime();
 
 				clone_modal.find("select").change(function(e){
-					if(jQuery(this).val().match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|woocommerce_items_in_cart)$/)){
+					if(jQuery(this).val().match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|yandexclickid|woocommerce_items_in_cart)$/)){
 						clone_modal.find("input[name='wpfc-exclude-rule-content']").closest("td").hide();
 						clone_modal.find("input[name='wpfc-exclude-rule-content']").val(jQuery(this).val());
 
@@ -208,7 +211,7 @@
 				});
 
 
-				if(e.prefix.match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|woocommerce_items_in_cart)$/)){
+				if(e.prefix.match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|yandexclickid|woocommerce_items_in_cart)$/)){
 					clone_modal.find("input[name='wpfc-exclude-rule-content']").closest("td").hide();
 
 					clone_modal.find("select").closest("td").width(395);
@@ -319,6 +322,10 @@
 				title = "Start With: " + content;
 			}else if(prefix == "contain"){
 				title = "Contains: " + content;
+
+			}else if(prefix == "regex"){
+				title = "Regex: /" + content + "/i";
+
 			}else if(prefix == "homepage"){
 				title = "Home Page";
 			}else if(prefix == "tag"){
@@ -335,6 +342,10 @@
 				title = "Attachments";
 			}else if(prefix == "googleanalytics"){
 				title = "Google Analytics Parameters";
+
+			}else if(prefix == "yandexclickid"){
+				title = "Yandex Click ID";
+
 			}else if(prefix == "woocommerce_items_in_cart"){
 				title = "Woocommerce Items in Cart";
 			}
@@ -357,7 +368,7 @@
 				}
 
 				if(type == "page" || type == "css" || type == "js"){
-					if(prefix.match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|woocommerce_items_in_cart)$/)){
+					if(prefix.match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|yandexclickid|woocommerce_items_in_cart)$/)){
 						if(prefix == "homepage"){
 							return "The " + b_start + "homepage" + b_end + " has been excluded";
 						}else{
@@ -427,7 +438,7 @@
 
 
 				clone_modal.find("select").change(function(){
-					if(jQuery(this).val().match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|woocommerce_items_in_cart)$/)){
+					if(jQuery(this).val().match(/^(homepage|category|tag|archive|post|page|attachment|googleanalytics|yandexclickid|woocommerce_items_in_cart)$/)){
 						clone_modal.find("input[name='wpfc-exclude-rule-content']").closest("td").hide();
 						clone_modal.find("input[name='wpfc-exclude-rule-content']").val(jQuery(this).val());
 

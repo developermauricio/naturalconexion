@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-One package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-26 04:56:10+0000\n"
+"PO-Revision-Date: 2023-03-30 11:21:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
 "Language: es\n"
 "Project-Id-Version: Themes - Twenty Twenty-One\n"
 
@@ -32,8 +32,8 @@ msgstr "Entradas <span class=\"nav-short\">siguientes</span>"
 
 #: classes/class-twenty-twenty-one-customize-notice-control.php:40
 #: classes/class-twenty-twenty-one-dark-mode.php:178
-msgid "https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support"
-msgstr "https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support"
+msgid "https://wordpress.org/documentation/article/twenty-twenty-one/#dark-mode-support"
+msgstr "https://wordpress.org/documentation/article/twenty-twenty-one/#dark-mode-support"
 
 #. translators: %s: Twenty Twenty-One support article URL.
 #: classes/class-twenty-twenty-one-dark-mode.php:177
@@ -197,7 +197,8 @@ msgstr "Modo oscuro: %s"
 msgid "This content is password protected. Please enter a password to view."
 msgstr "Este contenido está protegido con contraseña. Por favor, introduce la contraseña para verlo."
 
-#: inc/menu-functions.php:34
+#. translators: Hidden accessibility text.
+#: inc/menu-functions.php:35
 msgid "Open menu"
 msgstr "Abrir el menú"
 
@@ -425,7 +426,7 @@ msgid ", "
 msgstr ", "
 
 #. translators: %s: Post title. Only visible to screen readers.
-#: image.php:70 image.php:95 inc/template-tags.php:92 inc/template-tags.php:133
+#: image.php:70 image.php:96 inc/template-tags.php:92 inc/template-tags.php:133
 #: template-parts/content/content-page.php:48
 msgid "Edit %s"
 msgstr "Editar %s"
@@ -543,7 +544,8 @@ msgstr "Un nuevo tema por defecto de porfolio para WordPress"
 msgid "Large text"
 msgstr "Texto grande"
 
-#: image.php:83
+#. translators: Hidden accessibility text.
+#: image.php:84
 msgctxt "Used before full size attachment link."
 msgid "Full size"
 msgstr "Tamaño completo"
@@ -573,7 +575,8 @@ msgstr "Menú"
 msgid "Primary menu"
 msgstr "Menú principal"
 
-#: header.php:26
+#. translators: Hidden accessibility text.
+#: header.php:29
 msgid "Skip to content"
 msgstr "Saltar al contenido"
 

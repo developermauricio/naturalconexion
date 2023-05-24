@@ -6,6 +6,10 @@
 		var closeSide = $('.wd-close-side');
 
 		$('.login-side-opener').on('click', function(e) {
+			if (!loginFormSide.length) {
+				return
+			}
+
 			e.preventDefault();
 
 			if (isOpened()) {
@@ -56,7 +60,7 @@
 		};
 	};
 
-	woodmartThemeModule.$window.on('wdEventStarted', function() {
+	$(document).ready(function() {
 		woodmartThemeModule.loginSidebar();
 	});
 })(jQuery);

@@ -3,7 +3,7 @@ Contributors: coordinadora
 Tags: commerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, Colombia, coordinadora, envios
 Donate link: https://www.coordinadora.com/
 Requires at least: 5.5.3
-Tested up to: 6.1.1
+Tested up to: 6.2.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0
@@ -177,6 +177,9 @@ Un aspecto que es importante que tengas en cuenta, es que en caso que nos hagas 
 10. Información de guías para envío
 
 == Changelog ==
+
+= 1.1.15 =
+* Se prueba en la versión 7.5.1 de wc y wordpress 6.2.
 
 = 1.1.13 =
 * Se actualiza el readme

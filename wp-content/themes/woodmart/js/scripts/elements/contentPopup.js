@@ -8,6 +8,10 @@
 		});
 	});
 
+	woodmartThemeModule.$document.on('wdShopPageInit', function() {
+		woodmartThemeModule.contentPopup();
+	});
+
 	woodmartThemeModule.contentPopup = function() {
 		if ('undefined' === typeof $.fn.magnificPopup) {
 			return;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="28" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/index.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="990" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/author-bio.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="7863" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/content.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="658" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/inc/integrations/woocommerce/template-tags.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1812" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/header.php" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>

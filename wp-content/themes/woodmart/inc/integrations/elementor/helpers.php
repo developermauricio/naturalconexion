@@ -25,17 +25,18 @@ if ( ! function_exists( 'woodmart_elementor_get_content_css' ) ) {
 	 * @return string
 	 */
 	function woodmart_elementor_get_content_css( $id ) {
-		$post = new Elementor\Core\Files\CSS\Post( $id );
-		$meta = $post->get_meta();
+		$post    = new Elementor\Core\Files\CSS\Post( $id );
+		$meta    = $post->get_meta();
+		$content = $post->get_content();
 
 		ob_start();
 
-		if ( $post::CSS_STATUS_FILE === $meta['status'] && apply_filters( 'woodmart_elementor_content_file_css', true ) ) {
+		if ( $post::CSS_STATUS_FILE === $meta['status'] && apply_filters( 'woodmart_elementor_content_file_css', true ) && ! woodmart_is_woo_ajax() ) {
 			?>
 			<link rel="stylesheet" id="elementor-post-<?php echo esc_attr( $id ); ?>-css" href="<?php echo esc_url( $post->get_url() ); ?>" type="text/css" media="all">
 			<?php
 		} else {
-			echo '<style>' . $post->get_content() . '</style>';
+			echo '<style>' . $content . '</style>';
 			Plugin::$instance->frontend->print_fonts_links();
 		}
 

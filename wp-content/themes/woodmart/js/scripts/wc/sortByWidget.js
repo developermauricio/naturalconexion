@@ -39,4 +39,8 @@
 	$(document).ready(function() {
 		woodmartThemeModule.sortByWidget();
 	});
+
+	window.addEventListener('popstate', function() {
+		woodmartThemeModule.sortByWidget();
+	});
 })(jQuery);

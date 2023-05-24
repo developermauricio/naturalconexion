@@ -37,7 +37,7 @@ if ( ! function_exists( 'woodmart_vg_admin_html' ) ) {
 
 						echo '<li class="image" data-attachment_id="' . esc_attr( $attachment_id ) . '">';
 							echo '<img src="' . esc_url( $image[0] ) . '">';
-							echo '<a href="#" class="delete woodmart-remove-variation-gallery-image" aria-label="' . esc_attr_e( 'Remove variation gallery image', 'woodmart' ) . '"><span class="dashicons dashicons-dismiss"></span></a>';
+							echo '<a href="#" class="delete woodmart-remove-variation-gallery-image" aria-label="' . esc_attr_e( 'Remove variation gallery image', 'woodmart' ) . '"><span class="xts-i-close"></span></a>';
 						echo '</li>';
 					}
 				}
@@ -226,7 +226,7 @@ if ( ! function_exists( 'woodmart_get_vg_image_data' ) ) {
 
 		woodmart_lazy_loading_init();
 
-		return $output;
+		return apply_filters( 'woodmart_get_single_product_image_data', $output, $attachment_id );
 	}
 }
 

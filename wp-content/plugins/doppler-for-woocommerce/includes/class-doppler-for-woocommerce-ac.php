@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			$product_description = $item->get_description();
 			$product_link = $item->get_permalink();
 			$product_quantity = $product['quantity'];
-			$product_variation_price = $product['line_total'];
+			$product_variation_price = wc_get_price_including_tax($item);
 			
 			// Handling product variations
 			if($product['variation_id']){ //If user has chosen a variation

@@ -1,11 +1,10 @@
 (function($) {
 	var $panel = $('#vc_ui-panel-edit-element');
-
 	$panel.on('vcPanel.shown', function() {
 		$wrapperPanel = $(this);
 
 		$('.vc_wrapper-param-type-css_editor .vc_layout-onion').addClass('xts-active');
-		$('.wd-spacing-devices > span').on('click', function() {
+		$('.xts-layout-onion-tabs > span').on('click', function() {
 			var $this = $(this);
 			var device = $this.data('value');
 

@@ -1,17 +1,17 @@
 /*
-     _ _      _       _
+ _ _      _       _
  ___| (_) ___| | __  (_)___
-/ __| | |/ __| |/ /  | / __|
-\__ \ | | (__|   < _ | \__ \
-|___/_|_|\___|_|\_(_)/ |___/
-                   |__/
+ / __| | |/ __| |/ /  | / __|
+ \__ \ | | (__|   < _ | \__ \
+ |___/_|_|\___|_|\_(_)/ |___/
+ |__/
 
  Version: 1.6.0
-  Author: Ken Wheeler
+ Author: Ken Wheeler
  Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
-  Issues: http://github.com/kenwheeler/slick/issues
+ Docs: http://kenwheeler.github.io/slick
+ Repo: http://github.com/kenwheeler/slick
+ Issues: http://github.com/kenwheeler/slick/issues
 
  */
 /* global window, document, define, jQuery, setInterval, clearInterval */
@@ -1011,19 +1011,19 @@
             .on('focus.slick blur.slick',
                 '*:not(.slick-arrow)', function(event) {
 
-            event.stopImmediatePropagation();
-            var $sf = $(this);
+                    event.stopImmediatePropagation();
+                    var $sf = $(this);
 
-            setTimeout(function() {
+                    setTimeout(function() {
 
-                if( _.options.pauseOnFocus ) {
-                    _.focussed = $sf.is(':focus');
-                    _.autoPlay();
-                }
+                        if( _.options.pauseOnFocus ) {
+                            _.focussed = $sf.is(':focus');
+                            _.autoPlay();
+                        }
 
-            }, 0);
+                    }, 0);
 
-        });
+                });
     };
 
     Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
@@ -1286,21 +1286,24 @@
         _.$slideTrack.attr('role', 'listbox');
 
         _.$slides.not(_.$slideTrack.find('.slick-cloned')).each(function(i) {
-            $(this).attr({
-                'role': 'option',
-                'aria-describedby': 'slick-slide' + _.instanceUid + i + ''
-            });
+            $(this).attr('role', 'option');
+
+            if (_.options.dots === true) {
+                $(this).attr({
+                    'aria-describedby': 'slick-slide' + _.instanceUid + i + ''
+                });
+            }
         });
 
         if (_.$dots !== null) {
             _.$dots.attr('role', 'tablist').find('li').each(function(i) {
-                $(this).attr({
-                    'role': 'presentation',
-                    'aria-selected': 'false',
-                    'aria-controls': 'navigation' + _.instanceUid + i + '',
-                    'id': 'slick-slide' + _.instanceUid + i + ''
-                });
-            })
+                    $(this).attr({
+                        'role': 'presentation',
+                        'aria-selected': 'false',
+                        'aria-controls': 'navigation' + _.instanceUid + i + '',
+                        'id': 'slick-slide' + _.instanceUid + i + ''
+                    });
+                })
                 .first().attr('aria-selected', 'true').end()
                 .find('button').attr('role', 'button').end()
                 .closest('div').attr('role', 'toolbar');
@@ -1315,15 +1318,15 @@
 
         if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
             _.$prevArrow
-               .off('click.slick')
-               .on('click.slick', {
+                .off('click.slick')
+                .on('click.slick', {
                     message: 'previous'
-               }, _.changeSlide);
+                }, _.changeSlide);
             _.$nextArrow
-               .off('click.slick')
-               .on('click.slick', {
+                .off('click.slick')
+                .on('click.slick', {
                     message: 'next'
-               }, _.changeSlide);
+                }, _.changeSlide);
         }
 
     };
@@ -1428,7 +1431,7 @@
     Slick.prototype.keyHandler = function(event) {
 
         var _ = this;
-         //Dont slide if the cursor is inside the form fields and arrow keys are pressed
+        //Dont slide if the cursor is inside the form fields and arrow keys are pressed
         if(!event.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
             if (event.keyCode === 37 && _.options.accessibility === true) {
                 _.changeSlide({
@@ -1994,102 +1997,102 @@
     };
 
     Slick.prototype.setOption =
-    Slick.prototype.slickSetOption = function() {
+        Slick.prototype.slickSetOption = function() {
 
-        /**
-         * accepts arguments in format of:
-         *
-         *  - for changing a single option's value:
-         *     .slick("setOption", option, value, refresh )
-         *
-         *  - for changing a set of responsive options:
-         *     .slick("setOption", 'responsive', [{}, ...], refresh )
-         *
-         *  - for updating multiple values at once (not responsive)
-         *     .slick("setOption", { 'option': value, ... }, refresh )
-         */
+            /**
+             * accepts arguments in format of:
+             *
+             *  - for changing a single option's value:
+             *     .slick("setOption", option, value, refresh )
+             *
+             *  - for changing a set of responsive options:
+             *     .slick("setOption", 'responsive', [{}, ...], refresh )
+             *
+             *  - for updating multiple values at once (not responsive)
+             *     .slick("setOption", { 'option': value, ... }, refresh )
+             */
 
-        var _ = this, l, item, option, value, refresh = false, type;
+            var _ = this, l, item, option, value, refresh = false, type;
 
-        if( typeof arguments[0] === 'object' ) {
+            if( typeof arguments[0] === 'object' ) {
 
-            option =  arguments[0];
-            refresh = arguments[1];
-            type = 'multiple';
+                option =  arguments[0];
+                refresh = arguments[1];
+                type = 'multiple';
 
-        } else if ( typeof arguments[0] === 'string' ) {
+            } else if ( typeof arguments[0] === 'string' ) {
 
-            option =  arguments[0];
-            value = arguments[1];
-            refresh = arguments[2];
+                option =  arguments[0];
+                value = arguments[1];
+                refresh = arguments[2];
 
-            if ( arguments[0] === 'responsive' && typeof arguments[1] === 'array' ) {
+                if ( arguments[0] === 'responsive' && typeof arguments[1] === 'array' ) {
 
-                type = 'responsive';
+                    type = 'responsive';
 
-            } else if ( typeof arguments[1] !== 'undefined' ) {
+                } else if ( typeof arguments[1] !== 'undefined' ) {
 
-                type = 'single';
-
-            }
-
-        }
-
-        if ( type === 'single' ) {
-
-            _.options[option] = value;
-
-
-        } else if ( type === 'multiple' ) {
-
-            $.each( option , function( opt, val ) {
-
-                _.options[opt] = val;
-
-            });
-
-
-        } else if ( type === 'responsive' ) {
-
-            for ( item in value ) {
-
-                if( typeof _.options.responsive !== 'array' ) {
-
-                    _.options.responsive = [ value[item] ];
-
-                } else {
-
-                    l = _.options.responsive.length-1;
-
-                    // loop through the responsive object and splice out duplicates.
-                    while( l >= 0 ) {
-
-                        if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
-
-                            _.options.responsive.splice(l,1);
-
-                        }
-
-                        l--;
-
-                    }
-
-                    _.options.responsive.push( value[item] );
+                    type = 'single';
 
                 }
 
             }
 
-        }
+            if ( type === 'single' ) {
 
-        if ( refresh ) {
+                _.options[option] = value;
 
-            _.unload();
-            _.reinit();
 
-        }
+            } else if ( type === 'multiple' ) {
 
-    };
+                $.each( option , function( opt, val ) {
+
+                    _.options[opt] = val;
+
+                });
+
+
+            } else if ( type === 'responsive' ) {
+
+                for ( item in value ) {
+
+                    if( typeof _.options.responsive !== 'array' ) {
+
+                        _.options.responsive = [ value[item] ];
+
+                    } else {
+
+                        l = _.options.responsive.length-1;
+
+                        // loop through the responsive object and splice out duplicates.
+                        while( l >= 0 ) {
+
+                            if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
+
+                                _.options.responsive.splice(l,1);
+
+                            }
+
+                            l--;
+
+                        }
+
+                        _.options.responsive.push( value[item] );
+
+                    }
+
+                }
+
+            }
+
+            if ( refresh ) {
+
+                _.unload();
+                _.reinit();
+
+            }
+
+        };
 
     Slick.prototype.setPosition = function() {
 
@@ -2298,7 +2301,7 @@
                 }
 
                 for (i = _.slideCount; i > (_.slideCount -
-                        infiniteCount); i -= 1) {
+                    infiniteCount); i -= 1) {
                     slideIndex = i - 1;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
                         .attr('data-slick-index', slideIndex - _.slideCount)
@@ -2336,9 +2339,9 @@
         var _ = this;
 
         var targetElement =
-            $(event.target).is('.slick-slide') ?
-                $(event.target) :
-                $(event.target).parents('.slick-slide');
+                $(event.target).is('.slick-slide') ?
+                    $(event.target) :
+                    $(event.target).parents('.slick-slide');
 
         var index = parseInt(targetElement.attr('data-slick-index'));
 

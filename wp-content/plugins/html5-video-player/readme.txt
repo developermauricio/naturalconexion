@@ -1,10 +1,11 @@
 === Html5 Video Player - mp4 player, Video Player for WordPress  ===
 Contributors: abuhayat,shehabulislam
 Tags: HTML5 video player, plyr, video, video player, mp4 Player 
-Donate link: https://gum.co/wpdonate
+Donate link: https://www.buymeacoffee.com/abuhayat
 Requires at least: 5.1
-Tested up to: 6.0.2
-Stable tag: 2.5.8
+Tested up to: 6.1.1
+Stable tag: 2.5.9
+Requires PHP: 7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +15,18 @@ A Simple, accessible, Easy to Use & fully Customizable video player that work pe
 
 Play various video files in wordpress. A Simple, accessible, Easy to Use & fully Customizable video player that works in all devices. You can Play / embed awesome video player in posts, pages, widget areas as well as templete files. It has tons of options that fit your video player needs. 
 
+HTML5 Video Player is a powerful and easy-to-use plugin that allows you to embed responsive HTML5 videos into your WordPress website. With this plugin, you can easily create and manage your video playlists, customize your video player with various skins and color options, and optimize your videos for faster loading and better performance.
 
-**[Live Demo](https://links.bplugins.com/h5vp "Demo")**
-**[Buy The Pro](https://wpvideoplayer.com/buy-now/ "Buy Pro version")** 
+The plugin supports a wide range of video formats, including MP4, WebM, OGG, and FLV, and provides a range of customization options to help you create the perfect video player for your site. You can choose from various player sizes, enable/disable autoplay, loop, and mute options, and even add custom CSS to style your video player.
+
+HTML5 Video Player also includes a built-in shortcode generator that makes it easy to add videos to your posts and pages. Simply select the video you want to add, customize your settings, and the plugin will generate the shortcode for you.
+
+In addition to its powerful features, HTML5 Video Player is also optimized for SEO and mobile devices. The plugin automatically generates schema markup for your videos, making it easier for search engines to understand and index your video content. And with its responsive design, your videos will look great on all devices, from desktops to smartphones.
+
+Overall, HTML5 Video Player is a versatile and feature-rich plugin that can help you add professional-quality videos to your WordPress website. Try it out today and take your video content to the next level!
+
+**[Live Demo](https://bplugins.com/products/html5-video-player "Demo")**
+**[Buy The Pro](https://bplugins.com/products/html5-video-player/#pricing "Buy Pro version")** 
 
 = How to use it? =
 Here is a quick tutorial.

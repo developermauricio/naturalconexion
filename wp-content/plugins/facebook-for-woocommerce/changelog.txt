@@ -1,5 +1,80 @@
 *** Facebook for WooCommerce Changelog ***
 
+= 3.0.23 - 2023-05-09 =
+* Fix - Delete product in the Facebook catalog when products are deleted via WC Rest API.
+
+= 3.0.22 - 2023-05-03 =
+* Fix - Pixel code not activated on checkout.
+
+= 3.0.21 - 2023-05-02 =
+* Fix - Issue in admin product search.
+
+= 3.0.20 - 2023-05-02 =
+* Fix - Adds escaping to outputs and sanitizing to inputs.
+* Tweak - WC 7.7 compatibility.
+
+= 3.0.19 - 2023-04-18 =
+* Tweak - Bump Marketing API version from v16.0.
+
+= 3.0.18 - 2023-04-11 =
+* Fix - Fatal error when facebook_config option is empty.
+* Fix - Selected categories not showing on Product Sets edit page.
+
+= 3.0.17 - 2023-04-05 =
+* Tweak - WC 7.6 compatibility.
+
+= 3.0.16 - 2023-03-21 =
+* Fix - Deprecation notices thrown by nonce_user_logged_out.
+* Fix - Display the Facebook tab and sync settings for external products.
+* Fix - viewContent events triggering PHP server notices on elementor sites.
+
+= 3.0.15 - 2023-03-14 =
+* Tweak - WC 7.5 compatibility.
+* Tweak - WP 6.2 compatibility.
+
+= 3.0.14 - 2023-03-02 =
+* Fix - Fatal error due to the latest WC Blocks changes.
+* Fix custom attribute name with special characters breaks sync.
+
+= 3.0.13 - 2023-02-28 =
+* Fix - WC()->session causing fatal error when the `woocommerce_add_to_cart_redirect` filter is called via REST API.
+
+= 3.0.12 - 2023-02-21 =
+* Fix - Replace is_ajax calls with wp_doing_ajax().
+* Fix - out-of-stock products not deleted in Facebook catalog.
+
+= 3.0.11 - 2023-02-14 =
+* Fix - Default sync mode on new product.
+
+= 3.0.10 - 2023-02-07 =
+* Add - Ping Meta server with the currently installed plugin version.
+* Fix - PHP 8.1 deprecated warnings.
+* Tweak - WC 7.4 compatibility.
+
+= 3.0.9 - 2023-01-31 =
+* Fix - CAPI purchase event not firing with orders from FB/Instagram app on iOS.
+* Fix - Setting a product's Facebook sync status to "Do not sync" not working.
+* Update - Onboarding task title and remove task content.
+
+= 3.0.8 - 2023-01-10 =
+* Add - Add support for Mix and Match containers with per-item pricing.
+* Dev - Fix phpcs violations in Framework/Api folder.
+* Tweak - Facebook Marketing API from v13.0 to v14.0.
+* Tweak - Use specific Bundles/Composites functions for calculating prices.
+
+= 3.0.7 - 2023-01-03 =
+* Dev - Add node and npm version restrictions.
+* Dev - Ease current node version restrictions.
+* Dev - Fix `phpcs` violations in the `includes/admin` folder.
+* Dev - Fix phpcs violations in the includes/API folder.
+* Dev - Updated `phpcs` ruleset.
+* Fix - Deprecated notice fix.
+* Fix - Facebook Sync status is incorrect when a product has catalog visibility hidden.
+* Fix - Issue in running Background Process Test debug tool.
+* Fix - Made Advertise tab be the default when connected.
+* Fix - PHP Warning: Attempt to read property on array in Tracker.php.
+* Tweak - WC 7.3 compatibility.
+
 = 3.0.6 - 2022-12-13 =
 * Dev - Add node and npm version restrictions.
 * Fix  - PHP Warning: Attempt to read property on array in Tracker.php.

@@ -3,6 +3,8 @@
  * Image hotspot map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Repeater;
 use Elementor\Utils;
@@ -74,7 +76,7 @@ class Image_Hotspot extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -434,6 +436,7 @@ class Image_Hotspot extends Widget_Base {
 		woodmart_enqueue_js_script( 'hotspot-element' );
 		woodmart_enqueue_js_script( 'product-more-description' );
 		woodmart_enqueue_inline_style( 'image-hotspot' );
+		woodmart_enqueue_inline_style( 'mod-more-description' );
 
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
@@ -459,11 +462,11 @@ class Image_Hotspot extends Widget_Base {
 					$attributes = '';
 					$args       = [];
 
-					if ( 'product' === $settings['hotspot_type'] && $settings['product_id'] ) {
-						$product = wc_get_product( $settings['product_id'] );
+					if ( 'product' === $settings['hotspot_type'] && $settings['product_id'] && woodmart_woocommerce_installed() ) {
+						$product = wc_get_product( apply_filters( 'wpml_object_id', $settings['product_id'], 'product', true ) );
 
 						if ( ! $product ) {
-							return;
+							continue;
 						}
 
 						$args = array(
@@ -503,7 +506,7 @@ class Image_Hotspot extends Widget_Base {
 						<div class="hotspot-btn wd-fill"></div>
 
 						<?php if ( 'product' === $settings['hotspot_type'] && isset( $product ) && $product ) : ?>
-							<div class="hotspot-product hotspot-content hotspot-dropdown-<?php echo esc_attr( $settings['hotspot_dropdown_side'] ); ?>">
+							<div class="hotspot-product hotspot-content wd-scroll hotspot-dropdown-<?php echo esc_attr( $settings['hotspot_dropdown_side'] ); ?>">
 								<div class="hotspot-content-image">
 									<a href="<?php echo esc_url( get_permalink( $product->get_ID() ) ); ?>">
 										<?php echo $product->get_image(); ?>
@@ -564,4 +567,4 @@ class Image_Hotspot extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Image_Hotspot() );
+Plugin::instance()->widgets_manager->register( new Image_Hotspot() );

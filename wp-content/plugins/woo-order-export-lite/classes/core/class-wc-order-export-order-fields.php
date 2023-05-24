@@ -295,8 +295,11 @@ class WC_Order_Export_Order_Fields {
 		} elseif ( $field == 'user_role' ) {
 			$roles         = $wp_roles->roles;
 			$row[$field] =  !isset( $this->user->roles[0] ) ? "" :  ( isset( $roles[ $this->user->roles[0] ] ) ? $roles[ $this->user->roles[0] ]['name'] : $this->user->roles[0] ); // take first role Name
+			$row[$field] =  translate_user_role( $row[$field] );
 		} elseif ( $field == 'customer_total_orders' ) {
 			$row[$field] = ( isset( $this->user->ID ) ) ? wc_get_customer_order_count( $this->user->ID ) : WC_Order_Export_Data_Extractor::get_customer_order_count_by_email( $this->order_meta["_billing_email"] );
+		} elseif ( $field == 'customer_paid_orders' ) {
+			$row[$field] = WC_Order_Export_Data_Extractor::get_customer_paid_orders_count( $this->order_meta['_customer_user'], $this->order_meta["_billing_email"] );
 		} elseif ( $field == 'customer_total_spent' ) {
 			$row[$field] = ( isset( $this->user->ID ) ) ? wc_get_customer_total_spent( $this->user->ID ) : WC_Order_Export_Data_Extractor::get_customer_total_spent_by_email( $this->order_meta["_billing_email"] );
 		} elseif ( $field == 'customer_first_order_date' ) {

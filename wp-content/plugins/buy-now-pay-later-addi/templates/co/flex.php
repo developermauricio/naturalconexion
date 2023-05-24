@@ -26,6 +26,7 @@
             <span class="addi-co-description-detail">Solo necesitas <b>tu cédula y WhatsApp</b> para comprar.</span>
         </div>
         <div class='mini-frame addi-co-description-footer with-margin flex'>
+
             <span class="addi-co-description-detail">Haz clic en <b>"Pagar con Addi"</b> para continuar.</span>
         </div>
     <?php

@@ -7,25 +7,18 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 * Instagram element map
 * ------------------------------------------------------------------------------------------------
 */
-
-if ( ! function_exists( 'woodmart_vc_map_instagram' ) ) {
-	function woodmart_vc_map_instagram() {
-		if ( ! shortcode_exists( 'woodmart_instagram' ) ) {
-			return;
-		}
-
-		vc_map(
-			array(
-				'name'        => esc_html__( 'Instagram', 'woodmart' ),
-				'base'        => 'woodmart_instagram',
-				'category'    => esc_html__( 'Theme elements', 'woodmart' ),
-				'description' => esc_html__( 'Instagram photos', 'woodmart' ),
-				'icon'        => WOODMART_ASSETS . '/images/vc-icon/instagram.svg',
-				'params'      => woodmart_get_instagram_params(),
-			)
+if ( ! function_exists( 'woodmart_get_vc_map_instagram' ) ) {
+	function woodmart_get_vc_map_instagram() {
+		return array(
+			'name'        => esc_html__( 'Instagram', 'woodmart' ),
+			'base'        => 'woodmart_instagram',
+			'category'    => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ?
+				woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
+			'description' => esc_html__( 'Instagram photos', 'woodmart' ),
+			'icon'        => WOODMART_ASSETS . '/images/vc-icon/instagram.svg',
+			'params'      => woodmart_get_instagram_params(),
 		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_instagram' );
 }
 
 if ( ! function_exists( 'woodmart_get_instagram_params' ) ) {
@@ -36,6 +29,10 @@ if ( ! function_exists( 'woodmart_get_instagram_params' ) ) {
 				/**
 				 * Data
 				 */
+				array(
+					'type'       => 'woodmart_css_id',
+					'param_name' => 'woodmart_css_id',
+				),
 				array(
 					'type'       => 'woodmart_title_divider',
 					'holder'     => 'div',
@@ -67,10 +64,6 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'holder'     => 'div',
 					'title'      => esc_html__( 'Images', 'woodmart' ),
 					'param_name' => 'images_divider',
-					'dependency' => array(
-						'element' => 'data_source',
-						'value'   => array( 'images' ),
-					),
 				),
 				array(
 					'type'             => 'attach_images',
@@ -100,6 +93,10 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'type'             => 'textfield',
 					'heading'          => esc_html__( 'Images link', 'woodmart' ),
 					'param_name'       => 'images_link',
+					'dependency'       => array(
+						'element' => 'data_source',
+						'value'   => array( 'images' ),
+					),
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
@@ -109,6 +106,10 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 					'default'          => '1000-10000',
 					'description'      => 'Example: 1000-10000',
+					'dependency'       => array(
+						'element' => 'data_source',
+						'value'   => array( 'images' ),
+					),
 				),
 				array(
 					'type'             => 'textfield',
@@ -117,6 +118,78 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 					'default'          => '0-1000',
 					'description'      => 'Example: 0-1000',
+					'dependency'       => array(
+						'element' => 'data_source',
+						'value'   => array( 'images' ),
+					),
+				),
+				array(
+					'heading'       => esc_html__( 'Rounding', 'woodmart' ),
+					'type'          => 'wd_select',
+					'param_name'    => 'rounding_size',
+					'style'         => 'select',
+					'selectors'     => array(
+						'{{WRAPPER}}' => array(
+							'--wd-brd-radius: {{VALUE}}px;',
+						),
+					),
+					'devices'       => array(
+						'desktop' => array(
+							'value' => '',
+						),
+					),
+					'value'         => array(
+						esc_html__( 'Inherit', 'woodmart' ) => '',
+						esc_html__( '0', 'woodmart' )      => '0',
+						esc_html__( '5', 'woodmart' )      => '5',
+						esc_html__( '8', 'woodmart' )      => '8',
+						esc_html__( '12', 'woodmart' )     => '12',
+						esc_html__( 'Custom', 'woodmart' ) => 'custom',
+					),
+					'generate_zero' => true,
+				),
+				array(
+					'heading'       => esc_html__( 'Custom rounding', 'woodmart' ),
+					'type'          => 'wd_slider',
+					'param_name'    => 'custom_rounding_size',
+					'selectors'     => array(
+						'{{WRAPPER}}' => array(
+							'--wd-brd-radius: {{VALUE}}{{UNIT}};',
+						),
+					),
+					'devices'       => array(
+						'desktop' => array(
+							'value' => '',
+							'unit'  => 'px',
+						),
+					),
+					'range'         => array(
+						'px' => array(
+							'min'  => 0,
+							'max'  => 300,
+							'step' => 1,
+						),
+						'%'  => array(
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						),
+					),
+					'dependency'    => array(
+						'element' => 'rounding_size',
+						'value'   => function_exists( 'woodmart_compress' ) ? woodmart_compress(
+							wp_json_encode(
+								array(
+									'devices' => array(
+										'desktop' => array(
+											'value' => 'custom',
+										),
+									),
+								)
+							)
+						) : '',
+					),
+					'generate_zero' => true,
 				),
 				/**
 				* Content
@@ -170,14 +243,11 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
-					'type'             => 'woodmart_button_set',
+					'type'             => 'textfield',
 					'heading'          => esc_html__( 'Photo size', 'woodmart' ),
 					'param_name'       => 'size',
-					'value'            => array(
-						esc_html__( 'Medium', 'woodmart' ) => 'medium',
-						esc_html__( 'Thumbnail', 'woodmart' ) => 'thumbnail',
-						esc_html__( 'Large', 'woodmart' )  => 'large',
-					),
+					'description'      => esc_html__( 'Example: \'thumbnail\', \'medium\', \'large\', \'full\' or enter image size in pixels: \'200x100\'.', 'woodmart' ),
+					'hint'             => esc_html__( 'Enter image size. Example: \'thumbnail\', \'medium\', \'large\', \'full\'. Leave empty to use \'thumbnail\' size.', 'woodmart' ),
 					'dependency'       => array(
 						'element'            => 'data_source',
 						'value_not_equal_to' => array( 'images' ),
@@ -238,17 +308,96 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				array(
-					'type'             => 'woodmart_slider',
+					'type'             => 'woodmart_button_set',
 					'heading'          => esc_html__( 'Photos per row', 'woodmart' ),
-					'param_name'       => 'per_row',
-					'skip_in'          => 'widget',
-					'min'              => '1',
-					'max'              => '12',
-					'step'             => '1',
-					'default'          => '3',
-					'units'            => '',
-					'edit_field_class' => 'vc_col-sm-6 vc_column',
 					'hint'             => esc_html__( 'Number of photos per row for grid design or items in slider per view.', 'woodmart' ),
+					'param_name'       => 'per_row_tabs',
+					'tabs'             => true,
+					'value'            => array(
+						esc_html__( 'Desktop', 'woodmart' ) => 'desktop',
+						esc_html__( 'Tablet', 'woodmart' ) => 'tablet',
+						esc_html__( 'Mobile', 'woodmart' ) => 'mobile',
+					),
+					'default'          => 'desktop',
+					'edit_field_class' => 'wd-res-control wd-custom-width vc_col-sm-12 vc_column',
+					'skip_in'          => 'widget',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'per_row',
+					'value'            => array(
+						'1'  => '1',
+						'2'  => '2',
+						'3'  => '3',
+						'4'  => '4',
+						'5'  => '5',
+						'6'  => '6',
+						'7'  => '7',
+						'8'  => '8',
+						'9'  => '9',
+						'10' => '10',
+						'11' => '11',
+						'12' => '12',
+					),
+					'std'              => '3',
+					'wd_dependency'    => array(
+						'element' => 'per_row_tabs',
+						'value'   => array( 'desktop' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+					'skip_in'          => 'widget',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'per_row_tablet',
+					'value'            => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1'  => '1',
+						'2'  => '2',
+						'3'  => '3',
+						'4'  => '4',
+						'5'  => '5',
+						'6'  => '6',
+						'7'  => '7',
+						'8'  => '8',
+						'9'  => '9',
+						'10' => '10',
+						'11' => '11',
+						'12' => '12',
+					),
+					'std'              => 'auto',
+					'wd_dependency'    => array(
+						'element' => 'per_row_tabs',
+						'value'   => array( 'tablet' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+					'skip_in'          => 'widget',
+				),
+				array(
+					'type'             => 'dropdown',
+					'param_name'       => 'per_row_mobile',
+					'value'            => array(
+						esc_html__( 'Auto', 'woodmart' ) => 'auto',
+						'1'  => '1',
+						'2'  => '2',
+						'3'  => '3',
+						'4'  => '4',
+						'5'  => '5',
+						'6'  => '6',
+						'7'  => '7',
+						'8'  => '8',
+						'9'  => '9',
+						'10' => '10',
+						'11' => '11',
+						'12' => '12',
+					),
+					'std'              => 'auto',
+					'wd_dependency'    => array(
+						'element' => 'per_row_tabs',
+						'value'   => array( 'mobile' ),
+					),
+					'edit_field_class' => 'wd-res-item vc_col-sm-12 vc_column',
+					'skip_in'          => 'widget',
 				),
 				array(
 					'type'             => 'woodmart_switch',

@@ -9,7 +9,7 @@ if ( ! function_exists( 'woodmart_get_responsive_spacing_param' ) ) {
 		ob_start();
 		?>
 		<div class="vc_css-editor vc_row vc_ui-flex-row wd-responsive-spacing-wrapper">
-			<div class="wd-spacing-devices">
+			<div class="xts-layout-onion-tabs">
 				<span class="wd-desktop xts-active" data-value="desktop">
 					<span>Desktop</span>
 				</span>

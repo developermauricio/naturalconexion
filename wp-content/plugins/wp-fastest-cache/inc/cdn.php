@@ -349,7 +349,7 @@
 					$_GET["url"] = preg_replace("/http\:\/\//i", "https://", $_GET["url"]);
 				}
 				
-				$response = wp_remote_get($_GET["url"], array('timeout' => 20, 'user-agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"));
+				$response = wp_safe_remote_get($_GET["url"], array('timeout' => 20, 'user-agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"));
 
 				$header = wp_remote_retrieve_headers($response);
 

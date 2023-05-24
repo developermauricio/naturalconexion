@@ -14,47 +14,61 @@ if ( ! function_exists( 'woodmart_shortcode_button' ) ) {
 		extract(
 			shortcode_atts(
 				array(
-					'title'                            => 'GO',
-					'link'                             => '',
-					'color'                            => 'default',
-					'style'                            => 'default',
-					'shape'                            => 'rectangle',
-					'size'                             => 'default',
-					'align'                            => 'center',
-					'button_inline'                    => 'no',
-					'full_width'                       => 'no',
+					'title'                         => 'GO',
+					'link'                          => '',
+					'link_nofollow'                 => false,
+					'color'                         => 'default',
+					'style'                         => 'default',
+					'shape'                         => 'rectangle',
+					'size'                          => 'default',
+					'align'                         => 'center',
+					'button_inline'                 => 'no',
+					'full_width'                    => 'no',
 
-					'button_smooth_scroll'             => 'no',
-					'button_smooth_scroll_time'        => '100',
-					'button_smooth_scroll_offset'      => '100',
+					'button_smooth_scroll'          => 'no',
+					'button_smooth_scroll_time'     => '100',
+					'button_smooth_scroll_offset'   => '100',
 
-					'bg_color'                         => '',
-					'bg_color_hover'                   => '',
-					'color_scheme'                     => 'light',
-					'color_scheme_hover'               => 'light',
-					'woodmart_css_id'                  => '',
+					'bg_color'                      => '',
+					'bg_color_hover'                => '',
+					'color_scheme'                  => 'light',
+					'color_scheme_hover'            => 'light',
+					'woodmart_css_id'               => '',
+					'css'                           => '',
 
-					'css_animation'                    => 'none',
-					'el_class'                         => '',
+					'css_animation'                 => 'none',
+					'el_class'                      => '',
+					'wrapper_class'                 => '',
 
-					'icon_fontawesome'                 => '',
-					'icon_openiconic'                  => '',
-					'icon_typicons'                    => '',
-					'icon_entypo'                      => '',
-					'icon_linecons'                    => '',
-					'icon_monosocial'                  => '',
-					'icon_material'                    => '',
-					'icon_library'                     => 'fontawesome',
-					'icon_position'                    => 'right',
+					'icon_fontawesome'              => '',
+					'icon_openiconic'               => '',
+					'icon_typicons'                 => '',
+					'icon_entypo'                   => '',
+					'icon_linecons'                 => '',
+					'icon_monosocial'               => '',
+					'icon_material'                 => '',
+					'icon_library'                  => 'fontawesome',
+					'icon_position'                 => 'right',
+					'icon_type'                     => 'icon',
+					'image'                         => '',
+					'img_size'                      => '25x25',
 
-					'wd_button_collapsible_content'    => 'no',
+					'wd_button_collapsible_content' => 'no',
 				),
 				$atts
 			)
 		);
 
-		if ( function_exists( 'vc_icon_element_fonts_enqueue' ) ) {
+		if ( function_exists( 'vc_icon_element_fonts_enqueue' ) && ${'icon_' . $icon_library} ) {
 			vc_icon_element_fonts_enqueue( $icon_library );
+		}
+
+		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$wrap_class .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
+		if ( ! empty( $wrapper_class ) ) {
+			$wrap_class .= ' ' . $wrapper_class;
 		}
 
 		$attributes = woodmart_get_link_attributes( $link, $popup );
@@ -78,7 +92,7 @@ if ( ! function_exists( 'woodmart_shortcode_button' ) ) {
 			$btn_class .= ' btn-color-' . $color;
 		}
 		$btn_class .= ' btn-style-' . $style;
-		$btn_class .= ' btn-shape-' . $shape;
+		$btn_class .= ' btn-style-' . $shape;
 		$btn_class .= ' btn-size-' . $size;
 		if ( $full_width == 'yes' ) {
 			$btn_class .= ' btn-full-width';
@@ -107,12 +121,59 @@ if ( ! function_exists( 'woodmart_shortcode_button' ) ) {
 
 		// Icon settings.
 		$icon = '';
-		if ( ${'icon_' . $icon_library} ) {
+
+		if ( 'icon' === $icon_type && ${'icon_' . $icon_library} ) {
 			$btn_class .= ' btn-icon-pos-' . $icon_position;
 			$icon       = '<span class="wd-btn-icon"><span class="wd-icon ' . ${'icon_' . $icon_library} . '"></span></span>';
+		} elseif ( 'image' === $icon_type && ! empty( $image ) ) {
+			$btn_class .= ' btn-icon-pos-' . $icon_position;
+
+			if ( woodmart_is_svg( wp_get_attachment_image_url( $image ) ) ) {
+				$image_output = woodmart_get_svg_html( $image, $img_size );
+			} elseif ( function_exists( 'wpb_getImageBySize' ) ) {
+				if ( ! empty( $image['id'] ) ) {
+					$image = $image['id'];
+				}
+
+				$image_output = wpb_getImageBySize(
+					array(
+						'attach_id'  => $image,
+						'thumb_size' => $img_size,
+					)
+				)['thumbnail'];
+			} elseif ( function_exists( 'woodmart_get_image_html' ) ) {
+				$custom_dimension = array();
+
+				if ( strpos( $img_size, 'x' ) ) {
+					$custom_dimension = explode( 'x', $img_size );
+					$custom_dimension = array(
+						'width'  => $custom_dimension[0],
+						'height' => $custom_dimension[1],
+					);
+
+					$img_size = 'custom';
+				}
+
+				$image_output = woodmart_get_image_html(
+					array(
+						'image'                  => $image,
+						'image_size'             => $img_size,
+						'image_custom_dimension' => $custom_dimension,
+					),
+					'image'
+				);
+			} elseif ( ! empty( $image['id'] ) ) {
+				$image_output = wp_get_attachment_image( $image['id'], $img_size );
+			}
+
+			$icon = '<span class="wd-btn-icon">' . $image_output .  '</span>';
 		}
 
 		$attributes .= ' class="' . $btn_class . '"';
+
+		if ( $link_nofollow ) {
+			$attributes .= ' rel="nofollow"';
+		}
 
 		$output = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $wrap_class ) . '"' . $wrapper_attrs . '><a ' . $attributes . '>' . esc_html( $title ) . $icon . '</a>';
 

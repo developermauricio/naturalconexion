@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
@@ -29,12 +29,12 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		$has_offer	= true;
 		$link 		= isset( $offer_data['link'] )		? $offer_data['link'] : '';
-		$image 		= !empty( $offer_data['image'] ) 	? add_query_arg( array('v' => time()), $offer_data['image'] ) : '';
+		$image 		= ! empty( $offer_data['image'] ) 	? add_query_arg( array('v' => time()), $offer_data['image'] ) : '';
 	?>
 
 		<div class="wpos-anylc-offer-wrap">
-			<?php if( !empty( $offer_data['name'] ) ) { ?>
-			<div class="wpos-anylc-offer-title wpos-anylc-center"><?php echo $offer_data['name']; ?></div>
+			<?php if( ! empty( $offer_data['name'] ) ) { ?>
+			<div class="wpos-anylc-offer-title wpos-anylc-center"><?php echo esc_html( $offer_data['name'] ); ?></div>
 			<?php } ?>
 
 			<?php if( $image ) { ?>
@@ -49,12 +49,12 @@ if ( !defined( 'ABSPATH' ) ) {
 			</div>
 			<?php } ?>
 
-			<?php if( !empty( $offer_data['desc'] ) ) { ?>
+			<?php if( ! empty( $offer_data['desc'] ) ) { ?>
 			<div class="wpos-anylc-offer-desc wpos-anylc-center"><?php echo wpautop( $offer_data['desc'] ); ?></div>
 			<?php } ?>
 
-			<?php if( !empty( $offer_data['button'] ) ) { ?>
-			<div class="wpos-anylc-offer-footer wpos-anylc-center"><a href="<?php echo esc_url( $link ); ?>" class="button button-primary button-large wpos-anylc-btn" target="_blank"><?php echo $offer_data['button']; ?></a></div>
+			<?php if( ! empty( $offer_data['button'] ) ) { ?>
+			<div class="wpos-anylc-offer-footer wpos-anylc-center"><a href="<?php echo esc_url( $link ); ?>" class="button button-primary button-large wpos-anylc-btn" target="_blank"><?php echo wp_kses_post( $offer_data['button'] ); ?></a></div>
 			<?php } ?>
 		</div>
 
@@ -64,9 +64,9 @@ if ( !defined( 'ABSPATH' ) ) {
 	if( empty( $has_offer ) ) { 
 		$redirect_url = wpos_anylc_pdt_url( $analy_product ); // Redirect URL
 	?>
-		Please Wait... Redirecting to plugin screen. <a href="<?php echo $redirect_url; ?>">Click Here</a> in case you are not auto redirect.
+		Please Wait... Redirecting to plugin screen. <a href="<?php echo esc_url( $redirect_url ); ?>">Click Here</a> in case you are not auto redirect.
 		<script type="text/javascript">
-			window.location = "<?php echo $redirect_url; ?>";
+			window.location = "<?php echo esc_url( $redirect_url ); ?>";
 		</script>
 	<?php } ?>
 

@@ -1,9 +1,7 @@
 /* global woodmart_settings */
 (function($) {
 	woodmartThemeModule.menuDropdownsAJAX = function() {
-		woodmartThemeModule.$body.on('mousemove', checkMenuProximity);
-
-		function checkMenuProximity(event) {
+		woodmartThemeModule.$body.on('mousemove', function(){
 			$('.menu').has('.dropdown-load-ajax').each(function() {
 				var $menu = $(this);
 
@@ -11,13 +9,9 @@
 					return;
 				}
 
-				if (!isNear($menu, 50, event)) {
-					return;
-				}
-
 				loadDropdowns($menu);
 			});
-		}
+		});
 
 		function loadDropdowns($menu) {
 			$menu.addClass('dropdowns-loading');
@@ -83,17 +77,6 @@
 
 				woodmartThemeModule.$document.trigger('wdLoadDropdownsSuccess');
 			}
-		}
-
-		function isNear($element, distance, event) {
-			var left   = $element.offset().left - distance,
-			    top    = $element.offset().top - distance,
-			    right  = left + $element.width() + (2 * distance),
-			    bottom = top + $element.height() + (2 * distance),
-			    x      = event.pageX,
-			    y      = event.pageY;
-
-			return (x > left && x < right && y > top && y < bottom);
 		}
 	};
 

@@ -3,6 +3,8 @@
  * WC Products widget map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -71,7 +73,7 @@ class Products_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -281,7 +283,7 @@ class Products_Widget extends Widget_Base {
 		$this->ids                               = $settings['ids'];
 		$this->include_products                  = $settings['include_products'];
 		$type                                    = 'WC_Widget_Products';
-		$settings['number']                      = $settings['number']['size'];
+		$settings['number']                      = isset( $settings['number']['size'] ) ? $settings['number']['size'] : 3;
 
 		?>
 		<div class="widget_products">
@@ -328,4 +330,4 @@ class Products_Widget extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Products_Widget() );
+Plugin::instance()->widgets_manager->register( new Products_Widget() );

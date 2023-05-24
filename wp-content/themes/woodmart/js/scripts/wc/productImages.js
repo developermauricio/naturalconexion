@@ -10,17 +10,19 @@
 		$thumbs.addClass('thumbnails-ready');
 
 		if ($productGallery.hasClass('image-action-popup')) {
-			PhotoSwipeTrigger += ', .woocommerce-product-gallery__image a';
+			PhotoSwipeTrigger += ', .woocommerce-product-gallery__image > a';
 		}
 
-		$productGallery.on('click', '.woocommerce-product-gallery__image a', function(e) {
+		$productGallery.on('click', '.woocommerce-product-gallery__image > a', function(e) {
 			e.preventDefault();
 		});
 
 		$productGallery.on('click', PhotoSwipeTrigger, function(e) {
 			e.preventDefault();
 
-			currentImage = $(this).attr('href');
+			var $this = $(this);
+
+			currentImage = $this.attr('href');
 
 			var items = getProductItems();
 
@@ -49,13 +51,25 @@
 				    height  = $this.attr('data-large_image_height'),
 				    caption = $this.data('caption');
 
-				items.push({
-					src  : src,
-					w    : width,
-					h    : height,
-					title: (woodmart_settings.product_images_captions === 'yes') ? caption : false
-				});
+				if ( $this.parents('.product-image-wrap.wd-with-video').length ) {
+					var videoContent = $this.parents('.wd-with-video')[0].outerHTML;
 
+					if ( -1 !== videoContent.indexOf('wd-inited') ) {
+						videoContent = videoContent.replace('wd-inited', 'wd-loaded').replace('wd-video-playing', '');
+					}
+
+					items.push({
+						html       : videoContent,
+						mainElement: $this.parents('.wd-with-video'),
+					});
+				} else {
+					items.push({
+						src  : src,
+						w    : width,
+						h    : height,
+						title: (woodmart_settings.product_images_captions === 'yes') ? caption : false
+					});
+				}
 			});
 
 			return items;

@@ -32,7 +32,7 @@ if( ! function_exists( 'woodmart_shortcode_menu_price' )) {
 
 		$attributes = woodmart_vc_get_link_attr( $link );
 
-		if( $attributes['target'] == ' _blank' ) {
+		if( '_blank' === trim( $attributes['target'] ) ) {
         	$onclick = 'window.open(\''. esc_url( $attributes['url'] ).'\',\'_blank\')';
         } else {
         	$onclick = 'window.location.href=\''. esc_url( $attributes['url'] ).'\'';

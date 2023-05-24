@@ -10,14 +10,15 @@ if( ! function_exists( 'woodmart_shortcode_extra_menu' ) ) {
 	function woodmart_shortcode_extra_menu($atts = array(), $content = null) {
 		$output = $class = $liclass = $label_out = '';
 		extract(shortcode_atts( array(
-			'link' => '',
-			'title' => '',
-			'label' => 'primary',
-			'label_text' => '',
-			'image' => '',
-			'image_size' => '',
+			'link'          => '',
+			'title'         => '',
+			'label'         => 'primary',
+			'label_text'    => '',
+			'image'         => '',
+			'image_size'    => '',
 			'css_animation' => 'none',
-			'el_class' => ''
+			'el_class'      => '',
+			'css'           => '',
 		), $atts ));
 
 		if ( woodmart_get_menu_label_tag( $label, $label_text ) ) {
@@ -31,6 +32,10 @@ if( ! function_exists( 'woodmart_shortcode_extra_menu' ) ) {
 		$class .= woodmart_get_css_animation( $css_animation );
 		$class .= woodmart_get_old_classes( ' sub-menu' );
 
+		if ( $css ) {
+			$class .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
 		// Image settings.
 		$image_output = '';
 		if ( function_exists( 'wpb_getImageBySize' ) && $image ) {
@@ -38,7 +43,10 @@ if( ! function_exists( 'woodmart_shortcode_extra_menu' ) ) {
 			$image_output = isset( $img['thumbnail'] ) ? $img['thumbnail'] : '';
 		}
 
-		ob_start(); ?>
+		ob_start();
+
+		woodmart_enqueue_inline_style( 'mod-nav-menu-label' );
+		?>
 
 			<ul class="wd-sub-menu<?php echo esc_attr( $class ); ?>" >
 				<li class="<?php echo esc_attr( $liclass ); ?>">
@@ -120,9 +128,11 @@ if( ! function_exists( 'woodmart_shortcode_extra_menu_list' ) ) {
 
 if( ! function_exists( 'woodmart_get_menu_label_tag' ) ) {
 	function woodmart_get_menu_label_tag( $label, $label_text ) {
-		if( empty( $label_text ) ) return '';
-		$label_out = '<span class="menu-label menu-label-' . $label . '">' . esc_attr( $label_text ) . '</span>';
-		return $label_out;
+		if ( empty( $label_text ) ) {
+			return '';
+		}
+
+		return '<span class="menu-label menu-label-' . $label . '">' . esc_attr( $label_text ) . '</span>';
 	}
 }
 

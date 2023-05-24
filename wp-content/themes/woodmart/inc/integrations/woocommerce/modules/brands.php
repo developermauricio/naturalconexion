@@ -1,4 +1,9 @@
-<?php if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
+<?php
+
+use XTS\Modules\Layouts\Global_Data as Builder_Data;
+use XTS\Modules\Layouts\Main;
+
+if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 	exit( 'No direct script access allowed' );
 }
 
@@ -11,8 +16,12 @@
 if( ! function_exists( 'woodmart_product_brand' ) ) {
 	function woodmart_product_brand() {
 		global $product;
+
 		$attr = woodmart_get_opt( 'brands_attribute' );
-		if( ! $attr || ! woodmart_get_opt( 'product_page_brand' ) ) return;
+
+		if ( ! $attr || ( ! woodmart_get_opt( 'product_page_brand' ) && ( woodmart_loop_prop( 'is_quick_view' ) || ! Main::get_instance()->has_custom_layout( 'single_product' ) ) ) ) {
+			return;
+		}
 
 		$attributes = $product->get_attributes();
 
@@ -23,17 +32,25 @@ if( ! function_exists( 'woodmart_product_brand' ) ) {
 
 		if( empty( $brands ) ) return;
 
+		$builder_label = Builder_Data::get_instance()->get_data( 'builder_label' );
+
 		if ( woodmart_is_shop_on_front() ) {
 			$link = home_url();
 		} else {
 			$link = get_post_type_archive_link( 'product' );
 		}
 
-		$classes = ( woodmart_get_opt( 'product_brand_location' ) == 'sidebar' && ! woodmart_loop_prop( 'is_quick_view' ) ) ? 'widget sidebar-widget' : '';
+		$classes = ( woodmart_get_opt( 'product_brand_location' ) == 'sidebar' && ! woodmart_loop_prop( 'is_quick_view' ) ) ? ' widget sidebar-widget' : '';
 
 		$classes .= woodmart_get_old_classes( ' woodmart-product-brands' );
 
-		echo '<div class="wd-product-brands '. esc_attr( $classes ) .'">';
+		echo '<div class="wd-product-brands'. esc_attr( $classes ) .'">';
+
+		?>
+		<?php if ( ! empty( $builder_label ) ) : ?>
+			<span class="wd-label"><?php echo esc_html( $builder_label ); ?></span>
+		<?php endif; ?>
+		<?php
 
 		foreach ($brands as $brand) {
 			$image = get_term_meta( $brand->term_id, 'image', true);
@@ -61,9 +78,17 @@ if( ! function_exists( 'woodmart_product_brand' ) ) {
 				$content = '<img src="' . esc_url( $image ) . '" title="' . esc_attr( $brand->name ) . '" alt="' . esc_attr( $brand->name ) . '" ' . $attrs . '>';
 			}
 
-			echo '<div class="woodmart-product-brand">';
-				echo '<a href="' . esc_url( $attr_link ) . '">' . $content . '</a>';
-			echo '</div>';
+			$link_wrapper_classes  = '';
+			$link_wrapper_classes .= woodmart_get_old_classes( ' woodmart-product-brand' );
+
+			if ( ! empty( $link_wrapper_classes ) ) {
+				$link_wrapper_classes = sprintf( ' class=%s', $link_wrapper_classes );
+			}
+			?>
+			<a href="<?php echo esc_url( $attr_link ); ?>"<?php echo esc_attr( $link_wrapper_classes ); ?>>
+				<?php echo $content; ?>
+			</a>
+			<?php
 		}
 
 		echo '</div>';
@@ -82,7 +107,7 @@ if( ! function_exists( 'woodmart_product_brands_links' ) ) {
 		$brand_option = woodmart_get_opt( 'brands_attribute' );
 		$brands = wc_get_product_terms( $product->get_id(), $brand_option, array( 'fields' => 'all' ) );
 		$taxonomy = get_taxonomy( $brand_option );
-		
+
 		if( !woodmart_get_opt( 'brands_under_title' ) || empty( $brands ) ) return;
 
 		$link = ( woodmart_is_shop_on_front() ) ? home_url() : get_post_type_archive_link( 'product' );
@@ -153,10 +178,8 @@ if( ! function_exists( 'woodmart_product_brand_tab_content' ) ) {
 		if ( empty( $brands ) ) return;
 
 		foreach ($brands as $id => $slug) {
-			echo '<div class="woodmart-product-brand-description">';
-				$brand = get_term_by('slug', $slug, $attr);
-				echo do_shortcode( $brand->description );
-			echo '</div>';
+			$brand = get_term_by('slug', $slug, $attr);
+			echo do_shortcode( $brand->description );
 		}
 
 	}

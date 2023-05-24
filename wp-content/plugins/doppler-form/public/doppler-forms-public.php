@@ -126,7 +126,6 @@ class DPLR_Doppler_Form_Public {
 
 			if(isset($subscriber['hp']) && $subscriber['hp']==''){
 				unset($subscriber['hp']);
-				$a = 10/0;
 				if($form->settings["form_doble_optin"] === "yes"){
 					$result = $subscriber_resource->addSubscriberDobleOptIn($_POST['list_id'], $subscriber);
 				}

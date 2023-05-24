@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,35 +18,40 @@
 
 
 
+
 function chimp_html_log_view () {
+
   ?>
     <div id="sys-dev">
 
-      <div id="eventlog-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
-        <input id="log_reset" type="button" value="Clear This Log Now" class="button button-primary" style="width:auto%;">
+      <div id="eventlog-sys" class="only-one-toogles" style="margin-top: 1em; margin-bottom: 1em; display: none;">
+        <input id="log_reset" type="button" value="Clear API Log Now" class="button button-primary" style="width:auto%;">
 
-    			<pre><code id="log_panel" ><?php get_log_array ()  ?></code></pre>
+    			<pre><code id="log_panel" ><?php get_log_array()  ?></code></pre>
 
     	 </div>
 
     </div>
 <?php
+
 }
 
 
 function chimp_html_php_log_view () {
+
   ?>
-    <div id="sys-dev-php" class="new-php-logger">
+    <div id="sys-dev">
 
-      <div id="eventlog-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
-        <input id="log_reset" type="button" value="Clear This Log Now" class="button button-primary" style="width:auto%;">
+      <div id="eventlog-sys-php" class="only-one-toogles" style="margin-top: 1em; margin-bottom: 1em; display: none;">
+        <input id="log_reset_php" type="button" value="Clear PHP Log Now" class="button button-primary" style="width:auto%;">
 
-          <pre><code id="log_panel" ><?php get_php_log_array ()  ?></code></pre>
+          <pre><code id="log_panel_php" ><?php get_php_log_array()  ?></code></pre>
 
        </div>
 
     </div>
 <?php
+
 }
 
 

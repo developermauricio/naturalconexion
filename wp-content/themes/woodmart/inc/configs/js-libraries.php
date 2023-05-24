@@ -200,4 +200,22 @@ return array(
 			'dependency' => array(),
 		),
 	),
+	'leaflet'                => array(
+		array(
+			'title'      => esc_html__( 'Leaflet', 'woodmart' ),
+			'name'       => 'leaflet',
+			'file'       => '/js/libs/leaflet',
+			'in_footer'  => true,
+			'dependency' => array(),
+		),
+	),
+	'vimeo_player'           => array(
+		array(
+			'title'      => esc_html__( 'Vimeo player', 'woodmart' ),
+			'name'       => 'vimeo_player',
+			'file'       => '/js/libs/vimeo-player',
+			'in_footer'  => true,
+			'dependency' => array(),
+		),
+	),
 );

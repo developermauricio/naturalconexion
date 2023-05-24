@@ -14,14 +14,6 @@
 			var data = $map.data('map-args');
 
 			var config = {
-				locations      : [
-					{
-						lat      : data.latitude,
-						lon      : data.longitude,
-						icon     : data.marker_icon,
-						animation: google.maps.Animation.DROP
-					}
-				],
 				controls_on_map: false,
 				map_div        : '#' + data.selector,
 				start          : 1,
@@ -31,16 +23,61 @@
 				}
 			};
 
-			if (data.json_style && !data.elementor) {
-				config.styles = {};
-				config.styles[woodmart_settings.google_map_style_text] = $.parseJSON(data.json_style);
-			} else if (data.json_style && data.elementor) {
-				config.styles = {};
-				config.styles[woodmart_settings.google_map_style_text] = $.parseJSON(atob(data.json_style));
+			if ( 'yes' === data.multiple_markers ) {
+				config.locations = data.markers.map( marker => {
+					var location = {
+						lat      : marker.marker_lat,
+						lon      : marker.marker_lon,
+						image    : marker.marker_icon ? marker.marker_icon : data.marker_icon,
+						image_w  : 40,
+						image_h  : 40,
+						animation: google.maps.Animation.DROP,
+					}
+
+					if ( marker.marker_icon_size ) {
+						location.image_w = marker.marker_icon_size[0];
+						location.image_h = marker.marker_icon_size[1];
+					} else if ( data.marker_icon_size ) {
+						location.image_w = data.marker_icon_size[0];
+						location.image_h = data.marker_icon_size[1];
+					}
+
+					if ( marker.marker_title || marker.marker_description ) {
+						location.html = `<h3 style="min-width:300px; text-align:center; margin:15px;">${marker.marker_title}</h3>${marker.marker_description}`;
+					}
+
+					return location;
+				});
+
+				if ( data.hasOwnProperty('center') ) {
+					config.start = 0;
+					config.map_options.set_center = data.center.split(',').map( function ( el ) {
+						return parseFloat( el );
+					});
+				}
+			} else {
+				config.locations = [
+					{
+						lat      : data.latitude,
+						lon      : data.longitude,
+						image    : data.marker_icon,
+						image_w  : data.marker_icon_size && data.marker_icon_size[0] ? data.marker_icon_size[0] : 40,
+						image_h  : data.marker_icon_size && data.marker_icon_size[1] ? data.marker_icon_size[1] : 40,
+						animation: google.maps.Animation.DROP
+					}
+				];
+
+				if ('yes' === data.marker_text_needed) {
+					config.locations[0].html = data.marker_text;
+				}
 			}
 
-			if ('yes' === data.marker_text_needed) {
-				config.locations[0].html = data.marker_text;
+			if (data.json_style && !data.elementor) {
+				config.styles = {};
+				config.styles[woodmart_settings.google_map_style_text] = JSON.parse(data.json_style);
+			} else if (data.json_style && data.elementor) {
+				config.styles = {};
+				config.styles[woodmart_settings.google_map_style_text] = JSON.parse(atob(data.json_style));
 			}
 
 			if ('button' === data.init_type) {
@@ -67,6 +104,11 @@
 				});
 			} else if ('interaction' === data.init_type) {
 				woodmartThemeModule.$window.on('wdEventStarted', function() {
+					if ($map.hasClass('wd-map-inited')) {
+						return;
+					}
+
+					$map.addClass('wd-map-inited');
 					new Maplace(config).Load();
 				});
 			} else {

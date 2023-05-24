@@ -1,25 +1,32 @@
 (function ($) {
+    const wdSwitcherBtnInit = function () {
+        $('.xts-switcher-btn').each(function() {
+            var $switcherBtn = $(this);
 
-    var $panel = $('#vc_ui-panel-edit-element');
+            if ( $switcherBtn.hasClass('wd-inited') ) {
+                return;
+            }
 
-    $panel.on('vcPanel.shown', function () {
+            $switcherBtn.on('click', function () {
+                var $this = $(this);
+                var value = '';
 
-        $('.woodmart-vc-switch').each(function () {
-            var $this = $(this);
-            var currentValue = $this.find('.switch-field-value').val();
+                if ($this.hasClass('xts-active')) {
+                    value = $this.data('off');
+                    $this.removeClass('xts-active');
+                } else {
+                    value = $this.data('on');
+                    $this.addClass('xts-active');
+                }
 
-            $this.find('[data-value="' + currentValue + '"]').addClass('xts-active');
+                $this.find('.switch-field-value').val(value).trigger('change');
+            });
+
+            $switcherBtn.addClass('wd-inited');
         });
+    }
 
-        $('.switch-controls').on('click', function () {
-            var $this = $(this);
-            var value = $this.data('value');
-
-            $this.addClass('xts-active');
-            $this.siblings().removeClass('xts-active');
-            $this.parents('.woodmart-vc-switch').find('.switch-field-value').val(value).trigger('change');
-        });
-
+    $('#vc_ui-panel-edit-element').on('vcPanel.shown click > .vc_controls [data-vc-control="clone"]', function () {
+        wdSwitcherBtnInit();
     });
-
 })(jQuery);

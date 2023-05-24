@@ -1,6 +1,6 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdShopPageInit wdUpdateWishlist wdArrowsLoadProducts wdLoadMoreLoadProducts wdProductsTabsLoaded wdArrowsLoadProducts wdBackHistory', function() {
+	woodmartThemeModule.$document.on('wdShopPageInit wdUpdateWishlist wdArrowsLoadProducts wdLoadMoreLoadProducts wdProductsTabsLoaded wdSearchFullScreenContentLoaded wdArrowsLoadProducts wdBackHistory wdRecentlyViewedProductLoaded', function() {
 		woodmartThemeModule.productHover();
 	});
 
@@ -24,7 +24,7 @@
 	});
 
 	woodmartThemeModule.productHoverRecalc = function($el) {
-		if ($el.hasClass('product-in-carousel')) {
+		if ($el.hasClass('wd-fade-off')) {
 			return;
 		}
 
@@ -38,13 +38,17 @@
 	};
 
 	woodmartThemeModule.productHover = function() {
-		var $hoverBase = $('.wd-hover-base');
+		var $hoverBase = $('.wd-hover-with-fade');
 
 		if (woodmartThemeModule.windowWidth <= 1024) {
+			if ( $hoverBase.hasClass('wd-hover-fw-button')) {
+				$hoverBase.addClass('wd-fade-off');
+			}
+
 			$hoverBase.on('click', function(e) {
 				var $this = $(this);
 				var hoverClass = 'state-hover';
-				if (!$this.hasClass(hoverClass) && woodmart_settings.base_hover_mobile_click === 'no') {
+				if (!$this.hasClass(hoverClass) && woodmart_settings.base_hover_mobile_click === 'no' && !$this.hasClass('wd-hover-fw-button') ) {
 					e.preventDefault();
 					$('.' + hoverClass).removeClass(hoverClass);
 					$this.addClass(hoverClass);
@@ -96,6 +100,10 @@
 
 			var $this = $(this);
 
+			if ($this.hasClass('wd-hover-fw-button')) {
+				return;
+			}
+
 			productHolderWidth($this.parent('.wd-products-holder'));
 
 			var columnWidth = $this.parent('.wd-products-holder').data('column_width');
@@ -118,5 +126,9 @@
 	$(document).ready(function() {
 		woodmartThemeModule.productHover();
 		woodmartThemeModule.wcTabsHoverFix();
+	});
+
+	window.addEventListener('popstate', function() {
+		woodmartThemeModule.productHover();
 	});
 })(jQuery);

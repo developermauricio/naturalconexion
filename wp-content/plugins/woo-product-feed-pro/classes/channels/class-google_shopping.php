@@ -305,6 +305,16 @@ class WooSEA_google_shopping {
 					"feed_name" => "g:ads_labels",
 					"format" => "optional",
 				),
+				"Feed label" => array(
+					"name" => "feed_label",
+					"feed_name" => "g:feed_label",
+					"format" => "optional",
+				),
+				"Product country" => array(
+					"name" => "product_country",
+					"feed_name" => "g:product_country",
+					"format" => "optional",
+				),
 				"Adwords grouping (BING)" => array(
 					"name" => "adwords_grouping",
 					"feed_name" => "g:adwords_grouping",

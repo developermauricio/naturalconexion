@@ -28,7 +28,7 @@ class GlobalChanges{
         ?>
         <script type="text/javascript">
             jQuery(document).ready( function($) {
-                $( "ul#adminmenu a[href$='https://links.bplugins.com/h5vp-menu']" ).attr( 'target', '_blank' );
+                $( "ul#adminmenu a[href$='https://bplugins.com/products/html5-video-player/#pricing']" ).attr( 'target', '_blank' );
             });
         </script>
         <?php
@@ -39,8 +39,8 @@ class GlobalChanges{
      */
     function h5vp_add_custom_link_into_cpt_menu() {
         global $submenu;
-        $link = 'https://links.bplugins.com/h5vp-menu';
-        $submenu['edit.php?post_type=videoplayer'][] = array( 'PRO Version Demo', 'manage_options', $link, 'meta'=>'target="_blank"' );
+        $link = 'https://bplugins.com/products/html5-video-player/#pricing';
+        $submenu['edit.php?post_type=videoplayer'][] = array( 'Upgrade to PRO', 'manage_options', $link, 'meta'=>'target="_blank"' );
     }
 
     /**

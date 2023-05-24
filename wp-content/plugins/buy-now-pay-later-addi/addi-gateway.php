@@ -5,7 +5,7 @@
  * Description: Ofrece a tus clientes la posibilidad de comprar a cuotas lo que quieran, cuando quieran, pagando después con <strong>Addi</strong>. En minutos. SIN INTERESES. Sin complicaciones.
  * Author: Addi
  * Author URI: https://co.addi.com/
- * Version: 1.5.11
+ * Version: 1.6.7
  * Requires at least: 5.2
  * Requires PHP:      7.0
  * License: GPL v2 or later
@@ -226,41 +226,40 @@ function addi_before_add_to_cart_form($argPosition){
 
                     $getSalePriceFromPlugin = "";
                     $split = explode("|",$newValue);
-                    $countEscape = 0;
                     $bol = $split[0];
                     $slug = $split[1];
                     $price = $product->get_price_html();
-                    //print_r($price);
+
+                    #TODO: remove this validation
                     if(strpos(strip_tags( $price ), '-' ) == false &&
                     strpos(strip_tags( $price ), ':' ) == false) {
-                        $escape = explode( " ", strip_tags( $price ));
+                        $parts = explode( " ", strip_tags( $price ));
+                        $partsCount = count($parts);
 
-                        foreach ($escape as &$value1) {
-                            $countEscape+= 1;
-                        }
+                        if($partsCount > 1) {
 
-
-                        if($countEscape > 1) {
-
-                            foreach ($escape as $key => &$value_if) {
+                            foreach ($parts as $key => &$value_if) {
 
                                 $matches = array();
                                 $value_formatted = str_replace("&#36;", "$", $value_if);
-                                $value_formatted = str_replace(".", "", $value_formatted);
+                                $value_formatted = str_replace(wc_get_price_thousand_separator(), "", $value_formatted);
                                 preg_match_all("/([$][0-9]+)/", $value_formatted, $matches);
 
                                 $first_match = $matches[0];
                                 $match_in_array = null;
 
                                 if(is_array($first_match)) {
-                                    $match_in_array = $first_match[0];
+                                    if(!empty($first_match)){
+                                        $match_in_array = $first_match[0];
+                                    }
                                 }
 
-                                //if ($key == 0) $price_regular = $matches[0];
-                                //if ($key == 1) $price_sale = $matches[0];
-                                if ($key == 0 ) $price_regular = $match_in_array !== '' ? $match_in_array : $matches[0];
-                                if ($key == 1) $price_sale = $match_in_array !== '' ? $match_in_array : $matches[0];
-                                
+                                if ($key == 0 )  {
+                                    $price_regular = $match_in_array !== '' ? $match_in_array : $matches[0];
+                                }
+                                if ($key == 1) {
+                                    $price_sale = $match_in_array !== '' ? $match_in_array : $matches[0];
+                                }
                             }
 
                             if(isset($price_sale) && $price_sale !== "") {
@@ -272,9 +271,7 @@ function addi_before_add_to_cart_form($argPosition){
 
                         }
                         else {
-
-                            //print_r($escape);
-                            foreach ($escape as &$value) {
+                            foreach ($parts as &$value) {
                                 $matches = array();
                                 //$logger->info( '>>>> value normal :' . $value . ' ', array( 'source' => 'addi-widget-handler-log' ) );
                                 $value_formatted = str_replace("&#36;", "$", $value);
@@ -285,10 +282,6 @@ function addi_before_add_to_cart_form($argPosition){
                                 //$logger->info( '>>>> match count :' . count($matches) . ' ', array( 'source' => 'addi-widget-handler-log' ) );
                                 //$logger->info( '>>>> price match count :' . count($prices_match) . ' ', array( 'source' => 'addi-widget-handler-log' ) );
                                 
-                                // foreach ($matches as $item) {
-                                //     $logger->info( '>>>> item position 0 :' . $item . ' ', array( 'source' => 'addi-widget-handler-log' ) );
-                                // }
-                                
                                 if(isset($prices_match) && count($prices_match) > 1) {
                                     $price_regular = $prices_match[0];
                                     $price_sale = $prices_match[1];
@@ -297,8 +290,7 @@ function addi_before_add_to_cart_form($argPosition){
                                     //$logger->info( '>>>> price regular:' . $price_regular . ' ', array( 'source' => 'addi-widget-handler-log' ) );
                                     //$logger->info( '>>>> price sales:' . $price_sale . ' ', array( 'source' => 'addi-widget-handler-log' ) );
                                     //$logger->info( '>>>> get Sale price from Plugin :' . $getSalePriceFromPlugin . ' ', array( 'source' => 'addi-widget-handler-log' ) );
-                            }
-
+                                }
                         }
 
                     }
@@ -393,41 +385,22 @@ function addi_before_add_to_cart_form($argPosition){
                     $tax_display_mode = get_option('woocommerce_tax_display_shop', 'excl');
 
                     if($bol == 'yes') {
-                        if((get_locale() == 'pt_PT' || get_locale() == 'pt_BR')) {
-                            if( $product->is_on_sale() && $product->get_sale_price() !== "" ) {
-                                //print_r('step 1');
-                                $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product, array( 'price' => $product->get_sale_price())) : wc_get_price_excluding_tax($product, array( 'price' => $product->get_sale_price()));
-                                echo "<addi-widget-br custom-widget-styles='". $styles_to_json ."' price='" . $product_price. "' ally-slug='" . $slug . "'></addi-widget-br>";
-                            }
-                            elseif($getSalePriceFromPlugin !== "") {
-                                //print_r('step 2');
-                                //print_r($getSalePriceFromPlugin);
-                                echo "<addi-widget-br custom-widget-styles='". $styles_to_json ."' price='" . $getSalePriceFromPlugin . "' ally-slug='" . $slug . "'></addi-widget-br>";
-                            }
-                            else {
-                                //print_r('step 3');
-                                $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product) : wc_get_price_excluding_tax($product);
-                                echo "<addi-widget-br custom-widget-styles='". $styles_to_json ."' price='" . $product_price . "' ally-slug='" . $slug . "'></addi-widget-br>";
-                            }
+                        $country = (get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ? "br" : 'co';
+                        if( $product->is_on_sale() && $product->get_sale_price() !== "" ) {
+                            //print_r('step 1');
+                            $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product, array( 'price' => $product->get_sale_price())) : wc_get_price_excluding_tax($product, array( 'price' => $product->get_sale_price()));
+                            echo "<addi-product-widget country='". $country ."' custom-widget-styles='". $styles_to_json ."' price='" . $product_price. "' ally-slug='" . $slug . "'></addi-product-widget>";
+                        }
+                        elseif($getSalePriceFromPlugin !== "") {
+                            //print_r('step 2');
+                            //print_r($getSalePriceFromPlugin);
+                            echo "<addi-product-widget country='". $country ."' custom-widget-styles='". $styles_to_json ."' price='" . $getSalePriceFromPlugin . "' ally-slug='" . $slug . "'></addi-product-widget>";
                         }
                         else {
-                            if( $product->is_on_sale() && $product->get_sale_price() !== ""  ) {
-                                //print_r('step 1');
-                                $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product, array( 'price' => $product->get_sale_price())) : wc_get_price_excluding_tax($product, array( 'price' => $product->get_sale_price()));
-                                echo "<addi-widget custom-widget-styles='". $styles_to_json ."' price='" . $product_price . "' ally-slug='" . $slug . "'></addi-widget>";
-                            }
-                            elseif($getSalePriceFromPlugin !== "") {
-                                //print_r('step 2');
-                                //print_r($getSalePriceFromPlugin);
-                                echo "<addi-widget custom-widget-styles='". $styles_to_json ."' price='" . $getSalePriceFromPlugin . "' ally-slug='" . $slug . "'></addi-widget>";
-                            }
-                            else {
-                                $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product) : wc_get_price_excluding_tax($product);
-                                //print_r('step 3');
-                                echo "<addi-widget custom-widget-styles='". $styles_to_json ."' price='" . $product_price. "' ally-slug='" . $slug . "'></addi-widget>";
-                            }
+                            //print_r('step 3');
+                            $product_price = 'incl' === $tax_display_mode ? wc_get_price_including_tax($product) : wc_get_price_excluding_tax($product);
+                            echo "<addi-product-widget country='". $country ."' custom-widget-styles='". $styles_to_json ."' price='" . $product_price . "' ally-slug='" . $slug . "'></addi-product-widget>";
                         }
-
                     }
 
                     break;
@@ -472,34 +445,19 @@ add_action( 'wp_enqueue_scripts', 'addi_my_enqueue_scripts' );
 
 function addi_my_enqueue_scripts() {
     // Enqueue my scripts.
-
-    //Addi widget
-    if((get_locale() == 'pt_PT' || get_locale() == 'pt_BR')) {
-        $script_chunks = array(
-                'product' => array('addi-widgets-container', 'addi-widget-br', 'addi-banner-br', 'addi-onboarding-br', 'addi-one-click-checkout-br'),
-                'home' => array('addi-home-banner-br', 'addi-onboarding')
-        );
-    } else {
-        $script_chunks = array(
-            'product' => array('addi-widgets-container', 'addi-widget', 'addi-banner', 'addi-onboarding', 'addi-one-click-checkout'),
-            'home' => array('addi-home-banner', 'addi-onboarding')
-        );
-    }
     $home_url = wp_make_link_relative(home_url()). '/';
     $country = (get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ? 'br' : 'co';
     $is_product = json_encode(is_product());
 
-    wp_register_script( 'widget-addi', 'https://s3.amazonaws.com/statics.addi.com/woocommerce/woocommerce-widget-wrapper.bundle.min.js', array(), null, true );
-    wp_enqueue_script( 'widget-addi', 'https://s3.amazonaws.com/statics.addi.com/woocommerce/woocommerce-widget-wrapper.bundle.min.js', array(), null, true );
+    wp_register_script( 'widget-addi', 'https://s3.amazonaws.com/statics.addi.com/woocommerce/woocommerce-widget-wrapper-new.bundle.min.js', array(), null, true );
+    wp_enqueue_script( 'widget-addi', 'https://s3.amazonaws.com/statics.addi.com/woocommerce/woocommerce-widget-wrapper-new.bundle.min.js', array(), null, true );
 
     wp_localize_script( 'widget-addi', 'addiParams', array ('country' => $country,
-        'script_chunks' => $script_chunks,
         'home_url' => $home_url,
         'is_product' => $is_product));
 
     // Amplitude
-    wp_enqueue_script( 'addi-amplitude', plugins_url( '/js/addi-amplitude.js' , __FILE__ ), array(), null, true );
-    wp_enqueue_script( 'frontend-functions', plugins_url( '/js/frontend-functions.js' , __FILE__ ), array('addi-amplitude'), null, true );
+    wp_enqueue_script( 'frontend-functions', plugins_url( '/js/frontend-functions.js' , __FILE__ ), array(), null, true );
 
     // Enqueue styles.
     wp_enqueue_style( 'widget-addi-style', plugins_url( '/css/style.css' , __FILE__ ) );
@@ -740,7 +698,7 @@ function register_custom_statuses_as_order_status() {
         'exclude_from_search'       => false,
         'show_in_admin_all_list'    => true,
         'show_in_admin_status_list' => true,
-        'label_count'               => get_locale() == 'pt_PT' || get_locale() == 'pt_BR' ? _n_noop( 'Transação Não Aprovada <span class="count">(%s)</span>', 'Transação Não Aprovada <span class="count">(%s)</span>' ) : _n_noop( 'Transaccion Aprobada <span class="count">(%s)</span>', 'Transaccion Aprobada <span class="count">(%s)</span>' )
+        'label_count'               => get_locale() == 'pt_PT' || get_locale() == 'pt_BR' ? _n_noop( 'Transação Não Aprovada <span class="count">(%s)</span>', 'Transação Não Aprovada <span class="count">(%s)</span>' ) : _n_noop( 'Transaccion no Aprobada <span class="count">(%s)</span>', 'Transaccion no Aprobada <span class="count">(%s)</span>' )
     ) );
 }
 
@@ -933,4 +891,146 @@ function addi_init_gateway_class() {
     include( plugin_dir_path( __FILE__ ) . 'includes/class-wc-addi-gateway.php');
 
 }
-?>
+
+// Adding cancellation / refund hooks
+
+function get_addi_auth()
+{
+    $addi_options = get_option('woocommerce_addi_settings');
+
+    $api_selected = $addi_options['testmode'] ? ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ? 'https://api.addi-staging-br.com' : 'https://api.staging.addi.com') : ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ? 'https://api.addi.com.br' : 'https://api.addi.com');
+
+    $body_auth = [
+        'audience' => $api_selected,
+        'grant_type' => 'client_credentials',
+        'client_id' => $addi_options['prod_client_id'],
+        'client_secret' => $addi_options['prod_client_secret'],
+    ];
+
+    $body_auth = wp_json_encode($body_auth);
+
+    $options_auth = [
+        'body' => $body_auth,
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'accept' => 'application/json',
+        ],
+        'timeout' => 60,
+        'data_format' => 'body',
+    ];
+
+    // getting api url based on test mode checkbox
+    $auth_app_url = $addi_options['testmode'] ? ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR')
+        ? 'https://auth.addi-staging-br.com/oauth/token' : 'https://auth.addi-staging.com/oauth/token')
+        : ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ? 'https://auth.addi.com.br/oauth/token'
+            : 'https://auth.addi.com/oauth/token');
+
+    return wp_remote_post($auth_app_url, $options_auth );
+}
+
+function get_addi_base_url()
+{
+    $addi_options = get_option('woocommerce_addi_settings');
+    $base_url = $addi_options['testmode'] ?
+        ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ?
+            'https://api.addi-staging-br.com/v1/' : 'https://api.addi-staging.com/v1/') :
+        ((get_locale() == 'pt_PT' || get_locale() == 'pt_BR') ?
+            'https://api.addi.com.br/v1/' : 'https://api.addi.com/v1/');
+    return $base_url;
+}
+
+function addi_order_cancelled( $order_id) {
+    // Order cancellation hook
+
+    // Check if the feature is enabled
+    $addi_options = get_option('woocommerce_addi_settings');
+    if ($addi_options['allow_refunds'] == 'no') {
+        return;
+    }
+
+    $order = new WC_Order( $order_id );
+    $payment_method = $order->get_payment_method();
+    if ($payment_method == 'addi') {
+        // Should call our cancellation API here
+        $auth_response = get_addi_auth();
+        $body_auth_response = json_decode( $auth_response['body'], true );
+        if(!is_array($body_auth_response)) {
+            $body_auth_response = array();
+        }
+
+        $denied = in_array("access_denied", $body_auth_response) || in_array("Unauthorized", $body_auth_response);
+        if( !is_wp_error( $auth_response ) && !$denied) {
+            cancel_addi_order($order, $body_auth_response, $order->get_total());
+        }
+    }
+}
+
+function addi_order_refunded( $order_id, $refund_id) {
+    // Order cancellation hook
+
+    $addi_options = get_option('woocommerce_addi_settings');
+    if ($addi_options['allow_refunds'] == 'no') {
+        return;
+    }
+
+    $order = new WC_Order( $order_id );
+    $refund = new WC_Order_Refund( $refund_id );
+    $payment_method = $order->get_payment_method();
+
+    if ($payment_method == 'addi') {
+        // Should call our cancellation API here
+        $auth_response =  get_addi_auth();
+        $body_auth_response = json_decode( $auth_response['body'], true );
+        if(!is_array($body_auth_response)) {
+            $body_auth_response = array();
+        }
+
+        $denied = in_array("access_denied", $body_auth_response) || in_array("Unauthorized", $body_auth_response);
+        if( !is_wp_error( $auth_response ) && !$denied) {
+            cancel_addi_order($order, $body_auth_response, $refund->get_amount());
+        }
+    }
+}
+
+function cancel_addi_order($order, $auth, $amount) {
+    $cancel_order_params = [
+        'orderId'  => $order->get_id(),
+        'amount' => number_format($amount, 1, '.', ''),
+    ];
+
+
+    $body_cancel_order = wp_json_encode( $cancel_order_params );
+
+    $options_online_application = [
+        'body'        => $body_cancel_order,
+        'headers'     => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer '. $auth['access_token'],
+        ],
+        'timeout'     => 100,
+        'data_format' => 'body',
+    ];
+
+    // getting api url based on test mode checkbox
+    $online_app_url = get_addi_base_url() . 'online-applications/cancellations';
+
+    // request
+    $cancel_application_response = wp_remote_post( $online_app_url, $options_online_application );
+
+    // verify if body response is an error or contains data
+    $body_cancel_application_response = json_decode( $cancel_application_response['body'], true );
+
+    if(!is_array($body_cancel_application_response)) {
+        $body_cancel_application_response = array();
+    }
+    
+    //    $logger = wc_get_logger();
+    //    $logger->info('Order cancellation endpoint:  ' . $online_app_url , array( 'source' => 'addi-debug-logger' ) );
+    //    $logger->info('Order cancellation request:  ' . json_encode($body_cancel_order) , array( 'source' => 'addi-debug-logger' ) );
+    //    $logger->info('Order cancellation response:  ' . $cancel_application_response['body'] , array( 'source' => 'addi-debug-logger' ) );
+    //    $logger->info('Order cancellation response code:  ' . wp_remote_retrieve_response_code($cancel_application_response), array( 'source' => 'addi-debug-logger' ) );
+}
+
+add_action( 'woocommerce_order_status_cancelled', 'addi_order_cancelled');
+add_action( 'woocommerce_order_refunded', 'addi_order_refunded', 10, 2 );

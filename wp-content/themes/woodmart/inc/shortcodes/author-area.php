@@ -24,22 +24,29 @@ if( ! function_exists( 'woodmart_shortcode_author_area' ) ) {
 		), $atts ) );
 
 		$img_id = preg_replace( '/[^\d]/', '', $image );
-		
-		if ( function_exists( 'wpb_getImageBySize' ) ) {
-			$img = wpb_getImageBySize( array( 'attach_id' => $img_id, 'thumb_size' => $img_size, 'class' => 'author-area-image' ) );
-			$image_output = $img['thumbnail'];
-		} else {
-			$image_output = woodmart_get_image_html( // phpcs:ignore
-				array(
-					'image_size'             => $img_size,
-					'image'                  => array(
-						'id' => $img_id,
+
+		if ( $img_id ) {
+			if ( function_exists( 'wpb_getImageBySize' ) ) {
+				$img          = wpb_getImageBySize(
+					array(
+						'attach_id'  => $img_id,
+						'thumb_size' => $img_size,
+						'class'      => 'author-area-image',
+					)
+				);
+				$image_output = $img['thumbnail'];
+			} else {
+				$image_output = woodmart_get_image_html( // phpcs:ignore
+					array(
+						'image_size' => $img_size,
+						'image'      => array(
+							'id' => $img_id,
+						),
 					),
-				),
-				'image'
-			);
+					'image'
+				);
+			}
 		}
-		
 
 		$class .= ' text-' . $alignment;
 		$class .= ' color-scheme-' . $woodmart_color_scheme;
@@ -50,23 +57,25 @@ if( ! function_exists( 'woodmart_shortcode_author_area' ) ) {
 
 			<div class="author-area set-mb-m reset-last-child<?php echo esc_attr( $class ); ?>">
 
-				<?php if ( $title ): ?>
+				<?php if ( $title ) : ?>
 					<h3 class="title author-title">
 						<?php echo esc_html( $title ); ?>
 					</h3>
 				<?php endif ?>
 
-				<div class="author-avatar">
-					<?php echo $image_output; ?>
-				</div>
+				<?php if ( isset( $image_output ) ) : ?>
+					<div class="author-avatar">
+						<?php echo $image_output; //phpcs:ignore. ?>
+					</div>
+				<?php endif; ?>
 
-				<?php if ( $author_name ): ?>
+				<?php if ( $author_name ) : ?>
 					<h4 class="title author-name">
 						<?php echo esc_html( $author_name ); ?>
 					</h4>
 				<?php endif ?>
-				
-				<?php if ( $content ): ?>
+
+				<?php if ( $content ) : ?>
 					<div class="author-area-info">
 						<?php echo do_shortcode( $content ); ?>
 					</div>

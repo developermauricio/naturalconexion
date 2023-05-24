@@ -53,7 +53,7 @@
 		var $quickViewCarousel = $('.product-quick-view .woocommerce-product-gallery__wrapper');
 
 		$quickViewCarousel.trigger('destroy.owl.carousel');
-		$quickViewCarousel.addClass('owl-carousel').owlCarousel({
+		$quickViewCarousel.addClass('owl-carousel wd-owl').owlCarousel({
 			rtl    : woodmartThemeModule.$body.hasClass('rtl'),
 			items  : 1,
 			dots   : false,
@@ -68,6 +68,10 @@
 			id    : id,
 			action: 'woodmart_quick_view'
 		};
+
+		if ('undefined' !== typeof btn.data('attribute')) {
+			$.extend(data, btn.data('attribute'));
+		}
 
 		var initPopup = function(data) {
 			var items = $(data);
@@ -85,10 +89,10 @@
 						this.st.mainClass = 'mfp-move-horizontal quick-view-wrapper';
 					},
 					open      : function() {
-						var $form = $('.variations_form');
+						var $form = $(this.content[0]).find('.variations_form');
 
 						$form.each(function() {
-							$(this).wc_variation_form().find('.variations select:eq(0)').change();
+							$(this).wc_variation_form().find('.variations select:eq(0)').trigger('change');
 						});
 
 						$form.trigger('wc_variation_form');

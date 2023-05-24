@@ -3,6 +3,10 @@
 	woodmartThemeModule.headerBanner = function() {
 		var banner_version = woodmart_settings.header_banner_version;
 
+		if ( typeof Cookies === 'undefined' ) {
+			return;
+		}
+
 		if ('closed' === Cookies.get('woodmart_tb_banner_' + banner_version) || 'no' === woodmart_settings.header_banner_close_btn || 'no' === woodmart_settings.header_banner_enabled) {
 			return;
 		}
@@ -20,8 +24,9 @@
 			woodmartThemeModule.$body.removeClass('header-banner-display').addClass('header-banner-hide');
 
 			Cookies.set('woodmart_tb_banner_' + banner_version, 'closed', {
-				expires: 60,
-				path   : '/'
+				expires: parseInt(woodmart_settings.banner_version_cookie_expires),
+				path   : '/',
+				secure : woodmart_settings.cookie_secure_param
 			});
 		};
 	};

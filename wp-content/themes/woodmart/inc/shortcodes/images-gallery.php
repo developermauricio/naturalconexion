@@ -14,7 +14,12 @@ if( ! function_exists( 'woodmart_images_gallery_shortcode' )) {
 			'woodmart_css_id' => '',
 			'ids'        => '',
 			'images'     => '',
-			'columns'    => 3,
+			'slides_per_view' => 3,
+			'slides_per_view_tablet' => 'auto',
+			'slides_per_view_mobile' => 'auto',
+			'columns' => 3,
+			'columns_tablet' => 'auto',
+			'columns_mobile' => 'auto',
 			'size'       => '',
 			'img_size'   => 'medium',
 			'link'       => '',
@@ -90,8 +95,17 @@ if( ! function_exists( 'woodmart_images_gallery_shortcode' )) {
 			$parsed_atts['carousel_id'] = $carousel_id;
 			$parsed_atts['custom_sizes'] = $custom_sizes;
 
+			if ( ( 'auto' !== $slides_per_view_tablet && ! empty( $slides_per_view_tablet ) ) || ( 'auto' !== $slides_per_view_mobile && ! empty( $slides_per_view_mobile ) ) ) {
+				$parsed_atts['custom_sizes'] = array(
+					'desktop'          => $slides_per_view,
+					'tablet_landscape' => $slides_per_view_tablet,
+					'tablet'           => $slides_per_view_mobile,
+					'mobile'           => $slides_per_view_mobile,
+				);
+			}
+
 			$owl_atts = woodmart_get_owl_attributes( $parsed_atts );
-			$gallery_classes .= ' owl-carousel ' . woodmart_owl_items_per_slide( $slides_per_view, array(), false, false, $custom_sizes );
+			$gallery_classes .= ' owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $slides_per_view, array(), false, false, $parsed_atts['custom_sizes'] );
 			$class .= ' wd-carousel-spacing-' . $spacing;
 			$class .= ' wd-carousel-container';
 
@@ -108,7 +122,12 @@ if( ! function_exists( 'woodmart_images_gallery_shortcode' )) {
 		if ( $view == 'grid' || $view == 'masonry' ){
 			$gallery_classes .= ' row';
 			$gallery_classes .= ' wd-spacing-' . $spacing;
-			$gallery_item_classes .= woodmart_get_grid_el_class( 0, $columns );
+
+			if ( ( 'auto' !== $columns_tablet && ! empty( $columns_tablet ) ) || ( 'auto' !== $columns_mobile && ! empty( $columns_mobile ) ) ) {
+				$gallery_item_classes .= woodmart_get_grid_el_class_new( 0, false, $columns, $columns_tablet, $columns_mobile );
+			} else {
+				$gallery_item_classes .= woodmart_get_grid_el_class( 0, $columns );
+			}
 		}
 
 		if ( $lazy_loading == 'yes' ) {
@@ -129,18 +148,25 @@ if( ! function_exists( 'woodmart_images_gallery_shortcode' )) {
 
 						$i++;
 						$attachment = get_post( $img_id );
-						$title = trim( strip_tags( $attachment->post_title ) );
+						$title      = '';
+
+						if ( ! empty( $attachment ) ) {
+							$title = trim( strip_tags( $attachment->post_title ) ); // phpcs:ignore.
+						}
 
 						$image_data = wp_get_attachment_image_src( $img_id, 'full' );
-						$link = $image_data[0];
 
-						if( 'links' === $on_click ) {
-							$link = (isset( $custom_links[$i-1] ) ? $custom_links[$i-1] : '' );
+						$link   = is_array( $image_data ) ? $image_data[0] : '';
+						$width  = isset( $image_data[1] ) ? $image_data[1] : '';
+						$height = isset( $image_data[2] ) ? $image_data[2] : '';
+
+						if ( 'links' === $on_click ) {
+							$link = is_array( $custom_links ) && isset( $custom_links[ $i - 1 ] ) ? $custom_links[ $i - 1 ] : '';
 						}
 						?>
 						<div class="wd-gallery-item<?php echo esc_attr( $gallery_item_classes ); ?>">
 							<?php if ( $on_click != 'none' ): ?>
-							<a href="<?php echo esc_url( $link ); ?>" data-elementor-open-lightbox="no" data-index="<?php echo esc_attr( $i ); ?>" data-width="<?php echo esc_attr( $image_data[1] ); ?>" data-height="<?php echo esc_attr( $image_data[2] ); ?>" <?php if( $target_blank ): ?>target="_blank"<?php endif; ?> <?php if( $caption ): ?>title="<?php echo esc_attr( $title ); ?>"<?php endif; ?>>
+							<a href="<?php echo esc_url( $link ); ?>" data-elementor-open-lightbox="no" data-index="<?php echo esc_attr( $i ); ?>" data-width="<?php echo esc_attr( $width ); ?>" data-height="<?php echo esc_attr( $height ); ?>" <?php if( $target_blank ): ?>target="_blank"<?php endif; ?> <?php if( $caption ): ?>title="<?php echo esc_attr( $title ); ?>"<?php endif; ?>>
 								<?php endif ?>
 
 								<?php if ( function_exists( 'wpb_getImageBySize' ) ): ?>

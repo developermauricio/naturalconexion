@@ -625,7 +625,11 @@ class WC_Order_Export_Manage {
 			unset( $data['export_rule'] );
 			unset( $data['schedule'] );
 		}
-
+		// don't allow to import PHP code if user has no permissions to add this code 
+		if ( ! WC_Order_Export_Admin::user_can_add_custom_php() ) {
+			$data['custom_php']  = 0;
+			$data['custom_php_code']  = "";
+		}
 		return $data;
 	}
 

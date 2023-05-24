@@ -56,10 +56,18 @@ if ( $attachment_ids && $product->get_image_id() ) {
 			'class'                   => apply_filters( 'woodmart_single_product_gallery_image_class', '' ),
 		);
 
-		$html  = '<div class="product-image-wrap"><figure data-thumb="' . esc_url( isset( $thumbnail[0] ) ? $thumbnail[0] : '' ) . '" class="woocommerce-product-gallery__image"><a data-elementor-open-lightbox="no" href="' . esc_url( isset( $full_size_image[0] ) ? $full_size_image[0] : '' ) . '">';
-		$html .= wp_get_attachment_image( $attachment_id, 'woocommerce_single', false, $attributes );
-		$html .= '</a></figure></div>';
+		ob_start();
 
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
+		?>
+		<div class="product-image-wrap">
+			<figure data-thumb="<?php echo esc_url( isset( $thumbnail[0] ) ? $thumbnail[0] : '' ); ?>" class="woocommerce-product-gallery__image">
+				<a data-elementor-open-lightbox="no" href="<?php echo esc_url( isset( $full_size_image[0] ) ? $full_size_image[0] : '' ); ?>">
+					<?php echo wp_get_attachment_image( $attachment_id, 'woocommerce_single', false, $attributes ); ?>
+				</a>
+			</figure>
+		</div>
+		<?php
+
+		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', ob_get_clean(), $attachment_id );
 	}
 }

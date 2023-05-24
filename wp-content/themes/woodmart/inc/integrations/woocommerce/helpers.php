@@ -82,9 +82,13 @@ if ( ! function_exists( 'woodmart_js_composer_installed' ) ) {
 
 if ( ! function_exists( 'woodmart_is_woo_ajax' ) ) {
 	function woodmart_is_woo_ajax() {
-		$request_headers = function_exists( 'getallheaders' ) ? getallheaders() : array();
+		$request_headers      = function_exists( 'getallheaders' ) ? getallheaders() : array();
+		$exclude_ajax_actions = array(
+			'woodmart_load_html_dropdowns',
+			'elementor_ajax',
+		);
 
-		if ( isset( $_REQUEST['action'] ) && 'woodmart_load_html_dropdowns' === $_REQUEST['action'] ) { // phpcs:ignore
+		if ( isset( $_REQUEST['action'] ) && in_array( $_REQUEST['action'], $exclude_ajax_actions ) ) { // phpcs:ignore
 			return false;
 		}
 
@@ -157,31 +161,6 @@ if ( ! function_exists( 'woodmart_get_current_term_id' ) ) {
 
 /**
  * ------------------------------------------------------------------------------------------------
- * Woodmart is product thumb enabled
- * ------------------------------------------------------------------------------------------------
- */
-if ( ! function_exists( 'woodmart_is_product_thumb_enabled' ) ) {
-	function woodmart_is_product_thumb_enabled() {
-		$thums_position = woodmart_get_opt( 'thums_position' );
-		$product_design = woodmart_get_opt( 'product_design' );
-		return ( $product_design != 'sticky' && ( $thums_position == 'bottom' || $thums_position == 'left' ) );
-	}
-}
-
-/**
- * ------------------------------------------------------------------------------------------------
- * Woodmart is main product images carousel
- * ------------------------------------------------------------------------------------------------
- */
-if ( ! function_exists( 'woodmart_is_main_product_images_carousel' ) ) {
-	function woodmart_is_main_product_images_carousel() {
-		$thums_position = woodmart_get_opt( 'thums_position' );
-		return ( $thums_position == 'without' || $thums_position == 'centered' ) ? true : woodmart_is_product_thumb_enabled();
-	}
-}
-
-/**
- * ------------------------------------------------------------------------------------------------
  * Determine is it product attribute archive page
  * ------------------------------------------------------------------------------------------------
  */
@@ -193,6 +172,21 @@ if ( ! function_exists( 'woodmart_is_product_attribute_archive' ) ) {
 			$taxonomy = $queried_object->taxonomy;
 			return substr( $taxonomy, 0, 3 ) == 'pa_';
 		}
+		return false;
+	}
+}
+
+if ( ! function_exists( 'woodmart_is_woocommerce_legacy_rest_api' ) ) {
+	/**
+	 * This function checked is woocommerce legacy rest api.
+	 *
+	 * @return bool
+	 */
+	function woodmart_is_woocommerce_legacy_rest_api() {
+		if ( ! empty( $_SERVER['REQUEST_URI'] ) && 'yes' === get_option( 'woocommerce_api_enabled' ) && false !== strpos( $_SERVER['REQUEST_URI'], 'wc-api' ) ) {
+			return true;
+		}
+
 		return false;
 	}
 }

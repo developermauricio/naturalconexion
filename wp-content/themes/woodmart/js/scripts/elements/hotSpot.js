@@ -8,6 +8,10 @@
 		});
 	});
 
+	woodmartThemeModule.$document.on('wdShopPageInit', function() {
+		woodmartThemeModule.imageHotspot();
+	});
+
 	woodmartThemeModule.imageHotspot = function() {
 		$('.wd-image-hotspot').each(function() {
 			var _this = $(this);
@@ -26,6 +30,7 @@
 					_this.siblings().removeClass('hotspot-opened');
 				}
 
+				setContentPosition();
 				woodmartThemeModule.$document.trigger('wood-images-loaded');
 				return false;
 			});
@@ -48,29 +53,34 @@
 			});
 		});
 
-		$('.wd-image-hotspot .hotspot-content').each(function() {
-			var content = $(this);
-			var offsetLeft = content.offset().left;
-			var offsetRight = woodmartThemeModule.$window.width() - (offsetLeft + content.outerWidth());
+		function setContentPosition() {
+			$('.wd-image-hotspot .hotspot-content').each(function() {
+				var content = $(this);
+				content.removeClass('hotspot-overflow-right hotspot-overflow-left');
+				content.attr('style', '');
 
-			if (woodmartThemeModule.$window.width() > 768) {
-				if (offsetLeft <= 0) {
-					content.addClass('hotspot-overflow-right');
-				}
-				if (offsetRight <= 0) {
-					content.addClass('hotspot-overflow-left');
-				}
-			}
+				var offsetLeft = content.offset().left;
+				var offsetRight = woodmartThemeModule.$window.width() - (offsetLeft + content.outerWidth());
 
-			if (woodmartThemeModule.$window.width() <= 768) {
-				if (offsetLeft <= 0) {
-					content.css('marginLeft', Math.abs(offsetLeft - 15) + 'px');
+				if (woodmartThemeModule.windowWidth > 768) {
+					if (offsetLeft <= 0) {
+						content.addClass('hotspot-overflow-right');
+					}
+					if (offsetRight <= 0) {
+						content.addClass('hotspot-overflow-left');
+					}
 				}
-				if (offsetRight <= 0) {
-					content.css('marginLeft', offsetRight - 15 + 'px');
+
+				if (woodmartThemeModule.windowWidth <= 768) {
+					if (offsetLeft <= 0) {
+						content.css('marginLeft', Math.abs(offsetLeft - 15) + 'px');
+					}
+					if (offsetRight <= 0) {
+						content.css('marginLeft', offsetRight - 15 + 'px');
+					}
 				}
-			}
-		});
+			});
+		}
 	};
 
 	$(document).ready(function() {

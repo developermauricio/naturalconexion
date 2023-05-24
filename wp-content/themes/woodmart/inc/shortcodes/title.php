@@ -55,26 +55,33 @@ if ( ! function_exists( 'woodmart_shortcode_title' ) ) {
 			$atts
 		);
 
-
 		extract( $atts );
 
 		if ( ! $woodmart_css_id ) {
 			$woodmart_css_id = uniqid();
 		}
-		$title_id = 'wd-' . $woodmart_css_id;
+		$title_id   = 'wd-' . $woodmart_css_id;
+		$style_attr = '';
 
 		$subtitle_class = $title_container_class = $after_title_class = '';
 
 		$title_class .= ' wd-title-color-' . $color;
-		$title_class .= ' wd-underline-' . $title_decoration_style;
 		$title_class .= ' wd-title-style-' . $style;
-		$title_class .= ' wd-width-' . $title_width;
 		$title_class .= ' text-' . $align;
 		$title_class .= woodmart_get_css_animation( $css_animation );
 		$title_class .= ( $el_class ) ? ' ' . $el_class : '';
 
 		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
 			$title_class .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
+		if ( $title_width && 'custom' !== $title_width && '100' !== $title_width ) {
+			$style_attr  .= ' style="--wd-max-width: ' . $title_width . '%;"';
+			$title_class .= ' wd-width-enabled';
+		}
+
+		if ( 'custom' === $title_width ) {
+			$title_class .= ' wd-width-custom';
 		}
 
 		if ( ! $title ) {
@@ -97,9 +104,20 @@ if ( ! function_exists( 'woodmart_shortcode_title' ) ) {
 		ob_start();
 
 		woodmart_enqueue_inline_style( 'section-title' );
+
+		if ( in_array( $style, array( 'bordered', 'simple' ), true ) ) {
+			woodmart_enqueue_inline_style( 'section-title-style-simple-and-brd' );
+		} elseif ( in_array( $style, array( 'overlined', 'underlined', 'underlined-2' ), true ) ) {
+			woodmart_enqueue_inline_style( 'section-title-style-under-and-over' );
+		}
+
+		if ( isset( $title_decoration_style ) && 'default' !== $title_decoration_style ) {
+			$title_class .= ' wd-underline-' . $title_decoration_style;
+			woodmart_enqueue_inline_style( 'mod-highlighted-text' );
+		}
 		?>
-		
-		<div id="<?php echo esc_attr( $title_id ); ?>" class="title-wrapper wd-wpb set-mb-s reset-last-child <?php echo esc_attr( $title_class ); ?>">
+
+		<div id="<?php echo esc_attr( $title_id ); ?>" class="title-wrapper wd-wpb set-mb-s reset-last-child <?php echo esc_attr( $title_class ); ?>"<?php echo wp_kses( $style_attr, true ); ?>>
 			<?php if ( $subtitle != '' ) : ?>
 				<div class="title-subtitle <?php echo esc_attr( $subtitle_class ); ?>"><?php echo wp_kses( $subtitle, woodmart_get_allowed_html() ); ?></div>
 			<?php endif; ?>
@@ -125,7 +143,7 @@ if ( ! function_exists( 'woodmart_shortcode_title' ) ) {
 				}
 
 				if ( $tablet_text_size ) {
-					$css .= '@media (max-width: 1024px) {';
+					$css .= '@media (max-width: 1199px) {';
 					$css .= woodmart_responsive_text_size_css( $title_id, 'woodmart-title-container', $tablet_text_size, 'return' );
 					$css .= '}';
 				}

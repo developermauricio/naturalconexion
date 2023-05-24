@@ -10,6 +10,7 @@ Options::add_field(
 		'id'          => 'page-title-design',
 		'name'        => esc_html__( 'Page title design', 'woodmart' ),
 		'description' => esc_html__( 'Select page title section design or disable it completely on all pages.', 'woodmart' ),
+		'group'       => esc_html__( 'Style', 'woodmart' ),
 		'type'        => 'buttons',
 		'section'     => 'page_title_section',
 		'options'     => array(
@@ -38,21 +39,25 @@ Options::add_field(
 Options::add_field(
 	array(
 		'id'          => 'page-title-size',
-		'name'        => esc_html__( 'Page title size' ),
+		'name'        => esc_html__( 'Page title size', 'woodmart' ),
 		'description' => esc_html__( 'You can set different sizes for your page titles.', 'woodmart' ),
+		'group'       => esc_html__( 'Style', 'woodmart' ),
 		'type'        => 'buttons',
 		'section'     => 'page_title_section',
 		'options'     => array(
 			'default' => array(
 				'name'  => esc_html__( 'Default', 'woodmart' ),
+				'hint'     => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'page-title-size-default.jpg" alt="">', 'woodmart' ), true ),
 				'value' => 'default',
 			),
 			'small'   => array(
 				'name'  => esc_html__( 'Small', 'woodmart' ),
+				'hint'     => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'page-title-size-small.jpg" alt="">', 'woodmart' ), true ),
 				'value' => 'small',
 			),
 			'large'   => array(
 				'name'  => esc_html__( 'Large', 'woodmart' ),
+				'hint'     => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'page-title-size-large.jpg" alt="">', 'woodmart' ), true ),
 				'value' => 'large',
 			),
 		),
@@ -67,7 +72,7 @@ Options::add_field(
 		'id'          => 'title-background',
 		'name'        => esc_html__( 'Pages title background', 'woodmart' ),
 		'description' => esc_html__( 'Set background image or color, that will be used as a default for all page titles, shop page and blog.', 'woodmart' ),
-		'group'       => esc_html__( 'Color and background', 'woodmart' ),
+		'group'       => esc_html__( 'Style', 'woodmart' ),
 		'type'        => 'background',
 		'default'     => array(
 			'color'    => '#0a0a0a',
@@ -86,7 +91,7 @@ Options::add_field(
 		'id'          => 'page-title-color',
 		'name'        => esc_html__( 'Text color for page title', 'woodmart' ),
 		'description' => esc_html__( 'You can set text different color depending on its background. It can be light or dark.', 'woodmart' ),
-		'group'       => esc_html__( 'Color and background', 'woodmart' ),
+		'group'       => esc_html__( 'Style', 'woodmart' ),
 		'type'        => 'buttons',
 		'section'     => 'page_title_section',
 		'options'     => array(
@@ -112,8 +117,9 @@ Options::add_field(
 	array(
 		'id'          => 'page_title_tag',
 		'name'        => esc_html__( 'Title tag', 'woodmart' ),
+		'hint'        => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'page-title-title-tag.jpg" alt="">', 'woodmart' ), true ),
 		'description' => esc_html__( 'Choose which HTML tag to use for the page title.', 'woodmart' ),
-		'group'       => esc_html__( 'Breadcrumbs & SEO options', 'woodmart' ),
+		'group'       => esc_html__( 'SEO', 'woodmart' ),
 		'type'        => 'select',
 		'section'     => 'page_title_section',
 		'default'     => 'default',
@@ -168,8 +174,9 @@ Options::add_field(
 		'id'          => 'breadcrumbs',
 		'section'     => 'page_title_section',
 		'name'        => esc_html__( 'Show breadcrumbs', 'woodmart' ),
+		'hint'        => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'page-title-show-breadcrumbs.jpg" alt="">', 'woodmart' ), true ),
 		'description' => esc_html__( 'Displays a full chain of links to the current page.', 'woodmart' ),
-		'group'       => esc_html__( 'Breadcrumbs & SEO options', 'woodmart' ),
+		'group'       => esc_html__( 'SEO', 'woodmart' ),
 		'on-text'     => esc_html__( 'Yes', 'woodmart' ),
 		'off-text'    => esc_html__( 'No', 'woodmart' ),
 		'type'        => 'switcher',
@@ -184,7 +191,7 @@ Options::add_field(
 		'section'     => 'page_title_section',
 		'name'        => esc_html__( 'Yoast breadcrumbs for shop', 'woodmart' ),
 		'description' => esc_html__( 'Requires Yoast SEO plugin to be installed. Replaces standard WooCommerce breadcrumbs with the custom one that comes with the plugin. You need to enable and configure it in Dashboard -> SEO -> Search Appearance -> Breadcrumbs.', 'woodmart' ),
-		'group'       => esc_html__( 'Breadcrumbs & SEO options', 'woodmart' ),
+		'group'       => esc_html__( 'SEO', 'woodmart' ),
 		'type'        => 'switcher',
 		'default'     => false,
 		'priority'    => 70,
@@ -197,7 +204,7 @@ Options::add_field(
 		'section'     => 'page_title_section',
 		'name'        => esc_html__( 'Yoast breadcrumbs for pages', 'woodmart' ),
 		'description' => esc_html__( 'Requires Yoast SEO plugin to be installed. Replaces standard breadcrumbs with the custom one that comes with the plugin. You need to enable and configure it in Dashboard -> SEO -> Search Appearance -> Breadcrumbs.', 'woodmart' ),
-		'group'       => esc_html__( 'Breadcrumbs & SEO options', 'woodmart' ),
+		'group'       => esc_html__( 'SEO', 'woodmart' ),
 		'type'        => 'switcher',
 		'default'     => false,
 		'priority'    => 80,

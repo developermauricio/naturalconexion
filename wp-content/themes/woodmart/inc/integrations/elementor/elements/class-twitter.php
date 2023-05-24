@@ -3,6 +3,8 @@
  * Twitter map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -71,7 +73,7 @@ class Twitter extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -212,4 +214,4 @@ class Twitter extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Twitter() );
+Plugin::instance()->widgets_manager->register( new Twitter() );

@@ -46,12 +46,13 @@ if( ! function_exists( 'woodmart_shortcode_3d_view' ) ) {
 			'height'       => '',
 		);
 
-		 foreach ( $images as $img_id ) {
-			 $img = wpb_getImageBySize( array( 'attach_id' => $img_id, 'thumb_size' => $img_size, 'class' => 'threed-view-image' ) );
-			 $args['width'] = $img['p_img_large'][1];
-			 $args['height'] = $img['p_img_large'][2];
-			 $args['images'][] = $img['p_img_large'][0];
-		 }
+		foreach ( $images as $img_id ) {
+			$img = wpb_getImageBySize( array( 'attach_id' => $img_id, 'thumb_size' => $img_size, 'class' => 'threed-view-image' ) );
+
+			$args['width']    = isset( $img['p_img_large'][1] ) ? $img['p_img_large'][1] : '';
+			$args['height']   = isset( $img['p_img_large'][2] ) ? $img['p_img_large'][2] : '';
+			$args['images'][] = isset( $img['p_img_large'][0] ) ? $img['p_img_large'][0] : '';
+		}
 
 		?>
 			<div class="wd-threed-view<?php echo esc_attr( $class ); ?> threed-id-<?php echo esc_attr( $id ); ?>" <?php if( ! empty( $link ) ): ?>onclick="window.location.href='<?php echo esc_js( $link ) ?>'"<?php endif; ?> data-args='<?php echo wp_json_encode( $args ); ?>'>

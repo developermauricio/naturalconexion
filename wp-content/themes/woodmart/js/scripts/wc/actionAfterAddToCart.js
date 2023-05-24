@@ -14,7 +14,11 @@
 		var timeoutNumber = 0;
 		var timeout;
 
-		woodmartThemeModule.$body.on('added_to_cart', function() {
+		woodmartThemeModule.$body.on('added_to_cart', function(e, data) {
+			if (data.stop_reload || data.e_manually_triggered) {
+				return false;
+			}
+
 			if (woodmart_settings.add_to_cart_action === 'popup') {
 				var html = [
 					'<div class="added-to-cart">',
@@ -34,12 +38,12 @@
 						}
 					},
 					items       : {
-						src : '<div class="mfp-with-anim wd-popup white-popup popup-added_to_cart">' + html + '</div>',
+						src : '<div class="mfp-with-anim wd-popup popup-added_to_cart wd-close-btn-inset">' + html + '</div>',
 						type: 'inline'
 					}
 				});
 
-				$('.white-popup').on('click', '.close-popup', function(e) {
+				$('.popup-added_to_cart').on('click', '.close-popup', function(e) {
 					e.preventDefault();
 					$.magnificPopup.close();
 				});

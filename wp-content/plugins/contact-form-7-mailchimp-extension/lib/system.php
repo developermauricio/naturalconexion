@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,11 +18,12 @@
 
 
 
+
  ?>
 
 <div id="sys-dev">
 
-  <div id="toggle-sys" class="highlight" style="margin-top: 1em; margin-bottom: 1em; display: none;">
+  <div id="toggle-sys" class="only-one-toogles" style="margin-top: 1em; margin-bottom: 1em; display: none;">
 
     <pre><code><?php
 
@@ -52,11 +53,11 @@
   $return .= "\n" . '== WP  Frontpage' . "\n";
   $return .= '================================================' . "\n";
 
-    $front_page_id = get_option( 'page_on_front' );
-    $blog_page_id = get_option( 'page_for_posts' );
+  $front_page_id = get_option( 'page_on_front' );
+  $blog_page_id = get_option( 'page_for_posts' );
 
-    $return .= 'Page On Front:            ' . ( $front_page_id != 0 ? get_the_title( $front_page_id ) . ' (#' . $front_page_id . ')' : 'Unset' ) . "\n";
-    $return .= 'Page For Posts:           ' . ( $blog_page_id != 0 ? get_the_title( $blog_page_id ) . ' (#' . $blog_page_id . ')' : 'Unset' ) . "\n";
+  $return .= 'Page On Front:            ' . ( $front_page_id != 0 ? get_the_title( $front_page_id ) . ' (#' . $front_page_id . ')' : 'Unset' ) . "\n";
+  $return .= 'Page For Posts:           ' . ( $blog_page_id != 0 ? get_the_title( $blog_page_id ) . ' (#' . $blog_page_id . ')' : 'Unset' ) . "\n";
 
   $return .= 'ABSPATH:                  ' . ABSPATH . "\n";
 
@@ -71,12 +72,19 @@
     'user-agent'    => 'MI/' . SPARTAN_MCE_VERSION,
     'body'          => $request
   );
+
   $response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', $params );
+
   if( !is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
+
     $WP_REMOTE_POST = 'wp_remote_post() works';
+
   } else {
+
     $WP_REMOTE_POST = 'wp_remote_post() does not work';
+
   }
+
   $return .= 'Remote Post:              ' . $WP_REMOTE_POST . "\n";
   $return .= 'Table Prefix:             ' . 'Length: ' . strlen( $wpdb->prefix ) . '   Status: ' . ( strlen( $wpdb->prefix ) > 16 ? 'ERROR: Too long' : 'Acceptable' ) . "\n";
 
@@ -90,6 +98,7 @@
   // NOTE: MU plugins can't show updates!
   $muplugins = get_mu_plugins();
   if( count( $muplugins )  > 0  ) {
+
     $return .= "\n" . '== Must-Use Plugins' . "\n";
     $return .= '================================================' . "\n";
     foreach( $muplugins as $plugin => $plugin_data ) {
@@ -104,11 +113,14 @@
   $return .= '================================================' . "\n";
   $plugins = get_plugins();
   $active_plugins = get_option( 'active_plugins', array() );
+
   foreach( $plugins as $plugin_path => $plugin ) {
+
     if( !in_array( $plugin_path, $active_plugins ) )
       continue;
     $update = ( array_key_exists( $plugin_path, $updates ) ) ? ' <b>(needs update - ' . $updates[$plugin_path]->update->new_version . ')</b>' : '';
     $return .= $plugin['Name'] . ': ' . $plugin['Version'] . $update . "\n";
+
   }
 
 
@@ -116,14 +128,17 @@
   $return .= "\n" . '== WordPress Inactive Plugins' . "\n";
   $return .= '================================================' . "\n";
   foreach( $plugins as $plugin_path => $plugin ) {
+
     if( in_array( $plugin_path, $active_plugins ) )
       continue;
     $update = ( array_key_exists( $plugin_path, $updates ) ) ? ' <b>(needs update - ' . $updates[$plugin_path]->update->new_version . ')</b>' : '';
     $return .= $plugin['Name'] . ': ' . $plugin['Version'] . $update . "\n";
+
   }
 
 
   if( is_multisite() ) {
+
     // WP Network Active Plugins
     $return .= "\n" . '== WP Network Active Plugins' . "\n";
     $return .= '================================================' . "\n";
@@ -136,6 +151,7 @@
       $update = ( array_key_exists( $plugin_path, $updates ) ) ? ' (needs update - ' . $updates[$plugin_path]->update->new_version . ')' : '';
       $plugin  = get_plugin_data( $plugin_path );
       $return .= $plugin['Name'] . ': ' . $plugin['Version'] . $update . "\n";
+
     }
   }
 

@@ -190,11 +190,13 @@ class THWCFD_Public_Checkout {
 					}
 				}
 				$fields[$key] = $field;
+				if( (isset($field['custom'])&& $field['custom']) && apply_filters('thwcfd_show_custom_field_my_account',false)){
+					unset($fields[$key]);
+				}
 			}
 			return $fields;
 		}else{
-			
-			return $this->prepare_address_fields(get_option('wc_fields_billing'), $country, $fields, 'billing');
+			return $this->prepare_address_fields(get_option('wc_fields_billing'), $country, $fields, 'billing');	
 			
 		}
 	}
@@ -236,6 +238,9 @@ class THWCFD_Public_Checkout {
 					}
 				}
 				$fields[$key] = $field;
+				if( (isset($field['custom'])&& $field['custom']) && apply_filters('thwcfd_show_custom_field_my_account',false)){
+					unset($fields[$key]);
+				}
 			}
 			return $fields;
 		}else{

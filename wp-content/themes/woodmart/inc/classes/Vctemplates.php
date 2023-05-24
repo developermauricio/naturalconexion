@@ -60,37 +60,29 @@ class WOODMART_Vctemplates {
 		die(); // no needs to do anything more. optimization.
 	}
 
-	public function get_template_content( $id ) {
-		$shortcodes = $this->_get_shortcodes( $id );
-
-		if( ! $shortcodes ) return;
-
+	public function get_content( $shortcodes, $config ) {
 		$replace_vars = array();
 
-		if( $config_json = $this->_get_config( $id ) ) {
-			$config = json_decode($config_json, true);
+		if( is_array( $config ) ) {
+			if( isset( $config['assets'] ) && $config['assets'] ) {
+				foreach ($config['assets'] as $asset) {
+					switch ($asset['type']) {
+						case 'external-image':
 
-			if( is_array( $config ) ) {
-				if( isset( $config['assets'] ) && $config['assets'] ) {
-					foreach ($config['assets'] as $asset) {
-						switch ($asset['type']) {
-							case 'external-image':
-									
-								if($id = $this->_add_media($asset['src'])) {
-									$replace_vars[ '{{' . $asset['id'] . '}}' ] = $id;
-								}
+							if($id = $this->_add_media($asset['src'])) {
+								$replace_vars[ '{{' . $asset['id'] . '}}' ] = $id;
+							}
 
 							break;
-							case 'external-image-url':
-									
-								if($id = $this->_add_media($asset['src'])) {
-									$image = wp_get_attachment_image_src($id, 'full');
-									if( isset($image[0]) ) 
-										$replace_vars[ '{{' . $asset['id'] . '}}' ] = $image[0];
-								}
+						case 'external-image-url':
+
+							if($id = $this->_add_media($asset['src'])) {
+								$image = wp_get_attachment_image_src($id, 'full');
+								if( isset($image[0]) )
+									$replace_vars[ '{{' . $asset['id'] . '}}' ] = $image[0];
+							}
 
 							break;
-						}
 					}
 				}
 			}
@@ -103,40 +95,39 @@ class WOODMART_Vctemplates {
 		return $shortcodes;
 	}
 
+	public function get_template_content( $id ) {
+		$shortcodes = $this->_get_shortcodes( $id );
+		$config_json = json_decode( $this->_get_config( $id ), true);
+
+		if( ! $shortcodes ) return;
+
+		return $this->get_content( $shortcodes, $config_json );
+	}
+
 
 	public function render_template( $category ) {
 		$category['output'] = '';
 
-		$category['output'] .= '<div class="vc_column woodmart-templates-heading">';
-		$category['output'] .= '<div class="vc_column vc_col-sm-9">';
+		$category['output'] .= '<div class="xts-box xts-wpb-templates xts-theme-style">';
+		$category['output'] .= '<div class="xts-box-header xts-wpb-templates-heading">';
+		$category['output'] .= '<div class="xts-row">';
+		$category['output'] .= '<div class="xts-col"><div>';
 		if ( isset( $category['category_name'] ) ) {
 			$category['output'] .= '<h3>' . esc_html( $category['category_name'] ) . '</h3>';
 		}
 		if ( isset( $category['category_description'] ) ) {
 			$category['output'] .= '<p class="vc_description">' . esc_html( $category['category_description'] ) . '</p>';
 		}
-		$category['output'] .= '</div>';
+		$category['output'] .= '</div></div>';
 		
-		$category['output'] .= '<div class="vc_column vc_col-sm-3"><input type="text" class="woodmart-templates-search" placeholder="Start typing to search..." /></div>';
+		$category['output'] .= '<div class="xts-col-auto"><div class="xts-import-search xts-search xts-i-search"><input type="text" class="woodmart-templates-search" placeholder="Start typing to search..." /></div></div>';
 
 
 		$category['output'] .= '</div>';
+		$category['output'] .= '</div>';
 		$category['output'] .= '
-		<div class="vc_column vc_col-sm-12">
-			<div class="woodmart-templates-list xts-loading vc_ui-template-list vc_templates-list-my_templates vc_ui-list-bar" data-vc-action="collapseAll">';
-
-		$category['output'] .= '
-				<div class="xts-loader-wrapper">
-					<div class="xts-loader">
-						<div class="xts-loader-el"></div>
-						<div class="xts-loader-el"></div>
-					</div>
-				</div>';
-
-		$category['output'] .= '
-			</div>
-		</div>';
-
+			<div class="xts-box-content xts-wpb-templates-content woodmart-templates-list xts-loading" data-vc-action="collapseAll"></div>';
+		$category['output'] .= '</div>';
 		$category['output'] .= '';
 
 		return $category;

@@ -18,6 +18,7 @@ if ( ! function_exists( 'woodmart_shortcode_mega_menu' ) ) {
 				'nav_menu'              => '',
 				'style'                 => 'default',
 				'design'                => 'vertical',
+				'dropdown_design'       => 'default',
 				'items_gap'             => 's',
 				'alignment'             => 'left',
 				'color'                 => '',
@@ -50,9 +51,17 @@ if ( ! function_exists( 'woodmart_shortcode_mega_menu' ) ) {
 			$menu_classes .= ' wd-gap-' . $atts['items_gap'];
 		}
 
+		if ( 'vertical' === $atts['design'] ) {
+			$menu_classes .= ' wd-design-' . $atts['dropdown_design'];
+		}
+
 		ob_start();
 
 		woodmart_enqueue_inline_style( 'widget-nav-mega-menu' );
+
+		if ( 'vertical' === $atts['design'] ) {
+			woodmart_enqueue_inline_style( 'mod-nav-vertical' );
+		}
 		?>
 
 			<div id="<?php echo esc_attr( $widget_id ); ?>" class="widget_nav_mega_menu <?php echo esc_attr( $class ); ?>">

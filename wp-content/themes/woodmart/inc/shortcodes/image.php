@@ -67,7 +67,10 @@ if ( ! function_exists( 'woodmart_shortcode_image' ) ) {
 
 			if ( isset( $image_data['p_img_large'] ) ) {
 				$atts['img_link'] = isset( $image_data['p_img_large'][0] ) ? $image_data['p_img_large'][0] : '';
-				$image_link_atts .= ' data-width="' . esc_attr( $image_data['p_img_large'][1] ) . '" data-height="' . esc_attr( $image_data['p_img_large'][2] ) . '"';
+				$width            = isset( $image_data['p_img_large'][1] ) ? $image_data['p_img_large'][1] : '';
+				$height           = isset( $image_data['p_img_large'][2] ) ? $image_data['p_img_large'][2] : '';
+
+				$image_link_atts .= ' data-width="' . esc_attr( $width ) . '" data-height="' . esc_attr( $height ) . '"';
 			}
 		}
 
@@ -75,7 +78,7 @@ if ( ! function_exists( 'woodmart_shortcode_image' ) ) {
 			$wrapper_classes .= ' inline-element';
 		}
 
-		if ( isset( $image_data['p_img_large'] ) && woodmart_is_svg( $image_data['p_img_large'][0] ) ) {
+		if ( isset( $image_data['p_img_large'][0] ) && woodmart_is_svg( $image_data['p_img_large'][0] ) ) {
 			$image_html = woodmart_get_svg_html(
 				$atts['img_id'],
 				$atts['img_size']

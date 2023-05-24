@@ -5,11 +5,11 @@
  * Description: Export orders from WooCommerce with ease (Excel/CSV/XML/JSON supported)
  * Author: AlgolPlus
  * Author URI: https://algolplus.com/
- * Version: 3.3.3
+ * Version: 3.4.0
  * Text Domain: woo-order-export-lite
  * Domain Path: /i18n/languages/
  * WC requires at least: 3.0.0
- * WC tested up to: 7.0
+ * WC tested up to: 7.5
  *
  * Copyright: (c) 2015 AlgolPlus LLC. (algol.plus@gmail.com)
  *
@@ -22,6 +22,7 @@
  * @copyright   Copyright (c) 2015 AlgolPlus LLC
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 } // Exit if accessed directly
@@ -40,9 +41,10 @@ if ( class_exists( 'WC_Order_Export_Admin' ) ) {
 }
 
 if ( ! defined( 'WOE_VERSION' ) ) {
-	define( 'WOE_VERSION', '3.3.3' );
+	define( 'WOE_VERSION', '3.4.0' );
 	define( 'WOE_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 	define( 'WOE_PLUGIN_BASEPATH', dirname( __FILE__ ) );
+    define( 'WOE_PLUGIN_PATH', __FILE__  );
 }	
 
 $extension_file = WOE_PLUGIN_BASEPATH.'/pro_version/pre-loader.php';
@@ -77,21 +79,14 @@ include 'classes/admin/tabs/class-wc-order-export-admin-tab-tools.php';
 include 'classes/admin/class-wc-order-export-settings.php';
 include 'classes/admin/class-wc-order-export-manage.php';
 include 'classes/admin/class-wc-order-export-labels.php';
-include 'classes/core/class-wc-order-export-engine.php';
-include 'classes/core/class-wc-order-export-data-extractor.php';
-include 'classes/core/class-wc-order-export-data-extractor-ui.php';
 include 'classes/class-wc-order-export-admin.php';
-$extension_file = WOE_PLUGIN_BASEPATH.'/pro_version/loader.php';
-if ( file_exists( $extension_file ) ) {
-    include_once $extension_file;
-}
 
 $wc_order_export = new WC_Order_Export_Admin();
 register_deactivation_hook( __FILE__, array( $wc_order_export, 'deactivate' ) );
 
 // fight with ugly themes which add empty lines
 if ( $wc_order_export->must_run_ajax_methods() AND ! ob_get_level() ) {
-	ob_start();
+    ob_start();
 }
 
 //Done

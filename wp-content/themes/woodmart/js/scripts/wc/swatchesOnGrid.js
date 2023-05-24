@@ -10,7 +10,7 @@
 	});
 
 	woodmartThemeModule.swatchesOnGrid = function() {
-		woodmartThemeModule.$body.on('click', '.swatch-on-grid', function() {
+		woodmartThemeModule.$body.on('click', '.wd-swatches-grid .wd-swatch', function() {
 			var src, srcset, image_sizes;
 
 			var $this       = $(this),
@@ -41,19 +41,23 @@
 				image.data('original-sizes', image.attr('sizes'));
 			}
 
-			if ($this.hasClass('active-swatch')) {
+			if ($this.hasClass('wd-active')) {
 				src = srcOrig;
 				srcset = srcsetOrig;
 				image_sizes = sizesOrig;
-				$this.removeClass('active-swatch');
+				$this.removeClass('wd-active');
 				product.removeClass('product-swatched');
+
+				product.trigger( 'wdImagesGalleryInLoopOn', product );
 			} else {
-				$this.parent().find('.active-swatch').removeClass('active-swatch');
-				$this.addClass('active-swatch');
+				$this.parent().find('.wd-active').removeClass('wd-active');
+				$this.addClass('wd-active');
 				product.addClass('product-swatched');
 				src = imageSrc;
 				srcset = imageSrcset;
 				image_sizes = imageSizes;
+
+				product.trigger( 'wdImagesGalleryInLoopOff', product );
 			}
 
 			if (image.attr('src') === src) {

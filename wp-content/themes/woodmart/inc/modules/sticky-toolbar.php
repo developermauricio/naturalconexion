@@ -114,6 +114,10 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_template' ) ) {
 	 * @since 3.6
 	 */
 	function woodmart_sticky_toolbar_template() {
+		if ( woodmart_is_maintenance_active() ) {
+			return;
+		}
+
 		$fields  = woodmart_get_opt( 'sticky_toolbar_fields' );
 		$classes = '';
 
@@ -123,7 +127,7 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_template' ) ) {
 
 		$enabled_fields = class_exists( 'XTS\Options' ) ? $fields : $fields['enabled'];
 
-		if ( ! woodmart_get_opt( 'sticky_toolbar' ) || ! $enabled_fields ) {
+		if ( ! woodmart_get_opt( 'sticky_toolbar' ) || ! $enabled_fields || is_admin() || defined( 'IFRAME_REQUEST' ) ) {
 			return;
 		}
 
@@ -194,7 +198,7 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_wishlist_template' ) ) {
 	 * @since 3.6
 	 */
 	function woodmart_sticky_toolbar_wishlist_template() {
-		if ( ! woodmart_woocommerce_installed() || ! woodmart_get_opt( 'wishlist', 1 ) ) {
+		if ( ! woodmart_woocommerce_installed() || ! woodmart_get_opt( 'wishlist', 1 ) || ( woodmart_get_opt( 'wishlist_logged' ) && ! is_user_logged_in() ) ) {
 			return;
 		}
 
@@ -213,8 +217,8 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_wishlist_template' ) ) {
 		woodmart_enqueue_js_script( 'wishlist' );
 
 		?>
-		<div class="wd-header-wishlist wd-tools-element<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'My wishlist', 'woodmart' ); ?>">
-			<a href="<?php echo esc_url( woodmart_get_whishlist_page_url() ); ?>">
+		<div class="wd-header-wishlist wd-tools-element wd-design-5<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'My wishlist', 'woodmart' ); ?>">
+			<a href="<?php echo esc_url( woodmart_get_wishlist_page_url() ); ?>">
 				<span class="wd-tools-icon">
 					<?php if ( $product_count ) : ?>
 						<span class="wd-tools-count">
@@ -242,15 +246,22 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_cart_template' ) ) {
 			return;
 		}
 
-		$settings = whb_get_settings();
-		$opener   = false;
-		$classes  = '';
+		$settings     = whb_get_settings();
+		$opener       = false;
+		$classes      = '';
+		$icon_classes = ' wd-icon-alt';
 
 		if ( isset( $settings['cart']['position'] ) ) {
 			$opener = $settings['cart']['position'] == 'side';
 		}
 
+		if ( ! empty( $settings['cart']['icon_type'] ) && 'cart' === $settings['cart']['icon_type'] ) {
+			$icon_classes = '';
+		}
+
 		if ( $opener ) {
+			woodmart_enqueue_inline_style( 'header-cart-side' );
+
 			$classes .= ' cart-widget-opener';
 		}
 
@@ -259,9 +270,9 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_cart_template' ) ) {
 		$classes .= woodmart_get_old_classes( ' woodmart-shopping-cart' );
 
 		?>
-		<div class="wd-header-cart wd-design-5 wd-tools-element<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'My cart', 'woodmart' ); ?>">
+		<div class="wd-header-cart wd-tools-element wd-design-5<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'My cart', 'woodmart' ); ?>">
 			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-				<span class="wd-tools-icon wd-icon-alt">
+				<span class="wd-tools-icon<?php echo esc_attr( $icon_classes ); ?>">
 					<?php woodmart_cart_count(); ?>
 				</span>
 				<span class="wd-toolbar-label">
@@ -298,7 +309,7 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_compare_template' ) ) {
 		}
 
 		?>
-		<div class="wd-header-compare wd-tools-element<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'Compare products', 'woodmart' ); ?>">
+		<div class="wd-header-compare wd-tools-element wd-design-5<?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr__( 'Compare products', 'woodmart' ); ?>">
 			<a href="<?php echo esc_url( woodmart_get_compare_page_url() ); ?>">
 				<span class="wd-tools-icon">
 					<?php if ( $product_count ) : ?>
@@ -324,7 +335,7 @@ if ( ! function_exists( 'woodmart_sticky_toolbar_search_template' ) ) {
 		woodmart_enqueue_js_script( 'mobile-search' );
 		?>
 		<div class="wd-header-search wd-header-search-mobile<?php echo woodmart_get_old_classes( ' mobile-search-icon search-button' ); ?>">
-			<a href="#" rel="nofollow">
+			<a href="#" rel="nofollow" aria-label="<?php esc_html_e( 'Search', 'woodmart' ); ?>">
 				<span class="wd-tools-icon<?php echo woodmart_get_old_classes( ' search-button-icon' ); ?>"></span>
 				<span class="wd-toolbar-label">
 					<?php esc_html_e( 'Search', 'woodmart' ); ?>

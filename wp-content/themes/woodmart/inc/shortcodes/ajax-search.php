@@ -21,6 +21,8 @@ if( ! function_exists( 'woodmart_ajax_search' ) ) {
 				'search_post_type'      => 'product',
 				'woodmart_color_scheme' => 'dark',
 				'el_class'              => '',
+				'form_style'            => 'default',
+				'cat_selector_style'    => 'bordered',
 			),
 			$atts
 		);
@@ -33,16 +35,18 @@ if( ! function_exists( 'woodmart_ajax_search' ) ) {
 
 		ob_start();
 		?>
-			<div class="wd-el-search woodmart-ajax-search <?php echo esc_attr( $class ); ?>">
+			<div class="wd-el-search wd-wpb woodmart-ajax-search <?php echo esc_attr( $class ); ?>">
 				<?php
 					woodmart_search_form(
 						array(
-							'ajax'            => true,
-							'post_type'       => $atts['search_post_type'],
-							'count'           => $atts['number'],
-							'thumbnail'       => $atts['thumbnail'],
-							'price'           => $atts['price'],
-							'show_categories' => $atts['category'],
+							'ajax'               => true,
+							'post_type'          => $atts['search_post_type'],
+							'count'              => $atts['number'],
+							'thumbnail'          => $atts['thumbnail'],
+							'price'              => $atts['price'],
+							'show_categories'    => $atts['category'],
+							'search_style'       => $atts['form_style'],
+							'cat_selector_style' => $atts['cat_selector_style'],
 						)
 					);
 				?>

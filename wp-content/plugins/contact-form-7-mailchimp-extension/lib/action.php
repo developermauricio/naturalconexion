@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,14 +41,18 @@ class QuietSkin extends \WP_Upgrader_Skin {
  *
  * @param string $slug The slug of the plugin (should be the same as the plugin's directory name
  */
-function sswInstallActivatePlugin($slug)
-{
+
+
+
+function sswInstallActivatePlugin($slug) {
+
     $pluginDir = WP_PLUGIN_DIR . '/' . $slug;
     /*
      * Don't try installing plugins that already exist (wastes time downloading files that
      * won't be used
      */
     if (!is_dir($pluginDir)) {
+
         $api = plugins_api(
             'plugin_information',
             array(
@@ -81,17 +85,22 @@ function sswInstallActivatePlugin($slug)
         $install = $upgrader->install($api->download_link);
 
         if ($install !== true) {
+
             echo 'Error: Install process failed (' . $slug . '). var_dump of result follows.<br>'
                 . "\n";
             var_dump($install); // can be 'null' or WP_Error
+
         }
     }
+
+
 
     /*
      * The install results don't indicate what the main plugin file is, so we just try to
      * activate based on the slug. It may fail, in which case the plugin will have to be activated
      * manually from the admin screen.
      */
+
     $pluginPath = $pluginDir . '/' . 'wp-'.$slug . '.php';
 
     if (file_exists($pluginPath)) {
@@ -107,9 +116,13 @@ function sswInstallActivatePlugin($slug)
 }
 
 
+
 $pluginSlugs = array(
+
     'contact-form-7',
+
 );
+
 
 
 foreach ($pluginSlugs as $pluginSlug) {

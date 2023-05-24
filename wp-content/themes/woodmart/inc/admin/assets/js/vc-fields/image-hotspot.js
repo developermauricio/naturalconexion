@@ -7,17 +7,17 @@
 
         var _background_id = vc.shortcodes.findWhere({ id: vc.active_panel.model.attributes.parent_id }).attributes.params.img;
 
-        $('.woodmart-image-hotspot-preview').each(function () {
+        $('.xts-image-hotspot-preview').each(function () {
             var $preview = $(this);
-            var $overlay = $preview.find('.woodmart-image-hotspot-overlay');
-            var $positionField = $preview.siblings('.woodmart-image-hotspot-position');
+            var $overlay = $preview.find('.xts-image-hotspot-overlay');
+            var $positionField = $preview.siblings('.xts-image-hotspot-position');
             var isDragging = false;
             var timer;
 
             $preview.addClass('xts-loading');
 
             $.ajax({
-                url: woodmartConfig.ajax,
+                url: woodmartConfig.ajaxUrl,
                 dataType: 'json',
                 data: {
                     image_id: _background_id,
@@ -28,7 +28,7 @@
                     $preview.removeClass('xts-loading');
 
                     if (response.status == 'success') {
-                        $preview.find('.woodmart-image-hotspot-image').append(response.html).fadeIn(500);
+                        $preview.find('.xts-image-hotspot-image').append(response.html).fadeIn(500);
                         $preview.css('min-width', $preview.find('.woodmart-hotspot-img').outerWidth());
                     } else if (response.status == 'warning') {
                         $preview.remove();
@@ -66,7 +66,7 @@
                     y: (event.offsetY / $preview.height() * 100).toFixed(3)
                 };
 
-                $preview.find('.woodmart-image-hotspot').css({
+                $preview.find('.xts-image-hotspot').css({
                     left: position.x + '%',
                     top: position.y + '%'
                 });

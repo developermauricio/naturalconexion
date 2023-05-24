@@ -4,9 +4,9 @@ Author: Addi
 Author URI: https://co.addi.com/
 Tags: comments, spam
 Requires at least: 5.2
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 7.0
-Stable tag: 1.5.11
+Stable tag: 1.6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,41 @@ Nota: Para garantizar que recibes correctamente la respuesta por parte de ADDI, 
 3. El nuevo método de pago se mostrará en el checkout de tu sitio!.
 
 == Changelog ==
+= 1.6.7 2023-05-10 =
+* Fix price validation
+
+= 1.6.6 2023-05-08 =
+* Remove widgetTrackerAmplitude triggers from woocommerce checkout
+* Add Tags to readme
+
+= 1.6.5 2023-04-13 =
+* Remove Tags from readme
+
+= 1.6.4 2023-04-03 =
+* Fixed a redirection issue for unsuccessful orders
+* Fixed widget issue for variable products
+
+= 1.6.3 2023-03-23 =
+* Updated the template for flex
+
+= 1.6.2 2023-03-14 =
+* Updated the template for flex
+
+= 1.6.1 2023-03-08 =
+* Updated the checkout labels
+
+= 1.6 2023-03-01 =
+* Added automatic cancellation setting
+
+= 1.5.14 2023-01-27 =
+* Fix for the widget breaking up the add to cart button
+
+= 1.5.13 2023-01-24 =
+* Updated the versions of our widgets
+
+= 1.5.12 2023-01-04 =
+* Fixed issues with the redirect URL after a purchase and the values passed to the product widget
+
 = 1.5.11 2022-11-24 =
 * Fixed visual issues for the widget and checkout.
 

@@ -1,5 +1,4 @@
 <?php
-// phpcs:ignoreFile
 /**
  * Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
  *
@@ -77,8 +76,8 @@ class Product_Sets {
 	public function category_field_on_new() {
 		?>
 		<div class="form-field">
-			<?php echo wp_kses( $this->get_field_label(), $this->allowed_html ); ?>
-			<?php echo wp_kses( $this->get_field(), $this->allowed_html ); ?>
+			<?php $this->get_field_label(); ?>
+			<?php $this->get_field(); ?>
 		</div>
 		<?php
 	}
@@ -98,8 +97,8 @@ class Product_Sets {
 		<table class="form-table" role="presentation">
 			<tbody>
 				<tr class="form-field product-categories-wrap">
-					<th scope="row"><?php echo wp_kses( $this->get_field_label(), $this->allowed_html ); ?></th>
-					<td><?php echo wp_kses( $this->get_field( $term_id ), $this->allowed_html ); ?></td>
+					<th scope="row"><?php $this->get_field_label(); ?></th>
+					<td><?php $this->get_field( $term_id ); ?></td>
 				</tr>
 			</tbody>
 		</table>
@@ -116,7 +115,7 @@ class Product_Sets {
 	 * @param int $tt_id Term taxonomy ID.
 	 */
 	public function save_custom_field( $term_id, $tt_id ) {
-		$wc_product_cats = empty( $_POST[ $this->categories_field ] ) ? '' : $_POST[ $this->categories_field ]; //phpcs:ignore
+		$wc_product_cats = empty( $_POST[ $this->categories_field ] ) ? '' : wc_clean( wp_unslash( $_POST[ $this->categories_field ] ) ); //phpcs:ignore
 		if ( ! empty( $wc_product_cats ) ) {
 			$wc_product_cats = array_map(
 				function( $item ) {
@@ -165,7 +164,7 @@ class Product_Sets {
 			<?php $selected = ( is_array( $saved_items ) && in_array( $product_cat->term_id, $saved_items, true ) ) ? ' selected="selected"' : ''; ?>
 			<option value="<?php echo esc_attr( $product_cat->term_id ); ?>" <?php echo esc_attr( $selected ); ?>><?php echo esc_attr( $product_cat->name ); ?></option>
 		<?php endforeach; ?>
-		<select>
+		</select>
 		<p class="description"><?php echo esc_html__( 'Map Facebook Product Set to WC Product Categories', 'facebook-for-woocommerce' ); ?>.</p>
 		<?php
 	}

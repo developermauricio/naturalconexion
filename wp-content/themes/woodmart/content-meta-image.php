@@ -1,18 +1,31 @@
 <?php
 
-$classes       = array();
-$woodmart_loop = woodmart_loop_prop( 'woodmart_loop' );
-$blog_design   = woodmart_loop_prop( 'blog_design' );
-$columns       = woodmart_loop_prop( 'blog_columns' );
-$classes[]     = 'blog-design-' . $blog_design;
-$classes[]     = 'blog-post-loop';
+$classes         = array();
+$woodmart_loop   = woodmart_loop_prop( 'woodmart_loop' );
+$blog_design     = woodmart_loop_prop( 'blog_design' );
+$desktop_columns = woodmart_loop_prop( 'blog_columns' );
+$tablet_columns  = woodmart_loop_prop( 'blog_columns_tablet' );
+$mobile_columns  = woodmart_loop_prop( 'blog_columns_mobile' );
+$blog_style      = woodmart_get_opt( 'blog_style', 'shadow' );
+$classes[]       = 'blog-design-' . $blog_design;
+$classes[]       = 'blog-post-loop';
 
-if ( 'meta-image' !== $blog_design ) {
-	$classes[] = 'blog-style-' . woodmart_get_opt( 'blog_style' );
+if ( 'shadow' === $blog_style ) {
+	$classes[] = 'blog-style-bg';
+
+	if ( woodmart_get_opt( 'blog_with_shadow', true ) ) {
+		$classes[] = 'wd-add-shadow';
+	}
+} else {
+	$classes[] = 'blog-style-' . $blog_style;
 }
 
 if ( 'grid' === woodmart_loop_prop( 'blog_layout' ) ) {
-	$classes[] = woodmart_get_grid_el_class( $woodmart_loop, $columns, false, 12 );
+	if ( ( 'auto' !== $tablet_columns && ! empty( $tablet_columns ) ) || ( 'auto' !== $mobile_columns && ! empty( $mobile_columns ) ) ) {
+		$classes[] = woodmart_get_grid_el_class_new( $woodmart_loop, false, $desktop_columns, $tablet_columns, $mobile_columns );
+	} else {
+		$classes[] = woodmart_get_grid_el_class( $woodmart_loop, $desktop_columns, false, 12 );
+	}
 }
 
 if ( ! get_the_title() ) {
@@ -22,6 +35,10 @@ if ( ! get_the_title() ) {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
+	<?php if ( 'shadow' === $blog_style ) : ?>
+		<div class="wd-post-inner">
+	<?php endif; ?>
+
 	<div class="wd-post-thumb<?php echo has_post_thumbnail() ? ' color-scheme-light' : ''; ?>">
 		<div class="wd-post-img">
 			<?php echo woodmart_get_post_thumbnail( 'large' ); // phpcs:ignore ?>
@@ -119,4 +136,8 @@ if ( ! get_the_title() ) {
 			</div>
 		<?php endif; ?>
 	</div>
+
+	<?php if ( 'shadow' === $blog_style ) : ?>
+		</div>
+	<?php endif; ?>
 </article>

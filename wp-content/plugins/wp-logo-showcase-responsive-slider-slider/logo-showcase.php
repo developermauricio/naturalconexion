@@ -6,7 +6,7 @@
  * Author: WP OnlineSupport, Essential Plugin
  * Text Domain: wp-logo-showcase-responsive-slider-slider
  * Domain Path: /languages/
- * Version: 3.2.2
+ * Version: 3.5
  * Author URI: https://www.essentialplugin.com/wordpress-plugin/wp-logo-showcase-responsive-slider/
  *
  * @package WP Logo Showcase Responsive Slider
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if( ! defined( 'WPLS_VERSION' ) ) {
-	define( 'WPLS_VERSION', '3.2.2' ); // Version of plugin
+	define( 'WPLS_VERSION', '3.5' ); // Version of plugin
 }
 
 if( ! defined( 'WPLS_NAME' ) ) {

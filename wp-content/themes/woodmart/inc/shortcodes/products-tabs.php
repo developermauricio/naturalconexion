@@ -13,22 +13,33 @@ if ( ! function_exists( 'woodmart_shortcode_products_tabs' ) ) {
 			return;
 		}
 		$output = $class = $autoplay = $header_classes = '';
-		extract(
-			shortcode_atts(
-				array(
-					'title'           => '',
-					'image'           => '',
-					'img_size'        => '30x30',
-					'design'          => 'default',
-					'alignment'       => 'center',
-					'color'           => '#83b735',
 
-					'woodmart_css_id' => '',
-					'el_class'        => '',
-				),
-				$atts
-			)
+		$atts = shortcode_atts(
+			array(
+				'title'                        => '',
+				'image'                        => '',
+				'img_size'                     => '30x30',
+				'design'                       => 'default',
+				'alignment'                    => 'center',
+				'icon_position_design_default' => 'top',
+				'icon_position'                => 'left',
+				'color'                        => '#83b735',
+				'description'                  => '',
+				'tabs_title_color_scheme'      => 'inherit',
+				'tabs_style'                   => 'underline',
+
+				'woodmart_css_id'              => '',
+				'el_class'                     => '',
+				'css'                          => '',
+				'wd_animation'                 => '',
+				'wd_animation_delay'           => '',
+				'wd_hide_on_desktop'           => '',
+				'wd_hide_on_tablet'            => '',
+				'wd_hide_on_mobile'            => '',
+			),
+			$atts
 		);
+		extract( $atts );
 
 		$img_id = preg_replace( '/[^\d]/', '', $image );
 
@@ -47,30 +58,60 @@ if ( ! function_exists( 'woodmart_shortcode_products_tabs' ) ) {
 
 		$tabs_nav        = '';
 		$first_tab_title = '';
-		$tabs_nav       .= '<ul class="products-tabs-title">';
 		$_i              = 0;
+		$wd_nav_classes  = '';
+
+		if ( 'simple' === $design ) {
+			$tabs_style = 'default';
+		}
+
+		$wd_nav_classes .= ' wd-style-' . $tabs_style;
+
+		if ( 'default' === $design ) {
+			$wd_nav_classes .= ' wd-icon-pos-' . $icon_position_design_default;
+		} else {
+			$wd_nav_classes .= ' wd-icon-pos-' . $icon_position;
+		}
+
+		$tabs_nav .= '<ul class="wd-nav wd-nav-tabs products-tabs-title' . esc_attr( $wd_nav_classes ) . '">';
+
 		foreach ( $tab_titles as $tab ) {
 			$_i++;
-			$tab_atts                       = shortcode_parse_atts( $tab[0] );
-			$tab_atts['carousel_js_inline'] = 'yes';
-			$encoded_atts                   = json_encode( $tab_atts );
-			$icon_output                    = '';
+			$tab_atts          = shortcode_parse_atts( $tab[0] );
+			$encoded_atts      = json_encode( $tab_atts );
+			$icon_output       = '';
+			$tabs_icon_library = '';
+
+			if ( isset( $tab_atts['title_icon_type'] ) && 'icon' === $tab_atts['title_icon_type'] ) {
+				if ( ! isset( $tab_atts['tabs_icon_libraries'] ) || ! $tab_atts['tabs_icon_libraries'] ) {
+					$tab_atts['tabs_icon_libraries'] = 'fontawesome';
+				}
+
+				$tabs_icon_library = $tab_atts[ 'icon_' . $tab_atts['tabs_icon_libraries'] ];
+				vc_icon_element_fonts_enqueue( $tab_atts['tabs_icon_libraries'] );
+			}
 
 			if ( empty( $tab_atts['icon_size'] ) ) {
 				$tab_atts['icon_size'] = '25x25';
 			}
 
 			// Tab icon
-			if ( isset( $tab_atts['icon'] ) ) {
+			if ( isset( $tab_atts['icon'] ) && $tab_atts['icon'] ) {
 				$icon_output = woodmart_display_icon( $tab_atts['icon'], $tab_atts['icon_size'], 25 );
+
+				if ( woodmart_is_svg( wp_get_attachment_image_src( $tab_atts['icon'] )[0] ) ) {
+					$icon_output = '<div class="img-wrapper">' . woodmart_get_svg_html( $tab_atts['icon'], $tab_atts['icon_size'] ) . '</div>';
+				}
+			} elseif ( $tabs_icon_library ) {
+				$icon_output = '<div class="img-wrapper"><i class="' . esc_attr( $tabs_icon_library ) . '"></i></div>';
 			}
 
 			if ( $_i == 1 && isset( $tab_atts['title'] ) ) {
 				$first_tab_title = $tab_atts['title'];
 			}
-			$class = ( $_i == 1 ) ? ' active-tab-title' : '';
+			$class = ( $_i == 1 ) ? ' wd-active' : '';
 			if ( isset( $tab_atts['title'] ) ) {
-				$tabs_nav .= '<li data-atts="' . esc_attr( $encoded_atts ) . '" class="' . esc_attr( $class ) . '">' . $icon_output . '<span class="tab-label">' . $tab_atts['title'] . '</span></li>';
+				$tabs_nav .= '<li data-atts="' . esc_attr( $encoded_atts ) . '" class="' . esc_attr( $class ) . '"><a href="#" class="wd-nav-link">' . $icon_output . '<span class="tab-label nav-link-text">' . $tab_atts['title'] . '</span></a></li>';
 			}
 		}
 
@@ -84,16 +125,30 @@ if ( ! function_exists( 'woodmart_shortcode_products_tabs' ) ) {
 
 		$class .= woodmart_get_old_classes( ' woodmart-products-tabs' );
 
+		$class .= apply_filters( 'vc_shortcodes_css_class', '', '', $atts );
+
+		if ( $css ) {
+			$class .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
+		$nav_tabs_wrapper_classes = '';
+
+		if ( 'inherit' !== $tabs_title_color_scheme && 'custom' !== $tabs_title_color_scheme ) {
+			$nav_tabs_wrapper_classes .= ' color-scheme-' . $tabs_title_color_scheme;
+		}
+
 		$header_classes .= ' text-' . $alignment;
 
 		woodmart_enqueue_js_script( 'products-tabs' );
 
 		ob_start();
+		woodmart_enqueue_inline_style( 'tabs' );
 		woodmart_enqueue_inline_style( 'product-tabs' );
 		?>
-		<div id="<?php echo esc_attr( $tabs_id ); ?>" class="wd-products-tabs<?php echo esc_attr( $class ); ?>">
+		<div id="<?php echo esc_attr( $tabs_id ); ?>" class="wd-tabs wd-products-tabs<?php echo esc_attr( $class ); ?>">
 			<div class="wd-tabs-header<?php echo esc_attr( $header_classes ); ?>">
 			<div class="wd-tabs-loader"><span class="wd-loader"></span></div>
+
 				<?php if ( ! empty( $title ) ) : ?>
 					<div class="tabs-name title">
 						<?php
@@ -103,8 +158,12 @@ if ( ! function_exists( 'woodmart_shortcode_products_tabs' ) ) {
 						<span class="tabs-text"><?php echo wp_kses( $title, woodmart_get_allowed_html() ); ?></span>
 					</div>
 				<?php endif; ?>
-				<div class="tabs-navigation-wrapper">
-					<span class="open-title-menu"><?php echo wp_kses( $first_tab_title, woodmart_get_allowed_html() ); ?></span>
+
+				<?php if ( $description ) : ?>
+					<div class="wd-tabs-desc"><?php echo wp_kses( $description, woodmart_get_allowed_html() ); ?></div>
+				<?php endif; ?>
+
+				<div class="wd-nav-wrapper wd-nav-tabs-wrapper tabs-navigation-wrapper<?php echo esc_attr( $nav_tabs_wrapper_classes ); ?>">
 					<?php
 					echo ! empty( $tabs_nav ) ? $tabs_nav : '';
 					?>
@@ -127,7 +186,8 @@ if ( ! function_exists( 'woodmart_shortcode_products_tabs' ) ) {
 				$css .= 'background-color: ' . esc_attr( $color ) . ';';
 				$css .= '}';
 
-				$css .= '.tabs-' . esc_attr( $tabs_id  ) . '.tabs-design-simple .products-tabs-title li.active-tab-title,';
+				$css .= '.tabs-' . esc_attr( $tabs_id  ) . '.tabs-design-simple .products-tabs-title li.wd-active a,';
+				$css .= '.tabs-' . esc_attr( $tabs_id  ) . '.tabs-design-simple .products-tabs-title li:hover a,';
 				$css .= '.tabs-' . esc_attr( $tabs_id  ) . '.tabs-design-simple .owl-nav > div:hover,';
 				$css .= '.tabs-' . esc_attr( $tabs_id  ) . '.tabs-design-simple .wrap-loading-arrow > div:not(.disabled):hover {';
 				$css .= 'color: ' . esc_attr( $color ) . ';';
@@ -169,15 +229,14 @@ if ( ! function_exists( 'woodmart_shortcode_products_tab' ) ) {
 
 		extract( $parsed_atts );
 
-		$parsed_atts['carousel_js_inline'] = 'yes';
-		$parsed_atts['force_not_ajax']     = 'yes';
+		$parsed_atts['force_not_ajax'] = 'yes';
 
 		$class .= woodmart_get_old_classes( ' woodmart-tab-content' );
 
 		ob_start();
 		?>
 		<?php if ( ! $is_ajax ) : ?>
-			<div class="wd-tab-content<?php echo esc_attr( $class ); ?>" >
+			<div class="wd-tab-content-wrapper<?php echo esc_attr( $class ); ?>" >
 		
 		<?php endif; ?>
 		

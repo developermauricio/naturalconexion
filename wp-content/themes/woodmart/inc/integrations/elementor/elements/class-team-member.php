@@ -3,7 +3,10 @@
  * Team member map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Typography;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -73,7 +76,7 @@ class Team_Member extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -259,6 +262,24 @@ class Team_Member extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'name_typography',
+				'label'    => esc_html__( 'Name typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .team-member .member-name',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'position_typography',
+				'label'    => esc_html__( 'Position typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .team-member .member-position',
+			)
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -412,7 +433,7 @@ class Team_Member extends Widget_Base {
 				</div>
 			<?php endif; ?>
 
-			<div class="member-details">
+			<div class="member-details set-mb-s reset-last-child">
 				<?php if ( $settings['name'] ) : ?>
 					<h4 <?php echo $this->get_render_attribute_string( 'name' ); ?>>
 						<?php echo esc_attr( $settings['name'] ); ?>
@@ -420,9 +441,9 @@ class Team_Member extends Widget_Base {
 				<?php endif; ?>
 
 				<?php if ( $settings['position'] ) : ?>
-					<span <?php echo $this->get_render_attribute_string( 'position' ); ?>>
+					<div <?php echo $this->get_render_attribute_string( 'position' ); ?>>
 						<?php echo esc_attr( $settings['position'] ); ?>
-					</span>
+					</div>
 				<?php endif; ?>
 
 				<?php if ( $settings['content'] ) : ?>
@@ -472,4 +493,4 @@ class Team_Member extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Team_Member() );
+Plugin::instance()->widgets_manager->register( new Team_Member() );

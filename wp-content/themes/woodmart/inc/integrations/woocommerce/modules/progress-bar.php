@@ -4,12 +4,6 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 	exit( 'No direct script access allowed' );
 }
 
-/**
- * ------------------------------------------------------------------------------------------------
- * Woodmart stock progress bar
- * ------------------------------------------------------------------------------------------------
- */
-
 if ( ! function_exists( 'woodmart_stock_progress_bar' ) ) {
 	function woodmart_stock_progress_bar() {
 		$product_id  = get_the_ID();
@@ -25,13 +19,15 @@ if ( ! function_exists( 'woodmart_stock_progress_bar' ) ) {
 		$percentage = $total_sold > 0 ? round( $total_sold / $total_stock * 100 ) : 0;
 
 		if ( $current_stock > 0 ) {
-			echo '<div class="wd-stock-progress-bar">';
+			woodmart_enqueue_inline_style( 'woo-mod-progress-bar' );
+
+			echo '<div class="wd-progress-bar wd-stock-progress-bar">';
 				echo '<div class="stock-info">';
 					echo '<div class="total-sold">' . esc_html__( 'Ordered:', 'woodmart' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
 					echo '<div class="current-stock">' . esc_html__( 'Items available:', 'woodmart' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
 				echo '</div>';
 				echo '<div class="progress-area" title="' . esc_html__( 'Sold', 'woodmart' ) . ' ' . esc_attr( $percentage ) . '%">';
-					echo '<div class="progress-bar"style="width:' . esc_attr( $percentage ) . '%;"></div>';
+					echo '<div class="progress-bar" style="width:' . esc_attr( $percentage ) . '%;"></div>';
 				echo '</div>';
 			echo '</div>';
 		}

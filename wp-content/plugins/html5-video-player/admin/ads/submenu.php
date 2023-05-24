@@ -55,7 +55,7 @@ function h5vp_support_page_callback()
                     <i class="fa fa-file-text"></i>
                     <h3>Looking for Documentation?</h3>
                     <p>We have detailed documentation on every aspects of the plugin.</p>
-                    <a href="https://links.bplugins.com/h5vp-help-doc" target="_blank" class="button button-primary">Documentation</a>
+                    <a href="https://wpvideoplayer.com/docs/" target="_blank" class="button button-primary">Documentation</a>
                 </div>
             </div>
 

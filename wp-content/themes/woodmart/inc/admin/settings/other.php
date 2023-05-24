@@ -29,12 +29,93 @@ Options::add_field(
 
 Options::add_field(
 	array(
-		'id'       => 'sticky_notifications',
-		'name'     => esc_html__( 'Sticky notifications (deprecated)', 'woodmart' ),
+		'id'                 => 'sticky_notifications',
+		'name'               => esc_html__( 'Sticky notifications', 'woodmart' ),
+		'type'               => 'switcher',
+		'section'            => 'other_section',
+		'default'            => '0',
+		'priority'           => 20,
+		'status'             => 'deprecated',
+	)
+);
+
+Options::add_field(
+	array(
+		'id'       => 'page_comments',
+		'name'     => esc_html__( 'Show comments on pages', 'woodmart' ),
 		'type'     => 'switcher',
 		'section'  => 'other_section',
-		'default'  => '0',
-		'priority' => 20,
+		'hint'     => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'general-show-comments-on-pages.jpg" alt="">', 'woodmart' ), true ),
+		'default'  => '1',
+		'on-text'  => esc_html__( 'Yes', 'woodmart' ),
+		'off-text' => esc_html__( 'No', 'woodmart' ),
+		'priority' => 25,
+	)
+);
+
+Options::add_field(
+	array(
+		'id'           => 'custom_404_page',
+		'name'         => esc_html__( 'Custom 404 page', 'woodmart' ),
+		'type'         => 'select',
+		'description'  => esc_html__( 'Select a page that will be shown as your default 404 error page.', 'woodmart' ),
+		'section'      => 'other_section',
+		'options'      => '',
+		'callback'     => 'woodmart_get_pages_array',
+		'empty_option' => true,
+		'select2'      => true,
+		'priority'     => 28,
+	)
+);
+
+Options::add_field(
+	array(
+		'id'          => 'widget_title_tag',
+		'name'        => esc_html__( 'Widget title tag', 'woodmart' ),
+		'hint'     => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'widget-title-tag.jpg" alt="">', 'woodmart' ), true ),
+		'description' => esc_html__( 'Choose which HTML tag to use in widget title.', 'woodmart' ),
+		'type'        => 'select',
+		'section'     => 'other_section',
+		'default'     => 'h5',
+		'options'     => array(
+			'h1'   => array(
+				'name'  => 'h1',
+				'value' => 'h1',
+			),
+			'h2'   => array(
+				'name'  => 'h2',
+				'value' => 'h2',
+			),
+			'h3'   => array(
+				'name'  => 'h3',
+				'value' => 'h3',
+			),
+			'h4'   => array(
+				'name'  => 'h4',
+				'value' => 'h4',
+			),
+			'h5'   => array(
+				'name'  => 'h5',
+				'value' => 'h5',
+			),
+			'h6'   => array(
+				'name'  => 'h6',
+				'value' => 'h6',
+			),
+			'p'    => array(
+				'name'  => 'p',
+				'value' => 'p',
+			),
+			'div'  => array(
+				'name'  => 'div',
+				'value' => 'div',
+			),
+			'span' => array(
+				'name'  => 'span',
+				'value' => 'span',
+			),
+		),
+		'priority'    => 29,
 	)
 );
 
@@ -42,10 +123,13 @@ Options::add_field(
 	array(
 		'id'          => 'woodmart_slider',
 		'name'        => esc_html__( 'Enable custom slider', 'woodmart' ),
+		'hint'        => wp_kses( __( '<img data-src="' . WOODMART_TOOLTIP_URL . 'enable-custom-slider.jpg" alt="">', 'woodmart' ), true ),
 		'description' => esc_html__( 'If you enable this option, a new post type for sliders will be added to your Dashboard menu. You will be able to create sliders with page builder and place them on any page on your website.', 'woodmart' ),
 		'type'        => 'switcher',
 		'section'     => 'other_section',
 		'default'     => '1',
+		'on-text'     => esc_html__( 'Yes', 'woodmart' ),
+		'off-text'    => esc_html__( 'No', 'woodmart' ),
 		'priority'    => 30,
 	)
 );
@@ -68,6 +152,8 @@ Options::add_field(
 		'type'        => 'switcher',
 		'section'     => 'other_section',
 		'default'     => '1',
+		'on-text'     => esc_html__( 'Yes', 'woodmart' ),
+		'off-text'    => esc_html__( 'No', 'woodmart' ),
 		'priority'    => 40,
 	)
 );
@@ -85,35 +171,9 @@ Options::add_field(
 
 Options::add_field(
 	array(
-		'id'          => 'page_builder',
-		'name'        => esc_html__( 'Page builder (deprecated)', 'woodmart' ),
-		'description' => esc_html__( 'You need to select "Auto" value here. It will detect which one is currently installed. If both builders are installed, the WPBakery will be used.', 'woodmart' ),
-		'type'        => 'buttons',
-		'section'     => 'other_section',
-		'options'     => array(
-			'wpb'       => array(
-				'name'  => esc_html__( 'WPB', 'woodmart' ),
-				'value' => 'wpb',
-			),
-			'elementor' => array(
-				'name'  => esc_html__( 'Elementor', 'woodmart' ),
-				'value' => 'elementor',
-			),
-			'auto'      => array(
-				'name'  => esc_html__( 'Auto', 'woodmart' ),
-				'value' => 'auto',
-			),
-		),
-		'default'     => 'auto',
-		'priority'    => 60,
-	)
-);
-
-Options::add_field(
-	array(
 		'id'          => 'site_viewport',
 		'name'        => esc_html__( 'Viewport tag', 'woodmart' ),
-		'description' => esc_html__( 'Default viewport tag:', 'woodmart' ) .  '<br><code>' . htmlspecialchars( '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">' ) . '</code>',
+		'description' => esc_html__( 'Default viewport tag:', 'woodmart' ) .  ' <code>' . htmlspecialchars( '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">' ) . '</code>',
 		'type'        => 'select',
 		'section'     => 'other_section',
 		'default'     => 'not_scalable',

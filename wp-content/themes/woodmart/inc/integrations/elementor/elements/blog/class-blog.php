@@ -75,7 +75,7 @@ class Blog extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -294,7 +294,7 @@ class Blog extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'blog_columns',
 			[
 				'label'       => esc_html__( 'Columns', 'woodmart' ),
@@ -380,7 +380,7 @@ class Blog extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -593,4 +593,4 @@ class Blog extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Blog() );
+Plugin::instance()->widgets_manager->register( new Blog() );

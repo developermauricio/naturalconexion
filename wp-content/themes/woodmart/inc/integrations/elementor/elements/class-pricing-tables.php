@@ -3,6 +3,8 @@
  * Pricing tables map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
@@ -73,7 +75,7 @@ class Pricing_Tables extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -545,8 +547,11 @@ Helio X25 processor
 								<?php if ( 'product' === $settings['button_type'] && $product ) : ?>
 									<?php
 									if ( 'nothing' !== woodmart_get_opt( 'add_to_cart_action' ) ) {
-										woodmart_enqueue_js_library( 'magnific' );
 										woodmart_enqueue_js_script( 'action-after-add-to-cart' );
+									}
+
+									if ( 'popup' === woodmart_get_opt( 'add_to_cart_action' ) ) {
+										woodmart_enqueue_js_library( 'magnific' );
 										woodmart_enqueue_inline_style( 'add-to-cart-popup' );
 										woodmart_enqueue_inline_style( 'mfp-popup' );
 									}
@@ -575,4 +580,4 @@ Helio X25 processor
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Pricing_Tables() );
+Plugin::instance()->widgets_manager->register( new Pricing_Tables() );

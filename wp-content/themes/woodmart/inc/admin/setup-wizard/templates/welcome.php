@@ -44,11 +44,11 @@
 	</p>
 
 	<div class="xts-wizard-buttons">
-		<a class="xts-inline-btn xts-btn-underline" href="<?php echo esc_url( admin_url( 'admin.php?page=woodmart_dashboard&tab=home&skip_setup' ) ); ?>">
+		<a class="xts-inline-btn xts-style-underline" href="<?php echo esc_url( admin_url( 'admin.php?page=xts_dashboard&skip_setup' ) ); ?>">
 			<?php esc_html_e( 'Skip setup', 'woodmart' ); ?>
 		</a>
 
-		<a class="xts-btn xts-btn-alt xts-next" href="<?php echo esc_url( $this->get_page_url( 'activation' ) ); ?>">
+		<a class="xts-btn xts-color-primary xts-next" href="<?php echo esc_url( $this->get_page_url( 'activation' ) ); ?>">
 			<?php esc_html_e( 'Let\'s start', 'woodmart' ); ?>
 		</a>
 	</div>

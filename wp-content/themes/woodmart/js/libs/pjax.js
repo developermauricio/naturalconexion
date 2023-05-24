@@ -5,6 +5,16 @@
  */
 
 (function($) {
+	// This is an auxiliary woodmart function to replace the outdated jquery method.
+	function wdTrim(data) {
+		if ( null == data ) {
+			return '';
+		} else if ( 'string' == typeof data ) {
+			return data.trim();
+		} else {
+			return (data + '').replace( '/^[\\s\uFEFF\xA0]+|[\\s\uFEFF\xA0]+$/g', '' );
+		}
+	}
 
 	// When called on a container with a selector, fetches the href with
 	// ajax into the container or with the data-pjax attribute on the link
@@ -367,7 +377,7 @@
 				// http://www.w3.org/html/wg/drafts/html/master/forms.html
 				var autofocusEl = context.find('input[autofocus], textarea[autofocus]').last()[0];
 				if (autofocusEl && document.activeElement !== autofocusEl) {
-					autofocusEl.focus();
+					autofocusEl.trigger('focus');
 				}
 
 				executeScriptTags(container.scripts);
@@ -821,7 +831,7 @@
 
 		// Trim any whitespace off the title
 		if (obj.title) {
-			obj.title = $.trim(obj.title);
+			obj.title = wdTrim(obj.title);
 		}
 
 		return obj;
@@ -994,9 +1004,7 @@
 
 	// Add the state property to jQuery's event object so we can use it in
 	// $(window).bind('popstate')
-	if ($.event.props && $.inArray('state', $.event.props) < 0) {
-		$.event.props.push('state');
-	} else if (!('state' in $.Event.prototype)) {
+	if (!('state' in $.Event.prototype)) {
 		$.event.addProp('state');
 	}
 

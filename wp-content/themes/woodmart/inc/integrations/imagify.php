@@ -1,4 +1,9 @@
 <?php
+/**
+ * Imagify.
+ *
+ * @package Woodmart
+ */
 
 if ( ! defined( 'IMAGIFY_VERSION' ) ) {
 	return;
@@ -6,7 +11,9 @@ if ( ! defined( 'IMAGIFY_VERSION' ) ) {
 
 if ( ! function_exists( 'woodmart_single_product_gallery_images_webp' ) ) {
 	/**
-	 * @param $class
+	 * Single product change class with webp.
+	 *
+	 * @param string $class CSS Class.
 	 *
 	 * @return string
 	 */

@@ -36,7 +36,7 @@ class AdvanceSystem{
             'autoplay' => (boolean) self::i($block, 'autoplay'),
             'muted' => (boolean) self::i($block, 'muted'),
             'hideControls' => self::i($block, 'autoHideControl', '', true),
-            'resetOnEnd' => (boolean) self::i($block, 'resetOnEnd', '', true),
+            'resetOnEnd' => (boolean) self::i($block, 'resetOnEnd', '', false),
             'captions' => [
                 'active' => true,
                 'update' => true,

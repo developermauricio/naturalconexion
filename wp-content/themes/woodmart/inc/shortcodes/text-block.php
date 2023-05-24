@@ -36,8 +36,14 @@ if ( ! function_exists( 'woodmart_shortcode_text_block' ) ) {
 		}
 
 		$id               = 'wd-' . $atts['woodmart_css_id'];
-		$wrapper_classes .= ' wd-width-' . $atts['content_width'];
 		$wrapper_classes .= ' text-' . $atts['text_align'];
+		$style_attr       = '';
+		if ( $atts['content_width'] && 'custom' !== $atts['content_width'] && '100' !== $atts['content_width'] ) {
+			$style_attr      .= ' style="--wd-max-width: ' . $atts['content_width'] . '%;"';
+			$wrapper_classes .= ' wd-width-enabled';
+		} elseif ( 'custom' === $atts['content_width'] ) {
+			$wrapper_classes .= ' wd-width-custom';
+		}
 		if ( 'inherit' !== $atts['text_color_scheme'] ) {
 			$wrapper_classes .= ' color-scheme-' . $atts['text_color_scheme'];
 		}
@@ -65,7 +71,7 @@ if ( ! function_exists( 'woodmart_shortcode_text_block' ) ) {
 		woodmart_enqueue_inline_style( 'text-block' );
 
 		?>
-		<div id="<?php echo esc_attr( $id ); ?>" class="wd-text-block wd-wpb reset-last-child<?php echo esc_attr( $wrapper_classes ); ?>">
+		<div id="<?php echo esc_attr( $id ); ?>" class="wd-text-block wd-wpb reset-last-child<?php echo esc_attr( $wrapper_classes ); ?>"<?php echo wp_kses( $style_attr, true ); ?>>
 			<?php echo wpb_js_remove_wpautop( $content, true ); // phpcs:ignore ?>
 		</div>
 		<?php

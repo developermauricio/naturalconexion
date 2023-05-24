@@ -10,7 +10,7 @@
 		}
 
 		$('.gallery').magnificPopup({
-			delegate    : ' > a',
+			delegate    : 'a:not([data-elementor-open-lightbox]), a[data-elementor-open-lightbox=no]',
 			type        : 'image',
 			removalDelay: 500,
 			tClose      : woodmart_settings.close,

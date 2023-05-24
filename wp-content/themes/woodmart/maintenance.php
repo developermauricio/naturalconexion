@@ -2,6 +2,7 @@
 
 /* Template name: Maintenance */
 
+$GLOBALS['wd_maintenance'] = true;
 
 get_header(); ?>
 <div class="maintenance-content container" role="main">

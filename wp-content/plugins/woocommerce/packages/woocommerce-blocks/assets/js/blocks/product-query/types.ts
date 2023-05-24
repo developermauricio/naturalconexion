@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import type { EditorBlock } from '@woocommerce/types';
+import type { AttributeMetadata, EditorBlock } from '@woocommerce/types';
 
 // The interface below disables the forbidden underscores
 // naming convention because we are namespacing our
@@ -9,6 +9,14 @@ import type { EditorBlock } from '@woocommerce/types';
 // will help signify our intentions.
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface ProductQueryArguments {
+	/**
+	 * Available sorting options specific to the Product Query block
+	 *
+	 * Other sorting options may be possible, but we are restricting
+	 * the choice to those.
+	 */
+	orderBy: 'date' | 'popularity';
+	__woocommerceAttributes?: AttributeMetadata[];
 	/**
 	 * Display only products on sale.
 	 *
@@ -33,6 +41,7 @@ export interface ProductQueryArguments {
 	 * ```
 	 */
 	__woocommerceOnSale?: boolean;
+	__woocommerceInherit?: boolean;
 	/**
 	 * Filter products by their stock status.
 	 *
@@ -52,7 +61,11 @@ export interface ProductQueryArguments {
 
 export type ProductQueryBlock = EditorBlock< QueryBlockAttributes >;
 
-export type ProductQueryBlockQuery = QueryBlockQuery & ProductQueryArguments;
+export type ProductQueryBlockQuery = Omit<
+	QueryBlockQuery,
+	keyof ProductQueryArguments
+> &
+	ProductQueryArguments;
 
 export interface QueryBlockAttributes {
 	allowedControls?: string[];
@@ -70,7 +83,7 @@ export interface QueryBlockQuery {
 	inherit: boolean;
 	offset?: number;
 	order: 'asc' | 'desc';
-	orderBy: 'date' | 'relevance';
+	orderBy: 'date' | 'relevance' | 'title';
 	pages?: number;
 	parents?: number[];
 	perPage?: number;
@@ -81,13 +94,12 @@ export interface QueryBlockQuery {
 }
 
 export interface ProductQueryContext {
-	query?: QueryBlockQuery & ProductQueryArguments;
+	query?: ProductQueryBlockQuery;
 	queryId?: number;
 }
 
 export enum QueryVariation {
 	/** The main, fully customizable, Product Query block */
 	PRODUCT_QUERY = 'woocommerce/product-query',
-	/** Only shows products on sale */
-	PRODUCTS_ON_SALE = 'woocommerce/query-products-on-sale',
+	RELATED_PRODUCTS = 'woocommerce/related-products',
 }

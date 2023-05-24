@@ -10,6 +10,12 @@
 		});
 	});
 
+	woodmartThemeModule.$document.on('wdShopPageInit', function() {
+		woodmartThemeModule.sliderAnimations();
+		woodmartThemeModule.carouselInitFlickity();
+		woodmartThemeModule.sliderLazyLoad();
+	});
+
 	woodmartThemeModule.sliderClearAnimations = function($active, firstLoad) {
 		// WPB clear on first load first slide.
 		if (firstLoad) {
@@ -217,7 +223,7 @@
 
 			if ($carousel.hasClass('anim-parallax')) {
 				var flkty = $carousel.find('.wd-slider').data('flickity');
-				var $imgs = $('.wd-slide .wd-slide-bg');
+				var $imgs = $carousel.find('.wd-slide .wd-slide-bg');
 
 				$carousel.find('.wd-slider').on('scroll.flickity', function() {
 					flkty.slides.forEach(function(e, i) {

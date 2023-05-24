@@ -4,13 +4,13 @@ Plugin Name: Shortcoder
 Plugin URI: https://www.aakashweb.com/wordpress-plugins/shortcoder/
 Description: Shortcoder plugin allows to create a custom shortcodes for HTML, JavaScript and other snippets. Now the shortcodes can be used in posts/pages and the snippet will be replaced in place.
 Author: Aakash Chakravarthy
-Version: 6.1
+Version: 6.2
 Author URI: https://www.aakashweb.com/
 Text Domain: shortcoder
 Domain Path: /languages
 */
 
-define( 'SC_VERSION', '6.1' );
+define( 'SC_VERSION', '6.2' );
 define( 'SC_PATH', plugin_dir_path( __FILE__ ) ); // All have trailing slash
 define( 'SC_URL', plugin_dir_url( __FILE__ ) );
 define( 'SC_ADMIN_URL', trailingslashit( plugin_dir_url( __FILE__ ) . 'admin' ) );
@@ -136,7 +136,8 @@ final class Shortcoder{
 
         return apply_filters( 'sc_mod_settings', array(
             'default_editor' => 'code',
-            'default_content' => ''
+            'default_content' => '',
+            'list_content' => 'no'
         ));
 
     }

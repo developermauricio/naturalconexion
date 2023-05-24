@@ -1,137 +1,229 @@
+// ------------------------------------------------------------------------------------------------
+// THEME CONFIGS
+// ------------------------------------------------------------------------------------------------
 
-// // ------------------------------------------------------------------------------------------------
-// // CONFIGS
-// // ------------------------------------------------------------------------------------------------
+@import "config/generator";
 
-// @import "configs";
+@import "config/configs";
 
-// // ------------------------------------------------------------------------------------------------
-// // EXTENDS
-// // ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+// BASE STYLE
+// ------------------------------------------------------------------------------------------------
 
-// @import "extend/all";
+@import "base/icon-font";
 
-// // ------------------------------------------------------------------------------------------------
-// // BASE STYLE
-// // ------------------------------------------------------------------------------------------------
+@import "base/base";
 
-// @import "base/animations";
+@import "base/animations";
 
-// @import "base/helpers";
+@import "base/helpers";
 
-// // ------------------------------------------------------------------------------------------------
-// // OPTIONS
-// // ------------------------------------------------------------------------------------------------
+@import "base/adminbar";
+
+// ------------------------------------------------------------------------------------------------
+// EXTENDS
+// ------------------------------------------------------------------------------------------------
+
+@import "extend/all";
+
+// ------------------------------------------------------------------------------------------------
+// LAYOUT
+// ------------------------------------------------------------------------------------------------
+
+@import "layout/header";
+
+@import "layout/content";
+
+@import "layout/footer";
+
+// ------------------------------------------------------------------------------------------------
+// OPTIONS
+// ------------------------------------------------------------------------------------------------
 
 // @import "options/base";
 
 // @import "options/metaboxes";
 
-// @import "options/navigation";
-
 // @import "options/typography";
 
-// @import "options/other";
+// @import "options/social-icons";
 
-// // ------------------------------------------------------------------------------------------------
-// // PAGES
-// // ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+// PAGES
+// ------------------------------------------------------------------------------------------------
 
-// @import "pages/page-and-post";
+// ------------------------------------------
+// PAGES XTEMOS
+// ------------------------------------------
 
-// @import "pages/slider";
+@import "pages/xtemos/header-builder/general";
 
-// @import "pages/slide";
+@import "pages/xtemos/header-builder/header-list";
 
-// @import "pages/categories";
+@import "pages/xtemos/header-builder/header-editor";
 
-// @import "pages/attributes";
+// @import "pages/xtemos/slide";
 
-// // ------------------------------------------------------------------------------------------------
-// // ELEMENTS
-// // ------------------------------------------------------------------------------------------------
+@import "pages/xtemos/edit-slide";
 
-// @import "elements/background-control";
+@import "pages/xtemos/slider";
 
-// @import "elements/button-switcher";
+@import "pages/xtemos/css-generator";
 
-// @import "elements/buttons-set";
+@import "pages/xtemos/setup-wizard";
 
-// @import "elements/code-editor";
+@import "pages/xtemos/dummy-content";
 
-// @import "elements/color-picker";
+@import "pages/xtemos/plugins";
 
-// @import "elements/forms";
+@import "pages/xtemos/patcher";
 
-// @import "elements/images-set";
+@import "pages/xtemos/theme-license";
 
-// @import "elements/range-slider";
+@import "pages/xtemos/theme-settings";
 
-// @import "elements/text-editor";
+@import "pages/xtemos/welcome";
 
-// @import "elements/upload";
+@import "pages/xtemos/presets";
 
-// @import "elements/dimensions-control";
+@import "pages/xtemos/layouts";
 
-// // ------------------------------------------------------------------------------------------------
-// // MODULES
-// // ------------------------------------------------------------------------------------------------
+@import "pages/xtemos/size-guides";
 
-// @import "modules/buttons";
+@import "pages/xtemos/frequently-bought-together";
 
-// @import "modules/menus";
+@import "pages/xtemos/status";
 
-// // ------------------------------------------------------------------------------------------------
-// // PLUGINS
-// // ------------------------------------------------------------------------------------------------
+@import "pages/xtemos/backups";
 
-// @import "plugins/select2";
+@import "pages/xtemos/wishlists";
 
-// // ------------------------------------------------------------------------------------------------
-// // RESPONSIVE
-// // ------------------------------------------------------------------------------------------------
+// ------------------------------------------
+// PAGES WORDPRESS
+// ------------------------------------------
 
-// @import "responsive/responsive";
+@import "pages/wordpress/post-type";
 
-// // ------------------------------------------------------------------------------------
-// // XTS POST METABOX
-// // ------------------------------------------------------------------------------------
+@import "pages/wordpress/post-type-list";
 
-// // #xts_posts_metabox {
+@import "pages/wordpress/widgets";
 
-// // 	.inside {
-// // 		padding: 10px 20px 20px 20px;
-// // 	}
-// // }
+@import "pages/wordpress/gutenberg";
 
-// @media (min-width: 768px) {
-	
-// 	.post-type-xts-slide {
+@import "pages/wordpress/menus";
 
-// 		&.edit-tags-php {
+// ------------------------------------------------------------------------------------------------
+// ELEMENTS
+// ------------------------------------------------------------------------------------------------
 
-// 			#col-left {
-// 				width: 65%;
-// 			}
-	
-// 			#col-right {
-// 				width: 35%;
-// 			}
-// 		}
-// 	}
-// }
+@import "controls/background-control";
 
-// // ------------------------------------------------------------------------------------
-// // RESPONSIVE
-// // ------------------------------------------------------------------------------------
+@import "controls/button-switcher";
 
-// @media (max-width: 1024px ) {
+@import "controls/buttons-set";
 
-// 	.xts-custom-fonts-section {
+@import "controls/code-editor";
 
-// 		.xts-custom-fonts-field {
-// 			flex-basis: 100%;
-// 		}
-// 	}
+@import "controls/color-picker";
 
-// }
+@import "controls/images-set";
+
+@import "controls/range-slider";
+
+@import "controls/text-editor";
+
+@import "controls/upload";
+
+@import "controls/dimensions-control";
+
+@import "controls/typography";
+
+@import "controls/hotspot";
+
+@import "controls/shadow";
+
+@import "controls/gradient";
+
+@import "controls/responsive-input";
+
+@import "controls/dimension";
+
+// ------------------------------------------------------------------------------------------------
+// MODULES
+// ------------------------------------------------------------------------------------------------
+
+@import "modules/forms";
+
+@import "modules/logo";
+
+@import "modules/navigation";
+
+@import "modules/dropdown";
+
+@import "modules/buttons";
+
+@import "modules/loader";
+
+@import "modules/menus";
+
+@import "modules/popup";
+
+@import "modules/hint";
+
+@import "modules/tooltip";
+
+@import "modules/notices";
+
+@import "modules/section";
+
+@import "modules/field";
+
+@import "modules/group";
+
+@import "modules/search";
+
+@import "modules/tabs-option";
+
+@import "modules/tabs-devices";
+
+@import "modules/filters";
+
+@import "modules/note";
+
+@import "modules/table";
+
+@import "modules/pagination";
+
+@import "modules/sticky-save";
+
+// ------------------------------------------------------------------------------------------------
+// INTEGRATIONS
+// ------------------------------------------------------------------------------------------------
+
+@import "integrations/wpbakery/wpbakery";
+
+@import "integrations/wpbakery/pages/general-tab";
+
+@import "integrations/wpbakery/pages/design-options-tab";
+
+@import "integrations/wpbakery/pages/tamplates-library";
+
+@import "integrations/woocommerce/pages/product";
+
+@import "integrations/woocommerce/pages/attributes";
+
+@import "integrations/woocommerce/pages/categories";
+
+// ------------------------------------------------------------------------------------------------
+// PLUGINS
+// ------------------------------------------------------------------------------------------------
+
+@import "libraries/select2";
+
+// ------------------------------------------------------------------------------------------------
+// RESPONSIVE
+// ------------------------------------------------------------------------------------------------
+
+@import "responsive/responsive-up";
+
+@import "responsive/responsive-down";

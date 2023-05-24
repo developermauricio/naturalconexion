@@ -9,6 +9,7 @@ namespace XTS\Elementor;
 
 use Elementor\Plugin;
 use Elementor\TemplateLibrary\Source_Base;
+use Exception;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -126,10 +127,11 @@ class XTS_Library_Source extends Source_Base {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array  $args Custom template arguments.
-	 * @param string $context Optional. The context. Default is `display`.
+	 * @param  array  $args  Custom template arguments.
+	 * @param  string  $context  Optional. The context. Default is `display`.
 	 *
 	 * @return array|WP_Error Remote Template data.
+	 * @throws Exception
 	 */
 	public function get_data( array $args, $context = 'display' ) {
 		if ( 'update' === $context ) {
@@ -137,6 +139,8 @@ class XTS_Library_Source extends Source_Base {
 		} else {
 			$data = $this->get_template_content( $args['template_id'] );
 		}
+
+		add_filter( 'elementor/files/allow_unfiltered_upload', '__return_true' );
 
 		if ( is_wp_error( $data ) ) {
 			return $data;
@@ -156,6 +160,14 @@ class XTS_Library_Source extends Source_Base {
 		}
 
 		return $data;
+	}
+
+	public function replace_elements_ids_public( $data ) {
+		return $this->replace_elements_ids( $data );
+	}
+
+	public function process_export_import_content_public( $data, $method ) {
+		return $this->process_export_import_content( $data, $method );
 	}
 
 	/**

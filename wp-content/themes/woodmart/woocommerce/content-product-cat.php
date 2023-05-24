@@ -19,16 +19,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$isotope 		   		   = woodmart_loop_prop( 'products_masonry' );
-$different_sizes  		   = woodmart_loop_prop( 'products_different_sizes' );
-$categories_design 		   = woodmart_loop_prop( 'product_categories_design' );
+$isotope                   = woodmart_loop_prop( 'products_masonry' );
+$different_sizes           = woodmart_loop_prop( 'products_different_sizes' );
+$categories_design         = woodmart_loop_prop( 'product_categories_design' );
 $product_categories_shadow = woodmart_loop_prop( 'product_categories_shadow' );
 $product_categories_style  = woodmart_loop_prop( 'product_categories_style' );
-$loop_column 			   = woodmart_loop_prop( 'products_columns' );
-$classes 				   = array();
+$desktop_columns           = woodmart_loop_prop( 'products_columns' );
+$tablet_columns            = woodmart_loop_prop( 'products_columns_tablet' );
+$mobile_columns            = woodmart_loop_prop( 'products_columns_mobile' );
+$classes                   = array();
 $hide_product_count        = woodmart_get_opt( 'hide_categories_product_count' );
 
-if( $different_sizes ) $isotope = true;
+if ( $different_sizes ) {
+	$isotope = true;
+}
 
 // Increase loop count
 woodmart_set_loop_prop( 'woocommerce_loop', woodmart_loop_prop( 'woocommerce_loop' ) + 1 );
@@ -41,15 +45,31 @@ $is_double_size = $different_sizes && in_array( $woocommerce_loop, $items_wide )
 
 woodmart_set_loop_prop( 'double_size', $is_double_size );
 
-$xs_columns = (int) woodmart_get_opt( 'products_columns_mobile' );
-$xs_size = 12 / $xs_columns;
-
-if( $product_categories_style != 'carousel' ) {
-	$classes[] = woodmart_get_grid_el_class( $woocommerce_loop, $loop_column, $different_sizes, $xs_size );
+if ( 'carousel' !== $product_categories_style ) {
+	if ( ( 'auto' !== $tablet_columns && ! empty( $tablet_columns ) ) || ( 'auto' !== $mobile_columns && ! empty( $mobile_columns ) ) ) {
+		if ( $desktop_columns == 1 ) {
+			$mobile_columns = 1;
+			$tablet_columns = 1;
+		}
+		$classes[] = woodmart_get_grid_el_class_new( $woocommerce_loop, $different_sizes, $desktop_columns, $tablet_columns, $mobile_columns );
+	} else {
+		$xs_columns     = woodmart_loop_prop( 'products_columns_mobile' ) ? woodmart_loop_prop( 'products_columns_mobile' ) : (int) woodmart_get_opt( 'products_columns_mobile' );
+		$xs_size = 12 / $xs_columns;
+		if ( $desktop_columns == 1 ) {
+			$xs_size = 12;
+		}
+		$classes[] = woodmart_get_grid_el_class( $woocommerce_loop, $desktop_columns, $different_sizes, $xs_size );
+	}
 }
-	
-$classes[] = 'category-grid-item';
-$classes[] = 'cat-design-' . $categories_design;
+
+if ( woodmart_loop_prop( 'old_structure' ) ) {
+	$classes[] = 'category-grid-item';
+} else {
+	$classes[] = 'wd-cat';
+}
+
+$classes[]      = 'cat-design-' . $categories_design;
+$sub_categories = '';
 
 if ( $product_categories_shadow != 'disable' && ( $categories_design == 'alt' || $categories_design == 'default' ) ) {
 	$classes[] = 'categories-with-shadow';
@@ -59,46 +79,24 @@ if ( $hide_product_count ) {
 	$classes[] = 'without-product-count';
 }
 
-?>
-<div <?php wc_product_cat_class( $classes, $category ); ?> data-loop="<?php echo esc_attr( $woocommerce_loop ); ?>">
-	<div class="wrapp-category">
-		<div class="category-image-wrapp">
-			<a href="<?php echo esc_url( get_term_link( $category->slug, 'product_cat' ) ); ?>" class="category-image">
-				<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
+$template = 'mask-subcat' === $categories_design ? 'mask-subcat' : 'default';
 
-				<?php
-					/**
-					 * woocommerce_before_subcategory_title hook
-					 *
-					 * @hooked woodmart_category_thumb_double_size - 10
-					 */
-					do_action( 'woocommerce_before_subcategory_title', $category );
-				?>
-			</a>
-		</div>
-		<div class="hover-mask">
-			<h3 class="wd-entities-title<?php echo woodmart_get_old_classes( ' category-title' ); ?>">
-				<?php
-					echo esc_html( $category->name );
+if ( woodmart_loop_prop( 'product_categories_is_element' ) && 'inherit' !== woodmart_loop_prop( 'product_categories_design' ) ) {
+	if ( ( 'mask-subcat' === woodmart_loop_prop( 'product_categories_design' ) || 'default' === woodmart_loop_prop( 'product_categories_design' ) ) && 'default' !== woodmart_loop_prop( 'product_categories_color_scheme' ) ) {
+		$classes[] = 'color-scheme-' . woodmart_loop_prop( 'product_categories_color_scheme' );
+	}
+} else {
+	if ( ( 'mask-subcat' === woodmart_get_opt( 'categories_design' ) || 'default' === woodmart_get_opt( 'categories_design' ) ) && 'default' !== woodmart_get_opt( 'categories_color_scheme' ) ) {
+		$classes[] = 'color-scheme-' . woodmart_get_opt( 'categories_color_scheme' );
+	}
+}
 
-					if ( $category->count > 0 ) echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );
-				?>
-			</h3>
-
-			<?php if ( ! $hide_product_count ): ?>
-				<div class="more-products"><a href="<?php echo esc_url( get_term_link( $category->slug, 'product_cat' ) ); ?>"><?php echo sprintf( _n( '%s product', '%s products', $category->count, 'woodmart' ), $category->count ); ?></a></div>
-			<?php endif; ?>
-
-			<?php
-				/**
-				 * woocommerce_after_subcategory_title hook
-				 */
-				do_action( 'woocommerce_after_subcategory_title', $category );
-			?>
-		</div>
-
-		<?php /* translators: %s: Name product category */ ?>
-		<a href="<?php echo esc_url( get_term_link( $category->slug, 'product_cat' ) ); ?>" class="category-link wd-fill" aria-label="<?php echo esc_attr( sprintf( __( 'Product category %s', 'woodmart' ), $category->slug ) ); ?>"></a>
-		<?php do_action( 'woocommerce_after_subcategory', $category ); ?>
-	</div>
-</div>
+wc_get_template(
+	'content-product-cat-' . $template . '.php',
+	array(
+		'woocommerce_loop'   => $woocommerce_loop,
+		'classes'            => $classes,
+		'category'           => $category,
+		'hide_product_count' => $hide_product_count,
+	)
+);

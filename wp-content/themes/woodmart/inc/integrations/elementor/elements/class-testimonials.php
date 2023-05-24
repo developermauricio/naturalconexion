@@ -5,6 +5,8 @@
  * @package woodmart
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
@@ -75,7 +77,7 @@ class Testimonials extends Widget_Base {
 	 * @since  1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -216,7 +218,7 @@ class Testimonials extends Widget_Base {
 		$this->add_control(
 			'text_color_normal',
 			[
-				'label'     => esc_html__( 'Text color', 'xts-theme' ),
+				'label'     => esc_html__( 'Text color', 'woodmart' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -228,7 +230,7 @@ class Testimonials extends Widget_Base {
 		$this->add_control(
 			'text_background_color_normal',
 			[
-				'label'     => esc_html__( 'Text background color', 'xts-theme' ),
+				'label'     => esc_html__( 'Text background color', 'woodmart' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -317,7 +319,7 @@ class Testimonials extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'columns',
 			[
 				'label'       => esc_html__( 'Columns', 'woodmart' ),
@@ -373,7 +375,7 @@ class Testimonials extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -483,18 +485,25 @@ class Testimonials extends Widget_Base {
 	 */
 	protected function render() {
 		$default_settings = [
-			'layout'                => 'slider',
-			'woodmart_color_scheme' => '',
-			'style'                 => 'standard',
-			'align'                 => 'center',
-			'text_size'             => '',
-			'columns'               => [ 'size' => 3 ],
-			'spacing'               => 30,
-			'name'                  => '',
-			'title'                 => '',
-			'stars_rating'          => 'yes',
-			'custom_sizes'          => apply_filters( 'woodmart_testimonials_shortcode_custom_sizes', false ),
-			'items_repeater'        => [],
+			'layout'                 => 'slider',
+			'woodmart_color_scheme'  => '',
+			'style'                  => 'standard',
+			'align'                  => 'center',
+			'text_size'              => '',
+			'columns'                => array( 'size' => 3 ),
+			'columns_tablet'         => array( 'size' => '' ),
+			'columns_mobile'         => array( 'size' => '' ),
+			'spacing'                => 30,
+			'name'                   => '',
+			'title'                  => '',
+			'stars_rating'           => 'yes',
+			'custom_sizes'           => apply_filters( 'woodmart_testimonials_shortcode_custom_sizes', false ),
+			'items_repeater'         => [],
+
+			// Carousel.
+			'slides_per_view'        => array( 'size' => 3 ),
+			'slides_per_view_tablet' => array( 'size' => '' ),
+			'slides_per_view_mobile' => array( 'size' => '' ),
 		];
 
 		$settings                    = wp_parse_args( $this->get_settings_for_display(), array_merge( woodmart_get_owl_atts(), $default_settings ) );
@@ -502,6 +511,7 @@ class Testimonials extends Widget_Base {
 		$settings['slides_per_view'] = isset( $settings['slides_per_view']['size'] ) ? $settings['slides_per_view']['size'] : 3;
 		$owl_attributes              = '';
 		$carousel_id                 = 'carousel-' . wp_rand( 1000, 10000 );
+		$items_classes               = '';
 
 		$this->add_render_attribute(
 			[
@@ -525,6 +535,8 @@ class Testimonials extends Widget_Base {
 		);
 
 		if ( 'yes' === $settings['stars_rating'] ) {
+			woodmart_enqueue_inline_style( 'mod-star-rating' );
+
 			$this->add_render_attribute( 'wrapper', 'class', 'testimon-with-rating' );
 		}
 
@@ -536,8 +548,17 @@ class Testimonials extends Widget_Base {
 			woodmart_enqueue_inline_style( 'owl-carousel' );
 			$settings['carousel_id'] = $carousel_id;
 
+			if ( ! empty( $settings['slides_per_view_tablet']['size'] ) || ! empty( $settings['slides_per_view_mobile']['size'] ) ) {
+				$settings['custom_sizes'] = array(
+					'desktop'          => $settings['slides_per_view'],
+					'tablet_landscape' => $settings['slides_per_view_tablet']['size'],
+					'tablet'           => $settings['slides_per_view_tablet']['size'],
+					'mobile'           => $settings['slides_per_view_mobile']['size'],
+				);
+			}
+
 			$owl_attributes = woodmart_get_owl_attributes( $settings );
-			$this->add_render_attribute( 'owl', 'class', 'owl-carousel ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
+			$this->add_render_attribute( 'owl', 'class', 'owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
 
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-container' );
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-spacing-' . $settings['spacing'] );
@@ -548,7 +569,8 @@ class Testimonials extends Widget_Base {
 		} else {
 			$this->add_render_attribute( 'owl', 'class', 'row' );
 			$this->add_render_attribute( 'owl', 'class', 'wd-spacing-' . $settings['spacing'] );
-			$this->add_render_attribute( 'owl', 'class', 'wd-columns-' . $settings['columns'] );
+
+			$items_classes = woodmart_get_grid_el_class_new( 0, false, $settings['columns'], $settings['columns_tablet']['size'], $settings['columns_mobile']['size'] );
 		}
 
 		if ( 'info-top' === $settings['style'] ) {
@@ -582,7 +604,7 @@ class Testimonials extends Widget_Base {
 							'title'        => $item['title'],
 							'name'         => $item['name'],
 							'content'      => $item['content'],
-							'item_classes' => '',
+							'item_classes' => $items_classes,
 						],
 						$template_name
 					);
@@ -594,4 +616,4 @@ class Testimonials extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Testimonials() );
+Plugin::instance()->widgets_manager->register( new Testimonials() );

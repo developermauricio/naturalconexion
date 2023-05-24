@@ -41,7 +41,7 @@ if ( ! function_exists( 'woodmart_section_negative_gap' ) ) {
 		}
 	}
 
-	add_action( 'wp', 'woodmart_section_negative_gap' );
+	add_action( 'init', 'woodmart_section_negative_gap', 100 );
 }
 
 if ( ! function_exists( 'woodmart_add_section_full_width_control' ) ) {
@@ -64,7 +64,7 @@ if ( ! function_exists( 'woodmart_add_section_full_width_control' ) ) {
 		$element->add_control(
 			'wd_section_stretch',
 			[
-				'label'        => esc_html__( 'Stretch Section CSS', 'woodmart' ),
+				'label'        => esc_html__( 'Section stretch CSS', 'woodmart' ),
 				'description'  => esc_html__( 'Enable this option instead of native Elementor\'s one to stretch section with CSS and not with JS.', 'woodmart' ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'disabled',
@@ -145,7 +145,7 @@ if ( ! function_exists( 'woodmart_add_section_custom_controls' ) ) {
 		$element->start_controls_section(
 			'wd_extra_advanced',
 			[
-				'label' => esc_html__( '[XTemos] Extra', 'xts-theme' ),
+				'label' => esc_html__( '[XTemos] Extra', 'woodmart' ),
 				'tab'   => Controls_Manager::TAB_ADVANCED,
 			]
 		);

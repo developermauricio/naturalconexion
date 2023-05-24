@@ -25,7 +25,7 @@
 			scaleDuration       : 0.45,
 			panY                : true,
 			panX                : true,
-			panDuration         : 1.5,
+			panDuration         : 0.5,
 			resetPanOnMouseLeave: true
 		});
 	};

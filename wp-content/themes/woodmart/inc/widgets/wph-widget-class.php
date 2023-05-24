@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable
 /**
 * WordPress Widgets Helper Class
 *
@@ -18,6 +19,68 @@ if ( ! class_exists( 'WPH_Widget' ) )
 
     class WPH_Widget extends WP_Widget
     {
+
+		public function get_layered_get_categories() {
+			global $wpdb;
+
+			$categories = $wpdb->get_results(
+				"
+			SELECT
+				t.term_id AS id,
+				t.name    AS post_title,
+				t.slug    AS post_url,
+				parent    AS parent
+			FROM {$wpdb->prefix}terms t
+				LEFT JOIN {$wpdb->prefix}term_taxonomy tt
+						ON t.term_id = tt.term_id
+			WHERE tt.taxonomy = 'product_cat'
+			ORDER BY name"
+			);
+
+			return $categories;
+		}
+
+	    public function get_layered_get_attributes_options() {
+		    $attribute_array      = array();
+		    $attribute_taxonomies = wc_get_attribute_taxonomies();
+
+		    if ( $attribute_taxonomies ) {
+			    foreach ( $attribute_taxonomies as $tax ) {
+				    $attribute_array[ $tax->attribute_name ] = $tax->attribute_name;
+			    }
+		    }
+
+			return $attribute_array;
+	    }
+
+		public function get_layered_get_categories_options() {
+			$categories_array = array(
+				esc_html__( 'All categories', 'woodmart' ) => 'all',
+			);
+
+			$categories = $this->get_layered_get_categories();
+
+			if ( ! empty( $categories ) ) {
+				foreach ( $categories as $cat ) {
+					$title = $cat->post_title;
+					$id    = ' (ID:' . $cat->id . ')';
+					if ( property_exists( $cat, 'parent' ) && $cat->parent ) {
+						$title = $title . $id . ' (Parent ID:' . $cat->parent . ')';
+					}
+					$categories_array[ $title . $id ] = $cat->id;
+				}
+			}
+
+			return $categories_array;
+		}
+
+		public function is_widget_preview() {
+			if ( apply_filters( 'woodmart_hide_content_on_widget_preview', true ) && defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+				return true;
+			}
+
+			return false;
+		}
 
         /** 
         * Create Widget 
@@ -93,9 +156,15 @@ if ( ! class_exists( 'WPH_Widget' ) )
             $this->before_update_fields();
 
             foreach ( $this->fields as $key ) {
-                $slug = (isset($key['id'])) ? $key['id'] : $key['param_name'];
+				if ( isset( $key['id'] ) ) {
+					$slug = $key['id'];
+				} elseif ( isset( $key['param_name'] ) ) {
+					$slug = $key['param_name'];
+				} else {
+					continue;
+				}
 
-                if ( isset( $key['validate'] ) ) {
+				if ( isset( $key['validate'] ) ) {
                     if ( false === $this->validate( $key['validate'], $new_instance[$slug] ) )
                     return $instance;
                 }
@@ -108,9 +177,11 @@ if ( ! class_exists( 'WPH_Widget' ) )
 		            } else {
 			            $instance[ $slug ] = strip_tags( $new_instance[ $slug ] );
 		            }
-	            }
-            }
-            
+				} else {
+					$instance[ $slug ] = false;
+				}
+			}
+
             return $this->after_validate_fields( $instance );
         }
         
@@ -380,7 +451,7 @@ if ( ! class_exists( 'WPH_Widget' ) )
 
             /* Set Defaults */
             $key['std'] = isset( $key['std'] ) ? $key['std'] : "";
-            $key['std'] = isset( $key['default'] ) ? $key['default'] : "";
+            $key['std'] = isset( $key['default'] ) ? $key['default'] : $key['std'];
 
             $slug = (isset($key['id'])) ? $key['id'] : $key['param_name'];
             $heading = isset( $key['heading'] ) ? $key['heading'] : '';
@@ -425,14 +496,24 @@ if ( ! class_exists( 'WPH_Widget' ) )
             /* Prefix method */
             $field_method = 'create_field_' . str_replace( '-', '_', $key['type'] );
 
-            /* Check for <p> Class */
-            $p = ( isset( $key['class-p'] ) ) ? '<p class="'.$key['class-p'].'">' : '<p>'; 
+			$attr = '<div class="wd-widget-field wd-type-' . $key['type'] . '"';
 
-            /* Run method */
-            if ( method_exists( $this, $field_method ) ) 
-                return $p.$this->$field_method( $key ).'</p>';
+			if ( isset( $key['param_name'] ) && isset( $key['value'] ) ) {
+				$attr .= ' data-param_name="' . $key['param_name'] . '"';
+				$attr .= ' data-value="' . $key['value'] . '"';
+			}
 
-        }
+			if ( isset( $key['dependency'] ) ) {
+				$attr .= ' data-dependency=\'' . wp_json_encode( $key['dependency'] ) . '\'';
+			}
+
+			$attr .= '>';
+
+			/* Run method */
+			if ( method_exists( $this, $field_method ) ) {
+				return $attr . $this->$field_method( $key ) . '</div>';
+			}
+		}
 
         private function woodmart_change_type($key) {
             switch ($key) {
@@ -476,15 +557,32 @@ if ( ! class_exists( 'WPH_Widget' ) )
 	     * @return   string
 	     * @since    1.5
 	     */
-	
+
 		function create_field_select2( $key, $out = "" ) {
-			$value = isset( $key['value'] ) ? $key['value'] : $key['std'];
+			$value = '';
+
+			if ( isset( $key['std'] ) ) {
+				$value = $key['std'];
+			}
+
+			if ( isset( $key['value'] ) ) {
+				$value = $key['value'];
+			}
 
 			if ( ! is_array( $value ) ) {
 				$value = explode( ',', $value );
 			}
 
-			wp_enqueue_script( 'select2', WOODMART_ASSETS . '/js/select2.full.min.js', array(), woodmart_get_theme_info( 'Version' ), true );
+			if ( isset( $key['callback'] ) && method_exists( $this, $key['callback'] ) ) {
+				$key['fields'] = $this->{$key['callback']}();
+			}
+
+			if ( isset( $key['callback_global'] ) && function_exists( $key['callback_global'] ) ) {
+				$key['fields'] = $key['callback_global']();
+			}
+
+			wp_enqueue_script( 'select2', WOODMART_ASSETS . '/js/libs/select2.full.min.js', array(), woodmart_get_theme_info( 'Version' ), true );
+			wp_enqueue_script( 'woodmart-admin-options', WOODMART_ASSETS . '/js/options.js', array(), WOODMART_VERSION, true );
 			
 			ob_start();
 			
@@ -526,6 +624,14 @@ if ( ! class_exists( 'WPH_Widget' ) )
         {
 			$out .= $this->create_field_label( $key['name'], $key['_id'] ) . '<br/>';
 
+			if ( isset( $key['callback'] ) && method_exists( $this, $key['callback'] ) ) {
+				$key['fields'] = $this->{$key['callback']}();
+			}
+
+	        if ( isset( $key['callback_global'] ) && function_exists( $key['callback_global'] ) ) {
+		        $key['fields'] = $key['callback_global']();
+	        }
+
             $selected = isset( $key['value'] ) ? $key['value'] : $key['std'];
 
             $out .= '<select id="' . esc_attr( $key['_id'] ) . '" name="' . esc_attr( $key['_name'] ) . '" data-value="' . esc_attr( $selected ) . '" ';
@@ -535,22 +641,24 @@ if ( ! class_exists( 'WPH_Widget' ) )
 
             $out .= '> ';
 
-                foreach ( $key['fields'] as $field => $option ) 
-                {
+               if ( isset( $key['fields'] ) ) {
+	               foreach ( $key['fields'] as $field => $option )
+	               {
 
-                    $out .= '<option value="' . esc_attr( $option ) . '" ';
+		               $out .= '<option value="' . esc_attr( $option ) . '" ';
 
-                    if ( esc_attr( $selected ) == $option )
-                        $out .= ' selected="selected" ';
+		               if ( esc_attr( $selected ) == $option )
+			               $out .= ' selected="selected" ';
 
-                    $out .= '> '.esc_html( $field ).'</option>';
+		               $out .= '> '.esc_html( $field ).'</option>';
 
-                }
+	               }
+               }
 
             $out .= ' </select> ';
             
             if ( isset( $key['desc'] ) )
-                $out .= '<br/><small class="description">'.esc_html( $key['desc'] ).'</small>';
+                $out .= '<br/><small class="description">'.wp_kses( $key['desc'], true ).'</small>';
 
             return $out;            
         }
@@ -567,6 +675,8 @@ if ( ! class_exists( 'WPH_Widget' ) )
         
         function create_field_attach_image( $key, $out = "" )
         {
+	        wp_enqueue_script( 'woodmart-admin-options', WOODMART_ASSETS . '/js/options.js', array(), WOODMART_VERSION, true );
+			wp_enqueue_script( 'woodmart-admin-scripts', WOODMART_ASSETS . '/js/admin.js', array(), WOODMART_VERSION, true );
 
             $value = isset( $key['value'] ) ? $key['value'] : $key['std'];
 
@@ -617,6 +727,9 @@ if ( ! class_exists( 'WPH_Widget' ) )
 	     * @return   string
 	     */
 	    function create_field_attach_images( $key, $out = '' ) {
+		    wp_enqueue_script( 'woodmart-admin-options', WOODMART_ASSETS . '/js/options.js', array(), WOODMART_VERSION, true );
+			wp_enqueue_script( 'woodmart-admin-scripts', WOODMART_ASSETS . '/js/admin.js', array(), WOODMART_VERSION, true );
+
 		    $value = isset( $key['value'] ) ? $key['value'] : $key['std'];
 
 		    $ids = explode( ',', $value );
@@ -625,17 +738,14 @@ if ( ! class_exists( 'WPH_Widget' ) )
 
 		    ?>
 		    <div class="xts-upload_list-control">
-			    <h4>
-				    <?php echo $this->create_field_label( $key['name'], $key['_id'] ); ?>
-			    </h4>
-
+			    <?php echo $this->create_field_label( $key['name'], $key['_id'] ); ?>
 			    <div class="xts-upload-preview">
 				    <?php foreach ( $ids as $id ) : ?>
 					    <?php if ( $id ) : ?>
 						    <div data-attachment_id="<?php echo esc_attr( $id ); ?>">
 							    <?php echo wp_get_attachment_image( $id, 'thumbnail' ); // phpcs:ignore ?>
 							    <a href="#" class="xts-remove">
-								    <span class="dashicons dashicons-dismiss"></span>
+								    <span class="xts-i-close"></span>
 							    </a>
 						    </div>
 					    <?php endif; ?>
@@ -643,11 +753,11 @@ if ( ! class_exists( 'WPH_Widget' ) )
 			    </div>
 
 			    <div class="xts-upload-btns">
-				    <button class="xts-btn xts-upload-btn">
+				    <button class="xts-btn xts-upload-btn xts-i-import">
 					    <?php esc_html_e( 'Upload', 'woodmart' ); ?>
 				    </button>
 
-				    <button class="xts-btn xts-btn-remove xts-btn-disable">
+				    <button class="xts-btn xts-btn-remove xts-color-warning">
 					    <?php esc_html_e( 'Clear all', 'woodmart' ); ?>
 				    </button>
 
@@ -662,7 +772,7 @@ if ( ! class_exists( 'WPH_Widget' ) )
 		    </div>
 		    <?php
 
-		    return ob_get_clean();
+			return $out . ob_get_clean();
 	    }
 
 
@@ -756,15 +866,15 @@ if ( ! class_exists( 'WPH_Widget' ) )
             $out .= ' <input type="checkbox" ';
 
             if ( isset( $key['class'] ) )
-                $out .= 'class="' . esc_attr( $key['class'] ) . '" ';
+                $out .= 'class="checkbox ' . esc_attr( $key['class'] ) . '"';
 
             $out .= 'id="' . esc_attr( $key['_id'] ) . '" name="' . esc_attr( $key['_name'] ) . '" value="1" ';
             
             if ( ( isset( $key['value'] ) && $key['value'] == 1 ) OR ( ! isset( $key['value'] ) && $key['std'] == 1 ) )
                 $out .= ' checked="checked" ';          
 
-            $out .= ' /> ';
-            
+	        $out .= ' /> ';
+
             if ( isset( $key['desc'] ) )
                 $out .= '<br/><small class="description">'.esc_html( $key['desc'] ).'</small>';
 

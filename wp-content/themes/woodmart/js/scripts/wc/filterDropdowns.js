@@ -10,7 +10,7 @@
 			var $select = $form.find('select');
 			var slug = $select.data('slug');
 
-			$select.change(function() {
+			$select.on( 'change', function() {
 				var val = $(this).val();
 				$('input[name=filter_' + slug + ']').val(val);
 			});

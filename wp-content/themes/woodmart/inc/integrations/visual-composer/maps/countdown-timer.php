@@ -5,18 +5,14 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_countdown_timer' ) ) {
-	function woodmart_vc_map_countdown_timer() {
-		if ( ! shortcode_exists( 'woodmart_countdown_timer' ) ) {
-			return;
-		}
-
-		vc_map( array(
+if( ! function_exists( 'woodmart_get_vc_map_countdown_timer' ) ) {
+	function woodmart_get_vc_map_countdown_timer() {
+		return array(
 			'name' => esc_html__( 'Countdown timer', 'woodmart' ),
 			'base' => 'woodmart_countdown_timer',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'Shows countdown timer', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/countdown-timer.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/countdown-timer.svg',
 			'params' => array(
 				array(
 					'type' => 'woodmart_title_divider',
@@ -29,10 +25,21 @@ if( ! function_exists( 'woodmart_vc_map_countdown_timer' ) ) {
 					'heading' => esc_html__( 'Date', 'woodmart' ),
 					'param_name' => 'date',
 					'hint' => esc_html__( 'Final date in the format Y/m/d. For example 2020/12/12 13:00', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
+				array(
+					'type'             => 'woodmart_switch',
+					'heading'          => esc_html__( 'Hide countdown on finish', 'woodmart' ),
+					'param_name'       => 'hide_on_finish',
+					'true_state'       => 'yes',
+					'false_state'      => 'no',
+					'default'          => 'no',
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+
 				/**
-				* Style
-				*/
+				 * Style
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -68,7 +75,7 @@ if( ! function_exists( 'woodmart_vc_map_countdown_timer' ) ) {
 					'type' => 'woodmart_image_select',
 					'heading' => esc_html__( 'Align', 'woodmart' ),
 					'param_name' => 'align',
-					'value' => array( 
+					'value' => array(
 						esc_html__( 'Left', 'woodmart' ) => 'left',
 						esc_html__( 'Center', 'woodmart' ) => 'center',
 						esc_html__( 'Right', 'woodmart' ) => 'right',
@@ -96,8 +103,8 @@ if( ! function_exists( 'woodmart_vc_map_countdown_timer' ) ) {
 					'edit_field_class' => 'vc_col-sm-6 vc_column',
 				),
 				/**
-				* Extra
-				*/
+				 * Extra
+				 */
 				array(
 					'type' => 'woodmart_title_divider',
 					'holder' => 'div',
@@ -112,7 +119,6 @@ if( ! function_exists( 'woodmart_vc_map_countdown_timer' ) ) {
 					'hint' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' )
 				)
 			)
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_countdown_timer' );
 }

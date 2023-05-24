@@ -3,6 +3,8 @@
  * Timeline map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Repeater;
 use Elementor\Utils;
@@ -74,7 +76,7 @@ class Timeline extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -528,4 +530,4 @@ class Timeline extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Timeline() );
+Plugin::instance()->widgets_manager->register( new Timeline() );

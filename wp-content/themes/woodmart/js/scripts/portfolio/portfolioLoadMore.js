@@ -88,7 +88,7 @@
 
 							$this.attr('href', data.nextPage);
 
-							if ('yes' === woodmart_settings.load_more_button_page_url){
+							if ('yes' === woodmart_settings.load_more_button_page_url_opt && 'no' !== woodmart_settings.load_more_button_page_url && data.currentPage){
 								window.history.pushState('', '', data.currentPage);
 							}
 						}

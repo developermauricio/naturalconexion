@@ -1,17 +1,16 @@
 (function($) {
 	$('#vc_ui-panel-edit-element').on('vcPanel.shown', function() {
-
 		$('.wd-sliders').each(function() {
 			let $wrapper = $(this);
-			let $valueInput = $wrapper.find('.wpb_vc_param_value')
-			let sliderSettings = $valueInput.data('settings');
+			let $valueInput = $wrapper.find('.wpb_vc_param_value');
+			let settings = $valueInput.data('settings');
 
-			$wrapper.find('.wd-device').on( 'click', function() {
+			$wrapper.find('.wd-device').on('click', function() {
 				let $this = $(this);
 				let device = $this.data('value');
 
 				updateActiveClass($this);
-				updateActiveClass($wrapper.find('.wd-slider[data-device="'+ device +'"]'));
+				updateActiveClass($wrapper.find('.wd-slider[data-device="' + device + '"]'));
 			});
 
 			$wrapper.find('.wd-slider').each(function() {
@@ -19,19 +18,39 @@
 				let $slider = $this.find('.wd-slider-field');
 				let $valuePreview = $this.find('.wd-slider-value-preview');
 				let device = $this.data('device');
-				let unit = sliderSettings.devices[device].unit;
+				let unit = settings.devices[device].unit;
 
-				initSlider(device, unit);
+				if (settings.transfer) {
+					let $from = $('div[data-vc-shortcode-param-name="' + settings.transfer + '"]');
+					let $value = $from.find('.wpb_vc_param_value');
+
+					if (!$valueInput.val() && $value.val() && 0 !== parseInt( $value.val() )) {
+						$this.attr('data-value', $value.val());
+						initSlider(device, unit, $value.val());
+						$value.val('');
+					} else {
+						initSlider(device, unit);
+					}
+				} else {
+					initSlider(device, unit);
+				}
+
 				setMainValue();
 
-				$this.find('.wd-slider-unit-control').on( 'click', function() {
+				$valuePreview.on('change', function() {
+					$this.attr('data-value', $valuePreview.val());
+					initSlider(device, $this.attr('data-unit'), $valuePreview.val());
+					setMainValue();
+				});
+
+				$this.find('.wd-slider-unit-control').on('click', function() {
 					let count_unit = [];
 
-					$.each( sliderSettings.range, function(key, value) {
-						count_unit.push(key)
+					$.each(settings.range, function(key) {
+						count_unit.push(key);
 					});
 
-					if ( 1 === count_unit.length ) {
+					if (1 === count_unit.length) {
 						return;
 					}
 
@@ -39,72 +58,75 @@
 					let device = $this.parents('.wd-slider').data('device');
 
 					updateActiveClass($this);
-					initSlider( device, $this.data('unit') );
+					initSlider(device, $this.data('unit'));
 					$this.parents('.wd-slider').attr('data-unit', $this.data('unit'));
 				});
 
 				/**
 				 * Change Unit.
 				 */
-				function initSlider( device, unit ) {
-					if ( 'undefined' !== typeof $slider.slider() ) {
+				function initSlider(device, unit, value = 0) {
+					if ('undefined' !== typeof $slider.slider()) {
 						$slider.slider('destroy');
 					}
 
-					let deviceData = sliderSettings.devices[device];
-					let value = 0;
+					let deviceData = settings.devices[device];
 
-					if ( deviceData.unit === unit ) {
+					if (deviceData.unit === unit && value === 0) {
 						value = deviceData.value;
 					}
 
-					$valuePreview.text(value);
+					$valuePreview.val(value);
 
 					$slider.slider({
 						range: 'min',
 						value: value,
-						min  : sliderSettings.range[unit].min,
-						max  : sliderSettings.range[unit].max,
-						step : sliderSettings.range[unit].step,
+						min  : settings.range[unit].min,
+						max  : settings.range[unit].max,
+						step : settings.range[unit].step,
 						slide: function(event, ui) {
 							$this.attr('data-value', ui.value);
-							$valuePreview.text(ui.value);
+							$valuePreview.val(ui.value);
 							setMainValue();
 						}
 					});
 				}
 
 				function setMainValue() {
-					let sliderSettings = $valueInput.data('settings');
+					let settings = $valueInput.data('settings');
 
-					if ( 'undefined' === typeof sliderSettings.selectors) {
+					if ('undefined' === typeof settings.selectors) {
 						return;
 					}
 
 					let $results = {
-						devices: {},
-						selector_id: $('.woodmart-css-id').val(),
-						shortcode: $('#vc_ui-panel-edit-element').attr('data-vc-shortcode'),
-						selectors:sliderSettings.selectors,
+						devices: {}
 					};
+
+					var flag = false;
 
 					$wrapper.find('.wd-slider').each(function() {
 						let $this = $(this);
 
+						if ($this.attr('data-value')) {
+							flag = true;
+						}
+
 						$results.devices[$this.attr('data-device')] = {
-							unit: $this.attr('data-unit'),
-							value: $this.attr('data-value'),
+							unit : $this.attr('data-unit'),
+							value: $this.attr('data-value')
 						};
 					});
 
-					$valueInput.attr('value', window.btoa(JSON.stringify($results)));
+					if (flag) {
+						$valueInput.attr('value', window.btoa(JSON.stringify($results)));
+					} else {
+						$valueInput.attr('value', '');
+					}
 				}
 			});
 		});
 
-		/**
-		 * Update Active Class.
-		 */
 		function updateActiveClass($this) {
 			$this.siblings().removeClass('xts-active');
 			$this.addClass('xts-active');

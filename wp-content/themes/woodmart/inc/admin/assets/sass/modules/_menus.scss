@@ -2,9 +2,13 @@
 // XTS MENUS
 // ------------------------------------------------------------------------------------
 
-.xts-mega-menu-custom-fields {
-	display: none;
-	overflow: hidden;
-	clear: both;
-	padding: 0;
-}
+@if $general {
+
+	.xts-mega-menu-custom-fields {
+		display: none;
+		overflow: hidden;
+		clear: both;
+		padding: 0;
+	}
+
+} // END IF

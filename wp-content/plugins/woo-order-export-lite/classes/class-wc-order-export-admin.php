@@ -1,4 +1,7 @@
 <?php
+
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -23,6 +26,30 @@ class WC_Order_Export_Admin {
 		$this->path_views_default = dirname( plugin_dir_path( __FILE__ ) ) . "/view/";
 
 		add_action( 'init', array( $this, 'load_textdomain' ) );
+
+        add_action( 'before_woocommerce_init', function() {
+            if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+                FeaturesUtil::declare_compatibility( 'custom_order_tables', WOE_PLUGIN_PATH, true );
+            }
+        } );
+
+        add_action('woocommerce_loaded', function () {
+            include 'core/class-wc-order-export-engine.php';
+            if (WC_Order_Export_Engine::isHPOSEnabled()) {
+                include 'core-hpos/class-wc-order-export-data-extractor.php';
+                include 'core-hpos/class-wc-order-export-data-extractor-ui.php';
+            } else {
+                include 'core/class-wc-order-export-data-extractor.php';
+                include 'core/class-wc-order-export-data-extractor-ui.php';
+            }
+
+            $extension_file = WOE_PLUGIN_BASEPATH.'/pro_version/loader.php';
+            if ( file_exists( $extension_file ) ) {
+                include_once $extension_file;
+            }
+
+            do_action( 'woe_order_export_admin_init', $this );
+        });
 
 		if ( is_admin() ) { // admin actions
 			add_action( 'admin_menu', array( $this, 'add_menu' ) );
@@ -58,11 +85,14 @@ class WC_Order_Export_Admin {
 
 			// Add 'Export Status' orders page column header
 			add_filter( 'manage_edit-shop_order_columns', array( $this, 'add_order_status_column_header' ), 20 );
-			add_filter( 'manage_edit-shop_order_sortable_columns', array( $this, 'add_order_status_sortable_columns' ) );
+            add_filter( 'manage_edit-shop_order_sortable_columns', array( $this, 'add_order_status_sortable_columns' ) );
+            add_filter( 'manage_woocommerce_page_wc-orders_columns', array( $this, 'add_order_status_column_header' ), 20 );
+			add_filter( 'manage_woocommerce_page_wc-orders_sortable_columns', array( $this, 'add_order_status_sortable_columns' ) );
 			add_filter( 'request', array( $this, 'add_order_status_request_query' ) );
 
 			// Add 'Export Status' orders page column content
 			add_action( 'manage_shop_order_posts_custom_column', array( $this, 'add_order_status_column_content' ) );
+            add_action( 'manage_woocommerce_page_wc-orders_custom_column', array( $this, 'add_order_status_column_content' ), 10, 2 );
 
 			// Style for 'Export Status' column
 			if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'shop_order' ) {
@@ -70,8 +100,6 @@ class WC_Order_Export_Admin {
 				add_action( 'admin_enqueue_scripts', array( $this, 'woe_add_orders_style' ) );
 			}
 		}
-
-		do_action( 'woe_order_export_admin_init', $this );
 
 		$this->settings = WC_Order_Export_Main_Settings::get_settings();
 
@@ -159,13 +187,14 @@ class WC_Order_Export_Admin {
 		return $query_vars;
 	}
 
-	public function add_order_status_column_content( $column ) {
+	public function add_order_status_column_content( $column, $order = null ) {
 		global $post;
 
 		if ( 'woe_export_status' === $column ) {
 			$is_exported = false;
 
-			if ( get_post_meta( $post->ID, 'woe_order_exported', true ) ) {
+			if ( $order ? $order->get_meta('woe_order_exported') :
+                get_post_meta( $post->ID, 'woe_order_exported', true ) ) {
 				$is_exported = true;
 			}
 

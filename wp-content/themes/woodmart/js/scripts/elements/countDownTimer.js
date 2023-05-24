@@ -1,6 +1,6 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdProductsTabsLoaded wdUpdateWishlist wdShopPageInit wdArrowsLoadProducts wdLoadMoreLoadProducts', function () {
+	woodmartThemeModule.$document.on('wdProductsTabsLoaded wdSearchFullScreenContentLoaded wdUpdateWishlist wdShopPageInit wdArrowsLoadProducts wdLoadMoreLoadProducts wdRecentlyViewedProductLoaded', function () {
 		woodmartThemeModule.countDownTimer();
 	});
 
@@ -8,6 +8,9 @@
 		'frontend/element_ready/wd_products.default',
 		'frontend/element_ready/wd_products_tabs.default',
 		'frontend/element_ready/wd_countdown_timer.default',
+		'frontend/element_ready/wd_single_product_countdown.default',
+		'frontend/element_ready/wd_banner.default',
+		'frontend/element_ready/wd_banner_carousel.default',
 	], function(index, value) {
 		woodmartThemeModule.wdElementorAddAction(value, function() {
 			woodmartThemeModule.countDownTimer();
@@ -21,6 +24,10 @@
 			dayjs.extend(window.dayjs_plugin_timezone);
 			var time = dayjs.tz($this.data('end-date'), $this.data('timezone'));
 			$this.countdown(time.toDate(), function(event) {
+				if ( 'yes' === $this.data('hide-on-finish') && 'finish' === event.type ) {
+					$this.parent().addClass('wd-hide');
+				}
+
 				$this.html(event.strftime(''
 					+ '<span class="countdown-days">%-D <span>' + woodmart_settings.countdown_days + '</span></span> '
 					+ '<span class="countdown-hours">%H <span>' + woodmart_settings.countdown_hours + '</span></span> '

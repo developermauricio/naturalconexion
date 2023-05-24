@@ -64,12 +64,12 @@ jQuery(function($) {
 							importTemplate();
 							hideLoader();
 						} else {
-							$('<div class="xts-notice xts-error">The library can\'t be loaded from the server.</div>').appendTo($('#xts-library-modal #elementor-template-library-templates-container'));
+							$('<div class="xts-notice xts-warning">The library can\'t be loaded from the server.</div>').appendTo($('#xts-library-modal #elementor-template-library-templates-container'));
 							hideLoader();
 						}
 					},
 					error   : function() {
-						$('<div class="xts-notice xts-error">The library can\'t be loaded from the server.</div>').appendTo($('#xts-library-modal #elementor-template-library-templates-container'));
+						$('<div class="xts-notice xts-warning">The library can\'t be loaded from the server.</div>').appendTo($('#xts-library-modal #elementor-template-library-templates-container'));
 						hideLoader();
 					}
 				});
@@ -113,12 +113,12 @@ jQuery(function($) {
 								}, 2000);
 								activateUpdateButton();
 							} else {
-								$('<div class="xts-notice xts-error">The element can\'t be loaded from the server.</div>').prependTo($('#xts-library-modal #elementor-template-library-templates-container'));
+								$('<div class="xts-notice xts-warning">The element can\'t be loaded from the server.</div>').prependTo($('#xts-library-modal #elementor-template-library-templates-container'));
 								hideLoader();
 							}
 						},
 						error  : function() {
-							$('<div class="xts-notice xts-error">The element can\'t be loaded from the server.</div>').prependTo($('#xts-library-modal #elementor-template-library-templates-container'));
+							$('<div class="xts-notice xts-warning">The element can\'t be loaded from the server.</div>').prependTo($('#xts-library-modal #elementor-template-library-templates-container'));
 							hideLoader();
 						}
 					};

@@ -9,7 +9,7 @@ use XTS\Options;
 Options::add_field(
 	array(
 		'id'       => 'custom_css',
-		'name'     => esc_html__('Global Custom CSS', 'woodmart' ),
+		'name'     => esc_html__('Global custom CSS', 'woodmart' ),
 		'type'     => 'editor',
 		'language' => 'css',
 		'section'  => 'custom_css',
@@ -62,5 +62,16 @@ Options::add_field(
 		'section'  => 'custom_css',
 		'priority' => 50,
 
+	)
+);
+
+Options::add_field(
+	array(
+		'id'       => 'css_backend',
+		'name'     => esc_html__( 'Custom CSS for admin dashboard', 'woodmart' ),
+		'type'     => 'editor',
+		'language' => 'css',
+		'section'  => 'custom_css',
+		'priority' => 60,
 	)
 );

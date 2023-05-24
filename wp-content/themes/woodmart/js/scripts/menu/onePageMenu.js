@@ -30,7 +30,7 @@
 				itemHash = $this.find('> a').attr('href').split('#')[1];
 
 				if (itemHash === hash) {
-					$this.siblings().removeClass('current-menu-item');
+					$this.parents('.whb-row').find('.onepage-link').removeClass('current-menu-item');
 					$this.addClass('current-menu-item');
 				}
 			});
@@ -63,7 +63,7 @@
 		});
 
 		if ($('.onepage-link').length > 0) {
-			$('.entry-content > .vc_section, .entry-content > .vc_row').waypoint(function() {
+			$('.wpb-content-wrapper > :is(.vc_row, .vc_section)').waypoint(function() {
 				var $this = $($(this)[0].element);
 				var hash = $this.attr('id');
 				activeMenuItem(hash);

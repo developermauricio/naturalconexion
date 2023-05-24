@@ -124,11 +124,12 @@ class Accordion extends Widget_Base {
 		$repeater->add_control(
 			'html_block_id',
 			array(
-				'label'     => esc_html__( 'HTML Block', 'woodmart' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => woodmart_get_elementor_html_blocks_array(),
-				'default'   => '0',
-				'condition' => array(
+				'label'       => esc_html__( 'HTML Block', 'woodmart' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => woodmart_get_elementor_html_blocks_array(),
+				'default'     => '0',
+				'description' => function_exists( 'woodmart_get_html_block_links' ) ? woodmart_get_html_block_links() : '',
+				'condition'   => array(
 					'content_type' => array( 'html_block' ),
 				),
 			)
@@ -259,8 +260,22 @@ class Accordion extends Widget_Base {
 				'options' => array(
 					'default' => esc_html__( 'Default', 'woodmart' ),
 					'shadow'  => esc_html__( 'Shadow', 'woodmart' ),
+					'simple'  => esc_html__( 'Simple', 'woodmart' ),
 				),
 				'default' => 'default',
+			)
+		);
+
+		$this->add_control(
+			'hide_top_bottom_border',
+			array(
+				'label'     => esc_html__( 'Hide top & bottom border', 'woodmart' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'woodmart' ),
+				'label_off' => esc_html__( 'No', 'woodmart' ),
+				'condition' => array(
+					'style' => 'default',
+				),
 			)
 		);
 
@@ -268,7 +283,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'shadow',
-				'selector'  => '{{WRAPPER}} .wd-accordion-item',
+				'selector'  => '{{WRAPPER}} .wd-accordion.wd-style-shadow > .wd-accordion-item',
 				'condition' => array(
 					'style' => array( 'shadow' ),
 				),
@@ -311,13 +326,9 @@ class Accordion extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
-				'name'           => 'title_typography',
-				'label'          => esc_html__( 'Typography', 'woodmart' ),
-				'selector'       => '{{WRAPPER}} .wd-accordion-title-text',
-				'fields_options' => array(
-					'typography'  => array( 'default' => 'yes' ),
-					'font_weight' => array( 'default' => 600 ),
-				),
+				'name'     => 'title_typography',
+				'label'    => esc_html__( 'Typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .wd-accordion-title-text',
 			)
 		);
 
@@ -524,6 +535,7 @@ class Accordion extends Widget_Base {
 			 */
 			'style'                     => 'default',
 			'state'                     => 'first',
+			'hide_top_bottom_border'    => '',
 
 			/**
 			 * Title Settings.
@@ -548,6 +560,10 @@ class Accordion extends Widget_Base {
 		woodmart_enqueue_inline_style( 'accordion' );
 
 		$wrapper_classes = ' wd-style-' . $settings['style'];
+
+		if ( 'yes' === $settings['hide_top_bottom_border'] ) {
+			$wrapper_classes .= ' wd-border-off';
+		}
 
 		$title_classes_wrapper  = ' text-' . $settings['title_text_alignment'];
 		$title_classes_wrapper .= ' wd-opener-pos-' . $settings['opener_alignment'];
@@ -648,4 +664,4 @@ class Accordion extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Accordion() );
+Plugin::instance()->widgets_manager->register( new Accordion() );

@@ -77,7 +77,7 @@ class Images_Gallery extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -256,7 +256,7 @@ class Images_Gallery extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'columns',
 			[
 				'label'       => esc_html__( 'Columns', 'woodmart' ),
@@ -277,6 +277,53 @@ class Images_Gallery extends Widget_Base {
 					'view' => [ 'grid', 'masonry' ],
 				],
 			]
+		);
+
+		$this->add_control(
+			'rounding_size',
+			array(
+				'label'     => esc_html__( 'Rounding', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'0'      => esc_html__( '0', 'woodmart' ),
+					'5'      => esc_html__( '5', 'woodmart' ),
+					'8'      => esc_html__( '8', 'woodmart' ),
+					'12'     => esc_html__( '12', 'woodmart' ),
+					'custom' => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{VALUE}}px;',
+				),
+			)
+		);
+
+		$this->add_control(
+			'custom_rounding_size',
+			array(
+				'label'      => esc_html__( 'Custom rounding', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( '%', 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 300,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'rounding_size' => array( 'custom' ),
+				),
+			)
 		);
 
 		$this->add_control(
@@ -347,7 +394,7 @@ class Images_Gallery extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -482,23 +529,28 @@ class Images_Gallery extends Widget_Base {
 	 */
 	protected function render() {
 		$default_settings = [
-			'ids'                  => '',
-			'columns'              => 3,
-			'link'                 => '',
-			'spacing'              => 0,
-			'on_click'             => 'lightbox',
-			'target_blank'         => false,
-			'custom_links'         => '',
-			'view'                 => 'grid',
-			'caption'              => false,
-			'speed'                => '5000',
-			'autoplay'             => 'no',
-			'scroll_per_page'      => 'yes',
-			'lazy_loading'         => 'no',
-			'scroll_carousel_init' => 'no',
-			'horizontal_align'     => 'center',
-			'vertical_align'       => 'middle',
-			'custom_sizes'         => apply_filters( 'woodmart_images_gallery_shortcode_custom_sizes', false ),
+			'ids'                    => '',
+			'slides_per_view'        => array( 'size' => 4 ),
+			'slides_per_view_tablet' => array( 'size' => '' ),
+			'slides_per_view_mobile' => array( 'size' => '' ),
+			'columns'                => array( 'size' => 3 ),
+			'columns_tablet'         => array( 'size' => '' ),
+			'columns_mobile'         => array( 'size' => '' ),
+			'link'                   => '',
+			'spacing'                => 0,
+			'on_click'               => 'lightbox',
+			'target_blank'           => false,
+			'custom_links'           => '',
+			'view'                   => 'grid',
+			'caption'                => false,
+			'speed'                  => '5000',
+			'autoplay'               => 'no',
+			'scroll_per_page'        => 'yes',
+			'lazy_loading'           => 'no',
+			'scroll_carousel_init'   => 'no',
+			'horizontal_align'       => 'center',
+			'vertical_align'         => 'middle',
+			'custom_sizes'           => apply_filters( 'woodmart_images_gallery_shortcode_custom_sizes', false ),
 		];
 
 		$settings = wp_parse_args( $this->get_settings_for_display(), $default_settings );
@@ -552,8 +604,18 @@ class Images_Gallery extends Widget_Base {
 
 		if ( $settings['view'] === 'carousel' ) {
 			woodmart_enqueue_inline_style( 'owl-carousel' );
+
+			if ( ! empty( $settings['slides_per_view_tablet']['size'] ) || ! empty( $settings['slides_per_view_mobile']['size'] ) ) {
+				$settings['custom_sizes'] = array(
+					'desktop'          => $settings['slides_per_view'],
+					'tablet_landscape' => $settings['slides_per_view_tablet']['size'],
+					'tablet'           => $settings['slides_per_view_tablet']['size'],
+					'mobile'           => $settings['slides_per_view_mobile']['size'],
+				);
+			}
+
 			$owl_attributes = woodmart_get_owl_attributes( $settings );
-			$this->add_render_attribute( 'gallery', 'class', 'owl-carousel ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
+			$this->add_render_attribute( 'gallery', 'class', 'owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
 
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-spacing-' . $settings['spacing'] );
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-container' );
@@ -571,7 +633,7 @@ class Images_Gallery extends Widget_Base {
 		if ( 'grid' === $settings['view'] || 'masonry' === $settings['view'] ) {
 			$this->add_render_attribute( 'gallery', 'class', 'row' );
 			$this->add_render_attribute( 'gallery', 'class', 'wd-spacing-' . $settings['spacing'] );
-			$this->add_render_attribute( 'item', 'class', woodmart_get_grid_el_class( 0, $settings['columns'] ) );
+			$this->add_render_attribute( 'item', 'class', woodmart_get_grid_el_class_new( 0, false, $settings['columns'], $settings['columns_tablet']['size'], $settings['columns_mobile']['size'] ) );
 		}
 
 		if ( 'yes' === $settings['lazy_loading'] ) {
@@ -591,6 +653,10 @@ class Images_Gallery extends Widget_Base {
 				<?php foreach ( $settings['ids'] as $index => $image ) : ?>
 					<?php
 					$image_url = woodmart_get_image_url( $image['id'], 'ids', $settings );
+
+					if ( ! $image_url ) {
+						continue;
+					}
 
 					if ( apply_filters( 'woodmart_image_gallery_caption', false ) ) {
 						$title = wp_get_attachment_caption( $image['id'] );
@@ -645,4 +711,4 @@ class Images_Gallery extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Images_Gallery() );
+Plugin::instance()->widgets_manager->register( new Images_Gallery() );

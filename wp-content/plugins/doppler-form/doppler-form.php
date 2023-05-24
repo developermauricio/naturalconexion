@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Doppler Forms
  * Description:       Crea Formularios de Suscripción con la misma estética de tu sitio web o blog en minutos. Conéctalo con Doppler y envía a tus nuevos contactos automáticamente a una Lista de Suscriptores.
- * Version:           2.3.2
+ * Version:           2.3.4
  * Author:            Doppler LLC
  * Author URI:        https://www.fromdoppler.com/
  * License:           GPL-2.0+
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if( !defined('DOPPLER_FORM_VERSION') ) define( 'DOPPLER_FORM_VERSION', '2.3.2' );
+if( !defined('DOPPLER_FORM_VERSION') ) define( 'DOPPLER_FORM_VERSION', '2.3.4' );
 if( !defined('WP_DEBUG_LOG_DOPPLER_PLUGINS') ) define( 'WP_DEBUG_LOG_DOPPLER_PLUGINS', false );
 
 if( !defined('DOPPLER_PLUGINS_PATH') ) define('DOPPLER_PLUGINS_PATH', plugin_dir_path(__DIR__));

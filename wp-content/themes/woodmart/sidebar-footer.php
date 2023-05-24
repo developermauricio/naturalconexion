@@ -14,7 +14,7 @@ $footer_config = woodmart_get_footer_config( $footer_layout );
 if( count( $footer_config['cols'] ) > 0 ) {
 	?>
 	<div class="container main-footer">
-		<aside class="footer-sidebar widget-area row" role="complementary">
+		<aside class="footer-sidebar widget-area row">
 			<?php
 				foreach ( $footer_config['cols'] as $key => $columns ) {
 					$index = $key + 1;

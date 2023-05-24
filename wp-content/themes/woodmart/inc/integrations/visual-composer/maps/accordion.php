@@ -9,30 +9,24 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 	exit( 'No direct script access allowed' );
 }
 
-if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
-
+if ( ! function_exists( 'woodmart_get_vc_map_accordion' ) ) {
 	/**
 	 * Displays the shortcode settings fields in the admin.
 	 */
-	function woodmart_vc_map_accordion() {
-		if ( ! shortcode_exists( 'woodmart_accordion' ) ) {
-			return;
-		}
-
+	function woodmart_get_vc_map_accordion() {
 		$secondary_font = woodmart_get_opt( 'secondary-font' );
 		$primary_font   = woodmart_get_opt( 'primary-font' );
 		$text_font      = woodmart_get_opt( 'text-font' );
 
-		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary', 'woodmart' );
-		$text_font_title      = isset( $text_font[0] ) ? esc_html__( 'Text', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
-		$primary_font_title   = isset( $primary_font[0] ) ? esc_html__( 'Primary', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Primary', 'woodmart' );
+		$secondary_font_title = isset( $secondary_font[0] ) ? esc_html__( 'Secondary font', 'woodmart' ) . ' (' . $secondary_font[0]['font-family'] . ')' : esc_html__( 'Secondary font', 'woodmart' );
+		$text_font_title      = isset( $text_font[0] ) ? esc_html__( 'Text font', 'woodmart' ) . ' (' . $text_font[0]['font-family'] . ')' : esc_html__( 'Text', 'woodmart' );
+		$primary_font_title   = isset( $primary_font[0] ) ? esc_html__( 'Title font', 'woodmart' ) . ' (' . $primary_font[0]['font-family'] . ')' : esc_html__( 'Title font', 'woodmart' );
 
-		vc_map(
-			array(
+		return array(
 				'base'            => 'woodmart_accordion',
 				'name'            => esc_html__( 'Accordion', 'woodmart' ),
 				'description'     => esc_html__( 'Tabbed content', 'woodmart' ),
-				'category'        => esc_html__( 'Theme elements', 'woodmart' ),
+				'category'        => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ? woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
 				'icon'            => WOODMART_ASSETS . '/images/vc-icon/accordion.svg',
 				'as_parent'       => array( 'only' => 'woodmart_accordion_item' ),
 				'content_element' => true,
@@ -60,8 +54,9 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 						'heading'          => esc_html__( 'Style', 'woodmart' ),
 						'group'            => esc_html__( 'Title', 'woodmart' ),
 						'value'            => array(
-							esc_html__( 'Default', 'woodmart' ) => 'default',
-							esc_html__( 'Shadow', 'woodmart' ) => 'shadow',
+							esc_html__( 'Default', 'woodmart' )  => 'default',
+							esc_html__( 'Shadow', 'woodmart' )   => 'shadow',
+							esc_html__( 'Simple', 'woodmart' )   => 'simple',
 						),
 						'edit_field_class' => 'vc_col-sm-6 vc_column',
 					),
@@ -77,7 +72,7 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 						'edit_field_class' => 'vc_col-sm-6 vc_column',
 					),
 					array(
-						'type'             => 'woodmart_box_shadow',
+						'type'             => 'wd_box_shadow',
 						'param_name'       => 'box_shadow',
 						'group'            => esc_html__( 'Title', 'woodmart' ),
 						'heading'          => esc_html__( 'Box shadow', 'woodmart' ),
@@ -99,7 +94,6 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 							'color'      => 'rgba(0, 0, 0, .15)',
 						),
 					),
-
 					array(
 						'param_name'       => 'title_text_alignment',
 						'type'             => 'woodmart_image_select',
@@ -116,6 +110,20 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 						'std'              => 'left',
 						'wood_tooltip'     => true,
 						'edit_field_class' => 'vc_col-sm-6 vc_column title-align',
+					),
+					array(
+						'heading'          => esc_html__( 'Hide top & bottom border', 'woodmart' ),
+						'group'            => esc_html__( 'Title', 'woodmart' ),
+						'type'             => 'woodmart_switch',
+						'param_name'       => 'hide_top_bottom_border',
+						'true_state'       => 'yes',
+						'false_state'      => 'no',
+						'default'          => 'no',
+						'dependency'       => array(
+							'element' => 'style',
+							'value'   => array( 'default' ),
+						),
+						'edit_field_class' => 'vc_col-sm-6 vc_column',
 					),
 					/**
 					 * Title Settings.
@@ -456,6 +464,7 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 							esc_html__( 'Slide from left', 'woodmart' ) => 'slide-from-left',
 							esc_html__( 'Slide from right', 'woodmart' ) => 'slide-from-right',
 							esc_html__( 'Slide short from left', 'woodmart' ) => 'slide-short-from-left',
+							esc_html__( 'Slide short from right', 'woodmart' ) => 'slide-short-from-right',
 							esc_html__( 'Flip X bottom', 'woodmart' ) => 'bottom-flip-x',
 							esc_html__( 'Flip X top', 'woodmart' ) => 'top-flip-x',
 							esc_html__( 'Flip Y left', 'woodmart' ) => 'left-flip-y',
@@ -498,248 +507,245 @@ if ( ! function_exists( 'woodmart_vc_map_accordion' ) ) {
 
 					woodmart_get_vc_responsive_visible_map( 'responsive_tabs_hide' ),
 					woodmart_get_vc_responsive_visible_map( 'wd_hide_on_desktop' ),
-					woodmart_get_vc_responsive_visible_map( 'wd_hide_on_tablet_landscape' ),
 					woodmart_get_vc_responsive_visible_map( 'wd_hide_on_tablet' ),
 					woodmart_get_vc_responsive_visible_map( 'wd_hide_on_mobile' ),
 				),
-			)
-		);
+			);
+	}
+}
 
-		vc_map(
-			array(
-				'base'            => 'woodmart_accordion_item',
-				'name'            => esc_html__( 'Accordion Item', 'woodmart' ),
-				'description'     => esc_html__( 'Add accordion item in accordion area', 'woodmart' ),
-				'category'        => esc_html__( 'woodmart_accordion', 'woodmart' ),
-				'icon'            => WOODMART_ASSETS . '/images/vc-icon/accordion-item.svg',
-				'as_child'        => array( 'only' => 'woodmart_accordion' ),
-				'content_element' => true,
-				'params'          => array(
-					/**
-					 * Title.
-					 */
-					array(
-						'param_name' => 'title',
-						'type'       => 'textarea',
-						'holder'     => 'div',
-						'heading'    => esc_html__( 'Title', 'woodmart' ),
+if ( ! function_exists( 'woodmart_get_vc_map_accordion_item' ) ) {
+	function woodmart_get_vc_map_accordion_item() {
+		return array(
+			'base'            => 'woodmart_accordion_item',
+			'name'            => esc_html__( 'Accordion Item', 'woodmart' ),
+			'description'     => esc_html__( 'Add accordion item in accordion area', 'woodmart' ),
+			'category'        => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ? woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
+			'icon'            => WOODMART_ASSETS . '/images/vc-icon/accordion-item.svg',
+			'as_child'        => array( 'only' => 'woodmart_accordion' ),
+			'content_element' => true,
+			'params'          => array(
+				/**
+				 * Title.
+				 */
+				array(
+					'param_name' => 'title',
+					'type'       => 'textarea',
+					'holder'     => 'div',
+					'heading'    => esc_html__( 'Title', 'woodmart' ),
+				),
+				/**
+				 * Content.
+				 */
+				array(
+					'param_name' => 'content_divider',
+					'type'       => 'woodmart_title_divider',
+					'title'      => esc_html__( 'Content', 'woodmart' ),
+				),
+				array(
+					'param_name'       => 'content_type',
+					'type'             => 'dropdown',
+					'heading'          => esc_html__( 'Content type', 'woodmart' ),
+					'value'            => array(
+						esc_html__( 'Text', 'woodmart' ) => 'text',
+						esc_html__( 'HTML Block', 'woodmart' ) => 'html_block',
 					),
-					/**
-					 * Content.
-					 */
-					array(
-						'param_name' => 'content_divider',
-						'type'       => 'woodmart_title_divider',
-						'title'      => esc_html__( 'Content', 'woodmart' ),
-					),
-					array(
-						'param_name'       => 'content_type',
-						'type'             => 'dropdown',
-						'heading'          => esc_html__( 'Content type', 'woodmart' ),
-						'value'            => array(
-							esc_html__( 'Text', 'woodmart' ) => 'text',
-							esc_html__( 'HTML Block', 'woodmart' ) => 'html_block',
-						),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'param_name' => 'content',
-						'type'       => 'textarea_html',
-						'heading'    => esc_html__( 'Content', 'woodmart' ),
-						'dependency' => array(
-							'element' => 'content_type',
-							'value'   => array( 'text' ),
-						),
-					),
-					array(
-						'param_name' => 'html_block_id',
-						'type'       => 'dropdown',
-						'heading'    => esc_html__( 'Select block', 'woodmart' ),
-						'value'      => array( esc_html__( 'Select', 'woodmart' ) => '' ) + woodmart_get_static_blocks_array(),
-						'dependency' => array(
-							'element' => 'content_type',
-							'value'   => array( 'html_block' ),
-						),
-					),
-
-					/**
-					 * Icon.
-					 */
-					array(
-						'param_name' => 'icon_divider',
-						'type'       => 'woodmart_title_divider',
-						'title'      => esc_html__( 'Icon settings', 'woodmart' ),
-						'holder'     => 'div',
-					),
-					array(
-						'param_name'       => 'icon_type',
-						'type'             => 'dropdown',
-						'heading'          => esc_html__( 'List type', 'woodmart' ),
-						'value'            => array(
-							esc_html__( 'With icon', 'woodmart' ) => 'icon',
-							esc_html__( 'With image', 'woodmart' ) => 'image',
-						),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'param_name'       => 'image',
-						'type'             => 'attach_image',
-						'heading'          => esc_html__( 'Image', 'woodmart' ),
-						'value'            => '',
-						'dependency'       => array(
-							'element' => 'icon_type',
-							'value'   => array( 'image' ),
-						),
-						'hint'             => esc_html__( 'Select image from media library.', 'woodmart' ),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'param_name'       => 'image_size',
-						'type'             => 'textfield',
-						'heading'          => esc_html__( 'Image size', 'woodmart' ),
-						'dependency'       => array(
-							'element' => 'icon_type',
-							'value'   => array( 'image' ),
-						),
-						'hint'             => esc_html__( 'Enter image size. Example: \'thumbnail\', \'medium\', \'large\', \'full\' or other sizes defined by current theme. Alternatively enter image size in pixels: 200x100 (Width x Height). Leave empty to use \'thumbnail\' size.', 'woodmart' ),
-						'description'      => esc_html__( 'Example: \'thumbnail\', \'medium\', \'large\', \'full\' or enter image size in pixels: \'200x100\'.', 'woodmart' ),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'param_name'       => 'icon_libraries',
-						'type'             => 'dropdown',
-						'heading'          => esc_html__( 'Icon library', 'woodmart' ),
-						'value'            => array(
-							esc_html__( 'Font Awesome', 'woodmart' ) => 'fontawesome',
-							esc_html__( 'Open Iconic', 'woodmart' )  => 'openiconic',
-							esc_html__( 'Typicons', 'woodmart' )     => 'typicons',
-							esc_html__( 'Entypo', 'woodmart' )       => 'entypo',
-							esc_html__( 'Linecons', 'woodmart' )     => 'linecons',
-							esc_html__( 'Mono Social', 'woodmart' )  => 'monosocial',
-							esc_html__( 'Material', 'woodmart' )     => 'material',
-						),
-						'dependency'       => array(
-							'element' => 'icon_type',
-							'value'   => 'icon',
-						),
-						'hint'             => esc_html__( 'Select icon library.', 'woodmart' ),
-						'edit_field_class' => 'vc_col-sm-6 vc_column',
-					),
-					array(
-						'param_name' => 'icon_fontawesome',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'fontawesome',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
-					),
-					array(
-						'param_name' => 'icon_openiconic',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'openiconic',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'openiconic',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
-					),
-					array(
-						'param_name' => 'icon_typicons',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'typicons',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'typicons',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
-					),
-					array(
-						'param_name' => 'icon_entypo',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'entypo',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'entypo',
-						),
-					),
-					array(
-						'param_name' => 'icon_linecons',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'linecons',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'linecons',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
-					),
-					array(
-						'param_name' => 'icon_monosocial',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'monosocial',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'monosocial',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
-					),
-					array(
-						'param_name' => 'icon_material',
-						'type'       => 'iconpicker',
-						'heading'    => esc_html__( 'Icon', 'woodmart' ),
-						'settings'   => array(
-							'emptyIcon'    => true,
-							'type'         => 'material',
-							'iconsPerPage' => 50,
-						),
-						'dependency' => array(
-							'element' => 'icon_libraries',
-							'value'   => 'material',
-						),
-						'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'param_name' => 'content',
+					'type'       => 'textarea_html',
+					'heading'    => esc_html__( 'Content', 'woodmart' ),
+					'dependency' => array(
+						'element' => 'content_type',
+						'value'   => array( 'text' ),
 					),
 				),
-			)
+				array(
+					'param_name' => 'html_block_id',
+					'type'       => 'woodmart_dropdown',
+					'heading'    => esc_html__( 'Select block', 'woodmart' ),
+					'callback'   => 'woodmart_get_html_blocks_array_with_empty',
+					'dependency' => array(
+						'element' => 'content_type',
+						'value'   => array( 'html_block' ),
+					),
+				),
+
+				/**
+				 * Icon.
+				 */
+				array(
+					'param_name' => 'icon_divider',
+					'type'       => 'woodmart_title_divider',
+					'title'      => esc_html__( 'Icon settings', 'woodmart' ),
+					'holder'     => 'div',
+				),
+				array(
+					'param_name'       => 'icon_type',
+					'type'             => 'dropdown',
+					'heading'          => esc_html__( 'List type', 'woodmart' ),
+					'value'            => array(
+						esc_html__( 'With icon', 'woodmart' ) => 'icon',
+						esc_html__( 'With image', 'woodmart' ) => 'image',
+					),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'param_name'       => 'image',
+					'type'             => 'attach_image',
+					'heading'          => esc_html__( 'Image', 'woodmart' ),
+					'value'            => '',
+					'dependency'       => array(
+						'element' => 'icon_type',
+						'value'   => array( 'image' ),
+					),
+					'hint'             => esc_html__( 'Select image from media library.', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'param_name'       => 'image_size',
+					'type'             => 'textfield',
+					'heading'          => esc_html__( 'Image size', 'woodmart' ),
+					'dependency'       => array(
+						'element' => 'icon_type',
+						'value'   => array( 'image' ),
+					),
+					'hint'             => esc_html__( 'Enter image size. Example: \'thumbnail\', \'medium\', \'large\', \'full\' or other sizes defined by current theme. Alternatively enter image size in pixels: 200x100 (Width x Height). Leave empty to use \'thumbnail\' size.', 'woodmart' ),
+					'description'      => esc_html__( 'Example: \'thumbnail\', \'medium\', \'large\', \'full\' or enter image size in pixels: \'200x100\'.', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'param_name'       => 'icon_libraries',
+					'type'             => 'dropdown',
+					'heading'          => esc_html__( 'Icon library', 'woodmart' ),
+					'value'            => array(
+						esc_html__( 'Font Awesome', 'woodmart' ) => 'fontawesome',
+						esc_html__( 'Open Iconic', 'woodmart' )  => 'openiconic',
+						esc_html__( 'Typicons', 'woodmart' )     => 'typicons',
+						esc_html__( 'Entypo', 'woodmart' )       => 'entypo',
+						esc_html__( 'Linecons', 'woodmart' )     => 'linecons',
+						esc_html__( 'Mono Social', 'woodmart' )  => 'monosocial',
+						esc_html__( 'Material', 'woodmart' )     => 'material',
+					),
+					'dependency'       => array(
+						'element' => 'icon_type',
+						'value'   => 'icon',
+					),
+					'hint'             => esc_html__( 'Select icon library.', 'woodmart' ),
+					'edit_field_class' => 'vc_col-sm-6 vc_column',
+				),
+				array(
+					'param_name' => 'icon_fontawesome',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'fontawesome',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+				array(
+					'param_name' => 'icon_openiconic',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'openiconic',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'openiconic',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+				array(
+					'param_name' => 'icon_typicons',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'typicons',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'typicons',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+				array(
+					'param_name' => 'icon_entypo',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'entypo',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'entypo',
+					),
+				),
+				array(
+					'param_name' => 'icon_linecons',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'linecons',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'linecons',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+				array(
+					'param_name' => 'icon_monosocial',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'monosocial',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'monosocial',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+				array(
+					'param_name' => 'icon_material',
+					'type'       => 'iconpicker',
+					'heading'    => esc_html__( 'Icon', 'woodmart' ),
+					'settings'   => array(
+						'emptyIcon'    => true,
+						'type'         => 'material',
+						'iconsPerPage' => 50,
+					),
+					'dependency' => array(
+						'element' => 'icon_libraries',
+						'value'   => 'material',
+					),
+					'hint'       => esc_html__( 'Select icon from library.', 'woodmart' ),
+				),
+			),
 		);
-
-		if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
-			/**
-			 * Create woodmart accordion wrapper.
-			 */
-			class WPBakeryShortCode_woodmart_accordion extends WPBakeryShortCodesContainer {}
-
-		}
 	}
+}
 
-	add_action( 'vc_before_init', 'woodmart_vc_map_accordion' );
+if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
+	/**
+	 * Create woodmart accordion wrapper.
+	 */
+	class WPBakeryShortCode_woodmart_accordion extends WPBakeryShortCodesContainer {}
 }

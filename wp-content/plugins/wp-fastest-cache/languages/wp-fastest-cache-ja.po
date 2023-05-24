@@ -1,0 +1,631 @@
+# Translation of Plugins - WP Fastest Cache - Development (trunk) in Japanese
+# This file is distributed under the same license as the Plugins - WP Fastest Cache - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-10 07:50:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - WP Fastest Cache - Development (trunk)\n"
+
+#: inc/admin.php:1036
+msgid "WP Fastest Cache Options"
+msgstr ""
+
+#: inc/admin.php:1884 templates/exclude.php:114
+msgid "has Yandex Click ID Parameters"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.wpfastestcache.com/"
+msgstr ""
+
+#: inc/admin.php:1662
+msgid "Clearing Specific Pages"
+msgstr ""
+
+#: templates/toolbar_settings.php:71
+msgid "Save"
+msgstr "保存"
+
+#: templates/toolbar_settings.php:68
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: templates/toolbar_settings.php:20
+msgid "Toolbar Settings"
+msgstr "ツールバー設定"
+
+#: inc/admin-toolbar.php:74 inc/admin-toolbar.php:106
+msgid "Clear Cache of All Sites"
+msgstr "すべてのサイトのキャッシュを消去"
+
+#: wpFastestCache.php:407
+msgid "<a href=\"%s\">Settings</a>"
+msgstr "<a href=\"%s\">設定</a>"
+
+#: inc/column.php:15
+msgid "Clear Cache"
+msgstr "キャッシュを消去"
+
+#: inc/admin.php:1304 inc/admin.php:1310 inc/admin.php:1317
+msgid "Eliminate render-blocking JavaScript resources"
+msgstr "レンダリングブロックする JavaScript ソースを除外する"
+
+#: inc/admin.php:450 inc/admin.php:453
+msgid "Options have been saved"
+msgstr "設定を保存しました"
+
+#: inc/admin.php:1830
+msgid "Download"
+msgstr "ダウンロード"
+
+#: inc/admin.php:1825
+msgid "Update"
+msgstr "更新"
+
+#: inc/admin.php:1819
+msgid "Please don't delete the free version. Premium version works with the free version."
+msgstr "無料版を削除しないでください。プレミアム版は無料版と一緒に動きます。"
+
+#: inc/admin.php:1818
+msgid "Get It Now!"
+msgstr "今すぐ入手"
+
+#: inc/admin.php:1812
+msgid "You can download and update the premium when you want if you paid."
+msgstr "支払いをすれば好きなときにプレミアム版をダウンロードや更新できます"
+
+#: inc/admin.php:1809
+msgid "Download & Update"
+msgstr "ダウンロードと更新"
+
+#: inc/admin.php:1797
+msgid "Buy"
+msgstr "購入"
+
+#: inc/admin.php:1786
+msgid "Purchased"
+msgstr "購入済み"
+
+#: inc/admin.php:1782
+msgid "The download button will be available after paid. You can buy the premium version now."
+msgstr "お支払い完了後にダウンロードボタンが有効になります。プレミアム版を購入してください。"
+
+#: inc/admin.php:1781
+msgid "Just"
+msgstr ""
+
+#: inc/admin.php:1769
+msgid "You need to pay before downloading the premium version."
+msgstr "プレミアム版をダウンロードする前に支払いをする必要があります。"
+
+#: inc/admin.php:1766
+msgid "Checkout"
+msgstr "チェックアウト"
+
+#: inc/admin.php:1752
+msgid "New Features"
+msgstr "新機能"
+
+#: inc/admin.php:1746
+msgid "In the premium version there are some new features which speed up the sites more."
+msgstr "プレミアム版では、サイトをより高速化するための新機能があります。"
+
+#: inc/admin.php:1743
+msgid "Discover Features"
+msgstr "新機能をチェック"
+
+#: inc/admin.php:1885 templates/exclude.php:115
+msgid "has Woocommerce Items in Cart"
+msgstr "カートに Woocommerce アイテムあり"
+
+#: inc/admin.php:1883 templates/exclude.php:113
+msgid "has Google Analytics Parameters"
+msgstr "Google Analytics パラメーターあり"
+
+#: inc/admin.php:1873 templates/exclude.php:100
+msgid "Archives"
+msgstr "アーカイブ"
+
+#: templates/timeout.php:189
+msgid "Server Time"
+msgstr "サーバー時刻"
+
+#: templates/timeout.php:169
+msgid "delete the files"
+msgstr "このファイルを削除する"
+
+#: inc/admin.php:1559 inc/admin.php:1878 templates/exclude.php:106
+#: templates/timeout.php:99
+msgid "Contains"
+msgstr "含む"
+
+#: inc/admin.php:1560 inc/admin.php:1879 templates/exclude.php:107
+#: templates/timeout.php:98
+msgid "Is Equal To"
+msgstr "次と同等"
+
+#: inc/admin.php:1558 inc/admin.php:1877 templates/exclude.php:105
+#: templates/timeout.php:97
+msgid "Starts With"
+msgstr "次で始まる"
+
+#: inc/admin.php:1557 inc/admin.php:1870 templates/exclude.php:95
+#: templates/timeout.php:96
+msgid "Home Page"
+msgstr "ホームページ"
+
+#: inc/admin.php:1556 templates/timeout.php:95
+msgid "All"
+msgstr "すべて"
+
+#: templates/exclude.php:66
+msgid "Exclude Page Wizard"
+msgstr "ページウィザードを除外する"
+
+#: templates/timeout.php:124
+msgid "Then"
+msgstr "次を適用"
+
+#: templates/exclude.php:89 templates/timeout.php:91
+msgid "If REQUEST_URI"
+msgstr "REQUEST_URI が"
+
+#: templates/timeout.php:68
+msgid "Cache Timeout Wizard"
+msgstr "キャッシュ タイムアウト ウィザード"
+
+#: templates/lazy_load.php:9
+msgid "Lazy Load Settings"
+msgstr "遅延読み込みの設定"
+
+#: templates/nginx_gzip.php:9
+msgid "Enable Gzip"
+msgstr "Gzipを有効"
+
+#: templates/update_now.php:9
+msgid "Please Update"
+msgstr "アップデートしてください"
+
+#: templates/update_success.php:9
+msgid "Success"
+msgstr "成功"
+
+#: templates/disable_wp_cron.php:20
+msgid "Warning"
+msgstr "警告"
+
+#: inc/admin.php:1594 inc/admin.php:1666 inc/admin.php:1906 inc/admin.php:1923
+#: inc/admin.php:1942 inc/admin.php:1960 inc/admin.php:1980
+msgid "Add New Rule"
+msgstr "新規ルールを追加"
+
+#: inc/admin-toolbar.php:98 inc/admin.php:1528
+msgid "Delete Cache and Minified CSS/JS"
+msgstr "キャッシュと縮小したCSS/JSを削除する"
+
+#: inc/admin.php:1460 inc/admin.php:2149 inc/admin.php:2349
+msgid "Only available in Premium version"
+msgstr "プレミアム版で有効です"
+
+#: templates/timeout.php:141
+msgid "Choose One"
+msgstr "1つ選ぶ"
+
+#: inc/admin.php:1533
+msgid "All cache files will be removed as well"
+msgstr "すべてのキャッシュファイルが同様に削除されます"
+
+#: inc/admin.php:1532
+msgid "If you modify any css file, you have to delete minified css files"
+msgstr "もしCSSファイルを編集する場合、縮小化したCSSファイルを削除しなければなりません"
+
+#: inc/admin.php:1520 inc/admin.php:1534 inc/admin.php:1535
+msgid "Target folder"
+msgstr "ターゲット フォルダ"
+
+#: inc/admin.php:1519
+msgid "You can delete all cache files"
+msgstr "すべてのキャッシュ ファイルを削除できます"
+
+#: inc/admin.php:1047
+msgid "Exclude"
+msgstr "除外する"
+
+#: inc/admin.php:1045
+msgid "Image Optimization"
+msgstr "画像の最適化"
+
+#: inc/admin-toolbar.php:115 inc/admin.php:1042
+msgid "Settings"
+msgstr "設定"
+
+#: inc/admin.php:2122
+msgid "Database Cleanup"
+msgstr "データベース クリーンアップ"
+
+#: inc/admin.php:2013
+msgid "CDN Settings"
+msgstr "CDN 設定"
+
+#: inc/admin.php:1976
+msgid "Exclude JS"
+msgstr "JS を除外"
+
+#: inc/admin.php:1956
+msgid "Exclude CSS"
+msgstr "CSS を除外する"
+
+#: inc/admin.php:1938
+msgid "Exclude Cookies"
+msgstr "クッキーを除外"
+
+#: inc/admin.php:1919
+msgid "Exclude User-Agents"
+msgstr "User-Agentsを除外する"
+
+#: inc/admin.php:1902
+msgid "Exclude Pages"
+msgstr "固定ページを除外"
+
+#: inc/admin.php:1719
+msgid "Optimize Image Tool"
+msgstr "イメージツールを最適化"
+
+#: inc/admin.php:1549
+msgid "Timeout Rules"
+msgstr "タイムアウト ルール"
+
+#: inc/admin-toolbar.php:86 inc/admin.php:1043 inc/admin.php:1507
+msgid "Delete Cache"
+msgstr "キャッシュを削除する"
+
+#: inc/admin.php:1467
+msgid "Cache Statistics"
+msgstr "キャッシュ 統計"
+
+#: templates/updatepost.php:53
+msgid "Clear Cache of Post / Page"
+msgstr "投稿/固定ページのキャッシュを消去"
+
+#: templates/updatepost.php:29
+msgid "What do you want to happen after update a post or a page?"
+msgstr "投稿や固定ページの更新後にどのようにしますか？"
+
+#: templates/newpost.php:58
+msgid "Clear Cache of Pagination"
+msgstr "ページ送りのキャッシュを消去"
+
+#: templates/newpost.php:57 templates/updatepost.php:55
+msgid "Clear Cache of Post Tags"
+msgstr "投稿タグのキャッシュを消去"
+
+#: templates/newpost.php:56 templates/updatepost.php:54
+msgid "Clear Cache of Post Categories"
+msgstr "投稿カテゴリーのキャッシュを消去"
+
+#: templates/newpost.php:55 templates/updatepost.php:56
+msgid "Clear Cache of Homepage"
+msgstr "ホームページのキャッシュを消去"
+
+#: inc/admin-toolbar.php:91 inc/admin.php:1515 templates/newpost.php:51
+#: templates/updatepost.php:49
+msgid "Clear All Cache"
+msgstr "すべてのキャッシュを消去"
+
+#: templates/newpost.php:29
+msgid "What do you want to happen after publishing the new post?"
+msgstr "新しい投稿を公開後にどのようにしますか？"
+
+#: templates/newpost.php:68 templates/preload.php:115
+#: templates/updatepost.php:64
+msgid "OK"
+msgstr "OK"
+
+#: templates/preload.php:101
+msgid "Restart After Completed"
+msgstr "完了後に再始動"
+
+#: templates/preload.php:96
+msgid "pages per minute"
+msgstr "1分あたりページ数"
+
+#: templates/preload.php:70
+msgid "Custom Taxonomies"
+msgstr "カスタムタクソノミー"
+
+#: templates/preload.php:65
+msgid "Custom Post Types"
+msgstr "カスタム投稿タイプ"
+
+#: inc/admin.php:1876 templates/exclude.php:101 templates/preload.php:60
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: inc/admin.php:1872 templates/exclude.php:97 templates/preload.php:56
+msgid "Tags"
+msgstr "タグ"
+
+#: inc/admin.php:1875 templates/exclude.php:99 templates/preload.php:52
+msgid "Pages"
+msgstr "固定ページ"
+
+#: inc/admin.php:1871 templates/exclude.php:96 templates/preload.php:48
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: inc/admin.php:1874 templates/exclude.php:98 templates/preload.php:44
+msgid "Posts"
+msgstr "投稿"
+
+#: templates/preload.php:40
+msgid "Homepage"
+msgstr "ホームページ"
+
+#: inc/admin.php:1251 inc/admin.php:1259 inc/admin.php:1265 inc/admin.php:1271
+msgid "Reduce HTTP requests through combined js files"
+msgstr "CSS ファイルを統合してHTTPリクエストを減らす"
+
+#: inc/admin.php:1359 inc/admin.php:1373 inc/admin.php:1380
+msgid "Load images and iframes when they enter the browsers viewport"
+msgstr "ブラウザのビューポイントに入った時、画像や iframes を読み込む"
+
+#: inc/admin.php:1330 inc/admin.php:1336 inc/admin.php:1343
+msgid "Load Google Fonts asynchronously"
+msgstr "Google Fonts を非同期で読み込む"
+
+#: inc/admin.php:1329 inc/admin.php:1335 inc/admin.php:1342
+msgid "Google Fonts"
+msgstr "Google フォント"
+
+#: inc/admin.php:1303 inc/admin.php:1309 inc/admin.php:1316
+msgid "Render Blocking Js"
+msgstr "レンダリングブロック JS"
+
+#: inc/admin.php:1295
+msgid "You can remove the emoji inline css and wp-emoji-release.min.js"
+msgstr "絵文字のインライン CSS や wp-emoji-release.min.js を削除できます"
+
+#: inc/admin.php:1294
+msgid "Disable Emojis"
+msgstr "絵文字を無効にする"
+
+#: inc/admin.php:1289
+msgid "Reduce page load times for repeat visitors"
+msgstr "リピート訪問者にページ読み込み時間を減らす"
+
+#: inc/admin.php:1288
+msgid "Browser Caching"
+msgstr "ブラウザ キャッシュ"
+
+#: inc/admin.php:1277
+msgid "Reduce the size of files sent from your server"
+msgstr "サーバーから送信されたファイルのサイズを減らす"
+
+#: inc/admin.php:1276
+msgid "Gzip"
+msgstr "Gzip"
+
+#: inc/admin.php:1257 inc/admin.php:1264 inc/admin.php:1270
+msgid "Combine Js Plus"
+msgstr "JS をさらに統合"
+
+#: inc/admin.php:1250
+msgid "Combine Js"
+msgstr "JS を統合"
+
+#: inc/admin.php:1234 inc/admin.php:1239 inc/admin.php:1245
+msgid "You can decrease the size of js files"
+msgstr "JS ファイルのサイズを減らせます"
+
+#: inc/admin.php:1233 inc/admin.php:1238 inc/admin.php:1244
+msgid "Minify Js"
+msgstr "JS を縮小"
+
+#: inc/admin.php:1226
+msgid "Reduce HTTP requests through combined css files"
+msgstr "CSSファイルを統合してHTTPリクエストを減らす"
+
+#: inc/admin.php:1225
+msgid "Combine Css"
+msgstr "CSS を統合"
+
+#: inc/admin.php:1214 inc/admin.php:1219
+msgid "More powerful minify css"
+msgstr "さらに強力なCSSの縮小化"
+
+#: inc/admin.php:1213 inc/admin.php:1218
+msgid "Minify Css Plus"
+msgstr "CSS Plusを縮小する"
+
+#: inc/admin.php:1205
+msgid "You can decrease the size of css files"
+msgstr "CSS ファイルのサイズを減らせます"
+
+#: inc/admin.php:1204
+msgid "Minify Css"
+msgstr "CSS を縮小"
+
+#: inc/admin.php:1192 inc/admin.php:1197
+msgid "More powerful minify html"
+msgstr "さらに強力なCSSの縮小"
+
+#: inc/admin.php:1191 inc/admin.php:1196
+msgid "Minify HTML Plus"
+msgstr "CSS Plusを縮小する"
+
+#: inc/admin.php:1185
+msgid "You can decrease the size of page"
+msgstr "固定ページのサイズを減らせます"
+
+#: inc/admin.php:1184
+msgid "Minify HTML"
+msgstr "HTML を縮小"
+
+#: inc/admin.php:1176
+msgid "Clear cache files when a post or page is updated"
+msgstr "投稿や固定ページを更新した時、キャッシュファイルを消去"
+
+#: inc/admin.php:1175 templates/updatepost.php:18
+msgid "Update Post"
+msgstr "投稿更新"
+
+#: inc/admin.php:1169
+msgid "Clear cache files when a post or page is published"
+msgstr "投稿や固定ページを公開時、キャッシュファイルを消去"
+
+#: inc/admin.php:1168 templates/newpost.php:18
+msgid "New Post"
+msgstr "新規投稿"
+
+#: inc/admin.php:1136 inc/admin.php:1162
+msgid "Create cache for mobile theme"
+msgstr "モバイル用 テーマのキャッシュを作成"
+
+#: inc/admin.php:1135 inc/admin.php:1161
+msgid "Mobile Theme"
+msgstr "モバイル用テーマ"
+
+#: inc/admin.php:1130
+msgid "Don't show the cached version for desktop to mobile devices"
+msgstr "デスクトップ用のキャッシュをモバイルデバイスに表示しない"
+
+#: inc/admin.php:1129
+msgid "Mobile"
+msgstr "モバイル"
+
+#: inc/admin.php:1125
+msgid "Don't show the cached version for logged-in users"
+msgstr "ログインユーザーにキャッシュを表示しない"
+
+#: inc/admin.php:1124
+msgid "Logged-in Users"
+msgstr "ログインしたユーザー"
+
+#: inc/admin.php:1115
+msgid "Create the cache of all the site automatically"
+msgstr "自動的にサイトすべてのキャッシュを作成する"
+
+#: inc/admin.php:1114 templates/preload.php:27
+msgid "Preload"
+msgstr "先読み"
+
+#: inc/admin.php:1086 inc/admin.php:1092 inc/admin.php:1099 inc/admin.php:1106
+msgid "Reduce the number of SQL queries"
+msgstr "SQL クエリー数を減らす"
+
+#: inc/admin.php:1085 inc/admin.php:1091 inc/admin.php:1098 inc/admin.php:1105
+msgid "Widget Cache"
+msgstr "ウィジェット キャッシュ"
+
+#: inc/admin.php:1076
+msgid "Enable"
+msgstr "有効化"
+
+#: inc/admin.php:1075
+msgid "Cache System"
+msgstr "システム キャッシュ"
+
+#: wpFastestCache.php:2198
+msgid "Once Every 15 Days"
+msgstr "15日毎に1度"
+
+#: wpFastestCache.php:2186
+msgid "Once Every 7 Days"
+msgstr "7日毎に1度"
+
+#: wpFastestCache.php:2180
+msgid "Once Every 3 Days"
+msgstr "3日毎に1度"
+
+#: wpFastestCache.php:2168
+msgid "Once Every 10 Hours"
+msgstr "10時間毎に1度"
+
+#: wpFastestCache.php:2162
+msgid "Once Every 9 Hours"
+msgstr "9時間毎に1度"
+
+#: wpFastestCache.php:2156
+msgid "Once Every 8 Hours"
+msgstr "8時間毎に1度"
+
+#: wpFastestCache.php:2150
+msgid "Once Every 7 Hours"
+msgstr "7時間毎に1度"
+
+#: wpFastestCache.php:2138
+msgid "Once Every 5 Hours"
+msgstr "5時間毎に1度"
+
+#: wpFastestCache.php:2132
+msgid "Once Every 4 Hours"
+msgstr "4時間毎に1度"
+
+#: wpFastestCache.php:2126
+msgid "Once Every 3 Hours"
+msgstr "3時間毎に1度"
+
+#: wpFastestCache.php:2120
+msgid "Once Every 2 Hours"
+msgstr "2時間毎に1度"
+
+#: wpFastestCache.php:2192
+msgid "Once Every 10 Days"
+msgstr "10日に1度"
+
+#. Author of the plugin
+msgid "Emre Vona"
+msgstr "Emre Vona"
+
+#. Description of the plugin
+msgid "The simplest and fastest WP Cache system"
+msgstr "最もシンプルで速い WP キャッシュシステム"
+
+#. Plugin URI of the plugin
+msgid "http://wordpress.org/plugins/wp-fastest-cache/"
+msgstr "https://ja.wordpress.org/plugins/wp-fastest-cache/"
+
+#. Plugin Name of the plugin
+msgid "WP Fastest Cache"
+msgstr "WP Fastest Cache"
+
+#: wpFastestCache.php:2210
+msgid "Once a Year"
+msgstr "1年毎に1度"
+
+#: wpFastestCache.php:2204
+msgid "Once a Month"
+msgstr "1ヶ月に1度"
+
+#: wpFastestCache.php:2174
+msgid "Once a Day"
+msgstr "1日毎に1度"
+
+#: wpFastestCache.php:2144
+msgid "Once Every 6 Hours"
+msgstr "6時間毎に1度"
+
+#: wpFastestCache.php:2114
+msgid "Once an Hour"
+msgstr "1時間毎に1度"
+
+#: wpFastestCache.php:2108
+msgid "Twice an Hour"
+msgstr "1時間に2度"
+
+#: wpFastestCache.php:2102
+msgid "Once Every 15 Minutes"
+msgstr "15分毎に1度"
+
+#: wpFastestCache.php:2096
+msgid "Once Every 5 Minutes"
+msgstr "5分毎に1度"
+
+#: wpFastestCache.php:2090
+msgid "Once Every 1 Minute"
+msgstr "1分毎に1度"

@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 4.1.0
+ * @version 7.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -49,6 +49,9 @@ if ( isset( $_GET['action'] ) && 'register' === $_GET['action'] && $tabs ) {
 if ( function_exists( 'WC' ) && version_compare( WC()->version, '3.5.0', '<' ) ) {
 	wc_print_notices();
 }
+
+woodmart_enqueue_inline_style( 'woo-mod-login-form' );
+woodmart_enqueue_inline_style( 'woo-page-login-register' );
 
 do_action( 'woocommerce_before_customer_login_form' ); ?>
 
@@ -101,7 +104,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 			<?php else : ?>
 
-				<p><?php esc_html_e( 'A password will be sent to your email address.', 'woocommerce' ); ?></p>
+				<p><?php esc_html_e('A link to set a new password will be sent to your email address.', 'woocommerce'); ?></p>
 
 			<?php endif; ?>
 
@@ -112,7 +115,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			
 			<p class="woocommerce-form-row form-row">
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
-				<button type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
+				<button type="submit" class="woocommerce-Button button<?php echo esc_attr( function_exists( 'wc_wp_theme_get_element_class_name') && wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
@@ -124,7 +127,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 	<?php if ( $tabs ): ?>
 		<div class="col-12 col-md-6 col-register-text">
 
-			<div class="title wd-login-divider register-or<?php echo woodmart_get_old_classes( ' wood-login-divider' ); ?>"><span><?php esc_html_e( 'Or', 'woodmart' ); ?></span></div>
+			<p class="title wd-login-divider <?php echo woodmart_get_old_classes( ' wood-login-divider' ); ?>"><span><?php esc_html_e( 'Or', 'woodmart' ); ?></span></p>
 
 			<?php 
 				$reg_title = woodmart_get_opt( 'reg_title' ) ? woodmart_get_opt( 'reg_title' ) : esc_html__( 'Register', 'woocommerce' );

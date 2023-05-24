@@ -3,6 +3,8 @@
  * Popup map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -71,7 +73,7 @@ class Popup extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -98,10 +100,11 @@ class Popup extends Widget_Base {
 		$this->add_control(
 			'content',
 			[
-				'label'   => esc_html__( 'Content', 'woodmart' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => woodmart_get_elementor_html_blocks_array(),
-				'default' => '0',
+				'label'       => esc_html__( 'Content', 'woodmart' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => woodmart_get_elementor_html_blocks_array(),
+				'description' => function_exists( 'woodmart_get_html_block_links' ) ? woodmart_get_html_block_links() : '',
+				'default'     => '0',
 			]
 		);
 
@@ -209,7 +212,7 @@ class Popup extends Widget_Base {
 		?>
 		<?php woodmart_elementor_button_template( $settings ); ?>
 		<?php if ( $settings['content'] ) : ?>
-			<div id="<?php echo esc_attr( $settings['popup_id'] ); ?>" class="mfp-with-anim wd-popup mfp-hide<?php echo woodmart_get_old_classes( ' woodmart-content-popup' ); ?>" style="max-width:<?php echo esc_attr( $settings['width']['size'] ); ?>px;">
+			<div id="<?php echo esc_attr( $settings['popup_id'] ); ?>" class="mfp-with-anim wd-popup wd-popup-element mfp-hide<?php echo woodmart_get_old_classes( ' woodmart-content-popup' ); ?>" style="max-width:<?php echo esc_attr( $settings['width']['size'] ); ?>px;">
 				<div class="wd-popup-inner">
 					<?php echo woodmart_get_html_block( $settings['content'] ); // phpcs:ignore ?>
 				</div>
@@ -219,4 +222,4 @@ class Popup extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Popup() );
+Plugin::instance()->widgets_manager->register( new Popup() );

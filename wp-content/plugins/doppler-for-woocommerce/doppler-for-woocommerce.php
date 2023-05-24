@@ -16,7 +16,7 @@
  * Plugin Name:       Doppler for WooCommerce
  * Plugin URI:        https://www.fromdoppler.com/
  * Description:       Connect your WooCommerce customers with your Doppler Lists.
- * Version:           1.1.6
+ * Version:           1.1.7
  * Author:            Doppler LLC
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'DOPPLER_FOR_WOOCOMMERCE_VERSION', '1.1.6' ); 
+define( 'DOPPLER_FOR_WOOCOMMERCE_VERSION', '1.1.7' ); 
 define( 'DOPPLER_FOR_WOOCOMMERCE_URL', plugin_dir_url(__FILE__));
 define( 'DOPPLER_FOR_WOOCOMMERCE_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ));
 define( 'DOPPLER_FOR_WOOCOMMERCE_PLUGIN', plugin_basename( __FILE__ ));

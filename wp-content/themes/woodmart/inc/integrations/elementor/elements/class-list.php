@@ -5,7 +5,10 @@
  * @package Woodmart
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -75,7 +78,7 @@ class Icon_List extends Widget_Base {
 	 * @since  1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -307,6 +310,15 @@ class Icon_List extends Widget_Base {
 				'condition' => array(
 					'color_scheme' => array( 'custom' ),
 				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'typography',
+				'label'    => esc_html__( 'Typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .list-content',
 			)
 		);
 
@@ -609,4 +621,4 @@ class Icon_List extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Icon_List() );
+Plugin::instance()->widgets_manager->register( new Icon_List() );

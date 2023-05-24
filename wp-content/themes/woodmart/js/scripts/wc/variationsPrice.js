@@ -1,5 +1,13 @@
 /* global woodmart_settings */
 (function($) {
+	$.each([
+		'frontend/element_ready/wd_single_product_add_to_cart.default',
+	], function(index, value) {
+		woodmartThemeModule.wdElementorAddAction(value, function() {
+			woodmartThemeModule.variationsPrice();
+		});
+	});
+
 	woodmartThemeModule.variationsPrice = function() {
 		if ('no' === woodmart_settings.single_product_variations_price) {
 			return;
@@ -7,7 +15,12 @@
 
 		$('.variations_form').each(function() {
 			var $form = $(this);
-			var $price = $form.parent().find('> .price').first();
+			var $price = $form.parent().find('> .price, > div > .price, > .price > .price');
+
+			if ( $('.site-content').hasClass('wd-builder-on') ) {
+				$price = $form.parents('.single-product-page').find('.wd-single-price .price');
+			}
+
 			var priceOriginalHtml = $price.html();
 
 			$form.on('show_variation', function(e, variation) {

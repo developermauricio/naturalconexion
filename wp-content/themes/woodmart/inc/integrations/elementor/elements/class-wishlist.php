@@ -5,9 +5,12 @@
  * @package xts
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
+use XTS\WC_Wishlist\Ui;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Direct access not allowed.
@@ -40,7 +43,7 @@ class Wishlist extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Wishlist', 'woodmart' );
+		return esc_html__( 'Wishlist content', 'woodmart' );
 	}
 
 	/**
@@ -73,7 +76,7 @@ class Wishlist extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab
 		 */
@@ -83,18 +86,18 @@ class Wishlist extends Widget_Base {
 		 */
 		$this->start_controls_section(
 			'general_content_section',
-			[
+			array(
 				'label' => esc_html__( 'General', 'woodmart' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'description',
-			[
+			array(
 				'raw'             => esc_html__( 'This element is created for the wishlist page and you can find all its configuration in Theme Settings.', 'woodmart' ),
 				'type'            => Controls_Manager::RAW_HTML,
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
-			]
+			)
 		);
 
 		$this->end_controls_section();
@@ -110,10 +113,11 @@ class Wishlist extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		if ( woodmart_woocommerce_installed() ) {
-			echo do_shortcode( '[woodmart_wishlist]' );
+
+		if ( woodmart_woocommerce_installed() && class_exists( 'XTS\WC_Wishlist\UI' ) ) {
+			echo UI::get_instance()->wishlist_page();
 		}
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Wishlist() );
+Plugin::instance()->widgets_manager->register( new Wishlist() );

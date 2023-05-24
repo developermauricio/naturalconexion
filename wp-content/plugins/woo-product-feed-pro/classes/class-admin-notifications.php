@@ -116,8 +116,11 @@ class WooSEA_Get_Admin_Notifications {
 				$message = __( 'Manipulate your product data to improve the quality of your product feeds and online marketing campaigns. Manipulating your product data is an extremely powerfull feature. Check out an example we have created in our blog post: <b><u><a href="https://adtribes.io/feature-product-data-manipulation/" target="_blank">Manipulating product data</a></u></b>','woo-product-feed-pro' );
 				$message_type = "notice notice-info";
 				break;
+			case 16:
+				$message = __( 'Optimize the information in your Google Shopping feed in order to prevent notifications to show up in your Google Merchant Center and make the most of your Google Shopping campaigns.','woo-product-feed-pro' );
+				$message_type = "notice notice-info";
+				break;
 		}
-		
 		$this->notification_details['message'] = $message;
 		$this->notification_details['message_type'] = $message_type;
 		return $this->notification_details;

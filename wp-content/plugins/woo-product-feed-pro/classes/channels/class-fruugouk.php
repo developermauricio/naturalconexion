@@ -69,20 +69,20 @@ class WooSEA_fruugouk {
 					"woo_suggest" => "description",
 				),
 				"Normal Price Without VAT" => array(
-					"name" => "NormalPriceWithoutVat",
-					"feed_name" => "NormalPriceWithoutVat",
+					"name" => "NormalPriceWithoutVAT",
+					"feed_name" => "NormalPriceWithoutVAT",
 					"format" => "optional",
 				),
 	
 				"Normal Price With VAT" => array(
-					"name" => "NormalPriceWithVat",
-					"feed_name" => "NormalPriceWithVat",
+					"name" => "NormalPriceWithVAT",
+					"feed_name" => "NormalPriceWithVAT",
 					"format" => "required",
 					"woo_suggest" => "price",
 				),
 				"VAT Rate" => array(
-					"name" => "VatRate",
-					"feed_name" => "VatRate",
+					"name" => "VATRate",
+					"feed_name" => "VATRate",
 					"format" => "required",
 				),
 				"Image URL 2" => array(

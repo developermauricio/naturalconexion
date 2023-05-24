@@ -22,6 +22,8 @@ if ( ! function_exists( 'woodmart_elementor_instagram_template' ) ) {
 			'spacing_custom'          => 6,
 			'rounded'                 => 0,
 			'per_row'                 => [ 'size' => 3 ],
+			'per_row_tablet'          => [ 'size' => '' ],
+			'per_row_mobile'          => [ 'size' => '' ],
 			'hide_mask'               => 0,
 			'hide_pagination_control' => '',
 			'hide_prev_next_buttons'  => '',
@@ -64,6 +66,16 @@ if ( ! function_exists( 'woodmart_elementor_instagram_template' ) ) {
 
 		if ( 'slider' === $settings['design'] ) {
 			woodmart_enqueue_inline_style( 'owl-carousel' );
+
+			if ( ! empty( $settings['per_row_tablet']['size'] ) || ! empty( $settings['per_row_mobile']['size'] ) ) {
+				$settings['custom_sizes'] = array(
+					'desktop'          => $settings['per_row'],
+					'tablet_landscape' => $settings['per_row_tablet']['size'],
+					'tablet'           => $settings['per_row_tablet']['size'],
+					'mobile'           => $settings['per_row_mobile']['size'],
+				);
+			}
+
 			$owl_attributes = woodmart_get_owl_attributes(
 				array(
 					'carousel_id'             => $carousel_id,
@@ -83,12 +95,12 @@ if ( ! function_exists( 'woodmart_elementor_instagram_template' ) ) {
 				$wrapper_classes .= ' disable-owl-mobile';
 			}
 
-			$pics_classes    .= ' owl-carousel ' . woodmart_owl_items_per_slide( $settings['per_row'], array(), false, false, $settings['custom_sizes'] );
+			$pics_classes    .= ' owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $settings['per_row'], array(), false, false, $settings['custom_sizes'] );
 			$wrapper_classes .= ' wd-carousel-container';
 			$wrapper_classes .= ' wd-carousel-spacing-' . $settings['spacing_custom'];
 		} else {
 			$pics_classes    .= ' row';
-			$picture_classes .= woodmart_get_grid_el_class( 0, $settings['per_row'] );
+			$picture_classes .= woodmart_get_grid_el_class_new( 0, false, $settings['per_row'], $settings['per_row_tablet']['size'], $settings['per_row_mobile']['size'] );
 			$pics_classes    .= ' wd-spacing-' . $settings['spacing_custom'];
 		}
 
@@ -138,10 +150,6 @@ if ( ! function_exists( 'woodmart_elementor_instagram_template' ) ) {
 				<div class="<?php echo esc_attr( $pics_classes ); ?>">
 					<?php foreach ( $media_array as $item ) : ?>
 						<?php
-						if ( 'api' === $settings['data_source'] || 'images' === $settings['data_source'] ) {
-							$settings['size'] = 'large';
-						}
-
 						$image = '';
 
 						if ( ! empty( $item[ $settings['size'] ] ) ) {
@@ -155,8 +163,9 @@ if ( ! function_exists( 'woodmart_elementor_instagram_template' ) ) {
 								<a href="<?php echo esc_url( $item['link'] ); ?>" target="<?php echo esc_attr( $settings['target'] ); ?>" aria-label="<?php esc_attr_e( 'Instagram picture', 'woodmart' ); ?>"></a>
 
 								<?php
-								if ( 'images' === $settings['data_source'] ) {
-									echo wp_get_attachment_image( $item['image_id'], $settings['images_size'] );
+								$size = 'images' === $settings['data_source'] ? $settings['images_size'] : $settings['size'];
+								if ( isset( $item['image_id'] ) && $item['image_id'] ) {
+									echo wp_get_attachment_image( $item['image_id'], $size );
 								} else {
 									echo apply_filters( 'woodmart_image', '<img src="' . esc_url( $image ) . '" alt="' . esc_attr__( 'Instagram image', 'woodmart' ) . '"/>' );
 								}

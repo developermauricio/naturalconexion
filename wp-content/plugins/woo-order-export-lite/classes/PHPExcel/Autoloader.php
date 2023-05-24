@@ -5,7 +5,7 @@ PHPExcel_Autoloader::register();
 //        simple checks and initialisations
 //PHPExcel_Shared_ZipStreamWrapper::register();
 // check mbstring.func_overload
-if (ini_get('mbstring.func_overload') & 2) {
+if (\PHP_VERSION_ID < 70200 && ini_get('mbstring.func_overload') & 2) {
     throw new PHPExcel_Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
 }
 PHPExcel_Shared_String::buildCharacterSets();

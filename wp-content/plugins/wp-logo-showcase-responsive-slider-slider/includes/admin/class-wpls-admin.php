@@ -33,9 +33,6 @@ class Wpls_Admin {
 		
 		// Action to add custom column data to Logo listing
 		add_filter('manage_edit-'.WPLS_CAT_TYPE.'_columns', array($this, 'wplss_logoshowcase_cat_manage_columns') ); 
-	
-		// Action to add little JS code in admin footer
-		add_action( 'admin_footer', array($this, 'wpls_upgrade_page_link_blank') );
 	}
 
 	/**
@@ -57,18 +54,30 @@ class Wpls_Admin {
 		// Redirect to external page for upgrade to menu
 		if( $typenow == WPLS_POST_TYPE ) {
 
-			if( $current_page == 'wpls-upgrade-pro' ) {
+			if( $current_page == 'wpls-premium' ) {
 
-				wp_redirect( WPLS_PLUGIN_LINK_UPGRADE );
-				exit;
-			}
+				$tab_url		= add_query_arg( array( 'post_type' => WPLS_POST_TYPE, 'page' => 'wpls-solutions-features', 'tab' => 'wpls_basic_tabs' ), admin_url('edit.php') );
 
-			if( $current_page == 'wpls-bundle-deal' ) {
-
-				wp_redirect( WPLS_PLUGIN_BUNDLE_LINK );
+				wp_redirect( $tab_url );
 				exit;
 			}
 		}
+
+		// Redirect to external page for upgrade to menu
+		// if( $typenow == WPLS_POST_TYPE ) {
+
+		// 	if( $current_page == 'wpls-upgrade-pro' ) {
+
+		// 		wp_redirect( WPLS_PLUGIN_LINK_UPGRADE );
+		// 		exit;
+		// 	}
+
+		// 	if( $current_page == 'wpls-bundle-deal' ) {
+
+		// 		wp_redirect( WPLS_PLUGIN_BUNDLE_LINK );
+		// 		exit;
+		// 	}
+		// }
 	}
 
 	/**
@@ -82,13 +91,10 @@ class Wpls_Admin {
 		add_submenu_page( 'edit.php?post_type='.WPLS_POST_TYPE, __( 'How it works, our plugins and offers', 'wp-logo-showcase-responsive-slider-slider' ), __( 'How It Works', 'wp-logo-showcase-responsive-slider-slider' ), 'manage_options', 'wpls-designs', array( $this, 'wpls_designs_page' ) );
 
 		// Solutions & Features Page
-		add_submenu_page( 'edit.php?post_type='.WPLS_POST_TYPE, __( 'Solutions & Features - Logo Showcase Responsive Slider', 'wp-logo-showcase-responsive-slider-slider' ), '<span style="color:#2ECC71">'. __( 'Solutions & Features', 'wp-logo-showcase-responsive-slider-slider' ).'</span>', 'manage_options', 'wpls-solutions-features', array( $this, 'wpls_solutions_features_page' ) );
+		add_submenu_page( 'edit.php?post_type='.WPLS_POST_TYPE, __( 'Overview - Logo Showcase Responsive Slider', 'wp-logo-showcase-responsive-slider-slider' ), '<span style="color:#2ECC71">'. __( 'Overview', 'wp-logo-showcase-responsive-slider-slider' ).'</span>', 'manage_options', 'wpls-solutions-features', array( $this, 'wpls_solutions_features_page' ) );
 
 		// Upgrade To PRO Page
 		add_submenu_page( 'edit.php?post_type='.WPLS_POST_TYPE, __( 'Upgrade To PRO - Logo Showcase Responsive Slider', 'wp-logo-showcase-responsive-slider-slider' ), '<span style="color:#ff2700">'.__( 'Upgrade To PRO', 'wp-logo-showcase-responsive-slider-slider' ).'</span>', 'manage_options', 'wpls-premium', array( $this, 'wpls_premium_page' ) );
-		
-		// Bundle Deal Page
-		add_submenu_page( 'edit.php?post_type='.WPLS_POST_TYPE, __( 'Bundle Deal - Logo Showcase Responsive Slider', 'wp-logo-showcase-responsive-slider-slider' ), '<span class="wpos-upgrade-pro" style="color:#ff2700">' . __( 'Bundle Deal', 'wp-logo-showcase-responsive-slider-slider' ) . '</span>', 'manage_options', 'wpls-bundle-deal', array( $this, 'wpls_redirect_page' ) );
 	}
 
 	/**
@@ -106,7 +112,7 @@ class Wpls_Admin {
 	 * @since 2.0.11
 	 */
 	function wpls_solutions_features_page() {
-		include_once( WPLS_DIR . '/includes/admin/settings/solutions-features.php' );
+		include_once( WPLS_DIR . '/includes/admin/settings/solution-features/solutions-features.php' );
 	}
 
 	/**
@@ -115,15 +121,7 @@ class Wpls_Admin {
 	 * @since 1.0.0
 	 */
 	function wpls_premium_page() {
-		include_once( WPLS_DIR . '/includes/admin/settings/premium.php' );
-	}
-
-	/**
-	 * How It Work Page Html
-	 * 
-	 * @since 1.0
-	 */
-	function wpls_redirect_page() {
+		//include_once( WPLS_DIR . '/includes/admin/settings/premium.php' );
 	}
 
 	/**
@@ -209,28 +207,6 @@ class Wpls_Admin {
 		$columns = wpls_logo_add_array( $columns, $new_columns, 2 );
 		
 		return $columns;
-	}
-
-	/**
-	 * Add JS snippet to admin footer to add target _blank in upgrade link
-	 * 
-	 * @since 1.0.0
-	 */
-	function wpls_upgrade_page_link_blank() {
-
-		global $wpos_upgrade_link_snippet;
-
-		// Redirect to external page
-		if( empty( $wpos_upgrade_link_snippet ) ) {
-
-			$wpos_upgrade_link_snippet = 1;
-	?>
-		<script type="text/javascript">
-			(function ($) {
-				$('.wpos-upgrade-pro').parent().attr( { target: '_blank', rel: 'noopener noreferrer' } );
-			})(jQuery);
-		</script>
-	<?php }
 	}
 }
 

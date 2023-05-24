@@ -40,7 +40,7 @@ Options::add_field(
 		),
 		'default'     => 'full-width',
 		'tags'        => 'boxed full width wide',
-		'priority'    => 10,
+		'priority'    => 20,
 	)
 );
 
@@ -55,7 +55,7 @@ Options::add_field(
 		'min'         => 1025,
 		'max'         => 1920,
 		'step'        => 1,
-		'priority'    => 20,
+		'priority'    => 30,
 		'requires'    => array(
 			array(
 				'key'     => 'site_width',
@@ -63,6 +63,7 @@ Options::add_field(
 				'value'   => 'custom',
 			),
 		),
+		'unit'        => 'px',
 	)
 );
 
@@ -93,7 +94,7 @@ Options::add_field(
 		),
 		'default'     => 'sidebar-right',
 		'tags'        => 'sidebar left sidebar right',
-		'priority'    => 30,
+		'priority'    => 40,
 	)
 );
 
@@ -121,7 +122,8 @@ Options::add_field(
 		),
 		'default'     => 3,
 		'tags'        => 'small sidebar large sidebar',
-		'priority'    => 40,
+		'priority'    => 50,
+		'class'       => 'xts-tooltip-bordered',
 	)
 );
 
@@ -130,10 +132,11 @@ Options::add_field(
 		'id'          => 'hide_main_sidebar_mobile',
 		'section'     => 'general_layout_section',
 		'name'        => esc_html__( 'Off canvas sidebar for mobile', 'woodmart' ),
+		'hint'        => '<video data-src="' . WOODMART_TOOLTIP_URL . 'off-canvas-sidebar-for-mobile.mp4" autoplay loop muted></video>',
 		'description' => esc_html__( 'You can hide the sidebar on mobile devices and show it nicely with a button click.', 'woodmart' ),
 		'group'       => esc_html__( 'Sidebar', 'woodmart' ),
 		'type'        => 'switcher',
 		'default'     => '1',
-		'priority'    => 50,
+		'priority'    => 60,
 	)
 );

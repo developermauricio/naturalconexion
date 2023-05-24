@@ -5,12 +5,8 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_popup' ) ) {
-	function woodmart_vc_map_popup() {
-		if ( ! shortcode_exists( 'woodmart_popup' ) ) {
-			return;
-		}
-
+if ( ! function_exists( 'woodmart_get_vc_map_popup' ) ) {
+	function woodmart_get_vc_map_popup() {
 		$woodmart_popup_params = vc_map_integrate_shortcode( woodmart_get_woodmart_button_shortcode_args(), '', 'Button', array(
 			'exclude' => array(
 				'link',
@@ -25,14 +21,14 @@ if( ! function_exists( 'woodmart_vc_map_popup' ) ) {
 			),
 		) );
 
-		vc_map( array(
+		return array(
 			'name' => esc_html__( 'Popup', 'woodmart' ),
 			'base' => 'woodmart_popup',
 			'content_element' => true,
 			'as_parent' => array( 'except' => 'testimonial' ),
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'Button that shows a popup on click', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/popup.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/popup.svg',
 			'params' => array_merge( array(
 				array(
 					'type' => 'woodmart_title_divider',
@@ -77,10 +73,9 @@ if( ! function_exists( 'woodmart_vc_map_popup' ) ) {
 					'param_name' => 'content_class',
 				)
 			), $woodmart_popup_params ),
-		    'js_view' => 'VcColumnView',
-		) );
+			'js_view' => 'VcColumnView',
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_popup' );
 }
 
 // A must for container functionality, replace Wbc_Item with your base name from mapping for parent container

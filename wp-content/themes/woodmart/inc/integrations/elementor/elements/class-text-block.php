@@ -76,7 +76,7 @@ class Text_Block extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() 	{ // phpcs:ignore
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -288,4 +288,4 @@ class Text_Block extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Text_Block() );
+Plugin::instance()->widgets_manager->register( new Text_Block() );

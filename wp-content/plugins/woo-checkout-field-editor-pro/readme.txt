@@ -5,7 +5,7 @@ Tags: checkout field editor, woocommerce checkout field editor, checkout manager
 Requires at least: 4.9
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -285,6 +285,9 @@ Yes. There is a button 'reset to default fields' to go back to the WooCommerce d
 9. Locale override settings
 
 == Changelog ==
+= 1.8.2 =
+* Added filter to show/hide custom fields in my account page.
+* Added WooCommerce 7.5 compatibility.
 
 = 1.8.1 =
 * Fixed the issue of shipping fields not showing on my account page.

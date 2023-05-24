@@ -95,7 +95,7 @@ class Products_Tabs extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -116,6 +116,17 @@ class Products_Tabs extends Widget_Base {
 				'label'   => esc_html__( 'Tabs title', 'woodmart' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => 'Title text example',
+			]
+		);
+
+		$this->add_control(
+			'description',
+			[
+				'label'     => esc_html__( 'Tabs description', 'woodmart' ),
+				'type'      => Controls_Manager::TEXTAREA,
+				'condition' => [
+					'design' => array( 'default', 'aside' ),
+				],
 			]
 		);
 
@@ -191,6 +202,22 @@ class Products_Tabs extends Widget_Base {
 		);
 
 		$repeater->add_control(
+			'ajax_recently_viewed',
+			[
+				'label'        => esc_html__( 'Update with AJAX on page load', 'woodmart' ),
+				'description'  => esc_html__( 'Enable this option if you use full-page cache like WP Rocket.', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => 'yes',
+				'condition'    => [
+					'post_type' => 'recently_viewed',
+				],
+			]
+		);
+
+		$repeater->add_control(
 			'include',
 			[
 				'label'       => esc_html__( 'Include only', 'woodmart' ),
@@ -245,6 +272,9 @@ class Products_Tabs extends Widget_Base {
 					'rand'           => esc_html__( 'Random order', 'woodmart' ),
 					'price'          => esc_html__( 'Price', 'woodmart' ),
 				),
+				'condition'   => [
+					'post_type!' => 'recently_viewed',
+				],
 			]
 		);
 
@@ -255,7 +285,7 @@ class Products_Tabs extends Widget_Base {
 				'description' => esc_html__( 'Number of grid elements to displace or pass over.', 'woodmart' ),
 				'type'        => Controls_Manager::TEXT,
 				'condition'   => [
-					'post_type!' => 'ids',
+					'post_type!' => array( 'ids', 'recently_viewed' ),
 				],
 			]
 		);
@@ -263,12 +293,15 @@ class Products_Tabs extends Widget_Base {
 		$repeater->add_control(
 			'query_type',
 			[
-				'label'   => esc_html__( 'Query type', 'woodmart' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'OR',
-				'options' => array(
+				'label'     => esc_html__( 'Query type', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'OR',
+				'options'   => array(
 					'OR'  => esc_html__( 'OR', 'woodmart' ),
 					'AND' => esc_html__( 'AND', 'woodmart' ),
+				),
+				'condition' => array(
+					'post_type!' => 'recently_viewed',
 				),
 			]
 		);
@@ -286,8 +319,20 @@ class Products_Tabs extends Widget_Base {
 					'ASC'  => esc_html__( 'Ascending', 'woodmart' ),
 				),
 				'condition'   => [
-					'post_type!' => 'ids',
+					'post_type!' => array( 'ids', 'recently_viewed' ),
 				],
+			]
+		);
+
+		$repeater->add_control(
+			'hide_out_of_stock',
+			[
+				'label'        => esc_html__( 'Hide out of stock products', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => 'yes',
 			]
 		);
 
@@ -348,10 +393,37 @@ class Products_Tabs extends Widget_Base {
 		);
 
 		$repeater->add_control(
+			'icon_type',
+			array(
+				'label'   => esc_html__( 'Icon type', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'icon'  => esc_html__( 'With icon', 'woodmart' ),
+					'image' => esc_html__( 'With image', 'woodmart' ),
+				),
+				'default' => 'image',
+			)
+		);
+
+		$repeater->add_control(
+			'icon',
+			array(
+				'label'     => esc_html__( 'Icon', 'woodmart' ),
+				'type'      => Controls_Manager::ICONS,
+				'condition' => array(
+					'icon_type' => array( 'icon' ),
+				),
+			)
+		);
+
+		$repeater->add_control(
 			'image',
 			[
-				'label' => esc_html__( 'Choose image', 'woodmart' ),
-				'type'  => Controls_Manager::MEDIA,
+				'label'     => esc_html__( 'Choose image', 'woodmart' ),
+				'type'      => Controls_Manager::MEDIA,
+				'condition' => array(
+					'icon_type' => array( 'image' ),
+				),
 			]
 		);
 
@@ -361,6 +433,9 @@ class Products_Tabs extends Widget_Base {
 				'name'      => 'image',
 				'default'   => 'thumbnail',
 				'separator' => 'none',
+				'condition' => array(
+					'icon_type' => array( 'image' ),
+				),
 			]
 		);
 
@@ -413,28 +488,90 @@ class Products_Tabs extends Widget_Base {
 					'default' => esc_html__( 'Default', 'woodmart' ),
 					'simple'  => esc_html__( 'Simple', 'woodmart' ),
 					'alt'     => esc_html__( 'Alternative', 'woodmart' ),
+					'aside'   => esc_html__( 'Aside', 'woodmart' ),
 				],
 				'default' => 'default',
 			]
 		);
 
 		$this->add_control(
+			'tabs_side_width',
+			array(
+				'label'      => esc_html__( 'Side heading width', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 100,
+						'max'  => 500,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .wd-tabs.tabs-design-aside' => '--wd-side-width: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'design' => array( 'aside' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'color',
 			[
-				'label'     => esc_html__( 'Tabs color', 'woodmart' ),
+				'label'     => esc_html__( 'Tabs primary color', 'woodmart' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .tabs-design-simple .products-tabs-title li.active-tab-title, {{WRAPPER}} .tabs-design-simple .owl-nav > div:hover, {{WRAPPER}} .tabs-design-simple .wrap-loading-arrow > div:not(.disabled):hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wd-nav-tabs.wd-style-default li.wd-active a, {{WRAPPER}} .wd-nav-tabs.wd-style-default li:hover a' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .tabs-design-simple .tabs-name' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .tabs-design-default .products-tabs-title .tab-label:after, {{WRAPPER}} .tabs-design-alt .products-tabs-title .tab-label:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wd-nav-tabs.wd-style-underline .nav-link-text:after' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
 
 		$this->add_control(
+			'tabs_title_color',
+			array(
+				'label'     => esc_html__( 'Heading color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .tabs-name' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'tabs_heading_typography',
+				'label'    => esc_html__( 'Heading typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .wd-tabs .tabs-name',
+			)
+		);
+
+		$this->add_control(
+			'tabs_description_color',
+			array(
+				'label'     => esc_html__( 'Description color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .wd-tabs-desc' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'design' => array( 'default', 'aside' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'alignment',
 			[
-				'label'     => esc_html__( 'Align', 'woodmart' ),
+				'label'     => esc_html__( 'Alignment', 'woodmart' ),
 				'type'      => 'wd_buttons',
 				'options'   => [
 					'left'   => [
@@ -455,6 +592,239 @@ class Products_Tabs extends Widget_Base {
 					'design' => 'default',
 				],
 			]
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * Tabs Style.
+		 */
+		$this->start_controls_section(
+			'title_style_section',
+			[
+				'label' => esc_html__( 'Tab title', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'tabs_style',
+			array(
+				'label'     => esc_html__( 'Style', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					'default'   => esc_html__( 'Default', 'woodmart' ),
+					'underline' => esc_html__( 'Underline', 'woodmart' ),
+				),
+				'default'   => 'underline',
+				'condition' => array(
+					'design!' => array( 'simple' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'title_text_color_scheme',
+			array(
+				'label'   => esc_html__( 'Color scheme', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'inherit' => esc_html__( 'Inherit', 'woodmart' ),
+					'light'   => esc_html__( 'Light', 'woodmart' ),
+					'dark'    => esc_html__( 'Dark', 'woodmart' ),
+					'custom'  => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default' => 'inherit',
+			)
+		);
+
+		$this->start_controls_tabs(
+			'tabs_title_text_color_tabs',
+			array(
+				'condition' => array(
+					'title_text_color_scheme' => 'custom',
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'tabs_title_text_color_tab',
+			array(
+				'label' => esc_html__( 'Idle', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'tabs_title_text_idle_color',
+			array(
+				'label'     => esc_html__( 'Color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .wd-nav-wrapper .wd-nav > li > a' => 'color: {{VALUE}}',
+				),
+				array(
+					'condition' => array(
+						'title_text_color_scheme' => 'custom',
+					),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tabs_title_text_hover_color_tab',
+			array(
+				'label' => esc_html__( 'Hover', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'tabs_title_text_hover_color',
+			array(
+				'label'     => esc_html__( 'Color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .wd-nav-wrapper .wd-nav > li:hover > a' => 'color: {{VALUE}}',
+				),
+				array(
+					'condition' => array(
+						'title_text_color_scheme' => 'custom',
+					),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tabs_title_text_hover_active_tab',
+			array(
+				'label' => esc_html__( 'Active', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'tabs_title_text_hover_active',
+			array(
+				'label'     => esc_html__( 'Color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .wd-nav-wrapper .wd-nav-tabs > li.wd-active > a, {{WRAPPER}} .wd-tabs:not(.wd-inited) .wd-nav-wrapper .wd-nav-tabs li:first-child a' => 'color: {{VALUE}}',
+				),
+				array(
+					'condition' => array(
+						'title_text_color_scheme' => 'custom',
+					),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'tabs_title_typography',
+				'label'    => esc_html__( 'Typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .wd-nav.wd-nav-tabs .wd-nav-link',
+			)
+		);
+
+		$this->add_control(
+			'icon_alignment_design_default',
+			array(
+				'label'     => esc_html__( 'Icon alignment', 'woodmart' ),
+				'type'      => 'wd_buttons',
+				'options'   => array(
+					'left'  => array(
+						'title' => esc_html__( 'Left', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/left.png',
+					),
+					'top'   => array(
+						'title' => esc_html__( 'Top', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/top.png',
+					),
+					'right' => array(
+						'title' => esc_html__( 'Right', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/right.png',
+					),
+				),
+				'default'   => 'top',
+				'condition' => array(
+					'design' => array( 'default' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_alignment',
+			array(
+				'label'     => esc_html__( 'Icon alignment', 'woodmart' ),
+				'type'      => 'wd_buttons',
+				'options'   => array(
+					'left'  => array(
+						'title' => esc_html__( 'Left', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/left.png',
+					),
+					'top'   => array(
+						'title' => esc_html__( 'Top', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/top.png',
+					),
+					'right' => array(
+						'title' => esc_html__( 'Right', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/position/right.png',
+					),
+				),
+				'default'   => 'left',
+				'condition' => array(
+					'design!' => array( 'default' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'space_between_tabs_title_horizontal',
+			array(
+				'label'     => esc_html__( 'Horizontal spacing', 'woodmart' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 150,
+						'step' => 1,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .wd-nav-tabs > li:not(:last-child)' => 'margin-inline-end: {{SIZE}}px;',
+				),
+				'condition' => array(
+					'design!' => array( 'aside' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'space_between_tabs_title_vertical',
+			array(
+				'label'     => esc_html__( 'Vertical spacing', 'woodmart' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 150,
+						'step' => 1,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .wd-tabs-header' => 'margin-bottom: {{SIZE}}px;',
+				),
+				'condition' => array(
+					'design!' => array( 'aside' ),
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -484,7 +854,7 @@ class Products_Tabs extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'columns',
 			[
 				'label'       => esc_html__( 'Columns', 'woodmart' ),
@@ -559,8 +929,7 @@ class Products_Tabs extends Widget_Base {
 				],
 				'default'   => '',
 				'condition' => [
-					'layout'                => [ 'grid', 'carousel' ],
-					'highlighted_products!' => [ '1' ],
+					'layout' => [ 'grid', 'carousel' ],
 				],
 			]
 		);
@@ -609,7 +978,7 @@ class Products_Tabs extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -737,16 +1106,17 @@ class Products_Tabs extends Widget_Base {
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'inherit',
 				'options'   => array(
-					'inherit'  => esc_html__( 'Inherit from Theme Settings', 'woodmart' ),
-					'info-alt' => esc_html__( 'Full info on hover', 'woodmart' ),
-					'info'     => esc_html__( 'Full info on image', 'woodmart' ),
-					'alt'      => esc_html__( 'Icons and "add to cart" on hover', 'woodmart' ),
-					'icons'    => esc_html__( 'Icons on hover', 'woodmart' ),
-					'quick'    => esc_html__( 'Quick', 'woodmart' ),
-					'button'   => esc_html__( 'Show button on hover on image', 'woodmart' ),
-					'base'     => esc_html__( 'Show summary on hover', 'woodmart' ),
-					'standard' => esc_html__( 'Standard button', 'woodmart' ),
-					'tiled'    => esc_html__( 'Tiled', 'woodmart' ),
+					'inherit'     => esc_html__( 'Inherit from Theme Settings', 'woodmart' ),
+					'info-alt'    => esc_html__( 'Full info on hover', 'woodmart' ),
+					'info'        => esc_html__( 'Full info on image', 'woodmart' ),
+					'alt'         => esc_html__( 'Icons and "add to cart" on hover', 'woodmart' ),
+					'icons'       => esc_html__( 'Icons on hover', 'woodmart' ),
+					'quick'       => esc_html__( 'Quick', 'woodmart' ),
+					'button'      => esc_html__( 'Show button on hover on image', 'woodmart' ),
+					'base'        => esc_html__( 'Show summary on hover', 'woodmart' ),
+					'standard'    => esc_html__( 'Standard button', 'woodmart' ),
+					'tiled'       => esc_html__( 'Tiled', 'woodmart' ),
+					'fw-button'   => esc_html__( 'Full width button', 'woodmart' ),
 				),
 				'condition' => [
 					'layout!' => 'list',
@@ -777,6 +1147,53 @@ class Products_Tabs extends Widget_Base {
 		);
 
 		$this->add_control(
+			'rounding_size',
+			array(
+				'label'     => esc_html__( 'Rounding', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'0'      => esc_html__( '0', 'woodmart' ),
+					'5'      => esc_html__( '5', 'woodmart' ),
+					'8'      => esc_html__( '8', 'woodmart' ),
+					'12'     => esc_html__( '12', 'woodmart' ),
+					'custom' => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{VALUE}}px;',
+				),
+			)
+		);
+
+		$this->add_control(
+			'custom_rounding_size',
+			array(
+				'label'      => esc_html__( 'Rounding', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( '%', 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 300,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'rounding_size' => array( 'custom' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'sale_countdown',
 			[
 				'label'        => esc_html__( 'Sale countdown', 'woodmart' ),
@@ -786,6 +1203,21 @@ class Products_Tabs extends Widget_Base {
 				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
 				'label_off'    => esc_html__( 'No', 'woodmart' ),
 				'return_value' => '1',
+			]
+		);
+
+		$this->add_responsive_control(
+			'stretch_product',
+			[
+				'label'        => esc_html__( 'Even product grid', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '0',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => '1',
+				'condition'    => array(
+					'product_hover' => array( 'icons', 'alt', 'button', 'standard', 'tiled', 'quick', 'base', 'fw-button' ),
+				),
 			]
 		);
 
@@ -803,16 +1235,17 @@ class Products_Tabs extends Widget_Base {
 		);
 
 		$this->add_control(
-			'highlighted_products',
-			[
-				'label'        => esc_html__( 'Highlighted products', 'woodmart' ),
-				'description'  => esc_html__( 'Create an eye-catching section of special products to promote them on your store.', 'woodmart' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '0',
-				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
-				'label_off'    => esc_html__( 'No', 'woodmart' ),
-				'return_value' => '1',
-			]
+			'products_color_scheme',
+			array(
+				'label'        => esc_html__( 'Products color scheme', 'woodmart' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'default',
+				'options'      => array(
+					'default' => esc_html__( 'Default', 'woodmart' ),
+					'dark'    => esc_html__( 'Dark', 'woodmart' ),
+					'light'   => esc_html__( 'Light', 'woodmart' ),
+				),
+			)
 		);
 
 		$this->add_control(
@@ -825,12 +1258,65 @@ class Products_Tabs extends Widget_Base {
 				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
 				'label_off'    => esc_html__( 'No', 'woodmart' ),
 				'return_value' => '1',
-				'condition'    => [
-					'highlighted_products!' => [ '1' ],
-				],
 			]
 		);
-		
+
+		$this->add_control(
+			'products_bordered_grid_style',
+			array(
+				'label'       => esc_html__( 'Bordered grid style', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'outside' => esc_html__( 'Outside', 'woodmart' ),
+					'inside'  => esc_html__( 'inside', 'woodmart' ),
+				),
+				'condition' => array(
+					'products_bordered_grid' => array( '1' ),
+				),
+				'default' => 'outside',
+			)
+		);
+
+		$this->add_control(
+			'products_with_background',
+			array(
+				'label'        => esc_html__( 'Products background', 'woodmart' ),
+				'description'  => esc_html__( 'Add a background to the products in your grid.', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '0',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => '1',
+			)
+		);
+
+		$this->add_control(
+			'products_background',
+			array(
+				'label'     => esc_html__( 'Custom background color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .wd-products-with-bg, {{WRAPPER}} .wd-products-with-bg .product-grid-item' => '--wd-prod-bg:{{VALUE}}; --wd-bordered-bg:{{VALUE}};',
+				),
+				'condition' => array(
+					'products_with_background' => array( '1' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'products_shadow',
+			array(
+				'label'        => esc_html__( 'Products shadow', 'woodmart' ),
+				'description'  => esc_html__( 'Add a shadow to products if the initial product style did not have one.', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '0',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => '1',
+			)
+		);
+
 		$this->add_control(
 			'product_quantity',
 			[
@@ -842,11 +1328,80 @@ class Products_Tabs extends Widget_Base {
 					'enable'  => esc_html__( 'Enable', 'woodmart' ),
 					'disable' => esc_html__( 'Disable', 'woodmart' ),
 				),
-				'condition'    => [
-					'product_hover' => [ 'standard', 'quick' ],
-				],
 			]
 		);
+
+		$this->add_control(
+			'grid_gallery',
+			array(
+				'label'       => esc_html__( 'Product gallery', 'woodmart' ),
+				'description' => esc_html__( 'Add the ability to view the product gallery on the products loop.', 'woodmart' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => '',
+				'options'     => array(
+					''    => esc_html__( 'Inherit', 'woodmart' ),
+					'yes' => esc_html__( 'Yes', 'woodmart' ),
+					'no'  => esc_html__( 'No', 'woodmart' ),
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'grid_gallery_tabs',
+			array(
+				'condition' => array(
+					'grid_gallery' => array( 'yes' ),
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'grid_gallery_desktop_tab',
+			array(
+				'label' => esc_html__( 'Desktop', 'woodmart' ),
+			)
+		);
+
+		$this->add_control(
+			'grid_gallery_control',
+			array(
+				'label'   => esc_html__( 'Product gallery controls', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'arrows' => esc_html__( 'Arrows', 'woodmart' ),
+					'hover'  => esc_html__( 'Hover', 'woodmart' ),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'grid_gallery_mobile_tab',
+			[
+				'label' => esc_html__( 'Mobile devices', 'woodmart' ),
+			]
+		);
+
+		$this->add_control(
+			'grid_gallery_enable_arrows',
+			array(
+				'label'   => esc_html__( 'Product gallery controls', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'none'   => esc_html__( 'None', 'woodmart' ),
+					'arrows' => esc_html__( 'Arrows', 'woodmart' ),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 
@@ -891,4 +1446,4 @@ class Products_Tabs extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Products_Tabs() );
+Plugin::instance()->widgets_manager->register( new Products_Tabs() );

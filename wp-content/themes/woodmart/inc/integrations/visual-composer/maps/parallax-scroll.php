@@ -14,6 +14,10 @@ if ( ! function_exists( 'woodmart_parallax_scroll_map' ) ) {
 				'true_state'       => 'yes',
 				'false_state'      => 'no',
 				'default'          => 'no',
+				'dependency'       => array(
+					'element' => 'wd_column_role',
+					'value'   => array( '' ),
+				),
 				'edit_field_class' => 'vc_col-sm-12 vc_column',
 			),
 			'scroll_x'        => array(
@@ -77,19 +81,19 @@ if ( ! function_exists( 'woodmart_parallax_scroll_data' ) ) {
 		woodmart_enqueue_js_library( 'parallax-scroll-bundle' );
 
 		if ( $x ) {
-			$data[] = '"x":' . $x;
+			$data[] = '"x":"' . $x . '"';
 		}
 		if ( $y ) {
-			$data[] = '"y":' . $y;
+			$data[] = '"y":"' . $y . '"';
 		}
 		if ( $z ) {
-			$data[] = '"z":' . $z;
+			$data[] = '"z":"' . $z . '"';
 		}
 		if ( $smooth ) {
-			$data[] = '"smoothness":' . $smooth;
+			$data[] = '"smoothness":"' . $smooth . '"';
 		}
 
-		return 'data-parallax={' . implode( ',', $data ) . '} ';
+		return 'data-parallax=\'{' . implode( ',', $data ) . '}\' ';
 	}
 }
 

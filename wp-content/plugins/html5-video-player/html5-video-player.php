@@ -3,7 +3,7 @@
  * Plugin Name: Html5 Video Player
  * Plugin URI:  http://wpvideoplayer.com/
  * Description: You can easily integrate html5 Video player to play mp4/ogg file in your wordress website using this plugin.
- * Version:     2.5.8
+ * Version:     2.5.9
  * Author:      bPlugins LLC
  * Author URI:  http://bplugins.com
  * License:     GPLv3
@@ -19,7 +19,7 @@ add_action( "plugins_loaded", 'h5vp_load_textdomain' );
 
 /*Some Set-up*/
 define('H5VP_PLUGIN_DIR', plugin_dir_url(__FILE__) ); 
-define('H5VP_VER', '2.5.8' ); 
+define('H5VP_VER', '2.5.9' ); 
 
     
 add_action('admin_init', 'h5vp_plugin_redirect');

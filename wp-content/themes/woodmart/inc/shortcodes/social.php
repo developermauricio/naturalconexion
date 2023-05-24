@@ -9,41 +9,62 @@
 if( ! function_exists( 'woodmart_shortcode_social' )) {
 	function woodmart_shortcode_social($atts) {
 		extract(shortcode_atts( array(
-			'type' => 'share',
-			'align' => 'center',
-			'tooltip' => 'no',
-			'style' => 'default',
-			'size' => 'default',
-			'form' => 'circle',
-			'color' => 'dark',
+			'show_label'    => 'no',
+			'label_text'    => esc_html__( 'Share: ', 'woodmart' ),
+			'is_element'    => false,
+			'layout'        => '',
+			'type'          => 'share',
+			'align'         => 'center',
+			'tooltip'       => 'no',
+			'style'         => 'default',
+			'size'          => 'default',
+			'form'          => 'circle',
+			'color'         => 'dark',
 			'css_animation' => 'none',
-			'el_class' => '',
-			'page_link' => false,
-			'elementor' => false,
-			'sticky' => false,
+			'el_class'      => '',
+			'title_classes' => '',
+			'page_link'     => false,
+			'elementor'     => false,
+			'sticky'        => false,
+			'css'           => '',
 		), $atts ));
-		
-		$target = "_blank";
 
-		$classes = 'wd-social-icons';
+		if ( woodmart_get_opt( 'dark_version' ) ) {
+			$color = 'light';
+		}
+
+		$target        = '_blank';
+		$title_classes = $title_classes ? ' ' . $title_classes : '';
+		$classes       = 'wd-social-icons';
+
+		if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$classes .= ' ' . vc_shortcode_custom_css_class( $css );
+		}
+
 		$classes .= woodmart_get_old_classes( ' woodmart-social-icons' );
-		$classes .= ' text-' . $align;
+		$classes .= ! empty( $layout ) ? ' wd-layout-' . $layout : '';
 		$classes .= ' icons-design-' . $style;
 		$classes .= ' icons-size-' . $size;
 		$classes .= ' color-scheme-' . $color;
 		$classes .= ' social-' . $type;
 		$classes .= ' social-form-' . $form;
 		$classes .= ( $el_class ) ? ' ' . $el_class : '';
-		$classes .= woodmart_get_css_animation( $css_animation );
 
-		$thumb_id = get_post_thumbnail_id();
-		$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+		$classes .= woodmart_get_css_animation( $css_animation );
+		$classes .= apply_filters( 'vc_shortcodes_css_class', '', '', $atts );
+
+		$align = $align ? $align : 'center';
+
+		$classes .= ' text-' . $align;
+
+		$thumb_id   = get_post_thumbnail_id();
+		$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
 		$page_title = get_the_title();
-		
+
 		if ( ! $page_link ) {
 			$page_link = get_the_permalink();
 		}
-		
+
 		if ( woodmart_woocommerce_installed() && is_shop() ) {
 			$page_link = get_permalink( get_option( 'woocommerce_shop_page_id' ) );
 		}
@@ -62,6 +83,11 @@ if( ! function_exists( 'woodmart_shortcode_social' )) {
 		?>
 
 			<div class="<?php echo esc_attr( $classes ); ?>">
+
+				<?php if ( 'yes' === $show_label ) : ?>
+					<span class="wd-label<?php echo esc_attr( $title_classes ); ?>"><?php echo esc_html( $label_text ); ?></span>
+				<?php endif; ?>
+
 				<?php if ( ( $type == 'share' && woodmart_get_opt('share_fb') ) || ( $type == 'follow' && woodmart_get_opt( 'fb_link' ) != '')): ?>
 					<a rel="noopener noreferrer nofollow" href="<?php echo 'follow' === $type ? esc_url(woodmart_get_opt( 'fb_link' )) : 'https://www.facebook.com/sharer/sharer.php?u=' . $page_link; ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'wd-tooltip'; ?> wd-social-icon social-facebook" aria-label="<?php esc_html_e( 'Facebook social link', 'woodmart' ); ?>">
 						<span class="wd-icon"></span>
@@ -80,7 +106,7 @@ if( ! function_exists( 'woodmart_shortcode_social' )) {
 					</a>
 				<?php endif ?>
 
-				<?php if ( ( $type == 'share' && woodmart_get_opt('share_email') ) || ( $type == 'follow' && woodmart_get_opt( 'social_email' ) ) ): ?>
+				<?php if ( ( $type == 'share' && woodmart_get_opt('share_email') ) || ( $type == 'follow' && woodmart_get_opt( 'social_email_links' ) ) ): ?>
 					<a rel="noopener noreferrer nofollow" href="mailto:<?php echo '?subject=' . esc_html__('Check%20this%20', 'woodmart') . $page_link; ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'wd-tooltip'; ?> wd-social-icon social-email" aria-label="<?php esc_html_e( 'Email social link', 'woodmart' ); ?>">
 						<span class="wd-icon"></span>
 						<?php if ( $sticky ) : ?>

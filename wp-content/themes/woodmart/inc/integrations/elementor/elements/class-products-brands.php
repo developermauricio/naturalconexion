@@ -75,7 +75,7 @@ class Products_Brands extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -139,6 +139,19 @@ class Products_Brands extends Widget_Base {
 				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
 				'label_off'    => esc_html__( 'No', 'woodmart' ),
 				'return_value' => '1',
+			]
+		);
+
+		$this->add_control(
+			'filter_in_current_category',
+			[
+				'label'        => esc_html__( 'Filter in current category', 'woodmart' ),
+				'description'  => esc_html__( ' Enable this option and all brand links will work inside the current category page. Or it will lead to the shop page if you are not on the category page.', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => 'yes',
 			]
 		);
 
@@ -214,7 +227,7 @@ class Products_Brands extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'columns',
 			[
 				'label'       => esc_html__( 'Columns', 'woodmart' ),
@@ -253,7 +266,7 @@ class Products_Brands extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -372,21 +385,26 @@ class Products_Brands extends Widget_Base {
 	 */
 	protected function render() {
 		$default_settings = [
-			'username'             => 'flickr',
-			'number'               => 20,
-			'hover'                => 'default',
-			'target'               => '_self',
-			'link'                 => '',
-			'ids'                  => '',
-			'style'                => 'carousel',
-			'brand_style'          => 'default',
-			'slides_per_view'      => 3,
-			'columns'              => 3,
-			'orderby'              => '',
-			'hide_empty'           => 0,
-			'order'                => 'ASC',
-			'scroll_carousel_init' => 'no',
-			'custom_sizes'         => apply_filters( 'woodmart_brands_shortcode_custom_sizes', false ),
+			'username'                   => 'flickr',
+			'number'                     => 20,
+			'hover'                      => 'default',
+			'target'                     => '_self',
+			'link'                       => '',
+			'ids'                        => '',
+			'style'                      => 'carousel',
+			'brand_style'                => 'default',
+			'slides_per_view'            => array( 'size' => 3 ),
+			'slides_per_view_tablet'     => array( 'size' => '' ),
+			'slides_per_view_mobile'     => array( 'size' => '' ),
+			'columns'                    => array( 'size' => 3 ),
+			'columns_tablet'             => array( 'size' => '' ),
+			'columns_mobile'             => array( 'size' => '' ),
+			'orderby'                    => '',
+			'hide_empty'                 => 0,
+			'order'                      => 'ASC',
+			'scroll_carousel_init'       => 'no',
+			'filter_in_current_category' => 'no',
+			'custom_sizes'               => apply_filters( 'woodmart_brands_shortcode_custom_sizes', false ),
 		];
 
 		$settings = wp_parse_args( $this->get_settings_for_display(), array_merge( woodmart_get_owl_atts(), $default_settings ) );
@@ -435,9 +453,19 @@ class Products_Brands extends Widget_Base {
 			woodmart_enqueue_inline_style( 'owl-carousel' );
 			$settings['scroll_per_page'] = 'yes';
 			$settings['carousel_id']     = $carousel_id;
-			$owl_attributes              = woodmart_get_owl_attributes( $settings );
 
-			$this->add_render_attribute( 'items_wrapper', 'class', 'owl-carousel ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
+			if ( ! empty( $settings['slides_per_view_tablet']['size'] ) || ! empty( $settings['slides_per_view_mobile']['size'] ) ) {
+				$settings['custom_sizes'] = array(
+					'desktop'          => $settings['slides_per_view'],
+					'tablet_landscape' => $settings['slides_per_view_tablet']['size'],
+					'tablet'           => $settings['slides_per_view_tablet']['size'],
+					'mobile'           => $settings['slides_per_view_mobile']['size'],
+				);
+			}
+
+			$owl_attributes = woodmart_get_owl_attributes( $settings );
+
+			$this->add_render_attribute( 'items_wrapper', 'class', 'owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $settings['slides_per_view'], array(), false, false, $settings['custom_sizes'] ) );
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-container' );
 			$this->add_render_attribute( 'wrapper', 'class', 'wd-carousel-spacing-0' );
 
@@ -452,7 +480,7 @@ class Products_Brands extends Widget_Base {
 		} else {
 			$this->add_render_attribute( 'items_wrapper', 'class', 'row' );
 			$this->add_render_attribute( 'items_wrapper', 'class', 'wd-spacing-0' );
-			$this->add_render_attribute( 'items', 'class', woodmart_get_grid_el_class( 0, $settings['columns'] ) );
+			$this->add_render_attribute( 'items', 'class', woodmart_get_grid_el_class_new( 0, false, $settings['columns'], $settings['columns_tablet']['size'], $settings['columns_mobile']['size'] ) );
 		}
 
 		$args = array(
@@ -495,6 +523,8 @@ class Products_Brands extends Widget_Base {
 
 		if ( woodmart_is_shop_on_front() ) {
 			$link = home_url();
+		} elseif ( 'yes' === $settings['filter_in_current_category'] && is_product_category() ) {
+			$link = woodmart_get_current_url();
 		} else {
 			$link = get_post_type_archive_link( 'product' );
 		}
@@ -519,8 +549,8 @@ class Products_Brands extends Widget_Base {
 						?>
 
 						<div <?php echo $this->get_render_attribute_string( 'items' ); ?>>
-							<a title="Brand <?php echo esc_html( $brand->name ); ?>" href="<?php echo esc_url( $attr_link ); ?>">
-								<?php if ( 'list' === $settings['style'] || ! $image ) : ?>
+							<a title="<?php echo esc_html( $brand->name ); ?>" href="<?php echo esc_url( $attr_link ); ?>">
+								<?php if ( 'list' === $settings['style'] || ! $image || ( is_array( $image ) && empty( $image['id'] ) ) ) : ?>
 									<span class="brand-title-wrap">
 										<?php echo esc_html( $brand->name ); ?>
 									</span>
@@ -539,4 +569,4 @@ class Products_Brands extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Products_Brands() );
+Plugin::instance()->widgets_manager->register( new Products_Brands() );

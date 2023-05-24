@@ -3,6 +3,8 @@
  * Information box map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
@@ -72,7 +74,7 @@ class Infobox_Carousel extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -337,6 +339,32 @@ class Infobox_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
+			'image_vertical_alignment',
+			array(
+				'label'     => esc_html__( 'Vertical alignment', 'woodmart' ),
+				'type'      => 'wd_buttons',
+				'options'   => array(
+					'top'    => array(
+						'title' => esc_html__( 'Top', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/top.png',
+					),
+					'middle' => array(
+						'title' => esc_html__( 'Middle', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/middle.png',
+					),
+					'bottom' => array(
+						'title' => esc_html__( 'Bottom', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/settings/infobox/vertical-position/bottom.png',
+					),
+				),
+				'default'   => 'top',
+				'condition' => array(
+					'image_alignment' => array( 'left', 'right' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'title_size',
 			[
 				'label'   => esc_html__( 'Predefined size', 'woodmart' ),
@@ -474,6 +502,53 @@ class Infobox_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'rounding_size',
+			array(
+				'label'     => esc_html__( 'Rounding', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'0'      => esc_html__( '0', 'woodmart' ),
+					'5'      => esc_html__( '5', 'woodmart' ),
+					'8'      => esc_html__( '8', 'woodmart' ),
+					'12'     => esc_html__( '12', 'woodmart' ),
+					'custom' => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{VALUE}}px;',
+				),
+			)
+		);
+
+		$this->add_control(
+			'custom_rounding_size',
+			array(
+				'label'      => esc_html__( 'Custom rounding', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( '%', 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 300,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'rounding_size' => array( 'custom' ),
+				),
+			)
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -583,7 +658,7 @@ class Infobox_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_per_view',
 			[
 				'label'       => esc_html__( 'Slides per view', 'woodmart' ),
@@ -1127,4 +1202,4 @@ class Infobox_Carousel extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Infobox_Carousel() );
+Plugin::instance()->widgets_manager->register( new Infobox_Carousel() );

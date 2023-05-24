@@ -3,6 +3,8 @@
  * Search map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -67,7 +69,7 @@ class Search extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -102,37 +104,6 @@ class Search extends Widget_Base {
 					'portfolio' => esc_html__( 'Portfolio', 'woodmart' ),
 				],
 				'default' => 'product',
-			]
-		);
-
-		$this->end_controls_section();
-
-		/**
-		 * Style tab.
-		 */
-
-		/**
-		 * General settings.
-		 */
-		$this->start_controls_section(
-			'general_style_section',
-			[
-				'label' => esc_html__( 'General', 'woodmart' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'woodmart_color_scheme',
-			[
-				'label'   => esc_html__( 'Color scheme', 'woodmart' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
-					''      => esc_html__( 'Inherit', 'woodmart' ),
-					'light' => esc_html__( 'Light', 'woodmart' ),
-					'dark'  => esc_html__( 'Dark', 'woodmart' ),
-				],
-				'default' => '',
 			]
 		);
 
@@ -173,6 +144,168 @@ class Search extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		/**
+		 * Style tab.
+		 */
+
+		$this->start_controls_section(
+			'color_style_section',
+			[
+				'label' => esc_html__( 'Form', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'form_style',
+			array(
+				'label'   => esc_html__( 'Style', 'woodmart' ),
+				'type'    => 'wd_buttons',
+				'options' => array(
+					'default'   => array(
+						'title' => esc_html__( 'Default', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/header-builder/search/default.jpg',
+						'style' => 'col-2',
+					),
+					'with-bg'   => array(
+						'title' => esc_html__( 'With background', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/header-builder/search/with-bg.jpg',
+						'style' => 'col-2',
+					),
+					'with-bg-2' => array(
+						'title' => esc_html__( 'With background 2', 'woodmart' ),
+						'image' => WOODMART_ASSETS_IMAGES . '/header-builder/search/with-bg-2.jpg',
+						'style' => 'col-2',
+					),
+				),
+				'default' => 'default',
+			)
+		);
+
+		$this->add_control(
+			'woodmart_color_scheme',
+			[
+				'label'   => esc_html__( 'Color scheme', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					''      => esc_html__( 'Inherit', 'woodmart' ),
+					'light' => esc_html__( 'Light', 'woodmart' ),
+					'dark'  => esc_html__( 'Dark', 'woodmart' ),
+				],
+				'default' => '',
+			]
+		);
+
+		$this->add_control(
+			'form_color',
+			array(
+				'label'     => esc_html__( 'Text color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .searchform' => '--wd-form-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_placeholder_color',
+			array(
+				'label'     => esc_html__( 'Placeholder color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .searchform' => '--wd-form-placeholder-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_brd_color',
+			array(
+				'label'     => esc_html__( 'Border color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .searchform' => '--wd-form-brd-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_brd_color_focus',
+			array(
+				'label'     => esc_html__( 'Border color focus', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .searchform' => '--wd-form-brd-color-focus: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_bg',
+			array(
+				'label'     => esc_html__( 'Background color', 'woodmart' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .searchform' => '--wd-form-bg: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'form_shape',
+			array(
+				'label'     => esc_html__( 'Form shape', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					'' => array(
+						'title'  => esc_html__( 'Inherit', 'woodmart' ),
+					),
+					'0'  => array(
+						'title' => esc_html__( 'Square', 'woodmart' ),
+					),
+					'5'  => array(
+						'title'  => esc_html__( 'Rounded', 'woodmart' ),
+					),
+					'35'  => array(
+						'title'  => esc_html__( 'Round', 'woodmart' ),
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-form-brd-radius: {{VALUE}}px;',
+				),
+				'default' => '',
+			)
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'category_style_section',
+			[
+				'label'     => esc_html__( 'Category', 'woodmart' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'category' => '1',
+				],
+			]
+		);
+
+		$this->add_control(
+			'cat_selector_style',
+			[
+				'label'   => esc_html__( 'Categories selector style', 'woodmart' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'default'   => esc_html__( 'Default', 'woodmart' ),
+					'bordered'  => esc_html__( 'Bordered', 'woodmart' ),
+					'separated' => esc_html__( 'Separated', 'woodmart' ),
+				],
+				'default' => 'bordered',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -192,6 +325,8 @@ class Search extends Widget_Base {
 			'category'              => 1,
 			'search_post_type'      => 'product',
 			'woodmart_color_scheme' => 'dark',
+			'form_style'            => 'default',
+			'cat_selector_style'    => 'bordered',
 		];
 
 		$settings = wp_parse_args( $this->get_settings_for_display(), $default_settings );
@@ -214,12 +349,14 @@ class Search extends Widget_Base {
 			<?php
 			woodmart_search_form(
 				array(
-					'ajax'            => true,
-					'post_type'       => $settings['search_post_type'],
-					'count'           => $settings['number'],
-					'thumbnail'       => $settings['thumbnail'],
-					'price'           => $settings['price'],
-					'show_categories' => $settings['category'],
+					'ajax'               => true,
+					'post_type'          => $settings['search_post_type'],
+					'count'              => $settings['number'],
+					'thumbnail'          => $settings['thumbnail'],
+					'price'              => $settings['price'],
+					'show_categories'    => $settings['category'],
+					'search_style'       => $settings['form_style'],
+					'cat_selector_style' => $settings['cat_selector_style'],
 				)
 			);
 			?>
@@ -228,4 +365,4 @@ class Search extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Search() );
+Plugin::instance()->widgets_manager->register( new Search() );

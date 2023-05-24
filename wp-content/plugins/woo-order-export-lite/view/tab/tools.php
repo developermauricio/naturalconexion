@@ -19,6 +19,8 @@ foreach ( $modes as $mode ) {
 }
 
 $type_labels = apply_filters( 'woe_tools_page_get_type_labels', array() );
+
+$user_can_add_custom_php = intval(WC_Order_Export_Admin::user_can_add_custom_php());
 ?>
 <div class="weo_clearfix"></div>
 <div id="woe-admin" class="container-fluid wpcontent">
@@ -122,14 +124,52 @@ $type_labels = apply_filters( 'woe_tools_page_get_type_labels', array() );
 
 		jQuery( '#submit-import' ).on( 'click', function ( e ) {
             try {
-                JSON.parse($('#tools-import-text').val());
+                var importJson = JSON.parse($('#tools-import-text').val());
             } catch ($e) {
                 showError($e);
                 e.preventDefault();
                 return;
             }
 
-			if ( ! confirm( '<?php esc_attr_e( 'Are you sure to continue?', 'woo-order-export-lite' ) ?>' ) ) {
+            let userCanAddCustomPhp = <?php echo $user_can_add_custom_php; ?>;
+            let defaultWarning = '<?php esc_attr_e( 'Are you sure to continue?', 'woo-order-export-lite' ) ?>';
+            let customPHPWarning = '<?php esc_attr_e( 'Your settings uses custom PHP code. This code will be removed during import. Proceed?',
+                'woo-order-export-lite' ) ?>';
+            let importHasPhpCode = false;
+
+            //check if import json has custom php code
+            if (!userCanAddCustomPhp) {
+                if (importJson.hasOwnProperty('custom_php') && importJson.custom_php !== '0' && importJson.custom_php_code ||
+                importJson.hasOwnProperty('now') && importJson.now.custom_php !== '0' && importJson.now.custom_php_code) {
+                    importHasPhpCode = true;
+                }
+                if (!importHasPhpCode && importJson.hasOwnProperty('profiles')) {
+                    for (const index in importJson.profiles) {
+                        if (importJson.profiles[index].custom_php !== '0' && importJson.profiles[index].custom_php_code) {
+                            importHasPhpCode = true;
+                            break;
+                        }
+                    }
+                }
+                if (!importHasPhpCode && importJson.hasOwnProperty('cron')) {
+                    for (const index in importJson.cron) {
+                        if (importJson.cron[index].custom_php !== '0' && importJson.cron[index].custom_php_code) {
+                            importHasPhpCode = true;
+                            break;
+                        }
+                    }
+                }
+                if (!importHasPhpCode && importJson.hasOwnProperty('order-action')) {
+                    for (const index in importJson['order-action']) {
+                        if (importJson['order-action'][index].custom_php !== '0' && importJson['order-action'][index].custom_php_code) {
+                            importHasPhpCode = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+			if ( ! confirm( !userCanAddCustomPhp && importHasPhpCode ? customPHPWarning : defaultWarning ) ) {
 				e.preventDefault();
 				$( document.activeElement ).blur();
 			} else {

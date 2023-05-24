@@ -13,30 +13,42 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 	function woodmart_elementor_products_tabs_template( $settings ) {
 		$default_settings = [
 			// General.
-			'title'                    => '',
-			'image'                    => '',
-			'image_custom_dimension'   => '',
-			'design'                   => 'default',
-			'alignment'                => 'center',
-			'tabs_items'               => [],
+			'title'                         => '',
+			'description'                   => '',
+			'image'                         => '',
+			'image_custom_dimension'        => '',
+			'design'                        => 'default',
+			'alignment'                     => 'center',
+			'tabs_items'                    => [],
+			'title_text_color_scheme'       => 'inherit',
+			'tabs_style'                    => 'underline',
+			'icon_alignment'                => 'left',
+			'icon_alignment_design_default' => 'center',
 
 			// Layout.
-			'layout'                   => 'grid',
-			'pagination'               => '',
-			'items_per_page'           => 12,
-			'spacing'                  => woodmart_get_opt( 'products_spacing' ),
-			'columns'                  => [ 'size' => 4 ],
-			'products_masonry'         => woodmart_get_opt( 'products_masonry' ),
-			'products_different_sizes' => woodmart_get_opt( 'products_different_sizes' ),
-			'product_quantity'         => woodmart_get_opt( 'product_quantity' ),
+			'layout'                        => 'grid',
+			'pagination'                    => '',
+			'items_per_page'                => 12,
+			'spacing'                       => woodmart_get_opt( 'products_spacing' ),
+			'columns'                       => [ 'size' => 4 ],
+			'products_masonry'              => woodmart_get_opt( 'products_masonry' ),
+			'products_different_sizes'      => woodmart_get_opt( 'products_different_sizes' ),
+			'product_quantity'              => woodmart_get_opt( 'product_quantity' ),
 
 			// Design.
-			'product_hover'            => woodmart_get_opt( 'products_hover' ),
-			'sale_countdown'           => 0,
-			'stock_progress_bar'       => 0,
-			'highlighted_products'     => 0,
-			'products_bordered_grid'   => 0,
-			'img_size'                 => 'woocommerce_thumbnail',
+			'product_hover'                 => woodmart_get_opt( 'products_hover' ),
+			'sale_countdown'                => 0,
+			'stretch_product_desktop'       => 0,
+			'stretch_product_tablet'        => 0,
+			'stretch_product_mobile'        => 0,
+			'stock_progress_bar'            => 0,
+			'highlighted_products'          => 0,
+			'products_bordered_grid'        => 0,
+			'products_bordered_grid_style'  => 'outside',
+			'products_with_background'      => 0,
+			'products_shadow'               => 0,
+			'products_color_scheme'         => 'default',
+			'img_size'                      => 'woocommerce_thumbnail',
 
 			// Extra.
 			'elementor'                => true,
@@ -51,8 +63,9 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 		$image_output    = '';
 		$wrapper_classes = '';
 		$header_classes  = '';
-		$title_classes = '';
-		
+		$title_classes   = '';
+		$wd_nav_classes  = '';
+
 		// Title classes.
 		if ( woodmart_elementor_is_edit_mode() ) {
 			$title_classes .= ' elementor-inline-editing';
@@ -64,6 +77,20 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 
 		// Wrapper classes.
 		$wrapper_classes .= ' tabs-design-' . $settings['design'];
+
+		if ( 'simple' === $settings['design'] ) {
+			$settings['tabs_style'] = 'default';
+		}
+
+		$wd_nav_classes .= ' wd-style-' . $settings['tabs_style'];
+
+		if ( 'default' === $settings['design'] ) {
+			$wd_nav_classes .= ' wd-icon-pos-' . $settings['icon_alignment_design_default'];
+		}
+
+		if ( 'simple' === $settings['design'] || 'aside' === $settings['design'] || 'alt' === $settings['design'] ) {
+			$wd_nav_classes .= ' wd-icon-pos-' . $settings['icon_alignment'];
+		}
 
 		// Image settings.
 		$custom_image_size = isset( $settings['image_custom_dimension']['width'] ) && $settings['image_custom_dimension']['width'] ? $settings['image_custom_dimension'] : [
@@ -79,6 +106,11 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 			}
 		}
 
+		$nav_tabs_wrapper_classes = '';
+		if ( 'inherit' !== $settings['title_text_color_scheme'] && 'custom' !== $settings['title_text_color_scheme'] ) {
+			$nav_tabs_wrapper_classes .= ' color-scheme-' . $settings['title_text_color_scheme'];
+		}
+
 		// Tabs settings.
 		$first_tab_title = '';
 
@@ -87,12 +119,13 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 		}
 
 		woodmart_enqueue_js_script( 'products-tabs' );
+		woodmart_enqueue_inline_style( 'tabs' );
 		woodmart_enqueue_inline_style( 'product-tabs' );
 
 		$wrapper_classes .= woodmart_get_old_classes( ' woodmart-products-tabs' );
 
 		?>
-		<div class="wd-products-tabs<?php echo esc_attr( $wrapper_classes ); ?>">
+		<div class="wd-tabs wd-products-tabs<?php echo esc_attr( $wrapper_classes ); ?>">
 			<div class="wd-tabs-header<?php echo esc_attr( $header_classes ); ?>">
 				<div class="wd-tabs-loader"><span class="wd-loader"></span></div>
 
@@ -108,12 +141,15 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 					</div>
 				<?php endif; ?>
 
-				<div class="tabs-navigation-wrapper">
-					<span class="open-title-menu">
-						<?php echo wp_kses( $first_tab_title, woodmart_get_allowed_html() ); ?>
-					</span>
+				<?php if ( $settings['description'] ) : ?>
+					<div class="wd-tabs-desc">
+						<?php echo wp_kses( $settings['description'], woodmart_get_allowed_html() ); ?>
+					</div>
+				<?php endif; ?>
 
-					<ul class="products-tabs-title">
+				<div class="wd-nav-wrapper wd-nav-tabs-wrapper tabs-navigation-wrapper<?php echo esc_attr( $nav_tabs_wrapper_classes ); ?>">
+
+					<ul class="wd-nav wd-nav-tabs products-tabs-title<?php echo esc_attr( $wd_nav_classes ); ?>">
 						<?php foreach ( $settings['tabs_items'] as $key => $item ) : ?>
 							<?php
 							$li_classes        = '';
@@ -122,7 +158,7 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 							$encoded_settings  = wp_json_encode( array_intersect_key( $settings + $item, woodmart_get_elementor_products_config() ) );
 
 							if ( 0 === $key ) {
-								$li_classes .= ' active-tab-title';
+								$li_classes .= ' wd-active';
 							}
 
 							// Icon settings.
@@ -131,23 +167,29 @@ if ( ! function_exists( 'woodmart_elementor_products_tabs_template' ) ) {
 								'height' => 128,
 							];
 
-							if ( isset( $item['image']['id'] ) && $item['image']['id'] ) {
-								$icon_output = '<span class="img-wrapper">' . woodmart_get_image_html( $item, 'image' ) . '</span>';
+							if ( ( ! $item['icon_type'] || 'image' === $item['icon_type'] ) && isset( $item['image']['id'] ) && $item['image']['id'] ) {
+								$icon_output = woodmart_get_image_html( $item, 'image' );
 
 								if ( woodmart_is_svg( woodmart_get_image_url( $item['image']['id'], 'image', $item ) ) ) {
-									$icon_output = '<span class="svg-icon img-wrapper" style="width:' . esc_attr( $custom_icon_size['width'] ) . 'px; height:' . esc_attr( $custom_icon_size['height'] ) . 'px;">' . woodmart_get_any_svg( woodmart_get_image_url( $item['image']['id'], 'image', $item ), rand( 999, 9999 ) ) . '</span>';
+									$icon_output = woodmart_get_svg_html( $item['image']['id'], $custom_icon_size, array( 'class' => 'svg-icon' ) );
 								}
+							} elseif ( 'icon' === $item['icon_type'] && isset( $item['icon'] ) && $item['icon'] ) {
+								$icon_output = woodmart_elementor_get_render_icon( $item['icon'] );
 							}
 							?>
 
 							<li data-atts="<?php echo esc_attr( $encoded_settings ); ?>" class="<?php echo esc_attr( $li_classes ); ?>">
-								<?php if ( $icon_output ) : ?>
-									<?php echo $icon_output; ?>
-								<?php endif; ?>
+								<a href="#" class="wd-nav-link">
+									<?php if ( $icon_output ) : ?>
+										<div class="img-wrapper">
+											<?php echo $icon_output; //phpcs:ignore ?>
+										</div>
+									<?php endif; ?>
 
-								<span class="tab-label">
-									<?php echo esc_html( $item['title'] ); ?>
-								</span>
+									<span class="tab-label nav-link-text">
+										<?php echo esc_html( $item['title'] ); ?>
+									</span>
+								</a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
@@ -177,7 +219,6 @@ if ( ! function_exists( 'woodmart_elementor_products_tab_template' ) ) {
 			)
 		);
 
-		$settings['carousel_js_inline'] = 'yes';
 		$settings['force_not_ajax']     = 'yes';
 
 		if ( $is_ajax ) {
@@ -188,7 +229,7 @@ if ( ! function_exists( 'woodmart_elementor_products_tab_template' ) ) {
 
 		?>
 		<?php if ( ! $is_ajax ) : ?>
-			<div class="wd-tab-content<?php echo woodmart_get_old_classes( ' woodmart-tab-content' ); ?>">
+			<div class="wd-tab-content-wrapper<?php echo woodmart_get_old_classes( ' woodmart-tab-content' ); ?>">
 		<?php endif; ?>
 
 		<?php echo woodmart_elementor_products_template( $settings ); ?>

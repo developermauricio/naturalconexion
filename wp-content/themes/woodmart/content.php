@@ -8,7 +8,9 @@
 
 $woodmart_loop 		= woodmart_loop_prop( 'woodmart_loop' );
 $blog_design   		= woodmart_loop_prop( 'blog_design' );
-$columns       		= woodmart_loop_prop( 'blog_columns' );
+$desktop_columns    = woodmart_loop_prop( 'blog_columns' );
+$tablet_columns     = woodmart_loop_prop( 'blog_columns_tablet' );
+$mobile_columns     = woodmart_loop_prop( 'blog_columns_mobile' );
 $is_shortcode  		= woodmart_loop_prop( 'blog_type' ) == 'shortcode';
 $is_large_image 	= woodmart_get_opt( 'single_post_design' ) == 'large_image';
 $classes       		= array();
@@ -25,8 +27,18 @@ if( is_single() && !$is_shortcode ) {
 	}
 }
 
-if( ! is_single() || $is_shortcode && 'meta-image' !== $blog_design ) {
-	$classes[] = 'blog-style-' . woodmart_get_opt( 'blog_style' );
+if ( ! is_single() || $is_shortcode ) {
+	$blog_style = woodmart_get_opt( 'blog_style', 'shadow' );
+
+	if ( 'shadow' === $blog_style ) {
+		$classes[] = 'blog-style-bg';
+
+		if ( woodmart_get_opt( 'blog_with_shadow', true ) ) {
+			$classes[] = 'wd-add-shadow';
+		}
+	} else {
+		$classes[] = 'blog-style-' . $blog_style;
+	}
 }
 
 if( is_single() && !$is_shortcode ) {
@@ -34,7 +46,11 @@ if( is_single() && !$is_shortcode ) {
 }
 
 if( ( $blog_design == 'masonry' || $blog_design == 'mask' ) && ( $is_shortcode || ! is_single() ) ){
-    $classes[] = woodmart_get_grid_el_class( $woodmart_loop, $columns, false, 12 );
+	if ( ( 'auto' !== $tablet_columns && ! empty( $tablet_columns ) ) || ( 'auto' !== $mobile_columns && ! empty( $mobile_columns ) ) ) {
+		$classes[] = woodmart_get_grid_el_class_new( $woodmart_loop, false, $desktop_columns, $tablet_columns, $mobile_columns );
+	} else {
+		$classes[] = woodmart_get_grid_el_class( $woodmart_loop, $desktop_columns, false, 12 );
+	}
 }
 
 if( get_the_title() == '' ){
@@ -81,27 +97,35 @@ $random = 'carousel-' . rand(100,999);
 		<?php endif ?>
 			<header class="entry-header">
 				<?php if ( ( has_post_thumbnail() || ! empty( $gallery['src'] ) ) && ! post_password_required() && ! is_attachment() && woodmart_loop_prop( 'parts_media' ) ) : ?>
-					<figure id="<?php echo esc_attr( $random ); ?>" class="entry-thumbnail">
-						<?php if( get_post_format() == 'gallery' && $gallery_slider && ! empty( $gallery['src'] ) ): ?>
-							<div class="post-gallery-slider owl-carousel <?php echo woodmart_owl_items_per_slide(1); ?>">
+					<?php
+					$owl_attr = woodmart_get_owl_attributes(
+						array(
+							'carousel_id'             => $random,
+							'post_type'               => 'post',
+							'slides_per_view'         => 1,
+							'hide_pagination_control' => 'yes',
+						)
+					);
+
+					woodmart_enqueue_js_script( 'owl-carousel' );
+					?>
+
+					<figure id="<?php echo esc_attr( $random ); ?>" class="entry-thumbnail" <?php echo $owl_attr; ?>>
+						<?php if ( 'gallery' === get_post_format() && $gallery_slider && ! empty( $gallery['src'] ) ) : ?>
+							<div class="post-gallery-slider owl-carousel wd-owl <?php echo woodmart_owl_items_per_slide( 1 ); ?>">
 								<?php
-									foreach ($gallery['src'] as $src) { if ( preg_match( "/data:image/is", $src ) ) continue;
+									foreach ($gallery['src'] as $src) {
+										if ( preg_match( "/data:image/is", $src ) ) {
+											continue;
+										}
 										?>
-											<div>
-												<?php echo apply_filters('woodmart_image', '<img src="'. esc_url( $src ) .'" />' ); ?>
-											</div>
+										<div>
+											<?php echo apply_filters( 'woodmart_image', '<img src="' . esc_url( $src ) . '" />' ); ?>
+										</div>
 										<?php
 									}
 								?>
 							</div>
-							<?php
-								woodmart_owl_carousel_init( array(
-									'carousel_id' => $random,
-									'slides_per_view' => 1,
-									'hide_pagination_control' => 'yes',
-									'carousel_js_inline' => 'yes'
-								) );
-							?>
 						<?php elseif ( ! is_single() || $is_shortcode ): ?>
 
 							<div class="post-img-wrapp">

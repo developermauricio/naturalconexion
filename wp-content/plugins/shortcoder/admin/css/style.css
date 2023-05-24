@@ -225,6 +225,25 @@
 .sc_copy_list{
     display: none;
 }
+.sc_content_list{
+    padding: 10px;
+    max-height: 300px;
+    overflow: auto;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+.sc_content_list::-webkit-scrollbar {
+    width: 7.5px;
+    height: 7.5px;
+}
+.sc_content_list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.sc_content_list::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
 #the-list tr.type-shortcoder:hover a.sc_copy_list{
     display: inline-block;
 }

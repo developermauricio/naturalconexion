@@ -36,13 +36,17 @@ if ( ! function_exists( 'woodmart_elementor_blog_template' ) ) {
 			'img_size'                => 'medium',
 			'blog_design'             => 'default',
 			'blog_carousel_design'    => 'masonry',
-			'blog_columns'            => [ 'size' => woodmart_get_opt( 'blog_columns' ) ],
+			'blog_columns'            => [ 'size' => 3 ],
+			'blog_columns_tablet'     => array( 'size' => '' ),
+			'blog_columns_mobile'     => array( 'size' => '' ),
 			'blog_spacing'            => woodmart_get_opt( 'blog_spacing' ),
 			'pagination'              => '',
 
 			// Carousel.
 			'speed'                   => '5000',
-			'slides_per_view'         => [ 'size' => 3 ],
+			'slides_per_view'          => array( 'size' => 4 ),
+			'slides_per_view_tablet'   => array( 'size' => '' ),
+			'slides_per_view_mobile'   => array( 'size' => '' ),
 			'wrap'                    => '',
 			'autoplay'                => 'no',
 			'hide_pagination_control' => '',
@@ -138,6 +142,13 @@ if ( ! function_exists( 'woodmart_elementor_blog_template' ) ) {
 		woodmart_set_loop_prop( 'parts_text', $settings['parts_text'] );
 		woodmart_set_loop_prop( 'parts_media', $settings['parts_media'] );
 
+		if ( isset( $settings['blog_columns_tablet']['size'] ) && $settings['blog_columns_tablet']['size'] ) {
+			woodmart_set_loop_prop( 'blog_columns_tablet', $settings['blog_columns_tablet']['size'] );
+		}
+		if ( isset( $settings['blog_columns_mobile']['size'] ) && $settings['blog_columns_mobile']['size'] ) {
+			woodmart_set_loop_prop( 'blog_columns_mobile', $settings['blog_columns_mobile']['size'] );
+		}
+
 		if ( 'carousel' === $settings['blog_design'] ) {
 			woodmart_set_loop_prop( 'blog_design', $settings['blog_carousel_design'] );
 		}
@@ -169,6 +180,16 @@ if ( ! function_exists( 'woodmart_elementor_blog_template' ) ) {
 		if ( 'carousel' === $settings['blog_design'] ) {
 			woodmart_set_loop_prop( 'blog_layout', 'carousel' );
 			$settings['slides_per_view'] = $settings['slides_per_view']['size'];
+
+			if ( ( isset( $settings['slides_per_view_tablet']['size'] ) && ! empty( $settings['slides_per_view_tablet']['size'] ) ) || ( isset( $settings['slides_per_view_mobile']['size'] ) && ! empty( $settings['slides_per_view_mobile']['size'] ) ) ) {
+				$settings['custom_sizes'] = array(
+					'desktop'          => $settings['slides_per_view'],
+					'tablet_landscape' => $settings['slides_per_view_tablet']['size'],
+					'tablet'           => $settings['slides_per_view_tablet']['size'],
+					'mobile'           => $settings['slides_per_view_mobile']['size'],
+				);
+			}
+
 			return woodmart_generate_posts_slider( $settings, $blog_query );
 		} else {
 			$wrapper_classes  = '';

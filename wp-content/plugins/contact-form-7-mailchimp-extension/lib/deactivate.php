@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@ function mce_detect_plugin_deactivation() {
 
 }
 add_action( 'deactivated_plugin', 'mce_detect_plugin_deactivation', 10, 2 );
+
 
 
 function mce_post_systeminfo ($title,$category) {
@@ -67,6 +68,7 @@ function mce_post_systeminfo ($title,$category) {
   return $api_response ;
 
 }
+
 
 
 function mce_set_systeminfo_conten () {
@@ -212,6 +214,7 @@ function mce_set_systeminfo_conten () {
 add_action( 'upgrader_process_complete', 'mce_upgradeplug_function',10, 2);
 
 
+
 function mce_upgradeplug_function( $upgrader_object, $options ) {
 
     $current_plugin_path_name = plugin_basename( __FILE__ );
@@ -227,6 +230,7 @@ function mce_upgradeplug_function( $upgrader_object, $options ) {
     }
 
 }
+
 
 
 function mce_update_plugginid () {
@@ -246,4 +250,3 @@ function mce_update_plugginid () {
   $resp = mce_post_systeminfo ( $plugginid,3 ) ;
 
 }
-

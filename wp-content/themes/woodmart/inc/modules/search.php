@@ -8,21 +8,51 @@
 if( ! function_exists( 'woodmart_search_full_screen' ) ) {
 	function woodmart_search_full_screen() {
 
-		if ( ! whb_is_full_screen_search() ) return;
-
-		$search_args = array(
-			'type' => 'full-screen'
-		);
-
-		$settings = whb_get_settings();
-		if( isset( $settings['search'] ) ) {
-			$search_args['post_type'] = $settings['search']['post_type'];
-			$search_args['ajax'] = $settings['search']['ajax'];
-			$search_args['count'] = ( isset( $settings['search']['ajax_result_count'] ) && $settings['search']['ajax_result_count'] ) ? $settings['search']['ajax_result_count'] : 40;
+		if ( is_admin() || defined( 'IFRAME_REQUEST' ) ) {
+			return;
 		}
 
-		woodmart_search_form( $search_args );
+		$settings = whb_get_settings();
 
+		$desktop_search_design = '';
+		$mobile_search_design  = '';
+
+		if ( isset( $settings['search']['display'] ) ) {
+			$desktop_search_design = $settings['search']['display'];
+		}
+
+		if ( isset( $settings['mobilesearch']['display'] ) ) {
+			$mobile_search_design = $settings['mobilesearch']['display'];
+		}
+
+		if ( 'full-screen' === $desktop_search_design || 'full-screen-2' === $desktop_search_design ) {
+			$search_args['type']             = $settings['search']['display'];
+			$search_args['post_type']        = $settings['search']['post_type'];
+			$search_args['ajax']             = $settings['search']['ajax'];
+			$search_args['count']            = ( isset( $settings['search']['ajax_result_count'] ) && $settings['search']['ajax_result_count'] ) ? $settings['search']['ajax_result_count'] : 40;
+			$search_args['popular_requests'] = isset( $settings['search']['popular_requests'] ) ? $settings['search']['popular_requests'] : '';
+
+			if ( 'full-screen-2' === $search_args['type'] ) {
+				$search_args['show_categories']    = isset( $settings['search']['categories_dropdown'] ) ? $settings['search']['categories_dropdown'] : '';
+				$search_args['cat_selector_style'] = isset( $settings['search']['cat_selector_style'] ) ? $settings['search']['cat_selector_style'] : '';
+			}
+
+			woodmart_search_form( $search_args );
+		}
+
+		if ( ( 'full-screen' === $mobile_search_design || 'full-screen-2' === $mobile_search_design ) && $desktop_search_design !== $mobile_search_design ) {
+			$search_args['type'] = $settings['mobilesearch']['display'];
+
+			if ( isset( $settings['search']['ajax'] ) ) {
+				$search_args['ajax'] = $settings['search']['ajax'];
+			}
+
+			if ( isset( $settings['mobilesearch']['post_type'] ) ) {
+				$search_args['post_type'] = $settings['mobilesearch']['post_type'];
+			}
+
+			woodmart_search_form( $search_args );
+		}
 	}
 
 	add_action( 'wp_footer', 'woodmart_search_full_screen', 1 );
@@ -46,16 +76,18 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 			'custom_icon' => '',
 			'el_classes' => '',
 			'wrapper_custom_classes' => '',
+			'popular_requests' => false,
+			'cat_selector_style' => 'bordered',
 		) );
 
 		extract( $args );
 		
 		ob_start();
 
-		$class = '';
-		$btn_classes = '';
-		$data  = '';
-		$wrapper_classes = '';
+		$class             = '';
+		$btn_classes       = '';
+		$data              = '';
+		$wrapper_classes   = '';
 		$dropdowns_classes = '';
 
 		if ( $show_categories && $post_type == 'product' ) {
@@ -73,6 +105,14 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 			$class .= woodmart_get_old_classes( ' search-style-' . $search_style );
 		}
 
+		if ( 'full-screen-2' === $type ) {
+			$class .= ' wd-style-with-bg';
+		}
+
+		if ( $cat_selector_style ) {
+			$class .= ' wd-cat-style-' . $cat_selector_style;
+		}
+
 		$ajax_args = array(
 			'thumbnail' => $thumbnail,
 			'price' => $price,
@@ -83,10 +123,14 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 		);
 
 		if( $ajax ) {
-			$class .= ' woodmart-ajax-search';
+			woodmart_enqueue_inline_style( 'wd-search-results' );
+
 			woodmart_enqueue_js_library( 'autocomplete' );
 			woodmart_enqueue_js_script( 'ajax-search' );
-			foreach ($ajax_args as $key => $value) {
+
+			$class .= ' woodmart-ajax-search';
+
+			foreach ( $ajax_args as $key => $value ) {
 				$data .= ' data-' . $key . '="' . $value . '"';
 			}
 		}
@@ -125,10 +169,16 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 			$wrapper_classes .= ' wd-dropdown';
 		}
 
-		if ( 'full-screen' === $type ) {
+		if ( 'full-screen' === $type || 'full-screen-2' === $type ) {
 			woodmart_enqueue_js_script( 'search-full-screen' );
 			woodmart_enqueue_inline_style( 'header-search-fullscreen' );
 			$wrapper_classes .= ' wd-fill';
+
+			if ( 'full-screen' === $type ) {
+				woodmart_enqueue_inline_style( 'header-search-fullscreen-1' );
+			} else {
+				woodmart_enqueue_inline_style( 'header-search-fullscreen-2' );
+			}
 		} else {
 			$dropdowns_classes .= ' wd-dropdown';
 		}
@@ -140,16 +190,49 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 			$dropdowns_classes .= ' color-scheme-light';
 		}
 
-		$wrapper_classes .= woodmart_get_old_classes( ' woodmart-search-' . $type );
+		$popular_search_requests = '';
+
+		if ( $popular_requests ) {
+			$request = woodmart_get_opt( 'popular_requests' );
+
+			if ( $request ) {
+				woodmart_enqueue_inline_style( 'popular-requests' );
+
+				$wrapper_classes        .= ' wd-requests-enabled';
+				$popular_search_requests = explode( "\n", $request );
+			}
+		}
+
+		$full_search_content = '';
+
+		if ( 'full-screen' === $type || 'full-screen-2' === $type ) {
+			if ( 'text' === woodmart_get_opt( 'full_search_content_type', 'content' ) && woodmart_get_opt( 'full_search_content_text' ) ) {
+				$full_search_content = 'text';
+			} elseif ( 'content' === woodmart_get_opt( 'full_search_content_type', 'content' ) && woodmart_get_opt( 'full_search_content_html_block' ) ) {
+				$full_search_content = 'content';
+			}
+		}
+
+		$wrapper_classes   .= woodmart_get_old_classes( ' woodmart-search-' . $type );
 		$dropdowns_classes .= woodmart_get_old_classes( ' woodmart-search-results' );
 
+		if ( $full_search_content && woodmart_get_opt( 'ajax_fullscreen_content', true ) ) {
+			$wrapper_classes .= ' wd-ajax-search-content';
+		}
+
+		woodmart_enqueue_inline_style( 'wd-search-form' );
 		?>
 			<div class="wd-search-<?php echo esc_attr( $type ); ?><?php echo esc_attr( $wrapper_classes ); ?>">
-				<?php if ( $type == 'full-screen' ): ?>
-					<span class="wd-close-search wd-action-btn wd-style-icon wd-cross-icon<?php echo woodmart_get_old_classes( ' woodmart-close-search' ); ?>"><a aria-label="<?php esc_attr_e( 'Close search form', 'woodmart' ); ?>"></a></span>
+				<?php if ( 'full-screen' === $type || 'full-screen-2' === $type ) : ?>
+					<span class="wd-close-search wd-action-btn wd-style-icon wd-cross-icon<?php echo woodmart_get_old_classes( ' woodmart-close-search' ); ?>"><a href="#" rel="nofollow" aria-label="<?php esc_attr_e( 'Close search form', 'woodmart' ); ?>"></a></span>
 				<?php endif ?>
+
+				<?php if ( 'full-screen-2' === $type ) : ?>
+					<div class="container">
+				<?php endif; ?>
+
 				<form role="search" method="get" class="searchform <?php echo esc_attr( $class ); ?>" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo ! empty( $data ) ? $data : ''; ?>>
-					<input type="text" class="s" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_html_e( 'Search', 'woodmart' ); ?>" title="<?php echo esc_attr( $placeholder ); ?>" />
+					<input type="text" class="s" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_html_e( 'Search', 'woodmart' ); ?>" title="<?php echo esc_attr( $placeholder ); ?>"<?php echo esc_attr( apply_filters( 'woodmart_show_required_in_search_form', true ) ? ' required' : '' ); ?>/>
 					<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>">
 					<?php if( $show_categories && $post_type == 'product' ) woodmart_show_categories_dropdown(); ?>
 					<button type="submit" class="searchsubmit<?php echo esc_attr( $btn_classes ); ?>">
@@ -163,20 +246,46 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 						?>
 					</button>
 				</form>
-				<?php if ( $type == 'full-screen' ): ?>
+
+				<?php if ( $popular_search_requests ) : ?>
+					<div class="wd-search-requests">
+						<span class="wd-search-requests-text title"><?php echo esc_html__( 'Popular requests: ', 'woodmart' ); ?></span>
+						<ul>
+							<?php foreach ( $popular_search_requests as $request ) : ?>
+								<li>
+									<a href="<?php echo esc_url( get_site_url() . '/?s=' . rawurlencode( trim( $request ) ) . '&post_type=' . $post_type ); ?>">
+										<?php echo esc_html( $request ); ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				<?php endif; ?>
+
+				<?php if ( 'full-screen' === $type ) : ?>
+					<div class="wd-search-loader wd-fill<?php echo esc_attr( woodmart_get_old_classes( ' woodmart-search-loader' ) ); ?>"></div>
 					<div class="search-info-text"><span><?php echo esc_html( $description ); ?></span></div>
 				<?php endif ?>
-				<?php if ( $ajax ): ?>
+
+				<?php if ( $ajax ) : ?>
 					<div class="search-results-wrapper">
 						<div class="wd-dropdown-results wd-scroll<?php echo esc_attr( $dropdowns_classes ); ?>">
 							<div class="wd-scroll-content"></div>
 						</div>
+					</div>
+				<?php endif ?>
 
-						<?php if ( 'full-screen' === $type ) : ?>
-							<div class="wd-search-loader wd-fill<?php echo woodmart_get_old_classes( ' woodmart-search-loader' ); ?>"></div>
+				<?php if ( $full_search_content ) : ?>
+					<div class="wd-search-area wd-scroll">
+						<?php if ( ! woodmart_get_opt( 'ajax_fullscreen_content', true ) ) : ?>
+							<?php woodmart_get_full_search_area_content( $full_search_content ); ?>
 						<?php endif; ?>
 					</div>
 				<?php endif ?>
+
+				<?php if ( 'full-screen-2' === $type ) : ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		<?php
 
@@ -184,8 +293,63 @@ if( ! function_exists( 'woodmart_search_form' ) ) {
 	}
 }
 
+if ( ! function_exists( 'woodmart_get_full_search_area_content' ) ) {
+	/**
+	 * Get full search area content.
+	 *
+	 * @param string  $full_search_content Content type.
+	 * @param boolean $return Return.
+	 * @return false|string|void
+	 */
+	function woodmart_get_full_search_area_content( $full_search_content, $return = false ) {
+		if ( $return ) {
+			ob_start();
+		}
+
+		?>
+		<div class="wd-search-area-inner wd-scroll-content">
+			<?php if ( 'text' === $full_search_content ) : ?>
+				<?php echo do_shortcode( woodmart_get_opt( 'full_search_content_text' ) ); ?>
+			<?php elseif ( 'content' === $full_search_content ) : ?>
+				<?php echo woodmart_get_html_block( woodmart_get_opt( 'full_search_content_html_block' ) ); //phpcs:ignore ?>
+			<?php endif; ?>
+		</div>
+		<?php
+
+		if ( $return ) {
+			return ob_get_clean();
+		}
+	}
+}
+
+if ( ! function_exists( 'woodmart_load_full_search_html' ) ) {
+	/**
+	 * Ajax load full search area content.
+	 *
+	 * @return void
+	 */
+	function woodmart_load_full_search_html() {
+		if ( class_exists( 'WPBMap' ) ) {
+			WPBMap::addAllMappedShortcodes();
+		}
+
+		$content = woodmart_get_full_search_area_content( woodmart_get_opt( 'full_search_content_type', 'content' ), true );
+
+		wp_send_json(
+			array(
+				'content' => $content,
+			)
+		);
+	}
+
+	add_action( 'wp_ajax_woodmart_load_full_search_html', 'woodmart_load_full_search_html' );
+	add_action( 'wp_ajax_nopriv_woodmart_load_full_search_html', 'woodmart_load_full_search_html' );
+}
+
 if( ! function_exists( 'woodmart_show_categories_dropdown' ) ) {
 	function woodmart_show_categories_dropdown() {
+		woodmart_enqueue_inline_style( 'wd-search-cat' );
+
 		$args = array( 
 			'hide_empty' => 1,
 			'parent' => 0
@@ -256,11 +420,16 @@ if ( ! function_exists( 'woodmart_show_blog_results_on_search_page' ) ) {
 		?>
 		<div class="wd-blog-search-results">
 			<h4 class="slider-title">
-				<?php esc_html_e( 'Results from blog', 'woodmart' ); ?>
+				<span><?php esc_html_e( 'Results from blog', 'woodmart' ); ?></span>
 			</h4>
 		
-			<?php echo do_shortcode( '[woodmart_blog slides_per_view="' . $column . '" blog_design="carousel" search="' . $search_query . '" items_per_page="10"]' ); ?>
-		
+		    <?php echo woodmart_shortcode_blog( array(
+                    'slides_per_view' => $column,
+                    'blog_design'     => 'carousel',
+                    'search'          => $search_query,
+                    'items_per_page'  => 10
+            ) ); ?>
+
 			<div class="wd-search-show-all">
 				<a href="<?php echo esc_url( home_url() ) ?>?s=<?php echo esc_attr( $search_query ); ?>&post_type=post" class="button">
 					<?php esc_html_e( 'Show all blog results', 'woodmart' ); ?>
@@ -356,6 +525,7 @@ if ( ! function_exists( 'woodmart_ajax_suggestions' ) ) {
 		$results = new WP_Query( apply_filters( 'woodmart_ajax_search_args', $query_args ) );
 
 		if ( woodmart_get_opt( 'relevanssi_search' ) && function_exists( 'relevanssi_do_query' ) ) {
+			add_filter( 'relevanssi_hits_filter', 'woodmart_update_hits_filter_by_product_sku', 10, 2 );
 			relevanssi_do_query( $results );
 		}
 
@@ -392,15 +562,19 @@ if ( ! function_exists( 'woodmart_ajax_suggestions' ) ) {
 			wp_reset_postdata();
 		} else {
 			$suggestions[] = array(
-				'value' => ( $post_type == 'product' ) ? esc_html__( 'No products found', 'woodmart' ) : esc_html__( 'No posts found', 'woodmart' ),
-				'no_found' => true,
-				'permalink' => ''
+				'value'              => ( $post_type == 'product' ) ? esc_html__( 'No products found', 'woodmart' ) : esc_html__( 'No posts found', 'woodmart' ),
+				'products_not_found' => true,
+				'permalink'          => ''
 			);
 		}
 
 		if ( woodmart_get_opt( 'enqueue_posts_results' ) && 'post' !== $post_type ) {
 			$post_suggestions = woodmart_get_post_suggestions();
 			$suggestions = array_merge( $suggestions, $post_suggestions );
+		}
+
+		if ( 1 === count( $suggestions ) && isset( $suggestions[0]['products_not_found'] ) ) {
+			$suggestions[0]['no_results'] = true;
 		}
 
 		echo json_encode( array(
@@ -511,7 +685,7 @@ if ( ! function_exists( 'woodmart_sku_search_query' ) ) {
 
 		foreach ( $terms as $term ) {
 			//Include the search by id if admin area.
-			if ( is_admin() && is_numeric( $term ) ) {
+			if ( apply_filters( 'woodmart_search_by_id', true ) && is_numeric( $term ) ) {
 				$search_ids[] = $term;
 			}
 			// search for variations with a matching sku and return the parent.
@@ -544,7 +718,7 @@ if ( ! function_exists( 'woodmart_sku_search_query_new' ) ) {
 
 		foreach ( $terms as $term ) {
 			//Include the search by id if admin area.
-			if ( is_admin() && is_numeric( $term ) ) {
+			if ( apply_filters( 'woodmart_search_by_id', true ) && is_numeric( $term ) ) {
 				$search_ids[] = $term;
 			}
 			// search for variations with a matching sku and return the parent.
@@ -597,4 +771,38 @@ if ( ! function_exists( 'woodmart_rlv_index_variation_skus' ) ) {
 	}
 	
 	add_filter( 'relevanssi_content_to_index', 'woodmart_rlv_index_variation_skus', 10, 2 );
+}
+
+if ( ! function_exists( 'woodmart_update_hits_filter_by_product_sku' ) ) {
+	function woodmart_update_hits_filter_by_product_sku( $filter_data, $query ) {
+		if ( ! apply_filters( 'woodmart_search_by_sku', woodmart_get_opt( 'search_by_sku' ) ) || ! isset( $query->query['post_type'] ) || 'product' !== $query->query['post_type'] ) {
+			return $filter_data;
+		}
+
+		$args = array(
+			'post_type'      => 'product',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => '_sku',
+					'value'   => $query->query['s'],
+					'compare' => 'LIKE',
+				),
+			),
+		);
+
+		$posts = get_posts( $args );
+
+		if ( $posts ) {
+			$product_ids = array_column( (array) $filter_data[0], 'ID' );
+
+			foreach ( $posts as $post ) {
+				if ( ! in_array( $post->ID, $product_ids ) ) {
+					array_unshift( $filter_data[0], $post );
+				}
+			}
+		}
+
+		return $filter_data;
+	}
 }

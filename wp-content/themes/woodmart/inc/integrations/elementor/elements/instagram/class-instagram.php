@@ -3,6 +3,8 @@
  * Instagram map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -71,7 +73,7 @@ class Instagram extends Widget_Base {
 	 * @since  1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -118,15 +120,11 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 		$this->add_control(
 			'size',
 			[
-				'label'     => esc_html__( 'Photo size', 'woodmart' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'medium'    => esc_html__( 'Medium', 'woodmart' ),
-					'thumbnail' => esc_html__( 'Thumbnail', 'woodmart' ),
-					'large'     => esc_html__( 'Large', 'woodmart' ),
-				],
-				'default'   => 'medium',
-				'condition' => [
+				'label'       => esc_html__( 'Photo size', 'woodmart' ),
+				'description' => esc_html__( 'Enter image size. Example: \'thumbnail\', \'medium\', \'large\', \'full\'. Leave empty to use \'medium\' size.', 'woodmart' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'medium',
+				'condition'   => [
 					'data_source!' => [ 'images' ],
 				],
 			]
@@ -265,7 +263,7 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'per_row',
 			[
 				'label'      => esc_html__( 'Photos per row', 'woodmart' ),
@@ -336,18 +334,6 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 		);
 
 		$this->add_control(
-			'rounded',
-			[
-				'label'        => esc_html__( 'Rounded corners for images', 'woodmart' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '0',
-				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
-				'label_off'    => esc_html__( 'No', 'woodmart' ),
-				'return_value' => '1',
-			]
-		);
-
-		$this->add_control(
 			'hide_mask',
 			[
 				'label'        => esc_html__( 'Hide likes and comments', 'woodmart' ),
@@ -406,6 +392,75 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 		);
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'images_content_section',
+			[
+				'label' => esc_html__( 'Images', 'woodmart' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'rounded',
+			array(
+				'label'        => esc_html__( 'Rounded corners for images', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '0',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => '1',
+			)
+		);
+
+		$this->add_control(
+			'rounding_size',
+			array(
+				'label'     => esc_html__( 'Rounding', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''       => esc_html__( 'Inherit', 'woodmart' ),
+					'0'      => esc_html__( '0', 'woodmart' ),
+					'5'      => esc_html__( '5', 'woodmart' ),
+					'8'      => esc_html__( '8', 'woodmart' ),
+					'12'     => esc_html__( '12', 'woodmart' ),
+					'custom' => esc_html__( 'Custom', 'woodmart' ),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{VALUE}}px;',
+				),
+			)
+		);
+
+		$this->add_control(
+			'custom_rounding_size',
+			array(
+				'label'      => esc_html__( 'Custom rounding', 'woodmart' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( '%', 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 300,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}' => '--wd-brd-radius: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'rounding_size' => array( 'custom' ),
+				),
+			)
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -422,4 +477,4 @@ Follow our documentation <a href="https://xtemos.com/docs/woodmart/faq-guides/se
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Instagram() );
+Plugin::instance()->widgets_manager->register( new Instagram() );

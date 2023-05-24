@@ -27,7 +27,7 @@ if ( ! class_exists( 'WOODMART_Widget_Mailchimp' ) ) {
 						array(
 							'id'     => 'form_id',
 							'type'   => 'dropdown',
-							'fields' => woodmart_get_mailchimp_forms(),
+							'callback_global' => 'woodmart_get_mailchimp_forms',
 							'name'   => esc_html__( 'Select form', 'woodmart' ),
 						),
 					),
@@ -42,7 +42,7 @@ if ( ! class_exists( 'WOODMART_Widget_Mailchimp' ) ) {
 		 * @param array $instance data for create widget preview.
 		 */
 		public function widget( $args, $instance ) {
-			if ( ! $instance['form_id'] || ! defined( 'MC4WP_VERSION' ) ) {
+			if ( ! $instance['form_id'] || ! defined( 'MC4WP_VERSION' ) || $this->is_widget_preview() ) {
 				return;
 			}
 

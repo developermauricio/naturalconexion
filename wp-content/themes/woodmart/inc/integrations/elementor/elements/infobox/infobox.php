@@ -17,6 +17,8 @@ if ( ! function_exists( 'woodmart_elementor_infobox_carousel_template' ) ) {
 			// Carousel.
 			'speed'                   => '5000',
 			'slides_per_view'         => [ 'size' => 4 ],
+			'slides_per_view_tablet'  => [ 'size' => '' ],
+			'slides_per_view_mobile'  => [ 'size' => '' ],
 			'slider_spacing'          => 30,
 			'wrap'                    => '',
 			'autoplay'                => 'no',
@@ -33,6 +35,15 @@ if ( ! function_exists( 'woodmart_elementor_infobox_carousel_template' ) ) {
 		$wrapper_classes  = '';
 
 		$settings['slides_per_view'] = $settings['slides_per_view']['size'];
+
+		if ( ! empty( $settings['slides_per_view_tablet']['size'] ) || ! empty( $settings['slides_per_view_mobile']['size'] ) ) {
+			$settings['custom_sizes'] = array(
+				'desktop'          => $settings['slides_per_view'],
+				'tablet_landscape' => $settings['slides_per_view_tablet']['size'],
+				'tablet'           => $settings['slides_per_view_tablet']['size'],
+				'mobile'           => $settings['slides_per_view_mobile']['size'],
+			);
+		}
 
 		$carousel_classes .= ' ' . woodmart_owl_items_per_slide(
 			$settings['slides_per_view'],
@@ -57,7 +68,7 @@ if ( ! function_exists( 'woodmart_elementor_infobox_carousel_template' ) ) {
 
 		?>
 		<div class="wd-carousel-container info-box-carousel-wrapper<?php echo esc_attr( $wrapper_classes ); ?>" <?php echo woodmart_get_owl_attributes( $settings ); ?>>
-			<div class="owl-carousel info-box-carousel<?php echo esc_attr( $carousel_classes ); ?>">
+			<div class="owl-carousel wd-owl info-box-carousel<?php echo esc_attr( $carousel_classes ); ?>">
 				<?php foreach ( $settings['content_repeater'] as $index => $infobox ) : ?>
 					<?php
 					$infobox                    = $infobox + $settings;
@@ -77,6 +88,7 @@ if ( ! function_exists( 'woodmart_elementor_infobox_template' ) ) {
 			'link'                        => '',
 			'alignment'                   => 'left',
 			'image_alignment'             => 'top',
+			'image_vertical_alignment'    => 'top',
 			'style'                       => '',
 			'hover'                       => '',
 			'woodmart_color_scheme'       => '',
@@ -143,6 +155,11 @@ if ( ! function_exists( 'woodmart_elementor_infobox_template' ) ) {
 		$wrapper_classes .= ' box-style-' . $settings['style'];
 		$wrapper_classes .= ' color-scheme-' . $settings['woodmart_color_scheme'];
 		$wrapper_classes .= $settings['wrapper_classes'] ? ' ' . $settings['wrapper_classes'] : '';
+
+		if ( in_array( $settings['image_alignment'], array( 'left', 'right' ), true ) ) {
+			$wrapper_classes .= ' wd-items-' . $settings['image_vertical_alignment'];
+		}
+
 		if ( 'bg-hover' === $settings['style'] ) {
 			$wrapper_classes .= ' color-scheme-hover-' . $settings['woodmart_hover_color_scheme'];
 		}
@@ -208,7 +225,7 @@ if ( ! function_exists( 'woodmart_elementor_infobox_template' ) ) {
 		if ( isset( $settings['image']['id'] ) && $settings['image']['id'] ) {
 			$image_output = woodmart_get_image_html( $settings, 'image' );
 
-			if ( woodmart_is_svg( woodmart_get_image_url( $settings['image']['id'], 'image', $settings ) ) ) {
+			if ( woodmart_is_svg( woodmart_get_image_url( $settings['image']['id'], 'image', $settings ) ) && apply_filters( 'woodmart_show_infobox_svg_by_tag', true ) ) {
 				$image_output = '<span class="info-svg-wrapper info-icon" style="width:' . esc_attr( $custom_image_size['width'] ) . 'px; height:' . esc_attr( $custom_image_size['height'] ) . 'px;">' . woodmart_get_any_svg(
 					woodmart_get_image_url(
 						$settings['image']['id'],
@@ -221,6 +238,16 @@ if ( ! function_exists( 'woodmart_elementor_infobox_template' ) ) {
 		}
 
 		woodmart_enqueue_inline_style( 'info-box' );
+
+		if ( 'border' === $settings['style'] ) {
+			woodmart_enqueue_inline_style( 'info-box-style-brd' );
+		} elseif ( in_array( $settings['style'], array( 'shadow', 'bg-hover' ), true ) ) {
+			woodmart_enqueue_inline_style( 'info-box-style-shadow-and-bg-hover' );
+		}
+
+		if ( $settings['btn_text'] && 'hover' === $settings['btn_position'] ) {
+			woodmart_enqueue_inline_style( 'info-box-btn-hover' );
+		}
 
 		?>
 		<div class="info-box-wrapper">

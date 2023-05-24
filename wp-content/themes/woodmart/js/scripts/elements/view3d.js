@@ -28,7 +28,7 @@
 			$this.ThreeSixty({
 				totalFrames : data.frames_count,
 				endFrame    : data.frames_count,
-				currentFrame: 1,
+				currentFrame : 1,
 				imgList     : '.threed-view-images',
 				progress    : '.spinner',
 				imgArray    : data.images,
@@ -36,6 +36,7 @@
 				width       : data.width,
 				responsive  : true,
 				navigation  : true,
+				prevNextFrames : woodmart_settings.three_sixty_prev_next_frames,
 				framerate   : woodmart_settings.three_sixty_framerate,
 			});
 

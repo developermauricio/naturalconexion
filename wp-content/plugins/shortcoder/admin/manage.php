@@ -21,8 +21,8 @@ class SC_Admin_Manage{
 
         foreach( $columns as $id => $val ){
             if( $id == 'taxonomy-sc_tag' ){
-                $new_columns[ 'shortcode' ] = __( 'Shortcode', 'sc');
-                $new_columns[ 'desc' ] = __( 'Description', 'sc');
+                $new_columns[ 'shortcode' ] = __( 'Shortcode', 'shortcoder');
+                $new_columns[ 'desc' ] = __( 'Description', 'shortcoder');
             }
             $new_columns[$id] = $val;
         }
@@ -33,9 +33,20 @@ class SC_Admin_Manage{
 
     public static function column_content( $column, $post_id ){
 
+        $general_settings = Shortcoder::get_settings();
+
         if( $column == 'shortcode' ){
             $sc_tag = Shortcoder::get_sc_tag( $post_id );
             echo '<span class="sc_copy_list_wrap"><input type="text" class="widefat sc_copy_text" readonly value="' . esc_attr( $sc_tag ) . '" /><a href="#" class="sc_copy_list" title="' . esc_attr__( 'Copy', 'shortcoder' ) . '"><span class="dashicons dashicons-clipboard"></span></a></span>';
+            if( $general_settings[ 'list_content' ] != 'no' ){
+                $sc_post = get_post( $post_id );
+                $sc_content = trim( $sc_post->post_content );
+                if( !empty( $sc_content ) ){
+                    $content_size = intval( $general_settings[ 'list_content' ] );
+                    $sc_content = substr( $sc_content, 0, $content_size ? $content_size : 100 );
+                    echo '<pre class="sc_content_list">' . esc_html( trim( $sc_content ) ) . '...</pre>';
+                }
+            }
         }
 
         if( $column == 'desc' ){

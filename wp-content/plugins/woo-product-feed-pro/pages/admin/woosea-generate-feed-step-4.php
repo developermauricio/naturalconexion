@@ -74,7 +74,7 @@ if (array_key_exists('project_hash', $_GET)){
                         	<p><?php _e($notifications_box['message'], 'sample-text-domain' ); ?></p>
                 	</div>
 			<form id="rulesandfilters" method="post">
-			<input name="nonce_filters_mapping" id="nonce_filters_mapping" class="nonce_filters_mapping" value="<?php print "$nonce";?>" type="hidden">
+ 			<?php wp_nonce_field( 'woosea_ajax_nonce' ); ?>
 
 			<table class="woo-product-feed-pro-table" id="woosea-ajax-table" border="1">
 				<thead>

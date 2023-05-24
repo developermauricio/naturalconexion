@@ -4,8 +4,8 @@ Contributors: diana_burduja
 Email: diana@burduja.eu
 Tags: CSS, JS, javascript, custom CSS, custom JS, custom style, site css, add style, customize theme, custom code, external css, css3, style, styles, stylesheet, theme, editor, design, admin
 Requires at least: 3.0.1
-Tested up to: 6.1 
-Stable tag: 3.41
+Tested up to: 6.2 
+Stable tag: 3.43
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 5.2.4
@@ -104,6 +104,16 @@ The URL for the linked Codes is built just like the URL for other media (from Me
 $. Add/Edit HTML 
 
 == Changelog ==
+
+= 3.43 =
+* 03/13/2023
+* Fix: PHP8.1 deprecation notices
+* Fix: after adding a JS/HTML custom code with empty content will show the CSS default message in the editor
+
+= 3.42 =
+* 01/17/2023
+* Fix: the "LH Archived Post Status" plugin was removing the "Publish" button on the add/edit custom code page
+* Feature: multiple values for the "Where in site" option
 
 = 3.41 =
 * 10/05/2022

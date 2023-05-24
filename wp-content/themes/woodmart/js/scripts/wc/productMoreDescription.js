@@ -1,6 +1,6 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdShopPageInit wdLoadMoreLoadProducts wdArrowsLoadProducts wdProductsTabsLoaded wdUpdateWishlist', function () {
+	woodmartThemeModule.$document.on('wdShopPageInit wdLoadMoreLoadProducts wdArrowsLoadProducts wdProductsTabsLoaded wdSearchFullScreenContentLoaded wdUpdateWishlist wdRecentlyViewedProductLoaded', function () {
 		woodmartThemeModule.productMoreDescription();
 	});
 
@@ -14,7 +14,7 @@
 	});
 
 	woodmartThemeModule.productMoreDescription = function() {
-		$('.wd-hover-base').on('mouseenter touchstart', function() {
+		$('.wd-hover-with-fade, .wd-image-hotspot.hotspot-type-product').on('mouseenter touchstart', function() {
 			var $content = $(this).find('.wd-more-desc');
 			var $inner = $content.find('.wd-more-desc-inner');
 			var $moreBtn = $content.find('.wd-more-desc-btn');
@@ -42,7 +42,7 @@
 
 			$this.parent().addClass('wd-more-desc-full');
 
-			woodmartThemeModule.$document.trigger('wdProductMoreDescriptionOpen', [$this.parents('.wd-hover-base')]);
+			woodmartThemeModule.$document.trigger('wdProductMoreDescriptionOpen', [$this.parents('.wd-hover-with-fade')]);
 		});
 	};
 

@@ -1,12 +1,12 @@
 === WP Fastest Cache ===
 Contributors: emrevona
-Donate link: http://profiles.wordpress.org/emrevona/
+Donate link: https://profiles.wordpress.org/emrevona/
 Tags: cache, Optimize, performance, wp-cache, core web vitals
 Requires at least: 3.3
-Tested up to: 6.1
-Stable tag: 1.0.9
+Tested up to: 6.2
+Stable tag: 1.1.5
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 The simplest and fastest WP Cache system
 
@@ -14,7 +14,7 @@ The simplest and fastest WP Cache system
 
 <h4>Official Website</h4>
 
-You can find more information on our web site (<a href="http://www.wpfastestcache.com/">wpfastestcache.com</a>)
+You can find more information on our web site (<a href="https://www.wpfastestcache.com/">wpfastestcache.com</a>)
 
 When a page is rendered, php and mysql are used. Therefore, system needs RAM and CPU. 
 If many visitors come to a site, system uses lots of RAM and CPU so page is rendered so slowly. In this case, you need a cache system not to render page again and again. Cache system generates a static html file and saves. Other users reach to static html page.
@@ -40,10 +40,11 @@ Setup of this plugin is so easy. You don't need to modify the .htacces file. It 
 13. Preload Cache - Create the cache of all the site automatically
 14. Exclude pages and user-agents
 15. WP-CLI cache clearing
+16. Proxy Cache - Varnish Cache Integration to clear proxy cached content automatically when the cache created by WP Fastest Cache is cleared
 
 <h4>Performance Optimization</h4>
 
-In the premium version there are many features such as Minify Html, Minify Css, Enable Gzip Compression, Leverage Browser Caching, Add Expires Headers, Combine CSS, Combine JS, Disable Emoji.
+WP Fastest Cache is not only a wp cache plugin but also a speed optimization wordpress cache plugin. There are many features such as Minify Html, Minify Css, Enable Gzip Compression, Leverage Browser Caching, Add Expires Headers, Combine CSS, Combine JS, Disable Emoji.
 
 1. Generating static html files from your dynamic WordPress blog
 2. Minify Html - You can decrease the size of page
@@ -67,7 +68,7 @@ The free version is enough to speed up your site but in the premium version ther
 7. Defer Javascript - Eliminate render-blocking JavaScript resources. Consider delivering critical JS inline and deferring all non-critical JS
 8. Optimize Images - Optimized images load faster and consume less cellular data
 9. Convert WebP - Serve images in next-gen formats. Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption
-10. Database Cleanup
+10. Database Cleanup - The Database Cleanup feature clears out all of the garbage datas such as post revisions, trashed posts & pages, comments from trash & spam, trackbacks and pingbacks, transient options etc.
 11. Google Fonts Async
 12. Lazy Load - Defer offscreen images. Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive
 
@@ -77,29 +78,13 @@ It is very inconvenient to use multiple caching plugins at the same time. That's
 
 WP Fastest Cache is compatible with most popular plugins such as Contact Form 7, Yoast SEO, Elementor Website Builder, Classic Editor, Akismet Spam Protection, WooCommerce, Contact Form by WPForms, Really Simple SSL, All-in-One WP Migration, Yoast Duplicate Post, Wordfence Security – Firewall & Malware Scan, WordPress Importer, UpdraftPlus WordPress Backup Plugin, MonsterInsights, All in One SEO, WP Mail SMTP by WPForms.
 
-<h4>Supported languages: </h4>
+<h4>Supported Languages</h4>
 
-* 中文 (by suifengtec)
-* Deutsch
-* English
-* Español (by Javier Esteban)
-* Español de Venezuela (by Yordan Soares)
-* Español de Argentina (by Mauricio Lopez)
-* فارسی (by Javad Rahimi)
-* Français (by Cyrille Sanson)
-* Italiana (by Luisa Ravelli)
-* 日本語 (by KUCKLU)
-* Nederlands (by Frans Pronk https://ifra.nl)
-* Polski (by roan24.pl)
-* Português
-* Português do Brasil (Mario Antonio Sesso Junior)
-* Română
-* Русский (by Maxim)
-* Slovenčina
-* Suomi (by Arhi Paivarinta)
-* Svenska (by Linus Wileryd)
-* Türkçe
-* 繁體中文 (Alex Lion)
+Although there are over 7000 languages spoken in the world today, we feel very lucky to support 26 languages for now.
+
+However, localizing or adapting a plugin to another language or culture is time consuming and a demanding task. That's where the amazing Translation Contributors team of WordPress comes into play. These selfless people spent their precious time without expecting anything in return so that other people can use the add-ons more easily. We sincerely thank all of them.
+
+Chinese Simplified (China), Chinese Traditional (Taiwan), Czech, Dutch (Belgium), Dutch (Netherlands), English (South Africa), English (UK), Finnish, French (France), Galician, German (Germany), Hungarian, Indonesian, Italian, Japanese, Persian, Russian, Slovak (Slovakia), Spanish (Argentina), Spanish (Colombia), Spanish (Ecuador), Spanish (Mexico), Spanish (Spain), Spanish (Venezuela), Swedish, Turkish
 
 == Installation ==
 
@@ -130,6 +115,40 @@ WP Fastest Cache is compatible with most popular plugins such as Contact Form 7,
 18. Database Cleanup
 
 == Changelog ==
+
+= 1.1.5 =
+* to replace wp_remote_get() with wp_safe_remote_get() in the check_url() function
+* to update translation files
+* to fix PHP Warning: Undefined array key "roles" in wpFastestCache.php on line 962
+* to remove multiple slashes from url
+* to fix PHP Warning: Attempt to read property “wpFastestCacheLanguage” on array in admin.php on line 23
+
+= 1.1.4 =
+* to check trailing slash for query string cache
+* refactoring process of clearing homepage cache by cache timeout
+
+= 1.1.3 =
+* to change translation system [<a target="_blank" href="https://www.wpfastestcache.com/blog/is-wp-fastest-cache-available-in-other-languages/">Details</a>]
+* refactoring of delete_author_page_cache()
+* to add Czech, Dutch (Belgium), Galician, Hungarian, Indonesian, Japanese, Persian, Spanish (Colombia), Spanish (Ecuador), Spanish (Ecuador), Spanish (Venezuela), Spanish (Argentina), Spanish (Mexico) translations
+* to enable the toolbar settings wizard for the Multisite installation [<a target="_blank" href="https://www.wpfastestcache.com/features/clear-cache-link-on-the-toolbar/">Details</a>]
+* to fix low level vulnerability
+
+= 1.1.2 =
+* to clear cache of next/prev posts after updating or publishing a post
+* to fix E_WARNING: file_get_contents(): No such file or directory in admin.php  on line 377
+* <strong>[FEATURE]</strong> Added ability to disable hook system [<a target="_blank" href="https://www.wpfastestcache.com/features/how-to-disable-clear-cache-hook-system/">Details</a>]
+* to fix PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in preload.php on line 546
+* to fix Notice:  Constant WPFC_CACHE_QUERYSTRING already defined
+
+= 1.1.1 =
+* <strong>[FEATURE]</strong> Varnish Cache Integration [<a target="_blank" href="https://www.wpfastestcache.com/features/using-varnish-cache-with-wp-fastest-cache/">Details</a>]
+* to fix E_WARNING: unlink(): No such file or directory in wpFastestCache.php  on line 1530
+
+= 1.1.0 =
+* to show cache if the url contains a parameter of Yandex Click Identifier
+* <strong>[FEATURE]</strong> Excluding Yandex Click Identifier [<a target="_blank" href="https://www.wpfastestcache.com/features/cache-url-with-yandex-click-id-parameters-querystring/">Details</a>]
+* <strong>[FEATURE]</strong> Adding "Regular Expression" option for the Exclude Pages feature [<a target="_blank" href="https://www.wpfastestcache.com/features/using-regular-expression-to-exclude-a-page/">Details</a>]
 
 = 1.0.9 =
 * to improve the style of exclude feature wizard
@@ -359,7 +378,7 @@ For the changelog of earlier versions, please refer to [<a target="_blank" href=
 You need to refresh a page twice. If a page is cached, at the bottom of the page there is a text like "&lt;!-- WP Fastest Cache file was created in 0.330816984177 seconds, on 08-01-14 9:01:35 --&gt;".
 
 = Does it work with Nginx? =
-Yes, it works with Nginx properly.
+Yes, it works with Nginx properly. Since Nginx doesn’t use an .htaccess file, you need to enable the Gzip compression and Browser Caching features manually. You can follow these tutorials: <a href="https://www.wpfastestcache.com/tutorial/how-to-enable-leverage-browser-caching-on-nginx/">How to Enable Leverage Browser Caching on Nginx</a> and <a href="https://www.wpfastestcache.com/tutorial/how-to-enable-gzip-on-nginx/">How to Enable Gzip on Nginx</a>
 
 = Does it work with IIS (Windows Server) ? =
 Yes, it works with IIS properly.
@@ -377,7 +396,7 @@ Yes, it is compatible with Http Secure (https).
 Yes, it is compatible with Adsense 100%.
 
 = Is this plugin compatible with CloudFlare? =
-Yes, it is but you need to read the details. <a href="http://www.wpfastestcache.com/tutorial/wp-fastest-cache-cloudflarecloudfront/">Click</a>
+Yes, it is but you need to read the details. <a href="https://www.wpfastestcache.com/tutorial/wp-fastest-cache-cloudflarecloudfront/">Click</a>
 
 = Is this plugin compatible with qTranslate? =
 Yes, it is compatible with qTranslate 100%.

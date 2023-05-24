@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
 
 
 
@@ -107,6 +108,7 @@ add_action( 'init', 'mce_init_constants' );
 
 
 function mc_get_latest_item(){
+
     $args = array(
             'post_type'         => 'wpcf7_contact_form',
             'posts_per_page'    => -1,
@@ -115,14 +117,18 @@ function mc_get_latest_item(){
 
     $form = 0 ;
     if ( class_exists( 'WPCF7') ) {
+
        $maxpost =  get_posts($args)  ;
        $form = ( count ( $maxpost ) == 0  ) ? 0 : max( $maxpost ) ;
+
     }
 
     //$form = ( class_exists( 'WPCF7') ? max( get_posts($args) ) : 0 ) ;
     $out = '';
     if (!empty($form)) {
+
         $out .= $form;
+
     }
 
     return $out;
@@ -130,9 +136,11 @@ function mc_get_latest_item(){
 
 
 function wpcf7_form_mce_tags() {
+
   $manager = class_exists('WPCF7_FormTagsManager') ? WPCF7_FormTagsManager::get_instance() : WPCF7_ShortcodeManager::get_instance(); // ff cf7 46. and earlier
   $form_tags = $manager->get_scanned_tags();
   return $form_tags;
+
 }
 
 
@@ -153,10 +161,11 @@ function mce_mail_tags() {
 }
 
 function wpcf7_mce_ga_pageview () {
-   global $wpdb;
 
-   $utms  = '?utm_source=MailChimp';
-   $utms .= '&utm_campaign=w' . get_bloginfo( 'version' ) . '-' . mce_difer_dateact_date() . 'c' . WPCF7_VERSION . ( defined( 'WPLANG' ) && WPLANG ? WPLANG : 'en_US' ) . '';
+  global $wpdb;
+  
+  $utms  = '?utm_source=MailChimp';
+  $utms .= '&utm_campaign=w' . get_bloginfo( 'version' ) . '-' . mce_difer_dateact_date() . 'c' . WPCF7_VERSION . ( defined( 'WPLANG' ) && WPLANG ? WPLANG : 'en_US' ) . '';
   $utms .= '&utm_medium=cme-' . SPARTAN_MCE_VERSION . '';
   $utms .= '&utm_term=F' . ini_get( 'allow_url_fopen' ) . 'C' . ( function_exists( 'curl_init' ) ? '1' : '0' ) . 'P' . PHP_VERSION . 'S' .  $wpdb->db_version() . '';
 
@@ -170,28 +179,38 @@ function wpcf7_mce_ga_pageview () {
 }
 
 function plugin_activation( $plugin ) {
+
     if( ! function_exists('activate_plugin') ) {
+
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
     }
 
     if( ! is_plugin_active( $plugin ) ) {
+
         activate_plugin( $plugin );
+
     }
 }
 
 
 
 if (!function_exists('chimpmatic_tags')) {
+
   function chimpmatic_tags( $output, $name, $html ) {
 
+
     if ( '_domain' == $name ) {
+
       $output = chimpmatic_domain();
+
     }
 
     if ( '_formID' == $name ) {
-      $output = chimpmatic_form_id();
-    }
 
+      $output = chimpmatic_form_id();
+
+    }
 
     return $output;
 
@@ -202,6 +221,7 @@ add_filter( 'wpcf7_special_mail_tags', 'chimpmatic_tags', 10, 3 );
 
 
 if (!function_exists('chimpmatic_add_form_tag_posts')) {
+
   function chimpmatic_add_form_tag_posts() {
 
     wpcf7_add_form_tag('_domain', 'chimpmatic_domain');
@@ -214,6 +234,7 @@ add_action('wpcf7_init', 'chimpmatic_add_form_tag_posts', 11);
 
 
 if (!function_exists('chimpmatic_domain')) {
+
   function chimpmatic_domain() {
 
     $strToLower       = strtolower(trim( get_home_url() ));
@@ -230,6 +251,7 @@ if (!function_exists('chimpmatic_domain')) {
 
 
 if (!function_exists('chimpmatic_form_id')) {
+
   function chimpmatic_form_id() {
 
     $wpcf7 = WPCF7_ContactForm::get_current();

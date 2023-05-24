@@ -2,123 +2,200 @@
 // BUTTONS
 // ------------------------------------------------------------------------------------------------
 
-.xts-btn {
-	outline: none;
-	border: none;
-	border-radius: $xts-option-border-radius;
+@if $general {
 
-	@extend %xts-button;
-}
+	// ------------------------------------------
+	// GENERAL
+	// ------------------------------------------
 
-.xts-btn-primary {
-	@extend %xts-button-primary;
-	@extend %xts-button-primary-hover;
-}
+	:is(
+	.xts-btn,
+	.xts-bordered-btn,
+	.xts-inline-btn) {
 
-.xts-btn-alt {
-	@extend %xts-button-alternative;
-	@extend %xts-button-alternative-hover;
-}
+		&.xts-style-icon {
+			font-size: 0;
 
-.xts-btn-disable,
-.xts-remove-upload-btn {
-	background-color: $xts-button-color-remove;
-	color: #FFF;
-
-	&:hover {
-		background-color: $xts-button-color-remove-hover;
+			&:before {
+				margin: 0;
+				font-size: 14px;
+			}
+		}
 	}
 
-	&:hover,
-	&:focus {
-		color: #FFF;
-	}
-}
+	:is(
+	.xts-btn,
+	.xts-bordered-btn) {
 
-.xts-remove-upload-btn {
-	display: none;
+		&:before {
+			margin-inline-end: 5px;
+			vertical-align: middle;
+		}
 
-	&.xts-active {
-		display: block;
-	}
-}
-
-// ------------------------------------------
-// BORDERED BTN
-// ------------------------------------------
-
-.xts-bordered-btn {
-	border-radius: $xts-option-border-radius;
-	@extend %xts-bordered-button;
-}
-
-.xts-border-btn-primary {
-	@extend %xts-bordered-button-primary;
-}
-
-.xts-bordered-btn-white {
-	@extend %xts-bordered-button-white;
-}
-
-// ------------------------------------------
-// INLINE BTN
-// ------------------------------------------
-
-.xts-inline-btn {
-	display: inline-flex;
-	align-items: center;
-	padding: 0;
-	width: auto !important;
-	border: 0;
-	background-color: transparent;
-	color: #101010;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all .2s ease-in-out;
-
-	&:before {
-		position: relative;
-		bottom: -1px;
-		margin-right: 3px;
-		vertical-align: middle;
-		font-weight: 400;
-		font-family: "dashicons";
+		&.xts-style-icon {
+			padding: 0 12px;
+		}
 	}
 
-	&:hover,
-	&:focus {
-		color: inherit;
-		opacity: .8;
+	// ------------------------------------------
+	// DEFAULT BTN
+	// ------------------------------------------
+
+	.xts-btn {
+		outline: none;
+		border: none;
+		border-radius: var(--xts-option-border-radius);
+
+		@extend %xts-button;
+		@extend %xts-button-default;
+		@extend %xts-button-default-hover;
+
+		&.xts-color-primary {
+			@extend %xts-button-primary;
+			@extend %xts-button-primary-hover;
+		}
+
+		&.xts-color-alt {
+			@extend %xts-button-alternative;
+			@extend %xts-button-alternative-hover;
+		}
+
+		&.xts-color-warning {
+			@extend %xts-button-warning;
+			@extend %xts-button-warning-hover;
+		}
+
+		&.xts-color-white {
+			@extend %xts-button-white;
+			@extend %xts-button-white-hover;
+		}
+
+		// &.xts-style-icon {
+		// 	font-size: 0;
+		// 	padding: 0 12px;
+
+		// 	&:before {
+		// 		margin: 0;
+		// 		font-size: 14px;
+		// 	}
+		// }
 	}
 
-	&.xts-btn-underline {
-		border-bottom: 2px solid $xts-color-alternative;
+	// .xts-remove-upload-btn,
+	// .xts-color-warning {
+	// 	@extend %xts-button-warning;
+	// 	@extend %xts-button-warning-hover;
+	// }
+
+	// ------------------------------------------
+	// BORDERED BTN
+	// ------------------------------------------
+
+	.xts-bordered-btn {
+		border-radius: var(--xts-option-border-radius);
+		background-color: #FFF;
+
+		@extend %xts-bordered-button;
+
+		//**** COLOR ****//
+
+		&.xts-color-default {
+			@extend %xts-bordered-button-default;
+		}
+
+		&.xts-color-primary {
+			@extend %xts-bordered-button-primary;
+		}
+
+		&.xts-color-warning {
+			@extend %xts-bordered-button-warning;
+		}
+
+		&.xts-color-white {
+			@extend %xts-bordered-button-white;
+		}
+
+		//**** STYLE ****//
+
+		// &.xts-style-icon {
+		// 	font-size: 0;
+		// 	padding: 0 12px;
+
+		// 	&:before {
+		// 		margin: 0;
+		// 		font-size: 14px;
+		// 	}
+		// }
 	}
-}
 
+	// ------------------------------------------
+	// INLINE BTN
+	// ------------------------------------------
 
-.xts-inline-btn-add {
-	color: $xts-color-primary;
+	.xts-inline-btn {
+		@extend %xts-inline-button;
 
-	&:before {
-		content: "\f502";
+		&.xts-color-primary {
+			@extend %xts-inline-button-primary;
+		}
+
+		&.xts-color-alt {
+			color: var(--xts-btn-secondary-color);
+
+			&:hover {
+				color: var(--xts-btn-secondary-color-hover);
+			}
+		}
+
+		&.xts-color-warning {
+			@extend %xts-inline-button-warning;
+		}
+
+		&.xts-style-underline {
+			border-bottom: 2px solid var(--xts-primary-color);
+		}
+
+		&.xts-style-icon {
+			height: 14px;
+			line-height: 1;
+		}
 	}
-}
 
-.xts-inline-btn-remove {
-	color: $xts-button-color-remove;
+	// ------------------------------------------
+	// DISABLED BTN
+	// ------------------------------------------
 
-	&:before {
-		content: "\f182";
+	.xts-btn {
+
+		&.xts-disabled {
+			opacity: .7;
+			pointer-events: none;
+		}
 	}
-}
 
-.xts-inline-btn-alt {
-	color: $xts-button-color-alternative;
+	// ------------------------------------------
+	// CROSS BTN
+	// ------------------------------------------
 
-	&:hover {
-		color: $xts-button-color-alternative-hover;
-	}
-}
+	// .xts-cross-btn {
+	// 	display: inline-block;
+	// 	text-decoration: none;
+	// 	font-size: 0;
+	// 	line-height: 1;
+
+	// 	&:before {
+	// 		color: var(--xts-warning-color);
+	// 		font-size: 16px;
+	// 	}
+
+	// 	&:hover {
+	// 		opacity: .7;
+	// 	}
+
+	// 	&:focus {
+	// 		outline: none;
+	// 		box-shadow: none;
+	// 	}
+	// }
+
+} // END IF

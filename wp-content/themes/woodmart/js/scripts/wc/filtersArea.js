@@ -18,7 +18,7 @@
 		});
 
 		if (woodmart_settings.shop_filters_close === 'no') {
-			woodmartThemeModule.$body.on('click', woodmartThemeModule.ajaxLinks, function() {
+			woodmartThemeModule.$body.on('click', woodmart_settings.ajax_links, function() {
 				if (isOpened()) {
 					closeFilters();
 				}

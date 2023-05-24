@@ -20,8 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+woodmart_enqueue_inline_style( 'woo-shop-el-order-by' );
+
+use XTS\Modules\Layouts\Global_Data as Builder_Data;
+
+$builder_ordering_classes = Builder_Data::get_instance()->get_data( 'builder_ordering_classes' );
+
+$ordering_classes  = ! empty( $list ) ? 'woocommerce-ordering-list' : 'woocommerce-ordering';
+$ordering_classes .= ! empty( $builder_ordering_classes ) ? $builder_ordering_classes : ' wd-style-underline wd-ordering-mb-icon';
 ?>
-<form class="woocommerce-ordering<?php if ( ! empty( $list ) ): ?>-list<?php endif; ?>" method="get">
+<form class="<?php echo esc_attr( $ordering_classes ); ?>" method="get">
 	<?php if ( ! empty( $list ) ): ?>
 		<ul>
 			<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>

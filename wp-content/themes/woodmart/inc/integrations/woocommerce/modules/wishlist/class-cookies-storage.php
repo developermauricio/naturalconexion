@@ -120,4 +120,8 @@ class Cookies_Storage implements Storage {
 		return isset( $all[ $product_id ] );
 	}
 
+	public function get_product_ids_by_wishlist_id() {
+		return $this->get_all();
+	}
+
 }

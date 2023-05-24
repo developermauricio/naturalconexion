@@ -43,4 +43,8 @@ return apply_filters( 'woodmart_get_product_hovers', array(
         'title' => esc_html__( 'Tiled', 'woodmart' ),
         'img' => WOODMART_ASSETS_IMAGES . '/settings/hover/tiled.jpg',
     ),
+	'fw-button' => array(
+		'title' => esc_html__( 'Full width button', 'woodmart' ),
+		'img' => WOODMART_ASSETS_IMAGES . '/settings/hover/fw-button.jpg',
+	),
 ) );

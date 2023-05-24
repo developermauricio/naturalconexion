@@ -43,7 +43,7 @@
 		});
 
 		if ($list.find('li.current-cat.cat-parent, li.current-cat-parent').length > 0) {
-			$list.find('li.current-cat.cat-parent, li.current-cat-parent').find('> .wd-cats-toggle').click();
+			$list.find('li.current-cat.cat-parent, li.current-cat-parent').find('> .wd-cats-toggle').trigger('click');
 		}
 	};
 

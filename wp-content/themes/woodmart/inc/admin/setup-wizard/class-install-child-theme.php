@@ -20,13 +20,14 @@ class Install_Child_Theme extends Singleton {
 	 */
 	public function init() {
 		add_action( 'wp_ajax_woodmart_install_child_theme', array( $this, 'install_child_theme' ) );
-		add_action( 'wp_ajax_nopriv_woodmart_install_child_theme', array( $this, 'install_child_theme' ) );
 	}
 
 	/**
 	 * Install child theme.
 	 */
 	public function install_child_theme() {
+		check_ajax_referer( 'woodmart_install_child_theme_nonce', 'security' );
+
 		$parent_theme_name = 'woodmart';
 		$child_theme_name  = $parent_theme_name . '-child';
 		$theme_root        = get_theme_root();
@@ -40,7 +41,7 @@ class Install_Child_Theme extends Singleton {
 				die();
 			}
 
-			$child_theme_resource_folder = get_parent_theme_file_path( 'inc/' . $child_theme_name );
+			$child_theme_resource_folder = get_parent_theme_file_path( 'inc/admin/setup-wizard/' . $child_theme_name );
 
 			copy( $child_theme_resource_folder . '/functions.php', $child_theme_path . '/functions.php' );
 			copy( $child_theme_resource_folder . '/screenshot.png', $child_theme_path . '/screenshot.png' );

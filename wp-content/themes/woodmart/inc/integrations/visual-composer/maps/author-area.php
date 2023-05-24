@@ -5,22 +5,17 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_author_area' ) ) {
-	function woodmart_vc_map_author_area() {
-		if ( ! shortcode_exists( 'author_area' ) ) {
-			return;
-		}
-
-		vc_map( array(
+if( ! function_exists( 'woodmart_get_vc_map_author_area' ) ) {
+	function woodmart_get_vc_map_author_area() {
+		return array(
 			'name' => esc_html__( 'Author area', 'woodmart' ),
 			'base' => 'author_area',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => function_exists( 'woodmart_get_tab_title_category_for_wpb' ) ? woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ) : esc_html__( 'Theme elements', 'woodmart' ),
 			'description' => esc_html__( 'Widget for author information', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/author-area.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/author-area.svg',
 			'params' =>  woodmart_get_author_area_params()
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_author_area' );
 }
 
 if( ! function_exists( 'woodmart_get_author_area_params' ) ) {

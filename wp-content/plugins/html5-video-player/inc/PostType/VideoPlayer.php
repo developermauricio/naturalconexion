@@ -157,7 +157,7 @@ class VideoPlayer{
         );	
         add_meta_box(
             'myplugin',
-            __( 'Pro Version Demos', 'h5vp' ),
+            __( 'Upgrade', 'h5vp' ),
             [$this, 'h5vp_callback'],
             'videoplayer',
             'side'

@@ -3,6 +3,8 @@
  * Countdown timer map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
@@ -71,7 +73,7 @@ class Countdown extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -93,6 +95,18 @@ class Countdown extends Widget_Base {
 				'type'    => Controls_Manager::DATE_TIME,
 				'default' => date( 'Y-m-d', strtotime( ' +2 months' ) ),
 			]
+		);
+
+		$this->add_control(
+			'hide_on_finish',
+			array(
+				'label'        => esc_html__( 'Hide countdown on finish', 'woodmart' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'woodmart' ),
+				'label_off'    => esc_html__( 'No', 'woodmart' ),
+				'return_value' => 'yes',
+			)
 		);
 
 		$this->end_controls_section();
@@ -196,6 +210,7 @@ class Countdown extends Widget_Base {
 			'size'                  => 'medium',
 			'align'                 => 'center',
 			'style'                 => 'standard',
+			'hide_on_finish'        => 'no',
 		];
 
 		$settings = wp_parse_args( $this->get_settings_for_display(), $default_settings );
@@ -219,10 +234,13 @@ class Countdown extends Widget_Base {
 						woodmart_get_old_classes( ' woodmart-timer' ),
 					],
 					'data-end-date' => [
-						$settings['date'],
+						apply_filters( 'wd_countdown_timer_end_date', $settings['date'] ),
 					],
 					'data-timezone' => [
 						$timezone,
+					],
+					'data-hide-on-finish' => [
+						$settings['hide_on_finish'],
 					],
 				],
 			]
@@ -234,10 +252,35 @@ class Countdown extends Widget_Base {
 
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'timer' ); ?>></div>
+			<div <?php echo $this->get_render_attribute_string( 'timer' ); ?>>
+				<span class="countdown-days">
+					0
+					<span>
+						<?php esc_html_e( 'days', 'woodmart' ); ?>
+					</span>
+				</span>
+				<span class="countdown-hours">
+					00
+					<span>
+						<?php esc_html_e( 'hr', 'woodmart' ); ?>
+					</span>
+				</span>
+				<span class="countdown-min">
+					00
+					<span>
+						<?php esc_html_e( 'min', 'woodmart' ); ?>
+					</span>
+				</span>
+				<span class="countdown-sec">
+					00
+					<span>
+						<?php esc_html_e( 'sc', 'woodmart' ); ?>
+					</span>
+				</span>
+			</div>
 		</div>
 		<?php
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Countdown() );
+Plugin::instance()->widgets_manager->register( new Countdown() );

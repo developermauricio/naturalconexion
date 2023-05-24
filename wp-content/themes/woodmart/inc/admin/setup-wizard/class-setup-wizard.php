@@ -27,37 +27,52 @@ class Setup_Wizard extends Singleton {
 	 */
 	public function init() {
 		$this->available_pages = array(
-			'welcome'       => esc_html__( 'Welcome', 'woodmart' ),
-			'activation'    => esc_html__( 'Activation', 'woodmart' ),
-			'child-theme'   => esc_html__( 'Child theme', 'woodmart' ),
-			'page-builder'  => esc_html__( 'Page builder', 'woodmart' ),
-			'plugins'       => esc_html__( 'Plugins', 'woodmart' ),
-			'dummy-content' => esc_html__( 'Dummy content', 'woodmart' ),
-			'done'          => esc_html__( 'Done', 'woodmart' ),
+			'welcome'           => esc_html__( 'Welcome', 'woodmart' ),
+			'activation'        => esc_html__( 'Activation', 'woodmart' ),
+			'child-theme'       => esc_html__( 'Child theme', 'woodmart' ),
+			'page-builder'      => esc_html__( 'Page builder', 'woodmart' ),
+			'plugins'           => esc_html__( 'Plugins', 'woodmart' ),
+			'prebuilt-websites' => esc_html__( 'Prebuilt websites', 'woodmart' ),
+			'done'              => esc_html__( 'Done', 'woodmart' ),
 		);
 
 		if ( isset( $_GET['skip_setup'] ) ) {
 			update_option( 'woodmart_setup_status', 'done' );
-        }
+		}
 
 		if ( 'done' !== get_option( 'woodmart_setup_status' ) ) { // phpcs:ignore
 			add_action( 'admin_init', array( $this, 'prevent_plugins_redirect' ), 1 );
 			do_action( 'woodmart_setup_wizard' );
 		}
 
+		if ( defined( 'DOING_AJAX' ) || isset( $_GET['page'] ) && ( 'xts_dashboard' === $_GET['page'] || 'tgmpa-install-plugins' === $_GET['page'] ) ) {
+			add_action( 'admin_init', array( $this, 'prevent_plugins_redirect' ), 1 );
+		}
+
 		add_action( 'admin_init', array( $this, 'theme_activation_redirect' ) );
+
+		add_filter( 'leadin_impact_code', array( $this, 'get_hubspot_affiliate_code' ) );
 	}
 
 	/**
 	 * Prevent plugins redirect.
 	 */
 	public function prevent_plugins_redirect() {
+		delete_transient( '_revslider_welcome_screen_activation_redirect' );
+		delete_transient( '_vc_page_welcome_redirect' );
 		delete_transient( 'elementor_activation_redirect' );
 		add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
 		remove_action( 'admin_menu', 'vc_menu_page_build' );
 		remove_action( 'network_admin_menu', 'vc_network_menu_page_build' );
 		remove_action( 'vc_activation_hook', 'vc_page_welcome_set_redirect' );
 		remove_action( 'admin_init', 'vc_page_welcome_redirect' );
+	}
+
+	/**
+	 * Hubspot affiliate.
+	 */
+	public function get_hubspot_affiliate_code() {
+		return '7m0A9V';
 	}
 
 	/**
@@ -71,7 +86,7 @@ class Setup_Wizard extends Singleton {
 		global $pagenow;
 
 		$args = array(
-			'page' => 'woodmart_dashboard',
+			'page' => 'xts_dashboard',
 			'tab'  => 'wizard',
 		);
 
@@ -87,6 +102,8 @@ class Setup_Wizard extends Singleton {
 		if ( 'done' === get_option( 'woodmart_setup_status' ) ) {
 			return;
 		}
+
+		wp_enqueue_script( 'wd-setup-wizard', WOODMART_ASSETS . '/js/wizard.js', array(), WOODMART_VERSION, true );
 
 		$page = 'welcome';
 
@@ -104,7 +121,7 @@ class Setup_Wizard extends Singleton {
 	 */
 	public function show_page( $name ) {
 		?>
-		<div class="xts-setup-wizard-wrap">
+		<div class="xts-setup-wizard-wrap xts-theme-style">
 			<div class="xts-setup-wizard">
 				<div class="xts-wizard-nav">
 					<?php $this->show_part( 'sidebar' ); ?>
@@ -155,7 +172,7 @@ class Setup_Wizard extends Singleton {
 		}
 
 		?>
-		<a class="xts-btn xts-btn-primary xts-next<?php echo esc_attr( $classes ); ?>" href="<?php echo esc_url( $url ); ?>">
+		<a class="xts-btn xts-color-primary xts-next<?php echo esc_attr( $classes ); ?>" href="<?php echo esc_url( $url ); ?>">
 			<?php esc_html_e( 'Next step', 'woodmart' ); ?>
 		</a>
 		<?php
@@ -168,7 +185,7 @@ class Setup_Wizard extends Singleton {
 	 */
 	public function get_skip_button( $page ) {
 		?>
-		<a class="xts-inline-btn xts-inline-btn-alt xts-skip" href="<?php echo esc_url( $this->get_page_url( $page ) ); ?>">
+		<a class="xts-inline-btn xts-color-primary xts-skip" href="<?php echo esc_url( $this->get_page_url( $page ) ); ?>">
 			<?php esc_html_e( 'Skip', 'woodmart' ); ?>
 		</a>
 		<?php
@@ -204,7 +221,7 @@ class Setup_Wizard extends Singleton {
 	 * @param string $name Page name.
 	 */
 	public function get_page_url( $name ) {
-		return admin_url( 'admin.php?page=woodmart_dashboard&tab=wizard&step=' . $name ); // phpcs:ignore
+		return admin_url( 'admin.php?page=xts_dashboard&tab=wizard&step=' . $name ); // phpcs:ignore
 	}
 
 	/**
@@ -214,6 +231,24 @@ class Setup_Wizard extends Singleton {
 	 */
 	public function get_image_url( $name ) {
 		return WOODMART_THEME_DIR . '/inc/admin/setup-wizard/images/' . $name;
+	}
+
+	/**
+	 * Get plugin image url.
+	 *
+	 * @param string $name Image name.
+	 */
+	public function get_plugin_image_url( $name ) {
+		return WOODMART_THEME_DIR . '/inc/admin/assets/images/plugins/' . $name;
+	}
+
+	/**
+	 * Is setup wizard.
+	 *
+	 * @return bool
+	 */
+	public function is_setup() {
+		return isset( $_GET['tab'] ) && 'wizard' === $_GET['tab']; //phpcs:ignore
 	}
 }
 

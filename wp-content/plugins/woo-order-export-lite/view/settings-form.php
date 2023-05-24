@@ -131,7 +131,7 @@ function remove_time_from_date( $datetime ) {
     <div id="my-left" style="float: left; width: 49%; max-width: 500px;">
 		<?php do_action( 'woe_settings_form_view_top', $settings ); ?>
         <input type="hidden" name="settings[version]"
-               value="<?php echo isset( $settings['version'] ) ? $settings['version'] : '2.0' ?>">
+               value="<?php echo esc_attr(isset( $settings['version'] ) ? $settings['version'] : '2.0') ?>">
 
 
 		<?php if ( $show['date_filter'] ) : ?>
@@ -174,18 +174,18 @@ function remove_time_from_date( $datetime ) {
                 <div style="display: inline;">
                     <span class="wc-oe-header"><?php _e( 'Date range', 'woo-order-export-lite' ) ?></span>
                     <input type=text class='date' name="settings[from_date]" id="from_date"
-                           value='<?php echo ! empty($options['show_date_time_picker_for_date_range']) ? $settings['from_date']: remove_time_from_date($settings['from_date']) ?>'>
+                           value='<?php echo esc_attr(! empty($options['show_date_time_picker_for_date_range']) ? $settings['from_date']: remove_time_from_date($settings['from_date'])) ?>'>
 					<?php _e( 'to', 'woo-order-export-lite' ) ?>
                     <input type=text class='date' name="settings[to_date]" id="to_date"
-                           value='<?php echo ! empty($options['show_date_time_picker_for_date_range']) ? $settings['to_date']: remove_time_from_date($settings['to_date']) ?>'>
+                           value='<?php echo esc_attr(! empty($options['show_date_time_picker_for_date_range']) ? $settings['to_date']: remove_time_from_date($settings['to_date']))?>'>
                 </div>
                 <br>
 						<br>
                 <div style="display: inline;">
                     <span class="wc-oe-header"><?php _e( 'Orders range', 'woo-order-export-lite' ) ?></span>
-                    <input class='width-15' type=text name="settings[from_order_id]" id="from_order_id" value='<?php echo  $settings['from_order_id']?>'>
+                    <input class='width-15' type=text name="settings[from_order_id]" id="from_order_id" value='<?php echo esc_attr( $settings['from_order_id'] ) ?>'>
 					<?php _e( 'to', 'woo-order-export-lite' ) ?>
-                    <input class='width-15' type=text name="settings[to_order_id]" id="to_order_id" value='<?php echo  $settings['to_order_id']?>'>
+                    <input class='width-15' type=text name="settings[to_order_id]" id="to_order_id" value='<?php echo  esc_attr( $settings['to_order_id'] ) ?>'>
                 <button id="my-quick-export-btn" class="button-primary"><?php _e( 'Express export',
 						'woo-order-export-lite' ) ?></button>
 						<?php do_action( "woe_settings_below_orders_range", $settings ); ?>
@@ -220,7 +220,7 @@ function remove_time_from_date( $datetime ) {
             </div>
             <label id="export_filename" class="width-100">
                 <input type="text" name="settings[export_filename]" class="width-100"
-                       value="<?php echo isset( $settings['export_filename'] ) ? $settings['export_filename'] : 'orders-%y-%m-%d-%h-%i-%s.xlsx' ?>">
+                       value="<?php echo esc_attr( isset( $settings['export_filename'] ) ? $settings['export_filename'] : 'orders-%y-%m-%d-%h-%i-%s.xlsx' ) ?>">
             </label>
         </div>
         <br>
@@ -231,7 +231,7 @@ function remove_time_from_date( $datetime ) {
             <p class="line-height__3 mb-0">
 				<?php foreach ( WC_Order_Export_Admin::$formats as $format ) { ?>
                     <label class="button-secondary">
-                        <input type=radio name="settings[format]" class="output_format" value="<?php echo $format ?>"
+                        <input type=radio name="settings[format]" class="output_format" value="<?php echo esc_attr($format) ?>"
 							<?php if ( $format == $settings['format'] ) {
 								echo 'checked';
 							} ?> ><?php echo $format ?>
@@ -258,7 +258,7 @@ function remove_time_from_date( $datetime ) {
 					'woo-order-export-lite' ) ?><br>
                 <input type=checkbox checked disabled><?php _e( 'Use sheet name', 'woo-order-export-lite' ) ?></b>
                 <input type=text name="settings[format_xls_sheet_name]"
-                       value='<?php echo $settings['format_xls_sheet_name'] ?>' size=10><br>
+                       value='<?php echo esc_attr($settings['format_xls_sheet_name']) ?>' size=10><br>
                 <input type=checkbox name="settings[format_xls_display_column_names]"
                        value=1 <?php if ( @$settings['format_xls_display_column_names'] ) {
 					echo 'checked';
@@ -284,14 +284,14 @@ function remove_time_from_date( $datetime ) {
 		            <?php _e( 'Images width', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_xls_row_images_width]"
-		                   value='<?php echo $settings['format_xls_row_images_width'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_xls_row_images_width']) ?>' min="0">
 	            </div>
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Images height', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_xls_row_images_height]"
-		                   value='<?php echo $settings['format_xls_row_images_height'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_xls_row_images_height']) ?>' min="0">
 	            </div>
             </div>
             <div id='CSV_options' style='display:none'><strong><?php _e( 'CSV options',
@@ -329,20 +329,20 @@ function remove_time_from_date( $datetime ) {
                 <div class="line-height__3">
                     <?php _e( 'Enclosure', 'woo-order-export-lite' ) ?> <input type=text
                                                                                 name="settings[format_csv_enclosure]"
-                                                                                value='<?php echo $settings['format_csv_enclosure'] ?>'
+                                                                                value='<?php echo esc_attr($settings['format_csv_enclosure']) ?>'
                                                                                 size=1>
                     <?php _e( 'Field Delimiter', 'woo-order-export-lite' ) ?> <input type=text
                                                                                         name="settings[format_csv_delimiter]"
-                                                                                        value='<?php echo $settings['format_csv_delimiter'] ?>'
+                                                                                        value='<?php echo esc_attr($settings['format_csv_delimiter']) ?>'
                                                                                         size=1>
                     <?php _e( 'Line Break', 'woo-order-export-lite' ) ?><input type=text
                                                                                 name="settings[format_csv_linebreak]"
-                                                                                value='<?php echo $settings['format_csv_linebreak'] ?>'
+                                                                                value='<?php echo esc_attr($settings['format_csv_linebreak']) ?>'
                                                                                 size=4><br>
                     <?php if ( function_exists( 'iconv' ) ): ?>
                         <?php _e( 'Character encoding', 'woo-order-export-lite' ) ?><input type=text
                                                                                             name="settings[format_csv_encoding]"
-                                                                                            value="<?php echo $settings['format_csv_encoding'] ?>"
+                                                                                            value="<?php echo esc_attr($settings['format_csv_encoding']) ?>"
 											    id="woe_format_disabled"
 										    >
                         <br>
@@ -358,22 +358,22 @@ function remove_time_from_date( $datetime ) {
                 <input type=hidden name="settings[format_xml_preview_format]" value=0>
                 <span class="xml-title"><?php _e( 'Prepend XML', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                               name="settings[format_xml_prepend_raw_xml]"
-                                                                                                              value='<?php echo $settings['format_xml_prepend_raw_xml'] ?>'><br><br>
+                                                                                                              value='<?php echo esc_attr($settings['format_xml_prepend_raw_xml']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Root tag', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                            name="settings[format_xml_root_tag]"
-                                                                                                           value='<?php echo $settings['format_xml_root_tag'] ?>'><br><br>
+                                                                                                           value='<?php echo esc_attr($settings['format_xml_root_tag']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Order tag', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                             name="settings[format_xml_order_tag]"
-                                                                                                            value='<?php echo $settings['format_xml_order_tag'] ?>'><br><br>
+                                                                                                            value='<?php echo esc_attr($settings['format_xml_order_tag']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Product tag', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                               name="settings[format_xml_product_tag]"
-                                                                                                              value='<?php echo $settings['format_xml_product_tag'] ?>'><br><br>
+                                                                                                              value='<?php echo esc_attr($settings['format_xml_product_tag']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Coupon tag', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                              name="settings[format_xml_coupon_tag]"
-                                                                                                             value='<?php echo $settings['format_xml_coupon_tag'] ?>'><br><br>
+                                                                                                             value='<?php echo esc_attr($settings['format_xml_coupon_tag']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Append XML', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                              name="settings[format_xml_append_raw_xml]"
-                                                                                                             value='<?php echo $settings['format_xml_append_raw_xml'] ?>'><br><br>
+                                                                                                             value='<?php echo esc_attr($settings['format_xml_append_raw_xml']) ?>'><br><br>
                 <span class="xml-title"><?php _e( 'Self closing tags', 'woo-order-export-lite' ) ?></span><input
                         type=checkbox name="settings[format_xml_self_closing_tags]"
                         value=1 <?php if ( @$settings['format_xml_self_closing_tags'] ) {
@@ -389,10 +389,10 @@ function remove_time_from_date( $datetime ) {
 						'woo-order-export-lite' ) ?></strong><br>
                 <span class="xml-title"><?php _e( 'Start tag', 'woo-order-export-lite' ) ?></span><input type=text
                                                                                                             name="settings[format_json_start_tag]"
-                                                                                                            value='<?php echo @$settings['format_json_start_tag'] ?>'><br>
+                                                                                                            value='<?php echo esc_attr(@$settings['format_json_start_tag']) ?>'><br>
                 <span class="xml-title"><?php _e( 'End tag', 'woo-order-export-lite' ) ?></span><input class="mt-sm" type=text
                                                                                                           name="settings[format_json_end_tag]"
-                                                                                                          value='<?php echo @$settings['format_json_end_tag'] ?>'><br>
+                                                                                                          value='<?php echo esc_attr(@$settings['format_json_end_tag']) ?>'><br>
                 <label><input type=checkbox name="settings[format_json_unescaped_slashes]" value=1 <?php if(@$settings['format_json_unescaped_slashes']){
                         echo 'checked';
                     }?>><?php _e("Don't escape /",'woo-order-export-lite')?></label><br>
@@ -431,7 +431,7 @@ function remove_time_from_date( $datetime ) {
 				<?php if ( function_exists( 'iconv' ) ): ?>
 					<?php _e( 'Character encoding', 'woo-order-export-lite' ) ?><input type=text
                                                                                           name="settings[format_tsv_encoding]"
-                                                                                          value="<?php echo $settings['format_tsv_encoding'] ?>"
+                                                                                          value="<?php echo esc_attr($settings['format_tsv_encoding']) ?>"
                                                                                           id="woe_format_tsv_disabled" >
                     <br>
 				<?php endif ?>
@@ -471,7 +471,7 @@ function remove_time_from_date( $datetime ) {
 					<?php _e( 'Page size', 'woo-order-export-lite' ) ?><br>
                     <select name="settings[format_pdf_page_size]">
 						<?php foreach ( $pdf_format_available_options['page_size'] as $size => $label ): ?>
-                            <option value="<?php echo $size; ?>" <?php echo selected( $size == $settings['format_pdf_page_size'] ); ?> ><?php echo $label; ?></option>
+                            <option value="<?php echo esc_attr($size); ?>" <?php echo selected( $size == $settings['format_pdf_page_size'] ); ?> ><?php echo $label; ?></option>
 						<?php endforeach; ?>
                     </select>
                 </div>
@@ -494,7 +494,7 @@ function remove_time_from_date( $datetime ) {
 					?><br>
                     <select name="settings[format_pdf_pagination]">
 						<?php foreach ( array_merge( $align_types, array( 'disable' => __( 'No page numbers', 'woo-order-export-lite' ) ) ) as $align => $label ): ?>
-                            <option value="<?php echo $align; ?>" <?php echo selected( $align == $settings['format_pdf_pagination'] ); ?> ><?php echo $label; ?></option>
+                            <option value="<?php echo esc_attr($align); ?>" <?php echo selected( $align == $settings['format_pdf_pagination'] ); ?> ><?php echo $label; ?></option>
 						<?php endforeach; ?>
                     </select>
                 </div>
@@ -503,21 +503,21 @@ function remove_time_from_date( $datetime ) {
                 <div class="pdf_two_col_block">
 					<?php _e( 'Page header text', 'woo-order-export-lite' ) ?><br>
                     <input type=text name="settings[format_pdf_header_text]"
-                           value='<?php echo $settings['format_pdf_header_text'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_header_text']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 		            <?php _e( 'Columns width', 'woo-order-export-lite' ) ?>
-                    <input title="<?php _e( 'comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_width]" value='<?php echo $settings['format_pdf_cols_width'] ?>'>
+                    <input title="<?php _e( 'comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_width]" value='<?php echo esc_attr($settings['format_pdf_cols_width']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
 					<?php _e( 'Page footer text', 'woo-order-export-lite' ) ?><br>
                     <input type=text name="settings[format_pdf_footer_text]"
-                           value='<?php echo $settings['format_pdf_footer_text'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_footer_text']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 		            <?php _e( 'Columns horizontal align', 'woo-order-export-lite' ) ?>
-                    <input title="<?php _e( 'L,C or R. Comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_align]" value='<?php echo $settings['format_pdf_cols_align'] ?>'>
+                    <input title="<?php _e( 'L,C or R. Comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_align]" value='<?php echo esc_attr($settings['format_pdf_cols_align']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
@@ -528,7 +528,7 @@ function remove_time_from_date( $datetime ) {
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Columns vertical align', 'woo-order-export-lite' ) ?>
-		            <input title="<?php _e( 'T,C or B. Comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_vertical_align]" value='<?php echo $settings['format_pdf_cols_vertical_align'] ?>'>
+		            <input title="<?php _e( 'T,C or B. Comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_pdf_cols_vertical_align]" value='<?php echo esc_attr($settings['format_pdf_cols_vertical_align']) ?>'>
 	            </div>
 
 
@@ -536,34 +536,34 @@ function remove_time_from_date( $datetime ) {
                 <div class="pdf_two_col_block">
 					<?php _e( 'Table header text color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_pdf_table_header_text_color]"
-                           value='<?php echo $settings['format_pdf_table_header_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_table_header_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 					<?php _e( 'Table header background color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_pdf_table_header_background_color]"
-                           value='<?php echo $settings['format_pdf_table_header_background_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_table_header_background_color']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
 					<?php _e( 'Table row text color', 'woo-order-export-lite' ) ?><br>
                     <input type=text class="color_pick" name="settings[format_pdf_table_row_text_color]"
-                           value='<?php echo $settings['format_pdf_table_row_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_table_row_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 					<?php _e( 'Table row background color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_pdf_table_row_background_color]"
-                           value='<?php echo $settings['format_pdf_table_row_background_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_table_row_background_color']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
 					<?php _e( 'Page header text color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_pdf_page_header_text_color]"
-                           value='<?php echo $settings['format_pdf_page_header_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_page_header_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 					<?php _e( 'Page footer text color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_pdf_page_footer_text_color]"
-                           value='<?php echo $settings['format_pdf_page_footer_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_page_footer_text_color']) ?>'>
                 </div>
 
                 <hr>
@@ -572,9 +572,9 @@ function remove_time_from_date( $datetime ) {
                     <input type="button" class="button button-primary image-upload-button"
                            value="<?php _e( 'Select logo', 'woo-order-export-lite' ) ?>">
                     <input type="hidden" class="source_id" name="settings[format_pdf_logo_source_id]"
-                           value='<?php echo $settings['format_pdf_logo_source_id'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_logo_source_id']) ?>'>
                     <input type="hidden" class="source_url" name="settings[format_pdf_logo_source]"
-                           value='<?php echo $settings['format_pdf_logo_source'] ?>'>
+                           value='<?php echo esc_attr($settings['format_pdf_logo_source']) ?>'>
                     <br>
 					<?php $source = $settings['format_pdf_logo_source'] ? $settings['format_pdf_logo_source'] : ''; ?>
                     <img src="<?php echo $source; ?>" height="100" width="100"
@@ -588,7 +588,7 @@ function remove_time_from_date( $datetime ) {
 					<?php _e( 'Logo align', 'woo-order-export-lite' ) ?>
                     <select name="settings[format_pdf_logo_align]">
 						<?php foreach ( $align_types as $align => $label ): ?>
-                            <option value="<?php echo $align; ?>" <?php echo selected( $align == $settings['format_pdf_logo_align'] ); ?> ><?php echo $label; ?></option>
+                            <option value="<?php echo esc_attr($align); ?>" <?php echo selected( $align == $settings['format_pdf_logo_align'] ); ?> ><?php echo $label; ?></option>
 						<?php endforeach; ?>
                     </select>
                 </div>
@@ -596,28 +596,28 @@ function remove_time_from_date( $datetime ) {
 					<?php _e( 'Logo height', 'woo-order-export-lite' ) ?>
                     <br>
                     <input type="number" name="settings[format_pdf_logo_height]"
-                           value='<?php echo $settings['format_pdf_logo_height'] ?>' min="0">
+                           value='<?php echo esc_attr($settings['format_pdf_logo_height']) ?>' min="0">
                 </div>
                 <div class="pdf_two_col_block">
 					<?php _e( 'Logo width', 'woo-order-export-lite' ) ?>
                     ( <?php _e( '0 - auto scale', 'woo-order-export-lite' ) ?> )
                     <br>
                     <input type="number" name="settings[format_pdf_logo_width]"
-                           value='<?php echo $settings['format_pdf_logo_width'] ?>' min="0">
+                           value='<?php echo esc_attr($settings['format_pdf_logo_width']) ?>' min="0">
                 </div>
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Images width', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_pdf_row_images_width]"
-		                   value='<?php echo $settings['format_pdf_row_images_width'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_pdf_row_images_width']) ?>' min="0">
 	            </div>
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Images height', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_pdf_row_images_height]"
-		                   value='<?php echo $settings['format_pdf_row_images_height'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_pdf_row_images_height']) ?>' min="0">
 	            </div>
 
                 <div class="pdf_two_col_block">
@@ -656,12 +656,12 @@ function remove_time_from_date( $datetime ) {
                 <div class="pdf_two_col_block">
 					<?php _e( 'Font size', 'woo-order-export-lite' ) ?><br>
                     <input type=number name="settings[format_html_font_size]"
-                           value='<?php echo @$settings['format_html_font_size'] ?>' min=1 size=3><br>
+                           value='<?php echo esc_attr(@$settings['format_html_font_size']) ?>' min=1 size=3><br>
                 </div>
 
                 <div class="pdf_two_col_block">
 		            <?php _e( 'Columns align', 'woo-order-export-lite' ) ?>
-                    <input title="<?php _e( 'comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_html_cols_align]" value='<?php echo $settings['format_html_cols_align'] ?>'>
+                    <input title="<?php _e( 'comma separated list', 'woo-order-export-lite' ) ?>" type=text name="settings[format_html_cols_align]" value='<?php echo esc_attr($settings['format_html_cols_align']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
@@ -677,48 +677,48 @@ function remove_time_from_date( $datetime ) {
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Table header text color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_html_table_header_text_color]"
-                           value='<?php echo $settings['format_html_table_header_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_table_header_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Table header background color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_html_table_header_background_color]"
-                           value='<?php echo $settings['format_html_table_header_background_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_table_header_background_color']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Table row text color', 'woo-order-export-lite' ) ?><br>
                     <input type=text class="color_pick" name="settings[format_html_table_row_text_color]"
-                           value='<?php echo $settings['format_html_table_row_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_table_row_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Table row background color', 'woo-order-export-lite' ) ?>
                     <input type=text class="color_pick" name="settings[format_html_table_row_background_color]"
-                           value='<?php echo $settings['format_html_table_row_background_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_table_row_background_color']) ?>'>
                 </div>
 
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Header text color', 'woo-order-export-lite' ) ?><br>
                     <input type=text class="color_pick" name="settings[format_html_header_text_color]"
-                           value='<?php echo $settings['format_html_header_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_header_text_color']) ?>'>
                 </div>
                 <div class="pdf_two_col_block">
 		    <?php _e( 'Footer text color', 'woo-order-export-lite' ) ?><br>
                     <input type=text class="color_pick" name="settings[format_html_footer_text_color]"
-                           value='<?php echo $settings['format_html_footer_text_color'] ?>'>
+                           value='<?php echo esc_attr($settings['format_html_footer_text_color']) ?>'>
                 </div>
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Images width', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_html_row_images_width]"
-		                   value='<?php echo $settings['format_html_row_images_width'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_html_row_images_width']) ?>' min="0">
 	            </div>
 
 	            <div class="pdf_two_col_block">
 		            <?php _e( 'Images height', 'woo-order-export-lite' ) ?>
 		            <br>
 		            <input type="number" name="settings[format_html_row_images_height]"
-		                   value='<?php echo $settings['format_html_row_images_height'] ?>' min="0">
+		                   value='<?php echo esc_attr($settings['format_html_row_images_height']) ?>' min="0">
 	            </div>
 
                 <div class="pdf_two_col_block">
@@ -760,7 +760,7 @@ function remove_time_from_date( $datetime ) {
 					?>
                     <select>
 						<?php foreach ( $date_format as $format ): ?>
-                            <option value="<?php echo $format ?>" <?php echo selected( @$settings['date_format'],
+                            <option value="<?php echo esc_attr($format) ?>" <?php echo selected( @$settings['date_format'],
 								$format ) ?> ><?php echo ! empty( $format ) ? current_time( $format ) : __( '-',
 									'woo-order-export-lite' ) ?></option>
 						<?php endforeach; ?>
@@ -769,7 +769,7 @@ function remove_time_from_date( $datetime ) {
                     </select>
                     <div id="custom_date_format_block" style="<?php echo in_array( @$settings['date_format'],
 						$date_format ) ? 'display: none' : '' ?>">
-                        <input type="text" name="settings[date_format]" value="<?php echo $settings['date_format'] ?>">
+                        <input type="text" name="settings[date_format]" value="<?php echo esc_attr($settings['date_format']) ?>">
                     </div>
                 </div>
 
@@ -786,7 +786,7 @@ function remove_time_from_date( $datetime ) {
 					?>
                     <select>
 						<?php foreach ( $time_format as $format ): ?>
-                            <option value="<?php echo $format ?>" <?php echo selected( @$settings['time_format'],
+                            <option value="<?php echo esc_attr($format) ?>" <?php echo selected( @$settings['time_format'],
 								$format ) ?> ><?php echo ! empty( $format ) ? current_time( $format ) : __( '-',
 									'woo-order-export-lite' ) ?></option>
 						<?php endforeach; ?>
@@ -795,7 +795,7 @@ function remove_time_from_date( $datetime ) {
                     </select>
                     <div id="custom_time_format_block" style="<?php echo in_array( @$settings['time_format'],
 						$time_format ) ? 'display: none' : '' ?>">
-                        <input type="text" name="settings[time_format]" value="<?php echo $settings['time_format'] ?>">
+                        <input type="text" name="settings[time_format]" value="<?php echo esc_attr($settings['time_format']) ?>">
                     </div>
                 </div>
             </div>
@@ -857,7 +857,7 @@ function remove_time_from_date( $datetime ) {
 							echo 'selected';
 						} ?>><?php _e( "- don't modify -", 'woo-order-export-lite' ) ?></option>
 						<?php foreach ( wc_get_order_statuses() as $i => $status ) { ?>
-                            <option value="<?php echo $i ?>" <?php if ( $i === $settings['change_order_status_to'] ) {
+                            <option value="<?php echo esc_attr($i) ?>" <?php if ( $i === $settings['change_order_status_to'] ) {
 								echo 'selected';
 							} ?>><?php echo $status ?></option>
 						<?php } ?>
@@ -1149,7 +1149,7 @@ function remove_time_from_date( $datetime ) {
                         if ( $settings['product_taxonomies'] ) {
                             foreach ( $settings['product_taxonomies'] as $prod ) {
                                 ?>
-                                <option selected value="<?php echo $prod; ?>"> <?php echo $prod; ?></option>
+                                <option selected value="<?php echo esc_attr($prod); ?>"> <?php echo $prod; ?></option>
                             <?php }
                         } ?>
                     </select>
@@ -1592,7 +1592,7 @@ function remove_time_from_date( $datetime ) {
 
                     <div class="fields-control-block"></div>
                     <div class="summary-row-title hide">
-                        <?php _e( 'Title for summary row', 'woo-order-export-lite' ) ?> <input name="settings[summary_row_title]" value="<?php echo isset($settings['summary_row_title']) ? $settings['summary_row_title'] : __( 'Total', 'woo-order-export-lite' ); ?>">
+                        <?php _e( 'Title for summary row', 'woo-order-export-lite' ) ?> <input name="settings[summary_row_title]" value="<?php echo esc_attr(isset($settings['summary_row_title']) ? $settings['summary_row_title'] : __( 'Total', 'woo-order-export-lite' )); ?>">
                     <hr>
                     </div>
                     <div class="fields-control">
@@ -2183,10 +2183,10 @@ function remove_time_from_date( $datetime ) {
 <form id='export_wo_pb_form' method='post' target='export_wo_pb_window'>
     <input name="action" type="hidden" value="order_exporter">
     <input name="method" type="hidden" value="plain_export">
-    <input name="tab" type="hidden" value="<?php echo $active_tab ?>">
+    <input name="tab" type="hidden" value="<?php echo esc_attr($active_tab) ?>">
 	<?php wp_nonce_field( 'woe_nonce', 'woe_nonce' ); ?>
-    <input name="mode" type="hidden" value="<?php echo $mode ?>">
-    <input name="id" type="hidden" value="<?php echo $id ?>">
+    <input name="mode" type="hidden" value="<?php echo esc_attr($mode) ?>">
+    <input name="id" type="hidden" value="<?php echo esc_attr($id) ?>">
     <input name="json" type="hidden">
     <input name="woe_order_post_type" type="hidden" value="<?php echo esc_attr( $woe_order_post_type ) ?>">
 </form>

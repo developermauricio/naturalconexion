@@ -1,17 +1,20 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdPjaxStart', function () {
+	woodmartThemeModule.$document.on('wdPjaxStart wdBackHistory', function() {
+		woodmartThemeModule.hideShopSidebar();
+	});
+	window.addEventListener('popstate', function() {
 		woodmartThemeModule.hideShopSidebar();
 	});
 
-	woodmartThemeModule.$document.on('wdShopPageInit', function () {
+	woodmartThemeModule.$document.on('wdShopPageInit', function() {
 		woodmartThemeModule.hiddenSidebar();
 	});
 
 	woodmartThemeModule.hiddenSidebar = function() {
 		var position = woodmartThemeModule.$body.hasClass('rtl') ? 'right' : 'left';
 
-		if (woodmartThemeModule.$body.hasClass('offcanvas-sidebar-desktop') && woodmartThemeModule.windowWidth > 1024 || woodmartThemeModule.$body.hasClass('offcanvas-sidebar-tablet') && woodmartThemeModule.windowWidth <= 1024) {
+		if (woodmartThemeModule.$body.hasClass('offcanvas-sidebar-desktop') && woodmartThemeModule.windowWidth > 1024 || woodmartThemeModule.$body.hasClass('offcanvas-sidebar-tablet') && woodmartThemeModule.windowWidth <= 1024 ) {
 			$('.area-sidebar-shop').addClass('wd-side-hidden wd-' + position + ' wd-inited wd-scroll');
 			$('.area-sidebar-shop .widget-area').addClass('wd-scroll-content');
 		}
@@ -23,15 +26,20 @@
 
 		woodmartThemeModule.$body.off('click', '.wd-show-sidebar-btn, .wd-sidebar-opener').on('click', '.wd-show-sidebar-btn, .wd-sidebar-opener', function(e) {
 			e.preventDefault();
+			var $btn = $('.wd-show-sidebar-btn, .wd-sidebar-opener');
 
 			if ($('.sidebar-container').hasClass('wd-opened')) {
+				$btn.removeClass('wd-opened');
 				woodmartThemeModule.hideShopSidebar();
 			} else {
+				$btn.addClass('wd-opened');
 				showSidebar();
 			}
 		});
 
-		woodmartThemeModule.$body.on('click touchstart', '.wd-close-side, .close-side-widget', function() {
+		woodmartThemeModule.$body.on('click touchstart', '.wd-close-side, .close-side-widget', function(e) {
+			e.preventDefault();
+
 			woodmartThemeModule.hideShopSidebar();
 		});
 

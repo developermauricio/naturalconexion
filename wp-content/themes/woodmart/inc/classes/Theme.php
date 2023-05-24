@@ -1,10 +1,11 @@
 <?php
+
 if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 	exit( 'No direct script access allowed' );
 }
 
 class WOODMART_Theme {
-	private $register_classes = array();
+	private $register_classes;
 
 	public function __construct() {
 		$this->register_classes = array(
@@ -30,31 +31,10 @@ class WOODMART_Theme {
 			$this->admin_files_include();
 		}
 
-		add_action( 'init', array( $this, 'elementor_files_include' ), 20 );
-		add_action( 'init', array( $this, 'wpml_files_include' ), 20 );
-	}
+		$this->dashboard_files();
 
-	public function wpml_files_include() {
-		if ( ! defined( 'ICL_SITEPRESS_VERSION' ) ) {
-			return;
-		}
-
-		$files = array(
-			'integrations/wpml/wpml',
-			'integrations/wpml/class-wpml-elementor-wd-testimonials',
-			'integrations/wpml/class-wpml-elementor-wd-banner-carousel',
-			'integrations/wpml/class-wpml-elementor-wd-extra-menu-list',
-			'integrations/wpml/class-wpml-elementor-wd-image-hotspot',
-			'integrations/wpml/class-wpml-elementor-wd-pricing-tables',
-			'integrations/wpml/class-wpml-elementor-wd-list',
-			'integrations/wpml/class-wpml-elementor-wd-product-filters',
-			'integrations/wpml/class-wpml-elementor-wd-timeline',
-			'integrations/wpml/class-wpml-elementor-wd-infobox-carousel',
-			'integrations/wpml/class-wpml-elementor-wd-products-tabs',
-		);
-
-		foreach ( $files as $file ) {
-			require_once get_parent_theme_file_path( WOODMART_FRAMEWORK . '/' . $file . '.php' );
+		if ( 'elementor' === woodmart_get_current_page_builder() ) {
+			require_once get_parent_theme_file_path( WOODMART_FRAMEWORK . '/integrations/elementor/class-elementor.php' );
 		}
 	}
 
@@ -70,25 +50,24 @@ class WOODMART_Theme {
 			'classes/Singleton',
 			'classes/Googlefonts',
 			'classes/Config',
-			'classes/Cssparser',
 			'classes/Stylesstorage',
 
 			'widgets/widgets',
 
 			// Import.
-			'import/class-helpers',
-			'import/class-process',
-			'import/class-widgets',
-			'import/class-sliders',
-			'import/class-xml',
-			'import/class-options',
-			'import/class-headers',
-			'import/class-after',
-			'import/class-remove',
-			'import/class-before',
-			'import/class-images',
-			'import/class-menu',
-			'import/class-import',
+			'admin/import/class-helpers',
+			'admin/import/class-process',
+			'admin/import/class-widgets',
+			'admin/import/class-sliders',
+			'admin/import/class-xml',
+			'admin/import/class-options',
+			'admin/import/class-headers',
+			'admin/import/class-after',
+			'admin/import/class-remove',
+			'admin/import/class-before',
+			'admin/import/class-images',
+			'admin/import/class-menu',
+			'admin/import/class-import',
 
 			// General modules.
 			'modules/lazy-loading',
@@ -97,11 +76,15 @@ class WOODMART_Theme {
 			'modules/nav-menu-images/nav-menu-images',
 			'modules/sticky-toolbar',
 			'modules/white-label',
+			'modules/layouts/class-main',
+			'modules/layouts/class-global-data',
+			'modules/patcher/class-main',
+			'modules/theme-settings-backup/class-main',
 
 			// Header builder.
-			'builder/Builder',
-			'builder/Frontend',
-			'builder/functions',
+			'modules/header-builder/Builder',
+			'modules/header-builder/Frontend',
+			'modules/header-builder/functions',
 
 			// Woocommerce integration.
 			'integrations/woocommerce/functions',
@@ -119,51 +102,62 @@ class WOODMART_Theme {
 			'integrations/woocommerce/modules/quick-shop',
 			'integrations/woocommerce/modules/quick-view',
 			'integrations/woocommerce/modules/brands',
-			'integrations/woocommerce/modules/compare',
+			'integrations/woocommerce/modules/compare/class-compare',
 			'integrations/woocommerce/modules/quantity',
 			'integrations/woocommerce/modules/class-adjacent-products',
-			'integrations/woocommerce/modules/comment-images/class-wc-comment-images',
+			'integrations/woocommerce/modules/checkout-order-table/class-checkout-order-table',
+			'integrations/woocommerce/modules/product-reviews/class-product-reviews',
+			'integrations/woocommerce/modules/sticky-navigation/class-main',
+			'integrations/woocommerce/modules/product-gallery-video/class-main',
 
 			// Plugin integrations.
 			'integrations/wcmp',
+			'integrations/wpml',
 			'integrations/wordfence',
+			'integrations/aioseo',
+			'integrations/yoast',
 			'integrations/wcfm',
 			'integrations/wcfmmp',
 			'integrations/gutenberg/functions',
 			'integrations/imagify',
-			'integrations/yith-compare',
 			'integrations/dokan',
 			'integrations/tgm-plugin-activation',
+			'integrations/rocket',
+			'integrations/woo-preview-emails',
+			'integrations/woocs',
 
-			'options/class-field',
-			'options/class-metabox',
-			'options/class-metaboxes',
-			'options/class-presets',
-			'options/class-options',
-			'options/class-sanitize',
-			'options/class-page',
-
-			'options/controls/background/class-background',
-			'options/controls/buttons/class-buttons',
-			'options/controls/checkbox/class-checkbox',
-			'options/controls/color/class-color',
-			'options/controls/custom-fonts/class-custom-fonts',
-			'options/controls/editor/class-editor',
-			'options/controls/image-dimensions/class-image-dimensions',
-			'options/controls/instagram-api/class-instagram-api',
-			'options/controls/notice/class-notice',
-			'options/controls/import/class-import',
-			'options/controls/range/class-range',
-			'options/controls/select/class-select',
-			'options/controls/switcher/class-switcher',
-			'options/controls/text-input/class-text-input',
-			'options/controls/textarea/class-textarea',
-			'options/controls/typography/google-fonts',
-			'options/controls/typography/class-typography',
-			'options/controls/upload/class-upload',
-			'options/controls/upload-list/class-upload-list',
-			'options/controls/color/class-color',
-			'options/controls/reset/class-reset',
+			'admin/options/class-field',
+			'admin/options/class-metabox',
+			'admin/options/class-metaboxes',
+			'admin/options/class-presets',
+			'admin/options/class-options',
+			'admin/options/class-sanitize',
+			'admin/options/class-page',
+			'admin/options/controls/background/class-background',
+			'admin/options/controls/buttons/class-buttons',
+			'admin/options/controls/checkbox/class-checkbox',
+			'admin/options/controls/color/class-color',
+			'admin/options/controls/custom-fonts/class-custom-fonts',
+			'admin/options/controls/editor/class-editor',
+			'admin/options/controls/image-dimensions/class-image-dimensions',
+			'admin/options/controls/instagram-api/class-instagram-api',
+			'admin/options/controls/notice/class-notice',
+			'admin/options/controls/import/class-import',
+			'admin/options/controls/range/class-range',
+			'admin/options/controls/select/class-select',
+			'admin/options/controls/switcher/class-switcher',
+			'admin/options/controls/text-input/class-text-input',
+			'admin/options/controls/textarea/class-textarea',
+			'admin/options/controls/typography/google-fonts',
+			'admin/options/controls/typography/class-typography',
+			'admin/options/controls/upload/class-upload',
+			'admin/options/controls/upload-list/class-upload-list',
+			'admin/options/controls/color/class-color',
+			'admin/options/controls/reset/class-reset',
+			'admin/options/controls/sorter/class-sorter',
+			'admin/options/controls/responsive-range/class-responsive-range',
+			'admin/options/controls/select-with-table/class-select-with-table',
+			'admin/options/controls/icons-font/class-icons-font',
 
 			'admin/settings/sections',
 			'admin/settings/api-integrations',
@@ -196,6 +190,13 @@ class WOODMART_Theme {
 			'integrations/woocommerce/modules/variation-gallery',
 			'integrations/woocommerce/modules/variation-gallery-new',
 			'integrations/woocommerce/modules/wishlist/class-wc-wishlist',
+			'integrations/woocommerce/modules/shipping-progress-bar/class-main',
+			'integrations/woocommerce/modules/quick-buy/class-main',
+			'integrations/woocommerce/modules/counter-visitors/class-main',
+			'integrations/woocommerce/modules/linked-variations/class-main',
+			'integrations/woocommerce/modules/unit-of-measure/class-main',
+			'integrations/woocommerce/modules/show-single-variations/class-main',
+			'integrations/woocommerce/modules/frequently-bought-together/class-main',
 		);
 
 		if ( did_action( 'elementor/loaded' ) ) {
@@ -213,95 +214,6 @@ class WOODMART_Theme {
 		}
 	}
 
-	public function elementor_files_include() {
-		if ( 'elementor' !== woodmart_get_current_page_builder() ) {
-			return;
-		}
-
-		$files = array(
-			'integrations/elementor/elementor',
-			'integrations/elementor/global-maps',
-			'integrations/elementor/elements/class-text-block',
-			'integrations/elementor/elements/class-image',
-			'integrations/elementor/elements/class-title',
-			'integrations/elementor/elements/class-images-gallery',
-			'integrations/elementor/elements/class-slider',
-			'integrations/elementor/elements/class-extra-menu-list',
-			'integrations/elementor/elements/class-3d-view',
-			'integrations/elementor/elements/class-search',
-			'integrations/elementor/elements/class-counter',
-			'integrations/elementor/elements/class-author-area',
-			'integrations/elementor/elements/class-countdown',
-			'integrations/elementor/elements/class-list',
-			'integrations/elementor/elements/class-twitter',
-			'integrations/elementor/elements/class-social',
-			'integrations/elementor/elements/class-team-member',
-			'integrations/elementor/elements/class-mega-menu',
-			'integrations/elementor/elements/class-menu-price',
-			'integrations/elementor/elements/class-menu-anchor',
-			'integrations/elementor/elements/class-popup',
-			'integrations/elementor/elements/class-pricing-tables',
-			'integrations/elementor/elements/class-timeline',
-			'integrations/elementor/elements/class-google-map',
-			'integrations/elementor/elements/class-image-hotspot',
-			'integrations/elementor/elements/class-contact-form-7',
-			'integrations/elementor/elements/class-mailchimp',
-			'integrations/elementor/elements/class-testimonials',
-			'integrations/elementor/elements/button/class-button',
-			'integrations/elementor/elements/button/button',
-			'integrations/elementor/elements/button/global-button',
-			'integrations/elementor/elements/blog/class-blog',
-			'integrations/elementor/elements/blog/blog',
-			'integrations/elementor/elements/banner/banner',
-			'integrations/elementor/elements/banner/class-banner',
-			'integrations/elementor/elements/banner/class-banner-carousel',
-			'integrations/elementor/elements/infobox/infobox',
-			'integrations/elementor/elements/infobox/class-infobox',
-			'integrations/elementor/elements/infobox/class-infobox-carousel',
-			'integrations/elementor/elements/instagram/class-instagram',
-			'integrations/elementor/elements/instagram/instagram',
-			'integrations/elementor/elements/portfolio/class-portfolio',
-			'integrations/elementor/elements/portfolio/portfolio',
-			'integrations/elementor/elements/class-tabs',
-			'integrations/elementor/elements/class-accordion',
-
-			'integrations/elementor/default-elements/column',
-			'integrations/elementor/default-elements/common',
-			'integrations/elementor/default-elements/section',
-			'integrations/elementor/default-elements/text-editor',
-			'integrations/elementor/default-elements/accordion',
-			'integrations/elementor/default-elements/video',
-
-			'integrations/elementor/controls/class-autocomplete',
-			'integrations/elementor/controls/class-buttons',
-			'integrations/elementor/controls/class-google-json',
-
-			'integrations/elementor/template-library/class-xts-library-source',
-			'integrations/elementor/template-library/class-xts-library',
-		);
-
-		$woo_files = array(
-			'integrations/elementor/elements/class-size-guide',
-			'integrations/elementor/elements/products/class-products',
-			'integrations/elementor/elements/products/products',
-			'integrations/elementor/elements/products-tabs/class-products-tabs',
-			'integrations/elementor/elements/products-tabs/products-tabs',
-			'integrations/elementor/elements/class-product-filters',
-			'integrations/elementor/elements/class-wishlist',
-			'integrations/elementor/elements/class-compare',
-			'integrations/elementor/elements/class-product-categories',
-			'integrations/elementor/elements/class-products-brands',
-			'integrations/elementor/elements/class-widget-products',
-		);
-
-		if ( woodmart_woocommerce_installed() ) {
-			$files = array_merge( $files, $woo_files );
-		}
-
-		foreach ( $files as $file ) {
-			require_once get_parent_theme_file_path( WOODMART_FRAMEWORK . '/' . $file . '.php' );
-		}
-	}
 
 	private function wpb_files_include() {
 		if ( 'wpb' !== woodmart_get_current_page_builder() || ! defined( 'WPB_VC_VERSION' ) ) {
@@ -315,8 +227,6 @@ class WOODMART_Theme {
 			'integrations/visual-composer/fields/image-hotspot',
 			'integrations/visual-composer/fields/title-divider',
 			'integrations/visual-composer/fields/slider',
-			'integrations/visual-composer/fields/slider-responsive',
-			'integrations/visual-composer/fields/number',
 			'integrations/visual-composer/fields/responsive-size',
 			'integrations/visual-composer/fields/responsive-spacing',
 			'integrations/visual-composer/fields/image-select',
@@ -328,7 +238,14 @@ class WOODMART_Theme {
 			'integrations/visual-composer/fields/switch',
 			'integrations/visual-composer/fields/button-set',
 			'integrations/visual-composer/fields/empty-space',
-			'integrations/visual-composer/fields/box-shadow',
+
+			'integrations/visual-composer/fields/new/slider',
+			'integrations/visual-composer/fields/new/colorpicker',
+			'integrations/visual-composer/fields/new/box-shadow',
+			'integrations/visual-composer/fields/new/number',
+			'integrations/visual-composer/fields/new/select',
+			'integrations/visual-composer/fields/new/fonts',
+			'integrations/visual-composer/fields/new/dimensions',
 		);
 
 		foreach ( $files as $file ) {
@@ -358,6 +275,7 @@ class WOODMART_Theme {
 		);
 
 		$wpb_files = array(
+			'register-maps',
 			'parallax-scroll',
 			'3d-view',
 			'products-tabs',
@@ -395,7 +313,11 @@ class WOODMART_Theme {
 			'html-block',
 			'tabs',
 			'accordion',
+			'sidebar',
 			'products-widget',
+			'off-canvas-column-btn',
+			'open-street-map',
+			'table',
 		);
 
 		if ( 'wpb' === woodmart_get_current_page_builder() && defined( 'WPB_VC_VERSION' ) ) {
@@ -460,6 +382,10 @@ class WOODMART_Theme {
 			'product-filters',
 			'tabs',
 			'accordion',
+			'sidebar',
+			'off-canvas-column-btn',
+			'open-street-map',
+			'table',
 		);
 
 		$woo_files = array(
@@ -484,11 +410,24 @@ class WOODMART_Theme {
 		}
 	}
 
+	private function dashboard_files() {
+		$files = array(
+			'admin/dashboard/class-dashboard',
+			'admin/dashboard/class-menu',
+			'admin/dashboard/class-slider',
+		);
+
+		foreach ( $files as $file ) {
+			require_once get_parent_theme_file_path( WOODMART_FRAMEWORK . '/' . $file . '.php' );
+		}
+	}
+
 	private function admin_files_include() {
 		$files = array(
-			'builder/Builder',
-			'builder/Backend',
-			'admin/dashboard/dashboard',
+			'modules/header-builder/Builder',
+			'modules/header-builder/Backend',
+			'admin/dashboard/class-dashboard',
+			'admin/dashboard/class-menu',
 			'admin/setup-wizard/class-setup-wizard',
 			'admin/setup-wizard/class-install-child-theme',
 			'admin/setup-wizard/class-install-plugins',

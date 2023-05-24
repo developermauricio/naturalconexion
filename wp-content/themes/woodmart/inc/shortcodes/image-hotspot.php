@@ -40,7 +40,7 @@ if ( ! function_exists( 'woodmart_image_hotspot_shortcode' ) ) {
 		woodmart_enqueue_js_script( 'hotspot-element' );
 		woodmart_enqueue_js_script( 'product-more-description' );
 		woodmart_enqueue_inline_style( 'image-hotspot' );
-
+		woodmart_enqueue_inline_style( 'mod-more-description' );
 		?>
 		<div class="wd-image-hotspot-wrapper<?php echo esc_attr( $classes ); ?>">
 			<div class="wd-image-hotspot-hotspots">
@@ -89,11 +89,21 @@ if ( ! function_exists( 'woodmart_hotspot_shortcode' ) ) {
 		$left = ( isset( $position[0] ) && $position[0] ) ? $position[0] : '50';
 		$top = ( isset( $position[1] ) && $position[1] ) ? $position[1] : '50';
 
-		if ( $product_id && woodmart_woocommerce_installed() ) $product = wc_get_product( $product_id );
+		if ( $product_id && woodmart_woocommerce_installed() ) $product = wc_get_product( apply_filters( 'wpml_object_id', $product_id, 'product', true ) );
 
 		if ( $hotspot_type == 'product' && $product ) {
 			$rating_count = $product->get_rating_count();
 			$average = $product->get_average_rating();
+
+			if ( 'nothing' !== woodmart_get_opt( 'add_to_cart_action' ) ) {
+				woodmart_enqueue_js_script( 'action-after-add-to-cart' );
+			}
+
+			if ( 'popup' === woodmart_get_opt( 'add_to_cart_action' ) ) {
+				woodmart_enqueue_js_library( 'magnific' );
+				woodmart_enqueue_inline_style( 'add-to-cart-popup' );
+				woodmart_enqueue_inline_style( 'mfp-popup' );
+			}
 
 			$args = array(
 				'class' => implode( ' ', array_filter( array(
@@ -166,7 +176,7 @@ if( ! function_exists( 'woodmart_get_hotspot_image' ) ) {
 
 		$response = array(
 			'status' => 'success',
-			'html' => '<img class="wd-hotspot-img" src="' . esc_url( $background_image[0] ) . '" width="' . esc_attr( $background_image[1] ) . '" height="' . esc_attr( $background_image[2] ) . '">',
+			'html' => '<img class="xts-hotspot-img" src="' . esc_url( $background_image[0] ) . '" width="' . esc_attr( $background_image[1] ) . '" height="' . esc_attr( $background_image[2] ) . '">',
 		);
 
 		echo json_encode($response);

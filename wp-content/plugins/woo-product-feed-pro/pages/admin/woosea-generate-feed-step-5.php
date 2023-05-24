@@ -74,7 +74,7 @@ if (array_key_exists('project_hash', $_GET)){
                         	</div>
 	
 				<form id="googleanalytics" method="post">
-				<input name="nonce_google_mapping" id="nonce_google_mapping" class="nonce_google_mapping" value="<?php print "$nonce";?>" type="hidden">
+ 				<?php wp_nonce_field( 'woosea_ajax_nonce' ); ?>
 
 				<table class="woo-product-feed-pro-table">
 				<!--

@@ -20,7 +20,7 @@
 				showRegister();
 			}
 
-			if (woodmartThemeModule.$window.width() < 768) {
+			if (woodmartThemeModule.$window.width() < 769) {
 				$('html, body').stop().animate({
 					scrollTop: tabs.offset().top - 90
 				}, 400);

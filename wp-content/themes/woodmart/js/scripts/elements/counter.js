@@ -16,7 +16,7 @@
 		counter.prop('Counter', 0).animate({
 			Counter: counter.text()
 		}, {
-			duration: 3000,
+			duration: parseInt(woodmart_settings.animated_counter_speed),
 			easing  : 'swing',
 			step    : function(now) {
 				if (now >= counter.data('final')) {

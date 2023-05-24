@@ -41,4 +41,7 @@ woodmart_enqueue_inline_style( 'owl-carousel' );
 			}
 			?>
 	</div>
+	<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-color-primary view-details-btn">
+		<?php esc_html_e( 'View details', 'woodmart' ); ?>
+	</a>
 </div>

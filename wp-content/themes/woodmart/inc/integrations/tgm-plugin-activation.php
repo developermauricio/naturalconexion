@@ -1257,14 +1257,14 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     $action_links['install'] = sprintf(
                         $link_template,
                         translate_nooped_plural( $this->strings['install_link'], $install_count, 'tgmpa' ),
-                        esc_url( $this->get_tgmpa_status_url( 'install' ) )
+                        esc_url( apply_filters( 'woodmart_tgmpa_install_link', $this->get_tgmpa_status_url( 'install' ) ) )
                     );
                 }
                 if ( $update_count > 0 ) {
                     $action_links['update'] = sprintf(
                         $link_template,
                         translate_nooped_plural( $this->strings['update_link'], $update_count, 'tgmpa' ),
-                        esc_url( $this->get_tgmpa_status_url( 'update' ) )
+                        esc_url( apply_filters( 'woodmart_tgmpa_update_link', $this->get_tgmpa_status_url( 'update' ) ) )
                     );
                 }
             }
@@ -1273,7 +1273,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 $action_links['activate'] = sprintf(
                     $link_template,
                     translate_nooped_plural( $this->strings['activate_link'], $activate_count, 'tgmpa' ),
-                    esc_url( $this->get_tgmpa_status_url( 'activate' ) )
+                    esc_url( apply_filters( 'woodmart_tgmpa_activate_link', $this->get_tgmpa_status_url( 'activate' ) ) )
                 );
             }
 

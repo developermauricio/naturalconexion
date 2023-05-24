@@ -1366,7 +1366,7 @@ jQuery( document ).ready( function ( $ ) {
     jQuery('#button_custom_meta_users').click(function () {
         var label = jQuery('#select_custom_meta_user').val();
         var colname = jQuery('#colname_custom_meta_user').val();
-        var format_field = jQuery('#format_custom_meta').val();
+        var format_field = jQuery('#format_custom_meta_user').val();
         if (!label) {
             //try custom text
             label = jQuery('#text_custom_meta_user').val();

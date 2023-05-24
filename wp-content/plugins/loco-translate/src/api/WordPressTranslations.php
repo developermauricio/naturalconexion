@@ -69,7 +69,7 @@ class Loco_api_WordPressTranslations {
                 $locale = Loco_Locale::parse($tag);
                 if( $locale->isValid() ){
                     $locale->setName( $raw[$english_name], $raw[$native_name] );
-                    $locales[ (string) $tag ] = $locale;
+                    $locales[ (string) $locale ] = $locale;
                 }
                 /* Skip invalid language tags, e.g. "pt_PT_ao90" should be "pt_PT_ao1990"
                  * No point fixing invalid tags, because core translation files won't match. 
@@ -123,7 +123,7 @@ class Loco_api_WordPressTranslations {
 
     /**
      * Get WordPress locale data by strictly well-formed language tag
-     * @param string
+     * @param string $tag
      * @return Loco_Locale
      */
     public function getLocale( $tag ){

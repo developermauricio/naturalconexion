@@ -1,4 +1,5 @@
 var woodmartOptions;
+
 /* global jQuery, wp, xtsTypography, WebFont */
 
 (function($) {
@@ -7,29 +8,34 @@ var woodmartOptions;
 	woodmartOptions = (function() {
 
 		var woodmartOptionsAdmin = {
-
 			optionsPage: function() {
 				var $options = $('.xts-options'),
 				    $lastTab = $options.find('.xts-last-tab-input');
 
-				$options.on('click', '.xts-sections-nav a', function(e) {
+				$options.on('click', '.xts-nav-vertical a', function(e) {
 					e.preventDefault();
 					var $btn = $(this),
 					    id   = $btn.data('id');
 
-					$lastTab.val(id);
-
-					$options.find('.xts-fields-section.xts-fields-section').removeClass('xts-active-section').addClass('xts-hidden');
-
-					$options.find('.xts-fields-section[data-id="' + id + '"]').addClass('xts-active-section').removeClass('xts-hidden');
-
 					$options.find('.xts-active-nav').removeClass('xts-active-nav');
+
+					$options.find('.xts-section.xts-section').removeClass('xts-active-section').addClass('xts-hidden');
+
+					if ($btn.parent().hasClass('xts-has-child')) {
+						$btn.parent().addClass('xts-active-nav');
+
+						id = $btn.parent().find('.xts-sub-menu-item').first().find('> a').data('id');
+					}
+
+					$options.find('.xts-section[data-id="' + id + '"]').addClass('xts-active-section').removeClass('xts-hidden');
 
 					$options.find('a[data-id="' + id + '"]').parent().addClass('xts-active-nav');
 
-					if ($btn.parent().hasClass('xts-subsection-nav')) {
+					if ($btn.parent().hasClass('xts-sub-menu-item')) {
 						$btn.parent().parent().parent().addClass('xts-active-nav');
 					}
+
+					$lastTab.val(id);
 
 					woodmartOptionsAdmin.editorControl();
 
@@ -44,7 +50,7 @@ var woodmartOptions;
 						'Are you sure you want to reset ALL settings (not only this section) to default values? This process cannot be undone. Continue?');
 				});
 
-				$('.toplevel_page_xtemos_options').parent().find('li a').on('click', function(e) {
+				$('.toplevel_page_xts_theme_settings').parent().find('li a').on('click', function(e) {
 					var $this   = $(this),
 					    href    = $this.attr('href'),
 					    section = false;
@@ -60,7 +66,7 @@ var woodmartOptions;
 						return true;
 					}
 
-					var $sectionLink = $('.xts-sections-nav [data-id="' + section + '"]');
+					var $sectionLink = $('.xts-nav-vertical [data-id="' + section + '"]');
 
 					if ($sectionLink.length == 0) {
 						return true;
@@ -77,31 +83,36 @@ var woodmartOptions;
 			},
 
 			switcherControl: function() {
-				var $switchers = $('.xts-switcher-control');
+				var $switchers = $('.xts-active-section .xts-switcher-control, .xts-active-section .xts-checkbox-control');
+
+				if ($switchers.length <= 0) {
+					return;
+				}
 
 				$switchers.each(function() {
-					var $switcher = $(this),
-					    $input    = $switcher.find('input[type="hidden"]'),
-					    $on       = $switcher.find('.xts-switcher-on'),
-					    $off      = $switcher.find('.xts-switcher-off');
+					var $field    = $(this),
+					    $switcher = $field.find('.xts-switcher-btn'),
+					    $input    = $field.find('input[type="hidden"]'),
+					    $notice   = $switcher.siblings('.xts-field-notice');
 
-					$on.on('click', function() {
-						if ($on.hasClass('xts-switcher-active')) {
-							return;
+
+					if ($field.hasClass('xts-field-inited')) {
+						return;
+					}
+
+					$switcher.on('click', function() {
+						if ($switcher.hasClass('xts-active')) {
+							$input.val($switcher.data('off')).trigger('change');
+							$switcher.removeClass('xts-active');
+							$notice.addClass('xts-hidden');
+						} else {
+							$input.val($switcher.data('on')).trigger('change');
+							$switcher.addClass('xts-active');
+							$notice.removeClass('xts-hidden');
 						}
-						$switcher.find('.xts-switcher-active').removeClass('xts-switcher-active');
-						$on.addClass('xts-switcher-active');
-						$input.val(1).change();
 					});
 
-					$off.on('click', function() {
-						if ($off.hasClass('xts-switcher-active')) {
-							return;
-						}
-						$switcher.find('.xts-switcher-active').removeClass('xts-switcher-active');
-						$off.addClass('xts-switcher-active');
-						$input.val(0).change();
-					});
+					$field.addClass('xts-field-inited');
 				});
 			},
 
@@ -111,6 +122,12 @@ var woodmartOptions;
 				$sets.each(function() {
 					var $set   = $(this),
 					    $input = $set.find('input[type="hidden"]');
+
+					if ($set.hasClass('xts-field-inited')) {
+						return;
+					}
+
+					$set.addClass('xts-field-inited');
 
 					$set.on('click', '.xts-set-item', function() {
 						var $btn = $(this);
@@ -123,7 +140,7 @@ var woodmartOptions;
 
 						$btn.addClass('xts-active');
 
-						$input.val(val).change();
+						$input.val(val).trigger('change');
 					});
 				});
 			},
@@ -149,24 +166,8 @@ var woodmartOptions;
 				});
 			},
 
-			checkboxControl: function() {
-				var $checkboxes = $('.xts-checkbox-control');
-
-				$checkboxes.each(function() {
-					var $checkbox = $(this).find('input');
-
-					$checkbox.change(function() {
-						if ($checkbox.prop('checked')) {
-							$checkbox.val('on');
-						} else {
-							$checkbox.val('off');
-						}
-					});
-				});
-			},
-
 			uploadControl: function(force_init) {
-				var $uploads = $('.xts-active-section .xts-upload-control');
+				var $uploads = $('.xts-active-section .xts-upload-control, .form-table .xts-upload-control');
 
 				if (force_init) {
 					$uploads = $('.widget-content .xts-upload-control');
@@ -184,7 +185,7 @@ var woodmartOptions;
 					    $preview      = $upload.find('.xts-upload-preview'),
 					    $previewInput = $upload.find('.xts-upload-preview-input');
 
-					if ($upload.hasClass('xts-field-inited') && !force_init) {
+					if ($upload.hasClass('xts-field-inited') && !force_init || $upload.parents('.xts-custom-fonts-template.hide').length) {
 						return;
 					}
 
@@ -201,7 +202,7 @@ var woodmartOptions;
 						}).on('select', function() { // it also has "open" and "close" events
 							var attachment = custom_uploader.state().get('selection').first().toJSON();
 							$inputID.val(attachment.id);
-							$inputURL.val(attachment.url);
+							$inputURL.val(attachment.url).trigger('change');
 							$preview.find('img').remove();
 							$previewInput.val(attachment.url);
 							$preview.prepend(
@@ -251,8 +252,6 @@ var woodmartOptions;
 					$upload.off('click').on('click', '.xts-upload-btn, img', function(e) {
 						e.preventDefault();
 
-						console.log($(this));
-
 						var custom_uploader = wp.media({
 							title   : 'Insert file',
 							button  : {
@@ -279,7 +278,7 @@ var woodmartOptions;
 										'<div data-attachment_id="' +
 										attachment.id + '"><img src="' +
 										attachment_image +
-										'"><a href="#" class="xts-remove"><span class="dashicons dashicons-dismiss"></span></a></div>');
+										'"><a href="#" class="xts-remove"><span class="xts-i-close"></span></a></div>');
 								}
 							});
 
@@ -318,6 +317,10 @@ var woodmartOptions;
 			},
 
 			selectControl: function(force_init) {
+				if ( typeof ($.fn.select2) === 'undefined' ) {
+					return;
+				}
+
 				var $select = $('.xts-active-section .xts-select.xts-select2:not(.xts-autocomplete)');
 
 				if (force_init) {
@@ -343,20 +346,64 @@ var woodmartOptions;
 						if ($select2.attr('multiple')) {
 							$select2.on('select2:select', function(e) {
 								var $elm = $(e.params.data.element);
+
+								$(this).find('option[value=""]')
+									.prop('selected', false);
+
+								$elm.attr('selected', 'selected');
 								$select2.append($elm);
 								$select2.trigger('change.select2');
+							});
+
+							$select2.on('select2:unselect', function(e) {
+								var $this = $(this);
+								var $elm  = $(e.params.data.element);
+
+								$elm.removeAttr('selected');
+								$select2.trigger('change.select2');
+
+								if ( 0 === $this.find('option[selected="selected"]').length ) {
+									$this.find('option[value=""]')
+										.prop('selected', 'selected');
+								}
 							});
 
 							$select2.parent().find('.xts-select2-all').on('click', function(e) {
 								e.preventDefault();
 
-								$select2.select2('destroy').find('option').prop('selected', 'selected').end().select2(select2Defaults);
+								$select2.select2('destroy')
+									.find('option')
+									.each( function (key, option) {
+										var $option = $(option);
+
+										if ( 0 === $option.val().length ) {
+											$option.prop('selected', false);
+										} else {
+											$option.attr('selected', 'selected');
+											$option.prop('selected', 'selected');
+										}
+									})
+									.end()
+									.select2(select2Defaults);
 							});
 
 							$select2.parent().find('.xts-unselect2-all').on('click', function(e) {
 								e.preventDefault();
 
-								$select2.select2('destroy').find('option').prop('selected', false).end().select2(select2Defaults);
+								$select2.select2('destroy')
+									.find('option')
+									.each( function (key, option) {
+										var $option = $(option);
+
+										if ( 0 === $option.val().length ) {
+											$option.prop('selected', 'selected');
+										} else {
+											$option.attr('selected', false);
+											$option.prop('selected', false);
+										}
+									})
+									.end()
+									.select2(select2Defaults);
 							});
 						}
 
@@ -376,7 +423,7 @@ var woodmartOptions;
 					var value = $field.data('value');
 					var search = $field.data('search');
 
-					if ($field.hasClass('xts-field-inited')) {
+					if ($field.hasClass('xts-field-inited') || $field.parents('.xts-item-template').length) {
 						return;
 					}
 
@@ -393,6 +440,7 @@ var woodmartOptions;
 									action: search,
 									type  : type,
 									value : value,
+									selected : $field.val(),
 									params: params
 								};
 							},
@@ -400,6 +448,10 @@ var woodmartOptions;
 							dataType      : 'json',
 							delay         : 250,
 							processResults: function(data) {
+								$.each(data, function ( $key, $item ) {
+									$item['text'] = $item['text'].replace('&amp;', '&');
+									data[$key] = $item;
+								});
 								return {
 									results: data
 								};
@@ -414,9 +466,94 @@ var woodmartOptions;
 
 					$field.addClass('xts-field-inited');
 				});
+
+				var $selectWithAnimation = $('.xts-active-section .xts-select.xts-animation-preview');
+
+				if ( ! $selectWithAnimation.length ) {
+					return;
+				}
+
+				$selectWithAnimation.each( function () {
+					var $select  = $(this);
+					var value    = $select.val();
+					var $wrapper = $select.parent();
+
+					if ( ! $wrapper.find('.xts-animation-preview-wrap').length ) {
+						var classes = '';
+
+						if ( value && 'none' !== value ) {
+							classes = ' wd-animated wd-animation-ready wd-animation-' + value;
+						}
+
+						$wrapper.append(`
+							<div class="xts-animation-preview-wrap">
+								<button class="xts-btn xts-color-primary${classes}">${woodmartConfig.animate_it_btn_text}</button>
+							</div>
+						`);
+					}
+
+					$select.on('change', function () {
+						var $this = $(this);
+						var $preview = $this.siblings('.xts-animation-preview-wrap').find('.xts-btn');
+
+						$preview.removeClass(function (index, css) {
+							return (css.match(/(^|\s)wd-animat\S+/g) || []).join(' ');
+						});
+
+						$preview.addClass('wd-animation-ready wd-animation-' + $this.val() );
+
+						setTimeout( function () {
+							$preview.addClass('wd-animated');
+						}, 100);
+					});
+
+					$wrapper.find('.xts-animation-preview-wrap .xts-btn').on('click', function (e) {
+						e.preventDefault();
+						var $this = $(this);
+
+						$this.removeClass('wd-animated');
+
+						setTimeout( function () {
+							$this.addClass('wd-animated');
+						}, 100);
+					});
+				});
+			},
+
+			selectWithTableControl: function () {
+				if ( typeof ($.fn.select2) === 'undefined' ) {
+					return;
+				}
+
+				$('.xts-active-section .xts-select_with_table-control').each( function () {
+					var $control = $(this);
+
+					$control.on('click', '.xts-remove-item', function (e) {
+						e.preventDefault();
+
+						$(this).parent().parent().remove();
+					});
+
+					$control.find('.xts-add-row').on('click', function (e) {
+						e.preventDefault();
+
+						var $content = $control.find('.xts-controls-wrapper');
+						var $template = $control.find('.xts-item-template').clone();
+
+						$template = $template.html().replace( /{{index}}/gi, $content.find('> div').length );
+
+						$content.append($template);
+
+						woodmartOptionsAdmin.selectControl(true);
+					});
+				});
 			},
 
 			backgroundControl: function() {
+				if ( typeof ($.fn.select2) === 'undefined' ) {
+					return;
+				}
+
 				var $bgs = $('.xts-active-section .xts-background-control');
 
 				if ($bgs.length <= 0) {
@@ -435,6 +572,7 @@ var woodmartOptions;
 					    $bgPreview        = $bg.find('.xts-bg-preview'),
 					    $repeatSelect     = $bg.find('.xts-bg-repeat'),
 					    $sizeSelect       = $bg.find('.xts-bg-size'),
+					    $imageOptions     = $bg.find('.xts-bg-image-options'),
 					    $attachmentSelect = $bg.find('.xts-bg-attachment'),
 					    $positionSelect   = $bg.find('.xts-bg-position'),
 					    data              = {};
@@ -444,7 +582,10 @@ var woodmartOptions;
 					}
 
 					$colorInput.wpColorPicker({
-						change: function() {
+						change: function(e) {
+							updatePreview();
+						},
+						clear: function() {
 							updatePreview();
 						}
 					});
@@ -478,6 +619,7 @@ var woodmartOptions;
 							$preview.prepend(
 								'<img src="' + attachment.url + '" />');
 							$removeBtn.addClass('xts-active');
+							$imageOptions.removeClass('xts-hidden');
 							updatePreview();
 						}).open();
 					});
@@ -488,6 +630,7 @@ var woodmartOptions;
 						$inputID.val('');
 						$inputURL.val('');
 						$removeBtn.removeClass('xts-active');
+						$imageOptions.addClass('xts-hidden');
 						updatePreview();
 					});
 
@@ -503,7 +646,13 @@ var woodmartOptions;
 						data.backgroundAttachment = $attachmentSelect.val();
 						data.backgroundPosition = $positionSelect.val();
 						data.height = 100;
-						$bgPreview.css(data).show();
+
+						console.log($colorInput);
+						if (data.backgroundColor || $inputURL.val()) {
+							$bgPreview.css(data).show();
+						} else {
+							$bgPreview.hide();
+						}
 					}
 
 					$bg.addClass('xts-field-inited');
@@ -524,12 +673,11 @@ var woodmartOptions;
 
 							$parent.find('.xts-custom-fonts-sections').append($template);
 							var regex = /{{index}}/gi;
-							$template.removeClass(
-								'xts-custom-fonts-template hide').html($template.html().replace(regex, key)).attr('data-id', $template.attr('data-id').replace(regex, key));
+							$template.removeClass('xts-custom-fonts-template hide').html($template.html().replace(regex, key)).attr('data-id', $template.attr('data-id').replace(regex, key));
 
 							$parent.data('key', key);
 
-							woodmartOptionsAdmin.uploadControl();
+							woodmartOptionsAdmin.uploadControl( false );
 						});
 
 					$parent.on('click', '.xts-custom-fonts-btn-remove',
@@ -541,13 +689,36 @@ var woodmartOptions;
 				});
 			},
 
-			typographyControl: function() {
+			typographyControlInit: function() {
 				var $typography = $('.xts-active-section .xts-advanced-typography-field');
 
 				if ($typography.length <= 0) {
 					return;
 				}
 
+				$.ajax({
+					url     : woodmartConfig.ajaxUrl,
+					method  : 'POST',
+					data    : {
+						action: 'woodmart_get_theme_settings_typography_data',
+						security: woodmartConfig.get_theme_settings_data_nonce,
+					},
+					dataType: 'json',
+					success : function(response) {
+						woodmartOptionsAdmin.typographyControl(response.typography);
+					},
+					error   : function() {
+						console.log('AJAX error');
+					}
+				});
+			},
+
+			typographyControl: function(typographyData) {
+				if ( typeof ($.fn.select2) === 'undefined' ) {
+					return;
+				}
+
+				var $typography = $('.xts-active-section .xts-advanced-typography-field');
 				var isSelecting     = false,
 				    selVals         = [],
 				    select2Defaults = {
@@ -583,8 +754,7 @@ var woodmartOptions;
 						return;
 					}
 
-					$parent.find(
-						'.xts-typography-section:not(.xts-typography-template)').each(function() {
+					$parent.find('.xts-typography-section:not(.xts-typography-template)').each(function() {
 						var $section = $(this),
 						    id       = $section.data('id');
 
@@ -594,8 +764,7 @@ var woodmartOptions;
 					$parent.on('click', '.xts-typography-btn-add', function(e) {
 						e.preventDefault();
 
-						var $template = $parent.find(
-							'.xts-typography-template').clone(),
+						var $template = $parent.find('.xts-typography-template').clone(),
 						    key       = $parent.data('key') + 1;
 
 						$parent.find('.xts-typography-sections').append($template);
@@ -606,8 +775,7 @@ var woodmartOptions;
 
 						$parent.data('key', key);
 
-						initTypographySection($parent,
-							$template.attr('data-id'));
+						initTypographySection($parent, $template.attr('data-id'));
 					});
 
 					$parent.on('click', '.xts-typography-btn-remove',
@@ -637,7 +805,10 @@ var woodmartOptions;
 					    $colorHover         = $section.find(
 						    '.xts-typography-color-hover'),
 					    $responsiveControls = $section.find(
-						    '.xts-typography-responsive-controls');
+						    '.xts-typography-responsive-controls'),
+						$background         = $section.find('.xts-typography-background'),
+						$backgroundHover    = $section.find(
+							'.xts-typography-background-hover');
 
 					if ($family.data('value') !== '') {
 						$family.val($family.data('value'));
@@ -673,16 +844,15 @@ var woodmartOptions;
 						    children: []
 					    };
 
-					$.map(xtsTypography.stdfonts, function(val, i) {
+					$.map(typographyData.stdfonts, function(val, i) {
 						stdFonts.children.push({
 							id      : i,
 							text    : val,
 							selected: (i == $family.data('value'))
 						});
-
 					});
 
-					$.map(xtsTypography.googlefonts, function(val, i) {
+					$.map(typographyData.googlefonts, function(val, i) {
 						googleFonts.children.push({
 							id      : i,
 							text    : i,
@@ -691,7 +861,7 @@ var woodmartOptions;
 						});
 					});
 
-					$.map(xtsTypography.customFonts, function(val, i) {
+					$.map(typographyData.customFonts, function(val, i) {
 						customFonts.children.push({
 							id      : i,
 							text    : i,
@@ -705,11 +875,8 @@ var woodmartOptions;
 
 					fontFamilies.push(stdFonts);
 					fontFamilies.push(googleFonts);
-					$family.on('select change click mouseup mousedown', function() {
-						if ($family.hasClass('xts-field-inited')) {
-							return;
-						}
 
+					if ( ! $family.hasClass('xts-field-inited')) {
 						$family.addClass('xts-field-inited');
 
 						$family.empty();
@@ -748,20 +915,28 @@ var woodmartOptions;
 
 								$googleInput.val('false');
 
-								$family.val(null).change();
+								$family.val(null).trigger('change');
 
 								syncronizeFontVariants($section, false, true);
 							}
 						);
 
 						$family.hide();
-						setTimeout(function() {
-							$family.select2('open');
-						}, 100);
-					});
+					}
 
 					// CSS selector multi select field
-					$selector.select2(select2Defaults).on(
+					$selector.select2({
+						width     : '100%',
+						theme     : 'xts',
+						allowClear: true,
+						templateSelection: function (state) {
+							if ( !state.id || !state.element || !$(state.element).data('hint-src') ) {
+								return state.text;
+							}
+
+							return $('<span>' + state.text + '</span>' + '<span class="xts-hint"><span class="xts-tooltip xts-top"><img data-src="' + $(state.element).data('hint-src') + '"></span></span>');
+						},
+					}).on(
 						'select2:select',
 						function(e) {
 							var val = e.params.data.id;
@@ -797,6 +972,16 @@ var woodmartOptions;
 					});
 					$colorHover.wpColorPicker();
 
+					$background.wpColorPicker({
+						change: function(event, ui) {
+							// needed for palette click
+							setTimeout(function() {
+								updatePreview($section);
+							}, 5);
+						}
+					});
+					$backgroundHover.wpColorPicker();
+
 					// Responsive font size and line height
 					$responsiveControls.on('click',
 						'.xts-typography-responsive-opener', function() {
@@ -810,23 +995,25 @@ var woodmartOptions;
 
 				function updatePreview($section) {
 					var sectionFields = {
-						familyInput: $section.find(
+						familyInput    : $section.find(
 							'.xts-typography-family-input'),
-						weightInput: $section.find(
+						weightInput    : $section.find(
 							'.xts-typography-weight-input'),
-						preview    : $section.find('.xts-typography-preview'),
-						sizeInput  : $section.find(
+						preview        : $section.find('.xts-typography-preview'),
+						sizeInput      : $section.find(
 							'.xts-typography-size-container .xts-typography-control-desktop input'),
-						heightInput: $section.find(
+						heightInput    : $section.find(
 							'.xts-typography-height-container .xts-typography-control-desktop input'),
-						colorInput : $section.find('.xts-typography-color')
+						colorInput     : $section.find('.xts-typography-color'),
+						backgroundInput: $section.find('.xts-typography-background')
 					};
 
-					var size   = sectionFields.sizeInput.val(),
-					    height = sectionFields.heightInput.val(),
-					    weight = sectionFields.weightInput.val(),
-					    color  = sectionFields.colorInput.val(),
-					    family = sectionFields.familyInput.val();
+					var size       = sectionFields.sizeInput.val(),
+					    height     = sectionFields.heightInput.val(),
+					    weight     = sectionFields.weightInput.val(),
+					    color      = sectionFields.colorInput.val(),
+					    family     = sectionFields.familyInput.val(),
+					    background = sectionFields.backgroundInput.val();
 
 					if (!height) {
 						height = size;
@@ -859,6 +1046,17 @@ var woodmartOptions;
 							color = '#' + color;
 						}
 						sectionFields.preview.css('color', color).css('background-color', bgVal);
+					}
+
+					if (background) {
+						if (background !== '') {
+							background = background.replace('#', '');
+						}
+
+						if (!background.indexOf('gb(')) {
+							background = '#' + background;
+						}
+						sectionFields.preview.css('background-color', background);
 					}
 
 					sectionFields.preview.slideDown();
@@ -953,15 +1151,15 @@ var woodmartOptions;
 
 					// Something went wrong trying to read google fonts, so
 					// turn google off
-					if (xtsTypography.googlefonts === undefined) {
+					if (typographyData.googlefonts === undefined) {
 						google = false;
 					}
 
 					// Get font details
 					var details = '';
 					if (google === true &&
-						(family in xtsTypography.googlefonts)) {
-						details = xtsTypography.googlefonts[family];
+						(family in typographyData.googlefonts)) {
+						details = typographyData.googlefonts[family];
 					} else {
 						details = defaultVariants;
 					}
@@ -1130,6 +1328,65 @@ var woodmartOptions;
 				}
 			},
 
+			sorterControl: function () {
+				$('.xts-sorter-control').each( function () {
+					var $this = $(this);
+					var $lists = $this.find('.xts-sorter-wrapper ul');
+
+					$lists.sortable({
+						connectWith: '.' + $lists.attr('class'),
+						update: function () {
+							var orders = {};
+
+							$this.find('.xts-sorter-wrapper').each( function () {
+								var $wrapper = $(this);
+								var wrapperKey = $wrapper.data('key');
+								var currentOrder = [];
+
+								$wrapper.find('li').each( function () {
+									currentOrder.push($(this).data('id'));
+								});
+
+								orders[wrapperKey] = currentOrder;
+							})
+
+							$this.find('input[type=hidden]').val(JSON.stringify(orders));
+						}
+					}).disableSelection();
+				})
+			},
+
+			themeSettingsTooltips: function () {
+				$(document).on('mouseenter mousemove', '.xts-hint:not(.xts-loaded)', function () {
+					var $wrapper = $(this);
+					var $attachment = $wrapper.find('img');
+
+					if ( ! $attachment.length ) {
+						$attachment = $wrapper.find('video');
+					}
+
+					if ( ! $attachment.length || $wrapper.hasClass('xts-loaded')) {
+						return;
+					}
+
+					$wrapper.addClass('xts-loaded xts-loading');
+
+					$attachment.each( function () {
+						var $this = $(this);
+
+						if ( $this.attr('src') ) {
+							return;
+						}
+
+						$this.attr('src', $this.data('src') );
+					});
+
+					$attachment.on('load play', function () {
+						$wrapper.removeClass('xts-loading');
+					});
+				});
+			},
+
 			makeBool: function(val) {
 				if (val == 'false' || val == '0' || val === false || val ===
 					0) {
@@ -1188,6 +1445,170 @@ var woodmartOptions;
 
 			},
 
+			responsiveRangeControl: function() {
+				var $ranges = $('.xts-active-section .xts-responsive_range-control');
+
+				if ($ranges.length <= 0) {
+					return;
+				}
+
+				$ranges.each(function() {
+					$(this).find('.xts-responsive-range').each(function () {
+						initSlider($(this));
+					});
+				});
+
+				$ranges.find('.xts-device').on('click', function () {
+					var $this = $(this);
+					var $wrapper = $this.parents('.xts-responsive-range-wrapper');
+
+					$this.siblings('.xts-active').removeClass('xts-active');
+					$this.addClass('xts-active');
+
+					$wrapper.find('.xts-responsive-range').removeClass('xts-active').siblings('[data-device=' + $this.data('value') + ']').addClass('xts-active');
+				});
+
+				$ranges.find('.wd-slider-unit-control').on('click', function () {
+					var $this = $(this);
+					var $wrapper = $this.parents('.xts-responsive-range');
+
+					if( !$this.siblings().length ) {
+						return;
+					}
+
+					$this.siblings('.xts-active').removeClass('xts-active');
+					$this.addClass('xts-active');
+
+					$wrapper.attr('data-unit', $this.data('unit') );
+					initSlider($wrapper);
+				});
+
+				$ranges.find('.xts-range-field-value').on('change', function () {
+					var $this = $(this);
+					var $wrapper = $this.parents('.xts-responsive-range');
+					var $mainInput = $wrapper.parent().siblings('.xts-responsive-range-value');
+					var $deviceRangeSettings = $mainInput.data('settings');
+					var rangeSettings = $deviceRangeSettings.range[$wrapper.data('unit')];
+					var valueNew = $this.val();
+
+					if ( valueNew.length ) {
+						if ( valueNew >= rangeSettings.max ) {
+							valueNew = rangeSettings.max;
+							$this.val(valueNew);
+						}
+						if ( valueNew <= rangeSettings.min ) {
+							valueNew = rangeSettings.min;
+							$this.val(valueNew);
+						}
+					}
+
+					$wrapper.attr('data-value', valueNew );
+					setMainValue( $mainInput );
+					initSlider($wrapper);
+				});
+
+				function setMainValue( $input ) {
+					let $results = {
+						devices: {}
+					};
+
+					var changeValue = false;
+
+					$input.siblings('.xts-responsive-range-wrapper').find('.xts-responsive-range').each(function() {
+						let $this = $(this);
+
+						if ($this.attr('data-value')) {
+							changeValue = true;
+						}
+
+						$results.devices[$this.attr('data-device')] = {
+							unit : $this.attr('data-unit'),
+							value: $this.attr('data-value')
+						};
+					});
+
+					if (changeValue) {
+						$input.attr('value', window.btoa(JSON.stringify($results)));
+					} else {
+						$input.attr('value', '');
+					}
+				}
+
+				function initSlider( $deviceRange ) {
+					var $slider              = $deviceRange.find('.xts-range-slider');
+					var $wrapper             = $deviceRange.parents('.xts-responsive-range-wrapper');
+					var $input               = $wrapper.siblings('.xts-responsive-range-value');
+					var $deviceRangeSettings = $input.data('settings');
+					var device               = $deviceRange.data('device');
+					var unit                 = $deviceRange.attr('data-unit');
+					var data                 = $deviceRangeSettings['range'][unit];
+					var $inputNumber         = $deviceRange.find('.xts-range-field-value');
+
+					if ($deviceRange.attr('data-value')) {
+						data.start = $deviceRange.attr('data-value');
+					} else {
+						data.start = $deviceRangeSettings.devices[device].value;
+					}
+
+					if ('undefined' !== typeof $slider.slider()) {
+						$slider.slider('destroy');
+					}
+
+					$slider.slider({
+						range: 'min',
+						value: data.start,
+						min  : data.min,
+						max  : data.max,
+						step : data.step,
+						slide: function(event, ui) {
+							$slider.parent().attr('data-value', ui.value)
+							$inputNumber.val(ui.value);
+							setMainValue($input);
+						}
+					});
+				}
+			},
+
+			uploadIconControl: function () {
+				$('.xts-active-section .xts-icon-font-select, .xts-active-section .xts-icon-weight-select').on('change', function () {
+					var $wrapper = $(this).parents( '.xts-fields-group' );
+					var $preview = $wrapper.find('.xts-icons-preview');
+					var font = $wrapper.find('.xts-icon-font-select').val();
+					var weight = $wrapper.find('.xts-icon-weight-select').val();
+
+					if ( ! font || ! weight ) {
+						return;
+					}
+
+					$preview.addClass('xts-loading');
+					$wrapper.addClass('xts-loading');
+
+					$.ajax({
+						url     : woodmartConfig.ajaxUrl,
+						method  : 'GET',
+						data    : {
+							action  : 'woodmart_get_enqueue_custom_icon_fonts',
+							security: woodmartConfig.get_theme_settings_data_nonce,
+							font    : font,
+							weight  : weight,
+						},
+						dataType: 'json',
+						success : function(response) {
+							if ( response.enqueue ) {
+								$('style#wd-icon-font').replaceWith(response.enqueue);
+							}
+						},
+						error   : function() {
+							console.log('AJAX error');
+						},
+						complete: function() {
+							$preview.removeClass('xts-loading');
+							$wrapper.removeClass('xts-loading');
+						}
+					});
+				});
+			},
+
 			editorControl: function() {
 				var $editors = $('.xts-active-section .xts-editor-control');
 
@@ -1224,7 +1645,7 @@ var woodmartOptions;
 			},
 
 			fieldsDependencies: function() {
-				var $fields = $('.xts-field[data-dependency]');
+				var $fields = $('.xts-field[data-dependency], .xts-tabs[data-dependency]');
 
 				$fields.each(function() {
 					var $field       = $(this),
@@ -1242,8 +1663,7 @@ var woodmartOptions;
 							testFieldDependency($field, dependencies);
 						});
 
-						$parentField.find('input, select').change();
-						// console.log($parentField);
+						$parentField.find('input, select').trigger('change');
 					});
 
 				});
@@ -1293,13 +1713,29 @@ var woodmartOptions;
 			},
 
 			settingsSearch: function() {
+				var $searchForm  = $('.xts-options-search');
+				var $searchInput = $searchForm.find('input');
+				var themeSettingsData;
 
-				var $searchForm  = $('.xts-options-search'),
-				    $searchInput = $searchForm.find('input');
-
-				if ($searchForm.length == 0) {
+				if (0 === $searchForm.length) {
 					return;
 				}
+
+				$.ajax({
+					url     : woodmartConfig.ajaxUrl,
+					method  : 'POST',
+					data    : {
+						action: 'woodmart_get_theme_settings_search_data',
+						security: woodmartConfig.get_theme_settings_data_nonce,
+					},
+					dataType: 'json',
+					success : function(response) {
+						themeSettingsData = response.theme_settings
+					},
+					error   : function() {
+						console.log('AJAX error');
+					}
+				});
 
 				$searchForm.find('form').submit(function(e) {
 					e.preventDefault();
@@ -1307,18 +1743,18 @@ var woodmartOptions;
 
 				var $autocomplete = $searchInput.autocomplete({
 					source: function(request, response) {
-						response(woodmartConfig.xtsOptions.filter(function(value) {
-							return value.text.search(new RegExp(request.term, 'i')) != -1;
+						response(themeSettingsData.filter(function(value) {
+							return -1 !== value.text.search(new RegExp(request.term, 'i'));
 						}));
 					},
 
 					select: function(event, ui) {
 						var $field = $('.xts-' + ui.item.id + '-field');
 
-						$('.xts-sections-nav a[data-id="' + ui.item.section_id + '"]').click();
+						$('.xts-nav-vertical a[data-id="' + ui.item.section_id + '"]').click();
 
-						$('.highlight-field').removeClass('highlight-field');
-						$field.addClass('highlight-field');
+						$('.xts-highlight-field').removeClass('xts-highlight-field');
+						$field.addClass('xts-highlight-field');
 
 						setTimeout(function() {
 							if (!isInViewport($field)) {
@@ -1327,6 +1763,14 @@ var woodmartOptions;
 								}, 400);
 							}
 						}, 300);
+					},
+
+					open: function( event, ui ) {
+						$searchForm.addClass('xts-searched');
+					},
+
+					close: function( event, ui ) {
+						$searchForm.removeClass('xts-searched');
 					}
 
 				}).data('ui-autocomplete');
@@ -1345,7 +1789,7 @@ var woodmartOptions;
 						that._renderItemData(ul, item);
 					});
 
-					$(ul).addClass('xtemos-settings-result');
+					$(ul).addClass('xts-settings-result');
 				};
 
 				var isInViewport = function($el) {
@@ -1357,47 +1801,76 @@ var woodmartOptions;
 				};
 			},
 
-			instagramAPI: function() {
-				$('.xts-instagram_api-control button').on('click', function(e) {
-					e.preventDefault();
+			widgetDependency: function() {
+				if ( ! $(document.body).hasClass('widgets-php') ) {
+					return;
+				}
 
-					var redirect_uri = encodeURIComponent($('input[name="redirect_uri"]').val());
-					var app_id = $('input[name="xts-woodmart-options[insta_token][app_id]"]').val();
-					var app_secret = $('input[name="xts-woodmart-options[insta_token][app_secret]"]').val();
+				if ( ! $(document.body).hasClass('wp-embed-responsive') ) {
+					$('.widget').each( function () {
+						initWidgetField( $(this) );
+					});
+				}
 
-					if (!app_id || !app_secret || !redirect_uri) {
-						$('.xts-insta-message-section').text('Make sure all fields are filled').removeClass('xts-error').removeClass('xts-success').addClass('xts-warning');
-						return;
-					}
+				$(document).on('widget-added', function ( e, $element ) {
+					initWidgetField( $element );
+				});
 
-					$.ajax({
-						url     : woodmartConfig.ajaxUrl,
-						method  : 'POST',
-						data    : {
-							action: 'woodmart_save_insta_credentials',
-							data  : {
-								app_id    : app_id,
-								app_secret: app_secret
+				function initWidgetField( $element ) {
+					$element.find('.wd-widget-field').each( function () {
+						var $this = $(this);
+						var value = $this.data( 'value' );
+
+						if ( 'undefined' === typeof value || ! $this.data( 'param_name' ) ) {
+							return;
+						}
+
+						process($this, value);
+
+						$this.find('.widefat').on( 'change', function () {
+							var $thisInput = $(this);
+							var $parent = $thisInput.parent('.wd-widget-field');
+							var value = $thisInput.val();
+
+							$parent.attr( 'data-value', value);
+
+							process($parent, value);
+						});
+					});
+				}
+
+				function process( $element, value ) {
+					$element.siblings().each( function () {
+						var $this = $(this);
+						var dependency = $this.data( 'dependency' );
+
+						if ( 'undefined' !== typeof dependency && dependency.element === $element.data('param_name') ) {
+							if ( 'undefined' !== typeof dependency.value ) {
+								if ( dependency.value.includes( value ) ) {
+									$this.show();
+								} else {
+									$this.hide();
+								}
 							}
-						},
-						dataType: 'json',
-						success : function(r) {
-							window.location.href = 'https://api.instagram.com/oauth/authorize?app_id=' + app_id + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=user_profile,user_media';
-						},
-						error   : function(r) {
-							console.log('ajax error', r);
+							if ( 'undefined' !== typeof dependency.value_not_equal_to ) {
+								if ( dependency.value_not_equal_to.includes( value ) ) {
+									$this.hide();
+								} else {
+									$this.show();
+								}
+							}
 						}
 					});
-				});
+				}
 			},
 
 			presetsActive: function() {
 				function checkAll() {
-					$('.xts-sections-nav li').each(function() {
+					$('.xts-nav-vertical li').each(function() {
 						var $li = $(this);
 						var sectionId = $li.find('a').data('id');
 
-						$('.xts-fields-section[data-id="' + sectionId + '"]').find('.xts-inherit-checkbox-wrapper input').each(function() {
+						$('.xts-section[data-id="' + sectionId + '"]').find('.xts-inherit-checkbox-wrapper input').each(function() {
 							if (!$(this).prop('checked')) {
 								$li.addClass('xts-not-inherit');
 							}
@@ -1406,19 +1879,19 @@ var woodmartOptions;
 				}
 
 				function checkChild() {
-					$('.xts-sections-nav .xts-has-child').each(function() {
-						var $child = $(this).find('.xts-not-inherit');
-
-						var checkedParent = false;
+					$('.xts-nav-vertical .xts-has-child').each(function() {
+						var $this  = $(this);
+						var $child = $this.find('.xts-not-inherit');
+						var checked = false;
 
 						if ($child.length > 0) {
-							checkedParent = true;
+							checked = true;
 						}
 
-						if (checkedParent) {
-							$(this).addClass('xts-not-inherit');
+						if (checked) {
+							$this.addClass('xts-not-inherit');
 						} else {
-							$(this).removeClass('xts-not-inherit');
+							$this.removeClass('xts-not-inherit');
 						}
 					});
 				}
@@ -1427,19 +1900,21 @@ var woodmartOptions;
 				checkChild();
 
 				$('.xts-inherit-checkbox-wrapper input').on('change', function() {
-					var sectionId = $(this).parents('.xts-fields-section').data('id');
-
+					var $this  = $(this);
+					var sectionId = $this.parents('.xts-section').data('id');
 					var checked = false;
-					$(this).parents('.xts-fields-section').find('.xts-inherit-checkbox-wrapper input').each(function() {
+					var $parent = $('.xts-nav-vertical li a[data-id="' + sectionId + '"]').parent();
+
+					$this.parents('.xts-section').find('.xts-inherit-checkbox-wrapper input').each(function() {
 						if (!$(this).prop('checked')) {
 							checked = true;
 						}
 					});
 
 					if (checked) {
-						$('.xts-sections-nav li a[data-id="' + sectionId + '"]').parent().addClass('xts-not-inherit');
+						$parent.addClass('xts-not-inherit');
 					} else {
-						$('.xts-sections-nav li a[data-id="' + sectionId + '"]').parent().removeClass('xts-not-inherit');
+						$parent.removeClass('xts-not-inherit');
 					}
 
 					checkChild();
@@ -1447,331 +1922,72 @@ var woodmartOptions;
 				});
 			},
 
-			optionsPresetsCheckbox: function($checkbox) {
+			optionsPresetsCheckbox: function() {
 				var $options = $('.xts-options');
 				var $fieldsToSave = $options.find('.xts-fields-to-save');
-
-				var $field = $checkbox.parents('.xts-field');
-				var checked = $checkbox.prop('checked');
-				var name = $checkbox.data('name');
-
-				if (!checked) {
-					$field.removeClass('xts-field-disabled');
-					addField(name);
-				} else {
-					$field.addClass('xts-field-disabled');
-					removeField(name);
-				}
-
-				function addField(name) {
-					var current     = $fieldsToSave.val(),
-					    fieldsArray = current.split(','),
-					    index       = fieldsArray.indexOf(name);
-
-					if (index > -1) {
-						return;
-					}
-
-					if (current.length == 0) {
-						fieldsArray = [name];
-					} else {
-						fieldsArray.push(name);
-					}
-
-					$fieldsToSave.val(fieldsArray.join(','));
-				}
-
-				function removeField(name) {
-					var current     = $fieldsToSave.val(),
-					    fieldsArray = current.split(','),
-					    index       = fieldsArray.indexOf(name);
-
-					if (index > -1) {
-						fieldsArray.splice(index, 1);
-						$fieldsToSave.val(fieldsArray.join(','));
-					}
-				}
-			},
-
-			htmlBlockEditLink: function() {
-				$('.xts-edit-block-link').each(function() {
-					var $link = $(this);
-					var $select = $link.parent().find('select');
-
-					changeLink();
-
-					$select.change(function() {
-						changeLink();
-					});
-
-					function changeLink() {
-						var selectValue = $select.find('option:selected').val();
-						var currentHref = $link.attr('href');
-
-						var newHref = currentHref.split('post=')[0] + 'post=' + selectValue + '&action=';
-						if ($('.xts-dashboard').hasClass('xts-builder-elementor')) {
-							newHref += 'elementor';
-						} else {
-							newHref += 'edit';
-						}
-
-						if (!selectValue || '0' === selectValue || 0 === selectValue) {
-							$link.hide();
-						} else {
-							$link.attr('href', newHref).show();
-						}
-					}
-				});
-			},
-
-			optionsPresets: function() {
-				var $options        = $('.xts-options'),
-				    $checkboxes     = $options.find(
-					    '.xts-inherit-checkbox-wrapper input'),
-				    $presetsWrapper = $options.find('.xts-presets-wrapper'),
-				    currentID       = $presetsWrapper.data('current-id'),
-				    nonceValue      = $presetsWrapper.find('[name="_wpnonce"]').val(),
-				    baseUrl         = $presetsWrapper.data('base-url'),
-				    presetUrl       = $presetsWrapper.data('preset-url');
-
-				initSelect2();
-
-				$presetsWrapper.on('click', '.xts-add-new-preset', function(e) {
-					e.preventDefault();
-
-					if (isInAction()) {
-						return;
-					}
-
-					var name = prompt('Enter new preset name', 'New preset');
-
-					if (!name || name.length == 0) {
-						return;
-					}
-
-					startLoading();
-
-					$.ajax({
-						url     : woodmartConfig.ajaxUrl,
-						method  : 'POST',
-						data    : {
-							action  : 'xts_new_preset_action',
-							name    : name,
-							preset  : currentID,
-							security: nonceValue
-						},
-						dataType: 'json',
-						success : function(r) {
-							if (r.ui && r.ui.length > 10) {
-								// updateUI(r.ui);
-								window.location = presetUrl + r.id;
-							}
-						},
-						error   : function(r) {
-							window.location = baseUrl;
-							console.log('ajax error', r);
-						},
-						complete: function() {
-							stopLoading();
-						}
-					});
-
-				}).on('click', '.xts-remove-preset-btn', function(e) {
-					e.preventDefault();
-
-					if (isInAction() || !confirm(
-						'Are you sure you want to remove this preset?')) {
-						return;
-					}
-
-					var id = $(this).data('id');
-
-					startLoading();
-
-					$.ajax({
-						url     : woodmartConfig.ajaxUrl,
-						method  : 'POST',
-						data    : {
-							action  : 'xts_remove_preset_action',
-							id      : id,
-							preset  : currentID,
-							security: nonceValue
-						},
-						dataType: 'json',
-						success : function(r) {
-							if (r.ui && r.ui.length > 10) {
-								if (id == currentID) {
-									window.location = baseUrl;
-								} else {
-									updateUI(r.ui);
-								}
-							}
-						},
-						error   : function(r) {
-							window.location = baseUrl;
-							console.log('ajax error', r);
-						},
-						complete: function() {
-							stopLoading();
-						}
-					});
-				}).on('submit', 'form', function(e) {
-					e.preventDefault();
-					var data = [];
-
-					$presetsWrapper.find('form').find('.xts-rule').each(function() {
-						data.push({
-							type      : $(this).find('.xts-rule-type').val(),
-							comparison: $(this).find('.xts-rule-comparison').val(),
-							post_type : $(this).find('.xts-rule-post-type').val(),
-							taxonomy  : $(this).find('.xts-rule-taxonomy').val(),
-							custom    : $(this).find('.xts-rule-custom').val(),
-							value_id  : $(this).find('.xts-rule-value-id').val()
-						});
-					});
-
-					startLoading();
-
-					$.ajax({
-						url     : woodmartConfig.ajaxUrl,
-						method  : 'POST',
-						data    : {
-							action  : 'xts_save_preset_conditions_action',
-							data    : data,
-							preset  : currentID,
-							security: nonceValue
-						},
-						dataType: 'json',
-						success : function(r) {
-							if (r.ui && r.ui.length > 10) {
-								updateUI(r.ui);
-								$('.xts-presets-wrapper .xts-presets-response').html('<div class="xts-notice-top xts-success">' + r.success_msg + '</div>');
-							}
-						},
-						error   : function(r) {
-							$('.xts-presets-wrapper .xts-presets-response').html('<div class="xts-notice-top xts-error">' + r.error_msg + '</div>');
-						},
-						complete: function() {
-							stopLoading();
-						}
-					});
-				}).on('click', '.xts-add-preset-rule', function(e) {
-					e.preventDefault();
-					var $template = $presetsWrapper.find('.xts-rule-template').clone();
-					$template.find('.xts-rule').removeClass('xts-hidden');
-					$presetsWrapper.find('.xts-condition-rules').append($template.html());
-					initSelect2();
-				}).on('click', '.xts-remove-preset-rule', function(e) {
-					e.preventDefault();
-					$(this).parent().remove();
-				}).on('change', '.xts-rule-type', function(e) {
-					var $type     = $(this),
-					    $rule     = $type.parents('.xts-rule'),
-					    $postType = $rule.find('.xts-rule-post-type'),
-					    $taxonomy = $rule.find('.xts-rule-taxonomy'),
-					    $custom   = $rule.find('.xts-rule-custom'),
-					    $valueID  = $rule.find('.xts-rule-value-wrapper'),
-					    type      = $type.val();
-
-					switch (type) {
-						case 'post_type':
-							$postType.removeClass('xts-hidden');
-							$taxonomy.addClass('xts-hidden');
-							$custom.addClass('xts-hidden');
-							$valueID.addClass('xts-hidden');
-							break;
-						case 'taxonomy':
-							$postType.addClass('xts-hidden');
-							$taxonomy.removeClass('xts-hidden');
-							$custom.addClass('xts-hidden');
-							$valueID.addClass('xts-hidden');
-							break;
-						case 'post_id':
-						case 'term_id':
-						case 'single_posts_term_id':
-							$postType.addClass('xts-hidden');
-							$taxonomy.addClass('xts-hidden');
-							$custom.addClass('xts-hidden');
-							$valueID.removeClass('xts-hidden');
-							break;
-						case 'custom':
-							$postType.addClass('xts-hidden');
-							$taxonomy.addClass('xts-hidden');
-							$custom.removeClass('xts-hidden');
-							$valueID.addClass('xts-hidden');
-							break;
-					}
-				});
+				var $checkboxes = $options.find('.xts-inherit-checkbox-wrapper input');
 
 				$checkboxes.on('change', function() {
-					woodmartOptionsAdmin.optionsPresetsCheckbox($(this));
+					var $checkbox = $(this);
+					var $field = $checkbox.parents('.xts-field');
+					var checked = $checkbox.prop('checked');
+					var name = $checkbox.data('name');
+
+					var addField = function(name) {
+						var current     = $fieldsToSave.val();
+						var fieldsArray = current.split(',');
+						var index       = fieldsArray.indexOf(name);
+
+						if (index > -1) {
+							return;
+						}
+
+						if (current.length === 0) {
+							fieldsArray = [name];
+						} else {
+							fieldsArray.push(name);
+						}
+
+						$fieldsToSave.val(fieldsArray.join(','));
+					}
+
+					var removeField = function(name) {
+						var current     = $fieldsToSave.val();
+						var fieldsArray = current.split(',');
+						var index       = fieldsArray.indexOf(name);
+
+						if (index > -1) {
+							fieldsArray.splice(index, 1);
+							$fieldsToSave.val(fieldsArray.join(','));
+						}
+					}
+
+					if (!checked) {
+						$field.removeClass('xts-field-disabled');
+						addField(name);
+					} else {
+						$field.addClass('xts-field-disabled');
+						removeField(name);
+					}
 				});
-
-				function updateUI(html) {
-					$presetsWrapper.html($(html).html());
-					initSelect2();
-				}
-
-				function initSelect2() {
-					$presetsWrapper.find('.xts-condition-rules .xts-rule').each(function() {
-						var $rule  = $(this),
-						    $field = $rule.find('.xts-rule-value-id');
-
-						$field.select2({
-							ajax             : {
-								url     : woodmartConfig.ajaxUrl,
-								data    : function(params) {
-									var query = {
-										action  : 'xts_get_entity_ids_action',
-										type    : $rule.find('.xts-rule-type').val(),
-										security: nonceValue,
-										name    : params.term
-									};
-
-									return query;
-								},
-								method  : 'POST',
-								dataType: 'json'
-								// Additional AJAX parameters go here; see
-								// the end of this chapter for the full
-								// code of this example
-							},
-							theme            : 'xts',
-							dropdownAutoWidth: false,
-							width            : 'resolve'
-						});
-					});
-				}
-
-				function isInAction() {
-					return $presetsWrapper.hasClass('xts-loading');
-				}
-
-				function startLoading() {
-					$presetsWrapper.addClass('xts-loading');
-				}
-
-				function stopLoading() {
-					$presetsWrapper.removeClass('xts-loading');
-				}
-
 			}
 		};
 
 		return {
 			init: function() {
 				$(document).ready(function() {
-					woodmartOptionsAdmin.htmlBlockEditLink();
 					woodmartOptionsAdmin.optionsPage();
-					woodmartOptionsAdmin.optionsPresets();
+					woodmartOptionsAdmin.optionsPresetsCheckbox();
 					woodmartOptionsAdmin.presetsActive();
 					woodmartOptionsAdmin.switcherControl();
 					woodmartOptionsAdmin.buttonsControl();
-					woodmartOptionsAdmin.checkboxControl();
 					woodmartOptionsAdmin.fieldsDependencies();
 					woodmartOptionsAdmin.customFontsControl();
 					woodmartOptionsAdmin.settingsSearch();
-					woodmartOptionsAdmin.instagramAPI();
+					woodmartOptionsAdmin.widgetDependency();
+					woodmartOptionsAdmin.sorterControl();
+					woodmartOptionsAdmin.themeSettingsTooltips();
+					woodmartOptionsAdmin.selectWithTableControl();
 
 					woodmart_media_init();
 					woodmartOptionsAdmin.selectControl(true);
@@ -1788,20 +2004,22 @@ var woodmartOptions;
 
 				$(document).on('xts_section_changed', function() {
 					setTimeout(function() {
-						woodmartOptionsAdmin.typographyControl();
+						woodmartOptionsAdmin.typographyControlInit();
 					});
+					woodmartOptionsAdmin.buttonsControl();
 					woodmartOptionsAdmin.selectControl(false);
 					woodmartOptionsAdmin.uploadControl(false);
 					woodmartOptionsAdmin.uploadListControl(false);
 					woodmartOptionsAdmin.colorControl();
 					woodmartOptionsAdmin.backgroundControl();
+					woodmartOptionsAdmin.switcherControl();
 					woodmartOptionsAdmin.rangeControl();
+					woodmartOptionsAdmin.responsiveRangeControl();
+					woodmartOptionsAdmin.uploadIconControl();
 				});
 			}
 		};
-
 	}());
-
 })(jQuery);
 
 jQuery(document).ready(function() {

@@ -3,7 +3,7 @@
 .wpos-anylc-optin-wrap *{box-sizing:border-box; outline:0;}
 .wpos-anylc-hide{display:none;}
 .wpos-anylc-optin-wrap .button{border-radius:0;}
-.wpos-anylc-optin-wrap{max-width: 480px; width: 100%; border:1px solid #ddd; background-color: #fff;}
+.wpos-anylc-optin-wrap{max-width: 700px; width: 100%; border:1px solid #ddd; background-color: #fff;}
 .wpos-anylc-optin-icon-wrap{font-size:0; padding: 15px;}
 .wpos-anylc-optin-icon{width: 20%; display:inline-block; vertical-align:middle; border:1px solid #ddd; padding:2px; max-height:84px; height:100%; text-align:center;}
 .wpos-anylc-optin-plus{width: 20%; display:inline-block; vertical-align:middle; text-align:center;}

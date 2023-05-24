@@ -3,6 +3,8 @@
  * Menu price map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -72,7 +74,7 @@ class Menu_Price extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -246,4 +248,4 @@ class Menu_Price extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Menu_Price() );
+Plugin::instance()->widgets_manager->register( new Menu_Price() );

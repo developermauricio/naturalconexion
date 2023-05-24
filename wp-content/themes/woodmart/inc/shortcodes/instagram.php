@@ -23,6 +23,8 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 				'spacing_custom'          => 6,
 				'rounded'                 => 0,
 				'per_row'                 => 3,
+				'per_row_tablet'          => 'auto',
+				'per_row_mobile'          => 'auto',
 				'hide_mask'               => 0,
 				'hide_pagination_control' => '',
 				'hide_prev_next_buttons'  => '',
@@ -30,6 +32,7 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 				'ajax_body'               => false,
 				'content'                 => $content,
 				'data_source'             => 'scrape',
+				'woodmart_css_id'         => uniqid(),
 
 				// Images.
 				'images'                  => array(),
@@ -48,6 +51,10 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 		ob_start();
 
 		$class = 'instagram-widget';
+
+		if ( ! empty( $parsed_atts['woodmart_css_id'] ) ) {
+			$class .= ' wd-rs-' . $parsed_atts['woodmart_css_id'];
+		}
 
 		$class .= $el_class ? ' ' . $el_class : '';
 
@@ -69,6 +76,15 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 			woodmart_enqueue_inline_style( 'owl-carousel' );
 			$custom_sizes = apply_filters( 'woodmart_instagram_shortcode_custom_sizes', false );
 
+			if ( ( 'auto' !== $per_row_tablet && ! empty( $per_row_tablet ) ) || ( 'auto' !== $per_row_mobile && ! empty( $per_row_mobile ) ) ) {
+				$custom_sizes = array(
+					'desktop'          => $per_row,
+					'tablet_landscape' => $per_row_tablet,
+					'tablet'           => $per_row_mobile,
+					'mobile'           => $per_row_mobile,
+				);
+			}
+
 			$owl_atts = woodmart_get_owl_attributes(
 				array(
 					'carousel_id'             => $carousel_id,
@@ -83,17 +99,16 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 				$class .= ' disable-owl-mobile';
 			}
 
-			$pics_classes .= ' owl-carousel ' . woodmart_owl_items_per_slide( $per_row, array(), false, false, $custom_sizes );
+			$pics_classes .= ' owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $per_row, array(), false, false, $custom_sizes );
 			$class        .= ' wd-carousel-container';
 			$class        .= ' wd-carousel-spacing-' . $spacing_custom;
 		} else {
 			$pics_classes    .= ' row';
-			$picture_classes .= woodmart_get_grid_el_class( 0, $per_row );
+			$picture_classes .= woodmart_get_grid_el_class_new( 0, false, $per_row, $per_row_tablet, $per_row_mobile );
 			$pics_classes    .= ' wd-spacing-' . $spacing_custom;
 		}
 
 		if ( 'images' === $data_source ) {
-			$size        = 'large';
 			$media_array = woodmart_get_instagram_custom_images( $images, $images_size, $images_link, $images_likes, $images_comments );
 		} else {
 			$media_array = woodmart_scrape_instagram( $username, $number, $ajax_body, $data_source );
@@ -141,10 +156,6 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 				<?php foreach ( $media_array as $item ) : ?>
 					<?php
 					$image = '';
-					$size  = 'thumbnail';
-					if ( 'api' === $data_source ) {
-						$size = 'large';
-					}
 
 					if ( ! empty( $item[ $size ] ) ) {
 						$image = $item[ $size ];
@@ -156,8 +167,10 @@ if ( ! function_exists( 'woodmart_shortcode_instagram' ) ) {
 							<a href="<?php echo esc_url( $item['link'] ); ?>" target="<?php echo esc_attr( $target ); ?>" aria-label="<?php esc_attr_e( 'Instagram picture', 'woodmart' ); ?>"></a>
 
 							<?php
-							if ( 'images' === $data_source ) {
-								echo wp_get_attachment_image( $item['image_id'], $images_size );
+							$size = 'images' === $data_source ? $images_size : $size;
+
+							if ( isset( $item['image_id'] ) && $item['image_id'] ) {
+								echo wp_get_attachment_image( $item['image_id'], $size );
 							} else {
 								echo apply_filters( 'woodmart_image', '<img src="' . esc_url( $image ) . '" alt="' . esc_attr__( 'Instagram image', 'woodmart' ) . '"/>' );
 							}
@@ -291,6 +304,7 @@ if ( ! function_exists( 'woodmart_get_api_insta_images' ) ) {
 				'description' => $caption,
 				'link'        => preg_replace( '/^https:/i', '', $image->permalink ),
 				'large'       => preg_replace( '/^https:/i', '', $image_url ),
+				'image_id'    => xts_insert_image_from_url( $image_url ),
 				'comments'    => $image->comments_count,
 				'likes'       => $image->like_count,
 				'type'        => $image->media_type,
@@ -298,6 +312,97 @@ if ( ! function_exists( 'woodmart_get_api_insta_images' ) ) {
 		}
 
 		return $instagram;
+	}
+}
+
+if ( ! function_exists( 'xts_insert_image_from_url' ) ) {
+	/**
+	 * Insert image from url.
+	 *
+	 * @param string $url Image url.
+	 *
+	 * @return int|WP_Error
+	 */
+	function xts_insert_image_from_url( $url ) {
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+
+		preg_match( '/[^\?]+\.(jpe?g|jpe|gif|png|webp)\b/i', $url, $matches );
+		$img_name = wp_basename( $matches[0], '.' . $matches[1] );
+
+		$img_by_slug = woodmart_get_image_id_by_slug( $img_name );
+
+		if ( ! $img_by_slug ) {
+			add_filter( 'intermediate_image_sizes', 'woodmart_get_instagram_insert_image_sizes', 10 );
+			$upload = media_sideload_image( $url, 0, $img_name, 'id' );
+			remove_action( 'intermediate_image_sizes', 'woodmart_get_instagram_insert_image_sizes', 10 );
+
+			if ( is_wp_error( $upload ) ) {
+				return $upload->get_error_message();
+			}
+
+			update_post_meta( $upload, '_woodmart_instagram_image_name', $img_name );
+
+			return $upload;
+		}
+
+		return $img_by_slug;
+	}
+}
+
+if ( ! function_exists( 'woodmart_get_image_id_by_slug' ) ) {
+	/**
+	 * Get image id by slug
+	 *
+	 * @param string $slug Image slug.
+	 *
+	 * @return int
+	 */
+	function woodmart_get_image_id_by_slug( $slug ) {
+		if ( ! $slug ) {
+			return '';
+		}
+
+		$args = array(
+			'post_type'      => 'attachment',
+			'posts_per_page' => 1,
+			'meta_key'       => '_woodmart_instagram_image_name',
+			'meta_value'     => $slug,
+		);
+
+		$post = get_posts( $args );
+
+		if ( $post ) {
+			return $post[0]->ID;
+		}
+
+		$args = array(
+			'post_type'      => 'attachment',
+			's'              => sanitize_title( $slug ),
+			'posts_per_page' => 1,
+		);
+
+		$post = get_posts( $args );
+
+		if ( ! $post ) {
+			return '';
+		}
+
+		return $post[0]->ID;
+	}
+}
+
+if ( ! function_exists( 'woodmart_get_instagram_insert_image_sizes' ) ) {
+	/**
+	 * Default images sizes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
+	 */
+	function woodmart_get_instagram_insert_image_sizes() {
+		return array( 'medium' );
 	}
 }
 

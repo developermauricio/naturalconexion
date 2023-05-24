@@ -3,6 +3,8 @@
  * Counter map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -72,7 +74,7 @@ class Counter extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -274,4 +276,4 @@ class Counter extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Counter() );
+Plugin::instance()->widgets_manager->register( new Counter() );

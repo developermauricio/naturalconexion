@@ -1,7 +1,8 @@
 <?php use Automattic\WooCommerce\Internal\ProductAttributesLookup\Filterer;
 
 if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
-	exit( 'No direct script access allowed' );}
+	exit( 'No direct script access allowed' );
+}
 
 /**
  * Color filter widget
@@ -9,36 +10,9 @@ if ( ! defined( 'WOODMART_THEME_DIR' ) ) {
 
 if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 	class WOODMART_Widget_Layered_Nav extends WPH_Widget {
-
 		function __construct() {
 			if ( ! woodmart_woocommerce_installed() || ! function_exists( 'wc_get_attribute_taxonomies' ) ) {
 				return;
-			}
-
-			$attribute_array      = array();
-			$attribute_taxonomies = wc_get_attribute_taxonomies();
-
-			if ( $attribute_taxonomies ) {
-				foreach ( $attribute_taxonomies as $tax ) {
-					$attribute_array[ $tax->attribute_name ] = $tax->attribute_name;
-				}
-			}
-
-			$categories_array = array(
-				esc_html__( 'All categories', 'woodmart' ) => 'all',
-			);
-
-			$categories = $this->get_categories();
-
-			if ( ! empty( $categories ) ) {
-				foreach ( $categories as $cat ) {
-					$title = $cat->post_title;
-					$id    = ' (ID:' . $cat->id . ')';
-					if ( property_exists( $cat, 'parent' ) && $cat->parent ) {
-						$title = $title . $id . ' (Parent ID:' . $cat->parent . ')';
-					}
-					$categories_array[ $title . $id ] = $cat->id;
-				}
 			}
 
 			// Configure widget array
@@ -65,14 +39,15 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 					'type'   => 'dropdown',
 					'std'    => '',
 					'name'   => esc_html__( 'Attribute', 'woodmart' ),
-					'fields' => $attribute_array,
+					'callback' => 'get_layered_get_attributes_options',
 				),
 				array(
 					'id'      => 'category',
 					'type'    => 'select2',
 					'default' => array( 'all' ),
 					'name'    => esc_html__( 'Show on category', 'woodmart' ),
-					'fields'  => $categories_array,
+					'callback'  => 'get_layered_get_categories_options',
+					'fields' => array(),
 				),
 				array(
 					'id'     => 'query_type',
@@ -85,16 +60,17 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 					),
 				),
 				array(
-					'id'     => 'display',
-					'type'   => 'dropdown',
-					'std'    => 'list',
-					'name'   => esc_html__( 'Display type', 'woodmart' ),
-					'fields' => array(
-						esc_html__( 'list', 'woodmart' )   => 'list',
+					'id'         => 'display',
+					'param_name' => 'display',
+					'type'       => 'dropdown',
+					'std'        => 'list',
+					'name'       => esc_html__( 'Layout', 'woodmart' ),
+					'fields'     => array(
+						esc_html__( 'List', 'woodmart' ) => 'list',
 						esc_html__( '2 columns', 'woodmart' ) => 'double',
-						esc_html__( 'inline', 'woodmart' ) => 'inline',
-						esc_html__( 'Dropdown', 'woodmart' ) => 'dropdown',
-					),
+						esc_html__( 'Inline', 'woodmart' ) => 'inline',
+						esc_html__( 'Dropdown', 'woodmart' ) => 'dropdown'
+					)
 				),
 				array(
 					'id'     => 'size',
@@ -102,9 +78,34 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 					'std'    => 'normal',
 					'name'   => esc_html__( 'Swatches size', 'woodmart' ),
 					'fields' => array(
-						esc_html__( 'normal', 'woodmart' ) => 'normal',
-						esc_html__( 'large', 'woodmart' )  => 'large',
-						esc_html__( 'small', 'woodmart' )  => 'small',
+						esc_html__( 'Small', 'woodmart' )  => 'small',
+						esc_html__( 'Medium', 'woodmart' ) => 'normal',
+						esc_html__( 'Large', 'woodmart' )  => 'large',
+					)
+				),
+				array(
+					'id'     => 'style',
+					'type'   => 'dropdown',
+					'std'    => 'inherit',
+					'name'   => esc_html__( 'Swatch style', 'woodmart' ),
+					'fields' => array(
+						esc_html__( 'Inherit', 'woodmart' ) => 'inherit',
+						esc_html__( 'Style 1', 'woodmart' ) => '1',
+						esc_html__( 'Style 2', 'woodmart' ) => '2',
+						esc_html__( 'Style 3', 'woodmart' ) => '3',
+						esc_html__( 'Style 4', 'woodmart' ) => '4',
+					),
+				),
+				array(
+					'id'     => 'shape',
+					'type'   => 'dropdown',
+					'std'    => 'round',
+					'name'   => esc_html__( 'Swatches shape', 'woodmart' ),
+					'fields' => array(
+						esc_html__( 'Inherit', 'woodmart' ) => 'inherit',
+						esc_html__( 'Round', 'woodmart' )  => 'round',
+						esc_html__( 'Rounded', 'woodmart' ) => 'rounded',
+						esc_html__( 'Square', 'woodmart' ) => 'square',
 					),
 				),
 				array(
@@ -127,30 +128,19 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 						esc_html__( 'ON', 'woodmart' )  => 'on',
 					),
 				),
+				array(
+					'id'         => 'search_by_filters',
+					'type'       => 'checkbox',
+					'name'       => esc_html__( 'Show search input for this attribute', 'woodmart' ),
+					'dependency' => array(
+						'element'            => 'display',
+						'value_not_equal_to' => array( 'dropdown' ),
+					),
+				),
 			);
 
 			// create widget
 			$this->create_widget( $args );
-		}
-
-		public function get_categories() {
-			global $wpdb;
-
-			$categories = $wpdb->get_results(
-				"
-			SELECT
-				t.term_id AS id,
-				t.name    AS post_title,
-				t.slug    AS post_url,
-				parent    AS parent
-			FROM {$wpdb->prefix}terms t
-				LEFT JOIN {$wpdb->prefix}term_taxonomy tt
-						ON t.term_id = tt.term_id
-			WHERE tt.taxonomy = 'product_cat'
-			ORDER BY name"
-			);
-
-			return $categories;
 		}
 
 		// Output function
@@ -162,6 +152,7 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 			$query_type         = isset( $instance['query_type'] ) ? $instance['query_type'] : 'and';
 			$display            = isset( $instance['display'] ) ? $instance['display'] : 'list';
 			$template           = isset( $instance['template'] ) ? $instance['template'] : 'default';
+			$wrapper_classes    = '';
 
 			if ( ! is_shop() && ! is_product_taxonomy() && $template == 'default' ) {
 				return;
@@ -208,6 +199,23 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 
 			if ( 0 === sizeof( $terms ) ) {
 				return;
+			}
+
+			if ( 'layered-nav' === woodmart_get_opt( 'shop_widgets_collapse' ) ) {
+				$wrapper_classes .= ' wd-widget-collapse';
+			}
+
+			if ( 'disable' !== woodmart_get_opt( 'shop_widgets_collapse', 'disable' ) && is_array( $_chosen_attributes ) && array_key_exists( $taxonomy, $_chosen_attributes ) ) {
+				$wrapper_classes .= ' wd-opened-initially wd-opened';
+			}
+
+			if ( $wrapper_classes ) {
+				$args['before_widget'] = str_replace( 'class="', 'class="' . $wrapper_classes . ' ', $args['before_widget'] );
+			}
+
+			if ( isset( $instance['search_by_filters'] ) && $instance['search_by_filters'] ) {
+				woodmart_enqueue_inline_style( 'filter-search' );
+				woodmart_enqueue_js_script( 'search-by-filters' );
 			}
 
 			ob_start();
@@ -445,6 +453,7 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 				$tax_query      = new WP_Tax_Query( $tax_query );
 				$meta_query_sql = $meta_query->get_sql( 'post', $wpdb->posts, 'ID' );
 				$tax_query_sql  = $tax_query->get_sql( $wpdb->posts, 'ID' );
+
 				// Generate query
 				$query           = array();
 				$query['select'] = "SELECT COUNT( DISTINCT {$wpdb->posts}.ID ) as term_count, terms.term_id as term_count_id";
@@ -454,7 +463,8 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 				INNER JOIN {$wpdb->term_taxonomy} AS term_taxonomy USING( term_taxonomy_id )
 				INNER JOIN {$wpdb->terms} AS terms USING( term_id )
 				" . $tax_query_sql['join'] . $meta_query_sql['join'];
-				$query['where']  = "
+
+				$query['where'] = "
 				WHERE {$wpdb->posts}.post_type IN ( 'product' )
 				AND {$wpdb->posts}.post_status = 'publish'
 				" . $tax_query_sql['where'] . $meta_query_sql['where'] . '
@@ -524,21 +534,85 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 			$labels            = isset( $instance['labels'] ) ? $instance['labels'] : 'on';
 			$tooltips          = isset( $instance['tooltips'] ) ? $instance['tooltips'] : 'off';
 			$size              = isset( $instance['size'] ) ? $instance['size'] : 'normal';
+			$style             = isset( $instance['style'] ) ? $instance['style'] : 'inherit';
+			$shape             = isset( $instance['shape'] ) ? $instance['shape'] : 'round';
 			$display           = isset( $instance['display'] ) ? $instance['display'] : 'list';
+			$search_by_filters = isset( $instance['search_by_filters'] ) ? $instance['search_by_filters'] : 0;
 			$scroll_for_widget = woodmart_get_opt( 'widgets_scroll' );
 
 			$is_brand = ( woodmart_get_opt( 'brands_attribute' ) == $taxonomy );
 
-			$class  = 'show-labels-' . $labels;
-			$class .= ' swatches-' . $size;
-			$class .= ' swatches-display-' . $display;
-			$class .= ( $is_brand ) ? ' swatches-brands' : '';
+			if ( 'inherit' === $style ) {
+				$style = woodmart_wc_get_attribute_term( $taxonomy, 'swatch_style' );
+			}
+			if ( 'inherit' === $shape ) {
+				$shape = woodmart_wc_get_attribute_term( $taxonomy, 'swatch_shape' );
+
+				if ( ! $shape ) {
+					$shape = 'round';
+				}
+			}
+
+			$class  = 'wd-labels-' . $labels;
+			$class .= ' wd-size-' . $size;
+			$class .= ' wd-layout-' . $display;
+
+			if ( $style ) {
+				$class .= ' wd-text-style-' . $style;
+
+				woodmart_enqueue_inline_style( 'woo-mod-swatches-style-' . $style );
+			} else {
+				$class .= ' wd-text-style-1';
+
+				woodmart_enqueue_inline_style( 'woo-mod-swatches-style-1' );
+			}
+
+			if ( $is_brand ) {
+				$class .= ' wd-swatches-brands';
+			} else {
+				if ( $style ) {
+					$class .= ' wd-bg-style-' . $style;
+				} else {
+					$class .= ' wd-bg-style-4';
+
+					woodmart_enqueue_inline_style( 'woo-mod-swatches-style-4' );
+				}
+
+				$class .= ' wd-shape-' . $shape;
+			}
+
+			if ( in_array( $size, array( 'small', 'normal', 'large' ), true ) ) {
+				$class .= woodmart_get_old_classes( ' swatches-' . $size );
+			}
+
+			if ( $search_by_filters ) {
+				$taxonomy_object = get_taxonomy( $taxonomy );
+
+				if ( isset( $taxonomy_object->labels->singular_name ) ) {
+					$label = $taxonomy_object->labels->singular_name;
+				} else {
+					$label = str_replace( 'pa_', ' ', $taxonomy );
+				}
+
+				$placeholder = sprintf( esc_html__( 'Find a %s', 'woodmart' ), $label );
+
+				?>
+				<div class="wd-filter-wrapper">
+					<div class="wd-filter-search wd-search">
+						<input type="text" placeholder="<?php echo esc_attr( $placeholder ); ?>" aria-label="<?php echo esc_attr( $placeholder ); ?>">
+						<span class="wd-filter-search-clear wd-action-btn wd-style-icon wd-cross-icon">
+							<a href="#" aria-label="<?php esc_attr__( 'Clear search', 'woodmart' ); ?>"></a>
+						</span>
+					</div>
+				<?php
+			}
+
 			// List display
 			if ( $scroll_for_widget ) {
 				echo '<div class="wd-scroll">';
 				$class .= ' wd-scroll-content';
 			}
-			echo '<ul class="' . esc_attr( $class ) . '">';
+			echo '<ul class="wd-swatches-filter wd-filter-list ' . esc_attr( $class ) . '">';
 
 			$term_counts = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
 
@@ -603,51 +677,63 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 				$swatch_image = get_term_meta( $term->term_id, 'image', true );
 				$swatch_text  = get_term_meta( $term->term_id, 'not_dropdown', true );
 
-				$class          = $option_is_set ? 'chosen' : '';
-				$filter_classes = '';
+				$class          = $option_is_set ? ' wd-active' : '';
+				$filter_classes = woodmart_get_old_classes( ' filter-swatch' );
+
+				if ( $swatch_color || $swatch_image || $swatch_text ) {
+					$class .= ' wd-swatch-wrap';
+				}
 
 				if ( ! empty( $swatch_color ) ) {
-					$class          .= ' with-swatch-color';
-					$filter_classes .= ' with-bg';
+					$filter_classes .= woodmart_get_old_classes( ' with-bg' );
+					$filter_classes .= ' wd-bg';
 					$swatch_style    = 'background-color: ' . $swatch_color . ';';
 				}
 
-				if ( ( ! empty( $swatch_image ) && ! is_array( $swatch_image ) ) || ( is_array( $swatch_image ) && $swatch_image['id'] ) ) {
-					if ( is_array( $swatch_image ) ) {
-						$swatch_image = wp_get_attachment_image_url( $swatch_image['id'], 'full' );
-					}
-
-					$class          .= ' with-swatch-image';
-					$filter_classes .= ' with-bg';
-					$swatch_style    = 'background-image: url(' . $swatch_image . ');';
+				if ( ( ! empty( $swatch_image ) && ! is_array( $swatch_image ) ) || ( is_array( $swatch_image ) && ! empty( $swatch_image['id'] ) ) ) {
+					$filter_classes .= woodmart_get_old_classes( ' with-bg' );
+					$filter_classes .= ' wd-bg';
 				}
 
-				if ( ! empty( $swatch_text ) ) {
-					$class          .= ' with-swatch-text';
-					$filter_classes .= ' with-text';
+				if ( is_array( $swatch_image ) ) {
+					$swatch_image = wp_get_attachment_image( $swatch_image['id'], 'full' );
+				} elseif ( $swatch_image ) {
+					$swatch_image = '<img src="' . $swatch_image . '" alt="' . esc_attr__( 'Swatch image', 'woodmart' ) . '">';
+				}
+
+				if ( ! empty( $swatch_text ) && ! $swatch_style && ! $swatch_image ) {
+					$filter_classes .= woodmart_get_old_classes( ' with-text' );
+					$filter_classes .= ' wd-text';
 				}
 
 				if ( $tooltips == 'on' ) {
 					$filter_classes .= ' wd-tooltip';
 				}
 
-				if( ! empty( $swatch_style ) ) {
-					$swatch_div = '<span style="' . $swatch_style. '" class="' . esc_attr( $filter_classes ) . '">' . esc_html( $term->name ) . '</span>';
-				}
+				// END swatches customization
 
-				echo '<li class="wc-layered-nav-term ' . esc_attr( $class ) . '">';
+				echo '<li class="wc-layered-nav-term' . esc_attr( $class ) . '">';
 
 				echo ( true == $option_is_set || $count > 0 ) ? '<a rel="nofollow noopener" href="' . esc_url( apply_filters( 'woocommerce_layered_nav_link', $link ) ) . '" class="layered-nav-link">' : '<span>';
 
-				echo '<span class="swatch-inner">';
+				if ( $swatch_style || $swatch_text || $swatch_image ) {
+					echo '<span class="wd-swatch' . esc_attr( $filter_classes ) . '">';
 
-				if ( $swatch_div ) {
-					echo '<span class="filter-swatch">'.$swatch_div.'</span>';
+					if ( $swatch_style || $swatch_image ) {
+						echo '<span class="wd-swatch-bg" style="'. $swatch_style .'">';
+
+						if ( $swatch_image ) {
+							echo $swatch_image;
+						}
+
+						echo '</span>';
+					}
+
+					echo '<span class="wd-swatch-text">'. esc_html( $term->name ) . '</span>';
+					echo '</span>';
 				}
 
-				echo '<span class="layer-term-name">' . esc_html( $term->name ) . '</span>';
-
-				echo '</span>';
+				echo '<span class="wd-filter-lable layer-term-lable">' . esc_html( $term->name ) . '</span>';
 
 				echo ( true == $option_is_set || $count > 0 ) ? '</a>' : '</span>';
 
@@ -659,17 +745,26 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 				echo '</div>';
 			}
 
+			if ( $search_by_filters ) {
+				echo '</div>';
+			}
+
 			return $found;
 		}
 
 		protected function layered_nav_checkbox_list( $terms, $taxonomy, $query_type, $instance ) {
-			$query_type  = isset( $instance['query_type'] ) ? $instance['query_type'] : 'and';
-			$title       = isset( $instance['filter-title'] ) ? $instance['filter-title'] : esc_html__( 'Filter by', 'woodmart' );
-			$labels      = $instance['labels'] ? 'on' : 'off';
-			$size        = isset( $instance['size'] ) ? $instance['size'] : 'normal';
-			$categories  = isset( $instance['categories'] ) ? $instance['categories'] : array();
-			$is_on_shop  = is_shop() || is_product_taxonomy();
-			$current_cat = get_queried_object();
+			$query_type           = isset( $instance['query_type'] ) ? $instance['query_type'] : 'and';
+			$title                = isset( $instance['filter-title'] ) ? $instance['filter-title'] : esc_html__( 'Filter by', 'woodmart' );
+			$labels               = $instance['labels'] ? 'on' : 'off';
+			$display              = isset( $instance['display'] ) ? $instance['display'] : 'list';
+			$size                 = isset( $instance['size'] ) ? $instance['size'] : 'normal';
+			$style                = isset( $instance['style'] ) ? $instance['style'] : 'inherit';
+			$shape                = isset( $instance['shape'] ) ? $instance['shape'] : 'round';
+			$categories           = isset( $instance['categories'] ) ? $instance['categories'] : array();
+			$show_selected_values = isset( $instance['show_selected_values'] ) ? $instance['show_selected_values'] : 'yes';
+			$show_dropdown_on     = isset( $instance['show_dropdown_on'] ) ? $instance['show_dropdown_on'] : 'click';
+			$is_on_shop           = is_shop() || is_product_taxonomy();
+			$current_cat          = get_queried_object();
 
 			if ( isset( $categories[0] ) && $categories[0] && ! in_array( $current_cat->term_id, $categories ) && $is_on_shop ) {
 				return;
@@ -677,10 +772,56 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 
 			$is_brand = ( woodmart_get_opt( 'brands_attribute' ) == $taxonomy );
 
-			$classes      = ' show-labels-' . $labels;
-			$classes     .= ' swatches-' . $size;
-			$classes     .= ( $is_brand ) ? ' swatches-brands' : '';
-			$multi_select = ( $query_type == 'or' ) ? ' multi_select' : '';
+			if ( 'inherit' === $style ) {
+				$style = woodmart_wc_get_attribute_term( $taxonomy, 'swatch_style' );
+			}
+			if ( 'inherit' === $shape ) {
+				$shape = woodmart_wc_get_attribute_term( $taxonomy, 'swatch_shape' );
+
+				if ( ! $shape ) {
+					$shape = 'round';
+				}
+			}
+
+			$classes  = ' wd-labels-' . $labels;
+			$classes .= ' wd-layout-' . $display;
+			$classes .= ' wd-size-' . $size;
+
+			if ( $style ) {
+				$classes .= ' wd-text-style-' . $style;
+
+				woodmart_enqueue_inline_style( 'woo-mod-swatches-style-' . $style );
+			} else {
+				$classes .= ' wd-text-style-1';
+
+				woodmart_enqueue_inline_style( 'woo-mod-swatches-style-1' );
+			}
+
+			if ( $is_brand ) {
+				$classes .= ' wd-swatches-brands';
+			} else {
+				if ( $style ) {
+					$classes .= ' wd-bg-style-' . $style;
+				} else {
+					$classes .= ' wd-bg-style-4';
+
+					woodmart_enqueue_inline_style( 'woo-mod-swatches-style-4' );
+				}
+
+				$classes .= ' wd-shape-' . $shape;
+			}
+
+			if ( in_array( $size, array( 'small', 'normal', 'large' ), true ) ) {
+				$classes .= woodmart_get_old_classes( ' swatches-' . $size );
+			}
+
+			$wrapper_classes = '';
+
+			if ( 'or' === $query_type ) {
+				$wrapper_classes .= ' multi_select';
+			}
+
+			$wrapper_classes .= ' wd-event-' . $show_dropdown_on;
 
 			$taxonomy_filter_name = str_replace( 'pa_', '', $taxonomy );
 			$current_value        = isset( $_GET[ 'filter_' . $taxonomy_filter_name ] ) ? sanitize_text_field( $_GET[ 'filter_' . $taxonomy_filter_name ] ) : '';
@@ -692,78 +833,102 @@ if ( ! class_exists( 'WOODMART_Widget_Layered_Nav' ) ) {
 			$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 			$found              = false;
 
-			echo '<div class="wd-pf-checkboxes wd-pf-attributes' . esc_attr( $multi_select ) . '">';
+			echo '<div class="wd-pf-checkboxes wd-pf-attributes wd-col' . esc_attr( $wrapper_classes ) . '">';
 				echo '<input class="result-input" name="filter_' . esc_attr( $taxonomy_filter_name ) . '" type="hidden" value="' . esc_attr( $current_value ) . '">';
 			if ( $query_type == 'or' ) {
 				echo '<input name="query_type_' . esc_attr( $taxonomy_filter_name ) . '" type="hidden" value="' . esc_attr( $query_type ) . '">';
 			}
-				echo '<div class="wd-pf-title"><span class="title-text">' . esc_html( $title ) . '</span><ul class="wd-pf-results"></ul></div>';
-				echo '<div class="wd-pf-dropdown wd-scroll">';
-					echo '<ul class="wd-scroll-content' . esc_attr( $classes ) . '">';
-			foreach ( $terms as $term ) {
-				$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
-				$option_is_set  = in_array( $term->slug, $current_values );
-				$count          = isset( $term_counts[ $term->term_id ] ) ? $term_counts[ $term->term_id ] : 0;
 
-				// Only show options with count > 0
-				if ( $is_on_shop ) {
-					if ( 0 < $count ) {
-						$found = true;
-					} elseif ( 0 === $count && ! $option_is_set ) {
-						continue;
-					}
-				}
+			echo '<div class="wd-pf-title"><span class="title-text">' . esc_html( $title ) . '</span>';
 
-				// Add swatches block
-				$swatch_div   = $swatch_style = '';
-				$swatch_color = get_term_meta( $term->term_id, 'color', true );
-				$swatch_image = get_term_meta( $term->term_id, 'image', true );
-				$swatch_text  = get_term_meta( $term->term_id, 'not_dropdown', true );
-
-				$class          = $option_is_set ? ' pf-active' : '';
-				$filter_classes = '';
-
-				if ( ! empty( $swatch_color ) ) {
-					$class          .= ' with-swatch-color';
-					$filter_classes .= ' with-bg';
-					$swatch_style    = 'background-color: ' . $swatch_color . ';';
-				}
-
-				if ( ( ! empty( $swatch_image ) && ! is_array( $swatch_image ) ) || ( is_array( $swatch_image ) && $swatch_image['id'] ) ) {
-					if ( is_array( $swatch_image ) ) {
-						$swatch_image = wp_get_attachment_image_url( $swatch_image['id'], 'full' );
-					}
-
-					$class          .= ' with-swatch-image';
-					$filter_classes .= ' with-bg';
-					$swatch_style    = 'background-image: url(' . $swatch_image . ');';
-				}
-
-				if ( ! empty( $swatch_text ) ) {
-					$class          .= ' with-swatch-text';
-					$filter_classes .= ' with-text';
-				}
-
-				if ( $labels == 'off' ) {
-					$filter_classes .= ' wd-tooltip';
-				}
-
-				if( ! empty( $swatch_style ) ) {
-					$swatch_div = '<span style="' . $swatch_style. '" class="' . esc_attr( $filter_classes ) . '">' . esc_html( $term->name ) . '</span>';
-				}
-
-				echo '<li class="wd-pf-' . esc_attr( $term->slug ) . esc_attr( $class ) . '">';
-				echo '<span class="swatch-inner pf-value" data-val="' . esc_attr( wc_attribute_taxonomy_slug( $term->slug ) ) . '" data-title="' . esc_attr( $term->name ) . '">';
-
-						if ( $swatch_div ) {
-							echo '<span class="filter-swatch">' . $swatch_div . '</span>';
-						}
-
-						echo '<span class="layer-term-name">' . esc_html( $term->name ) . '</span>';
-					echo '</span>';
-				echo '</li>';
+			if ( 'yes' === $show_selected_values ) {
+				echo '<ul class="wd-pf-results"></ul>';
 			}
-					echo '</ul>';
+
+			echo '</div>';
+
+				echo '<div class="wd-pf-dropdown wd-dropdown">';
+					echo '<div class="wd-scroll">';
+						echo '<ul class="wd-swatches-filter wd-scroll-content' . esc_attr( $classes ) . '">';
+							foreach ( $terms as $term ) {
+								$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
+								$option_is_set  = in_array( $term->slug, $current_values );
+								$count          = isset( $term_counts[ $term->term_id ] ) ? $term_counts[ $term->term_id ] : 0;
+
+								// Only show options with count > 0
+								if ( $is_on_shop ) {
+									if ( 0 < $count ) {
+										$found = true;
+									} elseif ( 0 === $count && ! $option_is_set ) {
+										continue;
+									}
+								}
+
+								// Add swatches block
+								$swatch_div = $swatch_style = '';
+								$swatch_color = get_term_meta( $term->term_id, 'color', true );
+								$swatch_image = get_term_meta( $term->term_id, 'image', true );
+								$swatch_text = get_term_meta( $term->term_id, 'not_dropdown', true );
+
+								$class = $option_is_set ? ' wd-active' : '';
+								$filter_classes = woodmart_get_old_classes( ' filter-swatch' );
+
+								if ( $swatch_color || $swatch_image || $swatch_text ) {
+									$class .= ' wd-swatch-wrap';
+								}
+
+								if( ! empty( $swatch_color ) ) {
+									$filter_classes .= ' wd-bg';
+									$filter_classes .= woodmart_get_old_classes( ' with-bg' );
+									$swatch_style    = 'background-color: ' . $swatch_color .';';
+								}
+
+								if ( ( ! empty( $swatch_image ) && ! is_array( $swatch_image ) ) || ( is_array( $swatch_image ) && ! empty( $swatch_image['id'] ) ) ) {
+									$filter_classes .= ' wd-bg';
+									$filter_classes .= woodmart_get_old_classes( ' with-bg' );
+								}
+
+								if ( is_array( $swatch_image ) ) {
+									$swatch_image = wp_get_attachment_image( $swatch_image['id'], 'full' );
+								} elseif ( $swatch_image ) {
+									$swatch_image = '<img src="' . $swatch_image . '" alt="' . esc_attr__( 'Swatch image', 'woodmart' ) . '">';
+								}
+
+								if ( ! empty( $swatch_text ) && ! $swatch_style && ! $swatch_image ) {
+									$filter_classes .= ' wd-text';
+									$filter_classes .= woodmart_get_old_classes( ' with-text' );
+								}
+
+								if ( $labels == 'off' ) {
+									$filter_classes .= ' wd-tooltip';
+								}
+
+								// END swatches customization
+
+								echo '<li class="wd-pf-' . esc_attr( $term->slug ) . esc_attr( $class ) . '">';
+								echo '<a rel="nofollow noopener" href="' . esc_url( get_term_link( $term->term_id, $term->taxonomy ) ) .'" class="pf-value" data-val="' . esc_attr( wc_attribute_taxonomy_slug( $term->slug ) ) . '" data-title="' . esc_attr( $term->name ) . '">';
+									if ( $swatch_style || $swatch_text || $swatch_image ) {
+										echo '<span class="wd-swatch' . esc_attr( $filter_classes ) . '">';
+
+										if ( $swatch_style || $swatch_image ) {
+											echo '<span class="wd-swatch-bg" style="' . $swatch_style . '">';
+
+											if ( $swatch_image ) {
+												echo $swatch_image;
+											}
+
+											echo '</span>';
+										}
+
+										echo '<span class="wd-swatch-text">' . esc_html( $term->name ) . '</span>';
+										echo '</span>';
+									}
+									echo '<span class="wd-filter-lable layer-term-lable">' . esc_html( $term->name ) . '</span>';
+									echo '</a>';
+								echo '</li>';
+							}
+						echo '</ul>';
+					echo '</div>';
 				echo '</div>';
 			echo '</div>';
 

@@ -145,8 +145,11 @@ if ( ! function_exists( 'woodmart_shortcode_pricing_plan' ) ) {
 						<?php if ( $button_type == 'product' && $product ) : ?>
 							<?php
 							if ( 'nothing' !== woodmart_get_opt( 'add_to_cart_action' ) ) {
-								woodmart_enqueue_js_library( 'magnific' );
 								woodmart_enqueue_js_script( 'action-after-add-to-cart' );
+							}
+
+							if ( 'popup' === woodmart_get_opt( 'add_to_cart_action' ) ) {
+								woodmart_enqueue_js_library( 'magnific' );
 								woodmart_enqueue_inline_style( 'add-to-cart-popup' );
 								woodmart_enqueue_inline_style( 'mfp-popup' );
 							}

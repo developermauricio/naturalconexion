@@ -16,9 +16,6 @@ if( ! function_exists( 'woodmart_lazy_loading_init' ) ) {
 			return;
 		}
 
-		// Used for product categories images for example.
-		add_filter('woodmart_attachment', 'woodmart_lazy_attachment_replace', 10, 3);
-
 		// Used for avatar images.
 		add_filter( 'get_avatar', 'woodmart_lazy_avatar_image', 10 );
 
@@ -31,9 +28,50 @@ if( ! function_exists( 'woodmart_lazy_loading_init' ) ) {
 		// Products, blog, a lot of other standard wordpress images
 		add_filter('wp_get_attachment_image_attributes', 'woodmart_lazy_attributes', 10, 3);
 
+		// Elementor.
+		add_filter( 'elementor/image_size/get_attachment_image_html', 'woodmart_filter_elementor_images', 10, 4 );
 	}
 
 	add_action( 'init', 'woodmart_lazy_loading_init', 120 );
+}
+
+if ( ! function_exists( 'woodmart_filter_elementor_images' ) ) {
+	/**
+	 * Filters HTML <img> tag and adds lazy loading attributes. Used for elementor images.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $html           Image html.
+	 * @param array  $settings       Control settings.
+	 * @param string $image_size_key Optional. Settings key for image size.
+	 * @param string $image_key      Optional. Settings key for image..
+	 *
+	 * @return string|string[]|null
+	 */
+	function woodmart_filter_elementor_images( $html, $settings, $image_size_key, $image_key ) {
+		if ( preg_match( "/src=['\"]data:image/is", $html ) ) {
+			return $html;
+		}
+
+		$image         = $settings[ $image_key ];
+		$image_sizes   = get_intermediate_image_sizes();
+		$image_sizes[] = 'full';
+		$size          = $settings[ $image_size_key . '_size' ];
+
+		if ( $image['id'] && in_array( $size, $image_sizes ) ) { // phpcs:ignore
+			return $html;
+		}
+
+		if ( $image['id'] ) {
+			$lazy_image = woodmart_get_attachment_placeholder( $image['id'], $size );
+		} else {
+			$lazy_image = woodmart_lazy_get_default_preview();
+		}
+
+		woodmart_enqueue_js_script( 'lazy-loading' );
+
+		return woodmart_lazy_replace_image( $html, $lazy_image );
+	}
 }
 
 if( ! function_exists( 'woodmart_lazy_loading_rss_deinit' ) ) {
@@ -52,11 +90,11 @@ if ( ! function_exists( 'woodmart_lazy_loading_deinit' ) ) {
 			return;
 		}
 
-		remove_action( 'woodmart_attachment', 'woodmart_lazy_attachment_replace', 10) ;
 		remove_action( 'get_avatar', 'woodmart_lazy_avatar_image', 10 );
 		remove_action( 'woodmart_image', 'woodmart_lazy_image_standard', 10 );
 		remove_action( 'vc_wpb_getimagesize', 'woodmart_lazy_image', 10 );
 		remove_action( 'wp_get_attachment_image_attributes', 'woodmart_lazy_attributes', 10 );
+		remove_action( 'elementor/image_size/get_attachment_image_html', 'woodmart_filter_elementor_images', 10 );
 	}
 }
 
@@ -103,27 +141,6 @@ if ( ! function_exists( 'woodmart_lazy_avatar_image' ) ) {
 		return woodmart_lazy_replace_image( $html, $lazy_image );
 	}
 }
-
-// **********************************************************************// 
-// Filters HTML <img> tag and adds lazy loading attributes. Used for product categories images for example.
-// **********************************************************************// 
-if( ! function_exists( 'woodmart_lazy_attachment_replace' ) ) {
-	function woodmart_lazy_attachment_replace( $imgHTML, $attach_id, $size ) {
-
-		if ( preg_match( "/src=['\"]data:image/is", $imgHTML ) ) return $imgHTML;
-
-		if( $attach_id ) {
-			$lazy_image = woodmart_get_attachment_placeholder( $attach_id, $size );
-		} else {
-			$lazy_image = woodmart_lazy_get_default_preview();
-		}
-
-		woodmart_enqueue_js_script( 'lazy-loading' );
-
-		return  woodmart_lazy_replace_image( $imgHTML, $lazy_image );
-	}
-}
-
 
 // **********************************************************************//
 // Filters HTML <img> tag and adds lazy loading attributes. Used for instagram images.
@@ -255,6 +272,10 @@ if( ! function_exists( 'woodmart_get_attachment_placeholder' ) ) {
 			$height = $image[2];
 		}
 
+		if ( ! $height ) {
+			$height = $width;
+		}
+
 		$placeholder_size = woodmart_get_placeholder_size( $width, $height );
 
 		$uploaded = woodmart_get_opt('lazy_custom_placeholder');
@@ -348,3 +369,18 @@ if( ! function_exists( 'woodmart_get_placeholder_size' ) ) {
 }
 
 /*=====  End of Lazy loading functions  ======*/
+
+if ( ! function_exists( 'woodmart_disable_default_lazy_loading' ) ) {
+	/**
+	 * Disable default lazy loading.
+	 *
+	 * @return void
+	 */
+	function woodmart_disable_default_lazy_loading() {
+		if ( woodmart_get_opt( 'disable_wordpress_lazy_loading' ) ) {
+			add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+		}
+	}
+
+	add_action( 'init', 'woodmart_disable_default_lazy_loading', 120 );
+}

@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -55,13 +55,16 @@ function mce_error() {
 add_action('admin_notices', 'mce_error');
 
 
+
 function mce_act_redirect( $plugin ) {
 
     if ( !class_exists( 'WPCF7') ) {
 
      }
     else {
+
         if( $plugin == SPARTAN_MCE_PLUGIN_BASENAME ) {
+
             $respanalitc = vc_ga_send_event('Mailchimp Extension', 'ACTIVATED', 'Full Activated');
             mce_save_date_activation();
             mce_save_plugginid () ;
@@ -76,7 +79,9 @@ function mce_act_redirect( $plugin ) {
 //add_action( 'activated_plugin', 'mce_act_redirect' );
 
 
+
 function mce_save_date_activation() {
+
   $option_name = 'mce_loyalty' ;
   $new_value = getdate() ;
 
@@ -85,7 +90,9 @@ function mce_save_date_activation() {
   if ( $valorvar !== false ) {
 
     if (empty($valorvar)) {
+
         update_option( $option_name, $new_value );
+
     }
 
   } else {
@@ -93,9 +100,11 @@ function mce_save_date_activation() {
       $deprecated = null;
       $autoload = 'no';
       add_option( $option_name, $new_value, $deprecated, $autoload );
+
   }
 
 }
+
 
 
 function mce_save_plugginid () {
@@ -105,18 +114,25 @@ function mce_save_plugginid () {
   $plugginid =  uniqid($prefij,true) ;
 
   if ( get_option( 'wpcf7-mailchimp_ffcpplugginid' ) !== false ) {
+
       $plugginid = get_option( 'wpcf7-mailchimp_ffcpplugginid','No found' ) ;
+
 	} else {
+
 		$deprecated = null;
 		$autoload = 'no';
 		add_option( 'wpcf7-mailchimp_ffcpplugginid',$plugginid, $deprecated, $autoload );
+
 	}
+
   $resp = mce_post_systeminfo ( $plugginid,2 ) ;
 
 }
 
 
+
 function mce_difer_dateact_date() {
+
   $option_name = 'mce_loyalty' ;
   $today = getdate() ;
   mce_save_date_activation();
@@ -130,16 +146,26 @@ function mce_difer_dateact_date() {
 
 
   if ($fechaF->y > 0 ) {
+
      if ($fechaF->m > 0 ) {
+
         $differenceFormat = '%y Years %m Months %d Days ';
+
      } else {
+
        $differenceFormat = '%y Years %d Days ';
+
      }
   } else {
+
     if ($fechaF->m > 0 ) {
+
         $differenceFormat = '%m Months %d Days ';
+
      } else {
+
        $differenceFormat = '%d Days ';
+
      }
   }
 
@@ -147,10 +173,12 @@ function mce_difer_dateact_date() {
 
 
   return $resultf;
-
 }
 
+
+
 function mce_diferdays_dateact_date() {
+
   $option_name = 'mce_loyalty' ;
   $today = getdate() ;
   mce_save_date_activation();
@@ -165,7 +193,6 @@ function mce_diferdays_dateact_date() {
   $resultf = $fechaF->format('%a');
   return $resultf;
 }
-
 
 
 
@@ -233,13 +260,16 @@ if (get_site_option('mce_show_notice') == 1) {
 }
 
 
+
 function mce_help() {
 
   if (get_site_option('mce_show_notice') == NULL){
-    update_site_option('mce_show_notice', true);
-  }
 
+    update_site_option('mce_show_notice', true);
+
+  }
 }
+
 
 
 function mce_news_notices () {
@@ -267,12 +297,14 @@ function mce_news_notices () {
    //delete_site_option('mce_conten_panel_lateralbanner');
 
    if ( get_site_option('mce_conten_panel_master') == null  ) {
+
       add_site_option( 'mce_conten_panel_master', $Defaultpanel ) ;
       add_site_option( 'mce_conten_tittle_master', $Defaulttittle ) ;
       $banner = $Defaultpanel ;
       $tittle = $Defaulttittle ;
-   }
-    else  {
+
+   } else {
+
       $grabbanner = trim( get_site_option('mce_conten_panel_master') ) ;
       $grabtittle = trim( get_site_option('mce_conten_tittle_master') ) ;
 
@@ -309,6 +341,7 @@ function mce_news_notices () {
 }
 
 
+
 function mce_dismiss_update_news() {
 
   $result = update_site_option('mce_show_update_news', 0);
@@ -319,6 +352,7 @@ function mce_dismiss_update_news() {
 add_action( 'wp_ajax_mce_dismiss_update_news', 'mce_dismiss_update_news' );
 
 
+
 if (  (  get_site_option('mce_show_update_news') == null )  or get_site_option('mce_show_update_news') == 1 ){
 
     if (   get_site_option('mce_show_update_news') == null  ) add_site_option( 'mce_show_update_news', 1 ) ;
@@ -326,11 +360,12 @@ if (  (  get_site_option('mce_show_update_news') == null )  or get_site_option('
     if( is_multisite() ){
 
           add_action( 'network_admin_notices', 'mce_news_notices' );
+
         } else {
 
           add_action( 'admin_notices', 'mce_news_notices' );
-        }
 
+        }
 }
 
 
@@ -341,60 +376,77 @@ function mce_get_postnotice (&$check,&$tittle) {
     $response = wp_remote_get( 'https://ping.chimpmatic.com/wp-json/wp/v2/posts?categories=1&orderby=modified&order=desc' );
 
     if ( is_wp_error( $response ) ) {
+
       $check = -1;
       return '';
+
     }
 
     $posts = json_decode( wp_remote_retrieve_body( $response ) );
 
     if ( empty( $posts ) or is_null ( $posts  ) ) {
+
         $check = -2;
 		    return ''  ;
+
 	  }
 
   if ( $response["response"]["code"] != 200 ) {
+
       $check = -3;
 		  return ''  ;
+
   }
 
 
 	if ( ! empty( $posts ) ) {
+
 		  foreach ( $posts as $post ) {
+
 			    $fordate =  $post->modified  ;
 
           $post_id = get_option( 'wpcf7-mce-post-id',0 )   ;
           $post_update =  get_option( 'wpcf7-mce-post-update',0 ) ;
 
           if ( get_option( 'wpcf7-mce-post-id' ) == false ) {
+
             $deprecated = null;
             $autoload = 'no';
             add_option( 'wpcf7-mce-post-id',$post->id, $deprecated, $autoload );
+
           } else update_option( 'wpcf7-mce-post-id', $post->id );
 
           if ( get_option( 'wpcf7-mce-post-update' ) !== false ) {
+
 	             update_option( 'wpcf7-mce-post-update', $fordate );
 
           } else {
+
             $deprecated = null;
             $autoload = 'no';
             add_option( 'wpcf7-mce-post-update',$fordate , $deprecated, $autoload );
+
           }
 
           if ( $post_id == 0 )  {
+
               $check = 1 ;
 
              }
           else {
               if ( $post->id == $post_id  ) {
+
                     if ( $fordate !== $post_update )  {
+
                         $check = 1 ;
 
-                     }
-                    else {
+                     } else {
+
                          $check = 0 ;
 
                     }
               } else {
+
                  $check = 1 ;
 
               }
@@ -407,7 +459,3 @@ function mce_get_postnotice (&$check,&$tittle) {
 	}
 
 }
-
-
-
-

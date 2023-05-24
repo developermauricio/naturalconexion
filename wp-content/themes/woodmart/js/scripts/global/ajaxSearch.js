@@ -27,11 +27,14 @@
 			    thumbnail     = parseInt($this.data('thumbnail')),
 			    symbols_count = parseInt($this.data('symbols_count')),
 			    productCat    = $this.find('[name="product_cat"]'),
-			    $results      = $this.parent().find('.wd-dropdown-results > .wd-scroll-content'),
+				$parent       = $this.parent(),
+				$results      = $parent.find('.wd-dropdown-results > .wd-scroll-content'),
 			    postType      = $this.data('post_type'),
 			    url           = woodmart_settings.ajaxurl + '?action=woodmart_ajax_search',
 			    price         = parseInt($this.data('price')),
-			    sku           = $this.data('sku');
+			    sku           = $this.data('sku'),
+				isFullScreen2 = $this.parents('.wd-search-full-screen-2').length,
+				$parentResult = $parent.find('.wd-dropdown-results');
 
 			if (number > 0) {
 				url += '&number=' + number;
@@ -49,6 +52,10 @@
 			$this.find('[type="text"]').on('focus keyup', function() {
 				var $input = $(this);
 
+				if ( isFullScreen2 ) {
+					$parentResult.removeClass('wd-no-results');
+				}
+
 				if ($input.hasClass('wd-search-inited')) {
 					return;
 				}
@@ -64,13 +71,14 @@
 						}
 					},
 					onHide          : function() {
-						$results.parent().removeClass('wd-opened');
+						$parentResult.removeClass('wd-opened');
 					},
 					onSearchStart   : function() {
 						$this.addClass('search-loading');
 					},
 					beforeRender    : function(container) {
 						$(container).find('.suggestion-divider-title').parent().addClass('suggestion-divider');
+						$(container).find('.no-found-msg').parent().addClass('suggestion-no-found');
 						if (container[0].childElementCount > 2) {
 							$(container).append('<div class="view-all-results"><span>' + woodmart_settings.all_results + '</span></div>');
 						}
@@ -117,11 +125,16 @@
 							returnValue += ' </div>';
 						}
 
-						if (suggestion.no_found) {
+						if (suggestion.products_not_found) {
 							returnValue = '<span class="no-found-msg">' + suggestion.value + '</span>';
 						}
 
-						$results.parent().addClass('wd-opened');
+						if (isFullScreen2 && suggestion.no_results) {
+							$parentResult.addClass('wd-no-results');
+						}
+
+						$parentResult.addClass('wd-opened');
+						$this.parents('div[class*=\'wd-search-full-\']').addClass('wd-searched');
 
 						return returnValue;
 					}

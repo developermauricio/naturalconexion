@@ -28,8 +28,8 @@
 		var min_price         = $min_price.data('min'),
 		    max_price         = $max_price.data('max'),
 		    step              = $amount.data('step') || 1,
-		    current_min_price = parseInt(min_price, 10),
-		    current_max_price = parseInt(max_price, 10);
+		    current_min_price = parseInt($min_price.val(), 10),
+		    current_max_price = parseInt($max_price.val(), 10);
 
 		if ($products.attr('data-min_price') && $products.attr('data-min_price').length > 0) {
 			current_min_price = parseInt($products.attr('data-min_price'), 10);

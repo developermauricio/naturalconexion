@@ -30,10 +30,14 @@ if( ! function_exists( 'woodmart_shortcode_blog' ) ) {
 	        'img_size' => 'medium',
 			'blog_design'  => 'default',
 			'blog_carousel_design' => 'masonry',
-			'blog_columns'  => woodmart_get_opt( 'blog_columns' ),
+			'blog_columns'  => 3,
+	        'blog_columns_tablet' => 'auto',
+	        'blog_columns_mobile' => 'auto',
 			'blog_spacing'  => woodmart_get_opt( 'blog_spacing' ),
 			'speed' => '5000',
 			'slides_per_view' => '3',
+	        'slides_per_view_tablet' => 'auto',
+	        'slides_per_view_mobile' => 'auto',
 			'wrap' => '',
 			'autoplay' => 'no',
 			'hide_pagination_control' => '',
@@ -128,6 +132,13 @@ if( ! function_exists( 'woodmart_shortcode_blog' ) ) {
 		woodmart_set_loop_prop( 'parts_text', $parts_text );
 		woodmart_set_loop_prop( 'parts_media', $parts_media );
 
+		if ( 'auto' !== $blog_columns_tablet ) {
+			woodmart_set_loop_prop( 'blog_columns_tablet', $blog_columns_tablet );
+		}
+		if ( 'auto' !== $blog_columns_mobile ) {
+			woodmart_set_loop_prop( 'blog_columns_mobile', $blog_columns_mobile );
+		}
+
 		$parsed_atts['custom_sizes'] = apply_filters( 'woodmart_blog_shortcode_custom_sizes', false );
 
 	    if( ! $parts_btn ) woodmart_set_loop_prop( 'parts_btn', false );
@@ -149,11 +160,25 @@ if( ! function_exists( 'woodmart_shortcode_blog' ) ) {
 			woodmart_enqueue_inline_style( 'blog-loop-design-' . $true_blog_design );
 		}
 
-	    if( $blog_design == 'carousel' ) {
-		    woodmart_set_loop_prop( 'blog_design', $blog_carousel_design );
-		    woodmart_set_loop_prop( 'blog_layout', 'carousel' );
+		if ( 'carousel' === $blog_design ) {
+			echo ob_get_clean();
+
+			woodmart_set_loop_prop( 'blog_design', $blog_carousel_design );
+			woodmart_set_loop_prop( 'blog_layout', 'carousel' );
+
+			$parsed_atts['carousel_classes'] = 'wd-wpb';
+
+			if ( ( 'auto' !== $slides_per_view_tablet && ! empty( $slides_per_view_tablet ) ) || ( 'auto' !== $slides_per_view_mobile && ! empty( $slides_per_view_mobile ) ) ) {
+				$parsed_atts['custom_sizes'] = array(
+					'desktop' => $slides_per_view,
+					'tablet_landscape' => $slides_per_view_tablet,
+					'tablet' => $slides_per_view_mobile,
+					'mobile' => $slides_per_view_mobile,
+				);
+			}
+
 			return woodmart_generate_posts_slider( $parsed_atts, $blog_query );
-	    } else {
+		} else {
 
 			if ( $lazy_loading == 'yes' ) {
 				woodmart_lazy_loading_init( true );

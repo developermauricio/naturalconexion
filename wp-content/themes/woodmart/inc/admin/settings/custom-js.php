@@ -14,7 +14,7 @@ use XTS\Options;
 Options::add_field(
 	array(
 		'id'       => 'custom_js',
-		'name'     => esc_html__( 'Global Custom JS', 'woodmart' ),
+		'name'     => esc_html__( 'Global custom JS', 'woodmart' ),
 		'type'     => 'editor',
 		'language' => 'javascript',
 		'section'  => 'custom_js',

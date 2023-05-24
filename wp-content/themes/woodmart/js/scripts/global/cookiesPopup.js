@@ -3,6 +3,10 @@
 	woodmartThemeModule.cookiesPopup = function() {
 		var cookies_version = woodmart_settings.cookies_version;
 
+		if ( typeof Cookies === 'undefined' ) {
+			return;
+		}
+
 		if (Cookies.get('woodmart_cookies_' + cookies_version) === 'accepted') {
 			return;
 		}
@@ -21,7 +25,8 @@
 			popup.removeClass('popup-display').addClass('popup-hide');
 			Cookies.set('woodmart_cookies_' + cookies_version, 'accepted', {
 				expires: 60,
-				path   : '/'
+				path   : '/',
+				secure : woodmart_settings.cookie_secure_param
 			});
 		};
 	};

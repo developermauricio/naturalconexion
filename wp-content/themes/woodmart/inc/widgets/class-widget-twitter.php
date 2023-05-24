@@ -25,6 +25,9 @@ if ( ! class_exists( 'WOODMART_Twitter' ) ) {
 		// Output function
 
 		function widget( $args, $instance )	{
+			if ( $this->is_widget_preview() ) {
+				return;
+			}
 
 			extract( $args );
 
@@ -94,25 +97,32 @@ if ( ! class_exists( 'WOODMART_Twitter' ) ) {
 
 			?>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'name' ) ); ?>"><?php esc_html_e( 'Twitter Name (without @ symbol):', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'name' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'name' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['name'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'name' ) ); ?>"><?php esc_html_e( 'Twitter Name (without @ symbol):', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'name' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'name' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['name'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'numTweets' ) ); ?>"><?php esc_html_e( 'Number of Tweets:', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'numTweets' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'numTweets' ) ) ?>" type="text" value="<?php echo esc_attr ( $instance['numTweets'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'numTweets' ) ); ?>"><?php esc_html_e( 'Number of Tweets:', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'numTweets' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'numTweets' ) ) ?>" type="text" value="<?php echo esc_attr ( $instance['numTweets'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr(  $this->get_field_id( 'consumerKey' ) ); ?>"><?php esc_html_e( 'Consumer Key:', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'consumerKey' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'consumerKey' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['consumerKey'] ); ?>" /></label>
+				<label for="<?php echo esc_attr(  $this->get_field_id( 'consumerKey' ) ); ?>"><?php esc_html_e( 'Consumer Key:', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'consumerKey' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'consumerKey' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['consumerKey'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'consumerSecret' ) ); ?>"><?php esc_html_e( 'Consumer Secret:', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'consumerSecret' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'consumerSecret' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['consumerSecret'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'consumerSecret' ) ); ?>"><?php esc_html_e( 'Consumer Secret:', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'consumerSecret' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'consumerSecret' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['consumerSecret'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'accessToken' ) ); ?>"><?php esc_html_e('Access Token:', 'woodmart') ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'accessToken' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'accessToken' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['accessToken'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'accessToken' ) ); ?>"><?php esc_html_e('Access Token:', 'woodmart') ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'accessToken' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'accessToken' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['accessToken'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'accessTokenSecret' ) ); ?>"><?php esc_html_e( 'Access Token Secret:', 'woodmart' ) ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'accessTokenSecret' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'accessTokenSecret' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['accessTokenSecret'] ); ?>" /></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'accessTokenSecret' ) ); ?>"><?php esc_html_e( 'Access Token Secret:', 'woodmart' ) ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'accessTokenSecret' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'accessTokenSecret' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['accessTokenSecret'] ); ?>" />
 			</p>
 			<p>
 				<input class="checkbox" type="checkbox" value="true" <?php checked( ( isset( $instance['showAvatar'] ) && ( $instance['showAvatar'] == "true") ), true ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showAvatar' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showAvatar' ) ); ?>" />
@@ -123,7 +133,8 @@ if ( ! class_exists( 'WOODMART_Twitter' ) ) {
 				<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_replies' ) ); ?>"><?php esc_html_e('Exclude Replies', 'woodmart'); ?></label>
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'avatarSize' ) ); ?>"><?php esc_html_e( 'Size of Avatar (default: 48):', 'woodmart' ); ?> <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'avatarSize' ) ) ?>" name="<?php echo esc_attr( $this->get_field_name( 'avatarSize' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['avatarSize'] ); ?>" /><br><em><?php esc_html_e( 'input number only', 'woodmart' ); ?></em></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'avatarSize' ) ); ?>"><?php esc_html_e( 'Size of Avatar (default: 48):', 'woodmart' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'avatarSize' ) ) ?>" name="<?php echo esc_attr( $this->get_field_name( 'avatarSize' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['avatarSize'] ); ?>" /><br><em><?php esc_html_e( 'input number only', 'woodmart' ); ?></em>
 			</p>
 			<?php
 		}

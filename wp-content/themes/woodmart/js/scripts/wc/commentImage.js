@@ -30,6 +30,11 @@
 				e.preventDefault();
 			}
 
+			if ($input[0].files.length <= 0 && 'yes' === woodmart_settings.single_product_comment_images_required) {
+				showError(woodmart_settings.comment_required_images_error_text);
+				e.preventDefault();
+			}
+
 			Array.prototype.forEach.call($input[0].files, function(file) {
 				var size = file.size;
 				var type = String(file.type);

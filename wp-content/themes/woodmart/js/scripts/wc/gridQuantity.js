@@ -1,6 +1,6 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdShopPageInit wdProductsTabsLoaded wdArrowsLoadProducts wdLoadMoreLoadProducts wdUpdateWishlist', function () {
+	woodmartThemeModule.$document.on('wdShopPageInit wdProductsTabsLoaded wdSearchFullScreenContentLoaded wdArrowsLoadProducts wdLoadMoreLoadProducts wdUpdateWishlist wdRecentlyViewedProductLoaded', function () {
 		woodmartThemeModule.gridQuantity();
 	});
 

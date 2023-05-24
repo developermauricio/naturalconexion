@@ -92,11 +92,12 @@ class WooSEA_mall {
                                         "feed_name" => "RRP",
                                         "format" => "optional",
                                 ),
-                                "PARAM" => array(
-                                        "name" => "PARAM",
-                                        "feed_name" => "PARAM",
-                                        "format" => "optional",
-                                ),
+                                "VARIABLE_PARAMS" => array(
+                                        "name" => "VARIABLE_PARAMS",
+                                        "feed_name" => "VARIABLE_PARAMS",
+					"format" => "required",
+					"woo_suggest" => "calculated",
+				),
                                 "MEDIA" => array(
                                         "name" => "MEDIA",
                                         "feed_name" => "MEDIA",

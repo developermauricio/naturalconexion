@@ -1,29 +1,38 @@
-<?php if ( ! defined('WOODMART_THEME_DIR')) exit('No direct script access allowed');
+<?php
 
-/**
- * ------------------------------------------------------------------------------------------------
- * Set up base wordpress configuration (widgets, plugins, menus)
- * ------------------------------------------------------------------------------------------------
- */
+use XTS\Setup_Wizard;
 
+if ( ! defined('WOODMART_THEME_DIR')) exit('No direct script access allowed');
 
-/**
- * ------------------------------------------------------------------------------------------------
- * Set up the content width value based on theme's design.
- * ------------------------------------------------------------------------------------------------
- */
-if( ! isset( $content_width ) ) {
-	$content_width = 1200;
+add_option( 'woodmart-generated-wpbcss-file' );
+add_option( 'woodmart_is_activated' );
+add_option( 'xts-theme_settings_default-file-data' );
+add_option( 'xts-options-presets' );
+add_option( 'xts-woodmart-options' );
+add_option( 'woodmart_setup_status' );
+add_option( 'wd_import_theme_version' );
+
+if ( ! function_exists( 'woodmart_gallery_shortcode_add_scripts_styles' ) ) {
+	/**
+	 * Add scripts and styles to default gallery shortcode.
+	 *
+	 * @param string $output Gallery styles.
+	 *
+	 * @return string
+	 */
+	function woodmart_gallery_shortcode_add_scripts_styles( $output ) {
+		woodmart_enqueue_js_library( 'magnific' );
+		woodmart_enqueue_js_script( 'mfp-popup' );
+
+		ob_start();
+		woodmart_enqueue_inline_style( 'mfp-popup' );
+		$style = ob_get_clean();
+
+		return $style . $output;
+	}
+
+	add_filter( 'gallery_style', 'woodmart_gallery_shortcode_add_scripts_styles' );
 }
-
-
-/**
- * Make the theme available for translations.
- */
-$lang_dir = WOODMART_THEMEROOT . '/languages';
-load_theme_textdomain( 'woodmart', $lang_dir );
-
-
 /**
  * ------------------------------------------------------------------------------------------------
  * Set up theme default and register various supported features
@@ -77,6 +86,11 @@ if( ! function_exists( 'woodmart_theme_setup' ) ) {
 
 		add_editor_style( get_template_directory_uri() . '/css/editor-style.css' );
 
+		/**
+		 * Make the theme available for translations.
+		 */
+		$lang_dir = WOODMART_THEMEROOT . '/languages';
+		load_theme_textdomain( 'woodmart', $lang_dir );
 	}
 
 	add_action( 'after_setup_theme', 'woodmart_theme_setup' );
@@ -104,14 +118,15 @@ if( ! function_exists( 'woodmart_upload_mimes' ) ) {
 			$mimes['svg'] = 'image/svg+xml';
 			$mimes['svgz'] = 'image/svg+xml';
 		}
-		$mimes['woff'] = 'font/woff';
-		$mimes['woff2'] = 'font/woff2';
+//		$mimes['woff'] = 'font/woff';
+//		$mimes['woff2'] = 'font/woff2';
 		$mimes['ttf'] = 'font/ttf';
 		$mimes['eot'] = 'font/eot';
 		// $mimes['svg'] = 'font/svg';
-		// $mimes['woff'] = 'application/x-font-woff';
-		// $mimes['ttf'] = 'application/x-font-ttf';
-		// $mimes['eot'] = 'application/vnd.ms-fontobject';
+		$mimes['woff'] = 'application/x-font-woff';
+		$mimes['woff2'] = 'application/x-font-woff2';
+		//$mimes['ttf'] = 'application/x-font-ttf';
+		//$mimes['eot'] = 'application/vnd.ms-fontobject';
 		return $mimes;
 	}
 }
@@ -142,9 +157,29 @@ if( ! function_exists( 'woodmart_widget_init' ) ) {
 					'after_title'   => $after_title,
 				)
 			);
-			if( woodmart_woocommerce_installed() ) {
 
-				$filter_widget_class = woodmart_get_widget_column_class( 'filters-area' );
+			if ( woodmart_get_opt( 'portfolio', '1' ) ) {
+				register_sidebar(
+					array(
+						'name'          => esc_html__( 'Portfolio Widget Area', 'woodmart' ),
+						'id'            => 'portfolio-widgets-area',
+						'description'   => esc_html__( 'Default Widget Area for projects', 'woodmart' ),
+						'class'         => '',
+						'before_widget' => '<div id="%1$s" class="wd-widget widget sidebar-widget' . $widget_class . ' %2$s">',
+						'after_widget'  => '</div>',
+						'before_title'  => $before_title,
+						'after_title'   => $after_title,
+					)
+				);
+			}
+
+			if ( woodmart_woocommerce_installed() ) {
+				$sidebar_shop_classes = '';
+				$filter_widget_class  = woodmart_get_widget_column_class( 'filters-area' );
+
+				if ( 'all' === woodmart_get_opt( 'shop_widgets_collapse' ) ) {
+					$sidebar_shop_classes .= ' wd-widget-collapse';
+				}
 
 				register_sidebar( 
 					array(
@@ -152,7 +187,7 @@ if( ! function_exists( 'woodmart_widget_init' ) ) {
 						'id'            => 'sidebar-shop',
 						'description'   => esc_html__( 'Widget Area for shop pages', 'woodmart' ),
 						'class'         => '',
-						'before_widget' => '<div id="%1$s" class="wd-widget widget sidebar-widget' . $widget_class . ' %2$s">',
+						'before_widget' => '<div id="%1$s" class="wd-widget widget sidebar-widget' . $widget_class . $sidebar_shop_classes . ' %2$s">',
 						'after_widget'  => '</div>',
 						'before_title'  => $before_title,
 						'after_title'   => $after_title,
@@ -225,7 +260,11 @@ if( ! function_exists( 'woodmart_widget_init' ) ) {
 
 			$footer_layout = woodmart_get_opt( 'footer-layout' );
 
-			$footer_classes = woodmart_get_opt( 'collapse_footer_widgets' ) ? ' footer-widget-collapse' : '';
+			$footer_classes = '';
+
+			if ( woodmart_get_opt( 'collapse_footer_widgets' ) ) {
+				$footer_classes .= woodmart_get_old_classes( ' footer-widget-collapse' );
+			}
 
 			$footer_config = woodmart_get_footer_config( $footer_layout );
 
@@ -247,7 +286,14 @@ if( ! function_exists( 'woodmart_widget_init' ) ) {
 				}
 			}
 
-			$custom_sidebars = get_posts( array( 'post_type' => 'woodmart_sidebar', 'post_status'=>'publish', 'numberposts' => -1 ) );
+			$custom_sidebars = get_posts(
+				array(
+					'post_type'      => 'woodmart_sidebar',
+					'post_status'    => 'publish',
+					'posts_per_page' => -1,
+				)
+			);
+
 			foreach ( $custom_sidebars as $sidebar ) {
 				register_sidebar( 
 					array(
@@ -297,16 +343,6 @@ if( ! function_exists( 'woodmart_register_required_plugins' ) ) {
 	            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 	            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 	        ),
-	        array(
-	            'name'               => 'Slider Revolution', // The plugin name.
-	            'slug'               => 'revslider', // The plugin slug (typically the folder name).
-	            'source'             => WOODMART_PLUGINS_URL . 'revslider.zip', // The plugin source.
-	            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-	            'version'            => get_option( 'woodmart_revslider_version', '6.2.23' ), // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-	            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-	            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-	            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-	        ),
 
 	        array(
 	            'name'               => 'Woodmart Core', // The plugin name.
@@ -318,6 +354,17 @@ if( ! function_exists( 'woodmart_register_required_plugins' ) ) {
 	            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 	            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 	        ),
+
+			array(
+				'name'               => 'Slider Revolution', // The plugin name.
+				'slug'               => 'revslider', // The plugin slug (typically the folder name).
+				'source'             => WOODMART_PLUGINS_URL . 'revslider.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => get_option( 'woodmart_revslider_version', '6.6.0' ), // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			),
 
 	        array(
 	            'name'      => 'WooCommerce',
@@ -342,10 +389,19 @@ if( ! function_exists( 'woodmart_register_required_plugins' ) ) {
 	            'slug'      => 'mailchimp-for-wp',
 	            'required'  => false,
 	        ),
-
 	    );
 
-	    $config = array(
+		if ( ! empty( get_option( 'wd_import_theme_version' ) ) && ! empty( woodmart_get_current_page_builder() ) ) {
+			$plugins = array_filter(
+				$plugins,
+				function( $plugin ) {
+					$remove_builder_slug = 'wpb' === woodmart_get_current_page_builder() ? 'elementor' : 'js_composer';
+					return $remove_builder_slug !== $plugin['slug'] ? $plugin : '';
+				}
+			);
+		}
+
+	    $config = apply_filters( 'woodmart_tgmpa_configs_plugins', array(
 	        'default_path' => '',                      // Default absolute path to pre-packaged plugins.
 	        'menu'         => 'tgmpa-install-plugins', // Menu slug.
 	        'has_notices'  => true,                    // Show admin notices or not.
@@ -373,7 +429,8 @@ if( ! function_exists( 'woodmart_register_required_plugins' ) ) {
 	            'complete'                        => 'All plugins installed and activated successfully. %s', // %s = dashboard link.
 	            'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
 	        )
-	    );
+	    )
+		);
 
 	    tgmpa( $plugins, $config );
 

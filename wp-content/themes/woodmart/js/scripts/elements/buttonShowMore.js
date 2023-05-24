@@ -1,4 +1,8 @@
 (function($) {
+	woodmartThemeModule.$document.on('wdShopPageInit', function () {
+		woodmartThemeModule.buttonShowMore();
+	});
+
 	$.each([
 		'frontend/element_ready/wd_button.default',
 	], function(index, value) {

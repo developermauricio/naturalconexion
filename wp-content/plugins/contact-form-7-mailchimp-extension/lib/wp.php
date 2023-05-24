@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2010-2022 Renzo Johnson (email: renzo.johnson at gmail.com)
+/*  Copyright 2010-2023 Renzo Johnson (email: renzo.johnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 
 function mce_updts ( $update, $item ) {
+
     $plugins = array (
         'blocks',
         'chimpmatic',
@@ -30,9 +31,13 @@ function mce_updts ( $update, $item ) {
         'cf7-icontact-extension',
     );
     if ( in_array( $item->slug, $plugins ) ) {
+
         return true;
+
     } else {
+
         return $update;
+
     }
 }
 

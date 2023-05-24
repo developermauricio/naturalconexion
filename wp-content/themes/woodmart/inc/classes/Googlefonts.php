@@ -7,28 +7,24 @@
 
 namespace XTS;
 
-use XTS\Singleton;
-
 /**
  * Static class to manage google fonts.
  *
  * @since 1.0.0
  */
 class Google_Fonts extends Singleton {
-
 	/**
 	 * All google fonts array.
 	 *
 	 * @var array
 	 */
 	public static $all_google_fonts = array();
-
 	/**
 	 * Google fonts array that will be displayed on frontend.
 	 *
 	 * @var array
 	 */
-	private static $_google_fonts = array();
+	private static $google_fonts = array();
 
 	/**
 	 * Register hooks and load base data.
@@ -36,9 +32,11 @@ class Google_Fonts extends Singleton {
 	 * @since 1.0.0
 	 */
 	public function init() {
-		self::$all_google_fonts = require dirname( __FILE__ ) . '/../options/controls/typography/google-fonts.php';
+		self::$all_google_fonts = require dirname( __FILE__ ) . '/../admin/options/controls/typography/google-fonts.php';
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_fonts' ), 30000 );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_fonts' ), 30000 );
+		add_action( 'admin_print_styles-post.php', array( $this, 'enqueue_fonts' ), 30000 );
+		add_action( 'admin_print_styles-post-new.php', array( $this, 'enqueue_fonts' ), 30000 );
+		add_action( 'admin_print_styles-widgets.php', array( $this, 'enqueue_fonts' ), 30000 );
 	}
 
 	/**
@@ -46,10 +44,9 @@ class Google_Fonts extends Singleton {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $font     Font name.
-	 * @param bool  $variants Font variants.
+	 * @param array $font Font name.
 	 */
-	public static function add_google_font( $font, $variants = false ) {
+	public static function add_google_font( $font ) {
 		$defaults = array(
 			'font-family' => '',
 			'font-weight' => '',
@@ -119,7 +116,7 @@ class Google_Fonts extends Singleton {
 			}
 		}
 
-		self::$_google_fonts[] = $font_to_add;
+		self::$google_fonts[] = $font_to_add;
 	}
 
 	/**
@@ -131,13 +128,13 @@ class Google_Fonts extends Singleton {
 		$link    = '';
 		$subsets = array();
 
-		if ( ! self::$_google_fonts ) {
+		if ( ! self::$google_fonts ) {
 			return;
 		}
 
 		$fonts = array();
 
-		foreach ( self::$_google_fonts as $family => $font ) {
+		foreach ( self::$google_fonts as $family => $font ) {
 			if ( ! isset( $fonts[ $font['font-family'] ] ) ) {
 				$fonts[ $font['font-family'] ] = array(
 					'font-family' => $font['font-family'],
@@ -190,7 +187,6 @@ class Google_Fonts extends Singleton {
 
 		wp_enqueue_style( 'xts-google-fonts', 'https://fonts.googleapis.com/css?family=' . str_replace( '|', '%7C', $link ), array(), woodmart_get_theme_info( 'Version' ) );
 	}
-
 }
 
 Google_Fonts::get_instance();

@@ -5,24 +5,20 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-if( ! function_exists( 'woodmart_vc_map_slider' ) ) {
-	function woodmart_vc_map_slider() {		
-		if ( ! shortcode_exists( 'woodmart_slider' ) ) {
-			return;
-		}
-
-		vc_map( array(
+if ( ! function_exists( 'woodmart_get_vc_map_slider' ) ) {
+	function woodmart_get_vc_map_slider() {
+		return array(
 			'name' => esc_html__( 'Slider', 'woodmart' ),
 			'base' => 'woodmart_slider',
-			'category' => esc_html__( 'Theme elements', 'woodmart' ),
+			'category' => woodmart_get_tab_title_category_for_wpb( esc_html__( 'Theme elements', 'woodmart' ) ),
 			'description' => esc_html__( 'WoodMart theme slider', 'woodmart' ),
-        	'icon' => WOODMART_ASSETS . '/images/vc-icon/slider.svg',
+			'icon' => WOODMART_ASSETS . '/images/vc-icon/slider.svg',
 			'params' => array(
 				array(
-					'type' => 'dropdown',
+					'type' => 'woodmart_dropdown',
 					'heading' => esc_html__( 'Slider', 'woodmart' ),
 					'param_name' => 'slider',
-					'value' => woodmart_get_sliders_for_vc()
+					'callback' => 'woodmart_get_sliders_for_vc'
 				),
 				array(
 					'type' => 'textfield',
@@ -31,25 +27,26 @@ if( ! function_exists( 'woodmart_vc_map_slider' ) ) {
 					'hint' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'woodmart' )
 				)
 			),
-		) );
+		);
 	}
-	add_action( 'vc_before_init', 'woodmart_vc_map_slider' );
 }
 
 if( ! function_exists( 'woodmart_get_sliders_for_vc' ) ) {
 	function woodmart_get_sliders_for_vc() {
 		$args = array(
-			'taxonomy' => 'woodmart_slider',
+			'taxonomy'   => 'woodmart_slider',
 			'hide_empty' => false,
 		);
 		$sliders = get_terms( $args );
 
-		if( is_wp_error( $sliders ) || empty( $sliders ) ) return array('');
+		if ( is_wp_error( $sliders ) || empty( $sliders ) ) {
+			return array();
+		}
 
-		$data = array( '' );
+		$data = array();
 
-		foreach ($sliders as $slider) {
-			$data[$slider->name] = $slider->slug;
+		foreach ( $sliders as $slider ) {
+			$data[ $slider->name ] = $slider->slug;
 		}
 
 		return $data;

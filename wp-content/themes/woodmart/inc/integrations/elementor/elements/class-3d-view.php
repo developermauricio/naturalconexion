@@ -3,6 +3,8 @@
  * 360 degree view map.
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -68,7 +70,7 @@ class View_3d extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -152,4 +154,4 @@ class View_3d extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new View_3d() );
+Plugin::instance()->widgets_manager->register( new View_3d() );

@@ -3,8 +3,9 @@
  * The template for displaying the footer
  */
 
-if ( woodmart_get_opt( 'collapse_footer_widgets' ) ) {
-	woodmart_enqueue_js_script( 'footer' );
+if ( woodmart_get_opt( 'collapse_footer_widgets' ) && ( ! woodmart_get_opt( 'mobile_optimization', 0 ) || ( wp_is_mobile() && woodmart_get_opt( 'mobile_optimization' ) ) ) ) {
+	woodmart_enqueue_inline_style( 'widget-collapse' );
+	woodmart_enqueue_js_script( 'widget-collapse' );
 }
 
 $page_id                 = woodmart_page_ID();
@@ -19,7 +20,7 @@ $disable_copyrights_page = get_post_meta( $page_id, '_woodmart_copyrights_off', 
 		</div> <!-- end row -->
 	</div> <!-- end container -->
 
-	<?php if ( ! $disable_prefooter && ( woodmart_get_opt( 'prefooter_area' ) || woodmart_get_opt( 'prefooter_html_block' ) ) ) : ?>
+	<?php if ( ! $disable_prefooter && ( 'text' === woodmart_get_opt( 'prefooter_content_type', 'text' ) && woodmart_get_opt( 'prefooter_area' ) || 'html_block' === woodmart_get_opt( 'prefooter_content_type' ) && woodmart_get_opt( 'prefooter_html_block' ) ) ) : ?>
 		<?php woodmart_enqueue_inline_style( 'footer-base' ); ?>
 		<div class="wd-prefooter<?php echo woodmart_get_old_classes( ' woodmart-prefooter' ); ?>">
 			<div class="container">
@@ -69,7 +70,7 @@ $disable_copyrights_page = get_post_meta( $page_id, '_woodmart_copyrights_off', 
 	<?php endif ?>
 <?php endif ?>
 </div> <!-- end wrapper -->
-<div class="wd-close-side<?php echo woodmart_get_old_classes( ' woodmart-close-side' ); ?>"></div>
+<div class="wd-close-side wd-fill<?php echo woodmart_get_old_classes( ' woodmart-close-side' ); ?>"></div>
 <?php do_action( 'woodmart_before_wp_footer' ); ?>
 <?php wp_footer(); ?>
 </body>

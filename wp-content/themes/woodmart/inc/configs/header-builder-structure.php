@@ -24,7 +24,7 @@ $header_structure = array(
 							'params' => array(
 								'content' => array(
 									'id' => 'content',
-									'value' => '<strong class="color-white">ADD ANYTHING HERE OR JUST REMOVE IT…</strong>',
+									'value' => '<strong style="color: #ffffff;">ADD ANYTHING HERE OR JUST REMOVE IT…</strong>',
 									'type' => 'editor',
 								) ,
 								'css_class' => array(

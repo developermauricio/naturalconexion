@@ -120,7 +120,7 @@ $attributes = $fields_obj->get_channel_attributes();
                 	</div>
 
 			<form action="" id="fieldmapping" method="post">
-			<input name="nonce_field_mapping" id="nonce_field_mapping" class="nonce_field_mapping" value="<?php print "$nonce";?>" type="hidden">
+ 			<?php wp_nonce_field( 'woosea_ajax_nonce' ); ?>
 			<table class="woo-product-feed-pro-table" id="woosea-fieldmapping-table" border="1">
 				<thead>
             				<tr>

@@ -3,9 +3,13 @@
  * Mega menu map.
  */
 
+namespace XTS\Elementor;
+
+use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
+use WOODMART_Mega_Menu_Walker;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Direct access not allowed.
@@ -71,7 +75,7 @@ class WD_Mega_Menu extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab.
 		 */
@@ -128,13 +132,29 @@ class WD_Mega_Menu extends Widget_Base {
 		$this->add_control(
 			'design',
 			array(
-				'label'   => esc_html__( 'Design', 'woodmart' ),
+				'label'   => esc_html__( 'Orientation', 'woodmart' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'vertical'   => esc_html__( 'Vertical', 'woodmart' ),
 					'horizontal' => esc_html__( 'Horizontal', 'woodmart' ),
 				),
 				'default' => 'vertical',
+			)
+		);
+
+		$this->add_control(
+			'dropdown_design',
+			array(
+				'label'     => esc_html__( 'Design', 'woodmart' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					'default' => esc_html__( 'Default', 'woodmart' ),
+					'with-bg' => esc_html__( 'With background', 'woodmart' ),
+				),
+				'condition' => array(
+					'design' => array( 'vertical' ),
+				),
+				'default'   => 'default',
 			)
 		);
 
@@ -148,6 +168,7 @@ class WD_Mega_Menu extends Widget_Base {
 					'underline' => esc_html__( 'Underline', 'woodmart' ),
 					'bordered'  => esc_html__( 'Bordered', 'woodmart' ),
 					'separated' => esc_html__( 'Separated', 'woodmart' ),
+					'bg'        => esc_html__( 'Background', 'woodmart' ),
 				),
 				'condition' => array(
 					'design' => array( 'horizontal' ),
@@ -196,6 +217,15 @@ class WD_Mega_Menu extends Widget_Base {
 					'design' => array( 'horizontal' ),
 				),
 				'default'   => 'left',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'item_typography',
+				'label'    => esc_html__( 'Typography', 'woodmart' ),
+				'selector' => '{{WRAPPER}} .wd-nav > .menu-item > a',
 			)
 		);
 
@@ -259,6 +289,7 @@ class WD_Mega_Menu extends Widget_Base {
 			'nav_menu'              => '',
 			'style'                 => 'default',
 			'design'                => 'vertical',
+			'dropdown_design'       => 'default',
 			'items_gap'             => 's',
 			'color'                 => '',
 			'woodmart_color_scheme' => 'light',
@@ -295,7 +326,15 @@ class WD_Mega_Menu extends Widget_Base {
 			$menu_class      .= ' wd-gap-' . $settings['items_gap'];
 		}
 
+		if ( 'vertical' === $settings['design'] ) {
+			$menu_class .= ' wd-design-' . $settings['dropdown_design'];
+		}
+
 		woodmart_enqueue_inline_style( 'widget-nav-mega-menu' );
+
+		if ( 'vertical' === $settings['design'] ) {
+			woodmart_enqueue_inline_style( 'mod-nav-vertical' );
+		}
 
 		$this->add_inline_editing_attributes( 'title' );
 
@@ -322,4 +361,4 @@ class WD_Mega_Menu extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new WD_Mega_Menu() );
+Plugin::instance()->widgets_manager->register( new WD_Mega_Menu() );

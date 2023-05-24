@@ -13,7 +13,7 @@
 <div class="sc_menu">
     <input type="search" class="sc_search" placeholder="Search ..." />
     <div class="top_btns">
-        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=shortcoder' ) ); ?>" target="_blank" class="button">Create shortcode</a>
+        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=shortcoder' ) ); ?>" target="_blank" class="button"><?php _e( 'Create Shortcode', 'shortcoder' ) ?></a>
         <span class="promo_link">
 <?php
     $promo_links = array(
@@ -24,7 +24,7 @@
     $promo_link_id = array_rand( $promo_links, 1 );
     $promo_link = $promo_links[$promo_link_id ];
 ?>
-            <a class="button" href="https://www.aakashweb.com/wordpress-plugins/<?php echo $promo_link[0]; ?>" target="_blank"><i>Check out: </i> <?php echo $promo_link[1]; ?></a>
+            <a class="button" href="https://www.aakashweb.com/wordpress-plugins/<?php echo $promo_link[0]; ?>" target="_blank"><i><?php _e( 'Check out:', 'shortcoder' ) ?> </i> <?php echo $promo_link[1]; ?></a>
             <span><img src="<?php echo esc_url( SC_ADMIN_URL . '/images/' . $promo_link[2] ); ?>" /></span>
         </span>
     </div>
@@ -66,14 +66,14 @@ if( empty( $shortcodes ) ){
 
         $enclosed_sc = strpos( $content, '$$enclosed_content$$' ) !== false ? 'true' : 'false';
 
-        echo '<div class="sc_wrap" data-name="' . esc_attr( $name ) . '" data-id="' . esc_attr( $id ) . '" data-enclosed="' . $enclosed_sc . '">';
+        echo '<div class="sc_wrap" data-name="' . esc_attr( $name ) . '" data-id="' . esc_attr( $id ) . '" data-enclosed="' . esc_attr( $enclosed_sc ) . '">';
             echo '<div class="sc_head">';
-                echo '<img src="' . SC_ADMIN_URL . '/images/arrow.svg" width="16" />';
+                echo '<img src="' . esc_url( SC_ADMIN_URL ) . '/images/arrow.svg" width="16" />';
                 echo '<h3>' . esc_html( $settings[ '_sc_title' ] ) . '</h3>';
                 echo '<p>' . esc_html( $settings[ '_sc_description' ] ) . '</p>';
                 echo '<div class="sc_tools">';
                     if( current_user_can( 'edit_post', $id ) ){
-                        echo '<a href="' . esc_url( admin_url( 'post.php?action=edit&post=' . $id ) ) . '" class="button" target="_blank">' . esc_html__( 'View', 'shortcoder' ) . '</a>';
+                        echo '<a href="' . esc_url( admin_url( 'post.php?action=edit&post=' . $id ) ) . '" class="button" target="_blank">' . esc_html__( 'View/Edit', 'shortcoder' ) . '</a>';
                     }
                     echo '<button class="button sc_copy">' . esc_html__( 'Copy', 'shortcoder' ) . '</button>';
                     echo '<button class="button sc_insert">' . esc_html__( 'Insert', 'shortcoder' ) . '</button>';

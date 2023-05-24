@@ -33,7 +33,7 @@ class WPCF7_ContactForm {
 	/**
 	 * Returns the contact form that is currently processed.
 	 *
-	 * @return WPCF7_ContactForm Current contact form object.
+	 * @return WPCF7_ContactForm|null Current contact form object. Null if unset.
 	 */
 	public static function get_current() {
 		return self::$current;
@@ -108,9 +108,13 @@ class WPCF7_ContactForm {
 	 */
 	public static function get_template( $args = '' ) {
 		$args = wp_parse_args( $args, array(
-			'locale' => determine_locale(),
+			'locale' => null,
 			'title' => __( 'Untitled', 'contact-form-7' ),
 		) );
+
+		if ( ! isset( $args['locale'] ) ) {
+			$args['locale'] = determine_locale();
+		}
 
 		$callback = function ( $args ) {
 			$contact_form = new self;
@@ -147,19 +151,25 @@ class WPCF7_ContactForm {
 
 
 	/**
-	 * Returns an instance of WPCF7_ContactForm.
+	 * Creates a WPCF7_ContactForm object and sets it as the current instance.
 	 *
-	 * @return WPCF7_ContactForm A new contact form object.
+	 * @param WPCF7_ContactForm|WP_Post|int $post Object or post ID.
+	 * @return WPCF7_ContactForm|null Contact form object. Null if unset.
 	 */
 	public static function get_instance( $post ) {
-		$post = get_post( $post );
+		$contact_form = null;
 
-		if ( ! $post
-		or self::post_type != get_post_type( $post ) ) {
-			return false;
+		if ( $post instanceof self ) {
+			$contact_form = $post;
+		} elseif ( ! empty( $post ) ) {
+			$post = get_post( $post );
+
+			if ( isset( $post ) and self::post_type === get_post_type( $post ) ) {
+				$contact_form = new self( $post );
+			}
 		}
 
-		return self::$current = new self( $post );
+		return self::$current = $contact_form;
 	}
 
 
@@ -537,7 +547,7 @@ class WPCF7_ContactForm {
 			$lang_tag = $matches[1];
 		}
 
-		$html = sprintf( '<div %s>',
+		$html = "\n" . sprintf( '<div %s>',
 			wpcf7_format_atts( array(
 				'class' => 'wpcf7 no-js',
 				'id' => $this->unit_tag(),
@@ -626,10 +636,10 @@ class WPCF7_ContactForm {
 			$html .= $this->form_response_output();
 		}
 
-		$html .= '</form>';
-		$html .= '</div>';
+		$html .= "\n" . '</form>';
+		$html .= "\n" . '</div>';
 
-		return $html;
+		return $html . "\n";
 	}
 
 

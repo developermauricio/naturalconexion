@@ -1089,7 +1089,7 @@ class WC_Order_Export_Data_Extractor {
 		}
 		$order_types = join( ",", apply_filters( "woe_sql_order_types", $order_types ) );
 
-		$sql = apply_filters( "woe_sql_get_order_ids", "SELECT " . apply_filters( "woe_sql_get_order_ids_fields", "ID AS order_id" ) . " FROM {$wpdb->posts} AS orders
+		$sql = apply_filters( "woe_sql_get_order_ids", "SELECT " . apply_filters( "woe_sql_get_order_ids_fields", "orders.ID AS order_id" ) . " FROM {$wpdb->posts} AS orders
 			{$left_join_order_meta}
 			WHERE orders.post_type in ( $order_types) AND $order_sql $order_meta_where $order_items_where", $settings );
 
@@ -1160,7 +1160,7 @@ class WC_Order_Export_Data_Extractor {
 		$date_field     = $settings['export_rule_field'];
 		$use_timestamps = ( $date_field == 'date_paid' OR $date_field == 'date_completed' );
 		//rename this field for 2.6 and less
-		if ( ! method_exists( 'WC_Order', "get_date_completed" ) ) {
+		if ( true /*! method_exists( 'WC_Order', "get_date_completed" ) */) {
 			$use_timestamps = false;
 			if ( $date_field == 'date_paid' ) {
 				$date_field = 'paid_date';
@@ -1903,11 +1903,13 @@ class WC_Order_Export_Data_Extractor {
 			return $shipping_methods;
 		}
 
+		$shipping_methods_zones = array();
 		foreach ( WC_Shipping_Zones::get_zones() as $zone ) {
 			$methods = $zone['shipping_methods'];
 			/** @var WC_Shipping_Method $method */
 			foreach ( $methods as $method ) {
-				$shipping_methods[ $method->get_rate_id() ] = '[' . $zone['zone_name'] . '] ' . $method->get_title();
+				$shipping_methods[ 'order_item_name:' . $method->get_title()] = $method->get_title();
+				$shipping_methods_zones[ $method->get_rate_id() ] = '[' . $zone['zone_name'] . '] ' . $method->get_title();
 			}
 		}
 
@@ -1915,11 +1917,13 @@ class WC_Order_Export_Data_Extractor {
 		$methods = $zone->get_shipping_methods();
 		/** @var WC_Shipping_Method $method */
 		foreach ( $methods as $method ) {
-			$shipping_methods[ $method->get_rate_id() ] = __( '[Rest of the World]',
+			$shipping_methods[ 'order_item_name:' . $method->get_title()] = $method->get_title();
+			$shipping_methods_zones[ $method->get_rate_id() ] = __( '[Rest of the World]',
 					'woo-order-export-lite' ) . ' ' . $method->get_title();
 		}
 
-		return apply_filters("woe_get_shipping_methods",$shipping_methods);
+		asort( $shipping_methods, SORT_STRING);
+		return apply_filters("woe_get_shipping_methods", $shipping_methods + $shipping_methods_zones);
 	}
 
 	public static function get_shipping_zone( $order ) {
@@ -2035,5 +2039,43 @@ class WC_Order_Export_Data_Extractor {
 
 		return is_numeric( $spent ) ? floatval( $spent ) : 0;
 	}	
+	
+	/**
+	 * @param in $customer_id
+	 * @param string $billing_email
+	 *
+	 * @return float
+	 */
+	public static function get_customer_paid_orders_count( $customer_id, $billing_email ) {
+		global $wpdb;
 
+		$statuses = array_map( function ( $status ) {
+			return sprintf( "'wc-%s'", esc_sql( $status ) );
+		}, wc_get_is_paid_statuses() );
+		
+		if( $customer_id ) {
+			$key = '_customer_user';
+			$value = $customer_id;
+			$guest_join = "";
+			$guest_where = "";
+		} else { 
+			$key = '_billing_email';
+			$value = $billing_email;
+			$guest_join = "LEFT JOIN {$wpdb->postmeta} AS meta2 ON posts.ID = meta2.post_id";
+			$guest_where = "AND meta2.meta_key = '_customer_user' AND meta2.meta_value = '0'";
+		}
+
+		return $wpdb->get_var(
+				"SELECT COUNT(*)
+				FROM $wpdb->posts as posts
+				LEFT JOIN {$wpdb->postmeta} AS meta ON posts.ID = meta.post_id
+				$guest_join
+				WHERE   meta.meta_key = '$key'
+				$guest_where
+				AND     posts.post_type = 'shop_order'
+				AND     posts.post_status IN ( " . implode( ',', $statuses ) . " )
+				AND     meta.meta_value = '" . esc_sql( $value ) . "'"
+		);
+	}	
+	
 }

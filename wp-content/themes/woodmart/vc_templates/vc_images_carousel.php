@@ -58,7 +58,7 @@ woodmart_enqueue_js_script( 'owl-carousel' );
 		<div id="<?php echo esc_attr( $carousel_id ); ?>" class="vc_slide vc_images_carousel">
 
 			<!-- Wrapper for slides -->
-			<div class="owl-carousel <?php echo woodmart_owl_items_per_slide( $slides_per_view, array(), false, false, $custom_sizes ); ?>">
+			<div class="owl-carousel wd-owl <?php echo woodmart_owl_items_per_slide( $slides_per_view, array(), false, false, $custom_sizes ); ?>">
 						<?php foreach ( $images as $attach_id ): ?>
 							<?php
 								$i ++;

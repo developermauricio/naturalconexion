@@ -1,7 +1,15 @@
 /* global woodmart_settings */
 (function($) {
-	woodmartThemeModule.$document.on('wdReplaceMainGalleryNotQuickView wdShowVariationNotQuickView', function () {
+	woodmartThemeModule.$document.on('wdReplaceMainGalleryNotQuickView wdShowVariationNotQuickView wdResetVariation', function () {
 		woodmartThemeModule.initZoom();
+	});
+
+	$.each([
+		'frontend/element_ready/wd_single_product_gallery.default'
+	], function(index, value) {
+		woodmartThemeModule.wdElementorAddAction(value, function() {
+			woodmartThemeModule.initZoom();
+		});
 	});
 
 	woodmartThemeModule.initZoom = function() {
@@ -38,7 +46,7 @@
 
 		function init($wrapper) {
 			var image = $wrapper.find('img');
-			if (image.data('large_image_width') > $wrapper.width()) {
+			if (image.data('large_image_width') > $wrapper.width() ) {
 				$wrapper.trigger('zoom.destroy');
 				$wrapper.zoom(zoomOptions);
 			}

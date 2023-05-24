@@ -20,11 +20,16 @@ if( ! function_exists( 'woodmart_shortcode_brands' ) ) {
 			'style' => 'carousel',
 			'brand_style' => 'default',
 			'per_row' => 3,
+			'per_row_tablet' => 'auto',
+			'per_row_mobile' => 'auto',
 			'columns' => 3,
+			'columns_tablet' => 'auto',
+			'columns_mobile' => 'auto',
 			'orderby' => '',
 			'order' => 'ASC',
 			'hide_empty' => 'no',
 			'scroll_carousel_init' => 'no',
+			'filter_in_current_category' => 'no',
 		) ), $atts );
 		
 		extract( $parsed_atts );
@@ -56,9 +61,19 @@ if( ! function_exists( 'woodmart_shortcode_brands' ) ) {
 			$parsed_atts['carousel_id'] = $carousel_id;
 			$parsed_atts['slides_per_view'] = $per_row;
 			$parsed_atts['custom_sizes'] = $custom_sizes;
+
+			if ( ( 'auto' !== $per_row_tablet && ! empty( $per_row_tablet ) ) || ( 'auto' !== $per_row_mobile && ! empty( $per_row_mobile ) ) ) {
+				$parsed_atts['custom_sizes'] = array(
+					'desktop'          => $per_row,
+					'tablet_landscape' => $per_row_tablet,
+					'tablet'           => $per_row_mobile,
+					'mobile'           => $per_row_mobile,
+				);
+			}
+
 			$owl_atts = woodmart_get_owl_attributes( $parsed_atts );
-			
-			$items_wrap_class .= ' owl-carousel ' . woodmart_owl_items_per_slide( $per_row, array(), false, false, $custom_sizes );
+
+			$items_wrap_class .= ' owl-carousel wd-owl ' . woodmart_owl_items_per_slide( $per_row, array(), false, false, $parsed_atts['custom_sizes'] );
 			$class .= ' wd-carousel-container';
 			$class .= ' wd-carousel-spacing-0';
 			
@@ -73,7 +88,12 @@ if( ! function_exists( 'woodmart_shortcode_brands' ) ) {
 		} else {
 			$items_wrap_class .= ' row';
 			$items_wrap_class .= ' wd-spacing-0';
-			$item_class .= woodmart_get_grid_el_class( 0, $columns );
+
+			if ( ( 'auto' !== $columns_tablet && ! empty( $columns_tablet ) ) || ( 'auto' !== $columns_mobile && ! empty( $columns_mobile ) ) ) {
+				$item_class .= woodmart_get_grid_el_class_new( 0, false, $columns, $columns_tablet, $columns_mobile );
+			} else {
+				$item_class .= woodmart_get_grid_el_class( 0, $columns );
+			}
 		}
 		
 		echo '<div id="'. esc_attr( $carousel_id ) . '" class="brands-items-wrapper ' . esc_attr( $class ) . '" ' . $owl_atts . '>';
@@ -114,6 +134,8 @@ if( ! function_exists( 'woodmart_shortcode_brands' ) ) {
 		
 		if ( woodmart_is_shop_on_front() ) {
 			$link = home_url();
+		} elseif ( 'yes' === $filter_in_current_category && is_product_category() ) {
+			$link = woodmart_get_current_url();
 		} else {
 			$link = get_post_type_archive_link( 'product' );
 		}
@@ -135,8 +157,9 @@ if( ! function_exists( 'woodmart_shortcode_brands' ) ) {
 				}
 
 				echo '<div class="brand-item' . esc_attr( $item_class )  . '">';
-				echo '<a href="' . esc_url( $attr_link ) . '">';
-				if( $style == 'list' || empty( $image ) ) {
+				echo '<a title="' . $brand->name . '" href="' . esc_url( $attr_link ) . '">';
+				if ( $style == 'list' || empty( $image ) || ( is_array( $image ) && empty( $image['id'] ) )
+				) {
 					echo '<span class="brand-title-wrap">' . $brand->name . '</span>';
 				} elseif ( is_array( $image ) ) {
 					echo wp_get_attachment_image( $image['id'], 'full' );

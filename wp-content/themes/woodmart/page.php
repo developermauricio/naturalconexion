@@ -6,16 +6,14 @@
  * Please note that this is the WordPress construct of pages and that other
  * 'pages' on your WordPress site will use a different template.
  *
+ * @package Woodmart
  */
 
-get_header(); ?>
 
+get_header();
 
-<?php 
-	
-	// Get content width and sidebar position
-	$content_class = woodmart_get_content_class();
-
+// Get content width and sidebar position.
+$content_class = woodmart_get_content_class();
 ?>
 
 <div class="site-content <?php echo esc_attr( $content_class ); ?>" role="main">

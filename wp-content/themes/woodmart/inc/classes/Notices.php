@@ -54,8 +54,8 @@ class WOODMART_Notices {
 				if ( ! $globals && $msg['global'] ) {
 					continue;
 				}
-				echo '<div class="woodmart-msg">';
-					echo '<div class="woodmart-' . $msg['type'] . '">' . $msg['msg'] . '</div>';
+				echo '<div class="woodmart-msg xts-notice xts-' . $msg['type'] . '">';
+					echo '<div>' . $msg['msg'] . '</div>';
 				echo '</div>';
 			}
 		}
@@ -75,10 +75,14 @@ class WOODMART_Notices {
 				if ( get_user_meta( $user_id, $hash ) ) {
 					continue;
 				}
-				echo '<div class="woodmart-msg updated">';
-					echo '<p class="woodmart-msg-' . $msg['type'] . '">' . $msg['msg'] . '</p>';
-					echo '<a class="wd-dismiss-link" href="' . esc_url( wp_nonce_url( add_query_arg( 'woodmart-hide-notice', $hash ) ) ) . '">Dismiss Notice</a>';
-					echo '<a class="notice-dismiss" href="' . esc_url( wp_nonce_url( add_query_arg( 'woodmart-hide-notice', $hash ) ) ) . '"></a>';
+				echo '<div class="xts-notice notice xts-' . $msg['type'] . '">';
+					echo '<p>' . $msg['msg'] . '</p>';
+
+					if ( 'error' !== $msg['type'] ) {
+						echo '<a class="wd-dismiss-link" href="' . esc_url( wp_nonce_url( add_query_arg( 'woodmart-hide-notice', $hash ) ) ) . '">' . esc_html_e( 'Dismiss Notice', 'woodmart' ) . '</a>';
+						echo '<a class="notice-dismiss" href="' . esc_url( wp_nonce_url( add_query_arg( 'woodmart-hide-notice', $hash ) ) ) . '"></a>';
+					}
+
 				echo '</div>';
 			}
 		}

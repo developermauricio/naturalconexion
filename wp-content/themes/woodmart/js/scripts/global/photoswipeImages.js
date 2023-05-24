@@ -19,6 +19,10 @@
 			$gallery.find('a').each(function() {
 				var $this = $(this);
 
+				if ( $this.parents('.owl-item.cloned').length ) {
+					return;
+				}
+
 				src = $this.attr('href');
 				width = $this.data('width');
 				height = $this.data('height');

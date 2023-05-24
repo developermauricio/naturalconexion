@@ -5,6 +5,8 @@
  * @package xts
  */
 
+namespace XTS\Elementor;
+
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
@@ -40,7 +42,7 @@ class Size_Guide extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Size guide', 'woodmart' );
+		return esc_html__( 'Size guide content', 'woodmart' );
 	}
 
 	/**
@@ -74,7 +76,7 @@ class Size_Guide extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
 		 * Content tab
 		 */
@@ -150,10 +152,16 @@ class Size_Guide extends Widget_Base {
 			return;
 		}
 
-		$id = apply_filters( 'wpml_object_id', $element_args['size_guide_id'], 'woodmart_size_guide', true );
-
-		echo do_shortcode( '[woodmart_size_guide id="' . $id . '" title="' . $element_args['title'] . '" description="' . $element_args['description'] . '"]' );
+		echo do_shortcode(
+			woodmart_size_guide_shortcode(
+				array(
+					'id'          => $element_args['size_guide_id'],
+					'title'       => $element_args['title'],
+					'description' => $element_args['description'],
+				)
+			)
+		);
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Size_Guide() );
+Plugin::instance()->widgets_manager->register( new Size_Guide() );

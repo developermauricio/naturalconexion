@@ -1,0 +1,48 @@
+2023-05-24T20:32:27+00:00 CRITICAL Uncaught Error: Call to a member function init_session_cookie() on null in /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php:227
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(210): wc_set_customer_auth_cookie()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(160): WOODMART_Auth->register_or_login()
+#2 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): WOODMART_Auth->process_auth_callback()
+#3 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#4 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#5 /home/forge/naturalconexion.com/wp-settings.php(623): do_action()
+#6 /home/forge/naturalconexion.com/wp-config.php(93): require_once('/home/forge/nat...')
+#7 /home/forge/naturalconexion.com/wp-load.php(50): require_once('/home/forge/nat...')
+#8 /home/forge/naturalconexion.com/wp-admin/admin.php(34): requ en /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php en la línea 227
+
+2023-05-24T20:32:35+00:00 CRITICAL Uncaught Error: Call to a member function init_session_cookie() on null in /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php:227
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(213): wc_set_customer_auth_cookie()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(160): WOODMART_Auth->register_or_login()
+#2 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): WOODMART_Auth->process_auth_callback()
+#3 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#4 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#5 /home/forge/naturalconexion.com/wp-settings.php(623): do_action()
+#6 /home/forge/naturalconexion.com/wp-config.php(93): require_once('/home/forge/nat...')
+#7 /home/forge/naturalconexion.com/wp-load.php(50): require_once('/home/forge/nat...')
+#8 /home/forge/naturalconexion.com/wp-admin/admin.php(34): requ en /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php en la línea 227
+
+2023-05-24T21:17:05+00:00 CRITICAL Uncaught Error: Call to a member function init_session_cookie() on null in /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php:227
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(210): wc_set_customer_auth_cookie()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(160): WOODMART_Auth->register_or_login()
+#2 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): WOODMART_Auth->process_auth_callback()
+#3 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#4 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#5 /home/forge/naturalconexion.com/wp-settings.php(623): do_action()
+#6 /home/forge/naturalconexion.com/wp-config.php(93): require_once('/home/forge/nat...')
+#7 /home/forge/naturalconexion.com/wp-load.php(50): require_once('/home/forge/nat...')
+#8 /home/forge/naturalconexion.com/wp-admin/admin.php(34): requ en /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php en la línea 227
+
+2023-05-24T21:17:13+00:00 CRITICAL Uncaught Error: Call to a member function init_session_cookie() on null in /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php:227
+Stack trace:
+#0 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(210): wc_set_customer_auth_cookie()
+#1 /home/forge/naturalconexion.com/wp-content/plugins/woodmart-core/inc/auth.php(160): WOODMART_Auth->register_or_login()
+#2 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(308): WOODMART_Auth->process_auth_callback()
+#3 /home/forge/naturalconexion.com/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#4 /home/forge/naturalconexion.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#5 /home/forge/naturalconexion.com/wp-settings.php(623): do_action()
+#6 /home/forge/naturalconexion.com/wp-config.php(93): require_once('/home/forge/nat...')
+#7 /home/forge/naturalconexion.com/wp-load.php(50): require_once('/home/forge/nat...')
+#8 /home/forge/naturalconexion.com/wp-admin/admin.php(34): requ en /home/forge/naturalconexion.com/wp-content/plugins/woocommerce/includes/wc-user-functions.php en la línea 227
+

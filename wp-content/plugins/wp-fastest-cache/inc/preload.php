@@ -517,6 +517,11 @@
 
 						echo "Preload Restarted";
 
+						if($varnish_datas = get_option("WpFastestCacheVarnish")){
+							include_once('inc/varnish.php');
+							VarnishWPFC::purge_cache($varnish_datas);
+						}
+
 						include_once('cdn.php');
 						CdnWPFC::cloudflare_clear_cache();
 					}else{
@@ -538,7 +543,10 @@
 			}
 
 			$request_url = parse_url($url, PHP_URL_PATH);
-			$request_url = urldecode(trim($request_url, "/"));
+			
+			if($request_url){
+				$request_url = urldecode(trim($request_url, "/"));
+			}
 
 			if(!$request_url){
 				return false;

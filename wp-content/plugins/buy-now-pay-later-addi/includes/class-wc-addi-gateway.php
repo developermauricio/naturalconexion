@@ -38,6 +38,7 @@ class WC_Addi_Gateway extends WC_Payment_Gateway {
         $this->field_billing_first_name = $this->get_option( 'field_billing_first_name' );
         $this->field_billing_last_name = $this->get_option( 'field_billing_last_name' );
         $this->field_id = $this->get_option( 'field_id' );
+        $this->field_billing_address_1 = $this->get_option( 'field_billing_address_1' );
         $this->field_billing_city = $this->get_option( 'field_billing_city' );
         $this->field_billing_email = $this->get_option( 'field_billing_email' );
         $this->field_billing_phone = $this->get_option( 'field_billing_phone' );
@@ -508,6 +509,13 @@ class WC_Addi_Gateway extends WC_Payment_Gateway {
             'enabled' => array(
                 'title'       => __( 'Habilitar/Deshabilitar', 'buy-now-pay-later-addi' ),
                 'label'       => __('Habilitar Addi', 'buy-now-pay-later-addi' ),
+                'type'        => 'checkbox',
+                'description' => '',
+                'default'     => 'no'
+            ),
+            'allow_refunds' => array(
+                'title'       => __( 'Cancelaciones automáticas', 'buy-now-pay-later-addi' ),
+                'label'       => __('Habilitar cancelaciones automáticas', 'buy-now-pay-later-addi' ),
                 'type'        => 'checkbox',
                 'description' => '',
                 'default'     => 'no'
@@ -1167,7 +1175,7 @@ class WC_Addi_Gateway extends WC_Payment_Gateway {
                 array_push($items, $object);
             }
 
-            // //Get Address Client
+            // Get Address Client
             $client_address->lineOne = isset($this->field_billing_address_1) && ($this->field_billing_address_1 !== '') ?
                 WC()->checkout->get_value('' . $this->field_billing_address_1 . '') :
                 (($order->get_shipping_address_1() !== "" && $order->get_shipping_address_1() !== " ") ?
@@ -1249,8 +1257,10 @@ class WC_Addi_Gateway extends WC_Payment_Gateway {
             // $url = str_replace( 'https://', 'http://', $site_url );
             $allyUrlRedirection->logoUrl = '';
             $allyUrlRedirection->callbackUrl = $site_url . '/?wc-api=wc_addi_gateway';
-            $allyUrlRedirection->redirectionUrl = wc_get_checkout_url() . '?wc-order-id=' . $order_id;
-
+            // Removing this redirect while we figure out the correct way to redirect after an error
+            // $allyUrlRedirection->redirectionUrl = $order->get_checkout_order_received_url();
+            $account_url = get_permalink( get_option('woocommerce_myaccount_page_id') );
+            $allyUrlRedirection->redirectionUrl = $account_url . '/view-order/' . $order->get_id();
             /*
             * Array with parameters for API interaction
             */

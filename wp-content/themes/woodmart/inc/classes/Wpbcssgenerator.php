@@ -48,11 +48,9 @@ class WOODMART_Wpbcssgenerator {
 				<input type="checkbox" id="<?php echo esc_attr( $opt['id'] ); ?>" name="<?php echo esc_attr( $opt['id'] ); ?>" <?php $this->_checked( $opt ); ?> <?php disabled( isset( $opt['disabled'] ) && $opt['disabled'], true ); ?> value="true">
 				<label for="<?php echo esc_attr( $opt['id'] ); ?>"><?php echo esc_html( $opt['title'] ); ?>
 				<?php if ( isset( $opt['image'] ) || isset( $opt['description'] ) ) : ?>
-					<div class="css-tooltip">
+					<div class="xts-tooltip xts-right">
 						<?php if ( isset( $opt['image'] ) ) : ?>
-							<div class="css-tooltip-image">
-								<img src="<?php echo esc_attr( $opt['image'] ); ?>">
-							</div>
+							<img src="<?php echo esc_attr( $opt['image'] ); ?>">
 						<?php endif ?>
 						<?php if ( isset( $opt['description'] ) ) : ?>
 							<p class="css-description"><?php echo esc_html( $opt['description'] ); ?></p>
@@ -100,108 +98,107 @@ class WOODMART_Wpbcssgenerator {
 
 	public function form() {
 		$this->process_form();
-		$this->_notices->show_msgs();
 
 		$file  = get_option( 'woodmart-generated-wpbcss-file' );
 		$theme = wp_get_theme( get_template() );
 		?>
-
-		<div class="xts-loader-wrapper">
-			<div class="xts-loader">
-				<div class="xts-loader-el"></div>
-				<div class="xts-loader-el"></div>
+		<div class="xts-box xts-css-generator xts-theme-style xts-tooltip-mirror">
+			<div class="xts-box-header">
+				<h3>
+					<?php esc_html_e( 'WPBakery CSS generator', 'woodmart' ); ?>
+				</h3>
 			</div>
-			<p>Generating... It may take a few minutes...</p>
+
+			<div class="xts-box-content">
+				<?php $this->_notices->show_msgs(); ?>
+				<p>
+					<?php esc_html_e( 'WPBakery CSS file is huge and due to the fact that we are not using 99% them on our demo versions we suggest you to generate a CSS file without them. Check all elements and see which ones you are using and which not. It may decrease your page size by 200-400 KB.', 'woodmart' ); ?>
+				</p>
+
+				<form action="" method="post" class="xts-form xts-generator-form">
+					<div class="xts-row">
+						<div class="xts-col-12 xts-col-xl-6">
+							<div class="css-options-box">
+								<h4>Basic elements</h4>
+
+								<?php $this->_render_section( 'Basic elements' ); ?>
+							</div>
+						</div>
+						<div class="xts-col-12 xts-col-xl-6">
+							<div class="css-options-box">
+								<h4>Galleries</h4>
+								<?php $this->_render_section( 'Galleries' ); ?>
+							</div>
+							<div class="css-options-box">
+								<h4>Extras</h4>
+								<?php $this->_render_section( 'Extras' ); ?>
+							</div>
+						</div>
+					</div>
+
+					<input type="hidden" name="css-data">
+
+					<input class="xts-btn xts-generate-btn xts-color-primary" name="generate-css" type="submit" value="<?php esc_attr_e( 'Generate file', 'woodmart' ); ?>" />
+
+				</form>
+
+				<?php if ( isset( $file['name'] ) && $file['name'] ) : ?>
+					<?php
+					$uploads   = wp_upload_dir();
+					$file_path = set_url_scheme( $uploads['basedir'] . $file['name'] );
+					$file_url  = set_url_scheme( $uploads['baseurl'] . $file['name'] );
+					$data      = file_exists( $file_path ) ? get_file_data( $file_path, array( 'Version' => 'Version' ) ) : array();
+					$version   = isset( $data['Version'] ) ? $data['Version'] : 'unknown';
+					?>
+
+					<div class="css-file-information">
+
+						<h4>Custom CSS file is <span>generated</span></h3>
+
+						<div class="xts-table xts-odd">
+							<div class="xts-table-row">
+								<div>
+									File:
+								</div>
+								<div>
+									<a href="<?php echo esc_url( $file_url ); ?>" target="_blank"><?php echo esc_html( $file['name'] ); ?></a>
+								</div>
+							</div>
+							<div class="xts-table-row">
+								<div>
+									CSS Version:
+								</div>
+								<div>
+									<strong><?php echo esc_html( $version ); ?></strong>
+								</div>
+							</div>
+							<div class="xts-table-row">
+								<div>
+									Actual version:
+								</div>
+								<div>
+									<strong><?php echo esc_html( WOODMART_WPB_CSS_VERSION ); ?></strong>
+								</div>
+							</div>
+						</div>
+
+						<div class="css-file-actions">
+							<?php if ( version_compare( $version, WOODMART_WPB_CSS_VERSION, '<' ) ) : ?>
+								<input class="xts-btn css-update-button" name="deactivate-css" type="submit" value="<?php esc_attr_e( 'Update', 'woodmart' ); ?>" />
+							<?php endif ?>
+							<a href="<?php echo esc_url( admin_url( 'admin.php?page=xts_wpb_css_generator&deactivate-css=1' ) ); ?>" class="xts-btn xts-color-warning xts-i-trash" name="deactivate-css" type="submit">
+								<?php esc_attr_e( 'Delete', 'woodmart' ); ?>
+							</a>
+						</div>
+					</div>
+				<?php endif; ?>
+			</div>
+			<div class="xts-box-footer">
+				<p>
+					<?php esc_html_e( 'This section allows you to generate a custom CSS file based on our core theme styles. It means that you can reduce your CSS file size if you are not using some part of the functionality. Useful for performance and loading time optimization.', 'woodmart' ); ?>
+				</p>
+			</div>
 		</div>
-
-		<h3><?php esc_html_e( 'WPBakery Custom CSS file generator', 'woodmart' ); ?></h3>
-		<p>
-			WPBakery CSS file is huge and due to the fact that we are not using 99% them on our demo versions we suggest you to generate a CSS file without them. Check all elements and see which ones you are using and which not. It may decrease your page size by 200-400 KB.
-		</p>
-
-		<form action="" method="post" class="woodmart-form woodmart-generator-form">
-			<div class="xts-row woodmart-two-columns">
-				<div class="xts-col xts-col-6">
-					<div class="css-options-box-wrap">
-						<div class="css-options-box">
-							<h4>Basic elements</h4>
-
-							<?php $this->_render_section( 'Basic elements' ); ?>
-						</div>
-					</div>
-				</div>
-				<div class="xts-col xts-col-6">
-					<div class="css-options-box-wrap">
-						<div class="css-options-box">
-							<h4>Galleries</h4>
-							<?php $this->_render_section( 'Galleries' ); ?>
-						</div>
-						<div class="css-options-box">
-							<h4>Extras</h4>
-							<?php $this->_render_section( 'Extras' ); ?>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<input type="hidden" name="css-data">
-
-			<input class="button-primary" name="generate-css" type="submit" value="<?php esc_attr_e( 'Generate file', 'woodmart' ); ?>" />
-
-		</form>
-
-		<?php if ( isset( $file['name'] ) && $file['name'] ) : ?>
-			<?php
-			$uploads   = wp_upload_dir();
-			$file_path = $uploads['basedir'] . $file['name'];
-			$file_url  = $uploads['baseurl'] . $file['name'];
-			$data      = file_exists( $file_path ) ? get_file_data( $file_path, array( 'Version' => 'Version' ) ) : array();
-			$version   = isset( $data['Version'] ) ? $data['Version'] : 'unknown';
-			?>
-
-			<div class="css-file-information">
-
-				<h3>Custom CSS file is <span>generated</span></h3>
-
-				<table>
-					<tr>
-						<th>
-							File:
-						</th>
-						<td>
-							<a href="<?php echo esc_url( $file_url ); ?>" target="_blank"><?php echo esc_html( $file['name'] ); ?></a>
-						</td>
-					</tr>
-					<tr>
-						<th>
-							CSS Version:
-						</th>
-						<td>
-							<strong><?php echo $version; ?></strong>
-						</td>
-					</tr>
-					<tr>
-						<th>
-							Actual version:
-						</th>
-						<td>
-							<strong><?php echo esc_html( WOODMART_WPB_CSS_VERSION ); ?></strong>
-						</td>
-					</tr>
-				</table>
-
-				<div class="css-file-actions">
-					<?php if ( version_compare( $version, WOODMART_WPB_CSS_VERSION, '<' ) ) : ?>
-						<input class="button-primary css-update-button" name="deactivate-css" type="submit" value="<?php esc_attr_e( 'Update', 'woodmart' ); ?>" />
-					<?php endif ?>
-					<a href="<?php echo admin_url( 'admin.php?page=woodmart_dashboard&tab=wpbakery_css&deactivate-css=1' ); ?>" class="button-primary" name="deactivate-css" type="submit">
-						<?php esc_attr_e( 'Delete', 'woodmart' ); ?>
-					</a>
-				</div>
-			</div>
-
-		<?php endif; ?>
-
 		<?php
 	}
 
@@ -211,8 +208,8 @@ class WOODMART_Wpbcssgenerator {
 		if ( isset( $_GET['deactivate-css'] ) ) {
 			$file = get_option( 'woodmart-generated-wpbcss-file' );
 
-			if ( $file['file'] ) {
-				$file_path = $uploads['basedir'] . '/' . $file['name'];
+			if ( ! empty( $file['file'] ) ) {
+				$file_path = set_url_scheme( $uploads['basedir'] . '/' . $file['name'] );
 				unlink( $file_path );
 			}
 
