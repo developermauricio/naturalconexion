@@ -1,0 +1,23 @@
+2023-05-26T00:14:40+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 2fc980f569e6cb8c261fb69358f0229a
+2023-05-26T00:14:53+00:00 NOTICE abandoned_cart.success :: email: derikabautista@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=2fc980f569e6cb8c261fb69358f0229a
+2023-05-26T00:14:54+00:00 NOTICE cart.member.updated :: Updated derikabautista@gmail.com subscriber status to subscribed and language to es
+2023-05-26T00:16:41+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 24444
+2023-05-26T00:18:48+00:00 NOTICE order_submit :: #24444 has a financial status of pending and was skipped.
+2023-05-26T00:21:53+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 24444
+2023-05-26T00:21:56+00:00 NOTICE debug :: Order ID 24444 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php
+        )
+
+)
+
+2023-05-26T00:23:29+00:00 NOTICE order.member.updated :: Updated derikabautista@gmail.com subscriber status to subscribed and language to 
+2023-05-26T00:23:29+00:00 NOTICE order_submit.success :: addStoreOrder :: #24444 :: email: derikabautista@gmail.com :: landing site https://naturalconexion.com/wp-content/plugins/woocommerce-payu-latam/confirmation.php :: abandoned cart deleted [2fc980f569e6cb8c261fb69358f0229a]
+2023-05-26T05:50:59+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_User_Submit queued :: obj_id 2502
+2023-05-26T05:51:55+00:00 NOTICE member.sync :: olegbryncalov@gmail.com has signed up to a lot of lists very recently; we're not allowing more signups for now
+2023-05-26T10:40:56+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_User_Submit queued :: obj_id 2503
+2023-05-26T10:41:45+00:00 NOTICE member.sync :: ol.egbryncalov@gmail.com has signed up to a lot of lists very recently; we're not allowing more signups for now
