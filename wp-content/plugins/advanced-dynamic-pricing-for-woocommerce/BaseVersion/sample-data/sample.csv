@@ -1,0 +1,13 @@
+FilterType,Product,"#Supported values – Product, Category,Sku",,,
+DiscountType,FixedDiscount,"#Supported values – FixedDiscount, FixedCost, Percentage",,,
+,,,,,
+Filter,DiscountedPrice,FromQty,ToQty,Role,
+Album,2,,,,# 1 - Simple Product Discount
+Single,4,,,,# 1 - Simple Product Discount for another product
+Cap,10,1,5,,# 2 -  Bulk Ranges
+,15,6,10,,# 2 - Bulk Ranges
+Hoodie with Logo,8,,,Wholesaler,# 3 - Role Discount
+Belt,3,5,9,Staff|Wholesaler,# 4 - Bulk for roles
+,6,10,19,,# 4 - Bulk for roles
+,8,20,29,,# 4 - Bulk for roles
+,100,30,,,# 4 - Bulk for roles

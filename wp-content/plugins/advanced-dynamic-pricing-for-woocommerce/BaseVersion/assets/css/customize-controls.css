@@ -1,0 +1,43 @@
+.wdp-control-icon.font-style-button {
+    display: inline-block;
+    border: 1px solid transparent;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 2px 3px;
+    position: relative
+}
+
+.wdp-control-icon.font-style-button:hover, .wdp-control-icon.font-style-button.focus {
+    background: #fafafa;
+    border-color: #555d66;
+    color: #23282d;
+    -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+    outline: none
+}
+
+.wdp-control-icon.font-style-button:active, .wdp-control-icon.font-style-button.active {
+    background: #ebebeb;
+    border-color: #555d66;
+    -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.3)
+}
+
+.wdp-control-icon.font-style-button input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none
+}
+
+.wdp-control-icon.font-style-button span {
+    position: relative
+}
+
+.customize-control.customize-control-wdp_font_emphasis_bold,
+.customize-control.customize-control-wdp_font_emphasis_italic,
+.customize-control.customize-control-wdp_text_align {
+    display: inline-block !important;
+    width: auto;
+    float: none;
+}

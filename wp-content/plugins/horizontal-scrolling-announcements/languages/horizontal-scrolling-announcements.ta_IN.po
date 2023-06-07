@@ -1,0 +1,245 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizontal scrolling announcements\n"
+"POT-Creation-Date: 2019-12-09 22:49+0800\n"
+"PO-Revision-Date: 2019-12-09 22:49+0800\n"
+"Last-Translator: \n"
+"Language-Team: www.gopiplus.com <gopiplus@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __(;_e;_x;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../classes/hsas-register.php:51
+msgid "These tables could not be created on installation "
+msgstr "இந்த அட்டவணைகள் நிறுவலில் உருவாக்கப்படவில்லை"
+
+#: ../classes/hsas-register.php:97 ../classes/hsas-register.php:98
+msgid "Horizontal scroll"
+msgstr "சுருள்"
+
+#: ../classes/hsas-register.php:100 ../classes/hsas-register.php:101
+#: ../content/content-show.php:54
+msgid "Announcements"
+msgstr "அறிவிப்புகள்"
+
+#: ../classes/hsas-register.php:113
+msgid "Do you want to delete this record?"
+msgstr "இந்த பதிவை நீக்க வேண்டுமா?"
+
+#: ../classes/hsas-register.php:114 ../content/content-add.php:49
+#: ../content/content-add.php:124 ../content/content-edit.php:65
+#: ../content/content-edit.php:140
+msgid "Please enter your announcement text."
+msgstr "தயவுசெய்து உங்கள் அறிவிப்பு உரையை உள்ளிடவும்."
+
+#: ../classes/hsas-register.php:115
+msgid "Please enter your announcement link, optional."
+msgstr "தயவுசெய்து உங்கள் அறிவிப்பு இணைப்பு, விருப்பத்தை உள்ளிடுக."
+
+#: ../classes/hsas-register.php:116 ../content/content-add.php:135
+#: ../content/content-edit.php:151
+msgid "Please select your link target."
+msgstr "தயவு செய்து உங்கள் இணைப்பு இலக்கைத் தேர்ந்தெடுக்கவும்."
+
+#: ../classes/hsas-register.php:117 ../content/content-add.php:139
+#: ../content/content-edit.php:155
+msgid "Please enter the display order, only number."
+msgstr "காட்சி வரிசையை மட்டும் உள்ளிடவும்"
+
+#: ../classes/hsas-register.php:118 ../content/content-add.php:55
+#: ../content/content-add.php:159 ../content/content-edit.php:71
+#: ../content/content-edit.php:181
+msgid "Please select/enter group for this announcement text."
+msgstr "இந்த அறிவிப்பு உரைக்கு குழுவை உள்ளிடுக / தேர்ந்தெடுக்கவும்."
+
+#: ../classes/hsas-register.php:119 ../content/content-add.php:61
+#: ../content/content-add.php:163 ../content/content-edit.php:77
+#: ../content/content-edit.php:185
+msgid "Please enter start date for this announcement text."
+msgstr "இந்த அறிவிப்பு உரையின் தொடக்க தேதி உள்ளிடுக."
+
+#: ../classes/hsas-register.php:120 ../content/content-add.php:67
+#: ../content/content-add.php:167 ../content/content-edit.php:83
+#: ../content/content-edit.php:189
+msgid "Please enter end date for this announcement text."
+msgstr "இந்த அறிவிப்பு உரையின் முடிவு தேதியை உள்ளிடுக."
+
+#: ../classes/hsas-register.php:121
+msgid "Please enter style for this announcement, optional."
+msgstr "இந்த அறிவிப்புக்கு பாணி உள்ளிடுக"
+
+#: ../classes/hsas-register.php:122
+msgid "Please enter text and numbers only."
+msgstr "உரை மற்றும் எண்களை மட்டும் உள்ளிடவும்."
+
+#: ../classes/hsas-register.php:159 ../classes/hsas-register.php:160
+#: ../content/content-show.php:51
+msgid "Horizontal scrolling announcements"
+msgstr "கிடைமட்ட ஸ்க்ரோலிங் அறிவிப்புகள்"
+
+#: ../classes/hsas-register.php:220
+msgid "Widget Title"
+msgstr "தலைப்பு"
+
+#: ../classes/hsas-register.php:224
+msgid "Announcement Group"
+msgstr "அறிவிப்பு குழு"
+
+#: ../classes/hsas-register.php:228
+msgid "Speed"
+msgstr "வேகம்"
+
+#: ../classes/hsas-register.php:250
+msgid "Direction"
+msgstr "திசை"
+
+#: ../classes/hsas-register.php:259
+msgid "Gap in pixels between the tickers"
+msgstr "டிக்கர்களுக்கிடையே பிக்சல்களில் இடைவெளி"
+
+#: ../content/content-add.php:78
+msgid "Announcement successfully created."
+msgstr "அறிவிப்பு வெற்றிகரமாக உருவாக்கப்பட்டது."
+
+#: ../content/content-add.php:82 ../content/content-edit.php:98
+msgid "Announcement already exists."
+msgstr "அறிவிப்பு ஏற்கனவே உள்ளது"
+
+#: ../content/content-add.php:112 ../content/content-edit.php:128
+msgid "Click here"
+msgstr "கிளிக் செய்யவும்"
+
+#: ../content/content-add.php:113 ../content/content-edit.php:129
+msgid " to view the details"
+msgstr "விவரங்களைக் காண"
+
+#: ../content/content-add.php:119
+msgid "Add Announcement"
+msgstr "அறிவிப்பைச் சேர்"
+
+#: ../content/content-add.php:122 ../content/content-edit.php:138
+msgid "Announcement Text"
+msgstr "அறிவிப்பு உரை"
+
+#: ../content/content-add.php:126 ../content/content-edit.php:142
+msgid "Link"
+msgstr "இணைப்பு"
+
+#: ../content/content-add.php:128 ../content/content-edit.php:144
+msgid "Please enter your announcement link."
+msgstr "உங்கள் அறிவிப்பு இணைப்பை உள்ளிடுக"
+
+#: ../content/content-add.php:130 ../content/content-edit.php:146
+msgid "Link Target"
+msgstr "இணைப்பு இலக்கு"
+
+#: ../content/content-add.php:132 ../content/content-edit.php:148
+msgid "Open in same window"
+msgstr "அதே சாளரத்தில் திறக்கவும்"
+
+#: ../content/content-add.php:133 ../content/content-edit.php:149
+msgid "Open in new window"
+msgstr "புதிய சாளரத்தில் திற"
+
+#: ../content/content-add.php:137 ../content/content-edit.php:153
+msgid "Display Order"
+msgstr "காட்சி வரிசை"
+
+#: ../content/content-add.php:141 ../content/content-edit.php:157
+#: ../content/content-show.php:65 ../content/content-show.php:73
+msgid "Group"
+msgstr "குழு"
+
+#: ../content/content-add.php:145 ../content/content-edit.php:161
+msgid "Select"
+msgstr "தேர்வு"
+
+#: ../content/content-add.php:161 ../content/content-edit.php:183
+msgid "Start Date"
+msgstr "தொடக்க தேதி"
+
+#: ../content/content-add.php:165 ../content/content-edit.php:187
+msgid "End Date"
+msgstr "கடைசி தேதி"
+
+#: ../content/content-add.php:171 ../content/content-edit.php:194
+msgid "Submit"
+msgstr "சமர்ப்பி"
+
+#: ../content/content-add.php:172 ../content/content-edit.php:195
+msgid "Cancel"
+msgstr "ரத்து"
+
+#: ../content/content-add.php:173 ../content/content-edit.php:196
+#: ../content/content-show.php:121
+msgid "Help"
+msgstr "உதவி"
+
+#: ../content/content-edit.php:12 ../content/content-show.php:21
+msgid "Oops, selected details does not exists."
+msgstr "அச்சச்சோ, தேர்ந்தெடுக்கப்பட்ட விவரங்கள் இல்லை."
+
+#: ../content/content-edit.php:94
+msgid "Announcement successfully updated."
+msgstr "அறிவிப்பு வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
+
+#: ../content/content-edit.php:135
+#, fuzzy
+msgid "Edit Announcement"
+msgstr "அறிவிப்பைச் சேர்"
+
+#: ../content/content-show.php:35
+msgid "Selected record deleted."
+msgstr "தேர்ந்தெடுக்கப்பட்ட பதிவு நீக்கப்பட்டது."
+
+#: ../content/content-show.php:52 ../content/content-show.php:118
+msgid "Add New"
+msgstr "புதிதாக சேர்க்கவும்"
+
+#: ../content/content-show.php:64 ../content/content-show.php:72
+msgid "Announcement"
+msgstr "அறிவிப்பு"
+
+#: ../content/content-show.php:66 ../content/content-show.php:74
+msgid "Start"
+msgstr "தொடக்கம்"
+
+#: ../content/content-show.php:67 ../content/content-show.php:75
+msgid "End"
+msgstr "முடிவு"
+
+#: ../content/content-show.php:90
+msgid "Edit"
+msgstr "புதுப்பிக்க"
+
+#: ../content/content-show.php:93
+msgid "Delete"
+msgstr "அழி"
+
+#: ../content/content-show.php:106
+msgid "No records available."
+msgstr "பதிவுகள் கிடைக்கவில்லை."
+
+#: ../content/content-show.php:119
+msgid "Short Code"
+msgstr "Short Code"
+
+#: ../content/content-show.php:120
+msgid "Live Demo"
+msgstr "Live Demo"
+
+#~ msgid "For more information about this plugin"
+#~ msgstr "இந்த சொருகி பற்றி மேலும் தகவலுக்கு"
+
+#~ msgid "click here"
+#~ msgstr "இங்கே கிளிக் செய்யவும்"
+
+#~ msgid "Update Announcement"
+#~ msgstr "புதுப்பிப்பு அறிவிப்பு"
+
+#~ msgid "All Group"
+#~ msgstr "அனைத்து குழு"

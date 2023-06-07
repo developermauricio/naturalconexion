@@ -1,0 +1,30 @@
+.section_choice {
+    cursor: pointer;
+}
+
+.section_choice.active {
+    font-weight: bold;
+    color: #000;
+}
+
+.settings-section:not(.active) {
+    display: none;
+}
+
+.tabs-content ul.subsubsub {
+    margin: 8px 0 0;
+}
+
+.section table {
+    font-size: 14px;
+}
+
+.section table {
+    width: 100%;
+}
+
+.section table th {
+    padding-bottom: 20px;
+    text-align: left;
+    width: 30%;
+}

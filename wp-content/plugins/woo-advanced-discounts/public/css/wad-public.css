@@ -1,0 +1,32 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.wad-discount
+{
+	color: red;
+}
+.wad-facebook, .wad-instagram
+{
+	display: inline-block;
+	padding: 5px;
+	/*background: gray;*/
+	padding-left: 40px;
+	color: white;
+	background-size: 22px !important;
+}
+
+.wad-facebook
+{
+	background: url("../images/facebook.png") 10px center #3B5998 no-repeat;
+}
+.wad-instagram
+{
+	background: url("../images/instagram.png") 10px center #D8CDBC no-repeat;
+}
+.order-discount img
+{
+	display: inline-block;
+	max-width: 15px;
+	vertical-align: text-bottom;
+}
