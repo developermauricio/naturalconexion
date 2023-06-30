@@ -25,6 +25,8 @@ class Coordinadora_WC_Shipping
 
         $line_items = $package['contents'];
 
+        $products = array();
+
         $product_without_configuration = '';
         foreach ($package['contents'] as $key => $item) {
             $product_id =  $item['data']->get_id();

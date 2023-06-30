@@ -4,10 +4,6 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="28" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/index.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
           <option name="caretOffset" value="990" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/author-bio.php" />
         </OpenedFileInfo>
@@ -20,7 +16,7 @@
           <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/inc/integrations/woocommerce/template-tags.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="1812" />
+          <option name="caretOffset" value="189" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/wp-content/themes/woodmart/header.php" />
         </OpenedFileInfo>
       </list>

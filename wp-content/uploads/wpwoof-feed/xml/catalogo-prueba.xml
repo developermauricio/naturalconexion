@@ -22,26 +22,7 @@
         <g:custom_label_0>recent-product</g:custom_label_0>
         <g:custom_label_1>kits navideños</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Anti-Aging Skin Care Kits</g:google_product_category>
-        <g:product_type>Facial &gt; Kit especiales &gt; Productos veganos</g:product_type>
-    </item>
-    <item>
-        <g:id>18696</g:id>
-        <g:inventory>5</g:inventory>
-        <g:description><![CDATA[  ¡Ya nuestra nueva edición está en casa!    Ritual Box 10 años para todos desde hoy.    DISPONIBLE  Nuestra edición especial la hicimos para ellas, inspirada en dos mujeres campesinas, que aman el campo y buscaron superarse, para regresar y ayudar a dignificar esta labor de una forma justa. Porqué hace más de diez años que empezaron a cultivar este sueño que ahora se llama Natural Conexion, a ellas toda nuestra gratitud, porque generan empleo, porque han dignificado la labor en el campo y porque cuidan el medio ambiente con su gran proyecto de cosméticos naturales. CONTIENE: – Leche Desmaquilladora 250 gr – Tónico Facial 120 ml – Protector Solar 30 gr – Protector Labial 5 gr – Aromaset (Aromatizante para espacios con cera de soya) OBSEQUIO. – Cupón de descuento para su recompra, aplican T&C. Cada producto que compras en Natural Conexion, está pensado de una forma consciente, para que sea amigable con tu salud, el medio ambiente y sobre todo que toda su cadena productiva tenga un pago justo desde nuestros productores de plantas, hasta la transformación y comercialización del mismo. Una oportunidad para cuidarte sin remordimientos. En nuestro Kit Box Aniversario, tenemos dos opciones para ti. Recuerda que puedes elegirlo de acuerdo a tu necesidad:   Opción 1: Para piel mixta o grasa   1. Leche Limpiadora de Caléndula 2.Tónico de Té Verde 3 Protector Solar 30 gr 4. Protector Labial Caléndula 5 gr 5. Aromaset   Opción dos: para piel seca o normal   1. Leche Limpiadora de Arroz 2.Tónico de Rosas 3 Protector Solar 30 gr 4. Protector Labial Caléndula 5 gr 5. Aromaset   ¡RECUERDA COLOCAR EN LAS OBSERVACIONES CUAL DESEAS ABQUIRIR!   ]]></g:description>
-        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-07-at-4.20.12-PM.jpeg]]></g:additional_image_link>
-        <g:condition>new</g:condition>
-        <g:mpn>18696</g:mpn>
-        <g:title>Kit Piel Mixta o Grasa</g:title>
-        <g:short_description><![CDATA[  ¡Ya nuestra nueva edición está en casa!    Ritual Box 10 años para todos desde hoy.    DISPONIBLE  Nuestra edición especial la hicimos para ellas, inspirada en dos mujeres campesinas, que aman el campo y buscaron superarse, para regresar y ayudar a dignificar esta labor de una forma justa. Porqué hace más de diez años que empezaron a cultivar este sueño que ahora se llama Natural Conexion, a ellas toda nuestra gratitud, porque generan empleo, porque han dignificado la labor en el campo y porque cuidan el medio ambiente con su gran proyecto de cosméticos naturales. CONTIENE: – Leche Desmaquilladora 250 gr – Tónico Facial 120 ml – Protector Solar 30 gr – Protector Labial 5 gr – Aromaset (Aromatizante para espacios con cera de soya) OBSEQUIO. – Cupón de descuento para su reco]]></g:short_description>
-        <g:availability>in stock</g:availability>
-        <g:price>94600 COP</g:price>
-        <g:link><![CDATA[https://naturalconexion.com/product/ritual-box-10-anos-aniversario/]]></g:link>
-        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-08-at-11.07.50-AM.jpeg]]></g:image_link>
-        <g:brand><![CDATA[Natural Conexión]]></g:brand>
-        <g:item_group_id>18696</g:item_group_id>
-        <g:custom_label_0>recent-product</g:custom_label_0>
-        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Kit especiales</g:product_type>
+        <g:product_type>Facial &gt; Kit especiales &gt; Piel Delicada &gt; Piel Grasa &gt; Piel Mixta &gt; Piel Normal &gt; Piel Seca &gt; Productos veganos</g:product_type>
     </item>
     <item>
         <g:id>24100</g:id>
@@ -62,7 +43,7 @@
         <g:shipping_length>1 cm</g:shipping_length>
         <g:shipping_height>50 cm</g:shipping_height>
         <g:item_group_id>24100</g:item_group_id>
-        <g:custom_label_0>recent-product on-sale</g:custom_label_0>
+        <g:custom_label_0>recent-product top-30-days on-sale</g:custom_label_0>
         <g:custom_label_1>descuento 20 dia sin iva linea facial</g:custom_label_1>
         <g:product_dimensions>1:1:1:cm</g:product_dimensions>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
@@ -88,9 +69,35 @@
         <g:shipping_height>50 cm</g:shipping_height>
         <g:item_group_id>7430</g:item_group_id>
         <g:custom_label_0>recent-product on-sale</g:custom_label_0>
+        <g:custom_label_1>facial</g:custom_label_1>
         <g:product_dimensions>1:1:1:cm</g:product_dimensions>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Kit especiales &gt; Kit-Econativa &gt; Ofertas</g:product_type>
+        <g:product_type>Facial &gt; Facial-Econativa &gt; Kit especiales &gt; Kit-Econativa &gt; Ofertas</g:product_type>
+    </item>
+    <item>
+        <g:id>7597</g:id>
+        <g:inventory>5</g:inventory>
+        <g:description><![CDATA[¡Protección, reparación y brillo! Este Kit Capilar es perfecto para estimular el crecimiento del cabello. Sus ingredientes activos favorecen la circulación y la regeneración del folículo piloso, estimulando el crecimiento, previniendo la caída del cabello y dándole un aspecto revitalizado.  Devuelve el equilibrio a tu cabello con este kit que contiene:   Shampoo Romero, Quina y Ortiga 280 ml. Estimula el crecimiento del cabello. Nutritiva Romero, Quina y Ortiga 280 ml. Hidrata y suaviza. Tónico Romero, Quina y Ortiga 120 ml. Previene la caída del cabello.   Ingredientes principales:   Extracto Natural de Romero. Extracto Natural de Ortiga. Extracto Natural de Quina. Extracto Natural de Áloe Vera.   Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Naturales. No contienen parabenos. No son testados en animales.  Traemos para ti lo mejor de la naturaleza ¡Pruébalo y recíbelo en casa!         ]]></g:description>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2022/01/KIT-HUMECTACION-PIEL-MIXTA-25.png]]></g:additional_image_link>
+        <g:additional_image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Sello-vegano_Mesa-de-trabajo-1.jpg]]></g:additional_image_link>
+        <g:condition>new</g:condition>
+        <g:mpn>7597</g:mpn>
+        <g:title>Kit de previene la caída del cabello</g:title>
+        <g:short_description><![CDATA[¡Protección, reparación y brillo! Este Kit Capilar es perfecto para estimular el crecimiento del cabello. Sus ingredientes activos favorecen la circulación y la regeneración del folículo piloso, estimulando el crecimiento, previniendo la caída del cabello y dándole un aspecto revitalizado.  Devuelve el equilibrio a tu cabello con este kit que contiene:   Shampoo Romero, Quina y Ortiga 280 ml. Estimula el crecimiento del cabello. Nutritiva Romero, Quina y Ortiga 280 ml. Hidrata y suaviza. Tónico Romero, Quina y Ortiga 120 ml. Previene la caída del cabello.   Ingredientes principales:   Extracto Natural de Romero. Extracto Natural de Ortiga. Extracto Natural de Quina. Extracto Natural de Áloe Vera.   Nuestros productos:   No contaminan el agua. Son 100% biodegradables. Agroecológicos. Natur]]></g:short_description>
+        <g:availability>in stock</g:availability>
+        <g:price>119700 COP</g:price>
+        <g:link><![CDATA[https://naturalconexion.com/product/kit-capilar-romero/]]></g:link>
+        <g:image_link><![CDATA[https://naturalconexion.com/wp-content/uploads/2020/09/Diseno-sin-titulo-3.png]]></g:image_link>
+        <g:brand><![CDATA[Natural Conexión]]></g:brand>
+        <g:shipping_weight>0.68 kg</g:shipping_weight>
+        <g:shipping_length>1 cm</g:shipping_length>
+        <g:shipping_height>50 cm</g:shipping_height>
+        <g:item_group_id>7597</g:item_group_id>
+        <g:custom_label_0>recent-product</g:custom_label_0>
+        <g:custom_label_1>kit capilar</g:custom_label_1>
+        <g:product_dimensions>1:1:1:cm</g:product_dimensions>
+        <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
+        <g:product_type>Capilar &gt; Capilar-Econativa &gt; Kit especiales &gt; Kit-Econativa &gt; Productos veganos</g:product_type>
     </item>
     <item>
         <g:id>7697</g:id>
@@ -111,7 +118,7 @@
         <g:custom_label_0>recent-product</g:custom_label_0>
         <g:custom_label_1>linea facial</g:custom_label_1>
         <g:google_product_category>Health &amp; Beauty &gt; Personal Care</g:google_product_category>
-        <g:product_type>Facial &gt; Facial-Econativa &gt; Kit especiales &gt; Kit-Econativa &gt; Productos veganos</g:product_type>
+        <g:product_type>Facial &gt; Facial-Econativa &gt; Kit especiales &gt; Kit-Econativa &gt; Piel Grasa &gt; Productos veganos</g:product_type>
     </item>
   </channel>
 </rss>

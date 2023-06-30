@@ -1,0 +1,21 @@
+2023-06-11T04:13:36+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_User_Submit queued :: obj_id 2524
+2023-06-11T04:14:05+00:00 NOTICE member.sync :: iconic+Zoode@iconicompany.com has signed up to a lot of lists very recently; we're not allowing more signups for now
+2023-06-11T17:36:17+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 24706
+2023-06-11T17:37:18+00:00 NOTICE debug :: Order ID 24706 was pending and is now processing :: Array
+(
+    [new_order] => 1
+    [tracking] => Array
+        (
+            [campaign_id] => 
+            [landing_site] => https://naturalconexion.com/?wc-api=wc_addi_gateway
+        )
+
+)
+
+2023-06-11T17:41:05+00:00 NOTICE order.member.updated :: Updated Yolandag0229@gmail.com subscriber status to subscribed and language to es
+2023-06-11T17:41:05+00:00 NOTICE order_submit.success :: addStoreOrder :: #24706 :: email: Yolandag0229@gmail.com :: landing site https://naturalconexion.com/
+2023-06-11T23:10:53+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Cart_Update queued :: obj_id 3b44651e6fec328339be77947efffe2d
+2023-06-11T23:10:55+00:00 NOTICE abandoned_cart.success :: email: pmira76@gmail.com :: checkout_url: https://naturalconexion.com/checkout/?mc_cart_id=3b44651e6fec328339be77947efffe2d
+2023-06-11T23:10:56+00:00 NOTICE cart.member.updated :: Updated pmira76@gmail.com subscriber status to subscribed and language to es
+2023-06-11T23:11:39+00:00 NOTICE action_scheduler.queue_job :: MailChimp_WooCommerce_Single_Order starts in 90 seconds :: obj_id 24707
+2023-06-11T23:14:26+00:00 NOTICE order_submit :: #24707 has a financial status of pending and was skipped.

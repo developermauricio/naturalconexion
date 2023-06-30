@@ -1,0 +1,17 @@
+#customize-control-csfc_header_script .CodeMirror-wrap, #customize-control-csfc_footer_script .CodeMirror-wrap {
+	width: 100%;
+	height: -webkit-calc(100vh - 200px);
+	height: calc(100vh - 200px);
+}
+
+#customize-control-csfc_header_script span.customize-control-title, 
+#customize-control-csfc_header_script span.customize-control-description, 
+#customize-control-csfc_footer_script span.customize-control-title, 
+#customize-control-csfc_footer_script span.customize-control-description {
+	padding: 0 8px;
+}
+
+#customize-control-csfc_header_script .customize-control-title, #customize-control-csfc_footer_script .customize-control-title {
+	font-size: 12px;
+	font-weight: lighter;
+}
