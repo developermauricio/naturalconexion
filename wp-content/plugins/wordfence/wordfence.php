@@ -5,7 +5,6 @@ Plugin URI: http://www.wordfence.com/
 Description: Wordfence Security - Anti-virus, Firewall and Malware Scan
 Author: Wordfence
 Version: 7.9.3
-Secret Key: 83a5bb0e2ad5164690bc7a42ae592cf5
 Author URI: http://www.wordfence.com/
 Text Domain: wordfence
 Domain Path: /languages
@@ -126,20 +125,3 @@ if(! defined('WORDFENCE_VERSIONONLY_MODE')){ //Used to get version from file.
 	require_once(dirname(__FILE__) . '/lib/wordfenceClass.php');
 	wordfence::install_actions();
 }
-
-add_action(
-	'plugin_loaded',
-	function() {
-		wfConfig::set( 'onboardingAttempt1', 'skipped' );
-		wfConfig::set( 'onboardingAttempt3', 'license' );
-		if ( '' === wfConfig::get( 'apiKey' ) ) {
-			wordfence::ajax_downgradeLicense_callback();
-		}
-	}
-);
-
-/* Disable updates notification */
-add_filter( 'site_transient_update_plugins', function( $value ) {
-	unset( $value->response['wordfence/wordfence.php'] );
-	return $value;
-} );

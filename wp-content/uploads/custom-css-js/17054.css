@@ -199,10 +199,10 @@ li.meta-author span.fn:before {
 }
 
 @media (min-width: 992px) { 
-	.ocultarescritorio{display:none}
+	.ocultarescritorio{display:none !important;}
 }
 @media (max-width: 992px) { 
-	.ocultarmobile{display:none}
+	.ocultarmobile{display:none !important;}
 }
 
 .title-blog .entry-title.title{
