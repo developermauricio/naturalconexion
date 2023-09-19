@@ -1,0 +1,440 @@
+/**
+ * Admin style
+ *
+ * @author YITH <plugins@yithemes.com>
+ * @version 1.0.0
+ */
+
+
+.yith_bundle_options_options a::before {
+    font-family : Dashicons !important;
+    content     : '\f480' !important;
+}
+
+
+#yith_bundle_product_data a {
+    color : #007acc;
+}
+
+/**
+* Sections
+*/
+.yith-wcpb-bundle-options-section {
+    margin-bottom : 40px;
+}
+
+.yith-wcpb-bundle-options-section__title {
+    padding  : 0 15px;
+    position : relative;
+    margin   : 20px 0;
+}
+
+.yith-wcpb-bundle-options-section__title h3 {
+    display : inline-block;
+    margin  : 0;
+}
+
+.yith-wcpb-bundle-options-section__title .yith-wcpb-expand-collapse {
+    position  : absolute;
+    right     : 15px;
+    top       : 50%;
+    transform : translateY(-50%);
+}
+
+.yith-wcpb-bundle-options-section__content {
+    padding : 0 15px;
+}
+
+/**
+* Bundled Items
+*/
+
+.yith-wcpb-bundled-items__actions--hero {
+    text-align : center;
+    padding    : 30px 0 50px;
+    background : #f5fdff;
+    border     : 4px dashed #cbeaf2;
+}
+
+.yith-wcpb-bundled-items__actions__show-if-hero {
+    display : none;
+}
+
+.yith-wcpb-bundled-items__actions--hero .yith-wcpb-bundled-items__actions__show-if-hero {
+    display : block;
+}
+
+#yith-wcpb-bundled-items__actions__hero-icon {
+    width    : 110px;
+    margin   : 0 auto 15px;
+    position : relative;
+    color    : #304155;
+}
+
+#yith-wcpb-bundled-items__actions__hero-description {
+    font-size   : 1.15em;
+    line-height : 1.7em;
+    margin      : 0 auto 30px;
+    width       : 100%;
+    max-width   : 500px;
+}
+
+.yith-wcpb-bundled-items__actions--hero #yith-wcpb-add-bundled-product {
+    font-weight : 700;
+    font-size   : 15px;
+    padding     : 20px 50px;
+}
+
+#yith_bundle_product_data .yith-wcpb-bundled-items {
+    margin-top : 15px;
+    border     : none;
+}
+
+#yith_bundle_product_data .yith-wcpb-bundled-item {
+    border        : 1px solid #eee;
+    border-radius : 0;
+    margin-bottom : 15px !important;
+    box-shadow    : 1px 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+#yith_bundle_product_data .yith-wcpb-bundled-item .yith-wcpb-bundled-item__handlediv {
+    float       : right;
+    height      : 27px;
+    width       : 27px;
+    line-height : 27px;
+    font-size   : 12px;
+    font-weight : 700;
+    cursor      : pointer;
+}
+
+#yith_bundle_product_data .yith-wcpb-bundled-item.open .yith-wcpb-bundled-item__handlediv {
+    transform : rotateX(180deg);
+}
+
+#yith_bundle_product_data .yith-wcpb-bundled-item > h3 {
+    padding : 13px 0 13px 13px !important;
+}
+
+.yith-wcpb-bundled-item .yith-wcbep-edit-product-btn,
+.yith-wcpb-bundled-item .yith-wcpb-remove-bundled-product-item {
+    color           : #007acc;
+    text-decoration : none;
+    float           : right;
+    cursor          : pointer;
+    line-height     : 14px;
+    padding         : 0 8px;
+    margin          : 6px 0;
+}
+
+.yith-wcpb-bundled-item .yith-wcpb-remove-bundled-product-item {
+    border-left : 1px solid #007acc;
+}
+
+.yith-wcpb-bundled-items-info {
+    display        : inline-block;
+    background     : #ddd;
+    border-radius  : 3px;
+    font-size      : 11px;
+    margin-left    : 5px;
+    min-width      : 20px;
+    min-height     : 20px;
+    padding        : 1px 10px;
+    box-sizing     : border-box;
+    text-transform : uppercase;
+}
+
+.yith-wcpb-bundled-items-info.not-purchasable {
+    background : #bf0035;
+    color      : #fff;
+}
+
+.yith-wcpb-bundled-items-info.debug {
+    text-transform : none;
+    background     : #5d6273;
+    color          : #f3f9ff;
+}
+
+.yith-wcpb-add-product {
+    padding        : 4px 15px;
+    display        : inline-block;
+    font-size      : 11px;
+    text-transform : uppercase;
+    cursor         : pointer;
+    background     : #007694;
+    color          : #fff;
+    font-weight    : 600;
+    border-radius  : 3px;
+}
+
+.yith-wcpb-add-product:hover {
+    background : #375f6b;
+}
+
+.yith-wcpb-bundled-item-fields {
+    padding : 0 15px;
+}
+
+/**
+* Bundle Options
+*/
+
+.yith-wcpb-form-field {
+    position    : relative;
+    padding     : 0 0 0 150px !important;
+    margin      : 30px 0;
+    line-height : 24px;
+    font-size   : 12px;
+}
+
+label.yith-wcpb-form-field__label {
+    float       : left !important;
+    width       : 140px !important;
+    padding     : 0 !important;
+    margin      : 0 0 0 -150px !important;
+    font-weight : 500;
+}
+
+.yith-wcpb-form-field__content::after {
+    content : "";
+    clear   : both;
+    display : table;
+}
+
+.yith-wcpb-form-field__content label {
+    width  : auto !important;
+    margin : 0 !important;
+    float  : none !important;
+}
+
+.yith-wcpb-form-field__description {
+    display     : block;
+    padding     : 0;
+    font-size   : 12px;
+    font-style  : italic;
+    clear       : both;
+    line-height : 1.4em;
+    margin-top  : 5px;
+    color       : #777;
+}
+
+.yith-wcpb-form-field__content input[type=text],
+.yith-wcpb-form-field__content input[type=number],
+.yith-wcpb-form-field__content textarea {
+    width     : 100%;
+    max-width : 400px;
+}
+
+.yith-wcpb-form-field__content select + select {
+    margin-left : 10px;
+}
+
+.yith-wcpb-form-field__content .select2-search__field {
+    width : 100% !important;
+}
+
+.yith-wcpb-short-inline-field {
+    display   : inline-block;
+    width     : 60px !important;
+    float     : none !important;
+    margin    : 0 7px !important;
+    min-width : 60px !important;
+}
+
+.yith-wcpb-short-price-field {
+    max-width : 100px;
+}
+
+.yith-wcpb-short-inline-field.yith-wcpb-bp-discount {
+    margin : 0 7px 0 0 !important;
+}
+
+.yith-wcpb-bp-discount__percentage::after {
+    content : '%'
+}
+
+
+/**
+* Orders
+*/
+
+.column-order_items tr.yith-wcpb-admin-bundled-item td.qty {
+    padding-left  : 10px !important;
+    padding-right : 0 !important;
+    font-size     : 10px !important;
+}
+
+.column-order_items tr.yith-wcpb-admin-bundled-item td.name {
+    font-size : 10px !important;
+}
+
+.woocommerce_order_items_wrapper table.woocommerce_order_items tr.yith-wcpb-admin-bundled-item {
+    background : #f6f6f6;
+}
+
+.woocommerce_order_items_wrapper table.woocommerce_order_items tr.yith-wcpb-admin-bundled-item td.name {
+    padding-left : 30px;
+}
+
+textarea.yith-wcpb-bp {
+    min-height : 150px;
+}
+
+span.product-type.yith_bundle:before {
+    content     : "\f480" !important;
+    font-family : "dashicons" !important;
+    font-size   : 20px !important;
+}
+
+
+/**
+    Select Product Box
+ */
+
+.yith-wcpb-select-product-box {
+    display        : flex;
+    flex-direction : column;
+    height         : 100%;
+    flex           : 1;
+}
+
+.yith-wcpb-select-product-box__products__table-container {
+    overflow-y : auto;
+    max-height : calc(70vh - 130px);
+}
+
+h3.yith-wcpb-select-product-box__title {
+    color            : #2a8db0;
+    font-size        : 15px;
+    text-transform   : uppercase;
+    background-color : #fff;
+    padding          : 0 0 20px 0;
+    margin           : -5px 0 0 0;
+}
+
+table.yith-wcpb-select-product-box__products__table {
+    border : none;
+}
+
+table.yith-wcpb-select-product-box__products__table thead td,
+table.yith-wcpb-select-product-box__products__table thead th,
+table.yith-wcpb-select-product-box__products__table tbody td,
+table.yith-wcpb-select-product-box__products__table tbody th {
+    border-bottom  : 2px solid #e9ebec;
+    vertical-align : middle;
+    padding        : 14px 12px;
+}
+
+
+table.yith-wcpb-select-product-box__products__table thead td,
+table.yith-wcpb-select-product-box__products__table thead th {
+    padding : 8px 12px;
+}
+
+table.yith-wcpb-select-product-box__products__table thead td,
+table.yith-wcpb-select-product-box__products__table thead th {
+    font-weight : 600;
+    color       : #2c2e30;
+}
+
+.yith-wcpb-select-product-box__products__table .column-image,
+.yith-wcpb-select-product-box__products__table .column-type {
+    width      : 50px;
+    text-align : center;
+}
+
+.yith-wcpb-select-product-box__products__table .column-action {
+    width      : 80px;
+    text-align : right;
+    position   : relative;
+}
+
+.yith-wcpb-select-product-box__products__table .column-price {
+    width : 100px;
+}
+
+.yith-wcpb-select-product-box__products__table .column-image img {
+    width  : 40px;
+    height : auto;
+}
+
+.yith-wcpb-select-product-box__filter {
+    margin-bottom : 10px;
+}
+
+input[type=text].yith-wcpb-select-product-box__filter__search {
+    width          : 100%;
+    border-radius  : 4px;
+    color          : #333;
+    font-weight    : 300;
+    font-size      : 15px;
+    padding        : 7px 14px;
+    vertical-align : top;
+    display        : block;
+    margin         : 0 0 20px;
+}
+
+.yith-wcpb-product-added {
+    display     : none;
+    color       : #82ac1c;
+    font-weight : 500;
+    font-size   : .85em;
+    position    : absolute;
+    text-align  : right;
+    right       : 12px;
+    bottom      : 1px;
+    white-space : nowrap;
+}
+
+.yith-wcpb-product-added svg {
+    width          : 10px;
+    vertical-align : top;
+    margin-right   : 1px;
+}
+
+.yith-wcpb-select-product-box__products__pagination {
+    text-align : center;
+    margin-top : 10px;
+    color      : #555;
+}
+
+.yith-wcpb-select-product-box__products__pagination span {
+    margin      : 0 5px;
+    font-weight : 600;
+}
+
+.yith-wcpb-select-product-box__products__pagination span.first,
+.yith-wcpb-select-product-box__products__pagination span.prev,
+.yith-wcpb-select-product-box__products__pagination span.next,
+.yith-wcpb-select-product-box__products__pagination span.last {
+    padding        : 4px 10px;
+    border         : 1px solid;
+    display        : inline-block;
+    font-size      : 11px;
+    text-transform : uppercase;
+    cursor         : pointer;
+}
+
+.yith-wcpb-select-product-box__products__pagination span.disabled {
+    opacity : 0.3;
+    cursor  : not-allowed;
+}
+
+.yith-wcpb-select-product-box__products__table .product-info span.product-single-info {
+    margin-right : 5px;
+    color        : #747684;
+    font-size    : 10px;
+    font-weight  : 600;
+    display      : inline-block;
+}
+
+.yith-wcpb-select-product-box__products__table .product-info span.product-single-info.out-of-stock {
+    color : #b50032;
+}
+
+/**
+ * Settings Panel
+ */
+
+.yith-plugin-ui #plugin-fw-wc #yith-wcpb-quick-view-integration-options-description p:before {
+    margin-top : -10px;
+}

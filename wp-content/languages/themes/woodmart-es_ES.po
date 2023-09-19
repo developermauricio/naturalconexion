@@ -8,13 +8,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-05-26 20:03+0000\n"
+"PO-Revision-Date: 2023-09-07 22:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.6.2; wp-6.0"
+"X-Loco-Version: 2.6.4; wp-6.2.1"
 
 #: 404.php:11
 msgid "Not Found"
@@ -16543,7 +16543,7 @@ msgstr[1] ""
 #: inc/integrations/woocommerce/template-tags.php:1249
 #: woocommerce/loop/sale-flash.php:16
 msgid "Sale"
-msgstr ""
+msgstr "Oferta"
 
 #: inc/integrations/woocommerce/template-tags.php:1254
 msgid "Sold out"
@@ -18344,7 +18344,7 @@ msgstr[1] ""
 
 #: woocommerce/single-product/sale-flash.php:25
 msgid "Sale!"
-msgstr ""
+msgstr "Oferta!"
 
 #: woocommerce/single-product/up-sells.php:24
 #: woocommerce/single-product/up-sells.php:34

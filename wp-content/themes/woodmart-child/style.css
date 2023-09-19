@@ -14,9 +14,17 @@ span.select2-selection__placeholder {
     font-size: 0;
 }
 
-span.select2-selection__placeholder:before {
+#select2-billing_state-container span.select2-selection__placeholder:before {
     content: "Seleccione Departamento";
     font-size: 14px;
+}
+
+#si-compras-un-tonico-o-ja_field{
+	margin-bottom: 2rem !important;
+	
+}
+#si-compras-un-tonico-o-ja_field label{
+	font-weight: 700 !important
 }
 /*span#select2-billing_city-container {
     font-size: 0;

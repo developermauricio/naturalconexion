@@ -1,0 +1,115 @@
+.yith-wcpb-overlay {
+    background      : rgba(0, 0, 0, .8);
+    z-index         : 99999;
+    position        : fixed;
+    width           : 100%;
+    height          : 100%;
+    top             : 0;
+    left            : 0;
+    display         : flex !important;
+    align-items     : center;
+    justify-content : center;
+}
+
+.yith-wcpb-popup {
+    display        : flex;
+    flex-direction : column;
+    padding        : 35px;
+    box-sizing     : border-box;
+    box-shadow     : 0px 4px 28px 2px rgba(0, 0, 0, 0.7);
+    background     : #fff;
+    border         : 1px solid #ccc;
+    max-height     : 80%;
+    max-width      : 1024px;
+    position       : relative;
+    width          : 80%;
+    animation      : yithWcpbPopupZoomIn 0.4s forwards;
+}
+
+.yith-wcpb-popup img.alignleft {
+    margin-left : 0 !important;
+}
+
+.yith-wcpb-popup img.alignright {
+    margin-right : 0 !important;
+}
+
+.yith-wcpb-popup .yith-wcpb-product-table-wrapper {
+    padding : 0;
+}
+
+.yith-wcpb-popup h2 {
+    margin-top : 0;
+}
+
+.yith-wcpb-popup-ajax-container {
+    /* overflow-y : auto; */
+    display : flex;
+    flex    : 1;
+    height  : 100%;
+}
+
+span.yith-wcpb-popup-close {
+    cursor      : pointer;
+    position    : absolute;
+    top         : 9px;
+    right       : 9px;
+    z-index     : 99999;
+    font-size   : 30px;
+    width       : 40px;
+    height      : 40px;
+    line-height : 40px;
+    color       : #c4d3d7;
+}
+
+.yith-wcpb-popup-loader {
+    position           : absolute;
+    top                : calc(50% - 15px);
+    left               : calc(50% - 15px);
+    width              : 30px;
+    height             : 30px;
+    border             : 3px solid #9cb610;
+    border-radius      : 50%;
+    border-right-color : transparent;
+    animation          : yith_wcpb_spin 1s ease-in-out infinite;
+    box-sizing         : border-box;
+}
+
+@-webkit-keyframes yith_wcpb_spin {
+    100% {
+        -webkit-transform : rotate(360deg);
+        transform         : rotate(360deg)
+    }
+}
+
+@keyframes yith_wcpb_spin {
+    100% {
+        -webkit-transform : rotate(360deg);
+        transform         : rotate(360deg)
+    }
+}
+
+/*
+    RESPONSIVE for MOBILE
+*/
+
+@media only screen and (max-width : 768px) {
+    .yith-wcpb-popup {
+        width         : 96%;
+        padding-left  : 10px;
+        padding-right : 10px;
+    }
+}
+
+
+@keyframes yithWcpbPopupZoomIn {
+    from {
+        opacity   : 0;
+        transform : scale(0);
+    }
+
+    to {
+        opacity   : 1;
+        transform : scale(1);
+    }
+}

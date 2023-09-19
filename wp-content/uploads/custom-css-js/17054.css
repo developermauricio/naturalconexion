@@ -215,7 +215,9 @@ li.meta-author span.fn:before {
     border-radius: 12px !important;
     padding: 8px !important;
 }
-
+.page-title-default{
+	background-color: #ffffff !important
+}
 #menu-item-24532 .woodmart-nav-link:hover{
 	background-color: rgba(241, 166, 147, 1) !important;
 	 border-radius: 20px !important;

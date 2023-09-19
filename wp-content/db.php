@@ -1,0 +1,1 @@
+/home/forge/naturalconexion.com/wp-content/plugins/query-monitor/wp-content/db.php
