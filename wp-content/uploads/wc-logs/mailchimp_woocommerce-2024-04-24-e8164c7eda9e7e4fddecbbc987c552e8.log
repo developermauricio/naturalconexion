@@ -1,0 +1,40 @@
+2024-04-24T11:07:16+00:00 NOTICE sync_store :: posting data :: Array
+(
+    [store_post] => Array
+        (
+            [id] => 6033d7d0562ce
+            [is_syncing] => 
+            [platform] => woocommerce
+            [list_id] => 72856a1347
+            [name] => Natural Conexion
+            [domain] => https://naturalconexionus.com
+            [email_address] => developer@bmotion.co
+            [currency_code] => USD
+            [money_format] => $
+            [primary_locale] => es_ES
+            [timezone] => -05:00
+            [phone] => 3206793834
+            [address] => Array
+                (
+                    [address1] => Medellín
+                    [city] => Medellín
+                    [province] => Medellín
+                    [postal_code] => 050001
+                    [country] => CO
+                    [country_code] => CO
+                    [phone] => 3206793834
+                    [company] => Natural Conexion
+                )
+
+        )
+
+)
+
+2024-04-24T11:07:18+00:00 NOTICE admin :: updated GDPR fields :: Array
+(
+    [fields] => Array
+        (
+        )
+
+)
+
